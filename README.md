@@ -1,2 +1,2 @@
 # ECL2017S
- Engineering Computation Lab - Spring 2017
+ Spring 2017 - Engineering Computation Lab
