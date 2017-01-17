@@ -1,13 +1,13 @@
 callback([
 
   {
-    "text": "Lecture 0: programming history",
-    "href": "/ECL2017S/lecture/lecture-0-programming-history"
+    "text": "Assessing your programming knowledge and interests",
+    "href": "/ECL2017S/other/assessing-your-programming-knowledge-and-interests"
   } ,
 
   {
-    "text": "Quiz 0: Assessing your programming knowledge and interests",
-    "href": "/ECL2017S/quiz/quiz-0"
+    "text": "Lecture 0: programming history",
+    "href": "/ECL2017S/lecture/lecture-0-programming-history"
   } ,
 
   {
