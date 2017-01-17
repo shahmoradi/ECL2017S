@@ -673,12 +673,12 @@ height: 100%;
 
 /* .center { margin: 0 auto; width: 400px; } */
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 800px) {
 .video-wrapper {
-	width: 100%;
-	max-width: 100%;
+	width: auto;
+	max-width: auto;
 }
-.center { margin: 0 auto; width: 100%; max-width: 100%;}
+.center { margin: 0 auto; width: auto; max-width: auto;}
 }
 /* End of fluid video embedding aspect ratio */
 
