@@ -3,7 +3,7 @@
 		{
 		  "title"      : "Quiz 0: Assessing your programming knowledge and interests",
 		  "category"   : "quiz",
-		  "url"        : "ECL2017S//quiz/quiz-0",
+		  "url"        : "/quiz/quiz-0",
 		  "date"       : "2017-01-18 00:00:00 +0000",
 		  "shortdate"  : "January 18, 2017"
 		} ,
@@ -11,7 +11,7 @@
 		{
 		  "title"      : "Lecture 0: Student-professor connection day and programming history",
 		  "category"   : "lecture",
-		  "url"        : "ECL2017S//lecture/lecture-0",
+		  "url"        : "/lecture/lecture-0",
 		  "date"       : "2017-01-18 00:00:00 +0000",
 		  "shortdate"  : "January 18, 2017"
 		} 

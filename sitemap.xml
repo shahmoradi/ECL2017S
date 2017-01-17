@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>ECL2017S/</loc>
+        <loc></loc>
     </url>
     
     
     <url>
-        <loc>ECL2017S//404</loc>
+        <loc>/404</loc>
     </url>
     
     <url>
-        <loc>ECL2017S//about/index.html</loc>
+        <loc>/about/index.html</loc>
     </url>
     
     <url>
-        <loc>ECL2017S//categories/index.html</loc>
+        <loc>/categories/index.html</loc>
     </url>
     
     <url>
-        <loc>ECL2017S//highlights/</loc>
+        <loc>/highlights/</loc>
     </url>
     
     <url>
-        <loc>ECL2017S//</loc>
+        <loc>/</loc>
     </url>
     
     <url>
-        <loc>ECL2017S//search.json</loc>
+        <loc>/search.json</loc>
     </url>
     
     <url>
-        <loc>ECL2017S//sitemap.xml</loc>
+        <loc>/sitemap.xml</loc>
     </url>
     
     <url>
-        <loc>ECL2017S//tags/index.html</loc>
+        <loc>/tags/index.html</loc>
     </url>
     
 
     
     <url>
-        <loc>ECL2017S//quiz/quiz-0</loc>
+        <loc>/quiz/quiz-0</loc>
     </url>
     
     <url>
-        <loc>ECL2017S//lecture/lecture-0</loc>
+        <loc>/lecture/lecture-0</loc>
     </url>
     
 </urlset>
