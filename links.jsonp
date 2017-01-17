@@ -2,12 +2,12 @@ callback([
 
   {
     "text": "Quiz 0: Assessing your programming knowledge and interests",
-    "href": "/ECL2017S/quiz/quiz-0"
+    "href": "http://localhost:4000/quiz/quiz-0"
   } ,
 
   {
     "text": "Student-professor connection day and programming history",
-    "href": "/ECL2017S/other/student-professor-connection"
+    "href": "http://localhost:4000/other/student-professor-connection"
   } 
 
 ])
