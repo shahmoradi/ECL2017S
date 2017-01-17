@@ -1,8 +1,8 @@
 callback([
 
   {
-    "text": "programming history",
-    "href": "/ECL2017S/other/lecture-0-programming-history"
+    "text": "Lecture 0: programming history",
+    "href": "/ECL2017S/lecture/lecture-0-programming-history"
   } ,
 
   {

@@ -17,9 +17,9 @@
 		} ,
 	
 		{
-		  "title"      : "programming history",
-		  "category"   : "other",
-		  "url"        : "/ECL2017S/other/lecture-0-programming-history",
+		  "title"      : "Lecture 0: programming history",
+		  "category"   : "lecture",
+		  "url"        : "/ECL2017S/lecture/lecture-0-programming-history",
 		  "date"       : "2017-01-18 00:00:00 +0000",
 		  "shortdate"  : "January 18, 2017"
 		} 
