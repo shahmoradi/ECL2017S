@@ -1,17 +1,17 @@
 [
 	
 		{
-		  "title"      : "Quiz 0: Assessing your programming knowledge and interests",
-		  "category"   : "quiz",
-		  "url"        : "/ECL2017S/quiz/quiz-0",
+		  "title"      : "Student-professor connection day and programming history",
+		  "category"   : "other",
+		  "url"        : "/ECL2017S/other/student-professor-connection",
 		  "date"       : "2017-01-18 00:00:00 +0000",
 		  "shortdate"  : "January 18, 2017"
 		} ,
 	
 		{
-		  "title"      : "Lecture 0: Student-professor connection day and programming history",
-		  "category"   : "lecture",
-		  "url"        : "/ECL2017S/lecture/lecture-0",
+		  "title"      : "Quiz 0: Assessing your programming knowledge and interests",
+		  "category"   : "quiz",
+		  "url"        : "/ECL2017S/quiz/quiz-0",
 		  "date"       : "2017-01-18 00:00:00 +0000",
 		  "shortdate"  : "January 18, 2017"
 		} 
