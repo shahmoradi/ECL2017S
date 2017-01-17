@@ -3,24 +3,24 @@
 		{
 		  "title"      : "Student-professor connection day",
 		  "category"   : "other",
-		  "url"        : "/ECL2017S/other/student-professor-connection",
-		  "date"       : "2017-01-18 00:00:00 +0000",
+		  "url"        : "http://localhost:4000/other/student-professor-connection",
+		  "date"       : "2017-01-18 00:00:00 -0600",
 		  "shortdate"  : "January 18, 2017"
 		} ,
 	
 		{
 		  "title"      : "Lecture 0: programming history",
 		  "category"   : "lecture",
-		  "url"        : "/ECL2017S/lecture/lecture-0-programming-history",
-		  "date"       : "2017-01-18 00:00:00 +0000",
+		  "url"        : "http://localhost:4000/lecture/lecture-0-programming-history",
+		  "date"       : "2017-01-18 00:00:00 -0600",
 		  "shortdate"  : "January 18, 2017"
 		} ,
 	
 		{
 		  "title"      : "Assessing your programming knowledge and interests",
 		  "category"   : "other",
-		  "url"        : "/ECL2017S/other/assessing-your-programming-knowledge-and-interests",
-		  "date"       : "2017-01-18 00:00:00 +0000",
+		  "url"        : "http://localhost:4000/other/assessing-your-programming-knowledge-and-interests",
+		  "date"       : "2017-01-18 00:00:00 -0600",
 		  "shortdate"  : "January 18, 2017"
 		} 
 	
