@@ -48,11 +48,15 @@
 
     
     <url>
-        <loc>/ECL2017S/other/student-professor-connection</loc>
+        <loc>/ECL2017S/other/student-professor-connection-Copy</loc>
     </url>
     
     <url>
         <loc>/ECL2017S/quiz/quiz-0</loc>
+    </url>
+    
+    <url>
+        <loc>/ECL2017S/other/lecture-0-programming-history</loc>
     </url>
     
 </urlset>

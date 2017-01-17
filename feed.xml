@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-01-17T20:02:55+00:00</updated>
+<updated>2017-01-17T20:36:57+00:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -17,9 +17,9 @@
 
 
 <entry>
-  <title type="html"><![CDATA[Student-professor connection day and programming history]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/other/student-professor-connection"/>
-  <id>http:/ECL2017S/other/student-professor-connection</id>
+  <title type="html"><![CDATA[Student-professor connection day]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/other/student-professor-connection-Copy"/>
+  <id>http:/ECL2017S/other/student-professor-connection - Copy</id>
   <published>2017-01-18T00:00:00+00:00</published>
   <updated>2017-01-18T00:00:00-00:00</updated>
   
@@ -113,7 +113,7 @@
 --&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/other/student-professor-connection&quot;&gt;Student-professor connection day and programming history&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;ECL - Spring 2017&lt;/a&gt; on January 18, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/other/student-professor-connection-Copy&quot;&gt;Student-professor connection day&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;ECL - Spring 2017&lt;/a&gt; on January 18, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -144,6 +144,107 @@
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/quiz-0&quot;&gt;Quiz 0: Assessing your programming knowledge and interests&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;ECL - Spring 2017&lt;/a&gt; on January 18, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[programming history]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/other/lecture-0-programming-history"/>
+  <id>http:/ECL2017S/other/lecture-0-programming-history</id>
+  <published>2017-01-18T00:00:00+00:00</published>
+  <updated>2017-01-18T00:00:00-00:00</updated>
+  
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;I have ordered cookies to be delivered to our first ECL class. We will try to get to know each other and I will attempt to describe my research work and educational background for you, as well as what we should expect from this course. Then I will give you links to two surveys that will assess your programming knowledge and will determine the favorite programming language which the majority of class wish to learn.&lt;/p&gt;
+
+&lt;h2 id=&quot;about-me-amir-the-instructor&quot;&gt;About me, Amir, the instructor&lt;/h2&gt;
+
+&lt;p&gt;I am a physicist and researcher, currently at &lt;a target=&quot;_blank&quot; href=&quot;https://www.ices.utexas.edu/&quot;&gt;Institute for Computational Engineering and Sciences&lt;/a&gt; at &lt;a target=&quot;_blank&quot; href=&quot;http://www.utexas.edu/&quot;&gt;The University of Texas at Austin&lt;/a&gt;. I am a member of the &lt;a target=&quot;_blank&quot; href=&quot;http://cco.ices.utexas.edu/&quot;&gt;Center for Computational Oncology&lt;/a&gt; led by &lt;a target=&quot;_blank&quot; href=&quot;https://www.bme.utexas.edu/about-us/faculty-directory/yankeelov&quot;&gt;Dr. Thomas E. Yankeelov&lt;/a&gt; and &lt;a target=&quot;_blank&quot; href=&quot;https://www.ices.utexas.edu/people/85/&quot;&gt;Dr. J. Tinsley Oden&lt;/a&gt; at ICES with the goal of understanding Tumor Growth.&lt;/p&gt;
+
+&lt;p&gt;The following figures show the growth of Glioblastoma tumor cells in a Rat’s brain over time.&lt;/p&gt;
+
+&lt;figure align=&quot;center&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/lectures/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_1_t10.0.png&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;figure align=&quot;center&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/lectures/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_2_t12.0.png&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;figure align=&quot;center&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/lectures/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_3_t14.0.png&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;figure align=&quot;center&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/lectures/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_5_t16.0.png&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;figure align=&quot;center&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/lectures/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_6_t18.0.png&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;figure align=&quot;center&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/lectures/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_7_t20.0.png&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;One of the fields on which my research is currently focused, is developing Monte Carlo optimizer/sampler and integrator algorithms for Bayesian inverse problems. Below you see example animations of two &lt;a href=&quot;https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo&quot; target=&quot;_blank&quot;&gt;Markov Chain Monte Carlo&lt;/a&gt; (MCMC) samplers, both of which sample a double Gaussian-peak function, but with different MCMC sampling parameters.&lt;/p&gt;
+
+&lt;figure align=&quot;center&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/lectures/0/PDF_RS_L_Forever20ms.gif&quot; width=&quot;700&quot; /&gt;
+    &lt;figcaption&gt;Example of low-efficiency, but good-mixing MCMC sampler.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure align=&quot;center&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/lectures/0/PDF_RS_H_Forever20ms.gif&quot; width=&quot;700&quot; /&gt;
+    &lt;figcaption&gt;Example of highly-efficiency, but bad-mixing MCMC sampler.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;While my current focus of research is mathematical modelling of tumor growth and Monte Carlo samplers, I am and have been working in multiple branches of science and engineering for several years, from the subatomic world of &lt;a target=&quot;_blank&quot; href=&quot;https://en.wikipedia.org/wiki/Elementary_particle&quot;&gt;elementary particles&lt;/a&gt;, to the microscopic world of &lt;a target=&quot;_blank&quot; href=&quot;https://en.wikipedia.org/wiki/Macromolecule&quot;&gt;biological macromolecules&lt;/a&gt;, to &lt;a target=&quot;_blank&quot; href=&quot;https://en.wikipedia.org/wiki/Gamma-ray_burst&quot;&gt;astrophysical phenomena&lt;/a&gt; occurring on the grandest scales of the &lt;a target=&quot;_blank&quot; href=&quot;https://en.wikipedia.org/wiki/Observable_universe&quot;&gt;observable Universe&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For several years of my research, I have been working on understanding Gamma-Ray Bursts (GRB) and their physics. Below is a movie of the moment a Short-duration GRB is generated from the merger of a binary Neutron star system.&lt;/p&gt;
+
+&lt;div class=&quot;center&quot;&gt;
+&lt;div class=&quot;video-wrapper&quot;&gt;
+	&lt;div class=&quot;video-container&quot;&gt;
+		&lt;iframe width=&quot;853&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/P2ESs1rPO_A?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;I have also worked for a few years in the field of bioinformatics and evolutionary biology. The overarching goal in the field of protein bioinformatics and biophysics is to understand how proteins fold into their unique structure, and what determines the stability of the protein &lt;abbr title=&quot;3-Dimensional&quot;&gt;3D&lt;/abbr&gt; structure. One of the workhorses of this field, is therefore &lt;a href=&quot;https://en.wikipedia.org/wiki/Molecular_dynamics&quot; target=&quot;_blank&quot;&gt;molecular dynamic simulation&lt;/a&gt; to probe the dynamics of proteins and their interactions with other molecules. The following is a 1.5ns molecular dynamics simulation of Human Influenza H1 Hemagglutinin protein (&lt;a href=&quot;http://www.rcsb.org/pdb/explore.do?structureId=1rd8&quot; target=&quot;_blank&quot;&gt;1RD8&lt;/a&gt;, chains AB).&lt;/p&gt;
+
+&lt;div class=&quot;center&quot;&gt;
+&lt;div class=&quot;video-wrapper&quot;&gt;
+	&lt;div class=&quot;video-container&quot;&gt;
+		&lt;iframe width=&quot;853&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/0XL8RNxzrdw?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- &lt;div id=&quot;video&quot;&gt; --&gt;
+
+&lt;!--
+&lt;div class=&quot;videoWrapper&quot;&gt;
+&lt;div class=&quot;flex-video&quot;&gt;
+    &lt;embed src=&quot;https://www.youtube.com/embed/P2ESs1rPO_A?rel=0&quot; style=&quot;width:100%;height:480px&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+--&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/other/lecture-0-programming-history&quot;&gt;programming history&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;ECL - Spring 2017&lt;/a&gt; on January 18, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>
