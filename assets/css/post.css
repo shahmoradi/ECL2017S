@@ -543,7 +543,8 @@ iframe {
 .flex-video {
   margin-left: auto;
   margin-right: auto;
-  max-width: 50rem; }
+  max-width: 50rem;
+  }
 
 .notepad-disqus {
   padding: 0;
@@ -663,7 +664,7 @@ iframe {
  /* .center { margin: 0 auto; width: 400px; } */
 
 .container {
-      display:inline-block;
+      max-height: 480px; 
   }
   
 .left{
