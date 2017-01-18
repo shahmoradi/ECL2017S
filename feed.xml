@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-01-17T20:49:10-06:00</updated>
+<updated>2017-01-17T20:52:53-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -157,7 +157,9 @@
 &lt;p&gt;Initially computers had to be programmed by what is called &lt;a href=&quot;https://en.wikipedia.org/wiki/Machine_code&quot; target=&quot;_blank&quot;&gt;machine code&lt;/a&gt; or &lt;a href=&quot;https://en.wikipedia.org/wiki/Machine_code&quot; target=&quot;_blank&quot;&gt;machine language&lt;/a&gt;, a set of instructions for the Central Processing Unit (CPU)  of the computer, comprising a long sequence of binary digital zeros and ones. Any interaction with computer hardware, even nowadays, has to be first converted to machine code in order to become comprehensible by the computer hardware. The coding in this language is however, very tedious and time consuming, and non-portable. As a result, immediately after the development of the first generation of computers, the first generation of programming languages also came to exist, most notably, the &lt;a href=&quot;https://en.wikipedia.org/wiki/Assembly_language&quot; target=&quot;_blank&quot;&gt;Assembly language&lt;/a&gt; in the late 1940s. Many more programming languages have been since developed that provide higher and higher levels of &lt;a href=&quot;https://en.wikipedia.org/wiki/Abstraction_(software_engineering)&quot; target=&quot;_blank&quot;&gt;programming abstraction&lt;/a&gt; by hiding more complexities of the machine code interaction with machine hardware from the front-end computer software and users.&lt;/p&gt;
 
 &lt;figure align=&quot;center&quot;&gt;
-	&lt;img src=&quot;http:/ECL2017S/lectures/0/PLchart.png&quot; width=&quot;900&quot; /&gt;
+	&lt;a href=&quot;http:/ECL2017S/lectures/0/PLchart.png&quot; target=&quot;_blank&quot;&gt;
+        &lt;img src=&quot;http:/ECL2017S/lectures/0/PLchart.png&quot; width=&quot;900&quot; /&gt;
+    &lt;/a&gt;
     &lt;div class=&quot;center&quot;&gt;
         &lt;figcaption&gt;
             A diagram tracing the history of computer languages throughout the history of computer science.
