@@ -48,15 +48,15 @@
 
     
     <url>
-        <loc>/ECL2017S/other/student-professor-connection</loc>
-    </url>
-    
-    <url>
         <loc>/ECL2017S/lecture/lecture-0-programming-history</loc>
     </url>
     
     <url>
-        <loc>/ECL2017S/other/assessing-your-programming-knowledge-and-interests</loc>
+        <loc>/ECL2017S/announcement/announcement-1-assessing-your-programming-knowledge-and-interests</loc>
+    </url>
+    
+    <url>
+        <loc>/ECL2017S/announcement/announcement-0-student-professor-connection-day</loc>
     </url>
     
 </urlset>
