@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-01-17T20:52:53-06:00</updated>
+<updated>2017-01-18T08:39:23-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -176,13 +176,6 @@
   &lt;li&gt;&lt;strong&gt;Third generation:&lt;/strong&gt; The &lt;a href=&quot;https://en.wikipedia.org/wiki/Third-generation_programming_language&quot; target=&quot;_blank&quot;&gt;third generation&lt;/a&gt; languages, or &lt;a href=&quot;https://en.wikipedia.org/wiki/High-level_programming_language&quot; target=&quot;_blank&quot;&gt;high-level&lt;/a&gt; programming languages provide an even higher abstraction level than the second-generation languages. Third-generation languages make programming almost platform-independent, meaning that the content of the code does not depend directly on the current hardware being used. This helps the programmer to focus more on the problem of interest, rather than spending time to understand details of the specific computer and hardware being currently used. Examples of third-generation programming languages are: &lt;a href=&quot;https://en.wikipedia.org/wiki/Fortran&quot; target=&quot;_blank&quot;&gt;Fortran&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/ALGOL&quot; target=&quot;_blank&quot;&gt;ALGOL&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/COBOL&quot; target=&quot;_blank&quot;&gt;COBOL&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/BASIC&quot; target=&quot;_blank&quot;&gt;BASIC&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/C_(programming_language)&quot; target=&quot;_blank&quot;&gt;C&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/C_Sharp_(programming_language)&quot; target=&quot;_blank&quot;&gt;C#&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/C%2B%2B&quot; target=&quot;_blank&quot;&gt;C++&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/Java_(programming_language)&quot; target=&quot;_blank&quot;&gt;Java&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/Pascal_(programming_language)&quot; target=&quot;_blank&quot;&gt;Pascal&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Fourth generation:&lt;/strong&gt; The definition for the &lt;a href=&quot;https://en.wikipedia.org/wiki/Fourth-generation_programming_language&quot; target=&quot;_blank&quot;&gt;fourth generation&lt;/a&gt; and beyond is not very clear, however, it is generally as the set of languages that provide an even higher level of abstraction from the hardware and proximity to the user (programmer). Some prominent examples of this category include &lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/Python_(programming_language)&quot; target=&quot;_blank&quot;&gt;Python&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/Perl&quot; target=&quot;_blank&quot;&gt;Perl&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/Ruby_(programming_language)&quot; target=&quot;_blank&quot;&gt;Ruby&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/IDL_(programming_language)&quot; target=&quot;_blank&quot;&gt;IDL&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/R_programming_language&quot; target=&quot;_blank&quot;&gt;R&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/S_(programming_language)&quot; target=&quot;_blank&quot;&gt;S&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;A nice review of the history of programming languages is available in the following Youtube video.&lt;/p&gt;
-
-&lt;div class=&quot;center&quot;&gt;&lt;div class=&quot;video-wrapper&quot;&gt;&lt;div class=&quot;video-container&quot;&gt;
-    &lt;iframe width=&quot;853&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/tzUbxALPcyw?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;In the field of scientific computation, &lt;a href=&quot;https://en.wikipedia.org/wiki/Fortran&quot; target=&quot;_blank&quot;&gt;Fortran&lt;/a&gt; (FORmula TRANslation), first released in 1956, is undoubtedly the most influential programming language of all human history and the oldest high-level programming language that is still in active everyday use. Here is a history of Fortran by its original developers:&lt;/p&gt;
 
