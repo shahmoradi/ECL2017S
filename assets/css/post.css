@@ -701,13 +701,13 @@ body{
 /* the following is needed for adjusting the figure captions */
 figcaption {
 display: run-in;
-text-align: justify;
+/*text-align: center;*/
 width: 900px
 }
 @media all and (max-width: 900px) {
 figcaption {
 display: run-in;
-text-align: justify;
+/*text-align: center;*/
 width: 100%
 }
 }
