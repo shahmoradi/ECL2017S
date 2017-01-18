@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-01-18T08:39:23-06:00</updated>
+<updated>2017-01-18T11:10:50-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -194,7 +194,7 @@
     &lt;/a&gt;
     &lt;div class=&quot;center&quot;&gt;
         &lt;figcaption&gt;
-            A plot illustrating the co-evolution of two of the most challenging computationally-intensive fields of science (Aerospace and Plasma Physics) with the most popular high-performance scientific programming language in human history as of today. The vertical axis represents the relative word-usage frequency of the three keywords (Plasma, Aerospace, and Fortran) in all digital corpus, and the horizontal axis represents the year. Note that the downward slope of the curve in later times does NOT imply the decline of these fields of science or Fortran. It merely means that they have reached their peak growth, and are now expanding steadily, whereas other newer words in digital corpus are being used more and more frequently relative to these three keywords.
+            A plot illustrating the co-evolution of two of the most challenging computationally-intensive fields of science (Aerospace and Plasma Physics) with the most popular high-performance scientific programming language in human history as of today. The vertical axis represents the relative word-usage frequency of the three keywords (Plasma, Aerospace, and Fortran) in all digital corpus, and the horizontal axis represents the year. Note that the downward slope of the curves in later times does NOT imply the decline of these fields of science or the decline of Fortran. It merely means that they have reached their exponential peak growth in the mid-1980s, and are now expanding steadily (linearly), whereas other newer fields (such as bioinformatics) are being more and more frequently referenced than the above three keywords every year in all digital corpus.
         &lt;/figcaption&gt;
     &lt;/div&gt;
 &lt;/figure&gt;
@@ -208,7 +208,7 @@
     &lt;/a&gt;
     &lt;div class=&quot;center&quot;&gt;
         &lt;figcaption&gt;
-            A plot illustrating the co-evolution and thriving of the field of bioinformatics with the popular programming language, Python. The vertical axis represents the relative word-usage frequency of the three keywords (Plasma, Aerospace, and Fortran) in all digital corpus, and the horizontal axis represents the year.
+            A plot illustrating the co-evolution and thriving of the field of bioinformatics with the popular programming language, Python. The vertical axis represents the relative word-usage frequency of the two keywords (Bioinformatics and Python) in all digital corpus, and the horizontal axis represents the year.
         &lt;/figcaption&gt;
     &lt;/div&gt;
 &lt;/figure&gt;
@@ -222,7 +222,7 @@
     &lt;/a&gt;
     &lt;div class=&quot;center&quot;&gt;
         &lt;figcaption&gt;
-            A plot illustrating the evolution and steady expansion of the Perl programming language and its gradual replacement with Python, in the field of bioinformatics. The vertical axis represents the relative word-usage frequency of the three keywords (Plasma, Aerospace, and Fortran) in all digital corpus, and the horizontal axis represents the year.
+            A plot illustrating the evolution and steady expansion of the Perl programming language and its gradual replacement with Python, in the field of bioinformatics. The vertical axis represents the relative word-usage frequency of the three keywords (Bioinformatics, Python, and Perl) in all digital corpus, and the horizontal axis represents the year.
         &lt;/figcaption&gt;
     &lt;/div&gt;
 &lt;/figure&gt;
