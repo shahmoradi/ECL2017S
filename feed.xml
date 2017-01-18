@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-01-18T16:27:51-06:00</updated>
+<updated>2017-01-18T16:31:04-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -138,6 +138,8 @@
     &lt;/script&gt;
 &lt;/div&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;h2 id=&quot;survey-results&quot;&gt;Survey results&lt;/h2&gt;
 &lt;p&gt;The following are the results of the two questions of the survey. The total respondents for both questions were 21. It appears that almost everyone in class, knows at least one programming language at medium level. Also it appears that almost everyone in this class is in love with Python!&lt;/p&gt;
 
@@ -151,7 +153,7 @@
 	&lt;img src=&quot;http:/ECL2017S/announcement/1/favoriteLanguageStat.png&quot; width=&quot;700&quot; /&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/announcement/announcement-1-assessing-your-programming-knowledge-and-interests&quot;&gt;Announcement 1: Assessing your programming knowledge and interests&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;ECL - Spring 2017&lt;/a&gt; on January 18, 2017.&lt;/p&gt;</content>
