@@ -699,15 +699,31 @@ body{
 }
 
 /* the following is needed for adjusting the figure captions */
+/*
 figcaption {
 display: run-in;
-/*text-align: center;*/
 width: 900px
 }
 @media all and (max-width: 900px) {
 figcaption {
 display: run-in;
-/*text-align: center;*/
 width: 100%
+}
+}
+*/
+
+/* the following is needed for the correct formatting of the figures (their proper and fluid width on all devices) and their associated links */
+figure {
+margin: 0 auto; width: 900px;
+display: run-in;
+/*text-align: center;
+width: 900px*/
+}
+@media all and (max-width: 900px) {
+figure {
+margin: 0 auto; width: auto; max-width: auto;
+display: run-in;
+/*text-align: center;
+width: 100%*/
 }
 }
