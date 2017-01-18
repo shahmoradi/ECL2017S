@@ -697,3 +697,17 @@ body{
     margin:0;
     padding:0;
 }
+
+/* the following is needed for adjusting the figure captions */
+figcaption {
+display: run-in;
+text-align: justify;
+width: 900px
+}
+@media all and (max-width: 900px) {
+figcaption {
+display: run-in;
+text-align: justify;
+width: 100%
+}
+}
