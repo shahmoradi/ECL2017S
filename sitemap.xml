@@ -48,6 +48,10 @@
 
     
     <url>
+        <loc>/ECL2017S/other/test</loc>
+    </url>
+    
+    <url>
         <loc>/ECL2017S/lecture/lecture-0-programming-history</loc>
     </url>
     
