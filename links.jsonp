@@ -13,11 +13,6 @@ callback([
   {
     "text": "Lecture 0: Programming history",
     "href": "/ECL2017S/lecture/lecture-0-programming-history"
-  } ,
-
-  {
-    "text": "test - syntax highlight",
-    "href": "/ECL2017S/other/test"
   } 
 
 ])
