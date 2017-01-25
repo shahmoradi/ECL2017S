@@ -1,25 +1,49 @@
 [
 	
 		{
+		  "title"      : "Quiz 1: Programming history",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/quiz/1-programming-history",
+		  "date"       : "2017-01-25 00:00:00 -0600",
+		  "shortdate"  : "January 25, 2017"
+		} ,
+	
+		{
+		  "title"      : "Lecture 1: A professional programmer uses Version Control System (VCS)",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/lecture/1-version-control-system",
+		  "date"       : "2017-01-25 00:00:00 -0600",
+		  "shortdate"  : "January 25, 2017"
+		} ,
+	
+		{
+		  "title"      : "Homework 1: Designing a Github README file and web-page for your project",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/homework/1-project-readme-file",
+		  "date"       : "2017-01-25 00:00:00 -0600",
+		  "shortdate"  : "January 25, 2017"
+		} ,
+	
+		{
 		  "title"      : "Lecture 0: Programming history",
-		  "category"   : "lecture",
-		  "url"        : "/ECL2017S/lecture/lecture-0-programming-history",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/lecture/0-programming-history",
 		  "date"       : "2017-01-18 00:00:00 -0600",
 		  "shortdate"  : "January 18, 2017"
 		} ,
 	
 		{
 		  "title"      : "Announcement 1: Assessing your programming knowledge and interests",
-		  "category"   : "announcement",
-		  "url"        : "/ECL2017S/announcement/announcement-1-assessing-your-programming-knowledge-and-interests",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/announcement/1-assessing-your-programming-knowledge-and-interests",
 		  "date"       : "2017-01-18 00:00:00 -0600",
 		  "shortdate"  : "January 18, 2017"
 		} ,
 	
 		{
 		  "title"      : "Announcement 0: Student-professor connection day",
-		  "category"   : "announcement",
-		  "url"        : "/ECL2017S/announcement/announcement-0-student-professor-connection-day",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/announcement/0-student-professor-connection-day",
 		  "date"       : "2017-01-18 00:00:00 -0600",
 		  "shortdate"  : "January 18, 2017"
 		} 

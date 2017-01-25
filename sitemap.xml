@@ -48,15 +48,27 @@
 
     
     <url>
-        <loc>/ECL2017S/lecture/lecture-0-programming-history</loc>
+        <loc>/ECL2017S/quiz/1-programming-history</loc>
     </url>
     
     <url>
-        <loc>/ECL2017S/announcement/announcement-1-assessing-your-programming-knowledge-and-interests</loc>
+        <loc>/ECL2017S/lecture/1-version-control-system</loc>
     </url>
     
     <url>
-        <loc>/ECL2017S/announcement/announcement-0-student-professor-connection-day</loc>
+        <loc>/ECL2017S/homework/1-project-readme-file</loc>
+    </url>
+    
+    <url>
+        <loc>/ECL2017S/lecture/0-programming-history</loc>
+    </url>
+    
+    <url>
+        <loc>/ECL2017S/announcement/1-assessing-your-programming-knowledge-and-interests</loc>
+    </url>
+    
+    <url>
+        <loc>/ECL2017S/announcement/0-student-professor-connection-day</loc>
     </url>
     
 </urlset>

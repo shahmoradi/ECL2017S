@@ -1,18 +1,34 @@
+
 callback([
 
   {
-    "text": "Announcement 0: Student-professor connection day",
-    "href": "/ECL2017S/announcement/announcement-0-student-professor-connection-day"
+    "text": "Quiz 1: Programming history",
+    "href": "/ECL2017S/quiz/1-programming-history"
   } ,
 
   {
-    "text": "Announcement 1: Assessing your programming knowledge and interests",
-    "href": "/ECL2017S/announcement/announcement-1-assessing-your-programming-knowledge-and-interests"
+    "text": "Lecture 1: A professional programmer uses Version Control System (VCS)",
+    "href": "/ECL2017S/lecture/1-version-control-system"
   } ,
 
   {
     "text": "Lecture 0: Programming history",
-    "href": "/ECL2017S/lecture/lecture-0-programming-history"
+    "href": "/ECL2017S/lecture/0-programming-history"
+  } ,
+
+  {
+    "text": "Homework 1: Designing a Github README file and web-page for your project",
+    "href": "/ECL2017S/homework/1-project-readme-file"
+  } ,
+
+  {
+    "text": "Announcement 1: Assessing your programming knowledge and interests",
+    "href": "/ECL2017S/announcement/1-assessing-your-programming-knowledge-and-interests"
+  } ,
+
+  {
+    "text": "Announcement 0: Student-professor connection day",
+    "href": "/ECL2017S/announcement/0-student-professor-connection-day"
   } 
 
 ])
