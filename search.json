@@ -1,14 +1,6 @@
 [
 	
 		{
-		  "title"      : "Quiz 1: Programming history",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/quiz/1-programming-history",
-		  "date"       : "2017-01-25 00:00:00 -0600",
-		  "shortdate"  : "January 25, 2017"
-		} ,
-	
-		{
 		  "title"      : "Lecture 1: A professional programmer uses Version Control System (VCS)",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/1-version-control-system",
@@ -20,6 +12,14 @@
 		  "title"      : "Homework 1: Designing a Github README file and web-page for your project",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/homework/1-project-readme-file",
+		  "date"       : "2017-01-25 00:00:00 -0600",
+		  "shortdate"  : "January 25, 2017"
+		} ,
+	
+		{
+		  "title"      : "Quiz 1: Solution",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/homework/1-programming-history-solution",
 		  "date"       : "2017-01-25 00:00:00 -0600",
 		  "shortdate"  : "January 25, 2017"
 		} ,
