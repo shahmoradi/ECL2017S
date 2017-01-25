@@ -2,11 +2,6 @@
 callback([
 
   {
-    "text": "Quiz 1: Solution",
-    "href": "/ECL2017S/homework/1-programming-history-solution"
-  } ,
-
-  {
     "text": "Lecture 1: A professional programmer uses Version Control System (VCS)",
     "href": "/ECL2017S/lecture/1-version-control-system"
   } ,

@@ -17,14 +17,6 @@
 		} ,
 	
 		{
-		  "title"      : "Quiz 1: Solution",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/1-programming-history-solution",
-		  "date"       : "2017-01-25 00:00:00 -0600",
-		  "shortdate"  : "January 25, 2017"
-		} ,
-	
-		{
 		  "title"      : "Lecture 0: Programming history",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/0-programming-history",
