@@ -1,5 +1,5 @@
 # ECL2017S
- ## Spring 2017 - Engineering Computation Lab
+ ##Spring 2017 - Engineering Computation Lab
  
  Information about this course can be found on the course webpage:
  
