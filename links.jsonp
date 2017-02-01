@@ -7,6 +7,16 @@ callback([
   } ,
 
   {
+    "text": "Quiz 2: Solution",
+    "href": "/ECL2017S/quiz/2-version-control-system-solution"
+  } ,
+
+  {
+    "text": "Quiz 1: Solution",
+    "href": "/ECL2017S/quiz/1-programming-history-solution"
+  } ,
+
+  {
     "text": "Quiz 1: Programming history",
     "href": "/ECL2017S/quiz/1-programming-history"
   } ,
