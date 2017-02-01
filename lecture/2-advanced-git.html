@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>LECTURE 2: ADVANCED GIT CONCEPTS &vert; COE 111L - SPRING 2017</title>
+<meta name="description" content="Engineering Computation Lab">
+<meta name="keywords" content="">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/ECL2017S/images/logo.png">
+<meta name="twitter:title" content="Lecture 2: Advanced Git concepts">
+<meta name="twitter:description" content="Engineering Computation Lab">
+<meta name="twitter:creator" content="@AmirShahmoradi">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lecture 2: Advanced Git concepts">
+<meta property="og:description" content="Engineering Computation Lab">
+<meta property="og:url" content="/ECL2017S/lecture/2-advanced-git">
+<meta property="og:site_name" content="COE 111L - Spring 2017">
+<meta property="og:image" content="/ECL2017S/images/">
+
+
+
+
+
+<link rel="canonical" href="/ECL2017S/lecture/2-advanced-git">
+<!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 Feed"> -->
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,300,800,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/ECL2017S/assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/normalize.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/nprogress.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/foundation.min.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/style.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/post.css">
+
+
+
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/ECL2017S/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/ECL2017S/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/ECL2017S/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/ECL2017S/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/ECL2017S/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/ECL2017S/images/apple-touch-icon-144x144-precomposed.png">
+
+<!-- 
+<link href="/ECL2017S/assets/css/prismCoy.css" rel="stylesheet" />
+<link href="/ECL2017S/assets/css/prismDefault.css" rel="stylesheet" />
+<link href="/ECL2017S/assets/css/prismTwilight.css" rel="stylesheet" />
+-->
+<link href="/ECL2017S/assets/css/prismOkaidia.css" rel="stylesheet" />
+<style type="text/css">@media only screen and (min-width:43.75em){.notepad-post-content div>p:first-child:first-letter{float:left;font-size:4.688rem;line-height:4.375rem;padding-top:.25rem;padding-right:.5rem;padding-left:.188rem;font-family:serif}}</style>
+</head>
+<body class="post-template" itemscope itemtype="http://schema.org/WebPage">  
+
+        <main id="notepad-post-container-simple" class="notepad-post-container-simple" role="main">
+            <header class="notepad-post-header-simple">
+                <div class="notepad-post-menu-header-simple">
+
+                    <a class="notepad-blog-logo" href="http://www.shahmoradi.org" target="_blank"><img src="/ECL2017S/images/logo.png" alt="shahmoradi.org" /></a>
+
+                <div class="notepad-blog-menu">      
+    <div class="notepad-mobile-menu show-for-small">
+        <a href="#"><i class="fa fa-bars"></i></a>
+    </div>
+    <ul class="notepad-menu">
+        <li class="notepad-mobile-close-btn show-for-small text-right">
+            <a href="#"><i class="fa fa-times"></i></a>
+        </li>
+
+            <li>
+                    <a href="/ECL2017S/">Home</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/highlights">Highlights</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/categories">Categories</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/about">About</a>
+                 </li>
+            
+           <li><a href="/ECL2017S/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+    </ul>
+
+</div>
+            </div>
+
+                <div class="notepad-post-title-simple row">
+                    <div class="small-12 columns">
+                        <div class="notepad-post-meta-simple">
+                            <h2>Lecture 2: Advanced Git concepts</h2>
+                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-02-01T00:00:00-06:00">01 Feb 2017</time></strong></p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+        <article class="notepad-post-content post tag-simple">
+            <div style="text-align:justify;"><p>This lecture aims at providing a brief review of some advanced topics in Git Version Control System which are essential for effective management of large collaborative projects.</p>
+
+<!--
+- [Advanced Git cheatsheet](/ECL2017S/lecture/1/progit.en.pdf){:target="_blank"}
+-->
+<h4 id="some-useful-links-for-future-reference">Some useful links for future reference:</h4>
+
+<ul>
+  <li><a href="http://ndpsoftware.com/git-cheatsheet.html" target="_blank">Advanced Git cheatsheet</a></li>
+</ul>
+
+<h4 id="table-of-content">Table of Content</h4>
+<ul>
+  <li><a href="#git-help">Getting help for Git commands</a></li>
+  <li><a href="#git-log">Viewing the Git commit history</a></li>
+  <li><a href="#git-reset-amend-tag">Undoing, amending, and tagging</a></li>
+  <li><a href="#git-remote">Working with remote Repositories</a></li>
+  <li><a href="#git-branch">Git branching</a>
+    <ul>
+      <li><a href="#git-branch-d">Deleting a branch</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><a name="git-help"></a></p>
+<h2 id="getting-help-for-git-commands">Getting help for Git commands</h2>
+<p>There are basically three ways to request information about Git commands on the Git-bash command line:</p>
+<pre><code class="language-bash">$ git help &lt;command name&gt;
+$ git &lt;command name&gt; --help
+$ man git-&lt;command name&gt;
+</code></pre>
+<p>Note that the last command <code>man</code> is not a Git command. All Git commands begin with the word <em>git</em>.</p>
+
+<p><a name="git-log"></a></p>
+<h2 id="viewing-the-git-commit-history">Viewing the Git commit history</h2>
+<p>You can check the history of project commits to the repository using the Git command <code>git log</code>.
+For example, here is a snippet from the output  of <code>git log</code> on laptop screen:</p>
+<pre><code class="language-bash">  $ git log
+commit 264043e0d49006b7f59e57639961c333b5d5f124
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Tue Jan 24 17:48:33 2017 -0600
+
+    data tables for 1D model added.
+
+commit b45ddd780c18736bac42ff27aade301a6b0f09cb
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Tue Jan 24 10:08:53 2017 -0600
+
+    minor edit
+
+commit b6f4fb69d97a396bde7159c78424100704328634
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Thu Jan 12 21:03:28 2017 -0600
+
+    *.txt files removed
+
+commit 961ff2d4ac68081a21864b2f1b067b43424d3342
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Thu Jan 12 21:02:00 2017 -0600
+
+    update
+
+commit 8fd3c49e90d96f4bcef2302c7b227f06ad7a5250
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Thu Jan 12 19:36:45 2017 -0600
+
+    minor
+
+commit cd0ed7def385ba29ea134bcc18a4ad0873d9f5ee
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Thu Jan 12 19:32:51 2017 -0600
+
+    minor
+
+commit 8096668868ef64189f788669d5f1838cd944f9b6
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Thu Jan 12 19:28:22 2017 -0600
+
+    minor
+
+commit c52ba6adea474625cce1493896ecaac40cb976af
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Thu Jan 12 19:24:23 2017 -0600
+
+    minor
+
+commit ab5a17f9e913e55cae0f971fd9b485a0a6e8dec3
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Thu Jan 12 19:16:27 2017 -0600
+
+    minor
+
+commit ce5c2421db6e76a338a0e6922acead9100a7c4c4
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Thu Jan 12 19:10:19 2017 -0600
+
+    minor
+
+commit 4a7d27d81260c2e2a29b6259e6c97befc065c069
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Thu Jan 12 19:05:14 2017 -0600
+
+:
+</code></pre>
+<p><br />
+There is a long list of options that can be used with <code>git log</code> command to display exactly what you need on bash screen.
+Some of the most useful are discussed below.<br />
+To lists the differences of the files between different commits use <code>-p</code> flag:</p>
+<pre><code class="language-bash">$ git log -p
+</code></pre>
+<p><br />
+To lists only a limited number of most recent commits use <code>-&lt;number of commits to display&gt;</code> flag. For example:</p>
+<pre><code class="language-bash">$ git log -2
+$ git log -2
+commit 264043e0d49006b7f59e57639961c333b5d5f124
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Tue Jan 24 17:48:33 2017 -0600
+
+    data tables for 1D model added.
+
+commit b45ddd780c18736bac42ff27aade301a6b0f09cb
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Tue Jan 24 10:08:53 2017 -0600
+
+    minor edit
+</code></pre>
+<p><br />
+To list the statistics of the commits, use,</p>
+<pre><code class="language-bash">$ git log --stat -1
+commit 264043e0d49006b7f59e57639961c333b5d5f124
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Tue Jan 24 17:48:33 2017 -0600
+
+    data tables for 1D model added.
+
+ README.md                |   1 +
+ results/tables/README.md |   8 ++-
+ results/tables/tgm.mat   | Bin 0 -&gt; 2550889 bytes
+ src/defineProject.m      |   3 +-
+ src/main.m               |  82 +++++++++------------------
+ src/writeTables.m        |  75 ++++++++++++++++++++++++
+ 9 files changed, 140 insertions(+), 56 deletions(-)
+</code></pre>
+<p><br />
+The log data can be even represented formatted via the flag <code>--pretty=format:"&lt;the desired format&gt;"</code>. For example,</p>
+<pre><code class="language-bash">$ git log -3 --pretty=format:"%h - %an, %ar : %s"
+264043e - Amir Shahmoradi, 7 days ago : data tables for 1D model added.
+b45ddd7 - Amir Shahmoradi, 7 days ago : minor edit
+b6f4fb6 - Amir Shahmoradi, 3 weeks ago : *.txt files removed
+</code></pre>
+<p><br />
+A list of available format options is provided below.</p>
+
+<table class="center">
+<caption class="title" style="padding-bottom:10px">
+Table 1: Some useful options for <code>git log --pretty=format:"&lt;options&gt;"</code>. <sup><a href="#fn1" id="ref1">1</a></sup>
+</caption>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description of Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%H</code></td>
+<td>Commit hash</td>
+</tr>
+<tr>
+<td><code>%h</code></td>
+<td>Abbreviated commit hash</td>
+</tr>
+<tr>
+<td><code>%T</code></td>
+<td>Tree hash</td>
+</tr>
+<tr>
+<td><code>%t</code></td>
+<td>Abbreviated tree hash</td>
+</tr>
+<tr>
+<td><code>%P</code></td>
+<td>Parent hashes</td>
+</tr>
+<tr>
+<td><code>%p</code></td>
+<td>Abbreviated parent hashes</td>
+</tr>
+<tr>
+<td><code>%an</code></td>
+<td>Author name</td>
+</tr>
+<tr>
+<td><code>%ae</code></td>
+<td>Author email</td>
+</tr>
+<tr>
+<td><code>%ad</code></td>
+<td>Author date (format respects the --date=option)</td>
+</tr>
+<tr>
+<td><code>%ar</code></td>
+<td>Author date, relative</td>
+</tr>
+<tr>
+<td><code>%cn</code></td>
+<td>Committer name</td>
+</tr>
+<tr>
+<td><code>%ce</code></td>
+<td>Committer email</td>
+</tr>
+<tr>
+<td><code>%cd</code></td>
+<td>Committer date</td>
+</tr>
+<tr>
+<td><code>%cr</code></td>
+<td>Committer date, relative</td>
+</tr>
+<tr>
+<td><code>%s</code></td>
+<td>Subject</td>
+</tr>
+</tbody>
+</table>
+<p><br />
+A list of useful options for <code>git log</code> is given in the table below.</p>
+
+<table id="log_options" class="center">
+<caption class="title" style="padding-bottom:10px">Table 2: Common flags for <code>git log</code> command. <sup><a href="#fn1" id="ref1">1</a></sup>
+</caption>
+<colgroup>
+<col style="width: 20%;" />
+<col style="width: 80%;" />
+</colgroup>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-p</code></td>
+<td>Show the patch introduced with each commit.</td>
+</tr>
+<tr>
+<td><code>--stat</code></td>
+<td>Show statistics for files modified in each commit.</td>
+</tr>
+<tr>
+<td><code>--shortstat</code></td>
+<td>Display only the changed/insertions/deletions line from the --stat command.</td>
+</tr>
+<tr>
+<td><code>--name-only</code></td>
+<td>Show the list of files modified after the commit information.</td>
+</tr>
+<tr>
+<td><code>--name-status</code></td>
+<td>Show the list of files affected with added/modified/deleted information as well.</td>
+</tr>
+<tr>
+<td><code>--abbrev-commit</code></td>
+<td>Show only the first few characters of the SHA-1 checksum instead of all 40.</td>
+</tr>
+<tr>
+<td><code>--relative-date</code></td>
+<td>Display the date in a relative format (for example, “2 weeks ago”) instead of using the full date format.</td>
+</tr>
+<tr>
+<td><code>--graph</code></td>
+<td>Display an ASCII graph of the branch and merge history beside the log output.</td>
+</tr>
+<tr>
+<td><code>--pretty</code></td>
+<td>Show commits in an alternate format. Options include oneline, short, full, fuller, and format (where you specify your own format).</td>
+</tr>
+</tbody>
+</table>
+<p><br />
+A list of useful options for <code>git log</code> commands that can change the format of the output, is given in the table below.</p>
+
+<table id="limit_options" class="center">
+<caption class="title" style="padding-bottom:10px">Table 3. Flags limiting the output of <code>git log</code> command. <sup><a href="#fn1" id="ref1">1</a></sup>
+</caption>
+<colgroup>
+<col style="width: 33.3333%;" />
+<col style="width: 66.6667%;" />
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Option</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-&lt;n&gt;</code></td>
+<td>Show only the last n commits  (e.g., -2, -3, ...). </td>
+</tr>
+<tr>
+<td><code>--since</code>, <code>--after</code></td>
+<td>Limit the commits to those made after the specified date.</td>
+</tr>
+<tr>
+<td><code>--until</code>, <code>--before</code></td>
+<td>Limit the commits to those made before the specified date.</td>
+</tr>
+<tr>
+<td><code>--author</code></td>
+<td>Only show commits in which the author entry matches the specified string.</td>
+</tr>
+<tr>
+<td><code>--committer</code></td>
+<td>Only show commits in which the committer entry matches the specified string.</td>
+</tr>
+<tr>
+<td><code>--grep</code></td>
+<td>Only show commits with a commit message containing the string.</td>
+</tr>
+<tr>
+<td><code>-S</code></td>
+<td>Only show commits adding or removing code matching the string.</td>
+</tr>
+</tbody>
+</table>
+<p><br />
+For example, to list the commit history since a specific time in the past, use <code>--since</code> flag:</p>
+<pre><code class="language-bash">$ git log --since=2.weeks
+commit 264043e0d49006b7f59e57639961c333b5d5f124
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Tue Jan 24 17:48:33 2017 -0600
+
+    data tables for 1D model added.
+
+commit b45ddd780c18736bac42ff27aade301a6b0f09cb
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Tue Jan 24 10:08:53 2017 -0600
+
+    minor edit
+</code></pre>
+<p><br />
+or, with the following date format:</p>
+<pre><code class="language-bash">$ git log --since="2017-01-15"
+</code></pre>
+<p><br /></p>
+
+<p><a name="git-reset-amend-tag"></a></p>
+<h2 id="undoing-amending-and-tagging">Undoing, amending, and tagging</h2>
+<p>Suppose you want to undo the latest addition of files to the stage area. The command to use in order to clean the stage area is,</p>
+<pre><code class="language-bash">$ git reset
+</code></pre>
+<p><br />
+This command is basically the opposite of <code>git add</code>. There are a lot of options that can accompany this Git command, details of which can be found in <a href="https://git-scm.com/docs/git-reset" target="_blank">Git documentation</a>.
+However, <strong>be careful when using this command</strong>, especially with flag <code>--hard</code>, which can result in changes in your working directory as well, thus leading to involuntary loss of latest uncommitted files.</p>
+
+<p>Another useful command is,</p>
+<pre><code class="language-bash">$ git commit --amend
+</code></pre>
+<p><br />
+which is used when you forget to add some files to your latest commit and now, you would like to add the latest content of your project’s staging area to the last commit, by <em>amending</em> it.</p>
+
+<p>The Git command <code>git tag</code> allows you to tag specific important commits in your commit history, for example a final release of your project/software. If you just type <code>git tag</code> on Git bash command line, it will list all tags in the project, <strong>in alphabetical order</strong>,</p>
+<pre><code class="language-bash">$ git tag
+v1.0
+v1.1
+v2.0
+</code></pre>
+<p><br />
+You can create a tag for the latest commit to your repository by using,</p>
+<pre><code class="language-bash">git tag -a v3.0 -m "new version of project"
+</code></pre>
+<p><br />
+This will add a new tag pointing to the latest commit in the project with name <code>v3.0</code> and the message <em>new version of project</em>.
+Now if you want to display the information about a specific tag, use <code>git show</code>,</p>
+<pre><code class="language-bash">$ git show v1.0
+tag v1.0
+Tagger: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Tue Jan 1 18:08:00 2017 -0600
+
+first tag
+
+commit 25129a074aece69d234838764e7df63ed1fb3023
+Author: Amir Shahmoradi &lt;a.shahmoradi@gmail.com&gt;
+Date:   Fri Dec 27 17:12:08 2016 -0600
+
+    Update README.md
+</code></pre>
+<p><br />
+You can also create a <strong>lightweight</strong> tag by avoiding <code>-a</code>, <code>-s</code>, or <code>-m</code> flags in you tag command,</p>
+<pre><code class="language-bash">git tag v4.0
+</code></pre>
+<p><br />
+Annotated tags (created with <code>-a</code> flag) are meant for very important project versions, such as a software release, while lightweight tags are meant for private or temporary object labels.<br />
+For more information about <code>git tag</code>, see <a href="https://git-scm.com/docs/git-tag" target="_blank">Git documentation</a>.
+<br /></p>
+
+<p><a name="git-remote"></a></p>
+<h2 id="working-with-remote-repositories">Working with remote Repositories</h2>
+<p>In order to see which remote servers you have configured for your project, you can run the following Git command,</p>
+<pre><code class="language-bash">$ git remote
+origin
+</code></pre>
+<p><br />
+In the output above, <code>origin</code> is the default name that Git gives to the server you cloned your project from. If you also specify <code>-v</code> flag, Git will show you the URLs that Git has stored for the remote shortname (e.g., origin) to be used when reading and writing to that remote repository.</p>
+<pre><code class="language-bash">$ git remote -v
+origin  git@github.com:shahmoradi/foo.git (fetch)
+origin  git@github.com:shahmoradi/foo.git (push)
+</code></pre>
+<p><br />
+In order to see more information about a particular remote repository in your project, you can use,</p>
+<pre><code class="language-bash">$ git remote show origin
+* remote origin
+  Fetch URL: git@github.com:shahmoradi/foo.git
+  Push  URL: git@github.com:shahmoradi/foo.git
+  HEAD branch: master
+  Remote branches:
+    development tracked
+    master      tracked
+  Local branch configured for 'git pull':
+    master merges with remote master
+  Local ref configured for 'git push':
+    master pushes to master (up to date)
+</code></pre>
+<p><br />
+The above information indicates that the current HEAD branch of the project is on <em>master</em> branch, and the remote branches on the remote repository are <em>master</em> and <em>development</em>.</p>
+
+<p>You can find more information about <code>git remote</code> command in <a href="https://git-scm.com/docs/git-remote" target="_blank">Git documentation</a>.
+<br /></p>
+
+<p><a name="git-branch"></a></p>
+<h2 id="git-branching">Git branching</h2>
+<p>Branching is powerful idea in Version Control Systems, which significantly facilitates collaboration or parallel development of a project. Suppose you have already a project which has reached its first release version, meaning that it works all fine. Now, you like to add a new feature to your project. To do this and to avoid further commits to your original project, you can create a new <strong>branch</strong> of the project which is specifically devoted to adding the new feature. See the following figure, for an example of Git branching.</p>
+
+<figure>
+	<img src="/ECL2017S/lecture/2/branch-flowchart.png" width="900" />
+    <figcaption style="text-align:center">
+        An example illustration of Git branching for a project with three branches: master, development, topic.
+    </figcaption>
+</figure>
+
+<p>When you create a Git project, the default single branch in your project is <strong>master</strong>. So, for example if you search for your project branches, you’d see,</p>
+<pre><code class="language-bash">$ git branch
+* master
+</code></pre>
+<p><br />
+If you already have created other branches in your project, for example <strong>development</strong>, then you may see a Git message like the following,</p>
+<pre><code class="language-bash">$ git branch
+* development
+  master
+</code></pre>
+<p><br />
+The <strong>*</strong> behind the branch name indicates that the project HEAD (i.e., your working directory) points to that branch, that is, all commits will be made to that branch that is highlighted with <strong>*</strong>. In the example above, the working directory points to <em>development</em> branch.</p>
+
+<p>In order to <strong>create a new branch</strong> in your project, use,</p>
+<pre><code class="language-bash">$ git branch &lt;branch name&gt;
+</code></pre>
+<p><br />
+For example,</p>
+<pre><code class="language-bash">$ git branch development
+</code></pre>
+<p><br />
+When you create a new branch, Git creates an exact duplicate of the current branch that you are in, but with the requested name for the new branch. In order to <strong>switch to a specific Git branch</strong> in your project, use,</p>
+<pre><code class="language-bash">$ git checkout &lt;branch name&gt;
+</code></pre>
+<p><br />
+For example,</p>
+<pre><code class="language-bash">$ git checkout development
+Switched to branch 'development'
+</code></pre>
+<p><br />
+A shortcut for **both creating a new branch from the current branch, and switching to the new branch automatically is to use,</p>
+<pre><code class="language-bash">$ git checkout -b &lt;branch name&gt;
+</code></pre>
+<p><br /></p>
+<pre><code class="language-bash">$ git checkout -b test
+Switched to a new branch 'test'
+</code></pre>
+<p><br />
+Now suppose, you have made some significant progress on your project <strong>development</strong> branch, and now you want to add the newly developed feature to your <strong>master</strong> branch. All you need to do, is,</p>
+<pre><code class="language-bash">$ git checkout master
+$ git merge development
+</code></pre>
+<p><br />
+By doing this, you first switch to master branch, then request Git, to <strong>merge</strong> all changes made to the project on the <em>development</em> branch to be copied and transferred to the <em>master</em> branch. For example, if I have added a single <code>test.txt</code> file, and committed the change to the development branch, then upon mergin with master, Git will display something like the following,</p>
+<pre><code class="language-bash">$ git merge development
+Updating 25129a0..57ed7c2
+Fast-forward
+ test.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 test.txt
+</code></pre>
+<p><br />
+Now suppose there was no change in the development branch, since branching it from master. Then upon merging, you would get a message like the following,</p>
+<pre><code class="language-bash">$ git merge development
+Already up-to-date.
+</code></pre>
+<p><br />
+Occasionally, conflicts may arise between branches upon merging. This happens when a common file between the two branches, has been modified on both branches in parallel. In such cases, you will need to resolve the conflict by choosing one of the file edits in one of the branches and discard the other. The following is an example merge conflict message by Git.</p>
+<pre><code class="language-bash">$ git merge development
+Auto-merging test.txt
+CONFLICT (content): Merge conflict in test.txt
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre>
+<p><br />
+For example, if you use <code>git status</code> command, the following is the typical message that will be displayed,</p>
+<pre><code class="language-bash">$ git status
+On branch test
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add &lt;file&gt;..." to mark resolution)
+
+        both modified:   test.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+</code></pre>
+<p><br />
+To resolve the conflict, open the conflicting file. There you will see the segments of the file from both versions which are the cause of the conflict. Edit the file as you wish. and then perform the normal <code>git add</code> and <code>git commit</code> on the file, to resolve the conflict and complete the merge process.</p>
+
+<p>In addition to <code>git merge</code>, there is another more elegant and powerful Git command, <code>git rebase</code> for integrating changes in different branches into a single branch. But, the subject goes beyond the goals of this class, and the interested reader is referred to <a href="https://git-scm.com/docs/git-rebase" target="_blank">Git documentation</a> for this command and <a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing" target="_blank">this pedagogical Git page</a> for <code>git rebase</code>.</p>
+
+<p><a name="git-branch-d"></a></p>
+<h4 id="deleting-a-branch">Deleting a branch</h4>
+<p>Normally, when a branch merge is done, the development branch is not needed anymore, so it is always wise and cleaner to delete the unwanted branches, using the command <code>git branch -d &lt;branch name&gt;</code>. To do this, on the same branch that you just performed <code>git merge</code> use,</p>
+<pre><code class="language-bash">$ git checkout master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+Switched to branch 'master'
+$ git branch -d test
+Deleted branch hotfix (3a0874c).
+</code></pre>
+<p><br />
+Note that you cannot delete a branch while you are on it (i.e., while it is checked out). For example, Git will give you the following error message,</p>
+<pre><code class="language-bash">$ git branch -d test
+error: Cannot delete branch 'test' checked out at 'C:/Users/Amir/git/foo'
+</code></pre>
+<p><br />
+<strong>You cannot delete a branch from another branch with which you have not performed the merging either</strong>. In this case, Git will give the following error,</p>
+<pre><code class="language-bash">$ git branch -d test
+error: The branch 'test' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D test'.
+</code></pre>
+<p><br /></p>
+
+<blockquote>
+  <p><strong>Advice for good project management:</strong><br />
+<small>
+<strong>Your <em>master</em> branch should always contain the latest clean version of your project, that is, the complete and working version/release. You should always make your new developments in a separate branch, and once it works and the new feature/development is complete, you merge the new development into the master branch.</strong>
+</small></p>
+</blockquote>
+
+<h3 id="footnotes">Footnotes:</h3>
+
+<p><sup id="fn1">1. See <a href="https://git-scm.com/docs/git-log" target="_blank">Git documentation</a> for more details and updates. <a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup></p>
+
+            </div>
+        </article>
+        <div class="cf"></div>
+        <div class="row text-center">
+            <section class="notepad-post-share">
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Lecture 2: Advanced Git concepts&quot;%20/ECL2017S/lecture/2-advanced-git%20via%20&#64;AmirShahmoradi"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/lecture/2-advanced-git"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/lecture/2-advanced-git"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </section>
+        </div>
+        <div class="cf"></div>
+        
+            <div class="notepad-author-info">
+                <div class="row">
+                    <section class="notepad-post-author small-12 columns">
+                        
+                            <img src="/ECL2017S/images/amir.png" class="notepad-post-author-avatar" alt="Amir Shahmoradi's photo">
+                        
+                        
+                            <span class="author-label">Author</span>
+                            <h1>Amir Shahmoradi</h1>
+                        
+                        
+                            <p><a href="mailto:amir@ices.utexas.edu" class="author-website">amir@ices.utexas.edu</a></p>
+                        
+                        
+                            <p>Genius is 99% perspiration and 1% inspiration</p>
+                        
+                    </section>
+                </div>
+            </div> 
+        
+        <div class="cf"></div>
+        
+        <section class="notepad-disqus row">
+    <div class="small-12 columns">
+        <h1 class="notepad-comments-header">Comments</h1>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'shahmoradi'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+
+        <div class="cf"></div>
+
+    <footer class="notepad-site-footer">
+    <div class="copyright">
+         <!-- <section>Last updated 2017 / 02 / 01</section></br> -->
+         <section>Last updated Wednesday, 01 Feb 2017 at 08:57 AM CST</section></br>
+         <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
+         <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
+         <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>
+         <section><a class="icon-ghost" href="http://www.utexas.edu/" target="_blank">The University of Texas at Austin</a></section></br>
+         <section>201 E 24th Street, Stop C0200</section></br>
+         <section>Austin, TX 78712-1229</section>
+    </div>
+    <div class="social-icons">
+        
+        
+        <a href="http://twitter.com/AmirShahmoradi" target="_blank">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+        
+        
+        <a href="http://github.com/shahmoradi" target="_blank">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-github fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+    </div>
+    
+    <div class="cf"></div>
+</footer> 
+</main>    
+<!-- The following scripts are needed for the dynamic header of pages -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/ECL2017S/assets/js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+  <script src="/ECL2017S/assets/js/vendor/modernizr.js"></script>
+  <script src="/ECL2017S/assets/js/foundation.min.js"></script>
+  
+  <script src="/ECL2017S/assets/js/notepad.js"></script>
+  <script src="/ECL2017S/assets/js/scripts.min.js"></script>
+  <script src="/ECL2017S/assets/js/vendor/nprogress.js"></script>
+  
+  <script>
+    $(document).foundation();
+  </script>
+  <script type='text/javascript'>console.log("N/A");</script>
+  <script type='text/javascript'>console.log("http://www.shahmoradi.org/");</script>
+<!-- End of scripts for the dynamic header of pages -->
+
+<!-- <script src="/ECL2017S/assets/js/prismOkaidia.js"></script>
+<script src="/ECL2017S/assets/js/prismTwilight.js"></script>
+<script src="/ECL2017S/assets/js/prismDefault.js"></script>
+ -->
+<script src="/ECL2017S/assets/js/prismCoy.js"></script>
+
+<!-- Start of Google Analytics Code for Default Guide -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-67460905-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+<!-- End of Google Analytics Code for Default Guide -->
+   
+<!-- Start of StatCounter Code for Default Guide -->
+  <script type="text/javascript">
+    var sc_project=10611821; 
+    var sc_invisible=1; 
+    var sc_security="902e4bb4"; 
+    var scJsHost = (("https:" == document.location.protocol) ?
+    "https://secure." : "http://www.");
+    document.write("<sc"+"ript type='text/javascript' src='" +
+    scJsHost+
+    "statcounter.com/counter/counter.js'></"+"script>");
+    </script>
+    <noscript><div class="statcounter"><a title="shopify visitor
+    statistics" href="http://statcounter.com/shopify/"
+    target="_blank"><img class="statcounter"
+    src="http://c.statcounter.com/10611821/0/902e4bb4/0/"
+    alt="shopify visitor statistics"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide --> 
+</body>
+</html>
