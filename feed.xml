@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-02-03T19:03:57-06:00</updated>
+<updated>2017-02-06T14:25:44-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -740,7 +740,7 @@ If you are sure you want to delete it, run 'git branch -D test'.
 &lt;strong&gt;Course Webpage:&lt;/strong&gt; &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/&quot;&gt;http://www.shahmoradi.orghttp:/ECL2017S/&lt;/a&gt;&lt;br /&gt;
 &lt;strong&gt;Photo:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../../images/amir.png&quot; alt=&quot;Amir Shahmoradi&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http:/ECL2017S/images/amir.png&quot; alt=&quot;Amir Shahmoradi&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;description-of-the-projects-content&quot;&gt;Description of the project’s content&lt;/h4&gt;
 &lt;p&gt;&lt;br /&gt; This repository contains my homework, quizzes, and virtually every effort that I have made for &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/&quot;&gt;ECL2017S class&lt;/a&gt;. The structure of the project is the following:&lt;/p&gt;
@@ -1415,14 +1415,22 @@ for syncing your local with the remote repository. Remember that you have to use
   &lt;li&gt;&lt;a href=&quot;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&quot; target=&quot;_blank&quot;&gt;Adam Pritchard’s Markdown cheat-sheet (web)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;0. &lt;/strong&gt; Set up your Git project repository for this course:&lt;br /&gt;
 Now, with the Git knowledge you have gained in class, create a &lt;em&gt;private&lt;/em&gt; project named &lt;code&gt;ECL2017S&lt;/code&gt; in your local/remote repository and push/pull it to your remote/local repository, once you add the following content requested in this homework, to your project. In your repository, have at least the following three folders: homework, quiz, exam, each of which contains a &lt;code&gt;readme.md&lt;/code&gt; file describing the content of the directory. Throughout the semester, you will submit each of your quizzes, exams and homework to their corresponding folders in your project. Each homework, quiz, and exam will have one sub-folder dedicated to it, inside of one of the main three project folders mentioned above.&lt;/p&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Include the following information with the following format and information in your main directory &lt;code&gt;readme.md&lt;/code&gt; file:&lt;/p&gt;
 
@@ -1479,8 +1487,12 @@ Now, with the Git knowledge you have gained in class, create a &lt;em&gt;private
 
 &lt;p&gt;Make sure the format of your main &lt;code&gt;readme.md&lt;/code&gt; file is as similar as possible to what I requested above. But feel free to add any further information or Markdown decoration beyond what I have minimally requested here.&lt;/p&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;2.  For extra credit, not mandatory:&lt;/strong&gt; Design a simple Github page for your project, using the main directory’s &lt;code&gt;readme.md&lt;/code&gt; file. Submit the link to the page as your answer. Note that you don’t need to add anything extra to your readme file.&lt;/p&gt;
 
