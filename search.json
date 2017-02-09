@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Homework 2: Advanced Git",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/homework/2-advanced-git",
+		  "date"       : "2017-02-08 00:00:00 -0600",
+		  "shortdate"  : "February 08, 2017"
+		} ,
+	
+		{
 		  "title"      : "Quiz 2: Version control system",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/quiz/2-version-control-system",
@@ -20,14 +28,6 @@
 		  "title"      : "Lecture 2: Advanced Git concepts",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/2-advanced-git",
-		  "date"       : "2017-02-01 00:00:00 -0600",
-		  "shortdate"  : "February 01, 2017"
-		} ,
-	
-		{
-		  "title"      : "Homework 2: Advanced Git",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/2-advanced-git",
 		  "date"       : "2017-02-01 00:00:00 -0600",
 		  "shortdate"  : "February 01, 2017"
 		} ,
