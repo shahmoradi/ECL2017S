@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-02-08T09:14:32-06:00</updated>
+<updated>2017-02-08T19:16:17-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -709,6 +709,81 @@ If you are sure you want to delete it, run 'git branch -D test'.
 
 
 <entry>
+  <title type="html"><![CDATA[Homework 2: Advanced Git]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/2-advanced-git"/>
+  <id>http:/ECL2017S/homework/2-advanced-git</id>
+  <published>2017-02-01T00:00:00-06:00</published>
+  <updated>2017-02-01T00:00:00-06:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This homework aims at giving you some experience with creating Git branches, developing your project on multiple branches, merging them, resolving potential conflicts between different branches upon merging, and finally how to delete them. It also gives you some experience with using other commonly-used Git commands.
+Write your code sections of your answer in Markdown syntax.
+For example,&lt;br /&gt;
+&lt;code&gt;
+    ```bash  &lt;br /&gt;
+    $ git branch -d test  &lt;br /&gt;
+    error: Cannot delete branch 'test' checked out at 'C:/Users/Amir/git/foo'  &lt;br /&gt;
+    ```
+&lt;/code&gt;
+&lt;br /&gt;
+will display the following text highlighted as &lt;em&gt;bash&lt;/em&gt; code, in your &lt;em&gt;readme.md&lt;/em&gt; file.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git branch -d test
+error: Cannot delete branch 'test' checked out at 'C:/Users/Amir/git/foo'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Create two additional test branches in your project, each of which is branched directly from &lt;em&gt;master&lt;/em&gt;. &lt;strong&gt;For each of the following cases, write the command and the corresponding output message of Git, in Markdown language in a &lt;code&gt;readme.md&lt;/code&gt; file inside your &lt;code&gt;homework/2/&lt;/code&gt; folder in your master branch&lt;/strong&gt;. If you don’t have this folder in your project, then create the folder and then place your initial &lt;code&gt;readme.md&lt;/code&gt; file in this folder with your signature as the content of the file. Then stage and commit this file together with homework-2 folder to your local repository. Throughout the rest of this homework, you will fill this &lt;code&gt;readme.md&lt;/code&gt; file with your answers.&lt;/p&gt;
+
+&lt;p&gt;(A) Create two branches, &lt;strong&gt;both from your &lt;em&gt;master&lt;/em&gt; branch&lt;/strong&gt;, with names &lt;em&gt;test1&lt;/em&gt; and &lt;em&gt;test2&lt;/em&gt;.&lt;br /&gt;
+&lt;br /&gt;(B) Now checkout the &lt;em&gt;test1&lt;/em&gt; branch and create a new text file named &lt;code&gt;test.txt&lt;/code&gt; in the &lt;code&gt;homework/2/&lt;/code&gt; directory of this branch.&lt;br /&gt;
+&lt;br /&gt;(C) Inside &lt;code&gt;test.txt&lt;/code&gt; in &lt;em&gt;test1&lt;/em&gt; branch write this message: &lt;em&gt;This is some example text for branch test1&lt;/em&gt;, and save it.&lt;br /&gt;
+&lt;br /&gt;(D) Now stage and commit &lt;code&gt;test.txt&lt;/code&gt; file to branch &lt;em&gt;test1&lt;/em&gt;.&lt;br /&gt;
+&lt;br /&gt;(E) Checkout the branch &lt;em&gt;test2&lt;/em&gt;. Do you still see &lt;code&gt;test.txt&lt;/code&gt; that you just created in your &lt;code&gt;homework/2/&lt;/code&gt; directory? You can search for it by the &lt;em&gt;bash&lt;/em&gt; command &lt;code&gt;ls&lt;/code&gt;. Explain why you see/don’t see the file in your working directory anymore.&lt;br /&gt;
+&lt;br /&gt;(F) Create a new text file named &lt;code&gt;test.txt&lt;/code&gt; in the &lt;code&gt;homework/2/&lt;/code&gt; directory of this branch as well, and add &lt;em&gt;This is some example text for branch test2&lt;/em&gt; to its content.&lt;br /&gt;
+&lt;br /&gt;(G) Now try to checkout &lt;em&gt;test1&lt;/em&gt;. What error/warning message do you get? Fix the source of error and then checkout &lt;em&gt;test1&lt;/em&gt; branch.&lt;br /&gt;
+&lt;br /&gt;(H) Now merge the content of &lt;em&gt;test1&lt;/em&gt; with &lt;em&gt;master&lt;/em&gt; branch. (Hint: Note from which branch you doing this merge!)&lt;br /&gt;
+&lt;br /&gt;(I) Now what do you see as the content of &lt;em&gt;master&lt;/em&gt; branch? (Hint: Use &lt;code&gt;ls&lt;/code&gt; &lt;em&gt;bash&lt;/em&gt; command, to list the files in the working directory.)&lt;br /&gt;
+&lt;br /&gt;(J) Now merge the content of &lt;em&gt;test2&lt;/em&gt; with &lt;em&gt;master&lt;/em&gt; branch. What error/warning message do you get? Why does this error arise?&lt;br /&gt;
+&lt;br /&gt;(K) Now chekcout &lt;em&gt;test2&lt;/em&gt;. What error/warning message do you get?&lt;br /&gt;
+&lt;br /&gt;(L) Run the Git command &lt;code&gt;git status&lt;/code&gt;. Why does such a conflict exist, as mentioned in &lt;code&gt;git status&lt;/code&gt; output?&lt;br /&gt;
+&lt;br /&gt;(M) At this stage, you have two options: Either 1. stage and commit the combined conlifting &lt;code&gt;test.txt&lt;/code&gt; file to Git repository (but this is not recommended), or, 2. open the file &lt;code&gt;test.txt&lt;/code&gt; using &lt;em&gt;vim&lt;/em&gt; editor on the command line and reslve the conflict by editing the content of the file to only this sentence: &lt;em&gt;. Then save and quit *vim&lt;/em&gt;.&lt;br /&gt;
+&lt;br /&gt;(N) Now, run &lt;code&gt;git status&lt;/code&gt;, then stage and commit your conflict-resolved file. Then checkout &lt;em&gt;test2&lt;/em&gt; branch.&lt;br /&gt;
+&lt;br /&gt;(O) Now, try deleting branch &lt;em&gt;test1&lt;/em&gt;, while on branch &lt;em&gt;test2&lt;/em&gt;. What error/warning message do you get?&lt;br /&gt;
+&lt;br /&gt;(P) Now, switch back to &lt;em&gt;master&lt;/em&gt; branch. Now, try deleting branch &lt;em&gt;test1&lt;/em&gt;, while on &lt;em&gt;master&lt;/em&gt; branch. What message do you get from Git? List all the existing branches using &lt;code&gt;git branch&lt;/code&gt; command.&lt;br /&gt;
+&lt;br /&gt;(Q) Why is there such a difference in Git messages between when you tried deleting &lt;em&gt;test1&lt;/em&gt; branch from &lt;em&gt;test2&lt;/em&gt; branch, and when you tried deleting &lt;em&gt;test1&lt;/em&gt; branch from &lt;em&gt;master&lt;/em&gt; branch?&lt;br /&gt;
+&lt;br /&gt;(R) Now checkout &lt;em&gt;test2&lt;/em&gt; branch. While on &lt;em&gt;test2&lt;/em&gt;, try to delete branch &lt;em&gt;test2&lt;/em&gt;. What error/message do you get?&lt;br /&gt;
+&lt;br /&gt;(S) Switch back to &lt;em&gt;master&lt;/em&gt; and delete &lt;em&gt;test2&lt;/em&gt; branch. List all your project branches by the approproiate Git command.&lt;br /&gt;
+&lt;br /&gt;(T) Stage and commit all the changes (including the file &lt;code&gt;test.txt&lt;/code&gt;) to your project’s &lt;em&gt;master&lt;/em&gt; branch. Now push it all to the remote repository by Wednesday Feb 15 2017, 9:00 a.m. CDT.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Create a branch &lt;em&gt;gh-pages&lt;/em&gt; for your project from master, such that your project is accessible through its web address based on the content of &lt;em&gt;gh-pages&lt;/em&gt; branch, not based on the content of &lt;em&gt;master&lt;/em&gt; branch.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/2-advanced-git&quot;&gt;Homework 2: Advanced Git&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 01, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
   <title type="html"><![CDATA[Homework 1: Solution]]></title>
   <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/1-project-readme-file-solution"/>
   <id>http:/ECL2017S/homework/1-project-readme-file-solution</id>
@@ -729,7 +804,8 @@ If you are sure you want to delete it, run 'git branch -D test'.
 &lt;figure&gt;
 	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework1.png&quot; width=&quot;700&quot; /&gt;
     &lt;figcaption style=&quot;text-align:center&quot;&gt;
-        Maximum possible points is 100.
+        Maximum possible points, excluding bonus question, is 100.&lt;br /&gt;
+        Maximum possible points, including bonus question, is 200.
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
