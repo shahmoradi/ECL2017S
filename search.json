@@ -1,6 +1,30 @@
 [
 	
 		{
+		  "title"      : "Quiz 3: Advanced Git",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/quiz/3-advanced-git",
+		  "date"       : "2017-02-15 00:00:00 -0600",
+		  "shortdate"  : "February 15, 2017"
+		} ,
+	
+		{
+		  "title"      : "Lecture 3: Python for beginners",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/lecture/3-python-for-beginners",
+		  "date"       : "2017-02-15 00:00:00 -0600",
+		  "shortdate"  : "February 15, 2017"
+		} ,
+	
+		{
+		  "title"      : "Homework 2: Solution",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/homework/2-advanced-git-solution",
+		  "date"       : "2017-02-15 00:00:00 -0600",
+		  "shortdate"  : "February 15, 2017"
+		} ,
+	
+		{
 		  "title"      : "Homework 2: Advanced Git",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/homework/2-advanced-git",

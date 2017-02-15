@@ -7,13 +7,589 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-02-08T19:17:39-06:00</updated>
+<updated>2017-02-15T09:09:13-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
   <uri>http:/ECL2017S/</uri>
   <email>amir@ices.utexas.edu</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Quiz 3: Advanced Git]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/quiz/3-advanced-git"/>
+  <id>http:/ECL2017S/quiz/3-advanced-git</id>
+  <published>2017-02-15T00:00:00-06:00</published>
+  <updated>2017-02-15T00:00:00-06:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This quiz aims at testing your knowledge of advanced Git commands, such as branching.
+Don’t forget to push your answers to your remote repository by the end of quiz time. Push your quiz-3 &lt;em&gt;readme.md&lt;/em&gt; file to quiz/3/ folder in your Github project.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Write down two out of the three different existing commands for getting help about &lt;code&gt;git add&lt;/code&gt; command.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Write down the Git command that gives information about the last 3 commits in the project’s history.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Write down a shortcut Git command that creates a new branch “development” and switches to it automatically.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Write down the Git command for deleting a branch?&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Is it possible to delete a Git branch while the branch is already checked out?&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;What is the Git command that lists ALL tags the project?&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Name the three different generations (not different software) of Version Control Systems ever developed. If you don’t remember the exact names, you can instead briefly explain how each VCS paradigm works.&lt;br /&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/3-advanced-git&quot;&gt;Quiz 3: Advanced Git&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 15, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Lecture 3: Python for beginners]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/lecture/3-python-for-beginners"/>
+  <id>http:/ECL2017S/lecture/3-python-for-beginners</id>
+  <published>2017-02-15T00:00:00-06:00</published>
+  <updated>2017-02-15T00:00:00-06:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This lecture aims at providing an introduction to Python programming for beginners, how to install it, different Python distributoins available, how to write Jupyter notebooks, and how to perform simple arithmetic operations with Python.&lt;/p&gt;
+
+&lt;!--
+- [Advanced Git cheatsheet](http:/ECL2017S/lecture/1/progit.en.pdf){:target=&quot;_blank&quot;}
+#### Some useful links for future reference:
+
+- [Advanced Git cheatsheet](http://ndpsoftware.com/git-cheatsheet.html){:target=&quot;_blank&quot;}
+--&gt;
+
+&lt;h4 id=&quot;table-of-content&quot;&gt;Table of Content&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#history&quot;&gt;Python: a brief history&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#installation&quot;&gt;Python installation&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#installation-basic&quot;&gt;Basic Python installation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#installation-recommended&quot;&gt;Recommended Python installation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#IDE&quot;&gt;Python editors and IDEs&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#version&quot;&gt;Which Python version should you use?&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;history&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;python-a-brief-history&quot;&gt;Python: a brief history&lt;/h2&gt;
+
+&lt;p&gt;Python was developed clode to the beginning of the 1990’, by &lt;a href=&quot;https://en.wikipedia.org/wiki/Guido_van_Rossum&quot; target=&quot;_blank&quot;&gt;Guido van Rossum&lt;/a&gt;, a former employee of &lt;a href=&quot;https://en.wikipedia.org/wiki/Google&quot; target=&quot;_blank&quot;&gt;Google&lt;/a&gt;, who is now an employee of &lt;a href=&quot;https://en.wikipedia.org/wiki/Dropbox_(service)&quot; target=&quot;_blank&quot;&gt;Dropbox&lt;/a&gt;. The name of the language is attribution to the British sketch comedy &lt;a href=&quot;https://en.wikipedia.org/wiki/Monty_Python%27s_Flying_Circus&quot; target=&quot;_blank&quot;&gt;Monty Python’s Flying Circus&lt;/a&gt;. As of 2016 Python seems to be the fastest growing language for data science. Python has the following features and attributes.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Python is a fourth-generation, high-level programming language.&lt;/strong&gt; Remember from our &lt;a href=&quot;http:/ECL2017S/lecture/0-programming-history&quot; target=&quot;_blank&quot;&gt;zeroth lecture&lt;/a&gt;, that a high-level programming language provides a high level of programming abstraction from details of computer and machine code. For comparison, Fortran, C++, and C are considered high, medium, and low -level programming languages respectively.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Python is general-purpose programming language&lt;/strong&gt;, meaning that it is designed to be used for writing software in a wide variety of application domains, such as &lt;em&gt;scientific computation&lt;/em&gt;, &lt;em&gt;web and interent development&lt;/em&gt;, &lt;em&gt;education&lt;/em&gt;, &lt;em&gt;Software Development&lt;/em&gt;. For more information, visit &lt;a href=&quot;https://www.python.org/about/apps/&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Python is a multi-paradigm programming language&lt;/strong&gt;. A &lt;a href=&quot;https://en.wikipedia.org/wiki/Programming_paradigm&quot; target=&quot;_blank&quot;&gt;programming paradigm&lt;/a&gt; is the style of writing and development of a computer programming language. Python allows the programmer to use the following major programming paradigms.&lt;br /&gt;
+&lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Functional_programming&quot; target=&quot;_blank&quot;&gt;functional programming&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Structured_programming&quot; target=&quot;_blank&quot;&gt;structured programming&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Imperative_programming&quot; target=&quot;_blank&quot;&gt;imperative programming&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Procedural_programming&quot; target=&quot;_blank&quot;&gt;procedural programming&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Object-oriented_programming&quot; target=&quot;_blank&quot;&gt;object-oriented programming (OOP)&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;   Later on, we will get to each of these programming paradigms in Python.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;The core philosophy of Python programming&lt;/strong&gt;: Simplicity, Readability, and complexity instead of complication.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Python is an interpreted language&lt;/strong&gt;. A programming language implementation is a system for executing computer programs. There are two general approaches to programming language implementation:&lt;br /&gt;
+&lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Interpretation&lt;/strong&gt;: An interpreter takes as input a program in some language, and performs the actions written in that language on some machine.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Compilation&lt;/strong&gt;: A compiler takes as input a program in some language, and translates that program into some other language, which may serve as input to another interpreter or another compiler.&lt;br /&gt;
+&lt;br /&gt;Python is an interpreted language, meaning that, as soon as you type a Python statement on the Python command line and press enter, the Python interpreter, executes the statement. Python programs can also be compiled, to be executed later when desired. This is a topic that will be covered later on in this course.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;The most popular major implementation of Python is &lt;a href=&quot;https://en.wikipedia.org/wiki/CPython&quot; target=&quot;_blank&quot;&gt;CPython&lt;/a&gt;&lt;/strong&gt;. Other major implementations include &lt;em&gt;IronPython&lt;/em&gt;, &lt;em&gt;Jython&lt;/em&gt;, &lt;em&gt;MicroPython&lt;/em&gt;, &lt;em&gt;PyPy&lt;/em&gt;, each of which is designed for a specific purpose. Throughout this course we will be using &lt;em&gt;CPython&lt;/em&gt;.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;The extension for human-readable Python source code file is “&lt;em&gt;.py&lt;/em&gt;“&lt;/strong&gt;. There are other extensions for Python program files as well, each of which represents a specific type of Python file. For example, “&lt;em&gt;.pyc&lt;/em&gt;” represents compiled (binary) Python source code, and “&lt;em&gt;.pyo&lt;/em&gt;” is used for optimized Python files.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a name=&quot;installation&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;python-installation&quot;&gt;Python installation&lt;/h2&gt;
+&lt;p&gt;Depending on your operating system, you can download and install a specific version of Python for your personal computer from one of the major Python vendors, for example, CPython. For this course, we will rely on CPython implentation.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;installation-basic&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;basic-python-installation&quot;&gt;Basic Python installation&lt;/h3&gt;
+&lt;p&gt;The official CPython implementation of Python can be found at &lt;a href=&quot;https://www.python.org/downloads/&quot; target=&quot;_blank&quot;&gt;python.org&lt;/a&gt;. Once you go to this webpage, you will see that two versions of Python are available for download (for Windows systems):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.python.org/ftp/python/3.6.0/python-3.6.0.exe&quot; target=&quot;_blank&quot;&gt;Python 3.6.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi&quot; target=&quot;_blank&quot;&gt;Python 2.7.13&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For operating systems other than Windows, the installation files can be found &lt;a href=&quot;https://www.python.org/downloads/source/&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt; for Linux, and &lt;a href=&quot;https://www.python.org/downloads/mac-osx/&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt; for Mac.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;installation-recommended&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;recommended-python-installation&quot;&gt;Recommended Python installation&lt;/h3&gt;
+&lt;p&gt;In addition to the basic Python distribution that you can obtain from CPython organization, there are also other popular Python &lt;em&gt;distributions&lt;/em&gt; that, by default, contain some highly useful Python libraries, advanced Python editors and &lt;a href=&quot;https://en.wikipedia.org/wiki/Integrated_development_environment&quot; target=&quot;_blank&quot;&gt;integrated development environments (IDEs)&lt;/a&gt;. A &lt;strong&gt;Python distributions&lt;/strong&gt; is basically the Basic Python core bundled together with many useful Python libraries and IDEs. For example, the basic Python distribution from CPython organization, is bundled along with a simple premitive integrated development environment for Python coding, called &lt;a href=&quot;https://en.wikipedia.org/wiki/IDLE&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;IDLE&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Aside from the official basic CPython distribution of Python available from python.org, there are other Python distributions that based on CPython. A comprehensive list can be found &lt;a href=&quot;https://wiki.python.org/moin/PythonDistributions&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;. Some, among many, of the most popular and useful Python distributions for scientific computing purposes are the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.continuum.io/downloads&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Anaconda&lt;/strong&gt;&lt;/a&gt; from &lt;a href=&quot;https://www.continuum.io/&quot; target=&quot;_blank&quot;&gt;Continuum Analytics&lt;/a&gt;. According to the company, Anaconda is the leading open data science platform powered by Python. The open source version of Anaconda is a high performance distribution of Python and R and includes over 100 of the most popular Python, R and Scala packages for data science. Additionally, the Anaconda user has access to over 720 packages that can be easily installed with &lt;a href=&quot;https://en.wikipedia.org/wiki/Conda_(package_manager)&quot; target=&quot;_blank&quot;&gt;conda&lt;/a&gt;. Conda is a language-agnostic package manager and environment management system that is developed and maintained by Continuum Analytics. The package Conda is itself written in Python.&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;&lt;em&gt;The Anaconda distribution of Python is the one that we will use throughout this course.&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;
+&lt;br /&gt;
+The latest version of Anaconda includes an easy installation of Python (2.7.13, 3.4.5, 3.5.2, and/or 3.6.0) and updates of over 100 pre-built and tested scientific and analytic Python packages. These packages include &lt;strong&gt;NumPy&lt;/strong&gt;, &lt;strong&gt;Pandas&lt;/strong&gt;, &lt;strong&gt;SciPy&lt;/strong&gt;, &lt;strong&gt;Matplotlib&lt;/strong&gt;, and &lt;strong&gt;Jupyter&lt;/strong&gt;. Over 620 more packages are available. You can install any of them with just one command,
+    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;conda install package-name
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;&lt;em&gt;(NOTE: Replace “package-name” with the name of the package you want to install.)&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.enthought.com/products/canopy/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Canopy Python&lt;/strong&gt;&lt;/a&gt; from &lt;a href=&quot;https://www.enthought.com/&quot; target=&quot;_blank&quot;&gt;Enthought Canopy&lt;/a&gt;. According to the company, Canopy Python is a comprehensive Python analysis environment that provides easy installation of over 450 core scientific analytic and Python packages, creating a robust platform you can explore, develop, and visualize on. In addition to its pre-built, tested Python distribution. Enthought Canopy has tools for iterative data analysis, visualization and application development. Like Anaconda, Canopy has free and licensed versions available for purchase.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a name=&quot;IDE&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;python-editors-and-ides&quot;&gt;Python editors and IDEs&lt;/h3&gt;
+&lt;p&gt;The simple Python code editor, IDLE, that comes with the basic CPython distribution of Python is most not enough helpful for educational and professional programming. As a result, a myriad of Python code editors and IDEs have been also developed over the past decade. A rather complete list of most popular Python IDEs can be found &lt;a href=&quot;https://wiki.python.org/moin/PythonEditors&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;. Some of the most useful for our class and your future professional use are likely the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Spyder_(software)&quot; target=&quot;_blank&quot;&gt;Spyder&lt;/a&gt;&lt;br /&gt;
+Spyder (formerly Pydee) is an open source cross-platform IDE for scientific Python programming. It probably has the highest design similarity to MATLAB environment. Therefore, it likely a good start as IDE for those who are already familiar and confortable with MATLAB environment design. Spyder integrates NumPy, SciPy, Matplotlib and IPython, as well as other open source software.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.jetbrains.com/pycharm/&quot; target=&quot;_blank&quot;&gt;PyCharm&lt;/a&gt;&lt;br /&gt;
+PyCharm is full-featured IDE for Python. It is available in Free and Open Source edition, fully supporting Python as well as proprietary Professional Edition with Django, Flask, Pyramid and Google App Engine support.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ipython.org/&quot; target=&quot;_blank&quot;&gt;IPython&lt;/a&gt;&lt;br /&gt;
+IPython is an enhanced interactive Python shell. It offers a significantly enhanced interactive shell for Python programming, such tab completion (autocompletion), inline Python syntax highlighting, command history, etc. It is highly useful for testing small snippets of your big code immediately on the IPython shell. IPython is installed on your computer as part of Anaconda package installation.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://jupyter.org/about.html&quot; target=&quot;_blank&quot;&gt;Jupyter&lt;/a&gt;&lt;br /&gt;
+Project Jupyter was born out of the IPython Project in 2014 as it evolved to support interactive data science and scientific computing across all programming languages. Jupyter is an abbreviation for Julia, Python, and R programming languages. The Jupyter Notebook is a web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, machine learning and much more.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://notepad-plus-plus.org/&quot; target=&quot;_blank&quot;&gt;Notepad++&lt;/a&gt;  (available only on Windows)&lt;br /&gt;
+The last, but in-my-opinion not least, important Python editor is Notepad++. It is a highly versatile text and source code editor for use with Microsoft Windows. It is likely – and in my opinion, arguably – the most powerful general-purpose text editor that is currently available on the web. Notepad++ automatically identifies the type of code the file contains based on the file extension and highlights the code sytax accordingly. However, you should keep in mind that it is not specifrically designed for Python. If you are professional multi-language programmer, you will soon find the hidden gems in Notepad++ that are not available in any other editor (including Python-specific editors) as of today, at least as far as I am aware.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a name=&quot;version&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;which-python-standard-version-should-you-use&quot;&gt;Which Python standard version should you use?&lt;/h3&gt;
+
+&lt;p&gt;Like any other programming language, Python has also evolved significantly since its inception in 1991. Normally, a good prgramming language should be backward-compatible, meaning that the newer programming standard should not violate the previous standards. For example, an old Python code should be executable on the most recent Python standard implementation. Sometimes however, with some programming language evolutions, this is not the case. It probably happens to all languages that some time, the new standard violates the older standard syntax of the language, causing runtime and compile-time error for an old-standard code.&lt;/p&gt;
+
+&lt;p&gt;For Python standards, this backward-incompatibility occurred between Python versions 2.x and 3.x. A list of the key differences between the two standards can be found &lt;a href=&quot;http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;. If you would like to know which Python version is likely most useful for your future professional project, consult &lt;a href=&quot;https://wiki.python.org/moin/Python2orPython3&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;. However, it is important to keep in mind that &lt;strong&gt;Python 2.x standard is legacy, and Python 3.x is the present and future of the Python language&lt;/strong&gt;. By year 2020, the offical plan is to cut the security updates and support for Python 2.x and most of the major Python packages have already started migrating to Python 3. Therefore, for the rest of this course we will be using Python 3 syntax.
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/3-python-for-beginners&quot;&gt;Lecture 3: Python for beginners&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 15, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Homework 2: Solution]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/2-advanced-git-solution"/>
+  <id>http:/ECL2017S/homework/2-advanced-git-solution</id>
+  <published>2017-02-15T00:00:00-06:00</published>
+  <updated>2017-02-15T00:00:00-06:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This is the solution to &lt;a href=&quot;2-advanced-git.html&quot; target=&quot;_blank&quot;&gt;Homework 2: Advanced Git&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--
+The following figure illustrates the grade distribution for this homework.  
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework2.png&quot; width=&quot;700&quot;&gt;
+    &lt;figcaption style=&quot;text-align:center&quot;&gt;
+        Maximum possible points, excluding bonus question, is 100.&lt;br&gt;
+        Maximum possible points, including bonus question, is 200.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+--&gt;
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;This homework aims at giving you some experience on how to create Git branches, develop your project on multiple branches, merge them, resolve potential conflicts between different branches upon merging, and finally how to delete them. It also gives you some experience with using other commonly-used Git commands.
+Write your code sections of your answer in Markdown syntax.
+For example,&lt;br /&gt;
+&lt;code&gt;
+    ```bash  &lt;br /&gt;
+    $ git branch -d test  &lt;br /&gt;
+    error: Cannot delete branch 'test' checked out at 'C:/Users/Amir/git/foo'  &lt;br /&gt;
+    ```
+&lt;/code&gt;
+&lt;br /&gt;
+will display the following text highlighted as &lt;em&gt;bash&lt;/em&gt; code, in your &lt;em&gt;readme.md&lt;/em&gt; file.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git branch -d test
+error: Cannot delete branch 'test' checked out at 'C:/Users/Amir/git/foo'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Create two additional test branches in your project, each of which is branched directly from &lt;em&gt;master&lt;/em&gt;. &lt;strong&gt;For each of the following cases, write the command and the corresponding output message of Git, in Markdown language in a &lt;code&gt;readme.md&lt;/code&gt; file inside your &lt;code&gt;homework/2/&lt;/code&gt; folder in your master branch&lt;/strong&gt;. If you don’t have this folder in your project, then create the folder and then place your initial &lt;code&gt;readme.md&lt;/code&gt; file in this folder with your signature as the content of the file. Then stage and commit this file together with homework-2 folder to your local repository. Throughout the rest of this homework, you will fill this &lt;code&gt;readme.md&lt;/code&gt; file with your answers.&lt;/p&gt;
+
+&lt;p&gt;(A) Create two branches, &lt;strong&gt;both from your &lt;em&gt;master&lt;/em&gt; branch&lt;/strong&gt;, with names &lt;em&gt;test1&lt;/em&gt; and &lt;em&gt;test2&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git branch
+* master
+
+$ git branch test1
+
+$ git branch test2
+
+$ git branch
+* master
+  test1
+  test2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(B) Now checkout the &lt;em&gt;test1&lt;/em&gt; branch and create a new text file named &lt;code&gt;test.txt&lt;/code&gt; in the &lt;code&gt;homework/2/&lt;/code&gt; directory of this branch.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout test1
+Switched to branch 'test1'
+
+$ git status
+On branch test1
+nothing to commit, working tree clean
+
+$ ls
+readme.md
+
+$ touch test.txt
+
+$ ls
+readme.md  test.txt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(C) Inside &lt;code&gt;test.txt&lt;/code&gt; in &lt;em&gt;test1&lt;/em&gt; branch write this message: &lt;em&gt;This is some example text for branch test1&lt;/em&gt;, and save it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Use &lt;code&gt;vim test.txt&lt;/code&gt; to open &lt;em&gt;vim&lt;/em&gt; editor. Press &lt;code&gt;shift + I&lt;/code&gt; to switch to &lt;em&gt;vim insert mode&lt;/em&gt;. write &lt;em&gt;This is some example text for branch test1&lt;/em&gt; in &lt;code&gt;test.txt&lt;/code&gt; file. Now, Press &lt;code&gt;ESC&lt;/code&gt; key and write &lt;code&gt;:wq&lt;/code&gt; on the &lt;em&gt;vim&lt;/em&gt; command line to save the file and quit &lt;em&gt;vim&lt;/em&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(D) Now stage and commit &lt;code&gt;test.txt&lt;/code&gt; file to branch &lt;em&gt;test1&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git status
+On branch test1
+Untracked files:
+  (use &quot;git add &amp;lt;file&amp;gt;...&quot; to include in what will be committed)
+
+        test.txt
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+
+$ git add --all
+warning: LF will be replaced by CRLF in test.txt.
+The file will have its original line endings in your working directory.
+
+$ git commit -m&quot;commiting the test.txt file in test1 branch&quot;
+[test1 715ca59] commiting the test.txt file in test1 branch
+1 file changed, 1 insertion(+)
+create mode 100644 test.txt
+
+$ git status
+On branch test1
+nothing to commit, working tree clean
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(E) Checkout the branch &lt;em&gt;test2&lt;/em&gt;. Do you still see &lt;code&gt;test.txt&lt;/code&gt; that you just created in your &lt;code&gt;homework/2/&lt;/code&gt; directory? You can search for it by the &lt;em&gt;bash&lt;/em&gt; command &lt;code&gt;ls&lt;/code&gt;. Explain why you see/don’t see the file in your working directory anymore.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout test2
+Switched to branch 'test2'
+
+$ ls
+readme.md
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;test.txt&lt;/code&gt; files is not in the project’s working directory, since I just chaecked out a new branch &lt;em&gt;test2&lt;/em&gt; that does not contain any files that were generated and committed in &lt;em&gt;test1&lt;/em&gt; branch.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(F) Create a new text file named &lt;code&gt;test.txt&lt;/code&gt; in the &lt;code&gt;homework/2/&lt;/code&gt; directory of this branch as well, and add &lt;em&gt;This is some example text for branch test2&lt;/em&gt; to its content.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ touch test.txt
+
+$ vim test.txt
+
+$ git status
+On branch test2
+Untracked files:
+  (use &quot;git add &amp;lt;file&amp;gt;...&quot; to include in what will be committed)
+
+        test.txt
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The procedure for adding content to the file is very similar to that in part (C) of the problem, explained above.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(G) Now try to checkout &lt;em&gt;test1&lt;/em&gt;. What error/warning message do you get? Fix the source of error and then checkout &lt;em&gt;test1&lt;/em&gt; branch.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout test1
+error: The following untracked working tree files would be overwritten by checkout:
+        test.txt
+Please move or remove them before you switch branches.
+Aborting
+
+$ git add --all
+warning: LF will be replaced by CRLF in test.txt.
+The file will have its original line endings in your working directory.
+
+$ git commit -m&quot;commtting the test2 branch changes&quot;
+[test2 fce6a94] commtting the test2 branch changes
+1 file changed, 1 insertion(+)
+create mode 100644 test.txt
+
+$ git status
+On branch test2
+nothing to commit, working tree clean
+
+$ git checkout test1
+Switched to branch 'test1'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(H) Now merge the content of &lt;em&gt;test1&lt;/em&gt; with &lt;em&gt;master&lt;/em&gt; branch. (Hint: Note from which branch you doing this merge!)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout master
+Switched to branch 'master'
+
+$ ls
+readme.md
+
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+$ git merge test1
+Updating a661e87..715ca59
+Fast-forward
+ test.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test.txt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(I) Now what do you see as the content of &lt;em&gt;master&lt;/em&gt; branch? (Hint: Use &lt;code&gt;ls&lt;/code&gt; &lt;em&gt;bash&lt;/em&gt; command, to list the files in the working directory.)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ls
+readme.md  test.txt
+
+$ git status
+On branch master
+nothing to commit, working tree clean
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(J) Now merge the content of &lt;em&gt;test2&lt;/em&gt; with &lt;em&gt;master&lt;/em&gt; branch. What error/warning message do you get? Why does this error arise?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git merge test2
+Auto-merging test.txt
+CONFLICT (add/add): Merge conflict in test.txt
+Automatic merge failed; fix conflicts and then commit the result.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(K) Now chekcout &lt;em&gt;test2&lt;/em&gt;. What error/warning message do you get?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout test2
+test.txt: needs merge
+error: you need to resolve your current index first
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(L) Run the Git command &lt;code&gt;git status&lt;/code&gt;. Why does such a conflict exist, as mentioned in &lt;code&gt;git status&lt;/code&gt; output?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+Basically, by running &lt;code&gt;git merge test2&lt;/code&gt; command, we attempted to merge test.txt file of &lt;em&gt;test2&lt;/em&gt; branch with the existing &lt;code&gt;test.txt&lt;/code&gt; file of &lt;em&gt;master&lt;/em&gt; branch. But the content of the two is different.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(M) At this stage, you have two options: Either 1. stage and commit the combined conlifting &lt;code&gt;test.txt&lt;/code&gt; file to Git repository (but this is not recommended), or, 2. open the file &lt;code&gt;test.txt&lt;/code&gt; using &lt;em&gt;vim&lt;/em&gt; editor on the command line and reslve the conflict by editing the content of the file to only this sentence: &lt;em&gt;. Then save and quit *vim&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ vim test.txt
+
+$ cat test.txt
+This is some example text from both test1 and test2 branches combined.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;em&gt;bash&lt;/em&gt; command &lt;code&gt;cat&lt;/code&gt; shows the content of &lt;code&gt;text.txt&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(N) Now, run &lt;code&gt;git status&lt;/code&gt;, then stage and commit your conflict-resolved file. Then checkout &lt;em&gt;test2&lt;/em&gt; branch.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run &quot;git commit&quot;)
+  (use &quot;git merge --abort&quot; to abort the merge)
+
+Unmerged paths:
+  (use &quot;git add &amp;lt;file&amp;gt;...&quot; to mark resolution)
+
+        both added:      test.txt
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+
+$ git add test.txt
+
+$ git commit -m&quot;adding the test.txt resolution file&quot;
+[master 4c74098] adding the test.txt resolution file
+
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+$ git checkout test2
+Switched to branch 'test2'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(O) Now, try deleting branch &lt;em&gt;test1&lt;/em&gt;, while on branch &lt;em&gt;test2&lt;/em&gt;. What error/warning message do you get?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git branch -d test1
+error: The branch 'test1' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D test1'.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(P) Now, switch back to &lt;em&gt;master&lt;/em&gt; branch. Now, try deleting branch &lt;em&gt;test1&lt;/em&gt;, while on &lt;em&gt;master&lt;/em&gt; branch. What message do you get from Git? List all the existing branches using &lt;code&gt;git branch&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout master
+Switched to branch 'master'
+
+$ git branch
+* master
+  test2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(Q) Why is there such a difference in Git messages between when you tried deleting &lt;em&gt;test1&lt;/em&gt; branch from &lt;em&gt;test2&lt;/em&gt; branch, and when you tried deleting &lt;em&gt;test1&lt;/em&gt; branch from &lt;em&gt;master&lt;/em&gt; branch?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The difference arises, because whichever branch you are in, Git assumes that the content of any other branch should be first merged for the current branch before deteting the other branch. Therefore, in the first case, Git warns that there is unmerged data between &lt;em&gt;test1&lt;/em&gt; and &lt;em&gt;test2&lt;/em&gt; branches. But the delete command from &lt;em&gt;master&lt;/em&gt; branch gives no error, since the content of &lt;em&gt;test1&lt;/em&gt; branch has been previously appropriately merged with &lt;em&gt;master&lt;/em&gt; branch.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(R) Now checkout &lt;em&gt;test2&lt;/em&gt; branch. While on &lt;em&gt;test2&lt;/em&gt;, try to delete branch &lt;em&gt;test2&lt;/em&gt;. What error/message do you get?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout test2
+Switched to branch 'test2'
+
+$ git branch -d test2
+error: Cannot delete branch 'test2' checked out at '~/test'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(S) Switch back to &lt;em&gt;master&lt;/em&gt; and delete &lt;em&gt;test2&lt;/em&gt; branch. List all your project branches by the approproiate Git command.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout master
+Switched to branch 'master'
+
+$ git branch -d test2
+Deleted branch test2 (was fce6a94).
+
+$ git branch
+* master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(T) Stage and commit all the changes (including the file &lt;code&gt;test.txt&lt;/code&gt;) to your project’s &lt;em&gt;master&lt;/em&gt; branch. Now push it all to the remote repository by Wednesday Feb 15 2017, 9:00 a.m. CDT.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git add --all
+
+$ git commit
+On branch master
+nothing to commit, working tree clean
+
+$ git push --all
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Create a &lt;em&gt;gh-pages&lt;/em&gt; branch for your project from master branch, such that your project is accessible through its web address based on the content of &lt;em&gt;gh-pages&lt;/em&gt; branch, not based on the content of &lt;em&gt;master&lt;/em&gt; branch.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+Ask me in class and I will explain how to do it.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/2-advanced-git-solution&quot;&gt;Homework 2: Solution&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 15, 2017.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
