@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-02-15T09:09:13-06:00</updated>
+<updated>2017-02-16T11:09:59-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -52,6 +52,99 @@ Don’t forget to push your answers to your remote repository by the end of quiz
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/3-advanced-git&quot;&gt;Quiz 3: Advanced Git&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 15, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Quiz 3: Solution]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/quiz/3-advanced-git-solution"/>
+  <id>http:/ECL2017S/quiz/3-advanced-git-solution</id>
+  <published>2017-02-15T00:00:00-06:00</published>
+  <updated>2017-02-15T00:00:00-06:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This is the solution to &lt;a href=&quot;3-advanced-git.html&quot; target=&quot;_blank&quot;&gt;Quiz 3: Version control system&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--
+The following figure illustrates the grade distribution for this quiz.  
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/quiz/gradeDist/gradeHistQuiz3.png&quot; width=&quot;700&quot;&gt;
+    &lt;figcaption style=&quot;text-align:center&quot;&gt;
+        Maximum possible points is 100.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+--&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;This quiz aims at testing your knowledge of advanced Git commands, such as branching.
+Don’t forget to push your answers to your remote repository by the end of quiz time.&lt;br /&gt;
+Push your quiz-3 &lt;em&gt;readme.md&lt;/em&gt; file to quiz/3/ folder in your Github project.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Write down two out of the three different existing commands for getting help about &lt;code&gt;git add&lt;/code&gt; command.&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git add --help
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git help add
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ man git-add
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Write down the Git command that gives information about the last 3 commits in the project’s history.&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git log -3
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Write down a shortcut Git command that creates a new branch &lt;em&gt;development&lt;/em&gt; and switches to it automatically.&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git checkout -b development
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Write down the Git command for deleting the branch &lt;em&gt;development&lt;/em&gt;.&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git branch -d development
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Is it possible to delete a Git branch while the branch is already checked out to the working directory?&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+No. One cannot delete a branch while it is checked out to the working directory.&lt;br /&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;What is the Git command that lists ALL tags in the project?&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git tag
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Name the three different generations (not different software) of Version Control Systems ever developed. If you don’t remember the exact names, you can instead briefly explain how each VCS paradigm works.&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+Local VCS, Centralized VCS, Distributed VCS. For details of each VCS paradigm see &lt;a href=&quot;http://localhost:4000/lecture/1-version-control-system&quot; target=&quot;_blank&quot;&gt;this lecture&lt;/a&gt;.
+&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/3-advanced-git-solution&quot;&gt;Quiz 3: Solution&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 15, 2017.&lt;/p&gt;</content>
 </entry>
 
 

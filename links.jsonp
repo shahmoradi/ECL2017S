@@ -2,6 +2,11 @@
 callback([
 
   {
+    "text": "Quiz 3: Solution",
+    "href": "/ECL2017S/quiz/3-advanced-git-solution"
+  } ,
+
+  {
     "text": "Quiz 3: Advanced Git",
     "href": "/ECL2017S/quiz/3-advanced-git"
   } ,
