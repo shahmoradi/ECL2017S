@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-02-16T11:09:59-06:00</updated>
+<updated>2017-02-16T19:18:32-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -682,6 +682,52 @@ Ask me in class and I will explain how to do it.&lt;/p&gt;
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/2-advanced-git-solution&quot;&gt;Homework 2: Solution&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 15, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Announcement 2: Course Progress Evaluation]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/announcement/2-course-progress-evaluation"/>
+  <id>http:/ECL2017S/announcement/2-course-progress-evaluation</id>
+  <published>2017-02-15T00:00:00-06:00</published>
+  <updated>2017-02-15T00:00:00-06:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;The goal of this survey is to assess your progress so far in this class, and make improvements for the rest of the semester. I rely on your answers and comments to plan for the rest of the semester, so your response and time is appreciated very much!&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+    &lt;script&gt;
+        (function(t,e,c,s){var n,o,r;t.SMCX=t.SMCX||[],e.getElementById(s)||(n=e.getElementsByTagName(c),o=n[n.length-1],r=e.createElement(c),r.type=&quot;text/javascript&quot;,r.async=!0,r.id=s,r.src=[&quot;https:&quot;===location.protocol?&quot;https://&quot;:&quot;http://&quot;,&quot;widget.surveymonkey.com/collect/website/js/d5UY2kDTFxF8A6NQ_2FJ1Vhv2wmTNczXVXxO4ZZ3HU2PQyfRykxLg0hcBrFYhQfcsr.js&quot;].join(&quot;&quot;),o.parentNode.insertBefore(r,o))})(window,document,&quot;script&quot;,&quot;smcx-sdk&quot;)
+    &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;!--
+## Survey results
+The following are the results of the two questions of the survey. The total respondents for both questions were 21. It appears that almost everyone in class, knows at least one programming language at medium level. Also it appears that almost everyone in this class is in love with Python!
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/announcement/1/programmingExperience.png&quot; width=&quot;700&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/announcement/1/programmingExperienceStat.png&quot; width=&quot;700&quot;&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/announcement/1/favoriteLanguage.png&quot; width=&quot;700&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/announcement/1/favoriteLanguageStat.png&quot; width=&quot;700&quot;&gt;
+&lt;/figure&gt;
+
+&lt;br&gt;
+--&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/announcement/2-course-progress-evaluation&quot;&gt;Announcement 2: Course Progress Evaluation&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 15, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -2389,8 +2435,8 @@ Now, with the Git knowledge you have gained in class, create a &lt;em&gt;private
 
 <entry>
   <title type="html"><![CDATA[Announcement 1: Assessing your programming knowledge and interests]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/announcement/1-assessing-your-programming-knowledge-and-interests"/>
-  <id>http:/ECL2017S/announcement/1-assessing-your-programming-knowledge-and-interests</id>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/announcement/1-assessing-your-programming-knowledge-and-interests-Copy"/>
+  <id>http:/ECL2017S/announcement/1-assessing-your-programming-knowledge-and-interests - Copy</id>
   <published>2017-01-18T00:00:00-06:00</published>
   <updated>2017-01-18T00:00:00-06:00</updated>
   <author>
@@ -2427,7 +2473,7 @@ Now, with the Git knowledge you have gained in class, create a &lt;em&gt;private
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/announcement/1-assessing-your-programming-knowledge-and-interests&quot;&gt;Announcement 1: Assessing your programming knowledge and interests&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on January 18, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/announcement/1-assessing-your-programming-knowledge-and-interests-Copy&quot;&gt;Announcement 1: Assessing your programming knowledge and interests&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on January 18, 2017.&lt;/p&gt;</content>
 </entry>
 
 
