@@ -136,13 +136,21 @@
     <ul>
       <li><a href="#installation-basic">Basic Python installation</a></li>
       <li><a href="#installation-recommended">Recommended Python installation</a></li>
+      <li><a href="#package-installation">Installing external Python packages</a></li>
       <li><a href="#IDE">Python editors and IDEs</a></li>
       <li><a href="#version">Which Python version should you use?</a></li>
     </ul>
   </li>
+  <li><a href="#jupyter-setup-device">Setting up Jupyter</a>
+    <ul>
+      <li><a href="#jupyter-setup">Running Jupyter on Personal Device</a></li>
+      <li><a href="#jupyter-setup-online">Running Jupyter online</a></li>
+      <li><a href="#jupyter-helpful-commands">IPython / Jupyter helpful commands</a></li>
+      <li><a href="#jupyter-shortcuts">Jupyter cheatsheet and keyboard shortcuts</a>
+<br /></li>
+    </ul>
+  </li>
 </ul>
-
-<p><br /></p>
 
 <p><a name="history"></a></p>
 <h2 id="python-a-brief-history">Python: a brief history</h2>
@@ -220,6 +228,10 @@ The latest version of Anaconda includes an easy installation of Python (2.7.13, 
   <li><a href="https://www.enthought.com/products/canopy/" target="_blank"><strong>Canopy Python</strong></a> from <a href="https://www.enthought.com/" target="_blank">Enthought Canopy</a>. According to the company, Canopy Python is a comprehensive Python analysis environment that provides easy installation of over 450 core scientific analytic and Python packages, creating a robust platform you can explore, develop, and visualize on. In addition to its pre-built, tested Python distribution. Enthought Canopy has tools for iterative data analysis, visualization and application development. Like Anaconda, Canopy has free and licensed versions available for purchase.</li>
 </ul>
 
+<p><a name="package-installation"></a></p>
+<h3 id="installing-external-python-packages">Installing external Python packages</h3>
+<p>One of the greatest advantages and reasons for the popularity of Python over other languages is the extensive set of libraries that have been written for Python over the past two decades. As a professional Python programmer, you will virtually always need some of these packages. In any event you need a Python library that is not already installed on your device, you can get the instructions for Linux installation from <a href="https://packaging.python.org/installing/" target="_blank">this page</a>. For Windows devices, you can get precompiled version of Python external libraries, ready for installation, from <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank">Christoph Gohlke’s personal website</a>.</p>
+
 <p><a name="IDE"></a></p>
 <h3 id="python-editors-and-ides">Python editors and IDEs</h3>
 <p>The simple Python code editor, IDLE, that comes with the basic CPython distribution of Python is most not enough helpful for educational and professional programming. As a result, a myriad of Python code editors and IDEs have been also developed over the past decade. A rather complete list of most popular Python IDEs can be found <a href="https://wiki.python.org/moin/PythonEditors" target="_blank">here</a> and <a href="https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python" target="_blank">here</a>. Some of the most useful for our class and your future professional use are likely the following:</p>
@@ -248,7 +260,399 @@ The last, but in-my-opinion not least, important Python editor is Notepad++. It 
 <p>Like any other programming language, Python has also evolved significantly since its inception in 1991. Normally, a good prgramming language should be backward-compatible, meaning that the newer programming standard should not violate the previous standards. For example, an old Python code should be executable on the most recent Python standard implementation. Sometimes however, with some programming language evolutions, this is not the case. It probably happens to all languages that some time, the new standard violates the older standard syntax of the language, causing runtime and compile-time error for an old-standard code.</p>
 
 <p>For Python standards, this backward-incompatibility occurred between Python versions 2.x and 3.x. A list of the key differences between the two standards can be found <a href="http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html" target="_blank">here</a>. If you would like to know which Python version is likely most useful for your future professional project, consult <a href="https://wiki.python.org/moin/Python2orPython3" target="_blank">this page</a>. However, it is important to keep in mind that <strong>Python 2.x standard is legacy, and Python 3.x is the present and future of the Python language</strong>. By year 2020, the offical plan is to cut the security updates and support for Python 2.x and most of the major Python packages have already started migrating to Python 3. Therefore, for the rest of this course we will be using Python 3 syntax.
-<br /><br /></p>
+<br /></p>
+
+<p><a name="jupyter-setup"></a></p>
+<h2 id="setting-up-jupyter">Setting up Jupyter</h2>
+<p>There are two ways to setup and run a Jpuyter notebook:</p>
+<ol>
+  <li>on your personal device</li>
+  <li>online on Jupyter website<br />
+<br />
+In the following, both methods will be explained.</li>
+</ol>
+
+<p><a name="jupyter-setup-device"></a></p>
+<h3 id="running-jupyter-on-personal-device">Running Jupyter on Personal Device</h3>
+
+<p>Now, if you have already installed Anaconda on you device, you should also have Jupyter and IPython installed automatically. To open a new Jupyter notebook, follow the instructions below (for Windows OS). For other OS, it would also be similar.</p>
+
+<p><strong>1.</strong> Open Windows’ start menu and search for jupyter.</p>
+<figure>
+	<img src="/ECL2017S/lecture/3/jupyter1.png" width="900" />
+    <figcaption style="text-align:justify">
+    </figcaption>
+</figure>
+<p><strong>2.</strong> By clicking on <code>Jupyter Notebook</code>, a Windows Command Prompt for Jupyter will open up, initializing the Jupyter server. Then a web browser window will open up on your default web browser. The content of this web page is a list of the content of your home directory on your personal device, as in the following figure.</p>
+<figure>
+	<img src="/ECL2017S/lecture/3/jupyter2.png" width="900" />
+    <figcaption style="text-align:justify">
+    </figcaption>
+</figure>
+<p><strong>3.</strong> Now click on the <code>new</code> tab on the top-right part of the page, and choose <code>python 3</code>. If you have installed Python 2 as well, you will also see an option for <code>Python 2</code>. But, for this course proceed with <code>Python 3</code>.</p>
+<figure>
+	<img src="/ECL2017S/lecture/3/jupyter3.png" width="900" />
+    <figcaption style="text-align:justify">
+    </figcaption>
+</figure>
+<p><strong>4.</strong> Once you choose and click on your Python version, a new browser tab will open, which contains your <strong>Jupyter notebook</strong>, as illustrated in the following figure.</p>
+<figure>
+	<img src="/ECL2017S/lecture/3/jupyter4.png" width="900" />
+    <figcaption style="text-align:justify">
+    </figcaption>
+</figure>
+<p>Your Jupyter notebook file is stored in the home direcotry of your device, likely with the name <code>Untitled.ipynb</code>. The very cool feature of Jupyter notebooks is that you can also export your notebook as a Markdown, PDF, HTML, or a single Python file (with <code>.py</code> extension), as illustrated in the figure below.</p>
+<figure>
+	<img src="/ECL2017S/lecture/3/jupyter5.png" width="900" />
+    <figcaption style="text-align:justify">
+    </figcaption>
+</figure>
+
+<p><a name="jupyter-setup-online"></a></p>
+<h3 id="running-jupyter-online">Running Jupyter online</h3>
+<p>The instructions for setting up your online Jupyter notebooks are very similar to the above for your local device, except the very first step, for which, instead of searching in Windows for Jupyter, you have to visit Jupyter’s website at <a href="https://try.jupyter.org/" target="_blank">https://try.jupyter.org/</a>.<br />
+<br /></p>
+
+<p><a name="jupyter-helpful-commands"></a></p>
+<h3 id="ipython--jupyter-helpful-commands">IPython / Jupyter helpful commands</h3>
+
+<p>Everytime you start IPython on your local device, the following list of IPython commands are shown on the command line.</p>
+<pre><code class="language-text">Amir@CCBB-Amir MINGW64 ~
+$ ipython
+Python 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)]
+Type "copyright", "credits" or "license" for more information.
+
+IPython 5.1.0 -- An enhanced Interactive Python.
+?         -&gt; Introduction and overview of IPython's features.
+%quickref -&gt; Quick reference.
+help      -&gt; Python's own help system.
+object?   -&gt; Details about 'object', use 'object??' for extra details.
+In [1]:
+</code></pre>
+<p><br />
+Since Jupyter is an extension of IPython, these commands are also executable in Jupyter notebooks. Here is an example for the last command <code>&lt;object&gt;?</code>.</p>
+<pre><code class="language-text">In [14]: test = 'test'
+
+In [15]: test?
+Type:        str
+String form: test
+Length:      4
+Docstring:
+str(object='') -&gt; str
+str(bytes_or_buffer[, encoding[, errors]]) -&gt; str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+</code></pre>
+<p><br /></p>
+<div class="center">
+<div class="rcbox">
+<b>ATTENTION</b><br /><br />
+ Note that each cell in Jupyter notebook, can contain either Python code or Markdown code, or any other code that you can select from the <i>code</i> dropdown menu at the top of the notebook.
+</div>
+</div>
+<p><br /></p>
+
+<p><a name="jupyter-shortcuts"></a></p>
+<h3 id="jupyter-cheatsheet-and-keyboard-shortcuts">Jupyter cheatsheet and keyboard shortcuts</h3>
+<p>There are may useful keyboard shortcuts in  Jupyter that facilitate editing and revising your Jupyter notebook cells. A Jupyter cheatsheet can be downloaded from <a href="https://www.cheatography.com/weidadeyue/cheat-sheets/jupyter-notebook/#downloads" target="_blank">here</a>. The following table is a summary of some of the most useful shortcuts, adopted from Jupyter website.</p>
+
+<table class="center">
+<caption class="title" style="padding-bottom:10px">
+Table 1: Some useful shortcuts for Jupyter cells in <i>view mode</i> (Press <code>ESC</code> to switch to view mode).
+</caption>
+<thead>
+<tr>
+<th>keyboard shortcut</th>
+<th>Description of effect</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+    <td>Enter</td>
+    <td>enter edit mode</td>
+</tr>
+
+<tr>
+    <td>Shift + Enter</td>
+    <td>run cell, select below</td>
+</tr>
+
+<tr>
+    <td>Ctrl + Enter</td>
+    <td>run cell</td>
+</tr>
+<tr>
+    <td>Alt + Enter</td>
+    <td>run cell, insert below</td>
+</tr>
+<tr>
+    <td>Y</td>
+    <td>to code</td>
+</tr>
+<tr>
+    <td>M</td>
+    <td>to markdown</td>
+</tr>
+<tr>
+    <td>R</td>
+    <td>to raw</td>
+</tr>
+<tr>
+    <td>1</td>
+    <td>to heading 1</td>
+</tr>
+<tr>
+    <td>2,3,4,5,6</td>
+    <td>to heading 2,3,4,5,6</td>
+</tr>
+<tr>
+    <td>Up/K</td>
+    <td>select cell above</td>
+</tr>
+<tr>
+    <td>Down/J</td>
+    <td>select cell below</td>
+</tr>
+<tr>
+    <td>A/B</td>
+    <td>insert cell above/below</td>
+</tr>
+<tr>
+    <td>X</td>
+    <td>cut selected cell</td>
+</tr>
+<tr>
+    <td>C</td>
+    <td>copy selected cell</td>
+</tr>
+<tr>
+    <td>Shift + V</td>
+    <td>paste cell above</td>
+</tr>
+<tr>
+    <td>V</td>
+    <td>paste cell below</td>
+</tr>
+<tr>
+    <td>Z</td>
+    <td>undo last cell deletion</td>
+</tr>
+<tr>
+    <td>D,D</td>
+    <td>delete selected cell</td>
+</tr>
+<tr>
+    <td>Shift + M</td>
+    <td>merge cell below</td>
+</tr>
+<tr>
+    <td>Ctrl + S</td>
+    <td>Save and Checkpoint</td>
+</tr>
+<tr>
+    <td>L</td>
+    <td>toggle line numbers</td>
+</tr>
+<tr>
+    <td>O</td>
+    <td>toggle output</td>
+</tr>
+<tr>
+    <td>Shift + O</td>
+    <td>toggle output scrolling</td>
+</tr>
+<tr>
+    <td>Esc</td>
+    <td>close pager</td>
+</tr>
+<tr>
+    <td>H</td>
+    <td>show keyboard shortcut help dialog</td>
+</tr>
+<tr>
+    <td>I,I</td>
+    <td>interrupt kernel</td>
+</tr>
+<tr>
+    <td>0,0</td>
+    <td>restart kernel</td>
+</tr>
+<tr>
+    <td>Space</td>
+    <td>scroll down</td>
+</tr>
+<tr>
+    <td>Shift + Space</td>
+    <td>scroll up</td>
+</tr>
+<tr>
+    <td>Shift</td>
+    <td>ignore</td>
+</tr>
+
+</tbody>
+</table>
+
+<p><br /><br /></p>
+
+<table class="center">
+<caption class="title" style="padding-bottom:10px">
+Table 2: Some useful shortcuts for Jupyter cells in <i>edit mode</i> (Press <code>enter</code> to switch to edit mode).
+</caption>
+<thead>
+<tr>
+<th>keyboard shortcut</th>
+<th>Description of effect</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+    <td>Tab</td>
+    <td>code completion or indent</td>
+</tr>
+
+<tr>
+    <td>Shift + Tab</td>
+    <td>tooltip</td>
+</tr>
+
+<tr>
+    <td>Ctrl + ]</td>
+    <td>indent</td>
+</tr>
+
+<tr>
+    <td>Ctrl + [</td>
+    <td>dedent</td>
+</tr>
+
+<tr>
+    <td>Ctrl + A</td>
+    <td>select all</td>
+</tr>
+
+<tr>
+    <td>Ctrl + Z</td>
+    <td>undo</td>
+</tr>
+
+<tr>
+    <td>Ctrl + Shift + Z</td>
+    <td>redo</td>
+</tr>
+
+<tr>
+    <td>Ctrl + Y</td>
+    <td>redo</td>
+</tr>
+
+<tr>
+    <td>Ctrl + Home</td>
+    <td>go to cell start</td>
+</tr>
+
+<tr>
+    <td>Ctrl + Up</td>
+    <td>go to cell start</td>
+</tr>
+
+<tr>
+    <td>Ctrl + End</td>
+    <td>go to cell end</td>
+</tr>
+
+<tr>
+    <td>Ctrl + Down</td>
+    <td>go to cell end</td>
+</tr>
+
+<tr>
+    <td>Ctrl + Left</td>
+    <td>go one word left</td>
+</tr>
+
+<tr>
+    <td>Ctrl + Right</td>
+    <td>go one word right</td>
+</tr>
+
+<tr>
+    <td>Ctrl + Backspace</td>
+    <td>delete word before</td>
+</tr>
+
+<tr>
+    <td>Ctrl + Delete</td>
+    <td>delete word after</td>
+</tr>
+
+<tr>
+    <td>Esc</td>
+    <td>command mode</td>
+</tr>
+
+<tr>
+    <td>Ctrl + M</td>
+    <td>command mode</td>
+</tr>
+
+<tr>
+    <td>Shift + Enter</td>
+    <td>run cell, select below</td>
+</tr>
+
+<tr>
+    <td>Ctrl + Enter</td>
+    <td>run cell</td>
+</tr>
+
+<tr>
+    <td>Alt + Enter</td>
+    <td>run cell, insert below</td>
+</tr>
+
+<tr>
+    <td>Ctrl + Shift + Subtract</td>
+    <td>split cell</td>
+</tr>
+
+<tr>
+    <td>Ctrl + Shift + -</td>
+    <td>split cell</td>
+</tr>
+
+<tr>
+    <td>Ctrl + S</td>
+    <td>Save and Checkpoint</td>
+</tr>
+
+<tr>
+    <td>Up</td>
+    <td>move cursor up or previous cell</td>
+</tr>
+
+<tr>
+    <td>Down</td>
+    <td>move cursor down or next cell</td>
+</tr>
+
+<tr>
+    <td>Ctrl + /</td>
+    <td>toggle comment on current or selected lines</td>
+</tr>
+
+</tbody>
+</table>
+
+<p><br /><br /></p>
 
             </div>
         </article>
@@ -324,8 +728,8 @@ The last, but in-my-opinion not least, important Python editor is Notepad++. It 
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2017 / 02 / 16</section></br> -->
-         <section>Last updated Thursday, 16 Feb 2017 at 07:20 PM CST</section></br>
+         <!-- <section>Last updated 2017 / 02 / 20</section></br> -->
+         <section>Last updated Monday, 20 Feb 2017 at 12:16 PM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>
