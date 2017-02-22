@@ -32,6 +32,11 @@ callback([
   } ,
 
   {
+    "text": "Lecture 4: Python - values, variables, and types",
+    "href": "/ECL2017S/lecture/4-python-values-variables-types"
+  } ,
+
+  {
     "text": "Lecture 3: Python for beginners",
     "href": "/ECL2017S/lecture/3-python-for-beginners"
   } ,

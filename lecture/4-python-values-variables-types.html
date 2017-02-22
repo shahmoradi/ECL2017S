@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>LECTURE 4: PYTHON - VALUES, VARIABLES, AND TYPES &vert; COE 111L - SPRING 2017</title>
+<meta name="description" content="Engineering Computation Lab">
+<meta name="keywords" content="">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/ECL2017S/images/logo.png">
+<meta name="twitter:title" content="Lecture 4: Python - values, variables, and types">
+<meta name="twitter:description" content="Engineering Computation Lab">
+<meta name="twitter:creator" content="@AmirShahmoradi">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lecture 4: Python - values, variables, and types">
+<meta property="og:description" content="Engineering Computation Lab">
+<meta property="og:url" content="/ECL2017S/lecture/4-python-values-variables-types">
+<meta property="og:site_name" content="COE 111L - Spring 2017">
+<meta property="og:image" content="/ECL2017S/images/">
+
+
+
+
+
+<link rel="canonical" href="/ECL2017S/lecture/4-python-values-variables-types">
+<!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 Feed"> -->
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,300,800,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/ECL2017S/assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/normalize.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/nprogress.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/foundation.min.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/style.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/post.css">
+
+
+
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/ECL2017S/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/ECL2017S/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/ECL2017S/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/ECL2017S/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/ECL2017S/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/ECL2017S/images/apple-touch-icon-144x144-precomposed.png">
+
+<!-- 
+<link href="/ECL2017S/assets/css/prismTwilight.css" rel="stylesheet" />
+<link href="/ECL2017S/assets/css/prismDefault.css" rel="stylesheet" />
+<link href="/ECL2017S/assets/css/prismCoy.css" rel="stylesheet" />
+-->
+<link href="/ECL2017S/assets/css/prismOkaidia.css" rel="stylesheet" />
+<style type="text/css">@media only screen and (min-width:43.75em){.notepad-post-content div>p:first-child:first-letter{float:left;font-size:4.688rem;line-height:4.375rem;padding-top:.25rem;padding-right:.5rem;padding-left:.188rem;font-family:serif}}</style>
+</head>
+<body class="post-template" itemscope itemtype="http://schema.org/WebPage">  
+
+        <main id="notepad-post-container-simple" class="notepad-post-container-simple" role="main">
+            <header class="notepad-post-header-simple">
+                <div class="notepad-post-menu-header-simple">
+
+                    <a class="notepad-blog-logo" href="http://www.shahmoradi.org" target="_blank"><img src="/ECL2017S/images/logo.png" alt="shahmoradi.org" /></a>
+
+                <div class="notepad-blog-menu">      
+    <div class="notepad-mobile-menu show-for-small">
+        <a href="#"><i class="fa fa-bars"></i></a>
+    </div>
+    <ul class="notepad-menu">
+        <li class="notepad-mobile-close-btn show-for-small text-right">
+            <a href="#"><i class="fa fa-times"></i></a>
+        </li>
+
+            <li>
+                    <a href="/ECL2017S/">Home</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/highlights">Highlights</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/categories">Categories</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/about">About</a>
+                 </li>
+            
+           <li><a href="/ECL2017S/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+    </ul>
+
+</div>
+            </div>
+
+                <div class="notepad-post-title-simple row">
+                    <div class="small-12 columns">
+                        <div class="notepad-post-meta-simple">
+                            <h2>Lecture 4: Python - values, variables, and types</h2>
+                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-02-22T00:00:00-06:00">22 Feb 2017</time></strong></p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+        <article class="notepad-post-content post tag-simple">
+            <div style="text-align:justify;"><p>This lecture aims at guiding you to understand the how to of programming, difference between programming languages and the natural languages, the type of programming errors and the meaning code debugging how to perform simple arithmetic operations on the Python command line. Throughout this course, I recommend you to use Jupyter for Python programming.</p>
+
+<!--
+- [Advanced Git cheatsheet](/ECL2017S/lecture/1/progit.en.pdf){:target="_blank"}
+#### Some useful links for future reference:
+
+- [Advanced Git cheatsheet](http://ndpsoftware.com/git-cheatsheet.html){:target="_blank"}
+-->
+
+<h4 id="table-of-content">Table of Content</h4>
+<ul>
+  <li><a href="#glossary">Programming glossary</a></li>
+  <li><a href="#program-content">The content of a computer program</a></li>
+  <li><a href="#program-debugging">Debugging a program</a></li>
+  <li><a href="#first-python-program">The first Python program</a>
+    <ul>
+      <li><a href="#ways-to-run-python-program">Methods of running a Python program</a></li>
+    </ul>
+  </li>
+  <li><a href="#python-as-simple-calculator">Python interpreter as a simple calculator</a>
+    <ul>
+      <li><a href="#python-values-types">Values and their types in Python</a></li>
+      <li><a href="#python-variables-types">Variables and their types in Python</a>
+<br /></li>
+    </ul>
+  </li>
+</ul>
+
+<p><a name="glossary"></a></p>
+<h2 id="programming-glossary">Programming glossary</h2>
+<p>The following table contains some technical programming phrases that are often used and heard in the field of computer science and programming, that you need to be familiar as well.</p>
+
+<table class="center">
+<caption class="title" style="padding-bottom:10px;text-align:center;">
+Table 1. Some programming phrases that are discussed in this lecture. The boldface words in the description column indicate items that are expressions with their own description in this table.
+</caption>
+<thead>
+<tr>
+<th><font size="4rm" color="red">Expression</font></th>
+<th><font size="4rm" color="red">Description</font></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+    <td><b>algorithm</b></td>
+    <td>A general method for solving a class of problems.</td>
+</tr>
+<tr>
+    <td><b>bug</b></td>
+    <td>An error in <b>program</b> that has to be resolved for successful execution of the program.</td>
+</tr>
+<tr>
+    <td><b>compiled language</b></td>
+    <td>A programming language whose programs need to be compiled by a <b>compiler</b> in order to run.</td>
+</tr>
+<tr>
+    <td><b>compiler</b></td>
+    <td>A software that translates an entire high-level program into a lower-level language to make it <b>executable</b>.</td>
+</tr>
+<tr>
+    <td><b>debugging</b></td>
+    <td>The process of finding and removing any type of error in the program.</td>
+</tr>
+<tr>
+    <td><b>exception</b></td>
+    <td>An alternative name for <b>runtime error</b> in the program.</td>
+</tr>
+<tr>
+    <td><b>executable</b></td>
+    <td>An <b>object code</b>, ready to be executed. Generally has the file extension <code>.exe</code> or <code>.out</code> or no extension at all.</td>
+</tr>
+<tr>
+    <td><b>formal language</b></td>
+    <td>A language that is intentionally designed for specific purposes, which, unlike <b>natural languages</b>, follows a strict standard.</td>
+</tr>
+<tr>
+    <td><b>high-level language</b></td>
+    <td>A programming language (e.g., Python, Fortran, Java, etc) that has high level of abstraction from the underlying hardware.</td>
+</tr>
+<tr>
+    <td><b>interpreted language</b></td>
+    <td>A programming language whose statements are interpreted line-by-line by an <b>interpreter</b> and immediately executed.</td>
+</tr>
+<tr>
+    <td><b>low-level language</b></td>
+    <td>A programming language that has a low-level of abstraction from computer hardware and architecture, such as Assembly. Very close to machine code.</td>
+</tr>
+<tr>
+    <td><b>natural language</b></td>
+    <td>A language that evolves naturally, and has looser <b>syntax</b> rules and standard compared to <b>formal languages</b>.</td>
+</tr>
+<tr>
+    <td><b>object code</b></td>
+    <td>The output of a compiler after translating a program.</td>
+</tr>
+<tr>
+    <td><b>parsing</b></td>
+    <td>Reading and examining a file/program and analyzing the syntactic structure of the file/program.</td>
+</tr>
+<tr>
+    <td><b>portability</b></td>
+    <td>A program's ability to be exucatable on more than one kind of computer architecture, without changing the code.</td>
+</tr>
+<tr>
+    <td><b>problem solving</b></td>
+    <td>The process of formulating a problem and finding and expressing a solution to it.</td>
+</tr>
+<tr>
+    <td><b>program</b></td>
+    <td>A set of instructions in a that together specify an algorithm a computation.</td>
+</tr>
+<tr>
+    <td><b>runtime error</b></td>
+    <td>An error that does not arise and cause the program to stop, until the program has started to execute.</td>
+</tr>
+<tr>
+    <td><b>script</b></td>
+    <td>A program in an <b>interpreted language</b> stored in a file.</td>
+</tr>
+<tr>
+    <td><b>semantic error</b></td>
+    <td>A type of error in a program that makes the program do something other than what was intended. Catching these errors can be very tricky.</td>
+</tr>
+<tr>
+    <td><b>semantics</b></td>
+    <td>The meaning of a program.</td>
+</tr>
+<tr>
+    <td><b>source code</b></td>
+    <td>A program in a high-level compiled language, before being compiled by the <b>compiler</b>.</td>
+</tr>
+<tr>
+    <td><b>syntax error</b></td>
+    <td>A type of error in program that violates the standard <b>syntax</b> of the programming language, and hence, the program cannot be interpreted or compiled until the syntax error is resolved.</td>
+</tr>
+<tr>
+    <td><b>syntax</b></td>
+    <td>The structure of a program.</td>
+</tr>
+<tr>
+    <td><b>token</b></td>
+    <td>One of the basic elements of the syntactic structure of a program, in analogy with <i>word</i> in a <b>natural language</b>.</td>
+</tr>
+
+</tbody>
+</table>
+<p><br /></p>
+
+<p><a name="program-content"></a></p>
+<h2 id="the-content-of-a-computer-program">The content of a computer program</h2>
+<p>Although different programming languages look different in their syntax standards, virtually all programming languages are comprised of the following major compnents (instructions):</p>
+<ol>
+  <li><strong>input</strong><br />
+  Virtually every program starts with some input data by the user, or the input data that is <a href="https://en.wikipedia.org/wiki/Hard_coding" target="_blank">hard-coded</a> in the program.<br />
+<br /></li>
+  <li><strong>mathematical/logical operations</strong><br />
+  Virtually all programs involve some sort of mathemtical or logical operations on the input data to the program.<br />
+<br /></li>
+  <li><strong>conditional execution</strong><br />
+  In order to perform the above operations on data, most often (but not always) there is a need to chack if some conditions are met in the program, and then perform specific programming instructions corresponding to each of the conditions.<br />
+<br /></li>
+  <li><strong>repetition / looping</strong><br />
+  Frequently it is needed to perform a specific set of operations repeatedly in the program to achive the program’s goal.<br />
+<br /></li>
+  <li><strong>output</strong><br />
+  At the end of the program, it is always needed to output the program result, either to computer screen, or to a file.<br />
+<br /></li>
+</ol>
+
+<p><a name="program-debugging"></a></p>
+<h2 id="debugging-a-program">Debugging a program</h2>
+<p><br />
+As it is obvious from its name, a <strong>bug</strong> in a computer program is annoying programming error that needs fixing in order for the program to become executable <strong>or</strong> to give out the correct answer. The process of removing program bugs is called debugging. There are basically three types of programming bugs (errors):</p>
+
+<ol>
+  <li><strong>syntax error</strong><br />
+<br />
+A program, wether interpreted or compiled, can be succesfully run only if it is <em>syntactically correct</em>. Syntax errors are related to the structure and standard of the language, and the order by which the language <strong>tokens</strong> are allowed to appear in the code. For example, the following Python <code>print</code> statement is a syntax error in Python 3 standard, whereas it was considered to be the correct syntax for <code>print</code> in Python 2 standard.<br />
+<br />
+    <pre><code class="language-python">In [21]: print 'Hello World!'
+  File "&lt;ipython-input-21-10fdc521e430&gt;", line 1
+ print 'Hello World!'
+                    ^
+SyntaxError: Missing parentheses in call to 'print'
+</code></pre>
+    <p><br />
+The syntactically correct usage of <code>print</code> in Python 3 would be,</p>
+    <pre><code class="language-python">In [22]: print ('Hello World!')  
+Hello World!
+</code></pre>
+    <p><br /></p>
+  </li>
+  <li><strong>runtime error</strong><br />
+<br />
+Runtime errors or sometimes also named <strong>exceptions</strong> are a class of programming errors that can be detected only at the time of running the code, that is, they are not syntax errors. Examples include:<br />
+<br />
+    <ul>
+      <li>memory leaks (very common error in beginner C and C++ codes)</li>
+      <li>uninitialized memory</li>
+      <li>access request to illigal memory address of the computer</li>
+      <li>security attack vulnerabilities</li>
+      <li>buffer overflow
+<br />
+These errors can be sometimes tricky to identify.<br />
+<br /></li>
+    </ul>
+  </li>
+  <li><strong>semantic error</strong>
+<br />
+Unlike syntax errors that comprise of something the compiler/interpreter does not understand, semantic errors do not cause any compiler/interpreter error messages. However, the resulting compiled/interpreted code will NOT do what it is intended to do. Semantic errors are the most dangerous types of programming errors, as they do not raise any error flag by the compiler/interpreter, yet the program will not do what it is intended to do, although the code may look perfectly fine on its face. Semantic error is almost synonymous with <strong>logical error</strong>. Dividing two integers using the regular division operator <code>/</code> in Python 2 and expecting the result to be real, would result in a semantic error. This is because in Python 2 standard, the regular division operator is equivalent to <strong>integer division</strong> for integer operands:<br />
+<br />
+In Python 2,
+    <pre><code class="language-python">In [23]: 2/7
+Out[23]: 0
+</code></pre>
+    <p><br />
+Whereas, you might have really meant a <strong>float division</strong> by using <code>/</code>, as in Python 3,</p>
+    <pre><code class="language-python">In [24]: 2/7
+Out[24]: 0.2857142857142857
+</code></pre>
+    <p><br /></p>
+  </li>
+</ol>
+
+<p><a name="first-python-program"></a></p>
+<h2 id="the-first-python-program">The first Python program</h2>
+<p><br />
+The traditional first program in Python language has the following form.</p>
+<pre><code class="language-python">In [25]: print ('Hello World!')  
+Hello World!
+</code></pre>
+<p><br />
+<a name="ways-to-run-python-program"></a></p>
+<h3 id="methods-of-running-a-python-program">Methods of running a Python program</h3>
+<p><br /></p>
+<ol>
+  <li><strong>Running Python code on the Python interpreter’s command prompt:</strong><br />
+Now, as you may have noticed, in the above example, I used IPython command line to code my first simple Python program. This is one of the simplest and quickest method of Python coding and is actually very useful for testing small simple Python ideas and code snippets on-the-fly.<br />
+<br /></li>
+  <li><strong>Running Python code inside a Python file Python from the Bash command line:</strong><br />
+As the program size grows, it wiser to put all of your Python script into a single file, and then let the Python interpreter run (i.e., interpret) your entire file all at once. To save the above simple “Hello World” Python code in a file and run it, open a Bash command prompt, then use the Bash <code>cat</code> command to create and add the Python command to your Python file as in the following (On Windows devices, you can use the Git command prompt).<br />
+<br />
+    <pre><code class="language-bash">Amir@CCBB-Amir MINGW64 ~
+$ cat &gt;&gt; firstPythonCode.py &lt;&lt; EOF
+print ('Hello World!')
+EOF
+</code></pre>
+    <p><br />
+Then you can use call python interpreter from the Bash command line to execute your Python code.</p>
+    <pre><code class="language-bash">$ python firstPythonCode.py
+python firstPythonCode.py
+Hello World!
+</code></pre>
+    <p><br /></p>
+  </li>
+  <li><strong>Running Python code inside a Python file from the Bash command line as an standalone executable:</strong><br />
+You can also avoid typing the name of the interpreter (<code>python</code>) in order to run your code by adding the following <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)" target="_blank">shebang</a> at the top of your Python script, like the following.<br />
+<br />
+    <pre><code class="language-bash">$ cat &gt;&gt; firstPythonCodeWithShebang.py &lt;&lt; EOF
+#!/usr/bin/env python
+print ('Hello World!')
+print ('This is a Python script with Shebang!')
+EOF
+</code></pre>
+    <p><br />
+The result is that now you can run your Python script without the interpreter’s name, as an executable file:</p>
+    <pre><code class="language-bash">$ ./firstPythonCodeWithShebang.py
+Hello World!
+This is a Python script with Shebang!
+</code></pre>
+    <p><br />
+Note that <em>shebang</em> directive only works under Unix/Linux operating systems and command prompts (not windows). When a Python script with a shebang is run as a program, the program loader parses the rest of the script’s initial line as an interpreter directive. The specified interpreter program is run instead, passing to it as an argument the path that was initially used when attempting to run the script.<br />
+<br />
+On the other hand, if you try to run your original code (without Shebang) as an executable without Python interpreter name, you will get an error message like the following,</p>
+    <pre><code class="language-bash">Amir@CCBB-Amir MINGW64 ~
+$ ./firstPythonCode.py
+./firstPythonCode.py: line 1: syntax error near unexpected token `'Hello World!''
+./firstPythonCode.py: line 1: `print ('Hello World!')'
+</code></pre>
+    <p><br /></p>
+  </li>
+  <li><strong>Running Python code inside a Python file by first compiling it to bytecode from the command line:</strong><br />
+You can also compile your Python script into a bytecode. This is however, a topic of a future lecture.<br />
+<br /></li>
+</ol>
+
+<p><a name="python-as-simple-calculator"></a></p>
+<h2 id="python-interpreter-as-a-simple-calculator">Python interpreter as a simple calculator</h2>
+<p>One of the greatest advantages of Python is that it can be used as a simple calculator and program interpreter on-the-fly, just like MATLAB, Mathematica, R, and other scripting languages. In the following, you will see why and how.<br />
+<br /></p>
+
+<p><a name="python-values-types"></a></p>
+<h3 id="values-and-their-types-in-python">Values and their types in Python</h3>
+<p>Values are one of the most fundamental entities in programming. Like any other language, a value in Python can be of  different types, most importantly <strong>Numeric</strong> (plain integer, long integer, float (real number), complex), <strong>Boolean</strong> (logical) which is a subtype of Numeric, or <strong>String</strong>.</p>
+
+<p>The following are a few example arithmetic operations with values in Python. You can perform very simple arithmetic on the Python command line, and the result immediately by pressing <code>enter</code>.</p>
+
+<pre><code class="language-python">2 + 5 # Just typing some comment on the Python command line. Anything after # is a comment and will be ignored.
+</code></pre>
+<pre><code>7
+</code></pre>
+
+<pre><code class="language-python">2 - 7 # difference
+</code></pre>
+<pre><code>-5
+</code></pre>
+
+<pre><code class="language-python">2 * 7 # product
+</code></pre>
+<pre><code>14
+</code></pre>
+
+<h4 id="obtaining-the-type-of-a-value">Obtaining the type of a value</h4>
+<p>You can use the Python’s built-in function <code>type</code> to get the type of a value in Python (Of course, this is somewhat obvious and redundant for a value as we already readily know the type of a value).</p>
+<pre><code class="language-python">type(2*7) # type function gives you the type of the input object to function "type"
+</code></pre>
+<pre><code>int ```python type('This is a Python string') # a string value in Python ```
+str
+</code></pre>
+
+<pre><code class="language-python">type("This is a Python string") # you can also use quotation marks for representing string values, but keep in mind to be consistent!
+</code></pre>
+<pre><code>str
+</code></pre>
+
+<pre><code class="language-python">type(True) # type of a boolean True value
+</code></pre>
+<pre><code>bool
+</code></pre>
+
+<pre><code class="language-python">type(True) # type of a boolean False value
+</code></pre>
+<pre><code>bool
+</code></pre>
+
+<h4 id="value-coercion">Value coercion</h4>
+<p>Value coercion is the <strong>implicit</strong> process by which a the Python interpreter/compiler automatically converts a value of one type into a value of another type when that second type is required by the surrounding context. For example:</p>
+
+<pre><code class="language-python">2.0 * 7 # Note that the product of float and integer, is coerced into a float.
+type(2.*7)
+</code></pre>
+<pre><code>14.0
+float
+</code></pre>
+
+<pre><code class="language-python">2 / 7 # floating point division (in Python 3!).
+</code></pre>
+<pre><code>0.2857142857142857
+</code></pre>
+
+<div class="center">
+    <div class="rcbox" style="text-align:center">
+        <b>ATTENTION: Python 2 Alert!</b><br /><br />
+        In Python 2, the above division would give you 0, that is, in Python 2, the division operator performs an <i>integer division</i> for two input integer operands.
+        <br /><br />
+        <b>
+        I recommend you to always coerce the result into float (if float is what you demand) by adding a decimal point to one of the operands in your operation.
+        </b>
+    </div>
+</div>
+<p><br /></p>
+
+<pre><code class="language-python">2.0 / 7 # Also floating point division
+</code></pre>
+<pre><code>0.2857142857142857
+</code></pre>
+
+<pre><code class="language-python">2 // 7 #  integer division, or floor division
+</code></pre>
+<pre><code>0
+</code></pre>
+
+<pre><code class="language-python">2.0 // 7.0
+</code></pre>
+<pre><code>0.0
+</code></pre>
+
+<pre><code class="language-python">12 // 7 #  another integer division, or floor division
+</code></pre>
+<pre><code>1
+</code></pre>
+
+<pre><code class="language-python">12.0 // 7 #  Also a integer division, or floor division, BUT NOTE THAT the output is now a real number 
+</code></pre>
+<pre><code>1.0
+</code></pre>
+
+<p><span style="color:red"><strong>Summary of difference in division between Python 2 and Python 3:</strong></span><br />
+Note that there is a difference between Python 2 and 3 for <strong>integer division</strong>.</p>
+
+<h3 id="python-2">Python 2</h3>
+<p><strong>input:</strong></p>
+<pre><code class="language-python">print 'Python', python_version()
+print '3 / 2 =', 3 / 2
+print '3 // 2 =', 3 // 2
+print '3 / 2.0 =', 3 / 2.0
+print '3 // 2.0 =', 3 // 2.0
+</code></pre>
+<p><br />
+<strong>output:</strong></p>
+<pre><code>Python 2.7.6
+3 / 2 = 1
+3 // 2 = 1
+3 / 2.0 = 1.5
+3 // 2.0 = 1.0
+</code></pre>
+
+<h3 id="python-3">Python 3</h3>
+<p><strong>input:</strong></p>
+<pre><code class="language-python">print('Python', python_version())
+print('3 / 2 =', 3 / 2)
+print('3 // 2 =', 3 // 2)
+print('3 / 2.0 =', 3 / 2.0)
+print('3 // 2.0 =', 3 // 2.0)
+</code></pre>
+<p><br />
+<strong>output:</strong></p>
+<pre><code>Python 3.5.2
+3 / 2 = 1.5
+3 // 2 = 1
+3 / 2.0 = 1.5
+3 // 2.0 = 1.0
+</code></pre>
+
+<p>In other words, in <strong>Python 3</strong>, 3 / 2  performs a <strong>floating point division</strong>, whereas in <strong>Python 2</strong>, 3 / 2  performs a <strong>floor division</strong>, also called <strong>integer division</strong>.<br />
+<br /></p>
+
+<div class="center">
+    <div class="rcbox" style="text-align:center">
+        <b>NOTE</b><br /><br />
+        If you want to get the Python version you are using, use the following commands. The first command imports from the Python <b>platform</b> module, the command <b>python_version</b>. Later on, we will discuss what Python modules are and how and why you should use them.
+    </div>
+</div>
+<p><br /></p>
+<pre><code class="language-python">from platform import python_version
+python_version()
+
+</code></pre>
+<pre><code>'3.5.2'
+</code></pre>
+
+<pre><code class="language-python">2**7 # This is an exponentiation operation. The notation is taken from Fortran exponentiation
+</code></pre>
+<pre><code>128
+</code></pre>
+
+<pre><code class="language-python">2.0**7 # This is a float exponentiation.
+</code></pre>
+<pre><code>128.0
+</code></pre>
+
+<pre><code class="language-python">2**7.0 # ATTN: Avoid this format, if not necessary.
+</code></pre>
+<pre><code>128.0
+</code></pre>
+
+<pre><code class="language-python">12 % 7  # This is a remainder operation
+</code></pre>
+<pre><code>5
+</code></pre>
+
+<pre><code class="language-python">12.0 % 7 # Another remainder operation, with its result coerced into float
+</code></pre>
+<pre><code>5.0
+</code></pre>
+
+<h4 id="some-useful-built-in-operationsfunctions-in-python">Some useful built-in operations/functions in Python</h4>
+
+<pre><code class="language-python">pow(2,7) # same operation as 2**7. This is the same exponentiation function as in C language.
+</code></pre>
+<pre><code>128
+</code></pre>
+
+<pre><code class="language-python">pow(2.0,7) # same thing but now the result is coerced into float
+</code></pre>
+<pre><code>128.0
+</code></pre>
+
+<pre><code class="language-python">abs(-999) # absolute value
+</code></pre>
+<pre><code>999
+</code></pre>
+
+<pre><code class="language-python">int(-999.9) # removes the decmial points and keeps the integer part
+</code></pre>
+<pre><code>-999
+</code></pre>
+
+<pre><code class="language-python">int(999.9) # removes the decmial points and keeps the integer part
+</code></pre>
+<pre><code>999
+</code></pre>
+
+<pre><code class="language-python">complex(-999.9) # complex number with real part -999.9 and no (zero) imaginary part
+</code></pre>
+<pre><code>(-999.9+0j)
+</code></pre>
+
+<pre><code class="language-python">complex(-999.9, 2) # complex number with real part -999.9 and imaginary part value of 2
+</code></pre>
+<pre><code>(-999.9+2j)
+</code></pre>
+
+<pre><code class="language-python">complex(-999.9, 2).conjugate() # the conjugate of the complex number
+</code></pre>
+<pre><code>(-999.9-2j)
+</code></pre>
+
+<pre><code class="language-python">type(complex(-999.9, 2).conjugate()) # type function can take complex arguments as input!
+</code></pre>
+<pre><code>complex
+</code></pre>
+
+<pre><code class="language-python">divmod(5, 2.0) # gives out the pair (x // y, x % y)
+</code></pre>
+<pre><code>(2.0, 1.0)
+</code></pre>
+
+<pre><code class="language-python">type(divmod(5, 2.0)) # the type of output from divmod
+</code></pre>
+<pre><code>tuple
+</code></pre>
+
+<h4 id="order-of-operation-in-python">Order of operation in Python</h4>
+<p>The order of operation in Python is pretty much the same as in any other sane language: <strong>anything inside Paratheses</strong> has precendence over <strong>Exponentiation (**)</strong> has precedence over <strong>Multiplication &amp; Division (/ &amp; *)</strong> has precedence over <strong>Addition &amp; Subtraction (+ &amp; -)</strong>. In abbreviation, the rule of operation precendence is <strong>PEMDAS</strong>.</p>
+
+<pre><code class="language-python">print("3 + 2.0 - 3 * 2 / 3 =",3 + 2.0 - 3 * 2 / 3)
+</code></pre>
+<pre><code>3 + 2.0 - 3 * 2 / 3 = 3.0
+</code></pre>
+
+<h4 id="operations-on-string-values-in-python">Operations on string values in Python</h4>
+<p>You can concatenate strings in Python just like <strong>adding</strong> numbers together. Also, you can <strong>multiply</strong> string values by a number, to get mutiple copies of the string value.</p>
+
+<pre><code class="language-python">'Amir ' + 'Shahmoradl ' + 'is my full name!' # You can add strings together just like numbers. This is called string concatenation.
+</code></pre>
+<pre><code>'Amir Shahmoradl is my full name!'
+</code></pre>
+
+<pre><code class="language-python">'amir' - 'shahmoradi' # This is meaningless and syntactically invalid in Python
+</code></pre>
+
+<pre><code>---------------------------------------------------------------------------
+
+TypeError                                 Traceback (most recent call last)
+
+&lt;ipython-input-6-41f5035ed36a&gt; in &lt;module&gt;()
+----&gt; 1 'amir' - 'shahmoradi' # This is meaningless and syntactically invalid in Python
+
+
+TypeError: unsupported operand type(s) for -: 'str' and 'str' ```python 'amir ' * 5 + 'is 5 amirs concatenated!' # multiplying string values by some number ```
+'amir amir amir amir amir is 5 amirs concatenated!'
+</code></pre>
+
+<pre><code class="language-python">'amir ' * 's' # meaningless
+</code></pre>
+
+<pre><code>---------------------------------------------------------------------------
+
+TypeError                                 Traceback (most recent call last)
+
+&lt;ipython-input-11-ddce79744de9&gt; in &lt;module&gt;()
+----&gt; 1 'amir ' * 'r' # meaningless
+
+
+TypeError: can't multiply sequence by non-int of type 'str'
+</code></pre>
+
+<pre><code class="language-python">'amir' / 's' # also meaningless
+</code></pre>
+
+<pre><code>---------------------------------------------------------------------------
+
+TypeError                                 Traceback (most recent call last)
+
+&lt;ipython-input-12-b6e45f1a8ab1&gt; in &lt;module&gt;()
+----&gt; 1 'amir' / 's' # also meaningless
+
+
+TypeError: unsupported operand type(s) for /: 'str' and 'str'
+</code></pre>
+
+<h5 id="note-that-string-values-are-like-vectors-of-characters-in-python-you-can-call-a-specific-element-of-it">Note that string values are like vectors of characters in Python! you can call a specific element of it!</h5>
+
+<pre><code class="language-python">'amir'[0] # first letter in the string
+</code></pre>
+<pre><code>'a'
+</code></pre>
+
+<p><strong>In order to cound elements from the end of the string, use negative in the index</strong>.</p>
+<pre><code class="language-python">'amir'[-2] # the second letter from the end of the string
+</code></pre>
+<pre><code>'i'
+</code></pre>
+
+<pre><code class="language-python">'amir'[-2:-3] # you get nothing because of incorrect indices
+</code></pre>
+<pre><code>''
+</code></pre>
+
+<pre><code class="language-python">'amir'[-3:-2] # you get something because of correct indices!
+</code></pre>
+<pre><code>'m'
+</code></pre>
+
+<pre><code class="language-python">'amir'[-3] # this is the same as 'amir'[-3:-2] 
+</code></pre>
+<pre><code>'m'
+</code></pre>
+
+<pre><code class="language-python">'amir'[-3:] # This takes the 
+</code></pre>
+<pre><code>'mir'
+</code></pre>
+
+<h4 id="boolean-operations-in-python">Boolean operations in Python</h4>
+<p>As we mentioned before, Boolean types are a subclass of Integers. Boolean operations are essential in branching statements.</p>
+
+<pre><code class="language-python">True or False # This is OR logical operation
+</code></pre>
+<pre><code>True
+</code></pre>
+
+<pre><code class="language-python">True and False # This is AND logical operation
+</code></pre>
+<pre><code>False
+</code></pre>
+
+<pre><code class="language-python">not True # This is not logical operation
+</code></pre>
+<pre><code>False
+</code></pre>
+
+<pre><code class="language-python">'amir' is 'amir' # object identity comarison
+</code></pre>
+<pre><code>True
+</code></pre>
+
+<pre><code class="language-python">'amir' is not 'Jake!' # negated object identity
+</code></pre>
+<pre><code>True
+</code></pre>
+
+<h5 id="to-get-the--identity-of-an-object-use-pythons-id-command">To get the  identity of an object, use Python’s <code>id()</code> command</h5>
+<p><code>id()</code> is a built-in function in Python 3, which returns the identity of an object. This identity is a unique integer for that object during its lifetime. This unique id is also the address of the object in the device memory. Keep in mind that the object’s id might change from one computer to another, from one run to another run.</p>
+
+<pre><code class="language-python">id('amir')
+</code></pre>
+<pre><code>81758280
+</code></pre>
+
+<pre><code class="language-python">id(2)
+</code></pre>
+<pre><code>501744144
+</code></pre>
+
+<pre><code class="language-python">id(2) == id(3) # equality operation: tests for the same value
+</code></pre>
+<pre><code>False
+</code></pre>
+
+<pre><code class="language-python">id(2) != id(3) # inequality operation
+</code></pre>
+<pre><code>True
+</code></pre>
+
+<p>**Note: Be very careful with operations <code>is</code> and <code>equality</code> ! These two are not the same.</p>
+
+<pre><code class="language-python">(1,1) is (1,1) # Two similar tuples have not the same identifiers in Python!
+</code></pre>
+<pre><code>False
+</code></pre>
+
+<pre><code class="language-python">(1,1) == (1,1) # Two similar tuples have the same value in Python!
+</code></pre>
+<pre><code>True
+</code></pre>
+
+<h5 id="string-comarison">String comarison</h5>
+<p>Strings are compared lexicographically using the numeric equivalents in ASCII codes (the result of the built-in Python function <code>ord()</code>) of their characters.</p>
+
+<pre><code class="language-python">'amir' &gt; 'jake' # String comparison. Basically the character ASCII codes are compared here.
+</code></pre>
+<pre><code>False
+</code></pre>
+
+<pre><code class="language-python">'amir' &gt; 'Jake' # 'J' is ahead of 'a' in ASCII characters.
+</code></pre>
+<pre><code>True
+</code></pre>
+
+<pre><code class="language-python">'amir' &gt; 'Amir' # 'A' is ahead of (smaller than) 'a' in ASCII characters.
+</code></pre>
+<pre><code>True
+</code></pre>
+
+<pre><code class="language-python">'amir' &gt; 'amis' # Comaprison is performed is equality for each character holds, until the end is reached.
+</code></pre>
+<pre><code>False
+</code></pre>
+
+<hr />
+<hr />
+
+<p><strong>Note</strong> also the difference in <code>print</code> statement between the two Python versions. In Python 3, <code>print</code> is a function, whereas in Python 2, it is a Python statement.</p>
+
+<pre><code class="language-python">print('My name is Amir')
+</code></pre>
+
+<pre><code>My name is Amir
+</code></pre>
+
+<pre><code class="language-python">print("My name is Amir",'\n') # You can use wildcards in Python strings. You can also use double quotes for strings.
+</code></pre>
+
+<pre><code>My name is Amir 
+</code></pre>
+
+<pre><code class="language-python">print('My name is Amir','\n'*2,"I do work at \"UT Austin\".") 
+print('''
+You can multiply strings by integer! \n
+Note how I used wildcards for quotation marks around "UT Austin" in my previous print function, in order to be consistent with Python syntax.
+
+Did you also notice how I am creating a multi-line Python string right now?!
+''')
+</code></pre>
+
+<pre><code>My name is Amir 
+
+ I do work at "UT Austin".
+
+You can multiply strings by integer! 
+
+Note how I used wildcards for quotation marks around "UT Austin" in my previous print function, in order to be consistent with Python syntax.
+
+Did you also notice how I am creating a multi-line Python string right now?!
+</code></pre>
+
+<pre><code class="language-python">"""
+This is also a multi-line
+comment in
+Python
+"""
+</code></pre>
+
+<pre><code>'\nThis is also a multi-line\ncomment in\nPython\n'
+</code></pre>
+
+<pre><code class="language-python">'''
+You can use single quotes
+for multi-line commenting as well.
+Always be as expressive as possible with your comments in you code.
+It does not harm!
+'''
+</code></pre>
+
+<pre><code>'\nYou can use single quotes\nfor multi-line commenting as well.\nAlways be as expressive as possible with your comments in you code.\nIt does not harm!\n'
+</code></pre>
+
+<h3 id="variables-in-python">Variables in Python</h3>
+<p>Python has 5 main variable types:</p>
+
+<ul>
+  <li>Number</li>
+  <li>String</li>
+  <li>List</li>
+  <li>Tuple</li>
+  <li>Dictionary</li>
+</ul>
+
+<p>We will get to each of these soon. The variable naming convention in Python is that each variable starts with a letter and can contain only letters, numbers or underscore “_”.</p>
+
+<pre><code class="language-python">amir = "teacher"
+print('Amir is a', amir)
+</code></pre>
+
+<pre><code>Amir is a teacher
+</code></pre>
+
+<pre><code class="language-python">123amir = "teacher" # Wrong name for variable
+</code></pre>
+
+<pre><code>  File "&lt;ipython-input-38-85ed673cd303&gt;", line 1
+    123amir = "teacher"
+          ^
+SyntaxError: invalid syntax
+</code></pre>
+
+<pre><code class="language-python">amir = 101; print('Amir is',amir,'years old!');
+</code></pre>
+
+<pre><code>Amir is 101 years old!
+</code></pre>
+
+<pre><code class="language-python"># Now lets do a Physics calculation.
+v0 = 5; # initial velocity for a projectile motion.
+g = 9.81 # Earth gravity acceleration.
+t = 0.6
+y = v0*t - 0.5*g*t**2
+print('''
+At t = %f seconds, a ball with initial velocity v0 = %.3E m/s is located at the height %.2f m.
+''' % (t,v0,y) )
+</code></pre>
+
+<pre><code>At t = 0.600000 seconds, a ball with initial velocity v0 = 5.000E+00 m/s is located at the height 1.23 m.
+</code></pre>
+
+<pre><code class="language-python"># or on multi-line:
+print('''
+At t = %f seconds,
+a ball with initial velocity v0 = %.3E m/s
+is located at the height %.2f m.
+100%% accurate!
+''' % (t,v0,y) )
+</code></pre>
+
+<pre><code>At t = 0.600000 seconds,
+a ball with initial velocity v0 = 5.000E+00 m/s
+is located at the height 1.23 m.
+100% accurate!
+</code></pre>
+
+<p>Here are some <code>printf</code> format specifications, that can be used with <code>print</code> function:</p>
+
+<ul>
+  <li>%s   for string</li>
+  <li>%d   for integer</li>
+  <li>%0xd for integer padded with x zeros</li>
+  <li>%f   for decimal notation with 6 decimals</li>
+  <li>%e   for scientific notation</li>
+  <li>%E   for scientific notation</li>
+  <li>%%   percentage sign itself</li>
+</ul>
+
+<pre><code class="language-python">amir = True
+if amir:
+    print('Hey Amir!')
+</code></pre>
+
+<pre><code>Hey Amir!
+</code></pre>
+
+<pre><code class="language-python">my_logical_variable = 1
+if my_logical_variable:
+    print('Hey there again Amir!')
+</code></pre>
+
+<pre><code>Hey Amir!
+Hey there again Amir!
+</code></pre>
+
+<pre><code class="language-python">my_logical_variable_has_an_extremely_long_name = 2
+if my_logical_variable_has_an_extremely_long_name:
+    print('Hey there again Amir!')
+</code></pre>
+
+<pre><code>Hey there again Amir!
+</code></pre>
+
+<pre><code class="language-python">my_logical_variable_has_an_extremely_long_name = 0
+if my_logical_variable_has_an_extremely_long_name:
+    print('Hey there again Amir!')
+</code></pre>
+
+<pre><code class="language-python">my_logical_variable_has_an_extremely_long_name = -1;
+if my_logical_variable_has_an_extremely_long_name:
+    print('Hey there again Amir!')
+</code></pre>
+
+<pre><code>Hey there again Amir!
+</code></pre>
+
+<pre><code class="language-python">my_logical_variable_has_an_extremely_long_name = -1; if my_logical_variable_has_an_extremely_long_name:
+    print('Hey there again Amir!')
+</code></pre>
+
+<pre><code>  File "&lt;ipython-input-17-0e2ee1e7e9f8&gt;", line 1
+    my_logical_variable_has_an_extremely_long_name = -1; if my_logical_variable_has_an_extremely_long_name:
+                                                          ^
+SyntaxError: invalid syntax
+</code></pre>
+
+<pre><code class="language-python">
+</code></pre>
+
+<pre><code class="language-python">
+</code></pre>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+
+            </div>
+        </article>
+        <div class="cf"></div>
+        <div class="row text-center">
+            <section class="notepad-post-share">
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Lecture 4: Python - values, variables, and types&quot;%20/ECL2017S/lecture/4-python-values-variables-types%20via%20&#64;AmirShahmoradi"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/lecture/4-python-values-variables-types"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/lecture/4-python-values-variables-types"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </section>
+        </div>
+        <div class="cf"></div>
+        
+            <div class="notepad-author-info">
+                <div class="row">
+                    <section class="notepad-post-author small-12 columns">
+                        
+                            <img src="/ECL2017S/images/amir.png" class="notepad-post-author-avatar" alt="Amir Shahmoradi's photo">
+                        
+                        
+                            <span class="author-label">Author</span>
+                            <h1>Amir Shahmoradi</h1>
+                        
+                        
+                            <p><a href="mailto:amir@ices.utexas.edu" class="author-website">amir@ices.utexas.edu</a></p>
+                        
+                        
+                            <p>Genius is 99% perspiration and 1% inspiration</p>
+                        
+                    </section>
+                </div>
+            </div> 
+        
+        <div class="cf"></div>
+        
+        <section class="notepad-disqus row">
+    <div class="small-12 columns">
+        <h1 class="notepad-comments-header">Comments</h1>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'shahmoradi'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+
+        <div class="cf"></div>
+
+    <footer class="notepad-site-footer">
+    <div class="copyright">
+         <!-- <section>Last updated 2017 / 02 / 22</section></br> -->
+         <section>Last updated Wednesday, 22 Feb 2017 at 09:00 AM CST</section></br>
+         <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
+         <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
+         <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>
+         <section><a class="icon-ghost" href="http://www.utexas.edu/" target="_blank">The University of Texas at Austin</a></section></br>
+         <section>201 E 24th Street, Stop C0200</section></br>
+         <section>Austin, TX 78712-1229</section>
+    </div>
+    <div class="social-icons">
+        
+        
+        <a href="http://twitter.com/AmirShahmoradi" target="_blank">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+        
+        
+        <a href="http://github.com/shahmoradi" target="_blank">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-github fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+    </div>
+    
+    <div class="cf"></div>
+</footer> 
+</main>    
+<!-- The following scripts are needed for the dynamic header of pages -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/ECL2017S/assets/js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+  <script src="/ECL2017S/assets/js/vendor/modernizr.js"></script>
+  <script src="/ECL2017S/assets/js/foundation.min.js"></script>
+  
+  <script src="/ECL2017S/assets/js/notepad.js"></script>
+  <script src="/ECL2017S/assets/js/scripts.min.js"></script>
+  <script src="/ECL2017S/assets/js/vendor/nprogress.js"></script>
+  
+  <script>
+    $(document).foundation();
+  </script>
+  <script type='text/javascript'>console.log("N/A");</script>
+  <script type='text/javascript'>console.log("http://www.shahmoradi.org/");</script>
+<!-- End of scripts for the dynamic header of pages -->
+
+<!-- <script src="/ECL2017S/assets/js/prismOkaidia.js"></script>
+<script src="/ECL2017S/assets/js/prismTwilight.js"></script>
+<script src="/ECL2017S/assets/js/prismDefault.js"></script>
+ -->
+<script src="/ECL2017S/assets/js/prismCoy.js"></script>
+
+<!-- Start of Google Analytics Code for Default Guide -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-67460905-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+<!-- End of Google Analytics Code for Default Guide -->
+   
+<!-- Start of StatCounter Code for Default Guide -->
+  <script type="text/javascript">
+    var sc_project=10611821; 
+    var sc_invisible=1; 
+    var sc_security="902e4bb4"; 
+    var scJsHost = (("https:" == document.location.protocol) ?
+    "https://secure." : "http://www.");
+    document.write("<sc"+"ript type='text/javascript' src='" +
+    scJsHost+
+    "statcounter.com/counter/counter.js'></"+"script>");
+    </script>
+    <noscript><div class="statcounter"><a title="shopify visitor
+    statistics" href="http://statcounter.com/shopify/"
+    target="_blank"><img class="statcounter"
+    src="http://c.statcounter.com/10611821/0/902e4bb4/0/"
+    alt="shopify visitor statistics"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide --> 
+</body>
+</html>
