@@ -141,12 +141,34 @@
   </li>
   <li><a href="#python-as-simple-calculator">Python interpreter as a simple calculator</a>
     <ul>
-      <li><a href="#python-values-types">Values and their types in Python</a></li>
-      <li><a href="#python-variables-types">Variables and their types in Python</a>
-<br /></li>
+      <li><a href="#python-values-types">Values and their types in Python</a>
+        <ul>
+          <li><a href="#python-values-types-function">Obtaining the type of a value</a></li>
+          <li><a href="#python-values-types-coercion">Value coercion in Python</a></li>
+          <li><a href="#python-values-types-builtin">Some useful built-in operations/functions in Python</a></li>
+        </ul>
+      </li>
+      <li><a href="#python-order-of-operation">Order of operation in Python</a>
+        <ul>
+          <li><a href="#python-string-operation">Operations on string values in Python</a></li>
+          <li><a href="#python-boolean-operations">Boolean operations in Python</a>
+            <ul>
+              <li><a href="#python-boolean-operations-string-comparison">String comparison</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#python-values-types-print">Python’s print function</a></li>
+      <li><a href="#python-variables">Variables in Python</a>
+        <ul>
+          <li><a href="#python-variables-naming-convention">Variable naming convention in Python</a></li>
+        </ul>
+      </li>
     </ul>
   </li>
 </ul>
+
+<p><br /></p>
 
 <p><a name="glossary"></a></p>
 <h2 id="programming-glossary">Programming glossary</h2>
@@ -352,8 +374,9 @@ The traditional first program in Python language has the following form.</p>
 <pre><code class="language-python">In [25]: print ('Hello World!')  
 Hello World!
 </code></pre>
-<p><br />
-<a name="ways-to-run-python-program"></a></p>
+<p><br /></p>
+
+<p><a name="ways-to-run-python-program"></a></p>
 <h3 id="methods-of-running-a-python-program">Methods of running a Python program</h3>
 <p><br /></p>
 <ol>
@@ -433,8 +456,11 @@ You can also compile your Python script into a bytecode. This is however, a topi
 <pre><code>14
 </code></pre>
 
+<p><a name="python-values-types-function"></a></p>
 <h4 id="obtaining-the-type-of-a-value">Obtaining the type of a value</h4>
+
 <p>You can use the Python’s built-in function <code>type</code> to get the type of a value in Python (Of course, this is somewhat obvious and redundant for a value as we already readily know the type of a value).</p>
+
 <pre><code class="language-python">type(2*7) # type function gives you the type of the input object to function "type"
 </code></pre>
 <pre><code>int ```python type('This is a Python string') # a string value in Python ```
@@ -456,7 +482,8 @@ str
 <pre><code>bool
 </code></pre>
 
-<h4 id="value-coercion">Value coercion</h4>
+<p><a name="python-values-types-coercion"></a></p>
+<h4 id="value-coercion-in-python">Value coercion in Python</h4>
 <p>Value coercion is the <strong>implicit</strong> process by which a the Python interpreter/compiler automatically converts a value of one type into a value of another type when that second type is required by the surrounding context. For example:</p>
 
 <pre><code class="language-python">2.0 * 7 # Note that the product of float and integer, is coerced into a float.
@@ -511,7 +538,7 @@ float
 <p><span style="color:red"><strong>Summary of difference in division between Python 2 and Python 3:</strong></span><br />
 Note that there is a difference between Python 2 and 3 for <strong>integer division</strong>.</p>
 
-<h3 id="python-2">Python 2</h3>
+<h5 id="python-2">Python 2</h5>
 <p><strong>input:</strong></p>
 <pre><code class="language-python">print 'Python', python_version()
 print '3 / 2 =', 3 / 2
@@ -528,7 +555,7 @@ print '3 // 2.0 =', 3 // 2.0
 3 // 2.0 = 1.0
 </code></pre>
 
-<h3 id="python-3">Python 3</h3>
+<h5 id="python-3">Python 3</h5>
 <p><strong>input:</strong></p>
 <pre><code class="language-python">print('Python', python_version())
 print('3 / 2 =', 3 / 2)
@@ -587,6 +614,7 @@ python_version()
 <pre><code>5.0
 </code></pre>
 
+<p><a name="python-values-types-builtin"></a></p>
 <h4 id="some-useful-built-in-operationsfunctions-in-python">Some useful built-in operations/functions in Python</h4>
 
 <pre><code class="language-python">pow(2,7) # same operation as 2**7. This is the same exponentiation function as in C language.
@@ -644,7 +672,8 @@ python_version()
 <pre><code>tuple
 </code></pre>
 
-<h4 id="order-of-operation-in-python">Order of operation in Python</h4>
+<p><a name="python-order-of-operation"></a></p>
+<h3 id="order-of-operation-in-python">Order of operation in Python</h3>
 <p>The order of operation in Python is pretty much the same as in any other sane language: <strong>anything inside Paratheses</strong> has precendence over <strong>Exponentiation (**)</strong> has precedence over <strong>Multiplication &amp; Division (/ &amp; *)</strong> has precedence over <strong>Addition &amp; Subtraction (+ &amp; -)</strong>. In abbreviation, the rule of operation precendence is <strong>PEMDAS</strong>.</p>
 
 <pre><code class="language-python">print("3 + 2.0 - 3 * 2 / 3 =",3 + 2.0 - 3 * 2 / 3)
@@ -652,6 +681,7 @@ python_version()
 <pre><code>3 + 2.0 - 3 * 2 / 3 = 3.0
 </code></pre>
 
+<p><a name="python-string-operation"></a></p>
 <h4 id="operations-on-string-values-in-python">Operations on string values in Python</h4>
 <p>You can concatenate strings in Python just like <strong>adding</strong> numbers together. Also, you can <strong>multiply</strong> string values by a number, to get mutiple copies of the string value.</p>
 
@@ -662,7 +692,6 @@ python_version()
 
 <pre><code class="language-python">'amir' - 'shahmoradi' # This is meaningless and syntactically invalid in Python
 </code></pre>
-
 <pre><code>---------------------------------------------------------------------------
 
 TypeError                                 Traceback (most recent call last)
@@ -671,13 +700,16 @@ TypeError                                 Traceback (most recent call last)
 ----&gt; 1 'amir' - 'shahmoradi' # This is meaningless and syntactically invalid in Python
 
 
-TypeError: unsupported operand type(s) for -: 'str' and 'str' ```python 'amir ' * 5 + 'is 5 amirs concatenated!' # multiplying string values by some number ```
-'amir amir amir amir amir is 5 amirs concatenated!'
+TypeError: unsupported operand type(s) for -: 'str' and 'str'
+</code></pre>
+
+<pre><code class="language-python">'amir ' * 5 + 'is 5 amirs concatenated!' # multiplying string values by some number
+</code></pre>
+<pre><code>'amir amir amir amir amir is 5 amirs concatenated!'
 </code></pre>
 
 <pre><code class="language-python">'amir ' * 's' # meaningless
 </code></pre>
-
 <pre><code>---------------------------------------------------------------------------
 
 TypeError                                 Traceback (most recent call last)
@@ -691,7 +723,6 @@ TypeError: can't multiply sequence by non-int of type 'str'
 
 <pre><code class="language-python">'amir' / 's' # also meaningless
 </code></pre>
-
 <pre><code>---------------------------------------------------------------------------
 
 TypeError                                 Traceback (most recent call last)
@@ -703,14 +734,29 @@ TypeError                                 Traceback (most recent call last)
 TypeError: unsupported operand type(s) for /: 'str' and 'str'
 </code></pre>
 
-<h5 id="note-that-string-values-are-like-vectors-of-characters-in-python-you-can-call-a-specific-element-of-it">Note that string values are like vectors of characters in Python! you can call a specific element of it!</h5>
+<p><br /></p>
+<div class="center">
+    <div class="rcbox" style="text-align:center">
+        <b>COOL FEATURE FOR STRING MANIPULATION</b><br /><br />
+        Note that string values are like vectors of characters in Python! you can call a specific element of it!  
+    </div>
+</div>
+<p><br /></p>
 
 <pre><code class="language-python">'amir'[0] # first letter in the string
 </code></pre>
 <pre><code>'a'
 </code></pre>
 
-<p><strong>In order to cound elements from the end of the string, use negative in the index</strong>.</p>
+<p><br /></p>
+<div class="center">
+    <div class="rcbox" style="text-align:center">
+        <b>NOTE</b><br /><br />
+        In order to cound elements from the end of the string, use negative in the index.
+    </div>
+</div>
+<p><br /></p>
+
 <pre><code class="language-python">'amir'[-2] # the second letter from the end of the string
 </code></pre>
 <pre><code>'i'
@@ -731,11 +777,12 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 <pre><code>'m'
 </code></pre>
 
-<pre><code class="language-python">'amir'[-3:] # This takes the 
+<pre><code class="language-python">'amir'[-3:] # This outputs the third last letters of the string
 </code></pre>
 <pre><code>'mir'
 </code></pre>
 
+<p><a name="python-boolean-operations"></a></p>
 <h4 id="boolean-operations-in-python">Boolean operations in Python</h4>
 <p>As we mentioned before, Boolean types are a subclass of Integers. Boolean operations are essential in branching statements.</p>
 
@@ -764,8 +811,15 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 <pre><code>True
 </code></pre>
 
-<h5 id="to-get-the--identity-of-an-object-use-pythons-id-command">To get the  identity of an object, use Python’s <code>id()</code> command</h5>
-<p><code>id()</code> is a built-in function in Python 3, which returns the identity of an object. This identity is a unique integer for that object during its lifetime. This unique id is also the address of the object in the device memory. Keep in mind that the object’s id might change from one computer to another, from one run to another run.</p>
+<p>In addition, to the above operations, there also other more complex Boolean operations in Python, some of which you can study further <a href="https://docs.python.org/2/library/stdtypes.html#bitwise-operations-on-integer-types" target="_blank">here</a>.</p>
+
+<div class="center">
+    <div class="rcbox" style="text-align:center">
+        <b>NOTE: Object's identity in Python</b><br /><br />
+        To get the  identity of an object, use Python's <code>id()</code> command. <code>id()</code> is a built-in function in Python 3, which returns the identity of an object. This identity is a unique integer for that object during its lifetime. This unique id is also the address of the object in the device memory. Keep in mind that the object's id might change from one computer to another, from one run to another run.  
+    </div>
+</div>
+<p><br /></p>
 
 <pre><code class="language-python">id('amir')
 </code></pre>
@@ -787,9 +841,15 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 <pre><code>True
 </code></pre>
 
-<p>**Note: Be very careful with operations <code>is</code> and <code>equality</code> ! These two are not the same.</p>
+<div class="center">
+    <div class="rcbox" style="text-align:center">
+        <b>ATTENTION</b><br /><br />
+        Be very careful with operations `is` and `equality` ! These two are not the same! See the examples below.
+    </div>
+</div>
+<p><br /></p>
 
-<pre><code class="language-python">(1,1) is (1,1) # Two similar tuples have not the same identifiers in Python!
+<pre><code class="language-python">(1,1) is (1,1) # Two similar tuples have not the same identifiers in Python! Will soon see what tuples are.
 </code></pre>
 <pre><code>False
 </code></pre>
@@ -799,7 +859,8 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 <pre><code>True
 </code></pre>
 
-<h5 id="string-comarison">String comarison</h5>
+<p><a name="python-boolean-operations-string-comparison"></a></p>
+<h5 id="string-comparison">String comparison</h5>
 <p>Strings are compared lexicographically using the numeric equivalents in ASCII codes (the result of the built-in Python function <code>ord()</code>) of their characters.</p>
 
 <pre><code class="language-python">'amir' &gt; 'jake' # String comparison. Basically the character ASCII codes are compared here.
@@ -822,20 +883,19 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 <pre><code>False
 </code></pre>
 
-<hr />
-<hr />
-
-<p><strong>Note</strong> also the difference in <code>print</code> statement between the two Python versions. In Python 3, <code>print</code> is a function, whereas in Python 2, it is a Python statement.</p>
+<p><a name="python-values-types-print"></a></p>
+<h3 id="pythons-print-function">Python’s print function</h3>
+<p>We have already used print function to create the first Python program. But note also the difference in <code>print</code> between the two Python versions. In <strong>Python 3</strong>, <code>print</code> is a <strong>Python function</strong>, whereas in <strong>Python 2</strong>, it is a <strong>Python statement</strong>.</p>
 
 <pre><code class="language-python">print('My name is Amir')
 </code></pre>
-
 <pre><code>My name is Amir
 </code></pre>
 
+<p><strong>Note:</strong> You can use wildcards in Python strings. You can also use double quotes for strings.</p>
+
 <pre><code class="language-python">print("My name is Amir",'\n') # You can use wildcards in Python strings. You can also use double quotes for strings.
 </code></pre>
-
 <pre><code>My name is Amir 
 </code></pre>
 
@@ -847,7 +907,6 @@ Note how I used wildcards for quotation marks around "UT Austin" in my previous 
 Did you also notice how I am creating a multi-line Python string right now?!
 ''')
 </code></pre>
-
 <pre><code>My name is Amir 
 
  I do work at "UT Austin".
@@ -865,7 +924,6 @@ comment in
 Python
 """
 </code></pre>
-
 <pre><code>'\nThis is also a multi-line\ncomment in\nPython\n'
 </code></pre>
 
@@ -876,27 +934,64 @@ Always be as expressive as possible with your comments in you code.
 It does not harm!
 '''
 </code></pre>
-
 <pre><code>'\nYou can use single quotes\nfor multi-line commenting as well.\nAlways be as expressive as possible with your comments in you code.\nIt does not harm!\n'
 </code></pre>
 
+<p>In the following section, you will learn much more about the <code>print</code> function, especiallu when dealing with variables.</p>
+
+<p><a name="python-variables"></a></p>
 <h3 id="variables-in-python">Variables in Python</h3>
 <p>Python has 5 main variable types:</p>
 
 <ul>
-  <li>Number</li>
-  <li>String</li>
-  <li>List</li>
-  <li>Tuple</li>
-  <li>Dictionary</li>
+  <li><strong>Number</strong></li>
+  <li><strong>String</strong></li>
+  <li><strong>List</strong></li>
+  <li><strong>Tuple</strong></li>
+  <li><strong>Dictionary</strong></li>
 </ul>
 
 <p>We will get to each of these soon. The variable naming convention in Python is that each variable starts with a letter and can contain only letters, numbers or underscore “_”.</p>
 
+<pre><code class="language-python">var1 = 1
+</code></pre>
+
+<pre><code class="language-python">print('value of var1 is ',var1,'.')
+</code></pre>
+<pre><code>value of var1 is  1 .
+</code></pre>
+
+<pre><code class="language-python">a_long_variable_name = 2.5 # The variable name can be almost as long as you wish
+print(a_long_variable_name)
+</code></pre>
+<pre><code>2.5
+</code></pre>
+
+<p><a name="python-variables-naming-convention"></a></p>
+<h4 id="variable-naming-convention-in-python">Variable naming convention in Python</h4>
+<p>A Python variable can only begin with letter or underscore _. Numbers are only valid if they appear inside or at the end of the variable name. Other symbols are syntactically invalid anywhere in a variable name.</p>
+
+<pre><code class="language-python">123new_var = 2.5 # This is an invalid name
+</code></pre>
+
+<pre><code>  File "&lt;ipython-input-10-0e3e63931842&gt;", line 1
+    123new_var = 2.5 # This is an invalid name
+             ^
+SyntaxError: invalid syntax
+</code></pre>
+
+<pre><code class="language-python">new_var$ = 2.5 # symbols are not valid in Python variable names
+</code></pre>
+
+<pre><code>  File "&lt;ipython-input-12-71f3fbc68938&gt;", line 1
+    new_var$ = 2.5 # symbols are not valid in Python variable names
+           ^
+SyntaxError: invalid syntax
+</code></pre>
+
 <pre><code class="language-python">amir = "teacher"
 print('Amir is a', amir)
 </code></pre>
-
 <pre><code>Amir is a teacher
 </code></pre>
 
@@ -911,7 +1006,6 @@ SyntaxError: invalid syntax
 
 <pre><code class="language-python">amir = 101; print('Amir is',amir,'years old!');
 </code></pre>
-
 <pre><code>Amir is 101 years old!
 </code></pre>
 
@@ -954,62 +1048,6 @@ is located at the height 1.23 m.
   <li>%E   for scientific notation</li>
   <li>%%   percentage sign itself</li>
 </ul>
-
-<pre><code class="language-python">amir = True
-if amir:
-    print('Hey Amir!')
-</code></pre>
-
-<pre><code>Hey Amir!
-</code></pre>
-
-<pre><code class="language-python">my_logical_variable = 1
-if my_logical_variable:
-    print('Hey there again Amir!')
-</code></pre>
-
-<pre><code>Hey Amir!
-Hey there again Amir!
-</code></pre>
-
-<pre><code class="language-python">my_logical_variable_has_an_extremely_long_name = 2
-if my_logical_variable_has_an_extremely_long_name:
-    print('Hey there again Amir!')
-</code></pre>
-
-<pre><code>Hey there again Amir!
-</code></pre>
-
-<pre><code class="language-python">my_logical_variable_has_an_extremely_long_name = 0
-if my_logical_variable_has_an_extremely_long_name:
-    print('Hey there again Amir!')
-</code></pre>
-
-<pre><code class="language-python">my_logical_variable_has_an_extremely_long_name = -1;
-if my_logical_variable_has_an_extremely_long_name:
-    print('Hey there again Amir!')
-</code></pre>
-
-<pre><code>Hey there again Amir!
-</code></pre>
-
-<pre><code class="language-python">my_logical_variable_has_an_extremely_long_name = -1; if my_logical_variable_has_an_extremely_long_name:
-    print('Hey there again Amir!')
-</code></pre>
-
-<pre><code>  File "&lt;ipython-input-17-0e2ee1e7e9f8&gt;", line 1
-    my_logical_variable_has_an_extremely_long_name = -1; if my_logical_variable_has_an_extremely_long_name:
-                                                          ^
-SyntaxError: invalid syntax
-</code></pre>
-
-<pre><code class="language-python">
-</code></pre>
-
-<pre><code class="language-python">
-</code></pre>
-
-<p><br /></p>
 
 <p><br /><br /></p>
 
@@ -1089,7 +1127,7 @@ SyntaxError: invalid syntax
     <footer class="notepad-site-footer">
     <div class="copyright">
          <!-- <section>Last updated 2017 / 02 / 22</section></br> -->
-         <section>Last updated Wednesday, 22 Feb 2017 at 09:18 AM CST</section></br>
+         <section>Last updated Wednesday, 22 Feb 2017 at 07:15 PM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>

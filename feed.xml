@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-02-22T09:18:37-06:00</updated>
+<updated>2017-02-22T19:15:43-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -51,12 +51,34 @@
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#python-as-simple-calculator&quot;&gt;Python interpreter as a simple calculator&lt;/a&gt;
     &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-values-types&quot;&gt;Values and their types in Python&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-variables-types&quot;&gt;Variables and their types in Python&lt;/a&gt;
-&lt;br /&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#python-values-types&quot;&gt;Values and their types in Python&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#python-values-types-function&quot;&gt;Obtaining the type of a value&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#python-values-types-coercion&quot;&gt;Value coercion in Python&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#python-values-types-builtin&quot;&gt;Some useful built-in operations/functions in Python&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#python-order-of-operation&quot;&gt;Order of operation in Python&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#python-string-operation&quot;&gt;Operations on string values in Python&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#python-boolean-operations&quot;&gt;Boolean operations in Python&lt;/a&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#python-boolean-operations-string-comparison&quot;&gt;String comparison&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#python-values-types-print&quot;&gt;Python’s print function&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#python-variables&quot;&gt;Variables in Python&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#python-variables-naming-convention&quot;&gt;Variable naming convention in Python&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a name=&quot;glossary&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;programming-glossary&quot;&gt;Programming glossary&lt;/h2&gt;
@@ -262,8 +284,9 @@ The traditional first program in Python language has the following form.&lt;/p&g
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [25]: print ('Hello World!')  
 Hello World!
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;a name=&quot;ways-to-run-python-program&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;ways-to-run-python-program&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;methods-of-running-a-python-program&quot;&gt;Methods of running a Python program&lt;/h3&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -343,8 +366,11 @@ You can also compile your Python script into a bytecode. This is however, a topi
 &lt;pre&gt;&lt;code&gt;14
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;&lt;a name=&quot;python-values-types-function&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&quot;obtaining-the-type-of-a-value&quot;&gt;Obtaining the type of a value&lt;/h4&gt;
+
 &lt;p&gt;You can use the Python’s built-in function &lt;code&gt;type&lt;/code&gt; to get the type of a value in Python (Of course, this is somewhat obvious and redundant for a value as we already readily know the type of a value).&lt;/p&gt;
+
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;type(2*7) # type function gives you the type of the input object to function &quot;type&quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;int ```python type('This is a Python string') # a string value in Python ```
@@ -366,7 +392,8 @@ str
 &lt;pre&gt;&lt;code&gt;bool
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&quot;value-coercion&quot;&gt;Value coercion&lt;/h4&gt;
+&lt;p&gt;&lt;a name=&quot;python-values-types-coercion&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;value-coercion-in-python&quot;&gt;Value coercion in Python&lt;/h4&gt;
 &lt;p&gt;Value coercion is the &lt;strong&gt;implicit&lt;/strong&gt; process by which a the Python interpreter/compiler automatically converts a value of one type into a value of another type when that second type is required by the surrounding context. For example:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;2.0 * 7 # Note that the product of float and integer, is coerced into a float.
@@ -421,7 +448,7 @@ float
 &lt;p&gt;&lt;span style=&quot;color:red&quot;&gt;&lt;strong&gt;Summary of difference in division between Python 2 and Python 3:&lt;/strong&gt;&lt;/span&gt;&lt;br /&gt;
 Note that there is a difference between Python 2 and 3 for &lt;strong&gt;integer division&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;h3 id=&quot;python-2&quot;&gt;Python 2&lt;/h3&gt;
+&lt;h5 id=&quot;python-2&quot;&gt;Python 2&lt;/h5&gt;
 &lt;p&gt;&lt;strong&gt;input:&lt;/strong&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print 'Python', python_version()
 print '3 / 2 =', 3 / 2
@@ -438,7 +465,7 @@ print '3 // 2.0 =', 3 // 2.0
 3 // 2.0 = 1.0
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;python-3&quot;&gt;Python 3&lt;/h3&gt;
+&lt;h5 id=&quot;python-3&quot;&gt;Python 3&lt;/h5&gt;
 &lt;p&gt;&lt;strong&gt;input:&lt;/strong&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print('Python', python_version())
 print('3 / 2 =', 3 / 2)
@@ -497,6 +524,7 @@ python_version()
 &lt;pre&gt;&lt;code&gt;5.0
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;&lt;a name=&quot;python-values-types-builtin&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&quot;some-useful-built-in-operationsfunctions-in-python&quot;&gt;Some useful built-in operations/functions in Python&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;pow(2,7) # same operation as 2**7. This is the same exponentiation function as in C language.
@@ -554,7 +582,8 @@ python_version()
 &lt;pre&gt;&lt;code&gt;tuple
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&quot;order-of-operation-in-python&quot;&gt;Order of operation in Python&lt;/h4&gt;
+&lt;p&gt;&lt;a name=&quot;python-order-of-operation&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;order-of-operation-in-python&quot;&gt;Order of operation in Python&lt;/h3&gt;
 &lt;p&gt;The order of operation in Python is pretty much the same as in any other sane language: &lt;strong&gt;anything inside Paratheses&lt;/strong&gt; has precendence over &lt;strong&gt;Exponentiation (**)&lt;/strong&gt; has precedence over &lt;strong&gt;Multiplication &amp;amp; Division (/ &amp;amp; *)&lt;/strong&gt; has precedence over &lt;strong&gt;Addition &amp;amp; Subtraction (+ &amp;amp; -)&lt;/strong&gt;. In abbreviation, the rule of operation precendence is &lt;strong&gt;PEMDAS&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print(&quot;3 + 2.0 - 3 * 2 / 3 =&quot;,3 + 2.0 - 3 * 2 / 3)
@@ -562,6 +591,7 @@ python_version()
 &lt;pre&gt;&lt;code&gt;3 + 2.0 - 3 * 2 / 3 = 3.0
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;&lt;a name=&quot;python-string-operation&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&quot;operations-on-string-values-in-python&quot;&gt;Operations on string values in Python&lt;/h4&gt;
 &lt;p&gt;You can concatenate strings in Python just like &lt;strong&gt;adding&lt;/strong&gt; numbers together. Also, you can &lt;strong&gt;multiply&lt;/strong&gt; string values by a number, to get mutiple copies of the string value.&lt;/p&gt;
 
@@ -572,7 +602,6 @@ python_version()
 
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir' - 'shahmoradi' # This is meaningless and syntactically invalid in Python
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;pre&gt;&lt;code&gt;---------------------------------------------------------------------------
 
 TypeError                                 Traceback (most recent call last)
@@ -581,13 +610,16 @@ TypeError                                 Traceback (most recent call last)
 ----&amp;gt; 1 'amir' - 'shahmoradi' # This is meaningless and syntactically invalid in Python
 
 
-TypeError: unsupported operand type(s) for -: 'str' and 'str' ```python 'amir ' * 5 + 'is 5 amirs concatenated!' # multiplying string values by some number ```
-'amir amir amir amir amir is 5 amirs concatenated!'
+TypeError: unsupported operand type(s) for -: 'str' and 'str'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir ' * 5 + 'is 5 amirs concatenated!' # multiplying string values by some number
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;'amir amir amir amir amir is 5 amirs concatenated!'
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir ' * 's' # meaningless
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;pre&gt;&lt;code&gt;---------------------------------------------------------------------------
 
 TypeError                                 Traceback (most recent call last)
@@ -601,7 +633,6 @@ TypeError: can't multiply sequence by non-int of type 'str'
 
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir' / 's' # also meaningless
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;pre&gt;&lt;code&gt;---------------------------------------------------------------------------
 
 TypeError                                 Traceback (most recent call last)
@@ -613,14 +644,29 @@ TypeError                                 Traceback (most recent call last)
 TypeError: unsupported operand type(s) for /: 'str' and 'str'
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&quot;note-that-string-values-are-like-vectors-of-characters-in-python-you-can-call-a-specific-element-of-it&quot;&gt;Note that string values are like vectors of characters in Python! you can call a specific element of it!&lt;/h5&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;div class=&quot;center&quot;&gt;
+    &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
+        &lt;b&gt;COOL FEATURE FOR STRING MANIPULATION&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        Note that string values are like vectors of characters in Python! you can call a specific element of it!  
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir'[0] # first letter in the string
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;'a'
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;strong&gt;In order to cound elements from the end of the string, use negative in the index&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;div class=&quot;center&quot;&gt;
+    &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
+        &lt;b&gt;NOTE&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        In order to cound elements from the end of the string, use negative in the index.
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir'[-2] # the second letter from the end of the string
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;'i'
@@ -641,11 +687,12 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 &lt;pre&gt;&lt;code&gt;'m'
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir'[-3:] # This takes the 
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir'[-3:] # This outputs the third last letters of the string
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;'mir'
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;&lt;a name=&quot;python-boolean-operations&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&quot;boolean-operations-in-python&quot;&gt;Boolean operations in Python&lt;/h4&gt;
 &lt;p&gt;As we mentioned before, Boolean types are a subclass of Integers. Boolean operations are essential in branching statements.&lt;/p&gt;
 
@@ -674,8 +721,15 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 &lt;pre&gt;&lt;code&gt;True
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&quot;to-get-the--identity-of-an-object-use-pythons-id-command&quot;&gt;To get the  identity of an object, use Python’s &lt;code&gt;id()&lt;/code&gt; command&lt;/h5&gt;
-&lt;p&gt;&lt;code&gt;id()&lt;/code&gt; is a built-in function in Python 3, which returns the identity of an object. This identity is a unique integer for that object during its lifetime. This unique id is also the address of the object in the device memory. Keep in mind that the object’s id might change from one computer to another, from one run to another run.&lt;/p&gt;
+&lt;p&gt;In addition, to the above operations, there also other more complex Boolean operations in Python, some of which you can study further &lt;a href=&quot;https://docs.python.org/2/library/stdtypes.html#bitwise-operations-on-integer-types&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;center&quot;&gt;
+    &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
+        &lt;b&gt;NOTE: Object's identity in Python&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        To get the  identity of an object, use Python's &lt;code&gt;id()&lt;/code&gt; command. &lt;code&gt;id()&lt;/code&gt; is a built-in function in Python 3, which returns the identity of an object. This identity is a unique integer for that object during its lifetime. This unique id is also the address of the object in the device memory. Keep in mind that the object's id might change from one computer to another, from one run to another run.  
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;id('amir')
 &lt;/code&gt;&lt;/pre&gt;
@@ -697,9 +751,15 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 &lt;pre&gt;&lt;code&gt;True
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;**Note: Be very careful with operations &lt;code&gt;is&lt;/code&gt; and &lt;code&gt;equality&lt;/code&gt; ! These two are not the same.&lt;/p&gt;
+&lt;div class=&quot;center&quot;&gt;
+    &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
+        &lt;b&gt;ATTENTION&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        Be very careful with operations `is` and `equality` ! These two are not the same! See the examples below.
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;(1,1) is (1,1) # Two similar tuples have not the same identifiers in Python!
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;(1,1) is (1,1) # Two similar tuples have not the same identifiers in Python! Will soon see what tuples are.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;False
 &lt;/code&gt;&lt;/pre&gt;
@@ -709,7 +769,8 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 &lt;pre&gt;&lt;code&gt;True
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&quot;string-comarison&quot;&gt;String comarison&lt;/h5&gt;
+&lt;p&gt;&lt;a name=&quot;python-boolean-operations-string-comparison&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h5 id=&quot;string-comparison&quot;&gt;String comparison&lt;/h5&gt;
 &lt;p&gt;Strings are compared lexicographically using the numeric equivalents in ASCII codes (the result of the built-in Python function &lt;code&gt;ord()&lt;/code&gt;) of their characters.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir' &amp;gt; 'jake' # String comparison. Basically the character ASCII codes are compared here.
@@ -732,20 +793,19 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 &lt;pre&gt;&lt;code&gt;False
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; also the difference in &lt;code&gt;print&lt;/code&gt; statement between the two Python versions. In Python 3, &lt;code&gt;print&lt;/code&gt; is a function, whereas in Python 2, it is a Python statement.&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;python-values-types-print&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;pythons-print-function&quot;&gt;Python’s print function&lt;/h3&gt;
+&lt;p&gt;We have already used print function to create the first Python program. But note also the difference in &lt;code&gt;print&lt;/code&gt; between the two Python versions. In &lt;strong&gt;Python 3&lt;/strong&gt;, &lt;code&gt;print&lt;/code&gt; is a &lt;strong&gt;Python function&lt;/strong&gt;, whereas in &lt;strong&gt;Python 2&lt;/strong&gt;, it is a &lt;strong&gt;Python statement&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print('My name is Amir')
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;pre&gt;&lt;code&gt;My name is Amir
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; You can use wildcards in Python strings. You can also use double quotes for strings.&lt;/p&gt;
+
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print(&quot;My name is Amir&quot;,'\n') # You can use wildcards in Python strings. You can also use double quotes for strings.
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;pre&gt;&lt;code&gt;My name is Amir 
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -757,7 +817,6 @@ Note how I used wildcards for quotation marks around &quot;UT Austin&quot; in my
 Did you also notice how I am creating a multi-line Python string right now?!
 ''')
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;pre&gt;&lt;code&gt;My name is Amir 
 
  I do work at &quot;UT Austin&quot;.
@@ -775,7 +834,6 @@ comment in
 Python
 &quot;&quot;&quot;
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;pre&gt;&lt;code&gt;'\nThis is also a multi-line\ncomment in\nPython\n'
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -786,27 +844,64 @@ Always be as expressive as possible with your comments in you code.
 It does not harm!
 '''
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;pre&gt;&lt;code&gt;'\nYou can use single quotes\nfor multi-line commenting as well.\nAlways be as expressive as possible with your comments in you code.\nIt does not harm!\n'
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;In the following section, you will learn much more about the &lt;code&gt;print&lt;/code&gt; function, especiallu when dealing with variables.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;python-variables&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;variables-in-python&quot;&gt;Variables in Python&lt;/h3&gt;
 &lt;p&gt;Python has 5 main variable types:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Number&lt;/li&gt;
-  &lt;li&gt;String&lt;/li&gt;
-  &lt;li&gt;List&lt;/li&gt;
-  &lt;li&gt;Tuple&lt;/li&gt;
-  &lt;li&gt;Dictionary&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Number&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;String&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;List&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Tuple&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Dictionary&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;We will get to each of these soon. The variable naming convention in Python is that each variable starts with a letter and can contain only letters, numbers or underscore “_”.&lt;/p&gt;
 
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;var1 = 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print('value of var1 is ',var1,'.')
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;value of var1 is  1 .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a_long_variable_name = 2.5 # The variable name can be almost as long as you wish
+print(a_long_variable_name)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;2.5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a name=&quot;python-variables-naming-convention&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;variable-naming-convention-in-python&quot;&gt;Variable naming convention in Python&lt;/h4&gt;
+&lt;p&gt;A Python variable can only begin with letter or underscore _. Numbers are only valid if they appear inside or at the end of the variable name. Other symbols are syntactically invalid anywhere in a variable name.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;123new_var = 2.5 # This is an invalid name
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;  File &quot;&amp;lt;ipython-input-10-0e3e63931842&amp;gt;&quot;, line 1
+    123new_var = 2.5 # This is an invalid name
+             ^
+SyntaxError: invalid syntax
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;new_var$ = 2.5 # symbols are not valid in Python variable names
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;  File &quot;&amp;lt;ipython-input-12-71f3fbc68938&amp;gt;&quot;, line 1
+    new_var$ = 2.5 # symbols are not valid in Python variable names
+           ^
+SyntaxError: invalid syntax
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;amir = &quot;teacher&quot;
 print('Amir is a', amir)
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;pre&gt;&lt;code&gt;Amir is a teacher
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -821,7 +916,6 @@ SyntaxError: invalid syntax
 
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;amir = 101; print('Amir is',amir,'years old!');
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;pre&gt;&lt;code&gt;Amir is 101 years old!
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -864,62 +958,6 @@ is located at the height 1.23 m.
   &lt;li&gt;%E   for scientific notation&lt;/li&gt;
   &lt;li&gt;%%   percentage sign itself&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;amir = True
-if amir:
-    print('Hey Amir!')
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;Hey Amir!
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;my_logical_variable = 1
-if my_logical_variable:
-    print('Hey there again Amir!')
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;Hey Amir!
-Hey there again Amir!
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;my_logical_variable_has_an_extremely_long_name = 2
-if my_logical_variable_has_an_extremely_long_name:
-    print('Hey there again Amir!')
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;Hey there again Amir!
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;my_logical_variable_has_an_extremely_long_name = 0
-if my_logical_variable_has_an_extremely_long_name:
-    print('Hey there again Amir!')
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;my_logical_variable_has_an_extremely_long_name = -1;
-if my_logical_variable_has_an_extremely_long_name:
-    print('Hey there again Amir!')
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;Hey there again Amir!
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;my_logical_variable_has_an_extremely_long_name = -1; if my_logical_variable_has_an_extremely_long_name:
-    print('Hey there again Amir!')
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;  File &quot;&amp;lt;ipython-input-17-0e2ee1e7e9f8&amp;gt;&quot;, line 1
-    my_logical_variable_has_an_extremely_long_name = -1; if my_logical_variable_has_an_extremely_long_name:
-                                                          ^
-SyntaxError: invalid syntax
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
