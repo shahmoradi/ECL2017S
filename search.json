@@ -9,6 +9,14 @@
 		} ,
 	
 		{
+		  "title"      : "Homework 3: Python debugging and string manipulation",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/homework/3-python-values-variables-types",
+		  "date"       : "2017-02-22 00:00:00 -0600",
+		  "shortdate"  : "February 22, 2017"
+		} ,
+	
+		{
 		  "title"      : "Quiz 3: Advanced Git",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/quiz/3-advanced-git",

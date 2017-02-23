@@ -777,10 +777,38 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 <pre><code>'m'
 </code></pre>
 
-<pre><code class="language-python">'amir'[-3:] # This outputs the third last letters of the string
+<pre><code class="language-python">'amir'[-3:] # This outputs the three last letters of the string
 </code></pre>
 <pre><code>'mir'
 </code></pre>
+
+<pre><code class="language-python">'amirShahmoradi'[:-3] # This outputs the letters of the string from the beginning up to the fourth letter from the end.
+</code></pre>
+<pre><code>'amirShahmor'
+</code></pre>
+
+<pre><code class="language-python">'amirShahmoradi'[::-1] # This outputs ALL the letters in the string in reverse, from the end to the beginning.
+</code></pre>
+<pre><code>'idaromhahSrima'
+</code></pre>
+
+<pre><code class="language-python">'amirShahmoradi'[::-2] # This outputs every other letter in the string in reverse, from the end to the beginning.
+</code></pre>
+<pre><code>'iaohhrm'
+</code></pre>
+
+<pre><code class="language-python">'amirShahmoradi'[-3:].upper() # This outputs the third last letters of the string
+</code></pre>
+<pre><code>'ADI'
+</code></pre>
+
+<div class="center">
+    <div class="rcbox" style="text-align:center">
+        <b>NOTE: List of string manipulation methods</b><br /><br />
+        To see the full list of powerfull string methods that can manipulate strings, like the above example, see <a href="https://docs.python.org/2/library/stdtypes.html#string-methods" target="_blank">this page</a>.
+    </div>
+</div>
+<p><br /></p>
 
 <p><a name="python-boolean-operations"></a></p>
 <h4 id="boolean-operations-in-python">Boolean operations in Python</h4>
@@ -1049,6 +1077,8 @@ is located at the height 1.23 m.
   <li>%%   percentage sign itself</li>
 </ul>
 
+<p>There is also a a more recent, recommended way of determining the string format in Python, using <code>.format()</code> method, about which you find some more useful information <a href="https://pyformat.info/" target="_blank">here</a>.</p>
+
 <p><br /><br /></p>
 
 
@@ -1126,8 +1156,8 @@ is located at the height 1.23 m.
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2017 / 02 / 22</section></br> -->
-         <section>Last updated Wednesday, 22 Feb 2017 at 07:27 PM CST</section></br>
+         <!-- <section>Last updated 2017 / 02 / 23</section></br> -->
+         <section>Last updated Thursday, 23 Feb 2017 at 12:24 PM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>

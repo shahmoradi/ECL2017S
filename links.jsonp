@@ -57,6 +57,11 @@ callback([
   } ,
 
   {
+    "text": "Homework 3: Python debugging and string manipulation",
+    "href": "/ECL2017S/homework/3-python-values-variables-types"
+  } ,
+
+  {
     "text": "Homework 2: Solution",
     "href": "/ECL2017S/homework/2-advanced-git-solution"
   } ,

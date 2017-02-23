@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-02-22T19:27:14-06:00</updated>
+<updated>2017-02-23T12:24:31-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -687,10 +687,38 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 &lt;pre&gt;&lt;code&gt;'m'
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir'[-3:] # This outputs the third last letters of the string
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir'[-3:] # This outputs the three last letters of the string
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;'mir'
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amirShahmoradi'[:-3] # This outputs the letters of the string from the beginning up to the fourth letter from the end.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;'amirShahmor'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amirShahmoradi'[::-1] # This outputs ALL the letters in the string in reverse, from the end to the beginning.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;'idaromhahSrima'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amirShahmoradi'[::-2] # This outputs every other letter in the string in reverse, from the end to the beginning.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;'iaohhrm'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amirShahmoradi'[-3:].upper() # This outputs the third last letters of the string
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;'ADI'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&quot;center&quot;&gt;
+    &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
+        &lt;b&gt;NOTE: List of string manipulation methods&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        To see the full list of powerfull string methods that can manipulate strings, like the above example, see &lt;a href=&quot;https://docs.python.org/2/library/stdtypes.html#string-methods&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;.
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a name=&quot;python-boolean-operations&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&quot;boolean-operations-in-python&quot;&gt;Boolean operations in Python&lt;/h4&gt;
@@ -959,11 +987,163 @@ is located at the height 1.23 m.
   &lt;li&gt;%%   percentage sign itself&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;There is also a a more recent, recommended way of determining the string format in Python, using &lt;code&gt;.format()&lt;/code&gt; method, about which you find some more useful information &lt;a href=&quot;https://pyformat.info/&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/4-python-values-variables-types&quot;&gt;Lecture 4: Python - values, variables, and types&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 22, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Homework 3: Python debugging and string manipulation]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/3-python-values-variables-types"/>
+  <id>http:/ECL2017S/homework/3-python-values-variables-types</id>
+  <published>2017-02-22T00:00:00-06:00</published>
+  <updated>2017-02-22T00:00:00-06:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This homework aims at giving you some experience with String manipulation in Python and debugging a simple Python script. String manipulation is one of the greatest strengths and reasons for popularity of Python. For both questions below, submit your Python scripts in the corresponding &lt;code&gt;*.py&lt;/code&gt; files, and add a readme.md file in HW 3 folder of your project if you need to add any additional explanation (Don’t forget to use markdown syntax highlight in your readme file).&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Download &lt;a href=&quot;http:/ECL2017S/homework/3/python_script_full_of_errors.pi&quot; target=&quot;_blank&quot;&gt;this Python script&lt;/a&gt;. This Python script is full of syntax, runtime, and semantic errors. Please identify and corrent these errors, such that code becomes fully executable and outputs the following message on the screen, when run from the Git Bash command line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;The life expectancy for the millennials is projected to be 120 years! (But don't believe it...)
+
+
+    A recent study published in the journal of Nature, discovered that over the past century,
+    although the life expectancy has significantly increased due to technological advances,
+    the maximum life span of the oldest people in the world has not changed much.
+
+
+Cardano was the first to introduce complex numbers of the form a + sqrt(-b) into algebra, but he had misgivings about it.
+In his solution to an algebra equation he encountered the solution 5 + sqrt(-15) for the unknown, which is now mathematically represented by
+
+       (5-15j)
+
+in Python, which can also be obtained as an addition of real and imaginary numbers in Python like this
+
+
+      5 + sqrt(-15) = (5+3.872983346207417j),
+
+
+      which can also be manually stated as
+
+
+      (5+3.872983346207417j)
+
+
+
+
+
+One final note:
+
+        In python the sqrt function from math and cmath modules are different.
+        The sqrt function that return &quot;float&quot; results is sqrt from math module.
+        Therefore, if using math module,
+
+                sqrt(25) = 5.0000+0.0000j,
+
+        which is obviously a float (real number).
+
+
+
+
+Also note that by convention, 0**0 = 1 in Python.
+And division by 0, will give you a runtime exception: 1/0 = NaN
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Identify at least one example in the code for each of the error types.&lt;/p&gt;
+
+&lt;p&gt;Here are a few hints:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You need to get familiar with string formatting in &lt;code&gt;print&lt;/code&gt; function. See .&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Note that in Python interpreter is sensitive to &lt;a href=&quot;https://www.python.org/dev/peps/pep-0008/#indentation&quot; target=&quot;_blank&quot;&gt;indentations&lt;/a&gt; in your codes. All lines must be aligned at the beginning (except for looping and branching, … which we will get to them later on).&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;become familiar with &lt;a href=&quot;http://python-reference.readthedocs.io/en/latest/docs/str/escapes.html&quot; target=&quot;_blank&quot;&gt;escape characters&lt;/a&gt; in Python, such as &lt;code&gt;'\n'&lt;/code&gt;, &lt;code&gt;'\t'&lt;/code&gt;, and &lt;code&gt;'\t'&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Write a Python script that is directly executable from the Git Bash command line, without any need to invoke &lt;code&gt;python&lt;/code&gt; interpreter. The script should produce &lt;strong&gt;exactly&lt;/strong&gt; the following output, including line breaks and separations. Each part of the output (separated by a line-break, or a new-line character &lt;code&gt;'\n'&lt;/code&gt; from the rest) is generated by &lt;strong&gt;only and only one call&lt;/strong&gt; to print function.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;This is Python version 3.5.2 
+
+Python is the best language for String manipulation!
+
+!noitalupinam gnirtS rof egaugnal tseb eht si nohtyP
+
+!otlpnmgit o gunlte h inhy
+
+pYTHON IS THE BEST LANGUAGE FOR sTRING MANIPULATION!
+
+
+The sentence 'Python is the best language for String manipulation!' contains 
+4 'a' letters, and
+0 'A' letters!
+
+Python
+is
+the
+best
+language
+for
+String
+manipulation!
+
+PYTHON
+IS
+THE
+BEST
+LANGUAGE
+FOR
+STRING
+MANIPULATION!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here are some hints (all the information you need to answer this question can be found in &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/lecture/4-python-values-variables-types&quot; target=&quot;_blank&quot;&gt;Lecture 4&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;to make the script executable add the appropriate shebang to the script’s file.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;import the appropriate module to get the python version command, as we did in class. Use &lt;code&gt;print&lt;/code&gt; function to print the Python version.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Define a String variable &lt;code&gt;my_string&lt;/code&gt; which contains the string value “Python is the best language for String manipulation!” ( Of course, you can totally accomplish this question without defining a string variable, by only using the string value itself wherever needed… This is also totally fine at this point in our course, if your prefer this method).&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Then use the appropriate examples and external links provided in &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/lecture/4-python-values-variables-types&quot; target=&quot;_blank&quot;&gt;Lecture 4&lt;/a&gt;, to find the proper &lt;strong&gt;string methods&lt;/strong&gt; that can manipulate this string variable/value in order to generate each of the outputs printed above.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Again, note that for each output, the entire output must result from &lt;strong&gt;one single call&lt;/strong&gt; to function &lt;code&gt;print&lt;/code&gt;.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Wherever needed, use the wildcard String value &lt;code&gt;'\n'&lt;/code&gt; in &lt;code&gt;print&lt;/code&gt; input arguments, in order to generate a line-break (or new line) in the output.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/3-python-values-variables-types&quot;&gt;Homework 3: Python debugging and string manipulation&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 22, 2017.&lt;/p&gt;</content>
 </entry>
 
 
