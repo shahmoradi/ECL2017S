@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-02-23T12:36:43-06:00</updated>
+<updated>2017-02-23T14:07:50-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -1075,7 +1075,7 @@ Identify at least one example in the code for each of the error types.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;You need to get familiar with string formatting in &lt;code&gt;print&lt;/code&gt; function. See &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/lecture/4-python-values-variables-types&quot; target=&quot;_blank&quot;&gt;Lecture 4&lt;/a&gt;.&lt;br /&gt;
 &lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Note that in Python interpreter is sensitive to &lt;a href=&quot;https://www.python.org/dev/peps/pep-0008/#indentation&quot; target=&quot;_blank&quot;&gt;indentations&lt;/a&gt; in your codes. All lines must be aligned at the beginning (except for looping and branching, … which we will get to them later on).&lt;br /&gt;
+  &lt;li&gt;Note that in Python, the interpreter is sensitive to &lt;a href=&quot;https://www.python.org/dev/peps/pep-0008/#indentation&quot; target=&quot;_blank&quot;&gt;indentations&lt;/a&gt; in your codes. All lines must be aligned at the beginning (except for looping and branching, … which we will get to them later on).&lt;br /&gt;
 &lt;br /&gt;&lt;/li&gt;
   &lt;li&gt;become familiar with &lt;a href=&quot;http://python-reference.readthedocs.io/en/latest/docs/str/escapes.html&quot; target=&quot;_blank&quot;&gt;escape characters&lt;/a&gt; in Python, such as &lt;code&gt;'\n'&lt;/code&gt;, &lt;code&gt;'\t'&lt;/code&gt;, and &lt;code&gt;'\t'&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
