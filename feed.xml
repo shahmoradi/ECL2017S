@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-02-23T14:09:16-06:00</updated>
+<updated>2017-02-23T14:10:15-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -1137,7 +1137,7 @@ MANIPULATION!
 &lt;br /&gt;&lt;/li&gt;
   &lt;li&gt;Again, note that for each output, the entire output must result from &lt;strong&gt;one single call&lt;/strong&gt; to function &lt;code&gt;print&lt;/code&gt;.&lt;br /&gt;
 &lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Wherever needed, use the wildcard String value &lt;code&gt;'\n'&lt;/code&gt; in &lt;code&gt;print&lt;/code&gt; input arguments, in order to generate a line-break (or new line) in the output.&lt;/li&gt;
+  &lt;li&gt;Wherever needed, use the &lt;a href=&quot;http://python-reference.readthedocs.io/en/latest/docs/str/escapes.html&quot; target=&quot;_blank&quot;&gt;escape character&lt;/a&gt; value &lt;code&gt;'\n'&lt;/code&gt; in &lt;code&gt;print&lt;/code&gt; input arguments, in order to generate a line-break (or new line) in the output.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
