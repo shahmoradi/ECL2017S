@@ -29,8 +29,8 @@ print('''
 
 One final note: \n
 \tIn python the sqrt function from math and cmath modules are different.
-\tThe sqrt function that return "float" results is sqrt from math module.
-\tTherefore, if using math module, 
+\tThe sqrt function that returns "float" results is sqrt from math module.
+\tTherefore, if using math module, then,
 
 \t\tsqrt(25) = {:.4f}, 
 

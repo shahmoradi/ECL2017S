@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-02-23T12:24:31-06:00</updated>
+<updated>2017-02-23T12:33:40-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -1033,7 +1033,7 @@ is located at the height 1.23 m.
 Cardano was the first to introduce complex numbers of the form a + sqrt(-b) into algebra, but he had misgivings about it.
 In his solution to an algebra equation he encountered the solution 5 + sqrt(-15) for the unknown, which is now mathematically represented by
 
-       (5-15j)
+       (5+3.872983346207417j)
 
 in Python, which can also be obtained as an addition of real and imaginary numbers in Python like this
 
@@ -1053,8 +1053,8 @@ in Python, which can also be obtained as an addition of real and imaginary numbe
 One final note:
 
         In python the sqrt function from math and cmath modules are different.
-        The sqrt function that return &quot;float&quot; results is sqrt from math module.
-        Therefore, if using math module,
+        The sqrt function that returns &quot;float&quot; results is sqrt from math module.
+        Therefore, if using math module, then,
 
                 sqrt(25) = 5.0000+0.0000j,
 
@@ -1065,7 +1065,6 @@ One final note:
 
 Also note that by convention, 0**0 = 1 in Python.
 And division by 0, will give you a runtime exception: 1/0 = NaN
-
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
 Identify at least one example in the code for each of the error types.&lt;/p&gt;
@@ -1073,7 +1072,7 @@ Identify at least one example in the code for each of the error types.&lt;/p&gt;
 &lt;p&gt;Here are a few hints:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;You need to get familiar with string formatting in &lt;code&gt;print&lt;/code&gt; function. See .&lt;br /&gt;
+  &lt;li&gt;You need to get familiar with string formatting in &lt;code&gt;print&lt;/code&gt; function. See &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/lecture/4-python-values-variables-types&quot; target=&quot;_blank&quot;&gt;Lecture 4&lt;/a&gt;.&lt;br /&gt;
 &lt;br /&gt;&lt;/li&gt;
   &lt;li&gt;Note that in Python interpreter is sensitive to &lt;a href=&quot;https://www.python.org/dev/peps/pep-0008/#indentation&quot; target=&quot;_blank&quot;&gt;indentations&lt;/a&gt; in your codes. All lines must be aligned at the beginning (except for looping and branching, … which we will get to them later on).&lt;br /&gt;
 &lt;br /&gt;&lt;/li&gt;
