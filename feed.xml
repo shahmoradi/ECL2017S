@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-02-26T20:53:03-06:00</updated>
+<updated>2017-02-27T12:33:08-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -2019,7 +2019,7 @@ It does not harm!
 
 &lt;p&gt;&lt;a name=&quot;python-variables&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;variables-in-python&quot;&gt;Variables in Python&lt;/h3&gt;
-&lt;p&gt;Python has 5 main variable types:&lt;/p&gt;
+&lt;p&gt;Python has 6 main variable types:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Number&lt;/strong&gt;&lt;/li&gt;
@@ -2027,6 +2027,7 @@ It does not harm!
   &lt;li&gt;&lt;strong&gt;List&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Tuple&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Dictionary&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Sets&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;We will get to each of these soon. The variable naming convention in Python is that each variable starts with a letter and can contain only letters, numbers or underscore “_”.&lt;/p&gt;
