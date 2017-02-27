@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Lecture 5: Python - variables and assignment statements",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/lecture/5-python-variables-assignments",
+		  "date"       : "2017-03-01 00:00:00 -0600",
+		  "shortdate"  : "March 01, 2017"
+		} ,
+	
+		{
 		  "title"      : "Lecture 4: Python - values, variables, and types",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/4-python-values-variables-types",
@@ -9,25 +17,25 @@
 		} ,
 	
 		{
-		  "title"      : "Homework 3: Python debugging and string manipulation",
+		  "title"      : "Homework 3: Problems - Python debugging and string manipulation",
 		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/3-python-values-variables-types",
+		  "url"        : "/ECL2017S/homework/3-problems-python-values-variables-types",
 		  "date"       : "2017-02-22 00:00:00 -0600",
 		  "shortdate"  : "February 22, 2017"
 		} ,
 	
 		{
-		  "title"      : "Quiz 3: Advanced Git",
+		  "title"      : "Quiz 3: Solutions - Advanced Git",
 		  "category"   : "",
-		  "url"        : "/ECL2017S/quiz/3-advanced-git",
+		  "url"        : "/ECL2017S/quiz/3-solutions-advanced-git",
 		  "date"       : "2017-02-15 00:00:00 -0600",
 		  "shortdate"  : "February 15, 2017"
 		} ,
 	
 		{
-		  "title"      : "Quiz 3: Solution",
+		  "title"      : "Quiz 3: Problems - Advanced Git",
 		  "category"   : "",
-		  "url"        : "/ECL2017S/quiz/3-advanced-git-solution",
+		  "url"        : "/ECL2017S/quiz/3-problems-advanced-git",
 		  "date"       : "2017-02-15 00:00:00 -0600",
 		  "shortdate"  : "February 15, 2017"
 		} ,
@@ -41,9 +49,9 @@
 		} ,
 	
 		{
-		  "title"      : "Homework 2: Solution",
+		  "title"      : "Homework 2: Solutions - Advanced Git",
 		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/2-advanced-git-solution",
+		  "url"        : "/ECL2017S/homework/2-solutions-advanced-git",
 		  "date"       : "2017-02-15 00:00:00 -0600",
 		  "shortdate"  : "February 15, 2017"
 		} ,
@@ -57,25 +65,25 @@
 		} ,
 	
 		{
-		  "title"      : "Homework 2: Advanced Git",
+		  "title"      : "Homework 2: Problems - Advanced Git",
 		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/2-advanced-git",
+		  "url"        : "/ECL2017S/homework/2-problems-advanced-git",
 		  "date"       : "2017-02-08 00:00:00 -0600",
 		  "shortdate"  : "February 08, 2017"
 		} ,
 	
 		{
-		  "title"      : "Quiz 2: Version control system",
+		  "title"      : "Quiz 2: Solutions - Version control system",
 		  "category"   : "",
-		  "url"        : "/ECL2017S/quiz/2-version-control-system",
+		  "url"        : "/ECL2017S/quiz/2-solutions-version-control-system",
 		  "date"       : "2017-02-01 00:00:00 -0600",
 		  "shortdate"  : "February 01, 2017"
 		} ,
 	
 		{
-		  "title"      : "Quiz 2: Solution",
+		  "title"      : "Quiz 2: Problems - Version control system",
 		  "category"   : "",
-		  "url"        : "/ECL2017S/quiz/2-version-control-system-solution",
+		  "url"        : "/ECL2017S/quiz/2-problems-version-control-system",
 		  "date"       : "2017-02-01 00:00:00 -0600",
 		  "shortdate"  : "February 01, 2017"
 		} ,
@@ -89,25 +97,25 @@
 		} ,
 	
 		{
-		  "title"      : "Homework 1: Solution",
+		  "title"      : "Homework 1: Solutions - Designing a Github README file and web-page for your project",
 		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/1-project-readme-file-solution",
+		  "url"        : "/ECL2017S/homework/1-solutions-project-readme-file",
 		  "date"       : "2017-02-01 00:00:00 -0600",
 		  "shortdate"  : "February 01, 2017"
 		} ,
 	
 		{
-		  "title"      : "Quiz 1: Programming history",
+		  "title"      : "Quiz 1: Solutions - Programming history",
 		  "category"   : "",
-		  "url"        : "/ECL2017S/quiz/1-programming-history",
+		  "url"        : "/ECL2017S/quiz/1-solutions-programming-history",
 		  "date"       : "2017-01-25 00:00:00 -0600",
 		  "shortdate"  : "January 25, 2017"
 		} ,
 	
 		{
-		  "title"      : "Quiz 1: Solution",
+		  "title"      : "Quiz 1: Problems - Programming history",
 		  "category"   : "",
-		  "url"        : "/ECL2017S/quiz/1-programming-history-solution",
+		  "url"        : "/ECL2017S/quiz/1-problems-programming-history",
 		  "date"       : "2017-01-25 00:00:00 -0600",
 		  "shortdate"  : "January 25, 2017"
 		} ,
@@ -121,9 +129,9 @@
 		} ,
 	
 		{
-		  "title"      : "Homework 1: Designing a Github README file and web-page for your project",
+		  "title"      : "Homework 1: Problems - Designing a Github README file and web-page for your project",
 		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/1-project-readme-file",
+		  "url"        : "/ECL2017S/homework/1-problems-project-readme-file",
 		  "date"       : "2017-01-25 00:00:00 -0600",
 		  "shortdate"  : "January 25, 2017"
 		} ,

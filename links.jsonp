@@ -2,33 +2,38 @@
 callback([
 
   {
-    "text": "Quiz 3: Solution",
-    "href": "/ECL2017S/quiz/3-advanced-git-solution"
+    "text": "Quiz 3: Solutions - Advanced Git",
+    "href": "/ECL2017S/quiz/3-solutions-advanced-git"
   } ,
 
   {
-    "text": "Quiz 3: Advanced Git",
-    "href": "/ECL2017S/quiz/3-advanced-git"
+    "text": "Quiz 3: Problems - Advanced Git",
+    "href": "/ECL2017S/quiz/3-problems-advanced-git"
   } ,
 
   {
-    "text": "Quiz 2: Version control system",
-    "href": "/ECL2017S/quiz/2-version-control-system"
+    "text": "Quiz 2: Solutions - Version control system",
+    "href": "/ECL2017S/quiz/2-solutions-version-control-system"
   } ,
 
   {
-    "text": "Quiz 2: Solution",
-    "href": "/ECL2017S/quiz/2-version-control-system-solution"
+    "text": "Quiz 2: Problems - Version control system",
+    "href": "/ECL2017S/quiz/2-problems-version-control-system"
   } ,
 
   {
-    "text": "Quiz 1: Solution",
-    "href": "/ECL2017S/quiz/1-programming-history-solution"
+    "text": "Quiz 1: Solutions - Programming history",
+    "href": "/ECL2017S/quiz/1-solutions-programming-history"
   } ,
 
   {
-    "text": "Quiz 1: Programming history",
-    "href": "/ECL2017S/quiz/1-programming-history"
+    "text": "Quiz 1: Problems - Programming history",
+    "href": "/ECL2017S/quiz/1-problems-programming-history"
+  } ,
+
+  {
+    "text": "Lecture 5: Python - variables and assignment statements",
+    "href": "/ECL2017S/lecture/5-python-variables-assignments"
   } ,
 
   {
@@ -57,28 +62,28 @@ callback([
   } ,
 
   {
-    "text": "Homework 3: Python debugging and string manipulation",
-    "href": "/ECL2017S/homework/3-python-values-variables-types"
+    "text": "Homework 3: Problems - Python debugging and string manipulation",
+    "href": "/ECL2017S/homework/3-problems-python-values-variables-types"
   } ,
 
   {
-    "text": "Homework 2: Solution",
-    "href": "/ECL2017S/homework/2-advanced-git-solution"
+    "text": "Homework 2: Solutions - Advanced Git",
+    "href": "/ECL2017S/homework/2-solutions-advanced-git"
   } ,
 
   {
-    "text": "Homework 2: Advanced Git",
-    "href": "/ECL2017S/homework/2-advanced-git"
+    "text": "Homework 2: Problems - Advanced Git",
+    "href": "/ECL2017S/homework/2-problems-advanced-git"
   } ,
 
   {
-    "text": "Homework 1: Solution",
-    "href": "/ECL2017S/homework/1-project-readme-file-solution"
+    "text": "Homework 1: Solutions - Designing a Github README file and web-page for your project",
+    "href": "/ECL2017S/homework/1-solutions-project-readme-file"
   } ,
 
   {
-    "text": "Homework 1: Designing a Github README file and web-page for your project",
-    "href": "/ECL2017S/homework/1-project-readme-file"
+    "text": "Homework 1: Problems - Designing a Github README file and web-page for your project",
+    "href": "/ECL2017S/homework/1-problems-project-readme-file"
   } ,
 
   {

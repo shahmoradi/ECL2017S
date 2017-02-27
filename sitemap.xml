@@ -48,19 +48,23 @@
 
     
     <url>
+        <loc>/ECL2017S/lecture/5-python-variables-assignments</loc>
+    </url>
+    
+    <url>
         <loc>/ECL2017S/lecture/4-python-values-variables-types</loc>
     </url>
     
     <url>
-        <loc>/ECL2017S/homework/3-python-values-variables-types</loc>
+        <loc>/ECL2017S/homework/3-problems-python-values-variables-types</loc>
     </url>
     
     <url>
-        <loc>/ECL2017S/quiz/3-advanced-git</loc>
+        <loc>/ECL2017S/quiz/3-solutions-advanced-git</loc>
     </url>
     
     <url>
-        <loc>/ECL2017S/quiz/3-advanced-git-solution</loc>
+        <loc>/ECL2017S/quiz/3-problems-advanced-git</loc>
     </url>
     
     <url>
@@ -68,7 +72,7 @@
     </url>
     
     <url>
-        <loc>/ECL2017S/homework/2-advanced-git-solution</loc>
+        <loc>/ECL2017S/homework/2-solutions-advanced-git</loc>
     </url>
     
     <url>
@@ -76,15 +80,15 @@
     </url>
     
     <url>
-        <loc>/ECL2017S/homework/2-advanced-git</loc>
+        <loc>/ECL2017S/homework/2-problems-advanced-git</loc>
     </url>
     
     <url>
-        <loc>/ECL2017S/quiz/2-version-control-system</loc>
+        <loc>/ECL2017S/quiz/2-solutions-version-control-system</loc>
     </url>
     
     <url>
-        <loc>/ECL2017S/quiz/2-version-control-system-solution</loc>
+        <loc>/ECL2017S/quiz/2-problems-version-control-system</loc>
     </url>
     
     <url>
@@ -92,15 +96,15 @@
     </url>
     
     <url>
-        <loc>/ECL2017S/homework/1-project-readme-file-solution</loc>
+        <loc>/ECL2017S/homework/1-solutions-project-readme-file</loc>
     </url>
     
     <url>
-        <loc>/ECL2017S/quiz/1-programming-history</loc>
+        <loc>/ECL2017S/quiz/1-solutions-programming-history</loc>
     </url>
     
     <url>
-        <loc>/ECL2017S/quiz/1-programming-history-solution</loc>
+        <loc>/ECL2017S/quiz/1-problems-programming-history</loc>
     </url>
     
     <url>
@@ -108,7 +112,7 @@
     </url>
     
     <url>
-        <loc>/ECL2017S/homework/1-project-readme-file</loc>
+        <loc>/ECL2017S/homework/1-problems-project-readme-file</loc>
     </url>
     
     <url>

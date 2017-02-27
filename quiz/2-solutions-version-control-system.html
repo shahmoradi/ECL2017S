@@ -2,23 +2,23 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>QUIZ 3: SOLUTION &vert; COE 111L - SPRING 2017</title>
+<title>QUIZ 2: SOLUTIONS - VERSION CONTROL SYSTEM &vert; COE 111L - SPRING 2017</title>
 <meta name="description" content="Engineering Computation Lab">
 <meta name="keywords" content="">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/ECL2017S/images/logo.png">
-<meta name="twitter:title" content="Quiz 3: Solution">
+<meta name="twitter:title" content="Quiz 2: Solutions - Version control system">
 <meta name="twitter:description" content="Engineering Computation Lab">
 <meta name="twitter:creator" content="@AmirShahmoradi">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Quiz 3: Solution">
+<meta property="og:title" content="Quiz 2: Solutions - Version control system">
 <meta property="og:description" content="Engineering Computation Lab">
-<meta property="og:url" content="/ECL2017S/quiz/3-advanced-git-solution">
+<meta property="og:url" content="/ECL2017S/quiz/2-solutions-version-control-system">
 <meta property="og:site_name" content="COE 111L - Spring 2017">
 <meta property="og:image" content="/ECL2017S/images/">
 
@@ -26,7 +26,7 @@
 
 
 
-<link rel="canonical" href="/ECL2017S/quiz/3-advanced-git-solution">
+<link rel="canonical" href="/ECL2017S/quiz/2-solutions-version-control-system">
 <!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 Feed"> -->
 
 
@@ -112,86 +112,60 @@
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h2>Quiz 3: Solution</h2>
-                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-02-15T00:00:00-06:00">15 Feb 2017</time></strong></p>
+                            <h2>Quiz 2: Solutions - Version control system</h2>
+                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-02-01T00:00:00-06:00">01 Feb 2017</time></strong></p>
                         </div>
                     </div>
                 </div>
             </header>
 
         <article class="notepad-post-content post tag-simple">
-            <div style="text-align:justify;"><p>This is the solution to <a href="3-advanced-git.html" target="_blank">Quiz 3: Version control system</a>.</p>
+            <div style="text-align:justify;"><p>This is the solution to <a href="2-problems-version-control-system.html" target="_blank">Quiz 2: Problems - Version control system</a>.</p>
 
-<!--
-The following figure illustrates the grade distribution for this quiz.  
+<p>The following figure illustrates the grade distribution for this quiz.</p>
 
 <figure>
-	<img src="/ECL2017S/quiz/gradeDist/gradeHistQuiz3.png" width="700">
+	<img src="/ECL2017S/quiz/gradeDist/gradeHistQuiz2.png" width="700" />
     <figcaption style="text-align:center">
         Maximum possible points is 100.
     </figcaption>
 </figure>
--->
 
 <hr />
 <hr />
 
 <p><br /></p>
 
-<p>This quiz aims at testing your knowledge of advanced Git commands, such as branching.
-Don’t forget to push your answers to your remote repository by the end of quiz time.<br />
-Push your quiz-3 <em>readme.md</em> file to quiz/3/ folder in your Github project.</p>
-
 <ol>
-  <li>Write down two out of the three different existing commands for getting help about <code>git add</code> command.<br />
+  <li>Which of the following Git commands can add all the <strong>new</strong> and <strong>modified-existing</strong> files to the staging area? choose all that apply.<br />
+(A) <code>git add -A</code><br />
+(B) <code>git add --A</code><br />
+(C) <code>git add -all</code><br />
+(D) <code>git add --all</code><br />
+(E) <code>git add -u</code><br />
+(E) <code>git add --u</code><br />
+(F) <code>git add .</code><br />
+(G) <code>git add .; git add -u</code><br />
+(H) <code>git add .; git add --u</code><br />
+(I) <code>git add -u; git add .</code><br />
+(J) <code>git add --u; git add .</code><br />
 <br />
-<strong>Answer:</strong>
-    <pre><code class="language-bash">$ git add --help
-</code></pre>
-    <pre><code class="language-bash">$ git help add
-</code></pre>
-    <pre><code class="language-bash">$ man git-add
-</code></pre>
-    <p><br /></p>
-  </li>
-  <li>Write down the Git command that gives information about the last 3 commits in the project’s history.<br />
-<br />
-<strong>Answer:</strong>
-    <pre><code class="language-bash">git log -3
-</code></pre>
-    <p><br /></p>
-  </li>
-  <li>Write down a shortcut Git command that creates a new branch <em>development</em> and switches to it automatically.<br />
-<br />
-<strong>Answer:</strong>
-    <pre><code class="language-bash">git checkout -b development
-</code></pre>
-    <p><br /></p>
-  </li>
-  <li>Write down the Git command for deleting the branch <em>development</em>.<br />
-<br />
-<strong>Answer:</strong>
-    <pre><code class="language-bash">git branch -d development
-</code></pre>
-    <p><br /></p>
-  </li>
-  <li>Is it possible to delete a Git branch while the branch is already checked out to the working directory?<br />
-<br />
-<strong>Answer:</strong><br />
-No. One cannot delete a branch while it is checked out to the working directory.<br />
+<strong>Answer: A, D, G, I</strong>
 <br /><br /></li>
-  <li>What is the Git command that lists ALL tags in the project?<br />
+  <li>Which of the following Git commands <strong>both</strong> stages and commits <strong>only modified and deleted files</strong> but <strong>NOT</strong> the <em>new files</em> added to the repository since the last commit. Choose all that apply.<br />
+(A) <code>git commit</code><br />
+(B) <code>git commit -a</code><br />
+(C) <code>git commit -am</code><br />
+<br />
+<strong>Answer: B, C</strong>
+<br /><br /></li>
+  <li>Write down the Git command that lists all Git commands for you.<br />
 <br />
 <strong>Answer:</strong>
-    <pre><code class="language-bash">git tag
+    <pre><code class="language-bash">$ git help -a
 </code></pre>
-    <p><br /><br /></p>
+    <p><br /></p>
   </li>
-  <li>Name the three different generations (not different software) of Version Control Systems ever developed. If you don’t remember the exact names, you can instead briefly explain how each VCS paradigm works.<br />
-<br />
-<strong>Answer:</strong><br />
-Local VCS, Centralized VCS, Distributed VCS. For details of each VCS paradigm see <a href="http://localhost:4000/lecture/1-version-control-system" target="_blank">this lecture</a>.
-<br /><br /></li>
 </ol>
 
             </div>
@@ -199,15 +173,15 @@ Local VCS, Centralized VCS, Distributed VCS. For details of each VCS paradigm se
         <div class="cf"></div>
         <div class="row text-center">
             <section class="notepad-post-share">
-                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Quiz 3: Solution&quot;%20/ECL2017S/quiz/3-advanced-git-solution%20via%20&#64;AmirShahmoradi"
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Quiz 2: Solutions - Version control system&quot;%20/ECL2017S/quiz/2-solutions-version-control-system%20via%20&#64;AmirShahmoradi"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
                     <i class="fa fa-twitter"></i>
                 </a>
-                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/quiz/3-advanced-git-solution"
+                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/quiz/2-solutions-version-control-system"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
                     <i class="fa fa-facebook"></i>
                 </a>
-                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/quiz/3-advanced-git-solution"
+                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/quiz/2-solutions-version-control-system"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
                     <i class="fa fa-google-plus"></i>
                 </a>
@@ -219,7 +193,9 @@ Local VCS, Centralized VCS, Distributed VCS. For details of each VCS paradigm se
                 <div class="row">
                     <section class="notepad-post-author small-12 columns">
                         
-                            <img src="/ECL2017S/images/amir.png" class="notepad-post-author-avatar" alt="Amir Shahmoradi's photo">
+                            <a href="http://www.shahmoradi.org" target="_blank">
+                                <img src="/ECL2017S/images/logo.png" class="notepad-post-author-avatar" alt="Amir Shahmoradi's photo">
+                            </a>
                         
                         
                             <span class="author-label">Author</span>
@@ -268,8 +244,8 @@ Local VCS, Centralized VCS, Distributed VCS. For details of each VCS paradigm se
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2017 / 02 / 23</section></br> -->
-         <section>Last updated Thursday, 23 Feb 2017 at 03:52 PM CST</section></br>
+         <!-- <section>Last updated 2017 / 02 / 26</section></br> -->
+         <section>Last updated Sunday, 26 Feb 2017 at 08:53 PM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>
