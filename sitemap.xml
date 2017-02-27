@@ -45,7 +45,15 @@
         <loc>/ECL2017S/tags/index.html</loc>
     </url>
     
+    <url>
+        <loc>/ECL2017S/page2/</loc>
+    </url>
+    
 
+    
+    <url>
+        <loc>/ECL2017S/lecture/6-python-branching-functions-modules</loc>
+    </url>
     
     <url>
         <loc>/ECL2017S/lecture/5-python-variables-assignments</loc>
@@ -56,7 +64,11 @@
     </url>
     
     <url>
-        <loc>/ECL2017S/homework/3-problems-python-values-variables-types</loc>
+        <loc>/ECL2017S/homework/4-problems-python-variables-assignment-statements</loc>
+    </url>
+    
+    <url>
+        <loc>/ECL2017S/homework/3-problems-python-values-variables-types-Copy</loc>
     </url>
     
     <url>

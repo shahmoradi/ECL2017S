@@ -32,6 +32,11 @@ callback([
   } ,
 
   {
+    "text": "Lecture 6: Python - branching, functions, and modules",
+    "href": "/ECL2017S/lecture/6-python-branching-functions-modules"
+  } ,
+
+  {
     "text": "Lecture 5: Python - variables and assignment statements",
     "href": "/ECL2017S/lecture/5-python-variables-assignments"
   } ,
@@ -62,8 +67,13 @@ callback([
   } ,
 
   {
+    "text": "Homework 4: Problems - Python variables and assignment statements",
+    "href": "/ECL2017S/homework/4-problems-python-variables-assignment-statements"
+  } ,
+
+  {
     "text": "Homework 3: Problems - Python debugging and string manipulation",
-    "href": "/ECL2017S/homework/3-problems-python-values-variables-types"
+    "href": "/ECL2017S/homework/3-problems-python-values-variables-types-Copy"
   } ,
 
   {
