@@ -1,14 +1,6 @@
 [
 	
 		{
-		  "title"      : "Lecture 6: Python - branching, functions, and modules",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/lecture/6-python-branching-functions-modules",
-		  "date"       : "2017-03-08 00:00:00 -0600",
-		  "shortdate"  : "March 08, 2017"
-		} ,
-	
-		{
 		  "title"      : "Lecture 5: Python - variables and assignment statements",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/5-python-variables-assignments",
@@ -25,17 +17,9 @@
 		} ,
 	
 		{
-		  "title"      : "Homework 4: Problems - Python variables and assignment statements",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/4-problems-python-variables-assignment-statements",
-		  "date"       : "2017-02-22 00:00:00 -0600",
-		  "shortdate"  : "February 22, 2017"
-		} ,
-	
-		{
 		  "title"      : "Homework 3: Problems - Python debugging and string manipulation",
 		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/3-problems-python-values-variables-types-Copy",
+		  "url"        : "/ECL2017S/homework/3-problems-python-values-variables-types",
 		  "date"       : "2017-02-22 00:00:00 -0600",
 		  "shortdate"  : "February 22, 2017"
 		} ,
