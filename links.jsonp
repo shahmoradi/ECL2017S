@@ -2,6 +2,11 @@
 callback([
 
   {
+    "text": "Quiz 4: Problems - Python values, variables, types",
+    "href": "/ECL2017S/quiz/4-problems-python-values-variables-types"
+  } ,
+
+  {
     "text": "Quiz 3: Solutions - Advanced Git",
     "href": "/ECL2017S/quiz/3-solutions-advanced-git"
   } ,
@@ -59,6 +64,16 @@ callback([
   {
     "text": "Lecture 0: Programming history",
     "href": "/ECL2017S/lecture/0-programming-history"
+  } ,
+
+  {
+    "text": "Homework 4: Problems - Python variables and assignment statements",
+    "href": "/ECL2017S/homework/4-problems-python-variables-assignment-statements"
+  } ,
+
+  {
+    "text": "Homework 3: Solutions - Python debugging and string manipulation",
+    "href": "/ECL2017S/homework/3-solutions-python-values-variables-types"
   } ,
 
   {

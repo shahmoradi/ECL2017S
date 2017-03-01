@@ -47,6 +47,26 @@
 
 
 
+<!--Mathjax loader: taken from http://stackoverflow.com/questions/2188884/how-can-i-mix-latex-in-with-markdown-->
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+    }
+});
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!--End of Mathjax loader: taken from http://stackoverflow.com/questions/2188884/how-can-i-mix-latex-in-with-markdown-->
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -498,17 +518,23 @@ float
 <pre><code>0.2857142857142857
 </code></pre>
 
+<blockquote>
+    <b>ATTENTION: Python 2 Alert!</b><br /><br />
+    In Python 2, the above division would give you 0, that is, in Python 2, the division operator performs an <i>integer division</i>  for two input integer operands. I recommend you to always coerce the result into float (if float is what you demand) by adding a decimal point to one of the operands in your operation.
+</blockquote>
+
+<!--
 <div class="center">
     <div class="rcbox" style="text-align:center">
-        <b>ATTENTION: Python 2 Alert!</b><br /><br />
+        <b>ATTENTION: Python 2 Alert!</b><br><br>
         In Python 2, the above division would give you 0, that is, in Python 2, the division operator performs an <i>integer division</i> for two input integer operands.
-        <br /><br />
+        <br><br>
         <b>
         I recommend you to always coerce the result into float (if float is what you demand) by adding a decimal point to one of the operands in your operation.
         </b>
     </div>
 </div>
-<p><br /></p>
+-->
 
 <pre><code class="language-python">2.0 / 7 # Also floating point division
 </code></pre>
@@ -572,16 +598,22 @@ print('3 // 2.0 =', 3 // 2.0)
 3 // 2.0 = 1.0
 </code></pre>
 
-<p>In other words, in <strong>Python 3</strong>, 3 / 2  performs a <strong>floating point division</strong>, whereas in <strong>Python 2</strong>, 3 / 2  performs a <strong>floor division</strong>, also called <strong>integer division</strong>.<br />
-<br /></p>
+<p>In other words, in <strong>Python 3</strong>, 3 / 2  performs a <strong>floating point division</strong>, whereas in <strong>Python 2</strong>, 3 / 2  performs a <strong>floor division</strong>, also called <strong>integer division</strong>.</p>
 
+<blockquote>
+    <b>NOTE</b><br /><br />
+    If you want to get the Python version you are using, use the following commands. The first command imports from the Python <b>platform</b> module, the command <b>python_version</b>. Later on, we will discuss what Python modules are and how and why you should use them.
+</blockquote>
+
+<!--
 <div class="center">
     <div class="rcbox" style="text-align:center">
-        <b>NOTE</b><br /><br />
+        <b>NOTE</b><br><br>
         If you want to get the Python version you are using, use the following commands. The first command imports from the Python <b>platform</b> module, the command <b>python_version</b>. Later on, we will discuss what Python modules are and how and why you should use them.
     </div>
 </div>
-<p><br /></p>
+-->
+
 <pre><code class="language-python">from platform import python_version
 python_version()
 
@@ -735,27 +767,43 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 </code></pre>
 
 <p><br /></p>
+<blockquote>
+    <b>COOL FEATURE FOR STRING MANIPULATION</b><br /><br />
+    Note that string values are like vectors of characters in Python! you can call a specific element of it!  
+</blockquote>
+<p><br /></p>
+
+<!--
+<br>
 <div class="center">
     <div class="rcbox" style="text-align:center">
-        <b>COOL FEATURE FOR STRING MANIPULATION</b><br /><br />
+        <b>COOL FEATURE FOR STRING MANIPULATION</b><br><br>
         Note that string values are like vectors of characters in Python! you can call a specific element of it!  
     </div>
 </div>
-<p><br /></p>
+<br>
+-->
 
 <pre><code class="language-python">'amir'[0] # first letter in the string
 </code></pre>
 <pre><code>'a'
 </code></pre>
 
-<p><br /></p>
+<blockquote>
+    <b>NOTE</b><br /><br />
+    In order to count elements from the end of the string, use negative in the index.
+</blockquote>
+
+<!--
+<br>
 <div class="center">
     <div class="rcbox" style="text-align:center">
-        <b>NOTE</b><br /><br />
+        <b>NOTE</b><br><br>
         In order to count elements from the end of the string, use negative in the index.
     </div>
 </div>
-<p><br /></p>
+<br>
+-->
 
 <pre><code class="language-python">'amir'[-2] # the second letter from the end of the string
 </code></pre>
@@ -802,13 +850,20 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 <pre><code>'ADI'
 </code></pre>
 
+<blockquote>
+    <b>NOTE: List of string manipulation methods</b><br /><br />
+    To see the full list of powerfull string methods that can manipulate strings, like the above example, see <a href="https://docs.python.org/2/library/stdtypes.html#string-methods" target="_blank">this page</a>.
+</blockquote>
+
+<!--
 <div class="center">
     <div class="rcbox" style="text-align:center">
-        <b>NOTE: List of string manipulation methods</b><br /><br />
+        <b>NOTE: List of string manipulation methods</b><br><br>
         To see the full list of powerfull string methods that can manipulate strings, like the above example, see <a href="https://docs.python.org/2/library/stdtypes.html#string-methods" target="_blank">this page</a>.
     </div>
 </div>
-<p><br /></p>
+<br>
+-->
 
 <p><a name="python-boolean-operations"></a></p>
 <h4 id="boolean-operations-in-python">Boolean operations in Python</h4>
@@ -841,13 +896,20 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 
 <p>In addition, to the above operations, there also other more complex Boolean operations in Python, some of which you can study further <a href="https://docs.python.org/2/library/stdtypes.html#bitwise-operations-on-integer-types" target="_blank">here</a>.</p>
 
+<blockquote>
+    <b>NOTE: Object's identity in Python</b><br /><br />
+    To get the  identity of an object, use Python's <code>id()</code> command. <code>id()</code> is a built-in function in Python 3, which returns the identity of an object. This identity is a unique integer for that object during its lifetime. This unique id is also the address of the object in the device memory. Keep in mind that the object's id might change from one computer to another, from one run to another run.  
+</blockquote>
+
+<!--
 <div class="center">
     <div class="rcbox" style="text-align:center">
-        <b>NOTE: Object's identity in Python</b><br /><br />
+        <b>NOTE: Object's identity in Python</b><br><br>
         To get the  identity of an object, use Python's <code>id()</code> command. <code>id()</code> is a built-in function in Python 3, which returns the identity of an object. This identity is a unique integer for that object during its lifetime. This unique id is also the address of the object in the device memory. Keep in mind that the object's id might change from one computer to another, from one run to another run.  
     </div>
 </div>
-<p><br /></p>
+<br>
+-->
 
 <pre><code class="language-python">id('amir')
 </code></pre>
@@ -869,13 +931,20 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 <pre><code>True
 </code></pre>
 
+<blockquote>
+    <b>ATTENTION</b><br /><br />
+    Be very careful with operations <code>is</code> and <code>equality</code> ! These two are not the same! See the examples below.
+</blockquote>
+
+<!--
 <div class="center">
     <div class="rcbox" style="text-align:center">
-        <b>ATTENTION</b><br /><br />
+        <b>ATTENTION</b><br><br>
         Be very careful with operations `is` and `equality` ! These two are not the same! See the examples below.
     </div>
 </div>
-<p><br /></p>
+<br>
+-->
 
 <pre><code class="language-python">(1,1) is (1,1) # Two similar tuples have not the same identifiers in Python! Will soon see what tuples are.
 </code></pre>
@@ -889,7 +958,7 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 
 <p><a name="python-boolean-operations-string-comparison"></a></p>
 <h5 id="string-comparison">String comparison</h5>
-<p>Strings are compared lexicographically using the numeric equivalents in ASCII codes (the result of the built-in Python function <code>ord()</code>) of their characters.</p>
+<p>Strings are compared lexicographically using the numeric equivalents in ASCII codes (the result of the built-in Python function <code>ord()</code> of their characters.</p>
 
 <pre><code class="language-python">'amir' &gt; 'jake' # String comparison. Basically the character ASCII codes are compared here.
 </code></pre>
@@ -1159,8 +1228,8 @@ is located at the height 1.23 m.
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2017 / 02 / 27</section></br> -->
-         <section>Last updated Monday, 27 Feb 2017 at 06:29 PM CST</section></br>
+         <!-- <section>Last updated 2017 / 03 / 01</section></br> -->
+         <section>Last updated Wednesday, 01 Mar 2017 at 09:06 AM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>

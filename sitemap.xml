@@ -45,10 +45,26 @@
         <loc>/ECL2017S/tags/index.html</loc>
     </url>
     
+    <url>
+        <loc>/ECL2017S/page2/</loc>
+    </url>
+    
 
     
     <url>
+        <loc>/ECL2017S/quiz/4-problems-python-values-variables-types</loc>
+    </url>
+    
+    <url>
         <loc>/ECL2017S/lecture/5-python-variables-assignments</loc>
+    </url>
+    
+    <url>
+        <loc>/ECL2017S/homework/4-problems-python-variables-assignment-statements</loc>
+    </url>
+    
+    <url>
+        <loc>/ECL2017S/homework/3-solutions-python-values-variables-types</loc>
     </url>
     
     <url>

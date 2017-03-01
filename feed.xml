@@ -7,13 +7,51 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-02-27T18:29:50-06:00</updated>
+<updated>2017-03-01T09:06:24-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
   <uri>http:/ECL2017S/</uri>
   <email>amir@ices.utexas.edu</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Quiz 4: Problems - Python values, variables, types]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/quiz/4-problems-python-values-variables-types"/>
+  <id>http:/ECL2017S/quiz/4-problems-python-values-variables-types</id>
+  <published>2017-03-01T00:00:00-06:00</published>
+  <updated>2017-03-01T00:00:00-06:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This quiz aims at testing your basic knowledge of Python’s print function, and the how to string manipulation in Python. Don’t forget to push your answers to your remote repository by the end of quiz time. Push your quiz-4 &lt;em&gt;readme.md&lt;/em&gt; file to quiz/4/ folder in your Github project.  If you write your answers in Python scripts, put the script files in the same folder as well. If you feel uncertain about your answer, you can test your final codes on Jupyter or IPython command lines.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Write a &lt;strong&gt;single-line&lt;/strong&gt; python script, that prints your full name 5 times, each on a separate line.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Write a &lt;strong&gt;single-line&lt;/strong&gt; python script, that applies the relevant Python string manipulator methods to this string,&lt;br /&gt;
+&lt;br /&gt;
+    &lt;pre&gt;&lt;code&gt;Python Is Great For String Manipulation.
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;and transforms it to the following string and and prints it on screen,&lt;/p&gt;
+    &lt;pre&gt;&lt;code&gt;.noitalupinaMgnirtSroFtaerGsInohtyP
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Name the three major types of programming errors.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/4-problems-python-values-variables-types&quot;&gt;Quiz 4: Problems - Python values, variables, types&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 01, 2017.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -1156,6 +1194,387 @@ Out[80]: 5
 
 
 <entry>
+  <title type="html"><![CDATA[Homework 4: Problems - Python variables and assignment statements]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/4-problems-python-variables-assignment-statements"/>
+  <id>http:/ECL2017S/homework/4-problems-python-variables-assignment-statements</id>
+  <published>2017-03-01T00:00:00-06:00</published>
+  <updated>2017-03-01T00:00:00-06:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This homework aims at giving you some experience with variables in Python and their syntax, also some experience with using Lists and Dictionaries in Python. Write your Python scripts with the corresponding &lt;code&gt;*.py&lt;/code&gt; file names, and add a readme.md file in HW 4 folder of your project if you need to add any additional explanation (Don’t forget to use markdown syntax highlight in your readme file, if needed).&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; The bell-shaped &lt;a href=&quot;https://en.wikipedia.org/wiki/Normal_distribution&quot; target=&quot;_blank&quot;&gt;Gaussian probability density function&lt;/a&gt;,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f(x)=\frac{1}{\sqrt{2\pi}\sigma}\exp\bigg[ -\frac{1}{2}\bigg( \frac{x-\mu}{\sigma} \bigg)^2 \bigg]&lt;/script&gt;
+
+&lt;p&gt;&lt;br /&gt;
+is one of the most widely used functions in science and technology. The parameters of the function (mu,sigma&amp;gt;0) are prescribed real numbers. Write a program for evaluating this function when $\mu=0$, $\sigma=2$, $x = 1$.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hint:&lt;/strong&gt; The value &lt;code&gt;pi&lt;/code&gt;, and &lt;code&gt;exp()&lt;/code&gt; , &lt;code&gt;sqrt()&lt;/code&gt; function are not built-in Python entities. You will need to export them using the following command,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from math import pi, exp, sqrt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Verify your answer by getting the same result from &lt;a href=&quot;https://www.wolframalpha.com/&quot; target=&quot;_blank&quot;&gt;Wolfram Alpha&lt;/a&gt; mathematical search engine.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Download &lt;a href=&quot;http:/ECL2017S/homework/4/script_full_of_errors.py&quot; target=&quot;_blank&quot;&gt;this code&lt;/a&gt;. This code is full syntax errors. Fix the errors and submit the corrected code with name &lt;code&gt;script_full_of_errors_corrected.py&lt;/code&gt; in your how4 folder of your project. Explain in front of each corrected Python statement, why the error occurred.  On the last line of the script,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;true = fox is rev in Persian
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+the statement runs without error. But can you explain what it does? (Hint: For this part you need to understand operation precedence. You can find more information &lt;a href=&quot;http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/op_precedence.html&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; As an egg cooks, the proteins first denature and then coagulate. When the temperature exceeds a critical point, reactions begin and proceed faster as the temperature increases. In the egg white, the proteins start to coagulate for temperatures above $63^\circ\rm{C}$, while in the yolk the proteins start to coagulate for temperatures above $70^\circ\rm{C}$. For a soft boiled egg, the white needs to have been heated long enough to coagulate at a temperature above $63^\circ\rm{C}$, but the yolk should not be heated above $70^\circ\rm{C}$. For a hard boiled egg, the center of the yolk should be allowed to reach $70^\circ\rm{C}$.&lt;/p&gt;
+
+&lt;p&gt;The following formula expresses the time $t$ it takes (in seconds) for the center of the yolk to reach the temperature Ty (in Celsius degrees):&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;t = \frac
+{ M^{2/3} ~ c ~ \rho^{1/3} }
+{ K\pi^2 ~ (4\pi/3)^{2/3} }
+~\ln
+\bigg[
+0.76 \frac{T_0 - T_w}{T_y-T_w}
+\bigg]&lt;/script&gt;
+
+&lt;p&gt;&lt;br /&gt;
+where $M$ is the mass of egg, $\rho$ is the density, $c$ is the specific heat capacity, and $K$ is thermal conductivity. Relevant values are $M=47~[g]$ for a small egg and $M=67~[g]$ for a large egg, $\rho=1.038 ~[g~cm^{-3}]$, $c = 3.7 ~[J~g^{-1}~K^{-1}]$, and $K = 5.4\times10^{-3} ~[Wcm^{-1}K^{-1}]$. Furthermore, $T_w$ is the temperature
+(in C degrees) of the boiling water, and $T_0$ is the original temperature (in C degrees) of the egg before being put in the water. Implement the formula in a Python program, set $T_w = 100^\circ C$ and $T_y = 70^\circ C$, and compute $t$ for a large egg taken from the fridge ($T_0 = 4^\circ C$) and from room temperature ($T_0 = 20^\circ C$). (&lt;strong&gt;Hint&lt;/strong&gt;: Note that for this problem you will need to import &lt;code&gt;log, pi&lt;/code&gt; from &lt;code&gt;math&lt;/code&gt; module.)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4.  Aliasing vs. Copying vairables&lt;/strong&gt; Run the following python statements and briefly explain why you get the behavior printed by the &lt;code&gt;print&lt;/code&gt; functions.&lt;/p&gt;
+
+&lt;p&gt;(A)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = 5
+b = a
+print id(a), id(b)
+ 
+c = b
+b = 3
+print a,b,c
+print id(a),id(b),id(c)
+ 
+b = a
+b = 5
+print id(a), id(b)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+(B)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = [5]
+b = a
+print id(a), id(b)
+ 
+b.append(1)
+print a,b
+print id(a),id(b)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+(C)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = [5]
+b = list(a)
+print a,b
+print id(a), id(b)
+ 
+b = a[:]
+print a,b
+print id(a), id(b)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+(D)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = (5,)
+b = tuple(a)
+print id(a), id(b)
+ 
+b = a[:]
+print id(a), id(b)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. &lt;/strong&gt; The following is the name list of all people in our ECL class.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;nicholas boeker
+bradley bridges
+sagar dhana
+travis driver
+eric gagliano
+christian garcia
+matthew goree
+lucero herrera
+jake janssen
+michael langford
+colin lewis
+mark loveland
+emilio mendiola
+kreshel nguyen  
+russell philley
+caleb phillips  
+joseph robbins  
+bradley smith
+amir shahmoradi
+vivek varier
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+We want to create a dictionary of members of this class with individuals’ full names serving as dictionary keys, and their roles in class as the corresponding values of the keys. The naive way of generating this dictionary would be to use one of the methods for generating dictionary discussed in &lt;a href=&quot;http:/ECL2017S/lecture/5-python-variables-assignments&quot; target=&quot;_blank&quot;&gt;Lecture 5&lt;/a&gt;. For example,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;ecl_dict = { 'nicholas boeker'  : 'student'
+           , 'bradley bridges'  : 'student'
+           , 'sagar dhana'      : 'student' 
+           , 'travis driver'    : 'student'
+           , 'eric gagliano'    : 'student'
+           , 'christian garcia' : 'student'
+           , 'matthew goree'    : 'student'
+           , 'lucero herrera'   : 'student'
+           , 'jake janssen'     : 'student'
+           , 'michael langford' : 'student'
+           , 'colin lewis'      : 'student'
+           , 'mark loveland'    : 'student'
+           , 'emilio mendiola'  : 'student'
+           , 'kreshel nguyen'   : 'student'
+           , 'russell philley'  : 'student'
+           , 'caleb phillips'   : 'student'
+           , 'joseph robbins'   : 'student'
+           , 'bradley smith'    : 'student'
+           , 'vivek varier'     : 'assistant'
+           , 'amir shahmoradi'  : 'instructor'
+           }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+However, the problem is that, except me (Amir, the instructor) and Vivek (our TA), everyone else has a student role in this class. So it would be a very painful process to type all ‘student’ values by hand manually. Now, the goal is to come up with a shortcut method that avoids the aforementioned problem. Can you find a way of creating this dictionary, without having to type the value ‘student’ 18 times? Note that in order to achieve this, you don’t need anything beyond what you learned in Lecture 5. (&lt;strong&gt;Hint:&lt;/strong&gt; Have a look at the section for simultaneous assignments in Lecture 5.)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/4-problems-python-variables-assignment-statements&quot;&gt;Homework 4: Problems - Python variables and assignment statements&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 01, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Homework 3: Solutions - Python debugging and string manipulation]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/3-solutions-python-values-variables-types"/>
+  <id>http:/ECL2017S/homework/3-solutions-python-values-variables-types</id>
+  <published>2017-03-01T00:00:00-06:00</published>
+  <updated>2017-03-01T00:00:00-06:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This is the solution to &lt;a href=&quot;3-problems-python-values-variables-types.html&quot; target=&quot;_blank&quot;&gt;Homework 3: Problems - Python debugging and string manipulation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--
+The following figure illustrates the grade distribution for this homework.  
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework3.png&quot; width=&quot;700&quot;&gt;
+    &lt;figcaption style=&quot;text-align:center&quot;&gt;
+        Maximum possible points, excluding bonus question, is 100.&lt;br&gt;
+        Maximum possible points, including bonus question, is 200.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+--&gt;
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;This homework aims at giving you some experience with String manipulation in Python and debugging a simple Python script. String manipulation is one of the greatest strengths and reasons for popularity of Python. For both questions below, submit your Python scripts in the corresponding &lt;code&gt;*.py&lt;/code&gt; files, and add a readme.md file in HW 3 folder of your project if you need to add any additional explanation (Don’t forget to use markdown syntax highlight in your readme file).&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Download &lt;a href=&quot;http:/ECL2017S/homework/3/python_script_full_of_errors.pi&quot; target=&quot;_blank&quot;&gt;this Python script&lt;/a&gt;. This Python script is full of syntax, runtime, and semantic errors. Please identify and corrent these errors, such that code becomes fully executable and outputs the following message on the screen, when run from the Git Bash command line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;The life expectancy for the millennials is projected to be 120 years! (But don't believe it...)
+
+
+    A recent study published in the journal of Nature, discovered that over the past century,
+    although the life expectancy has significantly increased due to technological advances,
+    the maximum life span of the oldest people in the world has not changed much.
+
+
+Cardano was the first to introduce complex numbers of the form a + sqrt(-b) into algebra, but he had misgivings about it.
+In his solution to an algebra equation he encountered the solution 5 + sqrt(-15) for the unknown, which is now mathematically represented by
+
+       (5+3.872983346207417j)
+
+in Python, which can also be obtained as an addition of real and imaginary numbers in Python like this
+
+
+      5 + sqrt(-15) = (5+3.872983346207417j),
+
+
+      which can also be manually stated as
+
+
+      (5+3.872983346207417j)
+
+
+
+
+
+One final note:
+
+        In python the sqrt function from math and cmath modules are different.
+        The sqrt function that returns &quot;float&quot; results is sqrt from math module.
+        Therefore, if using math module, then,
+
+                sqrt(25) = 5.0000,
+
+        which is obviously a float (real number).
+
+
+
+
+Also note that by convention, 0**0 = 1 in Python.
+And division by 0, will give you a runtime exception: 1/0 = NaN
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Identify at least one example in the code for each of the error types.&lt;/p&gt;
+
+&lt;p&gt;Here are a few hints:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You need to get familiar with string formatting in &lt;code&gt;print&lt;/code&gt; function. See &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/lecture/4-python-values-variables-types&quot; target=&quot;_blank&quot;&gt;Lecture 4&lt;/a&gt;.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Note that in Python, the interpreter is sensitive to &lt;a href=&quot;https://www.python.org/dev/peps/pep-0008/#indentation&quot; target=&quot;_blank&quot;&gt;indentations&lt;/a&gt; in your codes. All lines must be aligned at the beginning (except for looping and branching, … which we will get to them later on).&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Become familiar with &lt;a href=&quot;http://python-reference.readthedocs.io/en/latest/docs/str/escapes.html&quot; target=&quot;_blank&quot;&gt;escape characters&lt;/a&gt; in Python, such as &lt;code&gt;'\n'&lt;/code&gt;, &lt;code&gt;'\t'&lt;/code&gt;, and &lt;code&gt;'\t'&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+The corrected file can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/3/python_script_full_of_errors_corrected.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;. Examples of different types of programming errors:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;semantic error example: &lt;br /&gt;
+&lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;line 15, in the wrong script: The purpose is to print the complex number 5+sqrt(-15), but instead 5-15j is printed by the wrong script.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+      &lt;li&gt;line 35, in the wrong script: The purpose is to print float number, but since we used &lt;code&gt;sqrt&lt;/code&gt; from &lt;code&gt;cmath&lt;/code&gt; module, the output is in complex format, which is not what we intend to obtain and print.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;runtime error example:&lt;br /&gt;
+&lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;in line 45, in the wrong script, division by zero, is a runtime exception.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;syntax error example:&lt;br /&gt;
+Almost any other error in the code is a syntax error. For example, lines 11,12,13 should be aligned, but they are not.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Write a Python script that is directly executable from the Git Bash command line, without any need to invoke &lt;code&gt;python&lt;/code&gt; interpreter. The script should produce &lt;strong&gt;exactly&lt;/strong&gt; the following output, including line breaks and separations. Each part of the output (separated by a line-break, or a new-line character &lt;code&gt;'\n'&lt;/code&gt; from the rest) is generated by &lt;strong&gt;only and only one call&lt;/strong&gt; to print function.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;This is Python version 3.5.2 
+
+Python is the best language for String manipulation!
+
+!noitalupinam gnirtS rof egaugnal tseb eht si nohtyP
+
+!otlpnmgit o gunlte h inhy
+
+pYTHON IS THE BEST LANGUAGE FOR sTRING MANIPULATION!
+
+
+The sentence 'Python is the best language for String manipulation!' contains 
+4 'a' letters, and
+0 'A' letters!
+
+Python
+is
+the
+best
+language
+for
+String
+manipulation!
+
+PYTHON
+IS
+THE
+BEST
+LANGUAGE
+FOR
+STRING
+MANIPULATION!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here are some hints (all the information you need to answer this question can be found in &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/lecture/4-python-values-variables-types&quot; target=&quot;_blank&quot;&gt;Lecture 4&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;To make the script executable, add the appropriate shebang to the script’s file.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Import the appropriate module to get the python version command, as we did in class. Use &lt;code&gt;print&lt;/code&gt; function to print the Python version.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Define a String variable &lt;code&gt;my_string&lt;/code&gt; which contains the string value “Python is the best language for String manipulation!” ( Of course, you can totally accomplish this question without defining a string variable, by only using the string value itself wherever needed… This is also totally fine at this point in our course, if your prefer this method).&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Then use the appropriate examples and external links provided in &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/lecture/4-python-values-variables-types&quot; target=&quot;_blank&quot;&gt;Lecture 4&lt;/a&gt;, to find the proper &lt;strong&gt;string methods&lt;/strong&gt; that can manipulate this string variable/value in order to generate each of the outputs printed above.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Again, note that for each output, the entire output must result from &lt;strong&gt;one single call&lt;/strong&gt; to function &lt;code&gt;print&lt;/code&gt;.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Wherever needed, use the &lt;a href=&quot;http://python-reference.readthedocs.io/en/latest/docs/str/escapes.html&quot; target=&quot;_blank&quot;&gt;escape character&lt;/a&gt; value &lt;code&gt;'\n'&lt;/code&gt; in &lt;code&gt;print&lt;/code&gt; input arguments, in order to generate a line-break (or new line) in the output.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+A working Python script file can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/3/hw3_prob2_answer.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/3-solutions-python-values-variables-types&quot;&gt;Homework 3: Solutions - Python debugging and string manipulation&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 01, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
   <title type="html"><![CDATA[Lecture 4: Python - values, variables, and types]]></title>
   <link rel="alternate" type="text/html" href="http:/ECL2017S/lecture/4-python-values-variables-types"/>
   <id>http:/ECL2017S/lecture/4-python-values-variables-types</id>
@@ -1547,17 +1966,23 @@ float
 &lt;pre&gt;&lt;code&gt;0.2857142857142857
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;blockquote&gt;
+    &lt;b&gt;ATTENTION: Python 2 Alert!&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+    In Python 2, the above division would give you 0, that is, in Python 2, the division operator performs an &lt;i&gt;integer division&lt;/i&gt;  for two input integer operands. I recommend you to always coerce the result into float (if float is what you demand) by adding a decimal point to one of the operands in your operation.
+&lt;/blockquote&gt;
+
+&lt;!--
 &lt;div class=&quot;center&quot;&gt;
     &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
-        &lt;b&gt;ATTENTION: Python 2 Alert!&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;ATTENTION: Python 2 Alert!&lt;/b&gt;&lt;br&gt;&lt;br&gt;
         In Python 2, the above division would give you 0, that is, in Python 2, the division operator performs an &lt;i&gt;integer division&lt;/i&gt; for two input integer operands.
-        &lt;br /&gt;&lt;br /&gt;
+        &lt;br&gt;&lt;br&gt;
         &lt;b&gt;
         I recommend you to always coerce the result into float (if float is what you demand) by adding a decimal point to one of the operands in your operation.
         &lt;/b&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+--&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;2.0 / 7 # Also floating point division
 &lt;/code&gt;&lt;/pre&gt;
@@ -1621,16 +2046,22 @@ print('3 // 2.0 =', 3 // 2.0)
 3 // 2.0 = 1.0
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;In other words, in &lt;strong&gt;Python 3&lt;/strong&gt;, 3 / 2  performs a &lt;strong&gt;floating point division&lt;/strong&gt;, whereas in &lt;strong&gt;Python 2&lt;/strong&gt;, 3 / 2  performs a &lt;strong&gt;floor division&lt;/strong&gt;, also called &lt;strong&gt;integer division&lt;/strong&gt;.&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;In other words, in &lt;strong&gt;Python 3&lt;/strong&gt;, 3 / 2  performs a &lt;strong&gt;floating point division&lt;/strong&gt;, whereas in &lt;strong&gt;Python 2&lt;/strong&gt;, 3 / 2  performs a &lt;strong&gt;floor division&lt;/strong&gt;, also called &lt;strong&gt;integer division&lt;/strong&gt;.&lt;/p&gt;
 
+&lt;blockquote&gt;
+    &lt;b&gt;NOTE&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+    If you want to get the Python version you are using, use the following commands. The first command imports from the Python &lt;b&gt;platform&lt;/b&gt; module, the command &lt;b&gt;python_version&lt;/b&gt;. Later on, we will discuss what Python modules are and how and why you should use them.
+&lt;/blockquote&gt;
+
+&lt;!--
 &lt;div class=&quot;center&quot;&gt;
     &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
-        &lt;b&gt;NOTE&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;NOTE&lt;/b&gt;&lt;br&gt;&lt;br&gt;
         If you want to get the Python version you are using, use the following commands. The first command imports from the Python &lt;b&gt;platform&lt;/b&gt; module, the command &lt;b&gt;python_version&lt;/b&gt;. Later on, we will discuss what Python modules are and how and why you should use them.
     &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+--&gt;
+
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from platform import python_version
 python_version()
 
@@ -1784,27 +2215,43 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+    &lt;b&gt;COOL FEATURE FOR STRING MANIPULATION&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+    Note that string values are like vectors of characters in Python! you can call a specific element of it!  
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;!--
+&lt;br&gt;
 &lt;div class=&quot;center&quot;&gt;
     &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
-        &lt;b&gt;COOL FEATURE FOR STRING MANIPULATION&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;COOL FEATURE FOR STRING MANIPULATION&lt;/b&gt;&lt;br&gt;&lt;br&gt;
         Note that string values are like vectors of characters in Python! you can call a specific element of it!  
     &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;br&gt;
+--&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir'[0] # first letter in the string
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;'a'
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+    &lt;b&gt;NOTE&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+    In order to count elements from the end of the string, use negative in the index.
+&lt;/blockquote&gt;
+
+&lt;!--
+&lt;br&gt;
 &lt;div class=&quot;center&quot;&gt;
     &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
-        &lt;b&gt;NOTE&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;NOTE&lt;/b&gt;&lt;br&gt;&lt;br&gt;
         In order to count elements from the end of the string, use negative in the index.
     &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;br&gt;
+--&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir'[-2] # the second letter from the end of the string
 &lt;/code&gt;&lt;/pre&gt;
@@ -1851,13 +2298,20 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 &lt;pre&gt;&lt;code&gt;'ADI'
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;blockquote&gt;
+    &lt;b&gt;NOTE: List of string manipulation methods&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+    To see the full list of powerfull string methods that can manipulate strings, like the above example, see &lt;a href=&quot;https://docs.python.org/2/library/stdtypes.html#string-methods&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;.
+&lt;/blockquote&gt;
+
+&lt;!--
 &lt;div class=&quot;center&quot;&gt;
     &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
-        &lt;b&gt;NOTE: List of string manipulation methods&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;NOTE: List of string manipulation methods&lt;/b&gt;&lt;br&gt;&lt;br&gt;
         To see the full list of powerfull string methods that can manipulate strings, like the above example, see &lt;a href=&quot;https://docs.python.org/2/library/stdtypes.html#string-methods&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;.
     &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;br&gt;
+--&gt;
 
 &lt;p&gt;&lt;a name=&quot;python-boolean-operations&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&quot;boolean-operations-in-python&quot;&gt;Boolean operations in Python&lt;/h4&gt;
@@ -1890,13 +2344,20 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 
 &lt;p&gt;In addition, to the above operations, there also other more complex Boolean operations in Python, some of which you can study further &lt;a href=&quot;https://docs.python.org/2/library/stdtypes.html#bitwise-operations-on-integer-types&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
+&lt;blockquote&gt;
+    &lt;b&gt;NOTE: Object's identity in Python&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+    To get the  identity of an object, use Python's &lt;code&gt;id()&lt;/code&gt; command. &lt;code&gt;id()&lt;/code&gt; is a built-in function in Python 3, which returns the identity of an object. This identity is a unique integer for that object during its lifetime. This unique id is also the address of the object in the device memory. Keep in mind that the object's id might change from one computer to another, from one run to another run.  
+&lt;/blockquote&gt;
+
+&lt;!--
 &lt;div class=&quot;center&quot;&gt;
     &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
-        &lt;b&gt;NOTE: Object's identity in Python&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;NOTE: Object's identity in Python&lt;/b&gt;&lt;br&gt;&lt;br&gt;
         To get the  identity of an object, use Python's &lt;code&gt;id()&lt;/code&gt; command. &lt;code&gt;id()&lt;/code&gt; is a built-in function in Python 3, which returns the identity of an object. This identity is a unique integer for that object during its lifetime. This unique id is also the address of the object in the device memory. Keep in mind that the object's id might change from one computer to another, from one run to another run.  
     &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;br&gt;
+--&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;id('amir')
 &lt;/code&gt;&lt;/pre&gt;
@@ -1918,13 +2379,20 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 &lt;pre&gt;&lt;code&gt;True
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;blockquote&gt;
+    &lt;b&gt;ATTENTION&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+    Be very careful with operations &lt;code&gt;is&lt;/code&gt; and &lt;code&gt;equality&lt;/code&gt; ! These two are not the same! See the examples below.
+&lt;/blockquote&gt;
+
+&lt;!--
 &lt;div class=&quot;center&quot;&gt;
     &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
-        &lt;b&gt;ATTENTION&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;ATTENTION&lt;/b&gt;&lt;br&gt;&lt;br&gt;
         Be very careful with operations `is` and `equality` ! These two are not the same! See the examples below.
     &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;br&gt;
+--&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;(1,1) is (1,1) # Two similar tuples have not the same identifiers in Python! Will soon see what tuples are.
 &lt;/code&gt;&lt;/pre&gt;
@@ -1938,7 +2406,7 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 
 &lt;p&gt;&lt;a name=&quot;python-boolean-operations-string-comparison&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h5 id=&quot;string-comparison&quot;&gt;String comparison&lt;/h5&gt;
-&lt;p&gt;Strings are compared lexicographically using the numeric equivalents in ASCII codes (the result of the built-in Python function &lt;code&gt;ord()&lt;/code&gt;) of their characters.&lt;/p&gt;
+&lt;p&gt;Strings are compared lexicographically using the numeric equivalents in ASCII codes (the result of the built-in Python function &lt;code&gt;ord()&lt;/code&gt; of their characters.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir' &amp;gt; 'jake' # String comparison. Basically the character ASCII codes are compared here.
 &lt;/code&gt;&lt;/pre&gt;
@@ -5087,251 +5555,6 @@ Now, with the Git knowledge you have gained in class, create a &lt;em&gt;private
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/1-problems-project-readme-file&quot;&gt;Homework 1: Problems - Designing a Github README file and web-page for your project&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on January 25, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Lecture 0: Programming history]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/lecture/0-programming-history"/>
-  <id>http:/ECL2017S/lecture/0-programming-history</id>
-  <published>2017-01-18T00:00:00-06:00</published>
-  <updated>2017-01-18T00:00:00-00:00</updated>
-  
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This lecture aims at providing a brief history of the development of computers and computer programming languages and their mutual interaction with rapid developments in natural sciences in the 20th century.&lt;/p&gt;
-
-&lt;h3 id=&quot;the-rise-of-the-machines&quot;&gt;The rise of the machines&lt;/h3&gt;
-
-&lt;p&gt;Immediately after the first world-war and during the second world-war, many fields of science and engineering witnessed rapid growth. In particular, two fields of mathematical and physical sciences, &lt;strong&gt;mathematical programming&lt;/strong&gt; (a terminology used commonly in place of &lt;a href=&quot;https://en.wikipedia.org/wiki/Mathematical_optimization&quot; target=&quot;_blank&quot;&gt;mathematical optimization&lt;/a&gt;) (not to be confused with computer programming!) and &lt;a href=&quot;https://en.wikipedia.org/wiki/Monte_Carlo_method&quot; target=&quot;_blank&quot;&gt;Monte Carlo methods&lt;/a&gt; witnessed rapid exponential growth in both theory and practical applications. Parallel to progresses in natural sciences, a new field of science and technology, &lt;a href=&quot;https://en.wikipedia.org/wiki/History_of_computer_science&quot; target=&quot;_blank&quot;&gt;computer science&lt;/a&gt;, began to rise during the years of world-war-II, partly in response to the needs of war, but mostly in response to the exponential growth of natural sciences and engineering in the post-world-war-II era.&lt;/p&gt;
-
-&lt;p&gt;The history of computer programming probably begins with the development of the first computer, &lt;a href=&quot;https://en.wikipedia.org/wiki/ENIAC&quot; target=&quot;_blank&quot;&gt;ENIAC&lt;/a&gt; (&lt;em&gt;Electronic Numerical Integrator And Computer&lt;/em&gt;), one of the earliest electronic general-purpose computers made.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/lecture/0/wordFreq.png&quot; width=&quot;900&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:justify&quot;&gt;
-        A word-usage relative frequency plot, illustrating the exponential growth of computer technology in the mid 20th century, as well as developments in the fields of deterministic and stochastic optimization techniques, which ultimately led to the emergence of &lt;a href=&quot;https://www.nibib.nih.gov/science-education/science-topics/computational-modeling&quot; target=&quot;_blank&quot;&gt;computational modeling&lt;/a&gt; as the third pillar of science. Advances in the computational methods and technology also led to the gradual popularity of Bayesian techniques in mathematical modeling towards the end of the 20th century, and the emergence of an important of subfield of computational modeling, now known as &lt;a href=&quot;https://en.wikipedia.org/wiki/Uncertainty_quantification&quot; target=&quot;_blank&quot;&gt;Uncertainty Quantification&lt;/a&gt;. Note that the positive-slope linear behavior on this semi-logarithmic plot indicates a exponential growth. (Data is adopted from &lt;a href=&quot;https://books.google.com/ngrams&quot; target=&quot;_blank&quot;&gt;Google Ngrams&lt;/a&gt;).
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h3 id=&quot;programming-language-generations&quot;&gt;Programming language generations&lt;/h3&gt;
-
-&lt;p&gt;Initially computers had to be programmed by what is called &lt;a href=&quot;https://en.wikipedia.org/wiki/Machine_code&quot; target=&quot;_blank&quot;&gt;machine code&lt;/a&gt; or &lt;a href=&quot;https://en.wikipedia.org/wiki/Machine_code&quot; target=&quot;_blank&quot;&gt;machine language&lt;/a&gt;, a set of instructions for the Central Processing Unit (CPU)  of the computer, comprising a long sequence of binary digital zeros and ones. Any interaction with computer hardware, even nowadays, has to be first converted to machine code in order to become comprehensible by the computer hardware. The coding in this language is however, very tedious and time consuming, and non-portable. As a result, immediately after the development of the first generation of computers, the first generation of programming languages also came to exist, most notably, the &lt;a href=&quot;https://en.wikipedia.org/wiki/Assembly_language&quot; target=&quot;_blank&quot;&gt;Assembly language&lt;/a&gt; in the late 1940s. Many more programming languages have been since developed that provide higher and higher levels of &lt;a href=&quot;https://en.wikipedia.org/wiki/Abstraction_(software_engineering)&quot; target=&quot;_blank&quot;&gt;programming abstraction&lt;/a&gt; by hiding more complexities of the machine code interaction with machine hardware from the front-end computer software and users.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;a href=&quot;http:/ECL2017S/lecture/0/PLchart.png&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;http:/ECL2017S/lecture/0/PLchart.png&quot; width=&quot;900&quot; /&gt;
-    &lt;/a&gt;
-    &lt;figcaption style=&quot;text-align:center&quot;&gt;
-        A diagram tracing the history of computer languages throughout the history of computer science.
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Depending on their levels of abstraction, programming languages are classified into different generations:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;First generation:&lt;/strong&gt; The &lt;a href=&quot;https://en.wikipedia.org/wiki/First-generation_programming_language&quot; target=&quot;_blank&quot;&gt;First generation&lt;/a&gt; languages, or machine languages, are the lowest-level computer programming languages, which provide no abstraction in their interactions with computer hardware. These languages directly interact with computer hardware, and so there is no need for a &lt;a href=&quot;https://en.wikipedia.org/wiki/Compiler&quot; target=&quot;_blank&quot;&gt;compiler&lt;/a&gt; or &lt;a href=&quot;https://en.wikipedia.org/wiki/Assembly_language#Assembler&quot; target=&quot;_blank&quot;&gt;assembler&lt;/a&gt; to interpret these languages for the hardware.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Second generation:&lt;/strong&gt; The &lt;a href=&quot;https://en.wikipedia.org/wiki/Second-generation_programming_language&quot; target=&quot;_blank&quot;&gt;second generation&lt;/a&gt; languages, are at a higher level of abstraction from the machine hardware, meaning that they require an &lt;a href=&quot;https://en.wikipedia.org/wiki/Assembly_language#Assembler&quot; target=&quot;_blank&quot;&gt;assembler&lt;/a&gt; to interpret the code for the computer hardware. The most prominent and, to my understanding, the sole language of this generation is &lt;a href=&quot;https://en.wikipedia.org/wiki/Assembly_language&quot; target=&quot;_blank&quot;&gt;Assembly&lt;/a&gt;, which is the closest-possible compiled programming language to computer hardware.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Third generation:&lt;/strong&gt; The &lt;a href=&quot;https://en.wikipedia.org/wiki/Third-generation_programming_language&quot; target=&quot;_blank&quot;&gt;third generation&lt;/a&gt; languages, or &lt;a href=&quot;https://en.wikipedia.org/wiki/High-level_programming_language&quot; target=&quot;_blank&quot;&gt;high-level&lt;/a&gt; programming languages provide an even higher abstraction level than the second-generation languages. Third-generation languages make programming almost platform-independent, meaning that the content of the code does not depend directly on the current hardware being used. This helps the programmer to focus more on the problem of interest, rather than spending time to understand details of the specific computer and hardware being currently used. Examples of third-generation programming languages are: &lt;a href=&quot;https://en.wikipedia.org/wiki/Fortran&quot; target=&quot;_blank&quot;&gt;Fortran&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/ALGOL&quot; target=&quot;_blank&quot;&gt;ALGOL&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/COBOL&quot; target=&quot;_blank&quot;&gt;COBOL&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/BASIC&quot; target=&quot;_blank&quot;&gt;BASIC&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/C_(programming_language)&quot; target=&quot;_blank&quot;&gt;C&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/C_Sharp_(programming_language)&quot; target=&quot;_blank&quot;&gt;C#&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/C%2B%2B&quot; target=&quot;_blank&quot;&gt;C++&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/Java_(programming_language)&quot; target=&quot;_blank&quot;&gt;Java&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/Pascal_(programming_language)&quot; target=&quot;_blank&quot;&gt;Pascal&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Fourth generation:&lt;/strong&gt; The definition for the &lt;a href=&quot;https://en.wikipedia.org/wiki/Fourth-generation_programming_language&quot; target=&quot;_blank&quot;&gt;fourth generation&lt;/a&gt; and beyond is not very clear, however, it is generally as the set of languages that provide an even higher level of abstraction from the hardware and proximity to the user (programmer). Some prominent examples of this category include &lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/Python_(programming_language)&quot; target=&quot;_blank&quot;&gt;Python&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/Perl&quot; target=&quot;_blank&quot;&gt;Perl&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/Ruby_(programming_language)&quot; target=&quot;_blank&quot;&gt;Ruby&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/IDL_(programming_language)&quot; target=&quot;_blank&quot;&gt;IDL&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/R_programming_language&quot; target=&quot;_blank&quot;&gt;R&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/S_(programming_language)&quot; target=&quot;_blank&quot;&gt;S&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In the field of scientific computation, &lt;a href=&quot;https://en.wikipedia.org/wiki/Fortran&quot; target=&quot;_blank&quot;&gt;Fortran&lt;/a&gt; (FORmula TRANslation), first released in 1956, is undoubtedly the most influential programming language of all human history and the oldest high-level programming language that is still in active everyday use. Here is a history of Fortran by its original developers:&lt;/p&gt;
-
-&lt;div class=&quot;center&quot;&gt;&lt;div class=&quot;video-wrapper&quot;&gt;&lt;div class=&quot;video-container&quot;&gt;
-    &lt;iframe width=&quot;853&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/KohboWwrsXg?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;a-final-personal-remark&quot;&gt;A final, personal remark&lt;/h3&gt;
-
-&lt;p&gt;Sometimes science acts like humans: it finds a matching partner (a programming language), then they flourish together, make a love story and occasionally decline together as well, with the only difference that polygamy is allowed in science, like Fortran’s marriage with Aerospace and &lt;a href=&quot;https://en.wikipedia.org/wiki/Plasma_(physics)&quot; target=&quot;_blank&quot;&gt;Plasma physics&lt;/a&gt;:&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;a href=&quot;https://books.google.com/ngrams/graph?content=fortran%2Cplasma%2Caerospace&amp;amp;case_insensitive=on&amp;amp;year_start=1920&amp;amp;year_end=2008&amp;amp;corpus=15&amp;amp;smoothing=3&amp;amp;share=&amp;amp;direct_url=t4%3B%2Cfortran%3B%2Cc0%3B%2Cs0%3B%3BFORTRAN%3B%2Cc0%3B%3BFortran%3B%2Cc0%3B.t4%3B%2Cplasma%3B%2Cc0%3B%2Cs0%3B%3Bplasma%3B%2Cc0%3B%3BPlasma%3B%2Cc0%3B%3BPLASMA%3B%2Cc0%3B.t4%3B%2Caerospace%3B%2Cc0%3B%2Cs0%3B%3BAerospace%3B%2Cc0%3B%3Baerospace%3B%2Cc0%3B%3BAEROSPACE%3B%2Cc0&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;http:/ECL2017S/lecture/0/plasma-aerospace-fortran.png&quot; width=&quot;900&quot; /&gt;
-    &lt;/a&gt;
-    &lt;figcaption style=&quot;text-align:justify&quot;&gt;
-        A plot illustrating the co-evolution of two of the most challenging computationally-intensive fields of science (Aerospace and Plasma Physics) with the most popular high-performance scientific programming language in human history as of today. The vertical axis represents the relative word-usage frequency of the three keywords (Plasma, Aerospace, and Fortran) in all digital corpus, and the horizontal axis represents the year. Note that the downward slope of the curves in later times does NOT imply the decline of these fields of science or the decline of Fortran. It merely means that they have reached their exponential peak growth in the mid-1980s, and are now expanding steadily (linearly), whereas other newer fields (such as bioinformatics) are being more and more frequently referenced than the above three keywords every year in all digital corpus.
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Many times throughout the recent history, some specific fields of science have boosted and popularized some computer programming languages and vice versa, in a positive feedback loop. A younger just-married couple seems to be Bioinformatics-Python, both of which, as of today seem to be thriving:&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;a href=&quot;https://books.google.com/ngrams/graph?content=python%2Cbioinformatics&amp;amp;case_insensitive=on&amp;amp;year_start=1980&amp;amp;year_end=2008&amp;amp;corpus=15&amp;amp;smoothing=3&amp;amp;share=&amp;amp;direct_url=t4%3B%2Cpython%3B%2Cc0%3B%2Cs0%3B%3BPython%3B%2Cc0%3B%3Bpython%3B%2Cc0%3B%3BPYTHON%3B%2Cc0%3B.t4%3B%2Cbioinformatics%3B%2Cc0%3B%2Cs0%3B%3BBioinformatics%3B%2Cc0%3B%3Bbioinformatics%3B%2Cc0%3B%3BBIOINFORMATICS%3B%2Cc0&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;http:/ECL2017S/lecture/0/bioinformatics-python.png&quot; width=&quot;900&quot; /&gt;
-    &lt;/a&gt;
-    &lt;figcaption style=&quot;text-align:justify&quot;&gt;
-        A plot illustrating the co-evolution and thriving of the field of bioinformatics with the popular programming language, Python. The vertical axis represents the relative word-usage frequency of the two keywords (Bioinformatics and Python) in all digital corpus, and the horizontal axis represents the year.
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Sometimes, a programming language couples with a specific field of science and thrives for a few years, only to be soon replaced with a younger, more attractive, programming language. This is probably what happened to the co-evolution of Perl with bioinformatics, a language which was gradually replaced with Python in the beginning of the new millennium, at least in the field of bioinformatics.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;a href=&quot;https://books.google.com/ngrams/graph?content=python%2Cbioinformatics%2Cperl&amp;amp;case_insensitive=on&amp;amp;year_start=1980&amp;amp;year_end=2008&amp;amp;corpus=15&amp;amp;smoothing=3&amp;amp;share=&amp;amp;direct_url=t4%3B%2Cpython%3B%2Cc0%3B%2Cs0%3B%3BPython%3B%2Cc0%3B%3Bpython%3B%2Cc0%3B%3BPYTHON%3B%2Cc0%3B.t4%3B%2Cbioinformatics%3B%2Cc0%3B%2Cs0%3B%3BBioinformatics%3B%2Cc0%3B%3Bbioinformatics%3B%2Cc0%3B%3BBIOINFORMATICS%3B%2Cc0%3B.t4%3B%2Cperl%3B%2Cc0%3B%2Cs0%3B%3BPerl%3B%2Cc0%3B%3Bperl%3B%2Cc0%3B%3BPERL%3B%2Cc0&quot; target=&quot;_blank&quot;&gt;
-        &lt;img src=&quot;http:/ECL2017S/lecture/0/bioinformatics-python-perl.png&quot; width=&quot;900&quot; /&gt;
-    &lt;/a&gt;
-    &lt;figcaption style=&quot;text-align:justify&quot;&gt;
-        A plot illustrating the evolution and steady expansion of the Perl programming language and its gradual replacement with Python, in the field of bioinformatics. The vertical axis represents the relative word-usage frequency of the three keywords (Bioinformatics, Python, and Perl) in all digital corpus, and the horizontal axis represents the year.
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/0-programming-history&quot;&gt;Lecture 0: Programming history&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on January 18, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Announcement 1: Assessing your programming knowledge and interests]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/announcement/1-assessing-your-programming-knowledge-and-interests-Copy"/>
-  <id>http:/ECL2017S/announcement/1-assessing-your-programming-knowledge-and-interests - Copy</id>
-  <published>2017-01-18T00:00:00-06:00</published>
-  <updated>2017-01-18T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;The goal of this survey is to assess your prior programming experience and to identify the favorite programming language of the class. Please fill out the following two survey questions, and submit them within 3 minutes.&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-    &lt;script&gt;
-        (function(t,e,c,s){var n,o,r;t.SMCX=t.SMCX||[],e.getElementById(s)||(n=e.getElementsByTagName(c),o=n[n.length-1],r=e.createElement(c),r.type=&quot;text/javascript&quot;,r.async=!0,r.id=s,r.src=[&quot;https:&quot;===location.protocol?&quot;https://&quot;:&quot;http://&quot;,&quot;widget.surveymonkey.com/collect/website/js/cWwdqYkJlcOqqIvX4OQ6L0ROZOarbpr7vA_2BB3stCB3CdrDL1W7Ipzjdzq6PQKazc.js&quot;].join(&quot;&quot;),o.parentNode.insertBefore(r,o))})(window,document,&quot;script&quot;,&quot;smcx-sdk&quot;);
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;survey-results&quot;&gt;Survey results&lt;/h2&gt;
-&lt;p&gt;The following are the results of the two questions of the survey. The total respondents for both questions were 21. It appears that almost everyone in class, knows at least one programming language at medium level. Also it appears that almost everyone in this class is in love with Python!&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/1/programmingExperience.png&quot; width=&quot;700&quot; /&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/1/programmingExperienceStat.png&quot; width=&quot;700&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/1/favoriteLanguage.png&quot; width=&quot;700&quot; /&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/1/favoriteLanguageStat.png&quot; width=&quot;700&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/announcement/1-assessing-your-programming-knowledge-and-interests-Copy&quot;&gt;Announcement 1: Assessing your programming knowledge and interests&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on January 18, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Announcement 0: Student-professor connection day]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/announcement/0-student-professor-connection-day"/>
-  <id>http:/ECL2017S/announcement/0-student-professor-connection-day</id>
-  <published>2017-01-18T00:00:00-06:00</published>
-  <updated>2017-01-18T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;I have ordered cookies to be delivered to our first ECL class. We will try to get to know each other and I will attempt to describe my research work and educational background for you, as well as what we should expect from this course. Then I will give you links to two surveys that will assess your programming knowledge and will determine the favorite programming language which the majority of class wish to learn.&lt;/p&gt;
-
-&lt;h2 id=&quot;about-me-amir-the-instructor&quot;&gt;About me, Amir, the instructor&lt;/h2&gt;
-
-&lt;p&gt;I am a physicist and researcher, currently at &lt;a target=&quot;_blank&quot; href=&quot;https://www.ices.utexas.edu/&quot;&gt;Institute for Computational Engineering and Sciences&lt;/a&gt; at &lt;a target=&quot;_blank&quot; href=&quot;http://www.utexas.edu/&quot;&gt;The University of Texas at Austin&lt;/a&gt;. I am a member of the &lt;a target=&quot;_blank&quot; href=&quot;http://cco.ices.utexas.edu/&quot;&gt;Center for Computational Oncology&lt;/a&gt; led by &lt;a target=&quot;_blank&quot; href=&quot;https://www.bme.utexas.edu/about-us/faculty-directory/yankeelov&quot;&gt;Dr. Thomas E. Yankeelov&lt;/a&gt; and &lt;a target=&quot;_blank&quot; href=&quot;https://www.ices.utexas.edu/people/85/&quot;&gt;Dr. J. Tinsley Oden&lt;/a&gt; at ICES with the goal of understanding Tumor Growth.&lt;/p&gt;
-
-&lt;p&gt;The following figures show the growth of Glioblastoma tumor cells in a Rat’s brain over time.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_1_t10.0.png&quot; width=&quot;900&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_2_t12.0.png&quot; width=&quot;900&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_3_t14.0.png&quot; width=&quot;900&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_5_t16.0.png&quot; width=&quot;900&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_6_t18.0.png&quot; width=&quot;900&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_7_t20.0.png&quot; width=&quot;900&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;One of the fields on which my research is currently focused, is developing Monte Carlo optimizer/sampler and integrator algorithms for Bayesian inverse problems. Below you see example animations of two &lt;a href=&quot;https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo&quot; target=&quot;_blank&quot;&gt;Markov Chain Monte Carlo&lt;/a&gt; (MCMC) samplers, both of which sample a double Gaussian-peak function, but with different MCMC sampling parameters.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/0/PDF_RS_L_Forever20ms.gif&quot; width=&quot;900&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:center&quot;&gt;Example of low-efficiency, but good-mixing MCMC sampler.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/0/PDF_RS_H_Forever20ms.gif&quot; width=&quot;900&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:center&quot;&gt;Example of highly-efficiency, but bad-mixing MCMC sampler.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;While my current focus of research is mathematical modelling of tumor growth and Monte Carlo samplers, I am and have been working in multiple branches of science and engineering for several years, from the subatomic world of &lt;a target=&quot;_blank&quot; href=&quot;https://en.wikipedia.org/wiki/Elementary_particle&quot;&gt;elementary particles&lt;/a&gt;, to the microscopic world of &lt;a target=&quot;_blank&quot; href=&quot;https://en.wikipedia.org/wiki/Macromolecule&quot;&gt;biological macromolecules&lt;/a&gt;, to &lt;a target=&quot;_blank&quot; href=&quot;https://en.wikipedia.org/wiki/Gamma-ray_burst&quot;&gt;astrophysical phenomena&lt;/a&gt; occurring on the grandest scales of the &lt;a target=&quot;_blank&quot; href=&quot;https://en.wikipedia.org/wiki/Observable_universe&quot;&gt;observable Universe&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;For several years of my research, I have been working on understanding Gamma-Ray Bursts (GRB) and their physics. Below is a movie of the moment a Short-duration GRB is generated from the merger of a binary Neutron star system.&lt;/p&gt;
-
-&lt;div class=&quot;center&quot;&gt;
-&lt;div class=&quot;video-wrapper&quot;&gt;
-	&lt;div class=&quot;video-container&quot;&gt;
-		&lt;iframe width=&quot;853&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/P2ESs1rPO_A?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;I have also worked for a few years in the field of bioinformatics and evolutionary biology. The overarching goal in the field of protein bioinformatics and biophysics is to understand how proteins fold into their unique structure, and what determines the stability of the protein &lt;abbr title=&quot;3-Dimensional&quot;&gt;3D&lt;/abbr&gt; structure. One of the workhorses of this field, is therefore &lt;a href=&quot;https://en.wikipedia.org/wiki/Molecular_dynamics&quot; target=&quot;_blank&quot;&gt;molecular dynamic simulation&lt;/a&gt; to probe the dynamics of proteins and their interactions with other molecules. The following is a 1.5ns molecular dynamics simulation of Human Influenza H1 Hemagglutinin protein (&lt;a href=&quot;http://www.rcsb.org/pdb/explore.do?structureId=1rd8&quot; target=&quot;_blank&quot;&gt;1RD8&lt;/a&gt;, chains AB).&lt;/p&gt;
-
-&lt;div class=&quot;center&quot;&gt;
-&lt;div class=&quot;video-wrapper&quot;&gt;
-	&lt;div class=&quot;video-container&quot;&gt;
-		&lt;iframe width=&quot;853&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/0XL8RNxzrdw?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;!-- &lt;div id=&quot;video&quot;&gt; --&gt;
-
-&lt;!--
-&lt;div class=&quot;videoWrapper&quot;&gt;
-&lt;div class=&quot;flex-video&quot;&gt;
-    &lt;embed src=&quot;https://www.youtube.com/embed/P2ESs1rPO_A?rel=0&quot; style=&quot;width:100%;height:480px&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
-&lt;/div&gt;
-&lt;/div&gt;
---&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/announcement/0-student-professor-connection-day&quot;&gt;Announcement 0: Student-professor connection day&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on January 18, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>

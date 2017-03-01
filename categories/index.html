@@ -47,6 +47,26 @@
 
 
 
+<!--Mathjax loader: taken from http://stackoverflow.com/questions/2188884/how-can-i-mix-latex-in-with-markdown-->
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+    }
+});
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!--End of Mathjax loader: taken from http://stackoverflow.com/questions/2188884/how-can-i-mix-latex-in-with-markdown-->
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -130,9 +150,9 @@
      
       <li><a href="#lecture">Lecture <span>6</span></a></li>
      
-      <li><a href="#homework">Homework <span>5</span></a></li>
+      <li><a href="#homework">Homework <span>7</span></a></li>
      
-      <li><a href="#quiz">Quiz <span>6</span></a></li>
+      <li><a href="#quiz">Quiz <span>7</span></a></li>
     
   
 
@@ -215,6 +235,18 @@
     
       
       
+      <li><a href="/ECL2017S/homework/4-problems-python-variables-assignment-statements">Homework 4: Problems - Python variables and assignment statements<span class="entry-date"><time datetime="2017-03-01T00:00:00-06:00" itemprop="datePublished">March 01, 2017</time></a></li>
+      
+      
+    
+      
+      
+      <li><a href="/ECL2017S/homework/3-solutions-python-values-variables-types">Homework 3: Solutions - Python debugging and string manipulation<span class="entry-date"><time datetime="2017-03-01T00:00:00-06:00" itemprop="datePublished">March 01, 2017</time></a></li>
+      
+      
+    
+      
+      
       <li><a href="/ECL2017S/homework/3-problems-python-values-variables-types">Homework 3: Problems - Python debugging and string manipulation<span class="entry-date"><time datetime="2017-02-22T00:00:00-06:00" itemprop="datePublished">February 22, 2017</time></a></li>
       
       
@@ -249,6 +281,12 @@
  
   <h2 id="quiz">Quiz</h2>
   <ul class="post-list">
+      
+    
+      
+      
+      <li><a href="/ECL2017S/quiz/4-problems-python-values-variables-types">Quiz 4: Problems - Python values, variables, types<span class="entry-date"><time datetime="2017-03-01T00:00:00-06:00" itemprop="datePublished">March 01, 2017</time></a></li>
+      
       
     
       
@@ -295,8 +333,8 @@
         <div class="cf"></div>
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2017 / 02 / 27</section></br> -->
-         <section>Last updated Monday, 27 Feb 2017 at 06:29 PM CST</section></br>
+         <!-- <section>Last updated 2017 / 03 / 01</section></br> -->
+         <section>Last updated Wednesday, 01 Mar 2017 at 09:06 AM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>

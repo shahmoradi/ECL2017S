@@ -1,9 +1,33 @@
 [
 	
 		{
+		  "title"      : "Quiz 4: Problems - Python values, variables, types",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/quiz/4-problems-python-values-variables-types",
+		  "date"       : "2017-03-01 00:00:00 -0600",
+		  "shortdate"  : "March 01, 2017"
+		} ,
+	
+		{
 		  "title"      : "Lecture 5: Python - variables and assignment statements",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/5-python-variables-assignments",
+		  "date"       : "2017-03-01 00:00:00 -0600",
+		  "shortdate"  : "March 01, 2017"
+		} ,
+	
+		{
+		  "title"      : "Homework 4: Problems - Python variables and assignment statements",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/homework/4-problems-python-variables-assignment-statements",
+		  "date"       : "2017-03-01 00:00:00 -0600",
+		  "shortdate"  : "March 01, 2017"
+		} ,
+	
+		{
+		  "title"      : "Homework 3: Solutions - Python debugging and string manipulation",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/homework/3-solutions-python-values-variables-types",
 		  "date"       : "2017-03-01 00:00:00 -0600",
 		  "shortdate"  : "March 01, 2017"
 		} ,
