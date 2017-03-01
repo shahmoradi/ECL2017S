@@ -2,23 +2,23 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>QUIZ 2: PROBLEMS - VERSION CONTROL SYSTEM &vert; COE 111L - SPRING 2017</title>
+<title>QUIZ 4: SOLUTIONS - PYTHON VALUES, VARIABLES, TYPES &vert; COE 111L - SPRING 2017</title>
 <meta name="description" content="Engineering Computation Lab">
 <meta name="keywords" content="">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/ECL2017S/images/logo.png">
-<meta name="twitter:title" content="Quiz 2: Problems - Version control system">
+<meta name="twitter:title" content="Quiz 4: Solutions - Python values, variables, types">
 <meta name="twitter:description" content="Engineering Computation Lab">
 <meta name="twitter:creator" content="@AmirShahmoradi">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Quiz 2: Problems - Version control system">
+<meta property="og:title" content="Quiz 4: Solutions - Python values, variables, types">
 <meta property="og:description" content="Engineering Computation Lab">
-<meta property="og:url" content="/ECL2017S/quiz/2-problems-version-control-system">
+<meta property="og:url" content="/ECL2017S/quiz/4-solutions-python-values-variables-types">
 <meta property="og:site_name" content="COE 111L - Spring 2017">
 <meta property="og:image" content="/ECL2017S/images/">
 
@@ -26,7 +26,7 @@
 
 
 
-<link rel="canonical" href="/ECL2017S/quiz/2-problems-version-control-system">
+<link rel="canonical" href="/ECL2017S/quiz/4-solutions-python-values-variables-types">
 <!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 Feed"> -->
 
 
@@ -132,37 +132,70 @@ MathJax.Hub.Queue(function() {
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h2>Quiz 2: Problems - Version control system</h2>
-                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-02-01T00:00:00-06:00">01 Feb 2017</time></strong></p>
+                            <h2>Quiz 4: Solutions - Python values, variables, types</h2>
+                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-03-01T00:00:00-06:00">01 Mar 2017</time></strong></p>
                         </div>
                     </div>
                 </div>
             </header>
 
         <article class="notepad-post-content post tag-simple">
-            <div style="text-align:justify;"><p>This quiz aims at testing your basic knowledge of Git version control system. Don’t forget to push your answers to your remote repository by the end of quiz time.<br />
-Push all your answers to <strong>quiz/2/</strong> folder in your Github project.</p>
+            <div style="text-align:justify;"><p>This is the solution to <a href="4-problems-python-values-variables-types.html" target="_blank">Quiz 4: Problems - Python values, variables, types</a>.</p>
+
+<!--
+The following figure illustrates the grade distribution for this quiz.  
+
+<figure>
+	<img src="/ECL2017S/quiz/gradeDist/gradeHistQuiz4.png" width="700">
+    <figcaption style="text-align:center">
+        Maximum possible points is 100.
+    </figcaption>
+</figure>
+-->
+
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p>This quiz aims at testing your basic knowledge of Python’s print function, and the how to string manipulation in Python.<br />
+Don’t forget to push your answers to your remote repository by the end of quiz time. Push your quiz-4 <em>readme.md</em> file to quiz/4/ folder in your Github project.  If you write your answers in Python scripts, put the script files in the same folder as well.<br />
+If you feel uncertain about your answer, you can test your final codes on Jupyter or IPython command lines.</p>
 
 <ol>
-  <li>Which of the following Git commands can add all the <strong>new</strong> and <strong>modified-existing</strong> files to the staging area? choose all that apply.<br />
-(A) <code>git add -A</code><br />
-(B) <code>git add --A</code><br />
-(C) <code>git add -all</code><br />
-(D) <code>git add --all</code><br />
-(E) <code>git add -u</code><br />
-(E) <code>git add --u</code><br />
-(F) <code>git add .</code><br />
-(G) <code>git add .; git add -u</code><br />
-(H) <code>git add .; git add --u</code><br />
-(I) <code>git add -u; git add .</code><br />
-(J) <code>git add --u; git add .</code><br />
+  <li>Write a <strong>single-line</strong> python script, that prints your full name 5 times, each on a separate line.<br />
+<br />
+<strong>Answer:</strong>
+    <pre><code class="language-python">print('Amir Shahmoradi\n'*5)
+</code></pre>
+    <p>Amir Shahmoradi
+ Amir Shahmoradi
+ Amir Shahmoradi
+ Amir Shahmoradi
+ Amir Shahmoradi
+<br />
+<br /></p>
+  </li>
+  <li>Write a <strong>single-line</strong> python script, that applies the relevant Python string manipulator methods to this string,<br />
+<br />
+    <pre><code>Python Is Great For String Manipulation.
+</code></pre>
+    <p>and transforms it to the following string and and prints it on screen,</p>
+    <pre><code>.noitalupinaMgnirtSroFtaerGsInohtyP
+</code></pre>
+    <p><br />
+<strong>Answer:</strong></p>
+    <pre><code class="language-python">print( "Python Is Great For String Manipulation.".replace(' ','')[::-1] )
+</code></pre>
+    <pre><code>.noitalupinaMgnirtSroFtaerGsInohtyP
+</code></pre>
+    <p><br /></p>
+  </li>
+  <li>Name the three major types of programming errors.<br />
+<br />
+<strong>Answer:</strong><br />
+syntax, runtime, and semantic errors.<br />
 <br /><br /></li>
-  <li>Which of the following Git commands <strong>both</strong> stages and commits <strong>only modified and deleted files</strong> but <strong>NOT</strong> the <em>new files</em> added to the repository since the last commit. Choose all that apply.<br />
-(A) <code>git commit</code><br />
-(B) <code>git commit -a</code><br />
-(C) <code>git commit -am</code><br />
-<br /><br /></li>
-  <li>Write down the Git command that lists all Git commands for you.</li>
 </ol>
 
             </div>
@@ -170,15 +203,15 @@ Push all your answers to <strong>quiz/2/</strong> folder in your Github project.
         <div class="cf"></div>
         <div class="row text-center">
             <section class="notepad-post-share">
-                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Quiz 2: Problems - Version control system&quot;%20/ECL2017S/quiz/2-problems-version-control-system%20via%20&#64;AmirShahmoradi"
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Quiz 4: Solutions - Python values, variables, types&quot;%20/ECL2017S/quiz/4-solutions-python-values-variables-types%20via%20&#64;AmirShahmoradi"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
                     <i class="fa fa-twitter"></i>
                 </a>
-                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/quiz/2-problems-version-control-system"
+                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/quiz/4-solutions-python-values-variables-types"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
                     <i class="fa fa-facebook"></i>
                 </a>
-                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/quiz/2-problems-version-control-system"
+                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/quiz/4-solutions-python-values-variables-types"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
                     <i class="fa fa-google-plus"></i>
                 </a>
