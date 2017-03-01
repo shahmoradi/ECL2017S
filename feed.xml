@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-03-01T09:21:42-06:00</updated>
+<updated>2017-03-01T11:02:02-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -548,15 +548,25 @@ Out[45]: [(-1+0j)]
 In [46]: myList[::-1] # Creat list in reverse order.
 Out[46]: [(-1+0j), 'Amir', 2, 1, 0]
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+    &lt;b&gt;Lists vs. Strings&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+    You may have already noticed that lists behave very similar to strings in Python. In fact, both List and String are examples of ordered sets in Python known as &lt;b&gt;sequence&lt;/b&gt;. The only difference between list and python is that the elements of strings have to be all of type character, whereas lists do not have such restriction, as seen in the example above.
+&lt;/blockquote&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;!--
+&lt;br&gt;
 &lt;div class=&quot;center&quot;&gt;
     &lt;div class=&quot;rcbox&quot; style=&quot;text-align:justify;&quot;&gt;
-        &lt;b&gt;Lists vs. Strings&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+        &lt;b&gt;Lists vs. Strings&lt;/b&gt;&lt;br&gt;&lt;br&gt;
         You may have already noticed that lists behave very similar to strings in Python. In fact, both List and String are examples of ordered sets in Python known as &lt;b&gt;sequence&lt;/b&gt;. The only difference between list and python is that the elements of strings have to be all of type character, whereas lists do not have such restriction, as seen in the example above.
     &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;a name=&quot;python-variables-lists-nested&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;br&gt;
+--&gt;
+
+&lt;p&gt;&lt;a name=&quot;python-variables-lists-nested&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&quot;-nested-lists&quot;&gt;&lt;a href=&quot;#python-variables-lists-nested&quot;&gt;¶¶¶&lt;/a&gt; Nested lists&lt;/h4&gt;
 &lt;p&gt;Lists can also contain other lists as elements. This way you can create matrices of numbers as well.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [53]: smallList = [1,2,3]
@@ -1349,7 +1359,7 @@ where $M$ is the mass of egg, $\rho$ is the density, $c$ is the specific heat ca
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;4.  Aliasing vs. Copying vairables&lt;/strong&gt; Run the following python statements and briefly explain why you get the behavior printed by the &lt;code&gt;print&lt;/code&gt; functions.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4.  Aliasing vs. Copying variables&lt;/strong&gt; Run the following python statements and briefly explain why you get the behavior printed by the &lt;code&gt;print&lt;/code&gt; functions.&lt;/p&gt;
 
 &lt;p&gt;(A)&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = 5
@@ -1625,7 +1635,7 @@ MANIPULATION!
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;Here are some hints (all the information you need to answer this question can be found in &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/lecture/4-python-values-variables-types&quot; target=&quot;_blank&quot;&gt;Lecture 4&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Here are some hints (all the information you need to answer this question can be found in &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/lecture/4-python-values-variables-types&quot; target=&quot;_blank&quot;&gt;Lecture 4&lt;/a&gt;):&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;To make the script executable, add the appropriate shebang to the script’s file.&lt;br /&gt;
@@ -2809,7 +2819,7 @@ MANIPULATION!
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;Here are some hints (all the information you need to answer this question can be found in &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/lecture/4-python-values-variables-types&quot; target=&quot;_blank&quot;&gt;Lecture 4&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Here are some hints (all the information you need to answer this question can be found in &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/lecture/4-python-values-variables-types&quot; target=&quot;_blank&quot;&gt;Lecture 4&lt;/a&gt;):&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;To make the script executable, add the appropriate shebang to the script’s file.&lt;br /&gt;
