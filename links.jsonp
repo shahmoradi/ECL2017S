@@ -42,6 +42,11 @@ callback([
   } ,
 
   {
+    "text": "Lecture 6: Python - branching and functions",
+    "href": "/ECL2017S/lecture/6-python-branching-functions"
+  } ,
+
+  {
     "text": "Lecture 5: Python - variables and assignment statements",
     "href": "/ECL2017S/lecture/5-python-variables-assignments"
   } ,

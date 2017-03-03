@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Lecture 6: Python - branching and functions",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/lecture/6-python-branching-functions",
+		  "date"       : "2017-03-08 00:00:00 -0600",
+		  "shortdate"  : "March 08, 2017"
+		} ,
+	
+		{
 		  "title"      : "Quiz 4: Solutions - Python values, variables, types",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/quiz/4-solutions-python-values-variables-types",
