@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-03-03T10:45:33-06:00</updated>
+<updated>2017-03-05T00:38:36-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -2019,8 +2019,8 @@ Out[53]: 2
 &lt;p&gt;It is very important to understand the difference between &lt;strong&gt;alias&lt;/strong&gt; assignment statements and &lt;strong&gt;copy&lt;/strong&gt; assignment statements. As far as assignments are concerned, all data types in Python can be divided into two categories:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;simple data types (e.g., int, float, string,&lt;/li&gt;
-  &lt;li&gt;container data types (e.g., list, tuple, dict, set, …)&lt;/li&gt;
+  &lt;li&gt;simple data types (e.g., int, float, string, tuple)&lt;/li&gt;
+  &lt;li&gt;container data types (e.g., list, dict, set, …)&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;For &lt;strong&gt;simple data types&lt;/strong&gt;, an assignment means that their value is &lt;strong&gt;copied&lt;/strong&gt; to the assigned variable.&lt;/p&gt;
