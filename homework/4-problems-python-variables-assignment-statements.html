@@ -210,46 +210,46 @@ where $M$ is the mass of egg, $\rho$ is the density, $c$ is the specific heat ca
 <p>(A)</p>
 <pre><code class="language-python">a = 5
 b = a
-print id(a), id(b)
+print (id(a), id(b))
  
 c = b
 b = 3
-print a,b,c
-print id(a),id(b),id(c)
+print (a,b,c)
+print (id(a),id(b),id(c))
  
 b = a
 b = 5
-print id(a), id(b)
+print (id(a), id(b))
 </code></pre>
 <p><br />
 (B)</p>
 <pre><code class="language-python">a = [5]
 b = a
-print id(a), id(b)
+print (id(a), id(b))
  
 b.append(1)
 print a,b
-print id(a),id(b)
+print (id(a),id(b))
 </code></pre>
 <p><br />
 (C)</p>
 <pre><code class="language-python">a = [5]
 b = list(a)
-print a,b
-print id(a), id(b)
+print (a,b)
+print (id(a), id(b))
  
 b = a[:]
-print a,b
-print id(a), id(b)
+print (a,b)
+print (id(a), id(b))
 </code></pre>
 <p><br />
 (D)</p>
 <pre><code class="language-python">a = (5,)
 b = tuple(a)
-print id(a), id(b)
+print (id(a), id(b))
  
 b = a[:]
-print id(a), id(b)
+print (id(a), id(b))
 </code></pre>
 
 <p><br /></p>
@@ -386,8 +386,8 @@ However, the problem is that, except me (Amir, the instructor) and Vivek (our TA
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2017 / 03 / 05</section></br> -->
-         <section>Last updated Sunday, 05 Mar 2017 at 12:41 AM CST</section></br>
+         <!-- <section>Last updated 2017 / 03 / 06</section></br> -->
+         <section>Last updated Monday, 06 Mar 2017 at 06:26 PM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>
