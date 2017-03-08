@@ -7,13 +7,58 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-03-06T18:28:45-06:00</updated>
+<updated>2017-03-08T09:01:07-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
   <uri>http:/ECL2017S/</uri>
   <email>amir@ices.utexas.edu</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Quiz 5: Problems - Python variables and assignment statements]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/quiz/5-problems-python-variables-assignment-statements"/>
+  <id>http:/ECL2017S/quiz/5-problems-python-variables-assignment-statements</id>
+  <published>2017-03-08T00:00:00-06:00</published>
+  <updated>2017-03-08T00:00:00-06:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This quiz aims at testing your basic knowledge of Python’s print function, and the how to string manipulation in Python. Don’t forget to push your answers to your remote repository by the end of quiz time. Push your quiz-5 &lt;em&gt;readme.md&lt;/em&gt; file to quiz/5/ folder in your Github project.  If you write your answers in Python scripts, put the script files in the same folder as well. If you feel uncertain about your answer, you can test your final codes on Jupyter or IPython command lines.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Make a string from the following list, with one one-line of Python code.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;mylist = ['The' , 'weather' , 'is' , 'rainy' , 'today' , 'and' , 'cold' , 'only' , '22' , 'F.']
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;2. &lt;/strong&gt; Are tuples mutable objects? Can they be redefined?&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; How do you define an empty dictionary?&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; Write a dictionary representation of the following matrix.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{bmatrix}
+    0 &amp; 0 &amp; 0 &amp; 1 \\
+    2 &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; 5 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 0 &amp; 3
+\end{bmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/5-problems-python-variables-assignment-statements&quot;&gt;Quiz 5: Problems - Python variables and assignment statements&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 08, 2017.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -944,6 +989,225 @@ This format is particularly useful, if the lambda function contains a constant t
 
 
 <entry>
+  <title type="html"><![CDATA[Homework 5: Problems - Python branching and functions]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/5-problems-python-branching-functions"/>
+  <id>http:/ECL2017S/homework/5-problems-python-branching-functions</id>
+  <published>2017-03-08T00:00:00-06:00</published>
+  <updated>2017-03-08T00:00:00-06:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This homework aims at giving you some experience with variables in Python and their syntax, also some experience with using Lists and Dictionaries in Python. Write your Python scripts with the corresponding &lt;code&gt;*.py&lt;/code&gt; file names, and add a readme.md file in HW 5 folder of your project if you need to add any additional explanation (Don’t forget to use markdown syntax highlight in your readme file, if needed).&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; In mathematics, the Fibonacci numbers are the numbers in the following integer sequence, called the Fibonacci sequence, that are characterized by the fact that every number after the first two is the sum of the two preceding ones:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;0,~1,~1,~2,~3,~5,~8,~13,~21,~34,~55,~89,~144,~\dots&lt;/script&gt;
+
+&lt;p&gt;with the following sequence equation,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{eqnarray}
+     Fib(n) &amp;=&amp; Fib(n-1) + Fib(n-2) ~, \\
+     Fib(0) &amp;=&amp; 0 ~, \\
+     Fib(1) &amp;=&amp; 1 ~.
+\end{eqnarray} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Write a Python function named &lt;code&gt;fib&lt;/code&gt; that takes in an input argument which should be integer number &lt;code&gt;n&lt;/code&gt;, and then calculates the $n^{th}$ number in the Fibonacci sequence and outputs it on the screen. Also, if the input argument is not a non-negative integer, it prints an error message on the screen and asks the user to re-enter a non-negative integer number. Also, when it is done with finding the requested Fibonacci number, it asks again the user to either input a new non-negative integer, or enter ‘stop’ to end the function, like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; fib('amir')
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;The input argument amir is not a non-negative integer!
+Please enter a non-negative integer: -123
+The input argument -123 is not a non-negative integer!
+Please enter a non-negative integer: 12.4
+The input argument 12.4 is not a non-negative integer!
+Please enter a non-negative integer: 0
+Fib(0) = 0
+Please enter another non-negative integer or type stop: 1
+Fib(1) = 1
+Please enter another non-negative integer or type stop: 2
+Fib(2) = 1
+Please enter another non-negative integer or type stop: 3
+Fib(3) = 2
+Please enter another non-negative integer or type stop: 4
+Fib(4) = 3
+Please enter another non-negative integer or type stop: 5
+Fib(5) = 5
+Please enter another non-negative integer or type stop: 6
+Fib(6) = 8
+Please enter another non-negative integer or type stop: 7
+Fib(7) = 13
+Please enter another non-negative integer or type stop: 8
+Fib(8) = 21
+Please enter another non-negative integer or type stop: 9
+Fib(9) = 34
+Please enter another non-negative integer or type stop: 10
+Fib(10) = 55
+Please enter another non-negative integer or type stop: 11
+Fib(11) = 89
+Please enter another non-negative integer or type stop: 12
+Fib(12) = 144
+Please enter another non-negative integer or type stop: stop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Hint:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;First write a function &lt;code&gt;fibo(n_int)&lt;/code&gt; that finds the requested Fibonacci number for you, given a non-negative integer input (for example, name it &lt;code&gt;n_int&lt;/code&gt;).&lt;/li&gt;
+  &lt;li&gt;Then put this function &lt;strong&gt;inside another Python function &lt;code&gt;fib(n)&lt;/code&gt;&lt;/strong&gt; that checks the type of the input argument &lt;code&gt;n&lt;/code&gt; and prints the appropriate error message as in the above and then asks the user to enter another number (and then again checks for its type to be integer).&lt;/li&gt;
+  &lt;li&gt;Then if this number is an integer, this function &lt;code&gt;fib(n)&lt;/code&gt; passes the integer number &lt;code&gt;n&lt;/code&gt; to the function &lt;code&gt;fibo(n_int)&lt;/code&gt; which is inside of itself (it is a &lt;strong&gt;nested function&lt;/strong&gt;), in order to get the requested Fibonacci number.&lt;/li&gt;
+  &lt;li&gt;Finally, once the requested Fibonaccy number is obtained, it prints the number value with the requested format as in the above example, AND then asks again the user to input a new non-negative integer, or simply type &lt;code&gt;stop&lt;/code&gt; to stop the function.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Note that, if you call the function as &lt;code&gt;fib('stop')&lt;/code&gt; in the Python interpreter, it should return nothing to you, just like the following example,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;fib('stop')
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+I highly recommend you to write your function in Jupyter notebook, test it there, and then get the results for the same input arguments as in the above example (a string, negative integer, float, and n=1,…,12, and also ‘stop’) and download all of the notebook as a Markdown file, and put it in your repository folder for this homework. Name the notebook, &lt;code&gt;fib.md&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Also note that, you don’t need to know or use anything beyond Python function syntax, Python built-in functions and methods (like &lt;code&gt;input&lt;/code&gt;, &lt;code&gt;isdigit()&lt;/code&gt;, &lt;code&gt;print&lt;/code&gt;, &lt;code&gt;str()&lt;/code&gt;, &lt;code&gt;int()&lt;/code&gt;, …), and Python if-blocks.&lt;/p&gt;
+&lt;blockquote&gt;
+    I recommend you to use Jupyter notebook on your device, since the online version of notebook, can be interrupted repeatedly because of internet connection.
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Branching…, the Pythonic way.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(A)&lt;/strong&gt; Change the &lt;strong&gt;first&lt;/strong&gt; if statement in the following script to an equivalent &lt;strong&gt;one-line&lt;/strong&gt; if-expression. Test the resulting new script, and make sure it behaves as the original,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
+
+abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
+
+answer_status = 'wrong'
+if abbr == 'ECL':
+    answer_status = 'correct'
+
+if answer_status=='correct':
+    print('You answer is correct!')
+else:
+    print(&quot;wrong buddy...try again&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;(B)&lt;/strong&gt; Can you acheive the same goal as in &lt;strong&gt;(A)&lt;/strong&gt; without if-expression or block, but instead using only tuple notation? Explain why your solution works.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(C)&lt;/strong&gt; Modify the if block and the print statements that are only in the last part of the code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if answer_status=='correct':
+    print('You answer is correct!')
+else:
+    print(&quot;wrong buddy...try again&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+to write a single-line Python statement that only uses &lt;code&gt;print&lt;/code&gt; and tuple or list notations, to perform the exact same task as the original print and if-block statement.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(A)&lt;/strong&gt; Write a &lt;strong&gt;single-line&lt;/strong&gt; Python code that reads a string containing comma-separated first-name, last-name, and the city in which a person lives from the Python interpreter command line, and simultaneouly, in the same line of Python code, removes all white-space characters from the input string, and converts all letters of the input variables to lower-case, and converts the string to a tuple and saves in a tuple &lt;code&gt;(first,last,city)&lt;/code&gt;, such that, for example,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;Enter the first name, last name, and the city of the person (comma-separated): Amir, Shahmoradi  ,  Austin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+would give,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;(first,last,city)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;('amir', 'shahmoradi', 'austin')
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Hint:&lt;/strong&gt; Use &lt;code&gt;input&lt;/code&gt; function for this purpose. The output of &lt;code&gt;input&lt;/code&gt; is a string, which can be manipulated repeatedly on the same line, using multiple string methods that you learned about in the previous lectures.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(B)&lt;/strong&gt; As discuss in our lecture 6, the one-line if-expression syntax does not provide a functionality like &lt;code&gt;elif&lt;/code&gt; keyword as in the if-statement syntax. Our goal here is to learn how to convert a Python if-statement containing &lt;code&gt;elif&lt;/code&gt; to a one-line Python expression. Convert the following if-block to a single line if-expression. Modify the if-block inside the following function to one-line if-expression:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def dummy(i):
+    if i==0:
+        j=0
+    elif i==1:
+        j=1
+    elif i==2:
+        j=2
+    else: j = 'j is not in [0,1,2]' 
+    return j
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; 
+An arbitrary triangle can be described by the coordinates of its three vertices: $(x1,y1),(x2,y2),(x3,y3)$, numbered in a counterclockwise direction. The area of the triangle is given by the formula,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;A = \frac{1}{2} \bigg| x2y3 - x3y2 - x1y3 + x3y1 + x1y2 - x2y1j \bigg|&lt;/script&gt;
+
+&lt;p&gt;Write a function &lt;code&gt;get_triangle_area(vertices)&lt;/code&gt; that returns the area of a triangle whose vertices are specified by the argument vertices, which is a nested list of the vertex coordinates. Test your implementation with the following test function, which also illustrates how the &lt;code&gt;get_triangle_area&lt;/code&gt; function works.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def test_get_triangle_area():
+    &quot;&quot;&quot;
+    Verify the area of a triangle with vertex coordinates
+    (0,0), (1,0), and (0,2).
+    &quot;&quot;&quot;
+    v1 = (0,0); v2 = (1,0); v3 = (0,2)
+    vertices = [v1, v2, v3]
+    expected = 1
+    computed = get_triangle_area(vertices)
+    tol = 1E-14
+    success = abs(expected - computed) &amp;lt; tol
+    msg = 'computed area=%g != %g (expected)' % (computed, expected)
+    assert success, msg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. &lt;/strong&gt; Write a logical (boolean) function named &lt;code&gt;is_prime(n)&lt;/code&gt; that takes in an integer number &lt;code&gt;n&lt;/code&gt;, and finds whether it is a Prime number or not. Example output is the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;is_prime(n=23)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;True
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;is_prime(12)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;False
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that you do not need and don’t have to use &lt;code&gt;for-loop&lt;/code&gt; for this problem (we have not yet discussed loops in our class!). All of it can be done using recursive function concept.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/5-problems-python-branching-functions&quot;&gt;Homework 5: Problems - Python branching and functions&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 08, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
   <title type="html"><![CDATA[Quiz 4: Solutions - Python values, variables, types]]></title>
   <link rel="alternate" type="text/html" href="http:/ECL2017S/quiz/4-solutions-python-values-variables-types"/>
   <id>http:/ECL2017S/quiz/4-solutions-python-values-variables-types</id>
@@ -960,15 +1224,15 @@ This format is particularly useful, if the lambda function contains a constant t
     &lt;p&gt;This is the solution to &lt;a href=&quot;4-problems-python-values-variables-types.html&quot; target=&quot;_blank&quot;&gt;Quiz 4: Problems - Python values, variables, types&lt;/a&gt;.&lt;/p&gt;
 
 &lt;!--
-The following figure illustrates the grade distribution for this quiz.  
+--&gt;
+&lt;p&gt;The following figure illustrates the grade distribution for this quiz.&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/quiz/gradeDist/gradeHistQuiz4.png&quot; width=&quot;700&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/quiz/gradeDist/gradeHistQuiz4.png&quot; width=&quot;700&quot; /&gt;
     &lt;figcaption style=&quot;text-align:center&quot;&gt;
         Maximum possible points is 100.
     &lt;/figcaption&gt;
 &lt;/figure&gt;
---&gt;
 
 &lt;hr /&gt;
 &lt;hr /&gt;
@@ -2204,6 +2468,315 @@ Out[80]: 5
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/5-python-variables-assignments&quot;&gt;Lecture 5: Python - variables and assignment statements&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 01, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Homework 4: Solutions - Python variables and assignment statements]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/4-solutions-python-variables-assignment-statements"/>
+  <id>http:/ECL2017S/homework/4-solutions-python-variables-assignment-statements</id>
+  <published>2017-03-01T00:00:00-06:00</published>
+  <updated>2017-03-01T00:00:00-06:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This is the solution to &lt;a href=&quot;4-problems-python-variables-assignment-statements.html&quot; target=&quot;_blank&quot;&gt;Homework 4: Problems - Python variables and assignment statements&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--
+The following figure illustrates the grade distribution for this homework.  
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework4.png&quot; width=&quot;700&quot;&gt;
+    &lt;figcaption style=&quot;text-align:center&quot;&gt;
+        Maximum possible points, excluding bonus question, is 100.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+--&gt;
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;This homework aims at giving you some experience with variables in Python and their syntax, also some experience with using Lists and Dictionaries in Python. Write your Python scripts with the corresponding &lt;code&gt;*.py&lt;/code&gt; file names, and add a readme.md file in HW 4 folder of your project if you need to add any additional explanation (Don’t forget to use markdown syntax highlight in your readme file, if needed).&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; The bell-shaped &lt;a href=&quot;https://en.wikipedia.org/wiki/Normal_distribution&quot; target=&quot;_blank&quot;&gt;Gaussian probability density function&lt;/a&gt;,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f(x)=\frac{1}{\sqrt{2\pi}\sigma}\exp\bigg[ -\frac{1}{2}\bigg( \frac{x-\mu}{\sigma} \bigg)^2 \bigg]&lt;/script&gt;
+
+&lt;p&gt;&lt;br /&gt;
+is one of the most widely used functions in science and technology. The parameters of the function (mu,sigma&amp;gt;0) are prescribed real numbers. Write a program for evaluating this function when $\mu=0$, $\sigma=2$, $x = 1$.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hint:&lt;/strong&gt; The value &lt;code&gt;pi&lt;/code&gt;, and &lt;code&gt;exp()&lt;/code&gt; , &lt;code&gt;sqrt()&lt;/code&gt; function are not built-in Python entities. You will need to export them using the following command,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from math import pi, exp, sqrt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Verify your answer by getting the same result from &lt;a href=&quot;https://www.wolframalpha.com/&quot; target=&quot;_blank&quot;&gt;Wolfram Alpha&lt;/a&gt; mathematical search engine.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+A version of the code can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/4/solutions/gaussian.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Download &lt;a href=&quot;http:/ECL2017S/homework/4/script_full_0f_errors.py&quot; target=&quot;_blank&quot;&gt;this code&lt;/a&gt;. This code is full syntax errors. Fix the errors and submit the corrected code with name &lt;code&gt;script_full_of_errors_corrected.py&lt;/code&gt; in your how4 folder of your project. Explain in front of each corrected Python statement, why the error occurred.  On the last line of the script,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;true = fox is rev in Persian
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+the statement runs without error. But can you explain what it does? (Hint: For this part you need to understand operation precedence. You can find more information &lt;a href=&quot;http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/op_precedence.html&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+The corrected file can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/4/solutions/script_full_of_errors_corrected.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; As an egg cooks, the proteins first denature and then coagulate. When the temperature exceeds a critical point, reactions begin and proceed faster as the temperature increases. In the egg white, the proteins start to coagulate for temperatures above $63^\circ\rm{C}$, while in the yolk the proteins start to coagulate for temperatures above $70^\circ\rm{C}$. For a soft boiled egg, the white needs to have been heated long enough to coagulate at a temperature above $63^\circ\rm{C}$, but the yolk should not be heated above $70^\circ\rm{C}$. For a hard boiled egg, the center of the yolk should be allowed to reach $70^\circ\rm{C}$.&lt;/p&gt;
+
+&lt;p&gt;The following formula expresses the time $t$ it takes (in seconds) for the center of the yolk to reach the temperature Ty (in Celsius degrees):&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;t = \frac
+{ M^{2/3} ~ c ~ \rho^{1/3} }
+{ K\pi^2 ~ (4\pi/3)^{2/3} }
+~\ln
+\bigg[
+0.76 \frac{T_0 - T_w}{T_y-T_w}
+\bigg]&lt;/script&gt;
+
+&lt;p&gt;&lt;br /&gt;
+where $M$ is the mass of egg, $\rho$ is the density, $c$ is the specific heat capacity, and $K$ is thermal conductivity. Relevant values are $M=47~[g]$ for a small egg and $M=67~[g]$ for a large egg, $\rho=1.038 ~[g~cm^{-3}]$, $c = 3.7 ~[J~g^{-1}~K^{-1}]$, and $K = 5.4\times10^{-3} ~[Wcm^{-1}K^{-1}]$. Furthermore, $T_w$ is the temperature
+(in C degrees) of the boiling water, and $T_0$ is the original temperature (in C degrees) of the egg before being put in the water. Implement the formula in a Python program, set $T_w = 100^\circ C$ and $T_y = 70^\circ C$, and compute $t$ for a large egg taken from the fridge ($T_0 = 4^\circ C$) and from room temperature ($T_0 = 20^\circ C$). (&lt;strong&gt;Hint&lt;/strong&gt;: Note that for this problem you will need to import &lt;code&gt;log, pi&lt;/code&gt; from &lt;code&gt;math&lt;/code&gt; module.)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+A version of the code can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/4/solutions/prob3.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4.  Aliasing vs. Copying vairables&lt;/strong&gt; Run the following python statements and briefly explain why you get the behavior printed by the &lt;code&gt;print&lt;/code&gt; functions.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;(A)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# Assign a value to a new variable
+a = 5
+ 
+# Create an alias identifier for this variable
+b = a
+ 
+# Observe how they refer to the same variable!
+print (id(a), id(b))
+ 
+# Create another alias
+c = b
+ 
+# Now assign a new value to b!
+b = 3
+ 
+# And observe how a and c are still the same variable
+# But b is not
+print (a,b,c)
+print (id(a),id(b),id(c))
+ 
+# Now for another quirk, suppose we do this:
+b = a
+b = 5
+ 
+# We used an assignment, but the value didn't actually change
+# So the alias remains unbroken
+print (id(a), id(b))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+(B)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# Create a new &amp;lt;list&amp;gt;
+a = [5]
+ 
+# Create an alias identifier for this list
+b = a
+print (id(a), id(b))
+ 
+# Now change the &amp;lt;list&amp;gt; b in-place
+b.append(1)
+ 
+# And observe how this also changes a
+# The alias is not broken by in-place operations
+print (a,b)
+print (id(a),id(b))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+(C)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# Create a &amp;lt;list&amp;gt;
+a = [5]
+ 
+# Create a new &amp;lt;list&amp;gt; with the same value
+b = list(a)
+ 
+# We now have two separate variables with identical but separate values
+print (a,b)
+print (id(a), id(b))
+ 
+# Same with the full slice technique:
+b = a[:]
+print (a,b)
+print (id(a), id(b))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+(D)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# Create &amp;lt;tuple&amp;gt;
+a = (5,)
+ 
+# Try to force a copy
+b = tuple(a)
+ 
+# It didn't work...
+print (id(a), id(b))
+ 
+# Neither does this
+b = a[:]
+print (id(a), id(b))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. &lt;/strong&gt; The following is the name list of all people in our ECL class.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;nicholas boeker
+bradley bridges
+sagar dhana
+travis driver
+eric gagliano
+christian garcia
+matthew goree
+lucero herrera
+jake janssen
+michael langford
+colin lewis
+mark loveland
+emilio mendiola
+kreshel nguyen  
+russell philley
+caleb phillips  
+joseph robbins  
+bradley smith
+amir shahmoradi
+vivek varier
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+We want to create a dictionary of members of this class with individuals’ full names serving as dictionary keys, and their roles in class as the corresponding values of the keys. The naive way of generating this dictionary would be to use one of the methods for generating dictionary discussed in &lt;a href=&quot;http:/ECL2017S/lecture/5-python-variables-assignments&quot; target=&quot;_blank&quot;&gt;Lecture 5&lt;/a&gt;. For example,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;ecl_dict = { 'nicholas boeker'  : 'student'
+           , 'bradley bridges'  : 'student'
+           , 'sagar dhana'      : 'student' 
+           , 'travis driver'    : 'student'
+           , 'eric gagliano'    : 'student'
+           , 'christian garcia' : 'student'
+           , 'matthew goree'    : 'student'
+           , 'lucero herrera'   : 'student'
+           , 'jake janssen'     : 'student'
+           , 'michael langford' : 'student'
+           , 'colin lewis'      : 'student'
+           , 'mark loveland'    : 'student'
+           , 'emilio mendiola'  : 'student'
+           , 'kreshel nguyen'   : 'student'
+           , 'russell philley'  : 'student'
+           , 'caleb phillips'   : 'student'
+           , 'joseph robbins'   : 'student'
+           , 'bradley smith'    : 'student'
+           , 'vivek varier'     : 'assistant'
+           , 'amir shahmoradi'  : 'instructor'
+           }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+However, the problem is that, except me (Amir, the instructor) and Vivek (our TA), everyone else has a student role in this class. So it would be a very painful process to type all ‘student’ values by hand manually. Now, the goal is to come up with a shortcut method that avoids the aforementioned problem. Can you find a way of creating this dictionary, without having to type the value ‘student’ 18 times? Note that in order to achieve this, you don’t need anything beyond what you learned in Lecture 5. (&lt;strong&gt;Hint:&lt;/strong&gt; Have a look at the section for simultaneous assignments in Lecture 5)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;ecl_dict = { 'vivek varier'     : 'assistant'
+           , 'amir shahmoradi'  : 'instructor'
+           }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;ecl_dict
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;{'amir shahmoradi': 'instructor', 'vivek varier': 'assistant'}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;ecl_dict[ 'nicholas boeker'  ] = \
+ecl_dict[ 'bradley bridges'  ] = \
+ecl_dict[ 'sagar dhana'      ] = \
+ecl_dict[ 'travis driver'    ] = \
+ecl_dict[ 'eric gagliano'    ] = \
+ecl_dict[ 'christian garcia' ] = \
+ecl_dict[ 'matthew goree'    ] = \
+ecl_dict[ 'lucero herrera'   ] = \
+ecl_dict[ 'jake janssen'     ] = \
+ecl_dict[ 'michael langford' ] = \
+ecl_dict[ 'colin lewis'      ] = \
+ecl_dict[ 'mark loveland'    ] = \
+ecl_dict[ 'emilio mendiola'  ] = \
+ecl_dict[ 'kreshel nguyen'   ] = \
+ecl_dict[ 'russell philley'  ] = \
+ecl_dict[ 'caleb phillips'   ] = \
+ecl_dict[ 'joseph robbins'   ] = \
+ecl_dict[ 'bradley smith'    ] = 'student'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;ecl_dict
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;{'amir shahmoradi': 'instructor',
+ 'bradley bridges': 'student',
+ 'bradley smith': 'student',
+ 'caleb phillips': 'student',
+ 'christian garcia': 'student',
+ 'colin lewis': 'student',
+ 'emilio mendiola': 'student',
+ 'eric gagliano': 'student',
+ 'jake janssen': 'student',
+ 'joseph robbins': 'student',
+ 'kreshel nguyen': 'student',
+ 'lucero herrera': 'student',
+ 'mark loveland': 'student',
+ 'matthew goree': 'student',
+ 'michael langford': 'student',
+ 'nicholas boeker': 'student',
+ 'russell philley': 'student',
+ 'sagar dhana': 'student',
+ 'travis driver': 'student',
+ 'vivek varier': 'assistant'}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;type(ecl_dict)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;dict
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Later on, we will learn more effective methods of constructing this dictionary using Python’s for-loops.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/4-solutions-python-variables-assignment-statements&quot;&gt;Homework 4: Solutions - Python variables and assignment statements&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 01, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -5733,273 +6306,6 @@ If you are sure you want to delete it, run 'git branch -D test'.
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/2-advanced-git&quot;&gt;Lecture 2: Advanced Git concepts&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 01, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Homework 1: Solutions - Designing a Github README file and web-page for your project]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/1-solutions-project-readme-file"/>
-  <id>http:/ECL2017S/homework/1-solutions-project-readme-file</id>
-  <published>2017-02-01T00:00:00-06:00</published>
-  <updated>2017-02-01T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This is the solution to &lt;a href=&quot;1-problems-project-readme-file.html&quot; target=&quot;_blank&quot;&gt;Homework 1: Problems - Designing a Github README file and web-page for your project&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The following figure illustrates the grade distribution for this homework.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework1.png&quot; width=&quot;700&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:center&quot;&gt;
-        Maximum possible points, excluding bonus question, is 100.&lt;br /&gt;
-        Maximum possible points, including bonus question, is 200.
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h5 id=&quot;use-the-following-markdown-language-references-or-any-other-reference-that-you-find-or-prefer-to-design-a-github-interpretable-readme-file-for-each-of-folders-in-your-project-for-this-course-and-a-github-web-page-for-your-project&quot;&gt;Use the following Markdown language references, or any other reference that you find or prefer, to design a Github-interpretable README file for each of folders in your project for this course, and a Github web-page for your project.&lt;/h5&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http:/ECL2017S/lecture/1/markdown-cheatsheet-online.pdf&quot; target=&quot;_blank&quot;&gt;Markdown language cheat-sheet (pdf)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.ghost.org/markdown/&quot; target=&quot;_blank&quot;&gt;Markdown language reference (web)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&quot; target=&quot;_blank&quot;&gt;Adam Pritchard’s Markdown cheat-sheet (web)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; Include the following information with the following format and information in your main directory &lt;code&gt;readme.md&lt;/code&gt; file:&lt;/p&gt;
-
-&lt;h2 id=&quot;beginning-of-the-readme-files-content&quot;&gt;Beginning of the README file’s content&lt;/h2&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;ecl2017s---engineering-computation-lab-project-spring-2017&quot;&gt;ECL2017S - Engineering Computation Lab Project (Spring 2017)&lt;/h4&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Name:&lt;/strong&gt; &amp;lt;first name&amp;gt; &amp;lt;last name&amp;gt;&lt;br /&gt;
-&lt;strong&gt;UT EID:&lt;/strong&gt; &amp;lt;your UT EID&amp;gt;&lt;br /&gt;
-&lt;strong&gt;Email:&lt;/strong&gt; &amp;lt;your email&amp;gt;&lt;br /&gt;
-&lt;strong&gt;Department:&lt;/strong&gt; &lt;a href=&quot;http://www.ae.utexas.edu/&quot;&gt;Department of Aerospace Engineering and Engineering Mechanics&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;University:&lt;/strong&gt; &lt;a href=&quot;http://www.utexas.edu/&quot;&gt;The University of Texas at Austin&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;Level:&lt;/strong&gt; Undergraduate - &amp;lt;Freshman(1st year) / Sophomore(2nd year) / Junior(3rd year) / Senior(4th year)&amp;gt;&lt;br /&gt;
-&lt;strong&gt;ECL Class Position:&lt;/strong&gt; Student&lt;br /&gt;
-&lt;strong&gt;Course Webpage:&lt;/strong&gt; &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/&quot;&gt;http://www.shahmoradi.orghttp:/ECL2017S/&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;Photo:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http:/ECL2017S/images/amir.png&quot; alt=&quot;Amir Shahmoradi&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;description-of-the-projects-content&quot;&gt;Description of the project’s content&lt;/h4&gt;
-&lt;p&gt;&lt;br /&gt; This repository contains my homework, quizzes, and virtually every effort that I have made for &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/&quot;&gt;ECL2017S class&lt;/a&gt;. The structure of the project is the following:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;#homework&quot;&gt;homework&lt;/a&gt;:&lt;/strong&gt; (the homework hyperlink should take the reader to the homework folder)&lt;br /&gt;
-  This directory contains all my homework submissions, each of which is a folder properly named with homework number, containing the homework submission.&lt;br /&gt;
-  &lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;#quiz&quot;&gt;quiz&lt;/a&gt;:&lt;/strong&gt; (the quiz hyperlink should take the reader to the quizzes folder)&lt;br /&gt;
-  This directory contains all my quiz submissions, each of which is a folder properly named with quiz number, containing the quiz submission.&lt;br /&gt;
-  &lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;#exam&quot;&gt;exam&lt;/a&gt;:&lt;/strong&gt; (the exam hyperlink should take the reader to the exams folder)&lt;br /&gt;
-  This directory contains all my exam submissions, each of which is a folder properly named with exam name or number, containing the exam submission.&lt;br /&gt;
-  &lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;For questions and troubleshooting, please contact:&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;your name&amp;gt;&lt;br /&gt;
-&amp;lt;your email&amp;gt;&lt;br /&gt;
-&amp;lt;any other contact or signature information that you would like to add&amp;gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;I have not failed. I’ve just found 10,000 ways that won’t work.&lt;br /&gt;
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Thomas_Edison&quot; target=&quot;_blank&quot;&gt;Thomas A. Edison&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;end-of-the-readme-files-content&quot;&gt;&lt;em&gt;End of the README file’s content&lt;/em&gt;&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;answer&quot;&gt;Answer:&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;Use the following Markdown code in your &lt;code&gt;readme.md&lt;/code&gt; file to get the exact same behavior as requested above:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-markdown&quot;&gt;#### ECL2017S - Engineering Computation Lab Project (Spring 2017)
-&amp;lt;br&amp;gt;
-**Name:** \&amp;lt;first name&amp;gt; \&amp;lt;last name&amp;gt;  
-**UT EID:** \&amp;lt;your UT EID&amp;gt;  
-**Email:** \&amp;lt;your email&amp;gt;  
-**Department:** [Department of Aerospace Engineering and Engineering Mechanics](http://www.ae.utexas.edu/)  
-**University:** [The University of Texas at Austin](http://www.utexas.edu/)  
-**Level:** Undergraduate - \&amp;lt;Freshman(1st year) / Sophomore(2nd year) / Junior(3rd year) / Senior(4th year)&amp;gt;  
-**ECL Class Position:** Student  
-**Course Webpage:** &amp;lt;http://www.shahmoradi.orghttp:/ECL2017S/&amp;gt;  
-**Photo:**  
-
-![Amir Shahmoradi](../../images/amir.png)  
-
-#### Description of the project's content
-&amp;lt;br&amp;gt; This repository contains my homework, quizzes, and virtually every effort that I have made for [ECL2017S class](http://www.shahmoradi.orghttp:/ECL2017S/). The structure of the project is the following:
-
-* **[homework](#homework):** (the homework hyperlink should take the reader to the homework folder)  
-    This directory contains all my homework submissions, each of which is a folder properly named with homework number, containing the homework submission.  
-    &amp;lt;br&amp;gt;
-* **[quiz](#quiz):** (the quiz hyperlink should take the reader to the quizzes folder)  
-    This directory contains all my quiz submissions, each of which is a folder properly named with quiz number, containing the quiz submission.  
-    &amp;lt;br&amp;gt;
-* **[exam](#exam):** (the exam hyperlink should take the reader to the exams folder)  
-    This directory contains all my exam submissions, each of which is a folder properly named with exam name or number, containing the exam submission.  
-    &amp;lt;br&amp;gt;
-
-For questions and troubleshooting, please contact:  
-
-\&amp;lt;your name&amp;gt;  
-\&amp;lt;your email&amp;gt;  
-\&amp;lt;any other contact or signature information that you would like to add&amp;gt;
-
-&amp;gt;I have not failed. I've just found 10,000 ways that won't work.  
-&amp;gt;[Thomas A. Edison](https://en.wikipedia.org/wiki/Thomas_Edison){:target=&quot;_blank&quot;}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Note that you will have to change the relevant information and hyper-references in the above Mardown code to those that match your own information in your own repository (including your own photo).&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; (Bonus, not mandatory) Design a simple Github page for your project, using the main directory’s &lt;code&gt;readme.md&lt;/code&gt; file. Submit the link to the page as your answer. Note that you don’t need to add anything extra to your readme file.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer: Ask me in class or during office hours to teach you how to do it.&lt;/strong&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/1-solutions-project-readme-file&quot;&gt;Homework 1: Solutions - Designing a Github README file and web-page for your project&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 01, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Quiz 1: Solutions - Programming history]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/quiz/1-solutions-programming-history"/>
-  <id>http:/ECL2017S/quiz/1-solutions-programming-history</id>
-  <published>2017-01-25T00:00:00-06:00</published>
-  <updated>2017-01-25T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This is the solution to &lt;a href=&quot;1-problems-programming-history.html&quot; target=&quot;_blank&quot;&gt;Quiz 1: Problems - Programming history&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The following figure illustrates the grade distribution for this quiz.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/quiz/gradeDist/gradeHistQuiz1.png&quot; width=&quot;700&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:center&quot;&gt;
-        Maximum possible points is 100.
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;(A) What is the closest programming language to machine code?&lt;br /&gt;
-&lt;strong&gt;Assembly&lt;/strong&gt;&lt;br /&gt;
-(B) Does it need interpretation in order to become machine-comprehensible?&lt;br /&gt;
-&lt;strong&gt;Yes. An &lt;em&gt;Assembler&lt;/em&gt; interprets the program for the machine.&lt;/strong&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;(A) Name the oldest high-level programming language that is still in active daily usage.&lt;br /&gt;
-&lt;strong&gt;Fortran&lt;/strong&gt;&lt;br /&gt;
-(B) Approximately how many decades is it old? (the decade it was created is also an acceptable answer)
-&lt;strong&gt;in 1950s&lt;/strong&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;(A) Name a second-generation programming language.&lt;br /&gt;
-&lt;strong&gt;Assembly&lt;/strong&gt;&lt;br /&gt;
-(B) Which language-generation are Fortran, C, C++, Java, Python, and R programming languages?&lt;br /&gt;
-&lt;strong&gt;third, third, third, third, fourth, fourth&lt;/strong&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;In what decades C, C++, and Python were created, respectively?&lt;br /&gt;
-&lt;strong&gt;1970s, 1980s, 1990s&lt;/strong&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Name an ancestor programming language of C.&lt;br /&gt;
-&lt;strong&gt;B&lt;/strong&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Name a programming language ancestor of C++.&lt;br /&gt;
-&lt;strong&gt;C, Simula&lt;/strong&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Name a programming language ancestor of Python.&lt;br /&gt;
-&lt;strong&gt;C&lt;/strong&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;!-- &lt;span style=&quot;color:green&quot;&gt;**Assembly**&lt;/span&gt;  --&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/1-solutions-programming-history&quot;&gt;Quiz 1: Solutions - Programming history&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on January 25, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Quiz 1: Problems - Programming history]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/quiz/1-problems-programming-history"/>
-  <id>http:/ECL2017S/quiz/1-problems-programming-history</id>
-  <published>2017-01-25T00:00:00-06:00</published>
-  <updated>2017-01-25T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This quiz aims at testing your very basic level of programming history as much as we discussed in Lecture 0.
-Please submit your answers to each of these questions in a single file (readme.md) in the appropriate directory in your private repository for this course that we created in class today.
-Don’t forget to push your answers to your remote repository by the end of quiz time.&lt;br /&gt;
-Push your quiz-1 &lt;em&gt;readme.md&lt;/em&gt; file to quiz/1/ folder in your Github project.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;(A) What is the closest programming language to machine code?&lt;br /&gt;
-(B) Does it need interpretation in order to become machine-comprehensible?
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;(A) Name the oldest high-level programming language that is still in active daily usage.&lt;br /&gt;
-(B) Approximately how many decades is it old? (the decade it was created is also an acceptable answer)
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;(A) Name a second-generation programming language.&lt;br /&gt;
-(B) Which language-generation are Fortran, C, C++, Java, Python, and R programming languages?
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;In what decades C, C++, and Python were created, respectively?
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Name a programming language ancestor of C.
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Name a programming language ancestor of C++.
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Name a programming language ancestor of Python.
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/1-problems-programming-history&quot;&gt;Quiz 1: Problems - Programming history&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on January 25, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>

@@ -2,23 +2,23 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>QUIZ 4: SOLUTIONS - PYTHON VALUES, VARIABLES, TYPES &vert; COE 111L - SPRING 2017</title>
+<title>HOMEWORK 5: PROBLEMS - PYTHON BRANCHING AND FUNCTIONS &vert; COE 111L - SPRING 2017</title>
 <meta name="description" content="Engineering Computation Lab">
 <meta name="keywords" content="">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/ECL2017S/images/logo.png">
-<meta name="twitter:title" content="Quiz 4: Solutions - Python values, variables, types">
+<meta name="twitter:title" content="Homework 5: Problems - Python branching and functions">
 <meta name="twitter:description" content="Engineering Computation Lab">
 <meta name="twitter:creator" content="@AmirShahmoradi">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Quiz 4: Solutions - Python values, variables, types">
+<meta property="og:title" content="Homework 5: Problems - Python branching and functions">
 <meta property="og:description" content="Engineering Computation Lab">
-<meta property="og:url" content="/ECL2017S/quiz/4-solutions-python-values-variables-types">
+<meta property="og:url" content="/ECL2017S/homework/5-problems-python-branching-functions">
 <meta property="og:site_name" content="COE 111L - Spring 2017">
 <meta property="og:image" content="/ECL2017S/images/">
 
@@ -26,7 +26,7 @@
 
 
 
-<link rel="canonical" href="/ECL2017S/quiz/4-solutions-python-values-variables-types">
+<link rel="canonical" href="/ECL2017S/homework/5-problems-python-branching-functions">
 <!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 Feed"> -->
 
 
@@ -132,86 +132,228 @@ MathJax.Hub.Queue(function() {
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h2>Quiz 4: Solutions - Python values, variables, types</h2>
-                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-03-01T00:00:00-06:00">01 Mar 2017</time></strong></p>
+                            <h2>Homework 5: Problems - Python branching and functions</h2>
+                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-03-08T00:00:00-06:00">08 Mar 2017</time></strong></p>
                         </div>
                     </div>
                 </div>
             </header>
 
         <article class="notepad-post-content post tag-simple">
-            <div style="text-align:justify;"><p>This is the solution to <a href="4-problems-python-values-variables-types.html" target="_blank">Quiz 4: Problems - Python values, variables, types</a>.</p>
+            <div style="text-align:justify;"><p>This homework aims at giving you some experience with variables in Python and their syntax, also some experience with using Lists and Dictionaries in Python. Write your Python scripts with the corresponding <code>*.py</code> file names, and add a readme.md file in HW 5 folder of your project if you need to add any additional explanation (Don’t forget to use markdown syntax highlight in your readme file, if needed).</p>
 
-<!--
--->
-<p>The following figure illustrates the grade distribution for this quiz.</p>
-
-<figure>
-	<img src="/ECL2017S/quiz/gradeDist/gradeHistQuiz4.png" width="700" />
-    <figcaption style="text-align:center">
-        Maximum possible points is 100.
-    </figcaption>
-</figure>
+<p><br /></p>
 
 <hr />
 <hr />
 
 <p><br /></p>
 
-<p>This quiz aims at testing your basic knowledge of Python’s print function, and the how to string manipulation in Python.<br />
-Don’t forget to push your answers to your remote repository by the end of quiz time. Push your quiz-4 <em>readme.md</em> file to quiz/4/ folder in your Github project.  If you write your answers in Python scripts, put the script files in the same folder as well.<br />
-If you feel uncertain about your answer, you can test your final codes on Jupyter or IPython command lines.</p>
+<p><strong>1. </strong> In mathematics, the Fibonacci numbers are the numbers in the following integer sequence, called the Fibonacci sequence, that are characterized by the fact that every number after the first two is the sum of the two preceding ones:</p>
 
+<script type="math/tex; mode=display">0,~1,~1,~2,~3,~5,~8,~13,~21,~34,~55,~89,~144,~\dots</script>
+
+<p>with the following sequence equation,</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{eqnarray}
+     Fib(n) &=& Fib(n-1) + Fib(n-2) ~, \\
+     Fib(0) &=& 0 ~, \\
+     Fib(1) &=& 1 ~.
+\end{eqnarray} %]]></script>
+
+<p>Write a Python function named <code>fib</code> that takes in an input argument which should be integer number <code>n</code>, and then calculates the $n^{th}$ number in the Fibonacci sequence and outputs it on the screen. Also, if the input argument is not a non-negative integer, it prints an error message on the screen and asks the user to re-enter a non-negative integer number. Also, when it is done with finding the requested Fibonacci number, it asks again the user to either input a new non-negative integer, or enter ‘stop’ to end the function, like the following,</p>
+<pre><code class="language-python">&gt;&gt;&gt; fib('amir')
+</code></pre>
+<pre><code>The input argument amir is not a non-negative integer!
+Please enter a non-negative integer: -123
+The input argument -123 is not a non-negative integer!
+Please enter a non-negative integer: 12.4
+The input argument 12.4 is not a non-negative integer!
+Please enter a non-negative integer: 0
+Fib(0) = 0
+Please enter another non-negative integer or type stop: 1
+Fib(1) = 1
+Please enter another non-negative integer or type stop: 2
+Fib(2) = 1
+Please enter another non-negative integer or type stop: 3
+Fib(3) = 2
+Please enter another non-negative integer or type stop: 4
+Fib(4) = 3
+Please enter another non-negative integer or type stop: 5
+Fib(5) = 5
+Please enter another non-negative integer or type stop: 6
+Fib(6) = 8
+Please enter another non-negative integer or type stop: 7
+Fib(7) = 13
+Please enter another non-negative integer or type stop: 8
+Fib(8) = 21
+Please enter another non-negative integer or type stop: 9
+Fib(9) = 34
+Please enter another non-negative integer or type stop: 10
+Fib(10) = 55
+Please enter another non-negative integer or type stop: 11
+Fib(11) = 89
+Please enter another non-negative integer or type stop: 12
+Fib(12) = 144
+Please enter another non-negative integer or type stop: stop
+</code></pre>
+
+<p><strong>Hint:</strong></p>
 <ol>
-  <li>Write a <strong>single-line</strong> python script, that prints your full name 5 times, each on a separate line.<br />
-<br />
-<strong>Answer:</strong>
-    <pre><code class="language-python">print('Amir Shahmoradi\n'*5)
-</code></pre>
-    <p>Amir Shahmoradi
- Amir Shahmoradi
- Amir Shahmoradi
- Amir Shahmoradi
- Amir Shahmoradi
-<br />
-<br /></p>
-  </li>
-  <li>Write a <strong>single-line</strong> python script, that applies the relevant Python string manipulator methods to this string,<br />
-<br />
-    <pre><code>Python Is Great For String Manipulation.
-</code></pre>
-    <p>and transforms it to the following string and and prints it on screen,</p>
-    <pre><code>.noitalupinaMgnirtSroFtaerGsInohtyP
-</code></pre>
-    <p><br />
-<strong>Answer:</strong></p>
-    <pre><code class="language-python">print( "Python Is Great For String Manipulation.".replace(' ','')[::-1] )
-</code></pre>
-    <pre><code>.noitalupinaMgnirtSroFtaerGsInohtyP
-</code></pre>
-    <p><br /></p>
-  </li>
-  <li>Name the three major types of programming errors.<br />
-<br />
-<strong>Answer:</strong><br />
-syntax, runtime, and semantic errors.<br />
-<br /><br /></li>
+  <li>First write a function <code>fibo(n_int)</code> that finds the requested Fibonacci number for you, given a non-negative integer input (for example, name it <code>n_int</code>).</li>
+  <li>Then put this function <strong>inside another Python function <code>fib(n)</code></strong> that checks the type of the input argument <code>n</code> and prints the appropriate error message as in the above and then asks the user to enter another number (and then again checks for its type to be integer).</li>
+  <li>Then if this number is an integer, this function <code>fib(n)</code> passes the integer number <code>n</code> to the function <code>fibo(n_int)</code> which is inside of itself (it is a <strong>nested function</strong>), in order to get the requested Fibonacci number.</li>
+  <li>Finally, once the requested Fibonaccy number is obtained, it prints the number value with the requested format as in the above example, AND then asks again the user to input a new non-negative integer, or simply type <code>stop</code> to stop the function.</li>
 </ol>
+
+<p>Note that, if you call the function as <code>fib('stop')</code> in the Python interpreter, it should return nothing to you, just like the following example,</p>
+<pre><code class="language-python">fib('stop')
+
+</code></pre>
+<p><br />
+I highly recommend you to write your function in Jupyter notebook, test it there, and then get the results for the same input arguments as in the above example (a string, negative integer, float, and n=1,…,12, and also ‘stop’) and download all of the notebook as a Markdown file, and put it in your repository folder for this homework. Name the notebook, <code>fib.md</code>.</p>
+
+<p>Also note that, you don’t need to know or use anything beyond Python function syntax, Python built-in functions and methods (like <code>input</code>, <code>isdigit()</code>, <code>print</code>, <code>str()</code>, <code>int()</code>, …), and Python if-blocks.</p>
+<blockquote>
+    I recommend you to use Jupyter notebook on your device, since the online version of notebook, can be interrupted repeatedly because of internet connection.
+</blockquote>
+<p><br /></p>
+
+<p><br /></p>
+
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p><strong>2. </strong> Branching…, the Pythonic way.</p>
+
+<p><strong>(A)</strong> Change the <strong>first</strong> if statement in the following script to an equivalent <strong>one-line</strong> if-expression. Test the resulting new script, and make sure it behaves as the original,</p>
+<pre><code class="language-python">#!/usr/bin/env python
+
+abbr = input ("What is the three letter abbreviation of this course? ")
+
+answer_status = 'wrong'
+if abbr == 'ECL':
+    answer_status = 'correct'
+
+if answer_status=='correct':
+    print('You answer is correct!')
+else:
+    print("wrong buddy...try again")
+</code></pre>
+<p><br />
+<strong>(B)</strong> Can you acheive the same goal as in <strong>(A)</strong> without if-expression or block, but instead using only tuple notation? Explain why your solution works.</p>
+
+<p><strong>(C)</strong> Modify the if block and the print statements that are only in the last part of the code,</p>
+<pre><code class="language-python">if answer_status=='correct':
+    print('You answer is correct!')
+else:
+    print("wrong buddy...try again")
+</code></pre>
+<p><br />
+to write a single-line Python statement that only uses <code>print</code> and tuple or list notations, to perform the exact same task as the original print and if-block statement.</p>
+
+<p><br /></p>
+
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p><strong>3. </strong></p>
+
+<p><strong>(A)</strong> Write a <strong>single-line</strong> Python code that reads a string containing comma-separated first-name, last-name, and the city in which a person lives from the Python interpreter command line, and simultaneouly, in the same line of Python code, removes all white-space characters from the input string, and converts all letters of the input variables to lower-case, and converts the string to a tuple and saves in a tuple <code>(first,last,city)</code>, such that, for example,</p>
+<pre><code class="language-text">Enter the first name, last name, and the city of the person (comma-separated): Amir, Shahmoradi  ,  Austin
+</code></pre>
+<p><br />
+would give,</p>
+<pre><code class="language-python">(first,last,city)
+</code></pre>
+<pre><code>('amir', 'shahmoradi', 'austin')
+</code></pre>
+
+<p><strong>Hint:</strong> Use <code>input</code> function for this purpose. The output of <code>input</code> is a string, which can be manipulated repeatedly on the same line, using multiple string methods that you learned about in the previous lectures.</p>
+
+<p><strong>(B)</strong> As discuss in our lecture 6, the one-line if-expression syntax does not provide a functionality like <code>elif</code> keyword as in the if-statement syntax. Our goal here is to learn how to convert a Python if-statement containing <code>elif</code> to a one-line Python expression. Convert the following if-block to a single line if-expression. Modify the if-block inside the following function to one-line if-expression:</p>
+<pre><code class="language-python">def dummy(i):
+    if i==0:
+        j=0
+    elif i==1:
+        j=1
+    elif i==2:
+        j=2
+    else: j = 'j is not in [0,1,2]' 
+    return j
+</code></pre>
+<p><br /></p>
+
+<p><br /></p>
+
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p><strong>4. </strong> 
+An arbitrary triangle can be described by the coordinates of its three vertices: $(x1,y1),(x2,y2),(x3,y3)$, numbered in a counterclockwise direction. The area of the triangle is given by the formula,</p>
+
+<script type="math/tex; mode=display">A = \frac{1}{2} \bigg| x2y3 - x3y2 - x1y3 + x3y1 + x1y2 - x2y1j \bigg|</script>
+
+<p>Write a function <code>get_triangle_area(vertices)</code> that returns the area of a triangle whose vertices are specified by the argument vertices, which is a nested list of the vertex coordinates. Test your implementation with the following test function, which also illustrates how the <code>get_triangle_area</code> function works.</p>
+<pre><code class="language-python">def test_get_triangle_area():
+    """
+    Verify the area of a triangle with vertex coordinates
+    (0,0), (1,0), and (0,2).
+    """
+    v1 = (0,0); v2 = (1,0); v3 = (0,2)
+    vertices = [v1, v2, v3]
+    expected = 1
+    computed = get_triangle_area(vertices)
+    tol = 1E-14
+    success = abs(expected - computed) &lt; tol
+    msg = 'computed area=%g != %g (expected)' % (computed, expected)
+    assert success, msg
+</code></pre>
+<p><br /></p>
+
+<p><br /></p>
+
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p><strong>5. </strong> Write a logical (boolean) function named <code>is_prime(n)</code> that takes in an integer number <code>n</code>, and finds whether it is a Prime number or not. Example output is the following,</p>
+<pre><code class="language-python">is_prime(n=23)
+</code></pre>
+<pre><code>True
+</code></pre>
+
+<pre><code class="language-python">is_prime(12)
+</code></pre>
+<pre><code>False
+</code></pre>
+
+<p>Note that you do not need and don’t have to use <code>for-loop</code> for this problem (we have not yet discussed loops in our class!). All of it can be done using recursive function concept.</p>
+
+<p><br /><br /></p>
 
             </div>
         </article>
         <div class="cf"></div>
         <div class="row text-center">
             <section class="notepad-post-share">
-                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Quiz 4: Solutions - Python values, variables, types&quot;%20/ECL2017S/quiz/4-solutions-python-values-variables-types%20via%20&#64;AmirShahmoradi"
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Homework 5: Problems - Python branching and functions&quot;%20/ECL2017S/homework/5-problems-python-branching-functions%20via%20&#64;AmirShahmoradi"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
                     <i class="fa fa-twitter"></i>
                 </a>
-                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/quiz/4-solutions-python-values-variables-types"
+                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/homework/5-problems-python-branching-functions"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
                     <i class="fa fa-facebook"></i>
                 </a>
-                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/quiz/4-solutions-python-values-variables-types"
+                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/homework/5-problems-python-branching-functions"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
                     <i class="fa fa-google-plus"></i>
                 </a>

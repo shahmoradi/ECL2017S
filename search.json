@@ -1,9 +1,25 @@
 [
 	
 		{
+		  "title"      : "Quiz 5: Problems - Python variables and assignment statements",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/quiz/5-problems-python-variables-assignment-statements",
+		  "date"       : "2017-03-08 00:00:00 -0600",
+		  "shortdate"  : "March 08, 2017"
+		} ,
+	
+		{
 		  "title"      : "Lecture 6: Python - branching and functions",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/6-python-branching-functions",
+		  "date"       : "2017-03-08 00:00:00 -0600",
+		  "shortdate"  : "March 08, 2017"
+		} ,
+	
+		{
+		  "title"      : "Homework 5: Problems - Python branching and functions",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/homework/5-problems-python-branching-functions",
 		  "date"       : "2017-03-08 00:00:00 -0600",
 		  "shortdate"  : "March 08, 2017"
 		} ,
@@ -28,6 +44,14 @@
 		  "title"      : "Lecture 5: Python - variables and assignment statements",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/5-python-variables-assignments",
+		  "date"       : "2017-03-01 00:00:00 -0600",
+		  "shortdate"  : "March 01, 2017"
+		} ,
+	
+		{
+		  "title"      : "Homework 4: Solutions - Python variables and assignment statements",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/homework/4-solutions-python-variables-assignment-statements",
 		  "date"       : "2017-03-01 00:00:00 -0600",
 		  "shortdate"  : "March 01, 2017"
 		} ,

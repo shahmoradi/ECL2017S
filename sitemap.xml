@@ -52,7 +52,15 @@
 
     
     <url>
+        <loc>/ECL2017S/quiz/5-problems-python-variables-assignment-statements</loc>
+    </url>
+    
+    <url>
         <loc>/ECL2017S/lecture/6-python-branching-functions</loc>
+    </url>
+    
+    <url>
+        <loc>/ECL2017S/homework/5-problems-python-branching-functions</loc>
     </url>
     
     <url>
@@ -65,6 +73,10 @@
     
     <url>
         <loc>/ECL2017S/lecture/5-python-variables-assignments</loc>
+    </url>
+    
+    <url>
+        <loc>/ECL2017S/homework/4-solutions-python-variables-assignment-statements</loc>
     </url>
     
     <url>
