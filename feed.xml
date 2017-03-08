@@ -7,13 +7,95 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-03-08T09:01:07-06:00</updated>
+<updated>2017-03-08T10:42:38-06:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
   <uri>http:/ECL2017S/</uri>
   <email>amir@ices.utexas.edu</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Quiz 5: Solutions - Python variables and assignment statements]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/quiz/5-solutions-python-variables-assignment-statements"/>
+  <id>http:/ECL2017S/quiz/5-solutions-python-variables-assignment-statements</id>
+  <published>2017-03-08T00:00:00-06:00</published>
+  <updated>2017-03-08T00:00:00-06:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This is the solution to &lt;a href=&quot;5-problems-python-variables-assignment-statements.html&quot; target=&quot;_blank&quot;&gt;Quiz 5: Problems - Python variables and assignment statements&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--
+The following figure illustrates the grade distribution for this quiz.  
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/quiz/gradeDist/gradeHistQuiz4.png&quot; width=&quot;700&quot;&gt;
+    &lt;figcaption style=&quot;text-align:center&quot;&gt;
+        Maximum possible points is 100.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+--&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;This quiz aims at testing your basic knowledge of Python’s print function, and the how to string manipulation in Python. Don’t forget to push your answers to your remote repository by the end of quiz time. Push your quiz-5 &lt;em&gt;readme.md&lt;/em&gt; file to quiz/5/ folder in your Github project.  If you write your answers in Python scripts, put the script files in the same folder as well. If you feel uncertain about your answer, you can test your final codes on Jupyter or IPython command lines.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Make a string from the following list, with one one-line of Python code.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;mylist = ['The' , 'weather' , 'is' , 'rainy' , 'today' , 'and' , 'cold' , 'only' , '22' , 'F.']
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&quot; &quot;.join(mylist)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;'The weather is rainy today and cold only 22 F.'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Are tuples mutable objects? Can they be redefined?&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+No. Yes.
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; How do you define an empty dictionary?&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;empty_dict = {} 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; Write a dictionary representation of the following matrix.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{bmatrix}
+    0 &amp; 0 &amp; 0 &amp; 1 \\
+    2 &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; 5 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 0 &amp; 3
+\end{bmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;sparseMatrixDict = { (0,3): 1 , (1,0): 2 , (2,1): 5 , (3,3): 3 }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/5-solutions-python-variables-assignment-statements&quot;&gt;Quiz 5: Solutions - Python variables and assignment statements&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 08, 2017.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -5725,587 +5807,6 @@ Push all your answers to &lt;strong&gt;quiz/2/&lt;/strong&gt; folder in your Git
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/2-problems-version-control-system&quot;&gt;Quiz 2: Problems - Version control system&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 01, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Lecture 2: Advanced Git concepts]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/lecture/2-advanced-git"/>
-  <id>http:/ECL2017S/lecture/2-advanced-git</id>
-  <published>2017-02-01T00:00:00-06:00</published>
-  <updated>2017-02-01T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This lecture aims at providing a brief review of some advanced topics in Git Version Control System which are essential for effective management of large collaborative projects.&lt;/p&gt;
-
-&lt;!--
-- [Advanced Git cheatsheet](http:/ECL2017S/lecture/1/progit.en.pdf){:target=&quot;_blank&quot;}
---&gt;
-&lt;h4 id=&quot;some-useful-links-for-future-reference&quot;&gt;Some useful links for future reference:&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://ndpsoftware.com/git-cheatsheet.html&quot; target=&quot;_blank&quot;&gt;Advanced Git cheatsheet&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;table-of-content&quot;&gt;Table of Content&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#git-help&quot;&gt;Getting help for Git commands&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#git-log&quot;&gt;Viewing the Git commit history&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#git-reset-amend-tag&quot;&gt;Undoing, amending, and tagging&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#git-remote&quot;&gt;Working with remote Repositories&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#git-branch&quot;&gt;Git branching&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#git-branch-d&quot;&gt;Deleting a branch&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;git-help&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;getting-help-for-git-commands&quot;&gt;Getting help for Git commands&lt;/h2&gt;
-&lt;p&gt;There are basically three ways to request information about Git commands on the Git-bash command line:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git help &amp;lt;command name&amp;gt;
-$ git &amp;lt;command name&amp;gt; --help
-$ man git-&amp;lt;command name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note that the last command &lt;code&gt;man&lt;/code&gt; is not a Git command. All Git commands begin with the word &lt;em&gt;git&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;git-log&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;viewing-the-git-commit-history&quot;&gt;Viewing the Git commit history&lt;/h2&gt;
-&lt;p&gt;You can check the history of project commits to the repository using the Git command &lt;code&gt;git log&lt;/code&gt;.
-For example, here is a snippet from the output  of &lt;code&gt;git log&lt;/code&gt; on laptop screen:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;  $ git log
-commit 264043e0d49006b7f59e57639961c333b5d5f124
-Author: Amir Shahmoradi &amp;lt;a.shahmoradi@gmail.com&amp;gt;
-Date:   Tue Jan 24 17:48:33 2017 -0600
-
-    data tables for 1D model added.
-
-commit b45ddd780c18736bac42ff27aade301a6b0f09cb
-Author: Amir Shahmoradi &amp;lt;a.shahmoradi@gmail.com&amp;gt;
-Date:   Tue Jan 24 10:08:53 2017 -0600
-
-    minor edit
-
-commit b6f4fb69d97a396bde7159c78424100704328634
-Author: Amir Shahmoradi &amp;lt;a.shahmoradi@gmail.com&amp;gt;
-Date:   Thu Jan 12 21:03:28 2017 -0600
-
-    *.txt files removed
-
-commit 961ff2d4ac68081a21864b2f1b067b43424d3342
-Author: Amir Shahmoradi &amp;lt;a.shahmoradi@gmail.com&amp;gt;
-Date:   Thu Jan 12 21:02:00 2017 -0600
-
-    update
-
-commit 8fd3c49e90d96f4bcef2302c7b227f06ad7a5250
-Author: Amir Shahmoradi &amp;lt;a.shahmoradi@gmail.com&amp;gt;
-Date:   Thu Jan 12 19:36:45 2017 -0600
-
-    minor
-
-commit cd0ed7def385ba29ea134bcc18a4ad0873d9f5ee
-Author: Amir Shahmoradi &amp;lt;a.shahmoradi@gmail.com&amp;gt;
-Date:   Thu Jan 12 19:32:51 2017 -0600
-
-    minor
-
-commit 8096668868ef64189f788669d5f1838cd944f9b6
-Author: Amir Shahmoradi &amp;lt;a.shahmoradi@gmail.com&amp;gt;
-Date:   Thu Jan 12 19:28:22 2017 -0600
-
-    minor
-
-commit c52ba6adea474625cce1493896ecaac40cb976af
-Author: Amir Shahmoradi &amp;lt;a.shahmoradi@gmail.com&amp;gt;
-Date:   Thu Jan 12 19:24:23 2017 -0600
-
-    minor
-
-commit ab5a17f9e913e55cae0f971fd9b485a0a6e8dec3
-Author: Amir Shahmoradi &amp;lt;a.shahmoradi@gmail.com&amp;gt;
-Date:   Thu Jan 12 19:16:27 2017 -0600
-
-    minor
-
-commit ce5c2421db6e76a338a0e6922acead9100a7c4c4
-Author: Amir Shahmoradi &amp;lt;a.shahmoradi@gmail.com&amp;gt;
-Date:   Thu Jan 12 19:10:19 2017 -0600
-
-    minor
-
-commit 4a7d27d81260c2e2a29b6259e6c97befc065c069
-Author: Amir Shahmoradi &amp;lt;a.shahmoradi@gmail.com&amp;gt;
-Date:   Thu Jan 12 19:05:14 2017 -0600
-
-:
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-There is a long list of options that can be used with &lt;code&gt;git log&lt;/code&gt; command to display exactly what you need on bash screen.
-Some of the most useful are discussed below.&lt;br /&gt;
-To lists the differences of the files between different commits use &lt;code&gt;-p&lt;/code&gt; flag:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git log -p
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-To lists only a limited number of most recent commits use &lt;code&gt;-&amp;lt;number of commits to display&amp;gt;&lt;/code&gt; flag. For example:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git log -2
-$ git log -2
-commit 264043e0d49006b7f59e57639961c333b5d5f124
-Author: Amir Shahmoradi &amp;lt;a.shahmoradi@gmail.com&amp;gt;
-Date:   Tue Jan 24 17:48:33 2017 -0600
-
-    data tables for 1D model added.
-
-commit b45ddd780c18736bac42ff27aade301a6b0f09cb
-Author: Amir Shahmoradi &amp;lt;a.shahmoradi@gmail.com&amp;gt;
-Date:   Tue Jan 24 10:08:53 2017 -0600
-
-    minor edit
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-To list the statistics of the commits, use,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git log --stat -1
-commit 264043e0d49006b7f59e57639961c333b5d5f124
-Author: Amir Shahmoradi &amp;lt;a.shahmoradi@gmail.com&amp;gt;
-Date:   Tue Jan 24 17:48:33 2017 -0600
-
-    data tables for 1D model added.
-
- README.md                |   1 +
- results/tables/README.md |   8 ++-
- results/tables/tgm.mat   | Bin 0 -&amp;gt; 2550889 bytes
- src/defineProject.m      |   3 +-
- src/main.m               |  82 +++++++++------------------
- src/writeTables.m        |  75 ++++++++++++++++++++++++
- 9 files changed, 140 insertions(+), 56 deletions(-)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-The log data can be even represented formatted via the flag &lt;code&gt;--pretty=format:&quot;&amp;lt;the desired format&amp;gt;&quot;&lt;/code&gt;. For example,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git log -3 --pretty=format:&quot;%h - %an, %ar : %s&quot;
-264043e - Amir Shahmoradi, 7 days ago : data tables for 1D model added.
-b45ddd7 - Amir Shahmoradi, 7 days ago : minor edit
-b6f4fb6 - Amir Shahmoradi, 3 weeks ago : *.txt files removed
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-A list of available format options is provided below.&lt;/p&gt;
-
-&lt;table class=&quot;center&quot;&gt;
-&lt;caption class=&quot;title&quot; style=&quot;padding-bottom:10px&quot;&gt;
-Table 1: Some useful options for &lt;code&gt;git log --pretty=format:&quot;&amp;lt;options&amp;gt;&quot;&lt;/code&gt;. &lt;sup&gt;&lt;a href=&quot;#fn1&quot; id=&quot;ref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;
-&lt;/caption&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Option&lt;/th&gt;
-&lt;th&gt;Description of Output&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;%H&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Commit hash&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;%h&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Abbreviated commit hash&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;%T&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Tree hash&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;%t&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Abbreviated tree hash&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;%P&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Parent hashes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;%p&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Abbreviated parent hashes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;%an&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Author name&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;%ae&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Author email&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;%ad&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Author date (format respects the --date=option)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;%ar&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Author date, relative&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;%cn&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Committer name&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;%ce&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Committer email&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;%cd&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Committer date&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;%cr&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Committer date, relative&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;%s&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Subject&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;br /&gt;
-A list of useful options for &lt;code&gt;git log&lt;/code&gt; is given in the table below.&lt;/p&gt;
-
-&lt;table id=&quot;log_options&quot; class=&quot;center&quot;&gt;
-&lt;caption class=&quot;title&quot; style=&quot;padding-bottom:10px&quot;&gt;Table 2: Common flags for &lt;code&gt;git log&lt;/code&gt; command. &lt;sup&gt;&lt;a href=&quot;#fn1&quot; id=&quot;ref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;
-&lt;/caption&gt;
-&lt;colgroup&gt;
-&lt;col style=&quot;width: 20%;&quot; /&gt;
-&lt;col style=&quot;width: 80%;&quot; /&gt;
-&lt;/colgroup&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Option&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;-p&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Show the patch introduced with each commit.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;--stat&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Show statistics for files modified in each commit.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;--shortstat&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Display only the changed/insertions/deletions line from the --stat command.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;--name-only&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Show the list of files modified after the commit information.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;--name-status&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Show the list of files affected with added/modified/deleted information as well.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;--abbrev-commit&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Show only the first few characters of the SHA-1 checksum instead of all 40.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;--relative-date&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Display the date in a relative format (for example, “2 weeks ago”) instead of using the full date format.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;--graph&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Display an ASCII graph of the branch and merge history beside the log output.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;--pretty&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Show commits in an alternate format. Options include oneline, short, full, fuller, and format (where you specify your own format).&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;br /&gt;
-A list of useful options for &lt;code&gt;git log&lt;/code&gt; commands that can change the format of the output, is given in the table below.&lt;/p&gt;
-
-&lt;table id=&quot;limit_options&quot; class=&quot;center&quot;&gt;
-&lt;caption class=&quot;title&quot; style=&quot;padding-bottom:10px&quot;&gt;Table 3. Flags limiting the output of &lt;code&gt;git log&lt;/code&gt; command. &lt;sup&gt;&lt;a href=&quot;#fn1&quot; id=&quot;ref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;
-&lt;/caption&gt;
-&lt;colgroup&gt;
-&lt;col style=&quot;width: 33.3333%;&quot; /&gt;
-&lt;col style=&quot;width: 66.6667%;&quot; /&gt;
-&lt;/colgroup&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;Option&lt;/th&gt;
-&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;-&amp;lt;n&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Show only the last n commits  (e.g., -2, -3, ...). &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;--since&lt;/code&gt;, &lt;code&gt;--after&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Limit the commits to those made after the specified date.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;--until&lt;/code&gt;, &lt;code&gt;--before&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Limit the commits to those made before the specified date.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;--author&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Only show commits in which the author entry matches the specified string.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;--committer&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Only show commits in which the committer entry matches the specified string.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;--grep&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Only show commits with a commit message containing the string.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;-S&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Only show commits adding or removing code matching the string.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;br /&gt;
-For example, to list the commit history since a specific time in the past, use &lt;code&gt;--since&lt;/code&gt; flag:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git log --since=2.weeks
-commit 264043e0d49006b7f59e57639961c333b5d5f124
-Author: Amir Shahmoradi &amp;lt;a.shahmoradi@gmail.com&amp;gt;
-Date:   Tue Jan 24 17:48:33 2017 -0600
-
-    data tables for 1D model added.
-
-commit b45ddd780c18736bac42ff27aade301a6b0f09cb
-Author: Amir Shahmoradi &amp;lt;a.shahmoradi@gmail.com&amp;gt;
-Date:   Tue Jan 24 10:08:53 2017 -0600
-
-    minor edit
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-or, with the following date format:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git log --since=&quot;2017-01-15&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;git-reset-amend-tag&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;undoing-amending-and-tagging&quot;&gt;Undoing, amending, and tagging&lt;/h2&gt;
-&lt;p&gt;Suppose you want to undo the latest addition of files to the stage area. The command to use in order to clean the stage area is,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git reset
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-This command is basically the opposite of &lt;code&gt;git add&lt;/code&gt;. There are a lot of options that can accompany this Git command, details of which can be found in &lt;a href=&quot;https://git-scm.com/docs/git-reset&quot; target=&quot;_blank&quot;&gt;Git documentation&lt;/a&gt;.
-However, &lt;strong&gt;be careful when using this command&lt;/strong&gt;, especially with flag &lt;code&gt;--hard&lt;/code&gt;, which can result in changes in your working directory as well, thus leading to involuntary loss of latest uncommitted files.&lt;/p&gt;
-
-&lt;p&gt;Another useful command is,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git commit --amend
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-which is used when you forget to add some files to your latest commit and now, you would like to add the latest content of your project’s staging area to the last commit, by &lt;em&gt;amending&lt;/em&gt; it.&lt;/p&gt;
-
-&lt;p&gt;The Git command &lt;code&gt;git tag&lt;/code&gt; allows you to tag specific important commits in your commit history, for example a final release of your project/software. If you just type &lt;code&gt;git tag&lt;/code&gt; on Git bash command line, it will list all tags in the project, &lt;strong&gt;in alphabetical order&lt;/strong&gt;,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git tag
-v1.0
-v1.1
-v2.0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-You can create a tag for the latest commit to your repository by using,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git tag -a v3.0 -m &quot;new version of project&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-This will add a new tag pointing to the latest commit in the project with name &lt;code&gt;v3.0&lt;/code&gt; and the message &lt;em&gt;new version of project&lt;/em&gt;.
-Now if you want to display the information about a specific tag, use &lt;code&gt;git show&lt;/code&gt;,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git show v1.0
-tag v1.0
-Tagger: Amir Shahmoradi &amp;lt;a.shahmoradi@gmail.com&amp;gt;
-Date:   Tue Jan 1 18:08:00 2017 -0600
-
-first tag
-
-commit 25129a074aece69d234838764e7df63ed1fb3023
-Author: Amir Shahmoradi &amp;lt;a.shahmoradi@gmail.com&amp;gt;
-Date:   Fri Dec 27 17:12:08 2016 -0600
-
-    Update README.md
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-You can also create a &lt;strong&gt;lightweight&lt;/strong&gt; tag by avoiding &lt;code&gt;-a&lt;/code&gt;, &lt;code&gt;-s&lt;/code&gt;, or &lt;code&gt;-m&lt;/code&gt; flags in you tag command,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git tag v4.0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Annotated tags (created with &lt;code&gt;-a&lt;/code&gt; flag) are meant for very important project versions, such as a software release, while lightweight tags are meant for private or temporary object labels.&lt;br /&gt;
-For more information about &lt;code&gt;git tag&lt;/code&gt;, see &lt;a href=&quot;https://git-scm.com/docs/git-tag&quot; target=&quot;_blank&quot;&gt;Git documentation&lt;/a&gt;.
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;git-remote&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;working-with-remote-repositories&quot;&gt;Working with remote Repositories&lt;/h2&gt;
-&lt;p&gt;In order to see which remote servers you have configured for your project, you can run the following Git command,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git remote
-origin
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-In the output above, &lt;code&gt;origin&lt;/code&gt; is the default name that Git gives to the server you cloned your project from. If you also specify &lt;code&gt;-v&lt;/code&gt; flag, Git will show you the URLs that Git has stored for the remote shortname (e.g., origin) to be used when reading and writing to that remote repository.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git remote -v
-origin  git@github.com:shahmoradi/foo.git (fetch)
-origin  git@github.com:shahmoradi/foo.git (push)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-In order to see more information about a particular remote repository in your project, you can use,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git remote show origin
-* remote origin
-  Fetch URL: git@github.com:shahmoradi/foo.git
-  Push  URL: git@github.com:shahmoradi/foo.git
-  HEAD branch: master
-  Remote branches:
-    development tracked
-    master      tracked
-  Local branch configured for 'git pull':
-    master merges with remote master
-  Local ref configured for 'git push':
-    master pushes to master (up to date)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-The above information indicates that the current HEAD branch of the project is on &lt;em&gt;master&lt;/em&gt; branch, and the remote branches on the remote repository are &lt;em&gt;master&lt;/em&gt; and &lt;em&gt;development&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;You can find more information about &lt;code&gt;git remote&lt;/code&gt; command in &lt;a href=&quot;https://git-scm.com/docs/git-remote&quot; target=&quot;_blank&quot;&gt;Git documentation&lt;/a&gt;.
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;git-branch&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;git-branching&quot;&gt;Git branching&lt;/h2&gt;
-&lt;p&gt;Branching is powerful idea in Version Control Systems, which significantly facilitates collaboration or parallel development of a project. Suppose you have already a project which has reached its first release version, meaning that it works all fine. Now, you like to add a new feature to your project. To do this and to avoid further commits to your original project, you can create a new &lt;strong&gt;branch&lt;/strong&gt; of the project which is specifically devoted to adding the new feature. See the following figure, for an example of Git branching.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/lecture/2/branch-flowchart.png&quot; width=&quot;900&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:center&quot;&gt;
-        An example illustration of Git branching for a project with three branches: master, development, topic.
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;When you create a Git project, the default single branch in your project is &lt;strong&gt;master&lt;/strong&gt;. So, for example if you search for your project branches, you’d see,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git branch
-* master
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-If you already have created other branches in your project, for example &lt;strong&gt;development&lt;/strong&gt;, then you may see a Git message like the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git branch
-* development
-  master
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-The &lt;strong&gt;*&lt;/strong&gt; behind the branch name indicates that the project HEAD (i.e., your working directory) points to that branch, that is, all commits will be made to that branch that is highlighted with &lt;strong&gt;*&lt;/strong&gt;. In the example above, the working directory points to &lt;em&gt;development&lt;/em&gt; branch.&lt;/p&gt;
-
-&lt;p&gt;In order to &lt;strong&gt;create a new branch&lt;/strong&gt; in your project, use,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git branch &amp;lt;branch name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-For example,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git branch development
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-When you create a new branch, Git creates an exact duplicate of the current branch that you are in, but with the requested name for the new branch. In order to &lt;strong&gt;switch to a specific Git branch&lt;/strong&gt; in your project, use,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout &amp;lt;branch name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-For example,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout development
-Switched to branch 'development'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-A shortcut for **both creating a new branch from the current branch, and switching to the new branch automatically is to use,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout -b &amp;lt;branch name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout -b test
-Switched to a new branch 'test'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Now suppose, you have made some significant progress on your project &lt;strong&gt;development&lt;/strong&gt; branch, and now you want to add the newly developed feature to your &lt;strong&gt;master&lt;/strong&gt; branch. All you need to do, is,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout master
-$ git merge development
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-By doing this, you first switch to master branch, then request Git, to &lt;strong&gt;merge&lt;/strong&gt; all changes made to the project on the &lt;em&gt;development&lt;/em&gt; branch to be copied and transferred to the &lt;em&gt;master&lt;/em&gt; branch. For example, if I have added a single &lt;code&gt;test.txt&lt;/code&gt; file, and committed the change to the development branch, then upon mergin with master, Git will display something like the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git merge development
-Updating 25129a0..57ed7c2
-Fast-forward
- test.txt | 2 ++
- 1 file changed, 2 insertions(+)
- create mode 100644 test.txt
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Now suppose there was no change in the development branch, since branching it from master. Then upon merging, you would get a message like the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git merge development
-Already up-to-date.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Occasionally, conflicts may arise between branches upon merging. This happens when a common file between the two branches, has been modified on both branches in parallel. In such cases, you will need to resolve the conflict by choosing one of the file edits in one of the branches and discard the other. The following is an example merge conflict message by Git.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git merge development
-Auto-merging test.txt
-CONFLICT (content): Merge conflict in test.txt
-Automatic merge failed; fix conflicts and then commit the result.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-For example, if you use &lt;code&gt;git status&lt;/code&gt; command, the following is the typical message that will be displayed,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git status
-On branch test
-You have unmerged paths.
-  (fix conflicts and run &quot;git commit&quot;)
-  (use &quot;git merge --abort&quot; to abort the merge)
-
-Unmerged paths:
-  (use &quot;git add &amp;lt;file&amp;gt;...&quot; to mark resolution)
-
-        both modified:   test.txt
-
-no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-To resolve the conflict, open the conflicting file. There you will see the segments of the file from both versions which are the cause of the conflict. Edit the file as you wish. and then perform the normal &lt;code&gt;git add&lt;/code&gt; and &lt;code&gt;git commit&lt;/code&gt; on the file, to resolve the conflict and complete the merge process.&lt;/p&gt;
-
-&lt;p&gt;In addition to &lt;code&gt;git merge&lt;/code&gt;, there is another more elegant and powerful Git command, &lt;code&gt;git rebase&lt;/code&gt; for integrating changes in different branches into a single branch. But, the subject goes beyond the goals of this class, and the interested reader is referred to &lt;a href=&quot;https://git-scm.com/docs/git-rebase&quot; target=&quot;_blank&quot;&gt;Git documentation&lt;/a&gt; for this command and &lt;a href=&quot;https://git-scm.com/book/en/v2/Git-Branching-Rebasing&quot; target=&quot;_blank&quot;&gt;this pedagogical Git page&lt;/a&gt; for &lt;code&gt;git rebase&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;git-branch-d&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;deleting-a-branch&quot;&gt;Deleting a branch&lt;/h4&gt;
-&lt;p&gt;Normally, when a branch merge is done, the development branch is not needed anymore, so it is always wise and cleaner to delete the unwanted branches, using the command &lt;code&gt;git branch -d &amp;lt;branch name&amp;gt;&lt;/code&gt;. To do this, on the same branch that you just performed &lt;code&gt;git merge&lt;/code&gt; use,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout master
-Your branch is ahead of 'origin/master' by 1 commit.
-  (use &quot;git push&quot; to publish your local commits)
-Switched to branch 'master'
-$ git branch -d test
-Deleted branch hotfix (3a0874c).
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Note that you cannot delete a branch while you are on it (i.e., while it is checked out). For example, Git will give you the following error message,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git branch -d test
-error: Cannot delete branch 'test' checked out at 'C:/Users/Amir/git/foo'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;You cannot delete a branch from another branch with which you have not performed the merging either&lt;/strong&gt;. In this case, Git will give the following error,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git branch -d test
-error: The branch 'test' is not fully merged.
-If you are sure you want to delete it, run 'git branch -D test'.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Advice for good project management:&lt;/strong&gt;&lt;br /&gt;
-&lt;small&gt;
-&lt;strong&gt;Your &lt;em&gt;master&lt;/em&gt; branch should always contain the latest clean version of your project, that is, the complete and working version/release. You should always make your new developments in a separate branch, and once it works and the new feature/development is complete, you merge the new development into the master branch.&lt;/strong&gt;
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;footnotes&quot;&gt;Footnotes:&lt;/h3&gt;
-
-&lt;p&gt;&lt;sup id=&quot;fn1&quot;&gt;1. See &lt;a href=&quot;https://git-scm.com/docs/git-log&quot; target=&quot;_blank&quot;&gt;Git documentation&lt;/a&gt; for more details and updates. &lt;a href=&quot;#ref1&quot; title=&quot;Jump back to footnote 1 in the text.&quot;&gt;↩&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/2-advanced-git&quot;&gt;Lecture 2: Advanced Git concepts&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 01, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>
