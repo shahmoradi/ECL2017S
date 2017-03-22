@@ -137,6 +137,11 @@ callback([
   } ,
 
   {
+    "text": "Exam 1: Solutions",
+    "href": "/ECL2017S/exam/1-solutions-midterm-exam"
+  } ,
+
+  {
     "text": "Exam 1: Problems",
     "href": "/ECL2017S/exam/1-problems-midterm-exam"
   } ,

@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Exam 1: Solutions",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/exam/1-solutions-midterm-exam",
+		  "date"       : "2017-03-22 00:00:00 -0500",
+		  "shortdate"  : "March 22, 2017"
+		} ,
+	
+		{
 		  "title"      : "Exam 1: Problems",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/exam/1-problems-midterm-exam",

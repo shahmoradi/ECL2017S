@@ -7,13 +7,396 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-03-22T09:07:02-05:00</updated>
+<updated>2017-03-22T12:28:33-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
   <uri>http:/ECL2017S/</uri>
   <email>amir@ices.utexas.edu</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Exam 1: Solutions]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/exam/1-solutions-midterm-exam"/>
+  <id>http:/ECL2017S/exam/1-solutions-midterm-exam</id>
+  <published>2017-03-22T00:00:00-05:00</published>
+  <updated>2017-03-22T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This is the solution to &lt;a href=&quot;1-problems-programming-history.html&quot; target=&quot;_blank&quot;&gt;Quiz 1: Problems - Programming history&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--
+The following figure illustrates the grade distribution for this quiz.  
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/exam/gradeDist/gradeHistExam1.png&quot; width=&quot;700&quot;&gt;
+    &lt;figcaption style=&quot;text-align:center&quot;&gt;
+        Maximum possible points is 100.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+--&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is the first (and last) midterm exam of this course, covering lectures 1-6. Please submit your answers to each of the following questions in a single &lt;code&gt;readme.md&lt;/code&gt; file, in &lt;code&gt;ECL2017S/exams/1/&lt;/code&gt; directory in your private repository for this course. Don’t forget to push your answers to your remote Github repository by the end of the exam.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Name the closest programming language to machine code, and the oldest high-level programming language in history, respectively.&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;
+Assembly, Fortran.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Name a programming language ancestor of Python.&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;
+C.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Name the three different generations (not different software) of Version Control Systems ever developed. If you don’t remember the exact names, you can instead briefly explain how each VCS paradigm works.&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+Local VCS, Centralized VCS, Distributed VCS. For details of each VCS paradigm see &lt;a href=&quot;http://localhost:4000/lecture/1-version-control-system&quot; target=&quot;_blank&quot;&gt;this lecture&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; What is the Git command that lists ALL tags in the project?&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git tag
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. &lt;/strong&gt;  Write a &lt;strong&gt;single-line&lt;/strong&gt; python script, that applies the relevant Python string manipulator methods to this string,&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Python Is Great For String Manipulation.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and transforms it to the following string and and prints it on screen,&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.noitalupinam-gnirts-rof-taerg-si-nohtyp
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print( &quot;Python Is Great For String Manipulation.&quot;.lower().replace(' ','-')[::-1] )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;.noitalupinam-gnirts-rof-taerg-si-nohtyp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6. &lt;/strong&gt; Name the three major types of programming errors.&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+syntax, runtime, and semantic errors.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;7. &lt;/strong&gt; Are tuples mutable objects? Can they be redefined?&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+No. Yes.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;8. &lt;/strong&gt; Download &lt;a href=&quot;http:/ECL2017S/homework/4/script_full_of_errors.py&quot; target=&quot;_blank&quot;&gt;this code&lt;/a&gt;. This code is full syntax errors. Fix the errors and submit the corrected code with name &lt;code&gt;script_full_of_errors_corrected.py&lt;/code&gt; in your &lt;code&gt;exams/1/&lt;/code&gt; folder of your project. Explain in front of each corrected Python statement, why the error occurred.  On the last line of the script,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;true = fox is rev in Persian
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+the statement runs without error. But can you explain what it does?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+The corrected file can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/4/solutions/script_full_of_errors_corrected.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;br /&gt;
+The last line of the script, first compares the identity of &lt;code&gt;fox&lt;/code&gt; with &lt;code&gt;rev&lt;/code&gt;, the result of which is either &lt;code&gt;True&lt;/code&gt; or &lt;code&gt;False&lt;/code&gt;, then checks if this result is in the list &lt;code&gt;Persian&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;9. &lt;/strong&gt; (A) In the following code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [26]: a = [1,2,3,4,5]
+
+In [27]: b = a
+
+In [28]: b
+Out[28]: [1, 2, 3, 5]
+
+In [29]: b.append(6)
+
+In [30]: a
+Out[30]: [1, 2, 3, 5, 6]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+explain the relationship between &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; (why does &lt;code&gt;a&lt;/code&gt; change from line 25 to line 30?).&lt;/p&gt;
+
+&lt;p&gt;(B) Continuing with the above code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [31]: b = a + a
+
+In [32]: a
+Out[32]: [1, 2, 3, 5, 6]
+
+In [33]: b
+Out[33]: [1, 2, 3, 5, 6, 1, 2, 3, 5, 6]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+explain why the values of &lt;code&gt;b&lt;/code&gt; and &lt;code&gt;a&lt;/code&gt; are different?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+Simple.&lt;br /&gt;
+(A) &lt;code&gt;b&lt;/code&gt; is an alias for the content of &lt;code&gt;a&lt;/code&gt;.&lt;br /&gt;
+(B) When &lt;code&gt;b&lt;/code&gt; is redefined in line 31, the alias between &lt;code&gt;b&lt;/code&gt; and &lt;code&gt;a&lt;/code&gt; is automatically broken.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;10. &lt;/strong&gt; Are the following variable assignments considered an alias for the same value (list), or independent copies of the list?&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = b = c = [1,2,3,4]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+If they constitute an alias, how can you assign independent copy of the values of one variable (e.g., &lt;code&gt;c&lt;/code&gt;) to another variable (e.g., &lt;code&gt;a&lt;/code&gt;)? Otherwise, if the above assignment, creates independent copies, how would you change the assignment, such that they becomes aliases for the same value?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+Multiple assignment statements result in aliases for &lt;em&gt;list&lt;/em&gt; values. To make hard copies, use the following &lt;code&gt;copy()&lt;/code&gt; method:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [45]: a = b = c = [1,2,3,4]
+
+In [46]: a is b
+Out[46]: True
+
+In [47]: a = b.copy()
+
+In [48]: a is b
+Out[48]: False
+
+In [49]: a
+Out[49]: [1, 2, 3, 4]
+
+In [50]: b
+Out[50]: [1, 2, 3, 4]
+
+In [51]: a == b
+Out[51]: True
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;11. &lt;/strong&gt; Write a Python program, &lt;code&gt;find_primes.py&lt;/code&gt;, that when executed, asks the user to enter an integer number, then the program prints on screen all the prime numbers smaller than the input integer number.&lt;br /&gt;
+(&lt;strong&gt;Hint:&lt;/strong&gt; Start with writing a function that finds whether an input integer number is prime or not, then write another function that repeatedly calls this function to find all the prime numbers smaller than the initial input number.)&lt;/p&gt;
+
+&lt;p&gt;Here is a sample output from the code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;Enter an integer number: 50
+Here is a list of all prime numbers smaller than 50:
+47
+43
+41
+37
+31
+29
+23
+19
+17
+13
+11
+7
+5
+3
+2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+A sample answer can be downloaded from &lt;a href=&quot;http:/ECL2017S/exam/1/find_primes.py&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;12. &lt;/strong&gt; (A) Rewrite the following statement in two different but equivalent ways:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;A &lt;strong&gt;one-line&lt;/strong&gt; if-expression.&lt;/li&gt;
+  &lt;li&gt;Using only tuple notation, instead of if-block or if-expression syntax.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
+
+abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
+
+answer_status = 'wrong'
+if abbr == 'ECL':
+    answer_status = 'correct'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+(B) Which one of the above two methods, would also be applicable to the following if-block + print statements. Rewrite it in whichever format that is suitable.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if answer_status=='correct':
+    print('You answer is correct!')
+else:
+    print(&quot;wrong buddy...try again&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+(A)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
+abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
+answer_status = 'correct' if abbr == 'ECL' else 'wrong'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+or,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
+abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
+answer_status = ('wrong','correct')[abbr=='ECL']
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+(B)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
+abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
+print( ('wrong buddy...try again','You answer is correct!')[answer_status=='correct'] )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+or,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
+abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
+print( 'You answer is correct!' if answer_status=='correct' else 'wrong buddy...try again' )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;13. &lt;/strong&gt; Consider the following two Python expressions,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;(1,1) is (1,1)
+(1,1) == (1,1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Are these two the same? Explain your answer.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+The keyword &lt;code&gt;is&lt;/code&gt; checks for the same identity of the objects that are compared. The &lt;code&gt;==&lt;/code&gt; checks for the same value of the object.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;14. &lt;/strong&gt; Consider the following function which takes another function as input:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def diff2nd(func, x, h=1E-6):
+    r = (func(x-h) - 2*func(x) + func(x+h))/float(h*h)
+    return r
+
+x = 2
+diff2nd_g = diff2nd(g, x)
+print ( &quot;g’’(x=%f)=%f&quot; % (x, diff2nd_g) )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Write a lambda function as an input to this function, that calculates the function value &lt;script type=&quot;math/tex&quot;&gt;x^2 + 4x + 1&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;g = lambda x: x**2 + 4.0*x + 1.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;15. &lt;/strong&gt; The traditional way of swapping values of two variables in most programming languages is like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [68]: a = 5
+
+In [69]: b = 7
+
+In [70]: _ = a
+
+In [71]: a = b
+
+In [72]: b = _
+
+In [73]: a
+Out[73]: 7
+
+In [74]: b
+Out[74]: 5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Rewrite the swapping above, in a more abbreviated Pythonic way, once using lists, and another using tuples.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [75]: (a,b) = (b,a)
+
+In [76]: a
+Out[76]: 5
+
+In [77]: b
+Out[77]: 7
+
+In [78]: [a,b] = [b,a]
+
+In [79]: a
+Out[79]: 7
+
+In [80]: b
+Out[80]: 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/exam/1-solutions-midterm-exam&quot;&gt;Exam 1: Solutions&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 22, 2017.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -245,7 +628,7 @@ Write a lambda function as an input to this function, that calculates the functi
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;15. &lt;/strong&gt; The traditional way of swapping values of two variables in mostprogramming languages is like the following,&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;15. &lt;/strong&gt; The traditional way of swapping values of two variables in most programming languages is like the following,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [68]: a = 5
 
 In [69]: b = 7
@@ -6207,81 +6590,6 @@ Ask me in class and I will explain how to do it.&lt;/p&gt;
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/announcement/2-course-progress-evaluation&quot;&gt;Announcement 2: Course Progress Evaluation&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 15, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Homework 2: Problems - Advanced Git]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/2-problems-advanced-git"/>
-  <id>http:/ECL2017S/homework/2-problems-advanced-git</id>
-  <published>2017-02-08T00:00:00-06:00</published>
-  <updated>2017-02-08T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This homework aims at giving you some experience with creating Git branches, developing your project on multiple branches, merging them, resolving potential conflicts between different branches upon merging, and finally how to delete them. It also gives you some experience with using other commonly-used Git commands.
-Write your code sections of your answer in Markdown syntax.
-For example,&lt;br /&gt;
-&lt;code&gt;
-    ```bash  &lt;br /&gt;
-    $ git branch -d test  &lt;br /&gt;
-    error: Cannot delete branch 'test' checked out at 'C:/Users/Amir/git/foo'  &lt;br /&gt;
-    ```
-&lt;/code&gt;
-&lt;br /&gt;
-will display the following text highlighted as &lt;em&gt;bash&lt;/em&gt; code, in your &lt;em&gt;readme.md&lt;/em&gt; file.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git branch -d test
-error: Cannot delete branch 'test' checked out at 'C:/Users/Amir/git/foo'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Create two additional test branches in your project, each of which is branched directly from &lt;em&gt;master&lt;/em&gt;. &lt;strong&gt;For each of the following cases, write the command and the corresponding output message of Git, in Markdown language in a &lt;code&gt;readme.md&lt;/code&gt; file inside your &lt;code&gt;homework/2/&lt;/code&gt; folder in your master branch&lt;/strong&gt;. If you don’t have this folder in your project, then create the folder and then place your initial &lt;code&gt;readme.md&lt;/code&gt; file in this folder with your signature as the content of the file. Then stage and commit this file together with homework-2 folder to your local repository. Throughout the rest of this homework, you will fill this &lt;code&gt;readme.md&lt;/code&gt; file with your answers.&lt;/p&gt;
-
-&lt;p&gt;(A) Create two branches, &lt;strong&gt;both from your &lt;em&gt;master&lt;/em&gt; branch&lt;/strong&gt;, with names &lt;em&gt;test1&lt;/em&gt; and &lt;em&gt;test2&lt;/em&gt;.&lt;br /&gt;
-&lt;br /&gt;(B) Now checkout the &lt;em&gt;test1&lt;/em&gt; branch and create a new text file named &lt;code&gt;test.txt&lt;/code&gt; in the &lt;code&gt;homework/2/&lt;/code&gt; directory of this branch.&lt;br /&gt;
-&lt;br /&gt;(C) Inside &lt;code&gt;test.txt&lt;/code&gt; in &lt;em&gt;test1&lt;/em&gt; branch write this message: &lt;em&gt;This is some example text for branch test1&lt;/em&gt;, and save it.&lt;br /&gt;
-&lt;br /&gt;(D) Now stage and commit &lt;code&gt;test.txt&lt;/code&gt; file to branch &lt;em&gt;test1&lt;/em&gt;.&lt;br /&gt;
-&lt;br /&gt;(E) Checkout the branch &lt;em&gt;test2&lt;/em&gt;. Do you still see &lt;code&gt;test.txt&lt;/code&gt; that you just created in your &lt;code&gt;homework/2/&lt;/code&gt; directory? You can search for it by the &lt;em&gt;bash&lt;/em&gt; command &lt;code&gt;ls&lt;/code&gt;. Explain why you see/don’t see the file in your working directory anymore.&lt;br /&gt;
-&lt;br /&gt;(F) Create a new text file named &lt;code&gt;test.txt&lt;/code&gt; in the &lt;code&gt;homework/2/&lt;/code&gt; directory of this branch as well, and add &lt;em&gt;This is some example text for branch test2&lt;/em&gt; to its content.&lt;br /&gt;
-&lt;br /&gt;(G) Now try to checkout &lt;em&gt;test1&lt;/em&gt;. What error/warning message do you get? Fix the source of error and then checkout &lt;em&gt;test1&lt;/em&gt; branch.&lt;br /&gt;
-&lt;br /&gt;(H) Now merge the content of &lt;em&gt;test1&lt;/em&gt; with &lt;em&gt;master&lt;/em&gt; branch. (Hint: Note from which branch you doing this merge!)&lt;br /&gt;
-&lt;br /&gt;(I) Now what do you see as the content of &lt;em&gt;master&lt;/em&gt; branch? (Hint: Use &lt;code&gt;ls&lt;/code&gt; &lt;em&gt;bash&lt;/em&gt; command, to list the files in the working directory.)&lt;br /&gt;
-&lt;br /&gt;(J) Now merge the content of &lt;em&gt;test2&lt;/em&gt; with &lt;em&gt;master&lt;/em&gt; branch. What error/warning message do you get? Why does this error arise?&lt;br /&gt;
-&lt;br /&gt;(K) Now chekcout &lt;em&gt;test2&lt;/em&gt;. What error/warning message do you get?&lt;br /&gt;
-&lt;br /&gt;(L) Run the Git command &lt;code&gt;git status&lt;/code&gt;. Why does such a conflict exist, as mentioned in &lt;code&gt;git status&lt;/code&gt; output?&lt;br /&gt;
-&lt;br /&gt;(M) At this stage, you have two options: Either 1. stage and commit the combined conlifting &lt;code&gt;test.txt&lt;/code&gt; file to Git repository (but this is not recommended), or, 2. open the file &lt;code&gt;test.txt&lt;/code&gt; using &lt;em&gt;vim&lt;/em&gt; editor on the command line and reslve the conflict by editing the content of the file to only this sentence: &lt;em&gt;. Then save and quit *vim&lt;/em&gt;.&lt;br /&gt;
-&lt;br /&gt;(N) Now, run &lt;code&gt;git status&lt;/code&gt;, then stage and commit your conflict-resolved file. Then checkout &lt;em&gt;test2&lt;/em&gt; branch.&lt;br /&gt;
-&lt;br /&gt;(O) Now, try deleting branch &lt;em&gt;test1&lt;/em&gt;, while on branch &lt;em&gt;test2&lt;/em&gt;. What error/warning message do you get?&lt;br /&gt;
-&lt;br /&gt;(P) Now, switch back to &lt;em&gt;master&lt;/em&gt; branch. Now, try deleting branch &lt;em&gt;test1&lt;/em&gt;, while on &lt;em&gt;master&lt;/em&gt; branch. What message do you get from Git? List all the existing branches using &lt;code&gt;git branch&lt;/code&gt; command.&lt;br /&gt;
-&lt;br /&gt;(Q) Why is there such a difference in Git messages between when you tried deleting &lt;em&gt;test1&lt;/em&gt; branch from &lt;em&gt;test2&lt;/em&gt; branch, and when you tried deleting &lt;em&gt;test1&lt;/em&gt; branch from &lt;em&gt;master&lt;/em&gt; branch?&lt;br /&gt;
-&lt;br /&gt;(R) Now checkout &lt;em&gt;test2&lt;/em&gt; branch. While on &lt;em&gt;test2&lt;/em&gt;, try to delete branch &lt;em&gt;test2&lt;/em&gt;. What error/message do you get?&lt;br /&gt;
-&lt;br /&gt;(S) Switch back to &lt;em&gt;master&lt;/em&gt; and delete &lt;em&gt;test2&lt;/em&gt; branch. List all your project branches by the approproiate Git command.&lt;br /&gt;
-&lt;br /&gt;(T) Stage and commit all the changes (including the file &lt;code&gt;test.txt&lt;/code&gt;) to your project’s &lt;em&gt;master&lt;/em&gt; branch. Now push it all to the remote repository by Wednesday Feb 15 2017, 9:00 a.m. CDT.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Create a branch &lt;em&gt;gh-pages&lt;/em&gt; for your project from master, such that your project is accessible through its web address based on the content of &lt;em&gt;gh-pages&lt;/em&gt; branch, not based on the content of &lt;em&gt;master&lt;/em&gt; branch.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/2-problems-advanced-git&quot;&gt;Homework 2: Problems - Advanced Git&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 08, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>
