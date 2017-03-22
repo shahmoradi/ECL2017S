@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Exam 1: Problems",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/exam/1-problems-midterm-exam",
+		  "date"       : "2017-03-22 00:00:00 -0500",
+		  "shortdate"  : "March 22, 2017"
+		} ,
+	
+		{
 		  "title"      : "Quiz 5: Solutions - Python variables and assignment statements",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/quiz/5-solutions-python-variables-assignment-statements",
@@ -20,6 +28,14 @@
 		  "title"      : "Lecture 6: Python - branching and functions",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/6-python-branching-functions",
+		  "date"       : "2017-03-08 00:00:00 -0600",
+		  "shortdate"  : "March 08, 2017"
+		} ,
+	
+		{
+		  "title"      : "Homework 5: Solutions - Python branching and functions",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/homework/5-solutions-python-branching-functions",
 		  "date"       : "2017-03-08 00:00:00 -0600",
 		  "shortdate"  : "March 08, 2017"
 		} ,

@@ -87,6 +87,11 @@ callback([
   } ,
 
   {
+    "text": "Homework 5: Solutions - Python branching and functions",
+    "href": "/ECL2017S/homework/5-solutions-python-branching-functions"
+  } ,
+
+  {
     "text": "Homework 5: Problems - Python branching and functions",
     "href": "/ECL2017S/homework/5-problems-python-branching-functions"
   } ,
@@ -129,6 +134,11 @@ callback([
   {
     "text": "Homework 1: Problems - Designing a Github README file and web-page for your project",
     "href": "/ECL2017S/homework/1-problems-project-readme-file"
+  } ,
+
+  {
+    "text": "Exam 1: Problems",
+    "href": "/ECL2017S/exam/1-problems-midterm-exam"
   } ,
 
   {

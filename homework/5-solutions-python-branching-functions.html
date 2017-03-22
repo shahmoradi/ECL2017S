@@ -2,23 +2,23 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>HOMEWORK 5: PROBLEMS - PYTHON BRANCHING AND FUNCTIONS &vert; COE 111L - SPRING 2017</title>
+<title>HOMEWORK 5: SOLUTIONS - PYTHON BRANCHING AND FUNCTIONS &vert; COE 111L - SPRING 2017</title>
 <meta name="description" content="Engineering Computation Lab">
 <meta name="keywords" content="">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/ECL2017S/images/logo.png">
-<meta name="twitter:title" content="Homework 5: Problems - Python branching and functions">
+<meta name="twitter:title" content="Homework 5: Solutions - Python branching and functions">
 <meta name="twitter:description" content="Engineering Computation Lab">
 <meta name="twitter:creator" content="@AmirShahmoradi">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Homework 5: Problems - Python branching and functions">
+<meta property="og:title" content="Homework 5: Solutions - Python branching and functions">
 <meta property="og:description" content="Engineering Computation Lab">
-<meta property="og:url" content="/ECL2017S/homework/5-problems-python-branching-functions">
+<meta property="og:url" content="/ECL2017S/homework/5-solutions-python-branching-functions">
 <meta property="og:site_name" content="COE 111L - Spring 2017">
 <meta property="og:image" content="/ECL2017S/images/">
 
@@ -26,7 +26,7 @@
 
 
 
-<link rel="canonical" href="/ECL2017S/homework/5-problems-python-branching-functions">
+<link rel="canonical" href="/ECL2017S/homework/5-solutions-python-branching-functions">
 <!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 Feed"> -->
 
 
@@ -132,7 +132,7 @@ MathJax.Hub.Queue(function() {
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h2>Homework 5: Problems - Python branching and functions</h2>
+                            <h2>Homework 5: Solutions - Python branching and functions</h2>
                             <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-03-08T00:00:00-06:00">08 Mar 2017</time></strong></p>
                         </div>
                     </div>
@@ -140,7 +140,23 @@ MathJax.Hub.Queue(function() {
             </header>
 
         <article class="notepad-post-content post tag-simple">
-            <div style="text-align:justify;"><p>This homework aims at giving you some experience with variables in Python and their syntax, also some experience with using Lists and Dictionaries in Python. Write your Python scripts with the corresponding <code>*.py</code> file names, and add a readme.md file in HW 5 folder of your project if you need to add any additional explanation (Don’t forget to use markdown syntax highlight in your readme file, if needed).</p>
+            <div style="text-align:justify;"><p>This is the solution to <a href="5-problems-python-branching-functions.html" target="_blank">Homework 5: Problems - Python branching and functions</a>.</p>
+
+<!--
+The following figure illustrates the grade distribution for this homework.  
+
+<figure>
+	<img src="/ECL2017S/homework/gradeDist/gradeHistHomework3.png" width="700">
+    <figcaption style="text-align:center">
+        Maximum possible points, excluding bonus question, is 100.<br>
+        Maximum possible points, including bonus question, is 200.
+    </figcaption>
+</figure>
+-->
+<hr />
+<hr />
+
+<p>This homework aims at giving you some experience with variables in Python and their syntax, also some experience with using Lists and Dictionaries in Python. Write your Python scripts with the corresponding <code>*.py</code> file names, and add a readme.md file in HW 5 folder of your project if you need to add any additional explanation (Don’t forget to use markdown syntax highlight in your readme file, if needed).</p>
 
 <p><br /></p>
 
@@ -220,6 +236,29 @@ I highly recommend you to write your function in Jupyter notebook, test it there
 </blockquote>
 <p><br /></p>
 
+<p><strong>Answer:</strong></p>
+
+<pre><code class="language-python">def fib(n):
+
+    def fibo(n_int):
+        if n_int==0: return 0
+        elif n_int==1: return 1
+        else:
+            return fibo(n_int-1) + fibo(n_int-2)
+
+    if n=='stop':
+        return None
+    elif not str(n).isdigit():    # Make sure n is integer, if not then
+        print( 'The input argument {} is not a non-negative integer!'.format(n) )    
+        n = input("Please enter an integer: ")  # Note that n is read as string!
+        return fib(n)
+    else:
+        n=int(n) 
+        print('Fib({}) = {}'.format(n,fibo(n)))
+        n = input("Please enter another integer or type stop: ")  # Note that n is read as string!
+        return fib(n)
+</code></pre>
+
 <p><br /></p>
 
 <hr />
@@ -246,7 +285,7 @@ else:
 <p><br />
 <strong>(B)</strong> Can you acheive the same goal as in <strong>(A)</strong> without if-expression or block, but instead using only tuple notation? Explain why your solution works.</p>
 
-<p><strong>(C)</strong> Modify the if block and the print statements that are only in the last part of the code,</p>
+<p>Modify the if block and the print statements that are only in the last part of the code,</p>
 <pre><code class="language-python">if answer_status=='correct':
     print('You answer is correct!')
 else:
@@ -254,6 +293,46 @@ else:
 </code></pre>
 <p><br />
 to write a single-line Python statement that only uses <code>print</code> and tuple or list notations, to perform the exact same task as the original print and if-block statement.</p>
+
+<p><br />
+<strong>Answer:</strong></p>
+
+<p><strong>(A)</strong></p>
+<pre><code class="language-python">#!/usr/bin/env python
+
+abbr = input ("What is the three letter abbreviation of this course? ")
+
+answer_status = 'correct' if abbr == 'ECL' else 'wrong'
+
+if answer_status=='correct':
+    print('You answer is correct!')
+else:
+    print("wrong buddy...try again")
+</code></pre>
+<p><br />
+<strong>(B)</strong></p>
+<pre><code class="language-python">#!/usr/bin/env python
+
+abbr = input ("What is the three letter abbreviation of this course? ")
+
+answer_status = ('wrong','correct')[abbr=='ECL']
+
+if answer_status=='correct':
+    print('You answer is correct!')
+else:
+    print("wrong buddy...try again")
+</code></pre>
+<p><br />
+<strong>(C)</strong></p>
+<pre><code class="language-python">#!/usr/bin/env python
+
+abbr = input ("What is the three letter abbreviation of this course? ")
+
+answer_status = ('wrong','correct')[abbr=='ECL']
+
+print( ('wrong buddy...try again','You answer is correct!')[answer_status=='correct'] )
+</code></pre>
+<p><br /></p>
 
 <p><br /></p>
 
@@ -287,8 +366,18 @@ would give,</p>
     else: j = 'j is not in [0,1,2]' 
     return j
 </code></pre>
-<p><br /></p>
 
+<p><strong>Answer:</strong></p>
+
+<p><strong>(A)</strong></p>
+<pre><code class="language-python">(first,last,univ) = ((input('Enter the first name, last name, and the city of the person (comma-separated): ').replace(' ','')).lower()).split(',')
+</code></pre>
+<p><br />
+<strong>(B)</strong></p>
+<pre><code class="language-python">def dummy(i):
+    j = 0 if i==0 else (1 if i==1 else (2 if i==2 else 'j is not in [0,1,2]') )
+    return j
+</code></pre>
 <p><br /></p>
 
 <hr />
@@ -318,7 +407,13 @@ An arbitrary triangle can be described by the coordinates of its three vertices:
 </code></pre>
 <p><br /></p>
 
-<p><br /></p>
+<p><strong>Answer:</strong></p>
+<pre><code class="language-python">def get_triangle_area(vert):
+    area = 0.5 * abs(vert[1][0] * vert[2][1] - vert[2][0] * vert[1][1] -
+                     vert[0][0] * vert[2][1] + vert[2][0] * vert[0][1] +
+                     vert[0][0] * vert[1][1] - vert[1][0] * vert[0][1])
+    return area
+</code></pre>
 
 <hr />
 <hr />
@@ -338,6 +433,22 @@ An arbitrary triangle can be described by the coordinates of its three vertices:
 
 <p>Note that you do not need and don’t have to use <code>for-loop</code> for this problem (we have not yet discussed loops in our class!). All of it can be done using recursive function concept.</p>
 
+<p><strong>Answer:</strong></p>
+<pre><code class="language-python">def is_prime(n):
+    
+    is_prime = True
+    
+    def is_divisible(n,divisor):
+        if n&lt;2*divisor: return False
+        if n%divisor==0: return True
+        else:
+            divisor += 1
+            return is_divisible(n,divisor)
+
+    if is_divisible(n,divisor=2): is_prime=False
+    return is_prime
+</code></pre>
+
 <p><br /><br /></p>
 
             </div>
@@ -345,15 +456,15 @@ An arbitrary triangle can be described by the coordinates of its three vertices:
         <div class="cf"></div>
         <div class="row text-center">
             <section class="notepad-post-share">
-                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Homework 5: Problems - Python branching and functions&quot;%20/ECL2017S/homework/5-problems-python-branching-functions%20via%20&#64;AmirShahmoradi"
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Homework 5: Solutions - Python branching and functions&quot;%20/ECL2017S/homework/5-solutions-python-branching-functions%20via%20&#64;AmirShahmoradi"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
                     <i class="fa fa-twitter"></i>
                 </a>
-                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/homework/5-problems-python-branching-functions"
+                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/homework/5-solutions-python-branching-functions"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
                     <i class="fa fa-facebook"></i>
                 </a>
-                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/homework/5-problems-python-branching-functions"
+                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/homework/5-solutions-python-branching-functions"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
                     <i class="fa fa-google-plus"></i>
                 </a>

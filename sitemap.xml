@@ -52,6 +52,10 @@
 
     
     <url>
+        <loc>/ECL2017S/exam/1-problems-midterm-exam</loc>
+    </url>
+    
+    <url>
         <loc>/ECL2017S/quiz/5-solutions-python-variables-assignment-statements</loc>
     </url>
     
@@ -61,6 +65,10 @@
     
     <url>
         <loc>/ECL2017S/lecture/6-python-branching-functions</loc>
+    </url>
+    
+    <url>
+        <loc>/ECL2017S/homework/5-solutions-python-branching-functions</loc>
     </url>
     
     <url>

@@ -7,13 +7,269 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-03-08T10:42:38-06:00</updated>
+<updated>2017-03-22T08:59:31-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
   <uri>http:/ECL2017S/</uri>
   <email>amir@ices.utexas.edu</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Exam 1: Problems]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/exam/1-problems-midterm-exam"/>
+  <id>http:/ECL2017S/exam/1-problems-midterm-exam</id>
+  <published>2017-03-22T00:00:00-05:00</published>
+  <updated>2017-03-22T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This is the first (and last) midterm exam of this course, covering lectures 1-6. Please submit your answers to each of the following questions in a single &lt;code&gt;readme.md&lt;/code&gt; file, in &lt;code&gt;ECL2017S/exams/1/&lt;/code&gt; directory in your private repository for this course. Don’t forget to push your answers to your remote Github repository by the end of the exam.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Name the closest programming language to machine code, and the oldest high-level programming language in history, respectively.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Name a programming language ancestor of Python.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Name the three different generations (not different software) of Version Control Systems ever developed. If you don’t remember the exact names, you can instead briefly explain how each VCS paradigm works.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; What is the Git command that lists ALL tags in the project?&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. &lt;/strong&gt;  Write a &lt;strong&gt;single-line&lt;/strong&gt; python script, that applies the relevant Python string manipulator methods to this string,&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Python Is Great For String Manipulation.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and transforms it to the following string and and prints it on screen,&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.noitalupinam-gnirts-rof-taerg-si-nohtyp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6. &lt;/strong&gt; Name the three major types of programming errors.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;7. &lt;/strong&gt; Are tuples mutable objects? Can they be redefined?&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;8. &lt;/strong&gt; Download &lt;a href=&quot;http:/ECL2017S/homework/4/script_full_0f_errors.py&quot; target=&quot;_blank&quot;&gt;this code&lt;/a&gt;. This code is full syntax errors. Fix the errors and submit the corrected code with name &lt;code&gt;script_full_of_errors_corrected.py&lt;/code&gt; in your &lt;code&gt;exams/1/&lt;/code&gt; folder of your project. Explain in front of each corrected Python statement, why the error occurred.  On the last line of the script,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;true = fox is rev in Persian
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+the statement runs without error. But can you explain what it does? (Hint: For this part you need to understand operation precedence. You can find more information &lt;a href=&quot;http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/op_precedence.html&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;9. &lt;/strong&gt; (A) In the following code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [26]: a = [1,2,3,4,5]
+
+In [27]: b = a
+
+In [28]: b
+Out[28]: [1, 2, 3, 5]
+
+In [29]: b.append(6)
+
+In [30]: a
+Out[30]: [1, 2, 3, 5, 6]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+explain the relationship between &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; (why does &lt;code&gt;a&lt;/code&gt; change from line 25 to line 30?).&lt;/p&gt;
+
+&lt;p&gt;(B) Continuing with the above code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [31]: b = a + a
+
+In [32]: a
+Out[32]: [1, 2, 3, 5, 6]
+
+In [33]: b
+Out[33]: [1, 2, 3, 5, 6, 1, 2, 3, 5, 6]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+explain why the values of &lt;code&gt;b&lt;/code&gt; and &lt;code&gt;a&lt;/code&gt; are different?&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;10. &lt;/strong&gt; Are the following variable assignments considered an alias for the same value (list), or independent copies of the list?&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = b = c = [1,2,3,4]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+If they constitute an alias, how can you assign independent copy of the values of one variable (e.g., &lt;code&gt;c&lt;/code&gt;) to another variable (e.g., &lt;code&gt;a&lt;/code&gt;)? Otherwise, if the above assignment, creates independent copies, how would you change the assignment, such that they becomes aliases for the same value?&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;11. &lt;/strong&gt; Write a Python program, &lt;code&gt;find_primes.py&lt;/code&gt;, that when executed, asks the user to enter an integer number, then the program prints on screen all the prime numbers smaller than the input integer number.&lt;br /&gt;
+(&lt;strong&gt;Hint:&lt;/strong&gt; Start with writing a function that finds whether an input integer number is prime or not, then write another function that repeatedly calls this function to find all the prime numbers smaller than the initial input number.)&lt;/p&gt;
+
+&lt;p&gt;Here is a sample output from the code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;Enter an integer number: 50
+Here is a list of all prime numbers smaller than 50:
+47
+43
+41
+37
+31
+29
+23
+19
+17
+13
+11
+7
+5
+3
+2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;12. &lt;/strong&gt; (A) Rewrite the following statement in two different but equivalent ways:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;A &lt;strong&gt;one-line&lt;/strong&gt; if-expression.&lt;/li&gt;
+  &lt;li&gt;Using only tuple notation, instead of if-block or if-expression syntax.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
+
+abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
+
+answer_status = 'wrong'
+if abbr == 'ECL':
+    answer_status = 'correct'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+(B) Which one of the above two methods, would also be applicable to the following if-block + print statements. Rewrite it in whichever format that is suitable.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if answer_status=='correct':
+    print('You answer is correct!')
+else:
+    print(&quot;wrong buddy...try again&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;13. &lt;/strong&gt; Consider the following two Python expressions,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;(1,1) is (1,1)
+(1,1) == (1,1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Are these two the same? Explain your answer.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;14. &lt;/strong&gt; Consider the following function which takes another function as input:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def diff2nd(func, x, h=1E-6):
+    r = (func(x-h) - 2*func(x) + func(x+h))/float(h*h)
+    return r
+
+x = 2
+diff2nd_g = diff2nd(g, x)
+print ( &quot;g’’(x=%f)=%f&quot; % (x, diff2nd_g) )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Write a lambda function as an input to this function, that calculates the function value &lt;script type=&quot;math/tex&quot;&gt;x^2 + 4x + 1&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;15. &lt;/strong&gt; The traditional way of swapping values of two variables in mostprogramming languages is like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [68]: a = 5
+
+In [69]: b = 7
+
+In [70]: _ = a
+
+In [71]: a = b
+
+In [72]: b = _
+
+In [73]: a
+Out[73]: 7
+
+In [74]: b
+Out[74]: 5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Rewrite the swapping above, in a more abbreviated Pythonic way, once using lists, and another using tuples.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/exam/1-problems-midterm-exam&quot;&gt;Exam 1: Problems&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 22, 2017.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -180,17 +436,17 @@ No. Yes.
       &lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#python-function-multiple-output&quot;&gt;Functions with multiple output (return values)&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#python-function-optional-arguments&quot;&gt;Functions with optional input arguments&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-function-global-local-variables&quot;&gt;Local and global variables in fucntions&lt;/a&gt;
+      &lt;li&gt;&lt;a href=&quot;#python-function-global-local-variables&quot;&gt;Local and global variables in functions&lt;/a&gt;
         &lt;ul&gt;
           &lt;li&gt;&lt;a href=&quot;#python-function-side-effect&quot;&gt;Avoid function side-effects&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-function-builtin&quot;&gt;Python’s built-in fucntions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#python-function-builtin&quot;&gt;Python’s built-in functions&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#python-function-docstring&quot;&gt;function docstring&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-function-as-argument&quot;&gt;Fucntions as input arguments to functions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#python-function-as-argument&quot;&gt;Functions as input arguments to functions&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#python-function-composition&quot;&gt;function composition&lt;/a&gt;
         &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-function-recursive&quot;&gt;Recursive fucntions&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#python-function-recursive&quot;&gt;Recursive functions&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#python-function-lambda&quot;&gt;Lambda functions&lt;/a&gt;&lt;/li&gt;
@@ -557,7 +813,7 @@ This corresponds to a temerature of 159.26 degrees Farenheiht!
 &lt;p&gt;&lt;a name=&quot;python-function-no-input&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;-functions-with-no-input-arguments&quot;&gt;&lt;a href=&quot;#python-function-no-input&quot;&gt;¶¶&lt;/a&gt; Functions with no input arguments&lt;/h3&gt;
 
-&lt;p&gt;We can define functions that take no input argument, yet do something predefined for us. Cnsider the following function which gives information about the ECL course, when called.&lt;/p&gt;
+&lt;p&gt;We can define functions that take no input argument, yet do something predefined for us. Consider the following function which gives information about the ECL course, when called.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def get_ecl_info():
     return &quot;Engineering Computation Lab (COE111L) is a new course that is offered by the department of Aerospace Engineering and Engineering Mechanics at the University of Texas at Austin, starting Spring 2017. The overarching goal of the course is to introduce Aerospace undergraduate students with the principles of scientific computing, as well as the applications of numerical methods that the students learn in Engineering Computation (ASE 211K), offered parallel to this course. Towards this goal, Python was chosen as default programming language for the first offering of this course, but it can be switched to other languages such as R, MATLAB, Fortran, C++, etc., depending on the future needs of the Aerospace undergraduate program at UT Austin.&quot;
 
@@ -747,7 +1003,7 @@ A new message.
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a name=&quot;python-function-global-local-variables&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-local-and-global-variables-in-fucntions&quot;&gt;&lt;a href=&quot;#python-function-global-local-variables&quot;&gt;¶¶&lt;/a&gt; Local and global variables in fucntions&lt;/h3&gt;
+&lt;h3 id=&quot;-local-and-global-variables-in-functions&quot;&gt;&lt;a href=&quot;#python-function-global-local-variables&quot;&gt;¶¶&lt;/a&gt; Local and global variables in functions&lt;/h3&gt;
 &lt;p&gt;Variables that are defined insde of a function, are by default invisible outside the function scope. For example, let’s consider  Let us reconsider the original function defined at the beginning of the lecture, which takes in a temperature value in Centigrads and converts it to Fahrenheit.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def c2f(C):
     converted_value = (9.0/5)*C + 32
@@ -890,7 +1146,7 @@ In general, any &lt;em&gt;lasting effect&lt;/em&gt; that occurs in a function, b
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a name=&quot;python-function-builtin&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-pythons-built-in-fucntions&quot;&gt;&lt;a href=&quot;#python-function-builtin&quot;&gt;¶¶&lt;/a&gt; Python’s built-in fucntions&lt;/h3&gt;
+&lt;h3 id=&quot;-pythons-built-in-functions&quot;&gt;&lt;a href=&quot;#python-function-builtin&quot;&gt;¶¶&lt;/a&gt; Python’s built-in functions&lt;/h3&gt;
 
 &lt;p&gt;Python has a number of built-in functions, which can be handy. &lt;a href=&quot;https://docs.python.org/3/library/functions.html&quot; target=&quot;_blank&quot;&gt;Here&lt;/a&gt; is a list of Python’s built-in functions along with a description of what they do.&lt;/p&gt;
 
@@ -939,7 +1195,7 @@ c2f(C)
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;a name=&quot;python-function-as-argument&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-fucntions-as-input-arguments-to-functions&quot;&gt;&lt;a href=&quot;#python-function-as-argument&quot;&gt;¶¶&lt;/a&gt; Fucntions as input arguments to functions&lt;/h3&gt;
+&lt;h3 id=&quot;-functions-as-input-arguments-to-functions&quot;&gt;&lt;a href=&quot;#python-function-as-argument&quot;&gt;¶¶&lt;/a&gt; Functions as input arguments to functions&lt;/h3&gt;
 
 &lt;p&gt;In happens frequently in scientific programming, that a function needs to use another arbitrary function provided by the user to perform some specific tasks with it inside the function. For example, programs doing calculus frequently need to have functions as arguments in functions. For example,&lt;/p&gt;
 &lt;ul&gt;
@@ -989,7 +1245,7 @@ area(0.0,0.0,0.0,1.0)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;a name=&quot;python-function-recursive&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;-recursive-fucntions&quot;&gt;&lt;a href=&quot;#python-function-recursive&quot;&gt;¶¶¶&lt;/a&gt; Recursive fucntions&lt;/h4&gt;
+&lt;h4 id=&quot;-recursive-functions&quot;&gt;&lt;a href=&quot;#python-function-recursive&quot;&gt;¶¶¶&lt;/a&gt; Recursive functions&lt;/h4&gt;
 
 &lt;p&gt;Now, note that the function being called inside the other, does not necessarily have to be a different function. It could be the same function calling itself repeatedly, &lt;strong&gt;until a condition is met&lt;/strong&gt; (otherwise this would be an endless function call to itself for eternity). For example, a function that would calculate the factorial of an input integer would be like the following,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def factorial(n):
@@ -1067,6 +1323,336 @@ This format is particularly useful, if the lambda function contains a constant t
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/6-python-branching-functions&quot;&gt;Lecture 6: Python - branching and functions&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 08, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Homework 5: Solutions - Python branching and functions]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/5-solutions-python-branching-functions"/>
+  <id>http:/ECL2017S/homework/5-solutions-python-branching-functions</id>
+  <published>2017-03-08T00:00:00-06:00</published>
+  <updated>2017-03-08T00:00:00-06:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This is the solution to &lt;a href=&quot;5-problems-python-branching-functions.html&quot; target=&quot;_blank&quot;&gt;Homework 5: Problems - Python branching and functions&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--
+The following figure illustrates the grade distribution for this homework.  
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework3.png&quot; width=&quot;700&quot;&gt;
+    &lt;figcaption style=&quot;text-align:center&quot;&gt;
+        Maximum possible points, excluding bonus question, is 100.&lt;br&gt;
+        Maximum possible points, including bonus question, is 200.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+--&gt;
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;This homework aims at giving you some experience with variables in Python and their syntax, also some experience with using Lists and Dictionaries in Python. Write your Python scripts with the corresponding &lt;code&gt;*.py&lt;/code&gt; file names, and add a readme.md file in HW 5 folder of your project if you need to add any additional explanation (Don’t forget to use markdown syntax highlight in your readme file, if needed).&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; In mathematics, the Fibonacci numbers are the numbers in the following integer sequence, called the Fibonacci sequence, that are characterized by the fact that every number after the first two is the sum of the two preceding ones:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;0,~1,~1,~2,~3,~5,~8,~13,~21,~34,~55,~89,~144,~\dots&lt;/script&gt;
+
+&lt;p&gt;with the following sequence equation,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{eqnarray}
+     Fib(n) &amp;=&amp; Fib(n-1) + Fib(n-2) ~, \\
+     Fib(0) &amp;=&amp; 0 ~, \\
+     Fib(1) &amp;=&amp; 1 ~.
+\end{eqnarray} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Write a Python function named &lt;code&gt;fib&lt;/code&gt; that takes in an input argument which should be integer number &lt;code&gt;n&lt;/code&gt;, and then calculates the $n^{th}$ number in the Fibonacci sequence and outputs it on the screen. Also, if the input argument is not a non-negative integer, it prints an error message on the screen and asks the user to re-enter a non-negative integer number. Also, when it is done with finding the requested Fibonacci number, it asks again the user to either input a new non-negative integer, or enter ‘stop’ to end the function, like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; fib('amir')
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;The input argument amir is not a non-negative integer!
+Please enter a non-negative integer: -123
+The input argument -123 is not a non-negative integer!
+Please enter a non-negative integer: 12.4
+The input argument 12.4 is not a non-negative integer!
+Please enter a non-negative integer: 0
+Fib(0) = 0
+Please enter another non-negative integer or type stop: 1
+Fib(1) = 1
+Please enter another non-negative integer or type stop: 2
+Fib(2) = 1
+Please enter another non-negative integer or type stop: 3
+Fib(3) = 2
+Please enter another non-negative integer or type stop: 4
+Fib(4) = 3
+Please enter another non-negative integer or type stop: 5
+Fib(5) = 5
+Please enter another non-negative integer or type stop: 6
+Fib(6) = 8
+Please enter another non-negative integer or type stop: 7
+Fib(7) = 13
+Please enter another non-negative integer or type stop: 8
+Fib(8) = 21
+Please enter another non-negative integer or type stop: 9
+Fib(9) = 34
+Please enter another non-negative integer or type stop: 10
+Fib(10) = 55
+Please enter another non-negative integer or type stop: 11
+Fib(11) = 89
+Please enter another non-negative integer or type stop: 12
+Fib(12) = 144
+Please enter another non-negative integer or type stop: stop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Hint:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;First write a function &lt;code&gt;fibo(n_int)&lt;/code&gt; that finds the requested Fibonacci number for you, given a non-negative integer input (for example, name it &lt;code&gt;n_int&lt;/code&gt;).&lt;/li&gt;
+  &lt;li&gt;Then put this function &lt;strong&gt;inside another Python function &lt;code&gt;fib(n)&lt;/code&gt;&lt;/strong&gt; that checks the type of the input argument &lt;code&gt;n&lt;/code&gt; and prints the appropriate error message as in the above and then asks the user to enter another number (and then again checks for its type to be integer).&lt;/li&gt;
+  &lt;li&gt;Then if this number is an integer, this function &lt;code&gt;fib(n)&lt;/code&gt; passes the integer number &lt;code&gt;n&lt;/code&gt; to the function &lt;code&gt;fibo(n_int)&lt;/code&gt; which is inside of itself (it is a &lt;strong&gt;nested function&lt;/strong&gt;), in order to get the requested Fibonacci number.&lt;/li&gt;
+  &lt;li&gt;Finally, once the requested Fibonaccy number is obtained, it prints the number value with the requested format as in the above example, AND then asks again the user to input a new non-negative integer, or simply type &lt;code&gt;stop&lt;/code&gt; to stop the function.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Note that, if you call the function as &lt;code&gt;fib('stop')&lt;/code&gt; in the Python interpreter, it should return nothing to you, just like the following example,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;fib('stop')
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+I highly recommend you to write your function in Jupyter notebook, test it there, and then get the results for the same input arguments as in the above example (a string, negative integer, float, and n=1,…,12, and also ‘stop’) and download all of the notebook as a Markdown file, and put it in your repository folder for this homework. Name the notebook, &lt;code&gt;fib.md&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Also note that, you don’t need to know or use anything beyond Python function syntax, Python built-in functions and methods (like &lt;code&gt;input&lt;/code&gt;, &lt;code&gt;isdigit()&lt;/code&gt;, &lt;code&gt;print&lt;/code&gt;, &lt;code&gt;str()&lt;/code&gt;, &lt;code&gt;int()&lt;/code&gt;, …), and Python if-blocks.&lt;/p&gt;
+&lt;blockquote&gt;
+    I recommend you to use Jupyter notebook on your device, since the online version of notebook, can be interrupted repeatedly because of internet connection.
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def fib(n):
+
+    def fibo(n_int):
+        if n_int==0: return 0
+        elif n_int==1: return 1
+        else:
+            return fibo(n_int-1) + fibo(n_int-2)
+
+    if n=='stop':
+        return None
+    elif not str(n).isdigit():    # Make sure n is integer, if not then
+        print( 'The input argument {} is not a non-negative integer!'.format(n) )    
+        n = input(&quot;Please enter an integer: &quot;)  # Note that n is read as string!
+        return fib(n)
+    else:
+        n=int(n) 
+        print('Fib({}) = {}'.format(n,fibo(n)))
+        n = input(&quot;Please enter another integer or type stop: &quot;)  # Note that n is read as string!
+        return fib(n)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Branching…, the Pythonic way.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(A)&lt;/strong&gt; Change the &lt;strong&gt;first&lt;/strong&gt; if statement in the following script to an equivalent &lt;strong&gt;one-line&lt;/strong&gt; if-expression. Test the resulting new script, and make sure it behaves as the original,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
+
+abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
+
+answer_status = 'wrong'
+if abbr == 'ECL':
+    answer_status = 'correct'
+
+if answer_status=='correct':
+    print('You answer is correct!')
+else:
+    print(&quot;wrong buddy...try again&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;(B)&lt;/strong&gt; Can you acheive the same goal as in &lt;strong&gt;(A)&lt;/strong&gt; without if-expression or block, but instead using only tuple notation? Explain why your solution works.&lt;/p&gt;
+
+&lt;p&gt;Modify the if block and the print statements that are only in the last part of the code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if answer_status=='correct':
+    print('You answer is correct!')
+else:
+    print(&quot;wrong buddy...try again&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+to write a single-line Python statement that only uses &lt;code&gt;print&lt;/code&gt; and tuple or list notations, to perform the exact same task as the original print and if-block statement.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(A)&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
+
+abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
+
+answer_status = 'correct' if abbr == 'ECL' else 'wrong'
+
+if answer_status=='correct':
+    print('You answer is correct!')
+else:
+    print(&quot;wrong buddy...try again&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;(B)&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
+
+abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
+
+answer_status = ('wrong','correct')[abbr=='ECL']
+
+if answer_status=='correct':
+    print('You answer is correct!')
+else:
+    print(&quot;wrong buddy...try again&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;(C)&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
+
+abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
+
+answer_status = ('wrong','correct')[abbr=='ECL']
+
+print( ('wrong buddy...try again','You answer is correct!')[answer_status=='correct'] )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(A)&lt;/strong&gt; Write a &lt;strong&gt;single-line&lt;/strong&gt; Python code that reads a string containing comma-separated first-name, last-name, and the city in which a person lives from the Python interpreter command line, and simultaneouly, in the same line of Python code, removes all white-space characters from the input string, and converts all letters of the input variables to lower-case, and converts the string to a tuple and saves in a tuple &lt;code&gt;(first,last,city)&lt;/code&gt;, such that, for example,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;Enter the first name, last name, and the city of the person (comma-separated): Amir, Shahmoradi  ,  Austin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+would give,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;(first,last,city)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;('amir', 'shahmoradi', 'austin')
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Hint:&lt;/strong&gt; Use &lt;code&gt;input&lt;/code&gt; function for this purpose. The output of &lt;code&gt;input&lt;/code&gt; is a string, which can be manipulated repeatedly on the same line, using multiple string methods that you learned about in the previous lectures.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(B)&lt;/strong&gt; As discuss in our lecture 6, the one-line if-expression syntax does not provide a functionality like &lt;code&gt;elif&lt;/code&gt; keyword as in the if-statement syntax. Our goal here is to learn how to convert a Python if-statement containing &lt;code&gt;elif&lt;/code&gt; to a one-line Python expression. Convert the following if-block to a single line if-expression. Modify the if-block inside the following function to one-line if-expression:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def dummy(i):
+    if i==0:
+        j=0
+    elif i==1:
+        j=1
+    elif i==2:
+        j=2
+    else: j = 'j is not in [0,1,2]' 
+    return j
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(A)&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;(first,last,univ) = ((input('Enter the first name, last name, and the city of the person (comma-separated): ').replace(' ','')).lower()).split(',')
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;(B)&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def dummy(i):
+    j = 0 if i==0 else (1 if i==1 else (2 if i==2 else 'j is not in [0,1,2]') )
+    return j
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; 
+An arbitrary triangle can be described by the coordinates of its three vertices: $(x1,y1),(x2,y2),(x3,y3)$, numbered in a counterclockwise direction. The area of the triangle is given by the formula,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;A = \frac{1}{2} \bigg| x2y3 - x3y2 - x1y3 + x3y1 + x1y2 - x2y1j \bigg|&lt;/script&gt;
+
+&lt;p&gt;Write a function &lt;code&gt;get_triangle_area(vertices)&lt;/code&gt; that returns the area of a triangle whose vertices are specified by the argument vertices, which is a nested list of the vertex coordinates. Test your implementation with the following test function, which also illustrates how the &lt;code&gt;get_triangle_area&lt;/code&gt; function works.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def test_get_triangle_area():
+    &quot;&quot;&quot;
+    Verify the area of a triangle with vertex coordinates
+    (0,0), (1,0), and (0,2).
+    &quot;&quot;&quot;
+    v1 = (0,0); v2 = (1,0); v3 = (0,2)
+    vertices = [v1, v2, v3]
+    expected = 1
+    computed = get_triangle_area(vertices)
+    tol = 1E-14
+    success = abs(expected - computed) &amp;lt; tol
+    msg = 'computed area=%g != %g (expected)' % (computed, expected)
+    assert success, msg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def get_triangle_area(vert):
+    area = 0.5 * abs(vert[1][0] * vert[2][1] - vert[2][0] * vert[1][1] -
+                     vert[0][0] * vert[2][1] + vert[2][0] * vert[0][1] +
+                     vert[0][0] * vert[1][1] - vert[1][0] * vert[0][1])
+    return area
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. &lt;/strong&gt; Write a logical (boolean) function named &lt;code&gt;is_prime(n)&lt;/code&gt; that takes in an integer number &lt;code&gt;n&lt;/code&gt;, and finds whether it is a Prime number or not. Example output is the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;is_prime(n=23)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;True
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;is_prime(12)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;False
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that you do not need and don’t have to use &lt;code&gt;for-loop&lt;/code&gt; for this problem (we have not yet discussed loops in our class!). All of it can be done using recursive function concept.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def is_prime(n):
+    
+    is_prime = True
+    
+    def is_divisible(n,divisor):
+        if n&amp;lt;2*divisor: return False
+        if n%divisor==0: return True
+        else:
+            divisor += 1
+            return is_divisible(n,divisor)
+
+    if is_divisible(n,divisor=2): is_prime=False
+    return is_prime
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/5-solutions-python-branching-functions&quot;&gt;Homework 5: Solutions - Python branching and functions&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 08, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -2614,7 +3200,7 @@ A version of the code can be downloaded from &lt;a href=&quot;http:/ECL2017S/hom
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Download &lt;a href=&quot;http:/ECL2017S/homework/4/script_full_0f_errors.py&quot; target=&quot;_blank&quot;&gt;this code&lt;/a&gt;. This code is full syntax errors. Fix the errors and submit the corrected code with name &lt;code&gt;script_full_of_errors_corrected.py&lt;/code&gt; in your how4 folder of your project. Explain in front of each corrected Python statement, why the error occurred.  On the last line of the script,&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Download &lt;a href=&quot;http:/ECL2017S/homework/4/script_full_0f_errors.py&quot; target=&quot;_blank&quot;&gt;this code&lt;/a&gt;. This code is full syntax errors. Fix the errors and submit the corrected code with name &lt;code&gt;script_full_of_errors_corrected.py&lt;/code&gt; in your hw4 folder of your project. Explain in front of each corrected Python statement, why the error occurred.  On the last line of the script,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;true = fox is rev in Persian
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
@@ -2656,7 +3242,7 @@ A version of the code can be downloaded from &lt;a href=&quot;http:/ECL2017S/hom
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;4.  Aliasing vs. Copying vairables&lt;/strong&gt; Run the following python statements and briefly explain why you get the behavior printed by the &lt;code&gt;print&lt;/code&gt; functions.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4.  Aliasing vs. Copying variables&lt;/strong&gt; Run the following python statements and briefly explain why you get the behavior printed by the &lt;code&gt;print&lt;/code&gt; functions.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
 
@@ -2905,7 +3491,7 @@ Verify your answer by getting the same result from &lt;a href=&quot;https://www.
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Download &lt;a href=&quot;http:/ECL2017S/homework/4/script_full_of_errors.py&quot; target=&quot;_blank&quot;&gt;this code&lt;/a&gt;. This code is full syntax errors. Fix the errors and submit the corrected code with name &lt;code&gt;script_full_of_errors_corrected.py&lt;/code&gt; in your how4 folder of your project. Explain in front of each corrected Python statement, why the error occurred.  On the last line of the script,&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Download &lt;a href=&quot;http:/ECL2017S/homework/4/script_full_of_errors.py&quot; target=&quot;_blank&quot;&gt;this code&lt;/a&gt;. This code is full syntax errors. Fix the errors and submit the corrected code with name &lt;code&gt;script_full_of_errors_corrected.py&lt;/code&gt; in your hw4 folder of your project. Explain in front of each corrected Python statement, why the error occurred.  On the last line of the script,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;true = fox is rev in Persian
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
@@ -5696,117 +6282,6 @@ error: Cannot delete branch 'test' checked out at 'C:/Users/Amir/git/foo'
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/2-problems-advanced-git&quot;&gt;Homework 2: Problems - Advanced Git&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 08, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Quiz 2: Solutions - Version control system]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/quiz/2-solutions-version-control-system"/>
-  <id>http:/ECL2017S/quiz/2-solutions-version-control-system</id>
-  <published>2017-02-01T00:00:00-06:00</published>
-  <updated>2017-02-01T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This is the solution to &lt;a href=&quot;2-problems-version-control-system.html&quot; target=&quot;_blank&quot;&gt;Quiz 2: Problems - Version control system&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The following figure illustrates the grade distribution for this quiz.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/quiz/gradeDist/gradeHistQuiz2.png&quot; width=&quot;700&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:center&quot;&gt;
-        Maximum possible points is 100.
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Which of the following Git commands can add all the &lt;strong&gt;new&lt;/strong&gt; and &lt;strong&gt;modified-existing&lt;/strong&gt; files to the staging area? choose all that apply.&lt;br /&gt;
-(A) &lt;code&gt;git add -A&lt;/code&gt;&lt;br /&gt;
-(B) &lt;code&gt;git add --A&lt;/code&gt;&lt;br /&gt;
-(C) &lt;code&gt;git add -all&lt;/code&gt;&lt;br /&gt;
-(D) &lt;code&gt;git add --all&lt;/code&gt;&lt;br /&gt;
-(E) &lt;code&gt;git add -u&lt;/code&gt;&lt;br /&gt;
-(E) &lt;code&gt;git add --u&lt;/code&gt;&lt;br /&gt;
-(F) &lt;code&gt;git add .&lt;/code&gt;&lt;br /&gt;
-(G) &lt;code&gt;git add .; git add -u&lt;/code&gt;&lt;br /&gt;
-(H) &lt;code&gt;git add .; git add --u&lt;/code&gt;&lt;br /&gt;
-(I) &lt;code&gt;git add -u; git add .&lt;/code&gt;&lt;br /&gt;
-(J) &lt;code&gt;git add --u; git add .&lt;/code&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Answer: A, D, G, I&lt;/strong&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Which of the following Git commands &lt;strong&gt;both&lt;/strong&gt; stages and commits &lt;strong&gt;only modified and deleted files&lt;/strong&gt; but &lt;strong&gt;NOT&lt;/strong&gt; the &lt;em&gt;new files&lt;/em&gt; added to the repository since the last commit. Choose all that apply.&lt;br /&gt;
-(A) &lt;code&gt;git commit&lt;/code&gt;&lt;br /&gt;
-(B) &lt;code&gt;git commit -a&lt;/code&gt;&lt;br /&gt;
-(C) &lt;code&gt;git commit -am&lt;/code&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Answer: B, C&lt;/strong&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Write down the Git command that lists all Git commands for you.&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git help -a
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/2-solutions-version-control-system&quot;&gt;Quiz 2: Solutions - Version control system&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 01, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Quiz 2: Problems - Version control system]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/quiz/2-problems-version-control-system"/>
-  <id>http:/ECL2017S/quiz/2-problems-version-control-system</id>
-  <published>2017-02-01T00:00:00-06:00</published>
-  <updated>2017-02-01T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This quiz aims at testing your basic knowledge of Git version control system. Don’t forget to push your answers to your remote repository by the end of quiz time.&lt;br /&gt;
-Push all your answers to &lt;strong&gt;quiz/2/&lt;/strong&gt; folder in your Github project.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Which of the following Git commands can add all the &lt;strong&gt;new&lt;/strong&gt; and &lt;strong&gt;modified-existing&lt;/strong&gt; files to the staging area? choose all that apply.&lt;br /&gt;
-(A) &lt;code&gt;git add -A&lt;/code&gt;&lt;br /&gt;
-(B) &lt;code&gt;git add --A&lt;/code&gt;&lt;br /&gt;
-(C) &lt;code&gt;git add -all&lt;/code&gt;&lt;br /&gt;
-(D) &lt;code&gt;git add --all&lt;/code&gt;&lt;br /&gt;
-(E) &lt;code&gt;git add -u&lt;/code&gt;&lt;br /&gt;
-(E) &lt;code&gt;git add --u&lt;/code&gt;&lt;br /&gt;
-(F) &lt;code&gt;git add .&lt;/code&gt;&lt;br /&gt;
-(G) &lt;code&gt;git add .; git add -u&lt;/code&gt;&lt;br /&gt;
-(H) &lt;code&gt;git add .; git add --u&lt;/code&gt;&lt;br /&gt;
-(I) &lt;code&gt;git add -u; git add .&lt;/code&gt;&lt;br /&gt;
-(J) &lt;code&gt;git add --u; git add .&lt;/code&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Which of the following Git commands &lt;strong&gt;both&lt;/strong&gt; stages and commits &lt;strong&gt;only modified and deleted files&lt;/strong&gt; but &lt;strong&gt;NOT&lt;/strong&gt; the &lt;em&gt;new files&lt;/em&gt; added to the repository since the last commit. Choose all that apply.&lt;br /&gt;
-(A) &lt;code&gt;git commit&lt;/code&gt;&lt;br /&gt;
-(B) &lt;code&gt;git commit -a&lt;/code&gt;&lt;br /&gt;
-(C) &lt;code&gt;git commit -am&lt;/code&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Write down the Git command that lists all Git commands for you.&lt;/li&gt;
-&lt;/ol&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/2-problems-version-control-system&quot;&gt;Quiz 2: Problems - Version control system&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 01, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>
