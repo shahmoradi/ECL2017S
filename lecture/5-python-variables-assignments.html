@@ -88,6 +88,11 @@ MathJax.Hub.Queue(function() {
 <link href="/ECL2017S/assets/css/prismCoy.css" rel="stylesheet" />
 -->
 <link href="/ECL2017S/assets/css/prismOkaidia.css" rel="stylesheet" />
+
+<!--The following are for automatic generation of header anchor links: adopted from: http://ben.balter.com/2014/03/13/pages-anchor-links/-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
 <style type="text/css">@media only screen and (min-width:43.75em){.notepad-post-content div>p:first-child:first-letter{float:left;font-size:4.688rem;line-height:4.375rem;padding-top:.25rem;padding-right:.5rem;padding-left:.188rem;font-family:serif}}</style>
 </head>
 <body class="post-template" itemscope itemtype="http://schema.org/WebPage">  
@@ -139,65 +144,17 @@ MathJax.Hub.Queue(function() {
                 </div>
             </header>
 
-        <article class="notepad-post-content post tag-simple">
-            <div style="text-align:justify;"><p>This lecture further explains different types of variables in Python, branching statements, how to define functions, and what Python modules are.</p>
+        
+            <article class="notepad-post-content post tag-simple">
+        
+            <div style="text-align:justify;">
+                <p>This lecture further explains different types of variables in Python, branching statements, how to define functions, and what Python modules are.</p>
 
-<h4 id="table-of-content">Table of Content</h4>
-<!--
--->
-<ul>
-  <li><a href="#glossary">Programming glossary</a></li>
-  <li><a href="#python-variables">Variables in Python (continued)</a>
-    <ul>
-      <li><a href="#python-variables-naming-convention">Variable naming convention in Python</a></li>
-      <li><a href="#python-reserved-names">Python reserved names (keywords)</a></li>
-      <li><a href="#python-underscore-meaning">Meaning of underscore <strong>_</strong> in Python</a></li>
-      <li><a href="#python-variables-numbers">Number variables</a></li>
-      <li><a href="#python-variables-strings">String variables</a>
-        <ul>
-          <li><a href="#python-variables-strings-immutable">Strings are immutable</a></li>
-          <li><a href="#python-variables-strings-test">Testing if a string is part of another string</a></li>
-        </ul>
-      </li>
-      <li><a href="#python-variables-lists">List variables</a>
-        <ul>
-          <li><a href="#python-variables-lists-slices">List slices</a></li>
-          <li><a href="#python-variables-lists-nested">Nested lists</a></li>
-          <li><a href="#python-variables-lists-operations">Operations on lists</a></li>
-          <li><a href="#python-variables-lists-mutable">Lists are mutable (unlike Strings)</a></li>
-          <li><a href="#python-variables-lists-deletion">Deleting list elements</a></li>
-          <li><a href="#python-variables-lists-concatenation">Concatenating a list of strings</a></li>
-        </ul>
-      </li>
-      <li><a href="#python-variables-tuples">Tuple variables</a>
-        <ul>
-          <li><a href="#python-variables-tuples-content-modification">Modifying the content of Tuples</a></li>
-        </ul>
-      </li>
-      <li><a href="#python-variables-dictionaries">Dictionary variables</a>
-        <ul>
-          <li><a href="#python-variables-dictionaries-construction">Three ways of constructing distionaries</a></li>
-          <li><a href="#python-variables-dictionaries-manipulation">Manipulating dictionary variables</a></li>
-          <li><a href="#python-variables-dictionaries-sparse-matrices">Dictionary representation of sparse matrices</a></li>
-        </ul>
-      </li>
-      <li><a href="#python-variables-sets">Set variables</a></li>
-    </ul>
-  </li>
-  <li><a href="#python-assignment-statements">Assignment statements in Python</a>
-    <ul>
-      <li><a href="#python-assignment-statements-alias-copy">Aliasing vs. copying</a></li>
-      <li><a href="#python-assignment-statements-multiple">Multiple simultaneous assignments in one line</a></li>
-      <li><a href="#python-assignment-statements-value-swapping">Value swapping</a>
-<br /></li>
-    </ul>
-  </li>
-</ul>
+<div class="post_toc"></div>
 
-<!--
--->
-<p><a name="glossary"></a></p>
-<h2 id="-programming-glossary"><a href="#glossary">¶</a> Programming glossary</h2>
+<p><br /></p>
+
+<h2 id="programming-glossary">Programming glossary</h2>
 <p>The following table summarizes some of the important keywords in this lecture for you.</p>
 
 <table class="center">
@@ -225,8 +182,7 @@ Table 1. Some programming phrases that are discussed in this lecture.
 </table>
 <p><br /></p>
 
-<p><a name="python-variables"></a></p>
-<h2 id="-variables-in-python-continued"><a href="#python-variables">¶</a> Variables in Python (continued)</h2>
+<h2 id="variables-in-python-continued">Variables in Python (continued)</h2>
 <p>A variable is simply a name that we assign to a specific value, in order to avoid repeating the same value frequently in the code, thus writing a cleaner, less error-prone script/code. As we discussed before, Python has 6 main variable types:</p>
 
 <ul>
@@ -240,8 +196,7 @@ Table 1. Some programming phrases that are discussed in this lecture.
 
 <p>We will get to each of these below. But before that, here are some official and unofficial tips on the variable naming conventions in Python.</p>
 
-<p><a name="python-variables-naming-convention"></a></p>
-<h3 id="-variable-naming-convention-in-python"><a href="#python-variables-naming-convention">¶¶</a> Variable naming convention in Python</h3>
+<h3 id="variable-naming-convention-in-python">Variable naming convention in Python</h3>
 
 <p>A Python variable can only begin with letter or underscore _. Numbers are only valid if they appear inside or at the end of the variable name. Other symbols are syntactically invalid anywhere in a variable name.</p>
 
@@ -283,8 +238,7 @@ SyntaxError: invalid syntax
 <pre><code>The life expectancy for the millennials is projected to be 120 years! (But don't believe it...)
 </code></pre>
 
-<p><a name="python-reserved-names"></a></p>
-<h3 id="-python-reserved-names-keywords"><a href="#python-reserved-names">¶¶</a> Python reserved names (keywords)</h3>
+<h3 id="python-reserved-names-keywords">Python reserved names (keywords)</h3>
 <p>There are some limitation as what names you can choose for your variables, even if they completely obey the Python syntax standard. Variable names in Python cannot be the same as <strong>Python keywords</strong>, which are simply names that reserved for a specific purpose in Python programming.  A keyword as variable name, function name or any other identifier. They are used to define the syntax and structure of the Python language. Note that <strong>Python keywords are case-sensitive</strong>.  There are already more than 30 keywords in Python 3. In order to see a complete list of all keywords use the following python codes,</p>
 <pre><code class="language-python">In [38]: import keyword
 
@@ -334,8 +288,7 @@ Out[40]:
 
 <p>Note that all keywords except <code>True</code>, <code>False</code> and <code>None</code> are in lowercase and they must be written as lowercase. To understand the meaning and function of each of these keywords, see <a href="https://www.programiz.com/python-programming/keyword-list" target="_blank">this page</a>.</p>
 
-<p><a name="python-underscore-meaning"></a></p>
-<h3 id="-meaning-of-underscore-_-in-python"><a href="#python-underscore-meaning">¶¶</a> Meaning of underscore <strong>_</strong> in Python</h3>
+<h3 id="meaning-of-underscore-_-in-python">Meaning of underscore _ in Python</h3>
 
 <p>Frequently, as you learn more about Python, you will notice the presence of underscores in Python variables, function and method names. Depending on where and how underscore appears in a Python name, it can have a different meaning.</p>
 
@@ -395,8 +348,7 @@ Such names are special method names used by Python. This is just a convention, t
 
 <p>A good review of underscore in Python can be found <a href="https://shahriar.svbtle.com/underscores-in-python" target="_blank">here</a>.</p>
 
-<p><a name="python-variables-numbers"></a></p>
-<h3 id="-number-variables"><a href="#python-variables-numbers">¶¶</a> Number variables</h3>
+<h3 id="number-variables">Number variables</h3>
 
 <p>We have already extensively discussed number values in the previous lecture. Basically, everything that we have said about number values, holds also for variables of type number. But here is a very cool fear of number values and variables, that we skipped over in our previous lecture. When you define a Python number variable (or value), then python interpreter automatically allows you to perform some pre-defined operations on the variable/value by default. To access these operations, the dot <code>.</code> syntax has to be used. Type the variable name, followed by <code>.</code>, and then press <code>tab</code> in your IPython/Jupyter editor.  Depending on the type of number (integer/float/complex) you will get a different set of operations that are allowed on the variable. The following shows some examples in IPython environment.</p>
 
@@ -442,8 +394,7 @@ Out[34]: (1-1j)
 </code></pre>
 <p><br /></p>
 
-<p><a name="python-variables-strings"></a></p>
-<h3 id="-string-variables"><a href="#python-variables-strings">¶¶</a> String variables</h3>
+<h3 id="string-variables">String variables</h3>
 <p>Just as with numbers, string is another variable/value type in Python with many handy features that come withit. For example, if you create a string variable or value, fllowed by <code>.</code> and then press <code>tab</code> you will see a long list of methods that can be applied on the string,</p>
 <pre><code class="language-python">In [8]: my_string = 'this is a String'
 
@@ -462,9 +413,9 @@ Out[9]: 'THIS IS A STRING'
 In [10]: my_string.swapcase()
 Out[10]: 'THIS IS A sTRING'
 </code></pre>
-<p><br />
-<a name="python-variables-strings-immutable"></a></p>
-<h4 id="-strings-are-immutable"><a href="#python-variables-strings-immutable">¶¶¶</a> Strings are immutable</h4>
+<p><br /></p>
+
+<h4 id="strings-are-immutable">Strings are immutable</h4>
 <p>Although strings (both values and variables) can be indexed letter by letter, keep in mind that they cannot be changed (mutated) to something new. In other words, string are immutable.</p>
 <pre><code class="language-python">In [11]: my_string = 'Amir Shahmoradi'
 
@@ -493,8 +444,8 @@ Out[33]: 5
 </code></pre>
 <p><br /></p>
 
-<p><a name="python-variables-strings-test"></a></p>
-<h4 id="-testing-if-a-string-is-part-of-another-string"><a href="#python-variables-strings-test">¶¶¶</a> Testing if a string is part of another string</h4>
+<h4 id="testing-if-a-string-is-part-of-another-string">Testing if a string is part of another string</h4>
+
 <p>We have already discussed some boolean string operations in Lecture 4. There are howver two more boolean operations that deserve to be mentioned here.</p>
 <pre><code class="language-python">In [48]: text = "Engineering Computation program at UT Austin, is the first of its kind in the nation"
 
@@ -511,8 +462,7 @@ Out[51]: True
 <p><br />
 To know more about string values and variables in general, visit <a href="https://docs.python.org/2/tutorial/introduction.html#strings" target="_blank">this page</a>.</p>
 
-<p><a name="python-variables-lists"></a></p>
-<h3 id="-list-variables"><a href="#python-variables-lists">¶¶</a> List variables</h3>
+<h3 id="list-variables">List variables</h3>
 <p>List is another standard variable in type in Python and is composed of an ordered set of values (elements), each of which is identified by an index. Lists are defined by brackets <code>[]</code>.</p>
 <pre><code class="language-python">In [47]: emptyList = [] # initiate an empty list
 
@@ -527,9 +477,9 @@ Out[41]: [0, 1, 2, 'Amir', (-1+0j)]
 In [42]: myList[0] # note that list index always begins with 0
 Out[42]: 0
 </code></pre>
-<p><br />
-<a name="python-variables-lists-slices"></a></p>
-<h4 id="-list-slices"><a href="#python-variables-lists-slices">¶¶¶</a> List slices</h4>
+<p><br /></p>
+
+<h4 id="list-slices">List slices</h4>
 
 <pre><code class="language-python">In [43]: myList[:-1] # all list elements from beginning to end, similar to myList, or myList[:]
 Out[43]: [0, 1, 2, 'Amir']
@@ -561,8 +511,7 @@ Out[46]: [(-1+0j), 'Amir', 2, 1, 0]
 <br>
 -->
 
-<p><a name="python-variables-lists-nested"></a></p>
-<h4 id="-nested-lists"><a href="#python-variables-lists-nested">¶¶¶</a> Nested lists</h4>
+<h4 id="nested-lists">Nested lists</h4>
 <p>Lists can also contain other lists as elements. This way you can create matrices of numbers as well.</p>
 <pre><code class="language-python">In [53]: smallList = [1,2,3]
 
@@ -596,9 +545,9 @@ TypeError: object of type 'int' has no len()
 In [64]: len(list_of_lists[2]) # but the third element in the list, is itself a list, so it does have a length
 Out[64]: 2
 </code></pre>
-<p><br />
-<a name="python-variables-lists-operations"></a></p>
-<h4 id="-operations-on-lists"><a href="#python-variables-lists-operations">¶¶¶</a> Operations on lists</h4>
+<p><br /></p>
+
+<h4 id="operations-on-lists">Operations on lists</h4>
 <p>Two mathematics operations <code>+</code> and <code>*</code> are also meaningful for lists, just as it is for string sequences.</p>
 <pre><code class="language-python">In [8]: list1 = [1,2,3]
 
@@ -656,8 +605,7 @@ Out[25]: 4
 <p><br />
 <a href="https://linuxconfig.org/python-list-methods" target="_blank">Here</a> is a useful reference for available list methods in Python.</p>
 
-<p><a name="python-variables-lists-mutable"></a></p>
-<h4 id="-lists-are-mutable-unlike-strings"><a href="#python-variables-lists-mutable">¶¶¶</a> Lists are mutable (unlike Strings)</h4>
+<h4 id="lists-are-mutable-unlike-strings">Lists are mutable (unlike Strings)</h4>
 <p>Another major difference between list sequences and string sequences in Python is that the elements of lists can be changed (mutated) to something new.</p>
 <pre><code class="language-python">In [26]: people = [ 'Amir' , 'Jake' , 'Travis' ]
 
@@ -676,8 +624,7 @@ Out[31]: ['Jake', 'Travis']
 </code></pre>
 <p><br /></p>
 
-<p><a name="python-variables-lists-deletion"></a></p>
-<h4 id="-deleting-list-elements"><a href="#python-variables-lists-deletion">¶¶¶</a> Deleting list elements</h4>
+<h4 id="deleting-list-elements">Deleting list elements</h4>
 <p>Deleting list elements can be done by either value of the element, or using its index, like the following,</p>
 <pre><code class="language-python">In [138]: a = [1,2,3,1,2,3]
 
@@ -696,9 +643,9 @@ In [143]: del a[0:3:2]      # delete element indices 0, 2
 In [144]: a
 Out[144]: [3, 3]
 </code></pre>
-<p><br />
-<a name="python-variables-lists-concatenation"></a></p>
-<h4 id="-concatenating-a-list-of-strings"><a href="#python-variables-lists-concatenation">¶¶¶</a> Concatenating a list of strings</h4>
+<p><br /></p>
+
+<h4 id="concatenating-a-list-of-strings">Concatenating a list of strings</h4>
 <p>If a list is all string values, you can use the following string method <code>.join()</code> to concatenate the content og the list.</p>
 <pre><code class="language-python">In [155]: mylist = ['The' , 'weather' , 'is' , 'rainy' , 'today' , 'and' , 'cold' , 'only' , '22' , 'F.']
 
@@ -707,8 +654,7 @@ Out[156]: 'The weather is rainy today and cold only 22 F.'
 </code></pre>
 <p><br /></p>
 
-<p><a name="python-variables-tuples"></a></p>
-<h3 id="-tuple-variables"><a href="#python-variables-tuples">¶¶</a> Tuple variables</h3>
+<h3 id="tuple-variables">Tuple variables</h3>
 <p>Tuples are a type of Python variables very similar to list sequences, except that they are <strong>immutable</strong>, meaning that, once generated, they cannot be changed. Another difference is that, tuples use parentheses for definition, whereas lists use square brackets.</p>
 <pre><code class="language-python">In [33]: emptyTuple = ()
 
@@ -737,9 +683,9 @@ Creating a tuple is as simple as putting different comma-separated values. Optio
 In [47]: type(tuple2)
 Out[47]: tuple
 </code></pre>
-<p><br />
-<a name="python-variables-tuples-content-modification"></a></p>
-<h4 id="-modifying-the-content-of-tuples"><a href="#python-variables-tuples-content-modification">¶¶¶</a> Modifying the content of Tuples</h4>
+<p><br /></p>
+
+<h4 id="modifying-the-content-of-tuples">Modifying the content of Tuples</h4>
 <p>Tuples are an example of data structure in Python, used for organizing and grouping data. Once a tuple is created, its content cannot be changed or manipulated anymore. However, its elements can be called just like lists.</p>
 <pre><code class="language-python">In [48]: tuple2[0]
 Out[48]: 1
@@ -816,8 +762,7 @@ Out[131]: (('Travis', 'Caleb', 'Lucero'), ('Jake',))
 <p><br />
 Tuples can be <strong>heterogeneous</strong>, as in the above example, meaning that each member of tuple can be a tuple itself, a list, or any other variable type.</p>
 
-<p><a name="python-variables-dictionaries"></a></p>
-<h3 id="-dictionary-variables"><a href="#python-variables-dictionaries">¶¶</a> Dictionary variables</h3>
+<h3 id="dictionary-variables">Dictionary variables</h3>
 <p>The past three data types discussed in the previous secitons — strings, lists, and tuples — are of type <strong>sequence</strong>. For sequences, we have seen above that we use integers as indices to access the values these variables contain. Dictionaries are yet another built-in variable type in Python. A dictionary variable is a sequence of pairs of {key: value}. Instead of using numbers to index elements (as in list, string, tuple), dictionaries use keys in order to retrieve the key’s value.  The keys can be any immutable type (string, number and tuple). Values can be any type (heterogeneous, mutable), just like the elements of a list or tuple. Dictionaries are also called <strong>associative arrays</strong> since they associate a key with a value. One way to create a dictionary is to start with the empty dictionary and add <code>key:value</code> pairs.</p>
 <pre><code class="language-python">In [161]: age = {}   # empty dictionary
 
@@ -847,8 +792,7 @@ Some important features of dictionaries are the following:</p>
   <li>Query the dictionary using square brackets <code>[ ]</code>, inside of which you type the key, and the output will be the value correponding to the key.</li>
 </ul>
 
-<p><a name="python-variables-dictionaries-construction"></a></p>
-<h4 id="-three-ways-of-constructing-distionaries"><a href="#python-variables-dictionaries-construction">¶¶¶</a> Three ways of constructing distionaries</h4>
+<h4 id="three-ways-of-constructing-distionaries">Three ways of constructing distionaries</h4>
 <p>The are three basic ways for creating dictionaries in Python.</p>
 
 <p><strong>1.</strong> Create empty dictionary and then add key-value pairs to it.</p>
@@ -927,8 +871,7 @@ Out[5]: {'amir': 'teacher', 'jake': 'student', 'travis': 'student'}
 </code></pre>
 <p><br /></p>
 
-<p><a name="python-variables-dictionaries-manipulation"></a></p>
-<h4 id="-manipulating-dictionary-variables"><a href="#python-variables-dictionaries-manipulation">¶¶¶</a> Manipulating dictionary variables</h4>
+<h4 id="manipulating-dictionary-variables">Manipulating dictionary variables</h4>
 <p><strong>1. Removing a dictionary key-value pair</strong><br />
 This can be done using Python’s <code>del</code> command,</p>
 <pre><code class="language-python">In [10]: person_role_dict
@@ -995,8 +938,7 @@ Out[28]: {'jake': 'student', 'travis': 'student'}
 </code></pre>
 <p><br /></p>
 
-<p><a name="python-variables-dictionaries-sparse-matrices"></a></p>
-<h4 id="-dictionary-representation-of-sparse-matrices"><a href="#python-variables-dictionaries-sparse-matrices">¶¶¶</a> Dictionary representation of sparse matrices</h4>
+<h4 id="dictionary-representation-of-sparse-matrices">Dictionary representation of sparse matrices</h4>
 <p>We already discussed in the above, the usefulness of nested lists in creating matrices. Now suppose we have a sparse matrix, whose most elements are zero, except a few non-zero elements. An alternative to using nested lists, which can also take less memory of the device, is to use a dictionary representation of the sparse matrix.</p>
 <pre><code class="language-python">In [16]: sparseMatrixList = [ [ 0 , 0 , 0 , 1 ]
    ....:                    , [ 2 , 0 , 0 , 0 ]
@@ -1015,8 +957,7 @@ Out[19]: {(0, 3): 1, (1, 0): 2, (2, 1): 5, (3, 3): 3, (4, 2): 8}
 </code></pre>
 <p><br /></p>
 
-<p><a name="python-variables-sets"></a></p>
-<h3 id="-set-variables"><a href="#python-variables-sets">¶¶</a> Set variables</h3>
+<h3 id="set-variables">Set variables</h3>
 <p>Besides all the aforementioned variable types in Python, there is another Python variable type that is useful for constructing and manipulating <strong>unordered collection of unique elements</strong>. Common uses of sets include <strong>membership testing</strong>, <strong>removing duplicates from a sequence</strong>, and <strong>computing standard math operations on sets</strong> such as intersection, union, difference, and symmetric difference.</p>
 
 <p>Like other collections, sets support <code>x in set</code> and <code>len(set)</code> operations. Being an unordered collection, <strong>sets do not record element position or order of insertion</strong>. Accordingly, sets do not support indexing, slicing, or other sequence-like behavior.</p>
@@ -1064,8 +1005,7 @@ Out[70]: frozenset
 <strong>Note</strong> that mutable types can neither appear in a set nor a frozenset. You can obtain more information about sets and frozensets and the methods that can act on them in the <a href="https://docs.python.org/2.4/lib/types-set.html" target="_blank">Python library reference</a>.
 <br /></p>
 
-<p><a name="python-assignment-statements"></a></p>
-<h2 id="-assignment-statements-in-python"><a href="#python-assignment-statements">¶</a> Assignment statements in Python</h2>
+<h2 id="assignment-statements-in-python">Assignment statements in Python</h2>
 
 <p>In Python, an assignment statement is one line of Python code that contains <strong>at least</strong> one equal sign <code>=</code> and the purpose of it is to associate name(s) with a certain value in the program. <strong>Assignment statements are the only Python statements that do not start with a keyword</strong>. In most cases, the assignment statement will only contain one target name, one equal sign, and one expression (reduced to one single value that is assigned to the name).</p>
 
@@ -1082,8 +1022,7 @@ Out[53]: 2
 </code></pre>
 <p><br /></p>
 
-<p><a name="python-assignment-statements-alias-copy"></a></p>
-<h3 id="-aliasing-vs-copying"><a href="#python-assignment-statements-alias-copy">¶¶</a> Aliasing vs. copying</h3>
+<h3 id="aliasing-vs-copying">Aliasing vs. copying</h3>
 <p>It is very important to understand the difference between <strong>alias</strong> assignment statements and <strong>copy</strong> assignment statements. As far as assignments are concerned, all data types in Python can be divided into two categories:</p>
 
 <ol>
@@ -1152,8 +1091,7 @@ So, keep in mind that, assignments in which the value to be assigned is a contai
 </blockquote>
 <p><br /></p>
 
-<p><a name="python-assignment-statements-multiple"></a></p>
-<h3 id="-multiple-simultaneous-assignments-in-one-line"><a href="#python-assignment-statements-multiple">¶¶</a> Multiple simultaneous assignments in one line</h3>
+<h3 id="multiple-simultaneous-assignments-in-one-line">Multiple simultaneous assignments in one line</h3>
 <p>A shortcut way of aliasing multiple variables with one single value is the following,</p>
 <pre><code class="language-python">In [101]: a = b = c = 3
 
@@ -1229,8 +1167,7 @@ Out[67]: True
 </code></pre>
 <p><br /></p>
 
-<p><a name="python-assignment-statements-value-swapping"></a></p>
-<h3 id="-value-swapping"><a href="#python-assignment-statements-value-swapping">¶¶</a> Value swapping</h3>
+<h3 id="value-swapping">Value swapping</h3>
 <p>The traditional way of swapping values of two variables in mostprogramming languages is like the following,</p>
 <pre><code class="language-python">In [68]: a = 5
 
@@ -1346,8 +1283,8 @@ Out[80]: 5
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2017 / 03 / 22</section></br> -->
-         <section>Last updated Wednesday, 22 Mar 2017 at 01:47 PM CST</section></br>
+         <!-- <section>Last updated 2017 / 03 / 26</section></br> -->
+         <section>Last updated Sunday, 26 Mar 2017 at 10:29 PM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>
@@ -1398,11 +1335,20 @@ Out[80]: 5
   <script type='text/javascript'>console.log("http://www.shahmoradi.org/");</script>
 <!-- End of scripts for the dynamic header of pages -->
 
+<!--The following scripts is for automatic generation of header anchor links: adopted from: http://ben.balter.com/2014/03/13/pages-anchor-links/-->
+<script src="/ECL2017S/assets/js/autoAnchorLink.js"></script>
+<!--End of automatic generation of header anchor links.-->
+
+
+
 <!-- <script src="/ECL2017S/assets/js/prismOkaidia.js"></script>
 <script src="/ECL2017S/assets/js/prismTwilight.js"></script>
 <script src="/ECL2017S/assets/js/prismDefault.js"></script>
  -->
 <script src="/ECL2017S/assets/js/prismCoy.js"></script>
+
+
+
 
 <!-- Start of Google Analytics Code for Default Guide -->
   <script>
@@ -1432,5 +1378,7 @@ Out[80]: 5
     src="http://c.statcounter.com/10611821/0/902e4bb4/0/"
     alt="shopify visitor statistics"></a></div></noscript>
 <!-- End of StatCounter Code for Default Guide --> 
+<!--automatic Table of Content.-->
+<script src="/ECL2017S/assets/js/autoTOC.js"></script>
 </body>
 </html>

@@ -1,9 +1,10 @@
+#!/usr/bin/env python
 def is_prime(n):
     
     is_prime = True
     
     def is_divisible(n,divisor):
-        if n<(divisor-1)*divisor: return False
+        if n<2*divisor: return False
         if n%divisor==0: return True
         else:
             divisor += 1
@@ -21,7 +22,8 @@ def get_primes(n):
         n -= 1
         get_primes(n)
 
-n = input('Enter an integer number: ')
-n = int(n)
-print('Here is a list of all prime numbers smaller than {}:'.format(n))
-get_primes(n)
+if __name__ == "__main__":
+    print('Enter an integer number: ')
+    n = int(input('n = '))
+    print('Here is a list of all prime numbers smaller than {}:'.format(n))
+    get_primes(n)

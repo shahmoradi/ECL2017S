@@ -7,13 +7,746 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-03-22T13:47:16-05:00</updated>
+<updated>2017-03-26T22:29:58-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
   <uri>http:/ECL2017S/</uri>
   <email>amir@ices.utexas.edu</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Lecture 7: Python - modules, loops, and I/O]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/lecture/7-python-modules-loops-io"/>
+  <id>http:/ECL2017S/lecture/7-python-modules-loops-io</id>
+  <published>2017-03-29T00:00:00-05:00</published>
+  <updated>2017-03-29T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This lecture explains modules, loops, with a brief introduction to Input/Output processes in Python. Ideally, modules should have been part of the previous lecture (with Python functions). The split was however necessary to reduce the size of lecture 6 to a managable size.&lt;/p&gt;
+
+&lt;div class=&quot;post_toc&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;python-modules&quot;&gt;Python modules&lt;/h2&gt;
+&lt;p&gt;We have already used Python modules extensively in the past lectures, homework, and quizzes. although we never discussed them. To put it simply, Python modules are a collection of Python definitions, variables, functions, … that can be reused as a library in future.&lt;/p&gt;
+
+&lt;p&gt;Sometimes you want to reuse a function from an old program in a new program. The simplest way to do this is to copy and paste the old source code into the new program. However, this is not good programming practice, because you then over
+time end up with multiple identical versions of the same function. When you want to improve the function or correct a bug, you need to remember to do the same update in all files with a copy of the function, and in real life most programmers fail to do so. You easily end up with a mess of different versions with different quality of basically the same code. Therefore, a golden rule of programming is to have one and only one version of a piece of code. All programs that want to use this piece of code must access one and only one place where the source code is kept. This principle is easy to implement if we create a module containing the code we want to reuse later in different programs.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-import-statement&quot;&gt;The import statement&lt;/h3&gt;
+&lt;p&gt;We have already used the &lt;code&gt;math&lt;/code&gt; module on multiple occasions, using the &lt;code&gt;import&lt;/code&gt; statement. Here is an example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [11]: import math
+
+In [12]: value = math.factorial(5)
+
+In [13]: print(value)
+120
+
+In [14]: math.pi
+Out[14]: 3.141592653589793
+
+In [15]: math.e
+Out[15]: 2.718281828459045
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+In its simplest form, the import has the following syntax:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import module1[, module2[,... moduleN]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+like,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import math, cmath, numpy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+The standard approach for calling the names and definitions (variables, functions, …) inside the module is using the module-name prefix, like the above examples. To call the module names without the prefix, use the following module import statement,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [16]: from math import *
+
+In [17]: factorial(5)
+Out[17]: 120
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+To import only specific names, use the format like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from math import pi,e,factorial,erf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;This will import the four math modules names &lt;code&gt;pi,e,factorial,erf&lt;/code&gt;. You could also change the name of the input module, or specific names from it, upon importing the module into your code, using &lt;code&gt;import as&lt;/code&gt; statement,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [16]: import numpy as np
+
+In [17]: np.double(5)
+Out[17]: 5.0
+
+In [20]: from numpy import double as dble
+
+In [21]: dble(13)
+Out[21]: 13.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+    A module can contain executable statements as well as function definitions. These statements are intended to initialize the module. They are executed &lt;b&gt;only the first time the module name is encountered in an import statement&lt;/b&gt;. &lt;br /&gt;&lt;br /&gt;
+    Also, note that in general the practice of &lt;code&gt;from mod_name import *&lt;/code&gt; from a module is discouraged, since it often causes poorly readable code. It is however very useful for saving time and exra typing in interactive sessions like IPython, or Jupyter.
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;listing-all-names-in-an-imported-module&quot;&gt;Listing all names in an imported module&lt;/h3&gt;
+&lt;p&gt;To get a list of all available names in an imported module, use &lt;code&gt;dir()&lt;/code&gt; function.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [11]: import math
+
+In [13]: dir(math)
+Out[13]:
+['__doc__',
+ '__loader__',
+ '__name__',
+ '__package__',
+ '__spec__',
+ 'acos',
+ 'acosh',
+ 'asin',
+ 'asinh',
+ 'atan',
+ 'atan2',
+ 'atanh',
+ 'ceil',
+ 'copysign',
+ 'cos',
+ 'cosh',
+ 'degrees',
+ 'e',
+ 'erf',
+ 'erfc',
+ 'exp',
+ 'expm1',
+ 'fabs',
+ 'factorial',
+ 'floor',
+ 'fmod',
+ 'frexp',
+ 'fsum',
+ 'gamma',
+ 'gcd',
+ 'hypot',
+ 'inf',
+ 'isclose',
+ 'isfinite',
+ 'isinf',
+ 'isnan',
+ 'ldexp',
+ 'lgamma',
+ 'log',
+ 'log10',
+ 'log1p',
+ 'log2',
+ 'modf',
+ 'nan',
+ 'pi',
+ 'pow',
+ 'radians',
+ 'sin',
+ 'sinh',
+ 'sqrt',
+ 'tan',
+ 'tanh',
+ 'trunc']
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;python-standard-modules&quot;&gt;Python standard Modules&lt;/h3&gt;
+&lt;p&gt;Python comes with a set of standard modules as its library, the so-called &lt;a href=&quot;https://docs.python.org/3/library/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Python Standard Library&lt;/strong&gt;&lt;/a&gt;. Some modules of these are built into the Python interpreter; these provide access to operations that are not part of the core of the language but are nevertheless built in, for efficiency and other reasons.&lt;/p&gt;
+
+&lt;h3 id=&quot;creating-modules&quot;&gt;Creating modules&lt;/h3&gt;
+
+&lt;p&gt;To make a Python module, simply collect all the functions that constitute the module in one single file with a given filename, for example, &lt;code&gt;mymodule.py&lt;/code&gt;. This file will be automatically a module, with name &lt;code&gt;mymodule&lt;/code&gt;, from which you can import functions and definitions in the standard way described above.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;b&gt;Why and when do you need to create a module?&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+    Sometimes you want to reuse a function from an old program in a new program. The simplest way to do this is to copy and paste the old source code into the new program. However, this is not good programming practice, because you then over time end up with multiple identical versions of the same function. When you want to improve the function or correct a bug, you need to remember to do the same update in all files with a copy of the function, and in real life most programmers fail to do so. You easily end up with a mess of different versions with different quality of basically the same code. Therefore, a golden rule of programming is to have one and only one version of a piece of code. All programs that want to use this piece of code must access one and only one place where the source code is kept. This principle is easy to implement if we create a module containing the code we want to reuse later in different programs.
+&lt;/blockquote&gt;
+
+&lt;p&gt;Note that modules can import other modules. It is customary but not required to place all import statements at the beginning of a module (or script, for that matter). The imported module names are placed in the importing module’s global &lt;a href=&quot;https://en.wikipedia.org/wiki/Symbol_table&quot; target=&quot;_blank&quot;&gt;symbol table&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;executing-modules-as-scripts&quot;&gt;Executing modules as scripts&lt;/h4&gt;
+
+&lt;p&gt;When a Python module is called from the Bash command prompt like,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;python mycode.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+the code in the module will be executed, just as if you imported it inside another code. This is good, but can sometimnes become problematic. Let’s explain this with an example from the midterm exam, a &lt;a href=&quot;/lecture/7/find_primes.py&quot; target=&quot;_blank&quot;&gt;script&lt;/a&gt; that finds and reports all prime numbers smaller than a given input number $n$.&lt;/p&gt;
+
+&lt;p&gt;When you execute this code as astandalone Python script, it will ask you for an integer, to give you all integers that are smaller than the input number. Now suppose you wanted to import this script as a Python module into your code. If you do so, the Python interpreter would run all statements in this script and asks you to input an integer, before importing the rest of the functions in this script.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [5]: import find_primes
+Enter an integer number:
+n = 13
+
+ Here is a list of all prime numbers smaller than 13:
+13
+11
+7
+5
+3
+2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+This may not be necessarily what we want to do. For example, we may only want to use the functions &lt;code&gt;get_primes&lt;/code&gt; and &lt;code&gt;is_prime&lt;/code&gt; in this script, without asking the user to input an integer and finding all smaller primes. The solution is to put the part of the code in the script that we don’t want to be executed as module, that is,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print('Enter an integer number: ')
+n = int(input('n = '))
+print('\n Here is a list of all prime numbers smaller than {}:'.format(n))
+get_primes(n)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+inside the following if-block,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if __name__ == &quot;__main__&quot;:
+    print('Enter an integer number: ')
+    n = int(input('n = '))
+    print('Here is a list of all prime numbers smaller than {}:'.format(n))
+    get_primes(n)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+When the code is run as a standalone script, the &lt;code&gt;__name__&lt;/code&gt; property of the code is set to &lt;code&gt;__main__&lt;/code&gt;. However, when the script is imported as a module inside another code, the &lt;code&gt;__name__&lt;/code&gt; property is automatically set to the name of the module &lt;code&gt;find_primes&lt;/code&gt;. Thus as a module, the above if-block will not be executed, but the rest of the code (the two functions) will be properly imported. The corrected script is named &lt;code&gt;mod_find_primes.py&lt;/code&gt; and can be downloaded from &lt;a href=&quot;/lecture/7/mod_find_primes.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;In [6]: import mod_find_primes
+In [7]: mod_find_primes.__name__
+Out[7]: 'mod_find_primes'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+You could also import specific names or funcitons from your own module, for example&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;In [11]: from mod_find_primes import is_prime
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+In summary,&lt;/p&gt;
+
+&lt;blockquote&gt;
+    &lt;b&gt;Add test blocks in your modules&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+    It is recommended to only have functions and not any statements outside functions in a module. The reason is that the module file is executed from top to bottom during the import. With function definitions only in the module file, and no main program, there will be no calculations or output from the import, just definitions of functions. But in case you need to write a module that can be run standalone, then put all script statements for the standalone part of the module inside a &lt;b&gt;test block&lt;/b&gt; (the if-block described above).
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;command-line-arguments&quot;&gt;Command line arguments&lt;/h4&gt;
+
+&lt;p&gt;Test blocks are especially useful when your module can be also run as a standalone Python script that takes in &lt;strong&gt;command-line arguments&lt;/strong&gt;. &lt;a href=&quot;/lecture/7/cmd_find_primes.py&quot; target=&quot;_blank&quot;&gt;Here&lt;/a&gt; is a modified version of the &lt;code&gt;mod_find_primes&lt;/code&gt; module now named &lt;code&gt;cmd_find_primes&lt;/code&gt; that instead of using &lt;code&gt;input()&lt;/code&gt; function, reads the integer number from the Bash command line. To do so, you need to modify the last part of the original module to the following, using Python’s standard &lt;code&gt;sys&lt;/code&gt; module,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if __name__ == &quot;__main__&quot;:
+    import sys
+    if len( sys.argv ) != 2: # check the number of arguments to be exactly 2.
+        print('''
+    Error: Exactly two arguments must be given on the command line.
+    Usage:''')
+        print(&quot;     &quot;, sys.argv[0], &quot;&amp;lt;a positive integer number&amp;gt;&quot;, '\n')
+        sys.exit('     Program stopped.\n')
+    else:
+        n = int(sys.argv[1])
+        print('Here is a list of all prime numbers smaller than {}:'.format(n))
+        get_primes(n)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Now if you run this code, from the Bash command line, or inside IPython, like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [14]: run cmd_find_primes.py
+
+    Error: Exactly two arguments must be given on the command line.
+    Usage:
+      cmd_find_primes.py &amp;lt;a positive integer number&amp;gt;
+
+An exception has occurred, use %tb to see the full traceback.
+
+SystemExit:      Program stopped.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+The code will expect you to enter an integer right after the nbame of the script,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [15]: run cmd_find_primes.py 13
+Here is a list of all prime numbers smaller than 13:
+13
+11
+7
+5
+3
+2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+In general, I recommend you to use the &lt;code&gt;sys&lt;/code&gt; module for input arguments instead of Python’s &lt;code&gt;input()&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;blockquote&gt;
+    &lt;b&gt;Modules and main functions&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+    If you have some functions and a main program in some program file, just move the main program to the test block. Then the file can act as a module, giving access to all the functions in other files, or the file can be executed from the command line, in the same way as the original program.
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;test-blocks-for-module-code-verification&quot;&gt;Test blocks for module code verification&lt;/h4&gt;
+
+&lt;p&gt;It is a good programming habit to let the test block do one or more of three things:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;provide information on how the module or program is used,&lt;/li&gt;
+  &lt;li&gt;test if the module functions work properly,&lt;/li&gt;
+  &lt;li&gt;offer interaction with users such that the module file can be applied as a useful program.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;To achieve the second task, we have to write functions that verify the implementation in a module. The general advice is to write test functions that,&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;have names starting with &lt;code&gt;test_&lt;/code&gt;,&lt;/li&gt;
+  &lt;li&gt;express the success or failure of a test through a boolean variable, say &lt;code&gt;success&lt;/code&gt;,&lt;/li&gt;
+  &lt;li&gt;run &lt;code&gt;assert success, msg&lt;/code&gt; to raise an &lt;code&gt;AssertionError&lt;/code&gt; with an optional message &lt;code&gt;msg&lt;/code&gt; in case the test fails.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;We talk about this later on in this course.&lt;/p&gt;
+
+&lt;blockquote&gt;
+    &lt;b&gt;Doc-strings in modules&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+    It is a good habit to include a doc-string in the beginning of your module file. This doc string should explain the purpose and use of the module.
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;scope-of-definitions-in-your-module&quot;&gt;Scope of definitions in your module&lt;/h4&gt;
+
+&lt;p&gt;Once you have created your module, you can import it just like any other module into our program, for example,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [22]: import cmd_find_primes
+
+In [23]: dir(cmd_find_primes)
+Out[23]:
+['__builtins__',
+ '__cached__',
+ '__doc__',
+ '__file__',
+ '__loader__',
+ '__name__',
+ '__package__',
+ '__spec__',
+ 'get_primes',
+ 'is_prime']
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+However, more often than not, you may want to have variables in your module, that are only to be used inside the module and not be accessed by the user. The convention is to start the names of these variables by an underscore. For example,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;_course = &quot;Python programming&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+This however, does not prevent the import of the variable &lt;code&gt;_course&lt;/code&gt; into your code from your the &lt;a href=&quot;/lecture/7/mod_cmd_find_primes_del.py&quot; target=&quot;_blank&quot;&gt;module&lt;/a&gt; containing it. One solution is to delete the variables that we are not interested the user to have access to, at the end of the module,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;del _course
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+such that the &lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;module&lt;/a&gt; containing the above statement will give,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [28]: import mod_cmd_find_primes_del
+
+In [29]: dir( mod_cmd_find_primes_del )
+Out[29]:
+['__builtins__',
+ '__cached__',
+ '__doc__',
+ '__file__',
+ '__loader__',
+ '__name__',
+ '__package__',
+ '__spec__',
+ 'get_primes',
+ 'is_prime']
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;However, note that if you import all definitions in &lt;a href=&quot;/lecture/7/mod_cmd_find_primes_all.py&quot; target=&quot;_blank&quot;&gt;your module&lt;/a&gt; as standalone definitions like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [4]: from mod_cmd_find_primes_all import *
+
+In [5]: dir()
+Out[5]:
+['In',
+ 'Out',
+ '_',
+ '_3',
+ '__',
+ '___',
+ '__builtin__',
+ '__builtins__',
+ '__doc__',
+ '__loader__',
+ '__name__',
+ '__package__',
+ '__spec__',
+ '_dh',
+ '_i',
+ '_i1',
+ '_i2',
+ '_i3',
+ '_i4',
+ '_i5',
+ '_ih',
+ '_ii',
+ '_iii',
+ '_oh',
+ '_sh',
+ 'exit',
+ 'get_ipython',
+ 'get_primes',
+ 'is_prime',
+ 'quit']
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+you see that the variable &lt;code&gt;_course&lt;/code&gt; is not imported. In general, to avoid confusion, it is best to define an &lt;code&gt;__all__&lt;/code&gt; variable in your module, which contains a list of all variable and function names that are to be imported as standalone definitions using &lt;code&gt;from mymodule import *&lt;/code&gt;. For example, add the following to the above module,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;__all__ = ['get_primes']
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Upong importing this module, now only the function &lt;code&gt;get_prime&lt;/code&gt; will be imported and not &lt;code&gt;_course&lt;/code&gt; or &lt;code&gt;is_prime&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;the-path-to-your-modules&quot;&gt;The path to your modules&lt;/h4&gt;
+&lt;p&gt;When you create a module, if it is in the current directory of your code, then it will be automatcally found by the Python interpreter. This is however, not generally the case if your module lives in another directory than the current working directory of Python interpreter. To add the module’s directory to the path of your Python interpreter, use the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [5]: myModuleFolder = ’the path to your module’
+
+In [6]: import sys
+
+In [7]: sys.path
+Out[7]:
+['',
+ 'C:\\Program Files\\Anaconda3\\Scripts',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\lmfit-0.9.5_44_gb2041c3-py3.5.egg',
+ 'C:\\Program Files\\Anaconda3\\python35.zip',
+ 'C:\\Program Files\\Anaconda3\\DLLs',
+ 'C:\\Program Files\\Anaconda3\\lib',
+ 'C:\\Program Files\\Anaconda3',
+ 'c:\\program files\\anaconda3\\lib\\site-packages\\setuptools-20.3-py3.5.egg',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\Sphinx-1.3.5-py3.5.egg',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\win32',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\win32\\lib',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\Pythonwin',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\IPython\\extensions',
+ 'C:\\Users\\Amir\\.ipython']
+
+In [8]: sys.path.insert(0,myModuleFolder)
+
+In [9]: sys.path
+Out[9]:
+[’the path to your module’,
+ '',
+ 'C:\\Program Files\\Anaconda3\\Scripts',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\lmfit-0.9.5_44_gb2041c3-py3.5.egg',
+ 'C:\\Program Files\\Anaconda3\\python35.zip',
+ 'C:\\Program Files\\Anaconda3\\DLLs',
+ 'C:\\Program Files\\Anaconda3\\lib',
+ 'C:\\Program Files\\Anaconda3',
+ 'c:\\program files\\anaconda3\\lib\\site-packages\\setuptools-20.3-py3.5.egg',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\Sphinx-1.3.5-py3.5.egg',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\win32',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\win32\\lib',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\Pythonwin',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\IPython\\extensions',
+ 'C:\\Users\\Amir\\.ipython']
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+In the above, we added the path to our module to the list of all paths the Python interpreter will search, in order to find the module requested to be imported (Note that &lt;code&gt;’the path to your module’&lt;/code&gt; is not a real system path, this was just an example).&lt;/p&gt;
+
+&lt;h3 id=&quot;the-collections-module&quot;&gt;The &lt;strong&gt;collections&lt;/strong&gt; module&lt;/h3&gt;
+
+&lt;p&gt;One of the greatest strengths of Python as a scientific programming language is that, for almost everything that you could imagine and want to write a code, someone has already written a code, and so there is &lt;em&gt;no reason to reinvent the wheel if someone has already done it for you&lt;/em&gt;. Throughout your career you will get to know many of the most important modules for your own domain of science. Here I will introduce only a general module, that has some interesting and rather useful functions in it. Specifically, this module contains some new non-standard Python data types that can be very handy at times.&lt;/p&gt;
+
+&lt;h4 id=&quot;the-counter-data-type&quot;&gt;The &lt;strong&gt;Counter&lt;/strong&gt; data type&lt;/h4&gt;
+
+&lt;p&gt;The &lt;code&gt;Counter&lt;/code&gt; function from module &lt;code&gt;collections&lt;/code&gt; takes in a list and creates a dictionary, whose keys are unique elements in the input list and the values of the keys, are the number of times each key appears in the list. For example,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from collections import Counter
+mylist = [1,1,1,2,3,34,45,34,34,7,8,34,3,3,6,4,4,4,0,34,9,0]
+c = Counter(mylist)
+c
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Counter({0: 2, 1: 3, 2: 1, 3: 3, 4: 3, 6: 1, 7: 1, 8: 1, 9: 1, 34: 5, 45: 1})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There are basically three methods for generating a Counter dictionary,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;c1 = Counter(['a', 'b', 'c', 'a', 'b', 'b']) # input a list directly into Counter
+c2 = Counter({'a':2, 'b':3, 'c':1}) # Give it the Counter dictionary
+c3 = Counter(a=2, b=3, c=1) # or simply give it the counts
+c1 == c2 == c3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;True
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;what-is-counter-useful-for&quot;&gt;What is Counter useful for?&lt;/h5&gt;
+
+&lt;p&gt;Suppose you have a long list of letters, and for some reason you need to count the number of times each letter appears in your string. You can achieve your goal as in the following example,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;s = 'amirshahmoradijakelucerotravismike'
+c = Counter(s)
+for key in c.keys():
+    print('The letter {} appears only {} times in the string'.format(key,c[key]))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;The letter v appears only 1 times in the string
+The letter a appears only 5 times in the string
+The letter u appears only 1 times in the string
+The letter l appears only 1 times in the string
+The letter j appears only 1 times in the string
+The letter d appears only 1 times in the string
+The letter h appears only 2 times in the string
+The letter o appears only 2 times in the string
+The letter i appears only 4 times in the string
+The letter k appears only 2 times in the string
+The letter c appears only 1 times in the string
+The letter t appears only 1 times in the string
+The letter s appears only 2 times in the string
+The letter m appears only 3 times in the string
+The letter r appears only 4 times in the string
+The letter e appears only 3 times in the string   ​
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now suppose you wanted to cound the number of times different words appear in a given text,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;text = &quot;Engineering Computation Lab (COE111L) is a new course that is offered by the department of Aerospace Engineering and Engineering Mechanics at the University of Texas at Austin, starting Spring 2017. &quot;
+c = Counter(text.split())
+for word in c.keys():
+    print('The word &quot;{}&quot; appears only {} times in the text'.format(word,c[word]))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;The word &quot;Computation&quot; appears only 1 times in the text
+The word &quot;a&quot; appears only 1 times in the text
+The word &quot;Engineering&quot; appears only 3 times in the text
+The word &quot;the&quot; appears only 2 times in the text
+The word &quot;(COE111L)&quot; appears only 1 times in the text
+The word &quot;offered&quot; appears only 1 times in the text
+The word &quot;is&quot; appears only 2 times in the text
+The word &quot;at&quot; appears only 2 times in the text
+The word &quot;of&quot; appears only 2 times in the text
+The word &quot;Lab&quot; appears only 1 times in the text
+The word &quot;course&quot; appears only 1 times in the text
+The word &quot;department&quot; appears only 1 times in the text
+The word &quot;by&quot; appears only 1 times in the text
+The word &quot;and&quot; appears only 1 times in the text
+The word &quot;Texas&quot; appears only 1 times in the text
+The word &quot;Mechanics&quot; appears only 1 times in the text
+The word &quot;2017.&quot; appears only 1 times in the text
+The word &quot;new&quot; appears only 1 times in the text
+The word &quot;University&quot; appears only 1 times in the text
+The word &quot;starting&quot; appears only 1 times in the text
+The word &quot;Austin,&quot; appears only 1 times in the text
+The word &quot;that&quot; appears only 1 times in the text
+The word &quot;Spring&quot; appears only 1 times in the text
+The word &quot;Aerospace&quot; appears only 1 times in the text  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, you can also apply all different methods that exists for Counter data types on the variable &lt;code&gt;c&lt;/code&gt; in the above case. For example, you could ask for the 3 most common words in in the text,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;c.most_common(3)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;[('Engineering', 3), ('the', 2), ('is', 2)]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;the-ordereddict-data-type&quot;&gt;The &lt;strong&gt;OrderedDict&lt;/strong&gt; data type&lt;/h4&gt;
+&lt;p&gt;This is also a subclass of dictionary data type, which provides all the methods provided by &lt;code&gt;dict&lt;/code&gt;, but which also retains the order by which elements are added to the dictionary,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+However, you can define a &lt;code&gt;defaultdict&lt;/code&gt; dictionary which will assign a default value to all keys that do not exist, and automatically adds them to the dictionary. A normal dictionary does not conserve the order by which elements were added to the dictionary,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;d = {5:5,3:3,6:6,1:1}
+for i,j in d.items():
+    print(i,j)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+    1 1
+    3 3
+    5 5
+    6 6&lt;/p&gt;
+
+&lt;p&gt;To get save order of the elements, you can use &lt;code&gt;OrderedDict&lt;/code&gt;,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from collections import OrderedDict as od
+d = od([(5,5),(3,3),(6,6),(1,1)])
+for i,j in d.items():
+    print(i,j)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;5 5
+3 3
+6 6
+1 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+Keep in mind that, two order dictionary with the same content may not be necessarily equal, since the order of their content also matters.
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;the-timeit-module&quot;&gt;The timeit module&lt;/h3&gt;
+&lt;p&gt;This is a module that provides some useful functions for timing the performance and speed of peices of your Python code.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import timeit as tt
+tt.timeit( &quot;-&quot;.join(str(n) for n in range(100)) , number=10000 )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;0.03779717059364884
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first input to &lt;code&gt;timeit&lt;/code&gt; function above is the operation which we would like to time, and the second input, tell the function, how many times repeat the task (If the operation takes a tiny amount, you would want to repeat it many many times, in order to get a sensible timing output). Here is the same operation as above, but now using the &lt;a href=&quot;http://book.pythontips.com/en/latest/map_filter.html#map&quot; target=&quot;_blank&quot;&gt;map&lt;/a&gt; function,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;tt.timeit( &quot;-&quot;.join( map(str,range(1000))) , number=10000 )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;0.384857713242468  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In IPython or Jupyter, you can do the timing operation in a smarter way using IPython magic function &lt;a href=&quot;https://ipython.org/ipython-doc/dev/interactive/magics.html#magic-timeit&quot; target=&quot;_blank&quot;&gt;%timeit&lt;/a&gt;,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;%timeit &quot;-&quot;.join(str(n) for n in range(100))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;10000 loops, best of 3: 36.6 µs per loop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The IPython’s magic function automatically figures how many times it should run the operation to get a sensible timing of the operation.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;%timeit &quot;-&quot;.join( map(str,range(100)))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;10000 loops, best of 3: 21 µs per loop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In general, as you noticed in the above example, the function &lt;code&gt;map&lt;/code&gt; performs much better and faster than Python’s for-loop.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;loops-in-python&quot;&gt;Loops in Python&lt;/h2&gt;
+
+&lt;p&gt;We have already seen, both in homework and midterm, what a pain it can be if you wanted to repeat a certain number of tasks using recursive functions and if-blocks. Fortunately, Python has loop statements that can highly simplify the task of repeating certain statements for a certain number of times.&lt;/p&gt;
+
+&lt;h3 id=&quot;while-loop&quot;&gt;While loop&lt;/h3&gt;
+
+&lt;p&gt;One such statement is the while-loop:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;while this_logical_statement_holds_true : 
+    perform_statements
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+For example, here is a code that prints all positive integers smaller than a given input integer,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;n = int(input('input a positive integer: '))
+print( 'Here are all positive integers smaller than {}'.format(n) )
+while n &amp;gt; 1:
+    n -= 1
+    print(n)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;input a positive integer: 7
+Here are all positive integers smaller than 7
+6
+5
+4
+3
+2
+1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Another useful way of writing while-loops is the following (using the example above),&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;n = int(input('input a positive integer: '))
+print( 'Here are all positive integers smaller than {}'.format(n) )
+while True:
+    n -= 1
+    print(n)
+    if n == 1: break
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;input a positive integer: 7
+Here are all positive integers smaller than 7
+6
+5
+4
+3
+2
+1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In this case, the loop will continue forever, unless the condition &lt;code&gt;n==1&lt;/code&gt; is met at some point during the iteration.&lt;/p&gt;
+
+&lt;h3 id=&quot;for-loop&quot;&gt;For loop&lt;/h3&gt;
+
+&lt;p&gt;If you are from a Fortran, C, C++ background you maybe already accustomed to counting loops than while loops. Pyhon does not have a direct method for counting loops, however, there is a for-loop syntax that loops over the elements of a list or tuple. For example, if we wanted to rewrite the above code using for-loop, one solution would be like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;n = int(input('input a positive integer: '))
+print( 'Here are all positive integers smaller than {}'.format(n) )
+my_range = range(n-1,0,-1)
+for n in my_range:
+    print(n)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;input a positive integer: 7
+Here are all positive integers smaller than 7
+7
+6
+5
+4
+3
+2
+1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here the Python’s builtin function &lt;code&gt;range([start,] stop [, step])&lt;/code&gt; creates a list of integer that starts from &lt;code&gt;start&lt;/code&gt; to &lt;code&gt;end&lt;/code&gt; &lt;em&gt;but not including &lt;code&gt;end&lt;/code&gt;&lt;/em&gt;, with a distance of size &lt;code&gt;step&lt;/code&gt; between the elements. Here is another way of doing the same thing as in the above example,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;n = int(input('input a positive integer: '))
+print( 'Here are all positive integers smaller than {}'.format(n) )
+mylist = list(range(n-1,0,-1))
+for n in mylist:
+    print(n)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;input a positive integer: 7
+Here are all positive integers smaller than 7
+6
+5
+4
+3
+2
+1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note how I have used the &lt;code&gt;range&lt;/code&gt; function in order to get the same output as in the previous example.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;n = int(input('input a positive integer: '))
+mylist = list(range(n-1,0,-1))
+print(mylist)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;input a positive integer: 7  
+[6, 5, 4, 3, 2, 1]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;for-loop-with-list-indices&quot;&gt;​For-loop with list indices&lt;/h4&gt;
+
+&lt;p&gt;Instead of iterating over over a list directly, as illustrated above, one could iterate over the indices of a list,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;mylist = ['amir','jake','lecero','mike','travis']
+for i in range(len(mylist)):
+    print(mylist[i])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;amir
+jake
+lecero
+mike
+travis
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+    Iterating over list indices, instead of list elements, is particularly udseful, when you have to work with multiple lists in a for-loop.
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;manipulating-lists-using-for-loop&quot;&gt;Manipulating lists using for-loop&lt;/h4&gt;
+
+&lt;p&gt;Note that when you want to change the elements of a list in a for-loop, you have to change the list itself, and not simply the for-loop variable.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;mydigits = [1,3,5,7,9]
+for i in mydigits:
+    i -= 1
+mydigits
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;[1, 3, 5, 7, 9]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The above code won’t change the values in the list, instead only the for-loop variable. If you want to change the list itself, you have to operate on the list elements directly,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;mydigits = [1,3,5,7,9]
+for i in rnage(len(mydigits)):
+    mydigits[i] -= 1
+mydigits
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;[0, 2, 4, 6, 8]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;list-comprehension&quot;&gt;List comprehension&lt;/h4&gt;
+
+&lt;p&gt;Frequently in Python programming you may need to create long lists of regurlarly ordered item. As a result, Python has a special concise syntax for such tasks, called &lt;strong&gt;list comprehension&lt;/strong&gt; which uses for-loop. For example, supopse you have a list of odd digits as in the example above, and you want to create a list of even digits from it. You could achieve this using the following simple syntax,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;odd_digits = [1,3,5,7,9]
+even_digits = [i-1 for i in odd_digits]
+even_digits
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;[0, 2, 4, 6, 8]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;simultaneous-looping-over-multiple-lists&quot;&gt;Simultaneous looping over multiple lists&lt;/h4&gt;
+
+&lt;p&gt;Suppose you have two or more lists of the same length over the elements of which you want to perform a specific set of tasks simultaneously. To do so, it suffices to create a &lt;strong&gt;list of tuples&lt;/strong&gt; using Python’s builtin function &lt;code&gt;zip&lt;/code&gt; and loop over the tuple elements of this list. For example, let’s assume that you wanted to create a list of the addition of individual elements in the above two lists: &lt;code&gt;odd_digits&lt;/code&gt; and &lt;code&gt;even_digits&lt;/code&gt;. One way to do it would be the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;sum_even_odd = []
+for i,j in zip(odd_digits,even_digits):
+    sum_even_odd.append(i+j) 
+sum_even_odd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;[1, 5, 9, 13, 17]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/7-python-modules-loops-io&quot;&gt;Lecture 7: Python - modules, loops, and I/O&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 29, 2017.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -798,75 +1531,11 @@ No. Yes.
   
     &lt;p&gt;This lecture explains branching statements, how to define functions in Python, and all other important details of functions in Python.&lt;/p&gt;
 
-&lt;h4 id=&quot;table-of-content&quot;&gt;Table of Content&lt;/h4&gt;
-&lt;!--
-- [Programming glossary](#glossary)
---&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#python-branching&quot;&gt;Branching in Python&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-branching-nonboolean&quot;&gt;Non-boolean conditions in if-statements&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#python-function&quot;&gt;Functions in Python&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-function-no-input&quot;&gt;Functions with no input arguments&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-function-no-output&quot;&gt;Functions with no output (return value)&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-function-multiple-input&quot;&gt;Functions with multiple input arguments&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-function-multiple-input-order&quot;&gt;The order of input arguments both does and does not matter!&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-function-multiple-output&quot;&gt;Functions with multiple output (return values)&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-function-optional-arguments&quot;&gt;Functions with optional input arguments&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-function-global-local-variables&quot;&gt;Local and global variables in functions&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-function-side-effect&quot;&gt;Avoid function side-effects&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-function-builtin&quot;&gt;Python’s built-in functions&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-function-docstring&quot;&gt;function docstring&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-function-as-argument&quot;&gt;Functions as input arguments to functions&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-function-composition&quot;&gt;function composition&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-function-recursive&quot;&gt;Recursive functions&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-function-lambda&quot;&gt;Lambda functions&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;div class=&quot;post_toc&quot;&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;!--
-&lt;a name=&quot;glossary&quot;&gt;&lt;/a&gt;
-## Programming glossary  
-The following table summarizes some of the important keywords in this lecture for you.    
-
-&lt;table class=&quot;center&quot;&gt;
-&lt;caption class=&quot;title&quot; style=&quot;padding-bottom:10px;text-align:center;&quot;&gt;
-Table 1. Some programming phrases that are discussed in this lecture.
-&lt;/caption&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-    &lt;th&gt;&lt;font size=&quot;4rm&quot; color=&quot;red&quot;&gt;Expression&lt;/font&gt;&lt;/th&gt;
-    &lt;th&gt;&lt;font size=&quot;4rm&quot; color=&quot;red&quot;&gt;Description&lt;/font&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;immutable&lt;/b&gt;&lt;/td&gt;&lt;td&gt;A variable or value that cannot be modified. Assignments to elements of immutable values cause a runtime error. Example immutable Python entities are tuples and strings.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;list&lt;/b&gt;&lt;/td&gt;&lt;td&gt;A &lt;b&gt;sequence&lt;/b&gt; of comma-separated heterogenous values next to each other.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;mutable&lt;/b&gt;&lt;/td&gt;&lt;td&gt;A variable or value that can be modified. Examples of mutables in Python are lists, and dictionaries.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;string&lt;/b&gt;&lt;/td&gt;&lt;td&gt;A &lt;b&gt;sequence&lt;/b&gt; of characters next to each other.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;tuple&lt;/b&gt;&lt;/td&gt;&lt;td&gt;An immutable data value that contains related elements. Tuples are used to group together related data, such as a person’s name, their age, and their gender.&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;br&gt;
---&gt;
-
-&lt;p&gt;&lt;a name=&quot;python-branching&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;-branching-in-python&quot;&gt;&lt;a href=&quot;#python-branching&quot;&gt;¶&lt;/a&gt; Branching in Python&lt;/h2&gt;
+&lt;h2 id=&quot;branching-in-python&quot;&gt;Branching in Python&lt;/h2&gt;
 &lt;p&gt;Consider the last problem in &lt;a href=&quot;http:/ECL2017S/homework/4-problems-python-variables-assignment-statements&quot; target=&quot;_blank&quot;&gt;homework 4&lt;/a&gt;, where we defined a dictionary of people names and their roles in our ECL class.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;ecl_dict = { 'nicholas boeker'  : 'student'
            , 'bradley bridges'  : 'student'
@@ -1056,8 +1725,7 @@ This person is the ECL instructor
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-branching-nonboolean&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-non-boolean-conditions-in-if-statements&quot;&gt;&lt;a href=&quot;#python-branching-nonboolean&quot;&gt;¶¶&lt;/a&gt; Non-boolean conditions in if-statements&lt;/h3&gt;
+&lt;h3 id=&quot;non-boolean-conditions-in-if-statements&quot;&gt;Non-boolean conditions in if-statements&lt;/h3&gt;
 &lt;p&gt;There is a rather interesting feature of conditions in Python if-statements, that allows the programmer to use a non-boolean variable or value type directly in place of the condition in if-statement. What really happens here is that, Python interpreter converts the non-boolean type to a boolean value, when it occurs in place of an if-statement condition.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if 5.6:
     print('The condition in this if statement is automatically converted from float to boolean')
@@ -1160,8 +1828,7 @@ This person is the ECL instructor
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-function&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;-functions-in-python&quot;&gt;&lt;a href=&quot;#python-function&quot;&gt;¶&lt;/a&gt; Functions in Python&lt;/h2&gt;
+&lt;h2 id=&quot;functions-in-python&quot;&gt;Functions in Python&lt;/h2&gt;
 
 &lt;p&gt;In Python, like most other programming languages, &lt;strong&gt;function&lt;/strong&gt; is a collection of programming statements that can be executed whenever and wherever  requested. Therefore, the definition of function in programming goes far beyond the mathematical definition of function. For example, programming functions can have no input or output.&lt;/p&gt;
 
@@ -1193,8 +1860,7 @@ This corresponds to a temerature of 159.26 degrees Farenheiht!
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-function-no-input&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-functions-with-no-input-arguments&quot;&gt;&lt;a href=&quot;#python-function-no-input&quot;&gt;¶¶&lt;/a&gt; Functions with no input arguments&lt;/h3&gt;
+&lt;h3 id=&quot;functions-with-no-input-arguments&quot;&gt;Functions with no input arguments&lt;/h3&gt;
 
 &lt;p&gt;We can define functions that take no input argument, yet do something predefined for us. Consider the following function which gives information about the ECL course, when called.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def get_ecl_info():
@@ -1207,8 +1873,7 @@ get_ecl_info()
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-function-no-output&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-functions-with-no-output-return-value&quot;&gt;&lt;a href=&quot;#python-function-no-output&quot;&gt;¶¶&lt;/a&gt; Functions with no output (return value)&lt;/h3&gt;
+&lt;h3 id=&quot;functions-with-no-output-return-value&quot;&gt;Functions with no output (return value)&lt;/h3&gt;
 
 &lt;p&gt;We can also modify the above function such that it does not return anything specifically.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def get_ecl_info():
@@ -1238,8 +1903,7 @@ print(variable)
 None
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-function-multiple-input&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-functions-with-multiple-input-arguments&quot;&gt;&lt;a href=&quot;#python-function-multiple-input&quot;&gt;¶¶&lt;/a&gt; Functions with multiple input arguments&lt;/h3&gt;
+&lt;h3 id=&quot;functions-with-multiple-input-arguments&quot;&gt;Functions with multiple input arguments&lt;/h3&gt;
 
 &lt;p&gt;Functions can take almost as many input arguments as we wish. Consider the following,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def power(base,exponent):
@@ -1250,8 +1914,7 @@ None
 &lt;pre&gt;&lt;code&gt;32
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-function-multiple-input-order&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;-the-order-of-input-arguments-both-does-and-does-not-matter&quot;&gt;&lt;a href=&quot;#python-function-multiple-input-order&quot;&gt;¶¶¶&lt;/a&gt; The order of input arguments both does and does not matter!&lt;/h4&gt;
+&lt;h4 id=&quot;the-order-of-input-arguments-both-does-and-does-not-matter&quot;&gt;The order of input arguments both does and does not matter!&lt;/h4&gt;
 
 &lt;p&gt;Note that in the previous code, calling the function with the wrong order of input parameters, can lead to a catastrophe and wrng output.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;power(5,2)
@@ -1265,8 +1928,7 @@ None
 &lt;pre&gt;&lt;code&gt;32
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-function-multiple-output&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-functions-with-multiple-output-return-values&quot;&gt;&lt;a href=&quot;#python-function-multiple-output&quot;&gt;¶¶&lt;/a&gt; Functions with multiple output (return values)&lt;/h3&gt;
+&lt;h3 id=&quot;functions-with-multiple-output-return-values&quot;&gt;Functions with multiple output (return values)&lt;/h3&gt;
 
 &lt;p&gt;Python funcitons can return more than one value. For this purpose, tuple variable types become a handy tool. Recall that making a tuple is as simple as writing a sequence of comma separated values/variable, like the following.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;mytuple = 1, 2
@@ -1324,8 +1986,7 @@ print(quotient, remainder)
 &lt;pre&gt;&lt;code&gt;3 2
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-function-optional-arguments&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-functions-with-optional-input-arguments&quot;&gt;&lt;a href=&quot;#python-function-optional-arguments&quot;&gt;¶¶&lt;/a&gt; Functions with optional input arguments&lt;/h3&gt;
+&lt;h3 id=&quot;functions-with-optional-input-arguments&quot;&gt;Functions with optional input arguments&lt;/h3&gt;
 
 &lt;p&gt;Like many other high-level programming languages, Python allows you to have optional arguments in your input, which you can drop when calling the function. However, an optional argument must have a preassigned value in the function, otherwise dropping the variable at the time of function call will lead to a runtime error.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def get_quotient_remainder(dividend,divisor=10,message=&quot;This is the default message.&quot;):
@@ -1385,8 +2046,7 @@ A new message.
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-function-global-local-variables&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-local-and-global-variables-in-functions&quot;&gt;&lt;a href=&quot;#python-function-global-local-variables&quot;&gt;¶¶&lt;/a&gt; Local and global variables in functions&lt;/h3&gt;
+&lt;h3 id=&quot;local-and-global-variables-in-functions&quot;&gt;Local and global variables in functions&lt;/h3&gt;
 &lt;p&gt;Variables that are defined insde of a function, are by default invisible outside the function scope. For example, let’s consider  Let us reconsider the original function defined at the beginning of the lecture, which takes in a temperature value in Centigrads and converts it to Fahrenheit.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def c2f(C):
     converted_value = (9.0/5)*C + 32
@@ -1505,8 +2165,7 @@ f2(3)
 NameError: name 'a' is not defined
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-function-side-effect&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;-avoid-function-side-effects&quot;&gt;&lt;a href=&quot;#python-function-side-effect&quot;&gt;¶¶¶&lt;/a&gt; Avoid function side-effects&lt;/h4&gt;
+&lt;h4 id=&quot;avoid-function-side-effects&quot;&gt;Avoid function side-effects&lt;/h4&gt;
 
 &lt;p&gt;A function in which the value of a global variable is changed while the global variable is not the intended output of the function, is called a &lt;strong&gt;function with side-effects&lt;/strong&gt;. Here is an example,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def f2(x):
@@ -1528,13 +2187,11 @@ In general, any &lt;em&gt;lasting effect&lt;/em&gt; that occurs in a function, b
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-function-builtin&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-pythons-built-in-functions&quot;&gt;&lt;a href=&quot;#python-function-builtin&quot;&gt;¶¶&lt;/a&gt; Python’s built-in functions&lt;/h3&gt;
+&lt;h3 id=&quot;pythons-built-in-functions&quot;&gt;Python’s built-in functions&lt;/h3&gt;
 
 &lt;p&gt;Python has a number of built-in functions, which can be handy. &lt;a href=&quot;https://docs.python.org/3/library/functions.html&quot; target=&quot;_blank&quot;&gt;Here&lt;/a&gt; is a list of Python’s built-in functions along with a description of what they do.&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-function-docstring&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-function-docstring&quot;&gt;&lt;a href=&quot;#python-function-docstring&quot;&gt;¶¶&lt;/a&gt; function docstring&lt;/h3&gt;
+&lt;h3 id=&quot;function-docstring&quot;&gt;function docstring&lt;/h3&gt;
 
 &lt;p&gt;There is a convention in Python to insert a documentation string right after the &lt;code&gt;def&lt;/code&gt; line of the function definition (the function header). The documentation string, known as a &lt;strong&gt;doc string&lt;/strong&gt; or &lt;strong&gt;docstring&lt;/strong&gt;, should contain a short description of the purpose of the function and explain what the different arguments and return values are. Doc strings are usually enclosed in triple double quotes &lt;code&gt;&quot;&quot;&quot;&lt;/code&gt;, which allow the string to span several lines.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def c2f(C):
@@ -1577,8 +2234,7 @@ c2f(C)
     Note that the docstring must appear before any statement in the function body.
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-function-as-argument&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-functions-as-input-arguments-to-functions&quot;&gt;&lt;a href=&quot;#python-function-as-argument&quot;&gt;¶¶&lt;/a&gt; Functions as input arguments to functions&lt;/h3&gt;
+&lt;h3 id=&quot;functions-as-input-arguments-to-functions&quot;&gt;Functions as input arguments to functions&lt;/h3&gt;
 
 &lt;p&gt;In happens frequently in scientific programming, that a function needs to use another arbitrary function provided by the user to perform some specific tasks with it inside the function. For example, programs doing calculus frequently need to have functions as arguments in functions. For example,&lt;/p&gt;
 &lt;ul&gt;
@@ -1610,8 +2266,7 @@ print ( &quot;g’’(x=%f)=%f&quot; % (x, diff2nd_g) )
 &lt;pre&gt;&lt;code&gt;g’’(x=2.000000)=2.001954
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-function-composition&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-function-composition&quot;&gt;&lt;a href=&quot;#python-function-composition&quot;&gt;¶¶&lt;/a&gt; function composition&lt;/h3&gt;
+&lt;h3 id=&quot;function-composition&quot;&gt;Function composition&lt;/h3&gt;
 
 &lt;p&gt;The ability to call one function from within another function is called &lt;strong&gt;composition&lt;/strong&gt;. Suppose we have a function &lt;code&gt;distance&lt;/code&gt; that calculates the distance between two points on a 2D plane. and another function that takes in a value for radius, and then calculates the corresponding area for that radius.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def distance(x1, y1, x2, y2):
@@ -1627,8 +2282,7 @@ area(0.0,0.0,0.0,1.0)
 &lt;pre&gt;&lt;code&gt;3.141592653589793
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-function-recursive&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;-recursive-functions&quot;&gt;&lt;a href=&quot;#python-function-recursive&quot;&gt;¶¶¶&lt;/a&gt; Recursive functions&lt;/h4&gt;
+&lt;h4 id=&quot;recursive-functions&quot;&gt;Recursive functions&lt;/h4&gt;
 
 &lt;p&gt;Now, note that the function being called inside the other, does not necessarily have to be a different function. It could be the same function calling itself repeatedly, &lt;strong&gt;until a condition is met&lt;/strong&gt; (otherwise this would be an endless function call to itself for eternity). For example, a function that would calculate the factorial of an input integer would be like the following,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def factorial(n):
@@ -1649,10 +2303,9 @@ factorial(4.5)
 The input number 4.5 is not an integer!
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-function-lambda&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-lambda-functions&quot;&gt;&lt;a href=&quot;#python-function-lambda&quot;&gt;¶¶&lt;/a&gt; Lambda functions&lt;/h3&gt;
+&lt;h3 id=&quot;lambda-functions&quot;&gt;Lambda functions&lt;/h3&gt;
 
-&lt;p&gt;There is a quick one-line construction of functions that is often convenient to make Python code compact. For example, recall how we defined &lt;code&gt;g(x)&lt;/code&gt; in the &lt;a href=&quot;#python-function-as-argument&quot;&gt;example above&lt;/a&gt;. Here is a compact version of it,&lt;/p&gt;
+&lt;p&gt;There is a quick one-line construction of functions that is often convenient to make Python code compact. For example, recall how we defined &lt;code&gt;g(x)&lt;/code&gt; in the &lt;a href=&quot;#functions-as-input-arguments-to-functions&quot;&gt;example above&lt;/a&gt;. Here is a compact version of it,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;g = lambda x: x**2 + 4.0*x + 1.0
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
@@ -2024,7 +2677,7 @@ An arbitrary triangle can be described by the coordinates of its three vertices:
     is_prime = True
     
     def is_divisible(n,divisor):
-        if n&amp;lt;2*divisor: return False
+        if n&amp;lt;(divisor-1)*divisor: return False
         if n%divisor==0: return True
         else:
             divisor += 1
@@ -2391,62 +3044,11 @@ syntax, runtime, and semantic errors.&lt;br /&gt;
   
     &lt;p&gt;This lecture further explains different types of variables in Python, branching statements, how to define functions, and what Python modules are.&lt;/p&gt;
 
-&lt;h4 id=&quot;table-of-content&quot;&gt;Table of Content&lt;/h4&gt;
-&lt;!--
---&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#glossary&quot;&gt;Programming glossary&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#python-variables&quot;&gt;Variables in Python (continued)&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-variables-naming-convention&quot;&gt;Variable naming convention in Python&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-reserved-names&quot;&gt;Python reserved names (keywords)&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-underscore-meaning&quot;&gt;Meaning of underscore &lt;strong&gt;_&lt;/strong&gt; in Python&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-variables-numbers&quot;&gt;Number variables&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-variables-strings&quot;&gt;String variables&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-variables-strings-immutable&quot;&gt;Strings are immutable&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-variables-strings-test&quot;&gt;Testing if a string is part of another string&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-variables-lists&quot;&gt;List variables&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-variables-lists-slices&quot;&gt;List slices&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-variables-lists-nested&quot;&gt;Nested lists&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-variables-lists-operations&quot;&gt;Operations on lists&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-variables-lists-mutable&quot;&gt;Lists are mutable (unlike Strings)&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-variables-lists-deletion&quot;&gt;Deleting list elements&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-variables-lists-concatenation&quot;&gt;Concatenating a list of strings&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-variables-tuples&quot;&gt;Tuple variables&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-variables-tuples-content-modification&quot;&gt;Modifying the content of Tuples&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-variables-dictionaries&quot;&gt;Dictionary variables&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-variables-dictionaries-construction&quot;&gt;Three ways of constructing distionaries&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-variables-dictionaries-manipulation&quot;&gt;Manipulating dictionary variables&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-variables-dictionaries-sparse-matrices&quot;&gt;Dictionary representation of sparse matrices&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-variables-sets&quot;&gt;Set variables&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#python-assignment-statements&quot;&gt;Assignment statements in Python&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-assignment-statements-alias-copy&quot;&gt;Aliasing vs. copying&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-assignment-statements-multiple&quot;&gt;Multiple simultaneous assignments in one line&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-assignment-statements-value-swapping&quot;&gt;Value swapping&lt;/a&gt;
-&lt;br /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;div class=&quot;post_toc&quot;&gt;&lt;/div&gt;
 
-&lt;!--
---&gt;
-&lt;p&gt;&lt;a name=&quot;glossary&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;-programming-glossary&quot;&gt;&lt;a href=&quot;#glossary&quot;&gt;¶&lt;/a&gt; Programming glossary&lt;/h2&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;programming-glossary&quot;&gt;Programming glossary&lt;/h2&gt;
 &lt;p&gt;The following table summarizes some of the important keywords in this lecture for you.&lt;/p&gt;
 
 &lt;table class=&quot;center&quot;&gt;
@@ -2474,8 +3076,7 @@ Table 1. Some programming phrases that are discussed in this lecture.
 &lt;/table&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-variables&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;-variables-in-python-continued&quot;&gt;&lt;a href=&quot;#python-variables&quot;&gt;¶&lt;/a&gt; Variables in Python (continued)&lt;/h2&gt;
+&lt;h2 id=&quot;variables-in-python-continued&quot;&gt;Variables in Python (continued)&lt;/h2&gt;
 &lt;p&gt;A variable is simply a name that we assign to a specific value, in order to avoid repeating the same value frequently in the code, thus writing a cleaner, less error-prone script/code. As we discussed before, Python has 6 main variable types:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -2489,8 +3090,7 @@ Table 1. Some programming phrases that are discussed in this lecture.
 
 &lt;p&gt;We will get to each of these below. But before that, here are some official and unofficial tips on the variable naming conventions in Python.&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-variables-naming-convention&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-variable-naming-convention-in-python&quot;&gt;&lt;a href=&quot;#python-variables-naming-convention&quot;&gt;¶¶&lt;/a&gt; Variable naming convention in Python&lt;/h3&gt;
+&lt;h3 id=&quot;variable-naming-convention-in-python&quot;&gt;Variable naming convention in Python&lt;/h3&gt;
 
 &lt;p&gt;A Python variable can only begin with letter or underscore _. Numbers are only valid if they appear inside or at the end of the variable name. Other symbols are syntactically invalid anywhere in a variable name.&lt;/p&gt;
 
@@ -2532,8 +3132,7 @@ SyntaxError: invalid syntax
 &lt;pre&gt;&lt;code&gt;The life expectancy for the millennials is projected to be 120 years! (But don't believe it...)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-reserved-names&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-python-reserved-names-keywords&quot;&gt;&lt;a href=&quot;#python-reserved-names&quot;&gt;¶¶&lt;/a&gt; Python reserved names (keywords)&lt;/h3&gt;
+&lt;h3 id=&quot;python-reserved-names-keywords&quot;&gt;Python reserved names (keywords)&lt;/h3&gt;
 &lt;p&gt;There are some limitation as what names you can choose for your variables, even if they completely obey the Python syntax standard. Variable names in Python cannot be the same as &lt;strong&gt;Python keywords&lt;/strong&gt;, which are simply names that reserved for a specific purpose in Python programming.  A keyword as variable name, function name or any other identifier. They are used to define the syntax and structure of the Python language. Note that &lt;strong&gt;Python keywords are case-sensitive&lt;/strong&gt;.  There are already more than 30 keywords in Python 3. In order to see a complete list of all keywords use the following python codes,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [38]: import keyword
 
@@ -2583,8 +3182,7 @@ Out[40]:
 
 &lt;p&gt;Note that all keywords except &lt;code&gt;True&lt;/code&gt;, &lt;code&gt;False&lt;/code&gt; and &lt;code&gt;None&lt;/code&gt; are in lowercase and they must be written as lowercase. To understand the meaning and function of each of these keywords, see &lt;a href=&quot;https://www.programiz.com/python-programming/keyword-list&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-underscore-meaning&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-meaning-of-underscore-_-in-python&quot;&gt;&lt;a href=&quot;#python-underscore-meaning&quot;&gt;¶¶&lt;/a&gt; Meaning of underscore &lt;strong&gt;_&lt;/strong&gt; in Python&lt;/h3&gt;
+&lt;h3 id=&quot;meaning-of-underscore-_-in-python&quot;&gt;Meaning of underscore _ in Python&lt;/h3&gt;
 
 &lt;p&gt;Frequently, as you learn more about Python, you will notice the presence of underscores in Python variables, function and method names. Depending on where and how underscore appears in a Python name, it can have a different meaning.&lt;/p&gt;
 
@@ -2644,8 +3242,7 @@ Such names are special method names used by Python. This is just a convention, t
 
 &lt;p&gt;A good review of underscore in Python can be found &lt;a href=&quot;https://shahriar.svbtle.com/underscores-in-python&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-variables-numbers&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-number-variables&quot;&gt;&lt;a href=&quot;#python-variables-numbers&quot;&gt;¶¶&lt;/a&gt; Number variables&lt;/h3&gt;
+&lt;h3 id=&quot;number-variables&quot;&gt;Number variables&lt;/h3&gt;
 
 &lt;p&gt;We have already extensively discussed number values in the previous lecture. Basically, everything that we have said about number values, holds also for variables of type number. But here is a very cool fear of number values and variables, that we skipped over in our previous lecture. When you define a Python number variable (or value), then python interpreter automatically allows you to perform some pre-defined operations on the variable/value by default. To access these operations, the dot &lt;code&gt;.&lt;/code&gt; syntax has to be used. Type the variable name, followed by &lt;code&gt;.&lt;/code&gt;, and then press &lt;code&gt;tab&lt;/code&gt; in your IPython/Jupyter editor.  Depending on the type of number (integer/float/complex) you will get a different set of operations that are allowed on the variable. The following shows some examples in IPython environment.&lt;/p&gt;
 
@@ -2691,8 +3288,7 @@ Out[34]: (1-1j)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-variables-strings&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-string-variables&quot;&gt;&lt;a href=&quot;#python-variables-strings&quot;&gt;¶¶&lt;/a&gt; String variables&lt;/h3&gt;
+&lt;h3 id=&quot;string-variables&quot;&gt;String variables&lt;/h3&gt;
 &lt;p&gt;Just as with numbers, string is another variable/value type in Python with many handy features that come withit. For example, if you create a string variable or value, fllowed by &lt;code&gt;.&lt;/code&gt; and then press &lt;code&gt;tab&lt;/code&gt; you will see a long list of methods that can be applied on the string,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [8]: my_string = 'this is a String'
 
@@ -2711,9 +3307,9 @@ Out[9]: 'THIS IS A STRING'
 In [10]: my_string.swapcase()
 Out[10]: 'THIS IS A sTRING'
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;a name=&quot;python-variables-strings-immutable&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;-strings-are-immutable&quot;&gt;&lt;a href=&quot;#python-variables-strings-immutable&quot;&gt;¶¶¶&lt;/a&gt; Strings are immutable&lt;/h4&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;strings-are-immutable&quot;&gt;Strings are immutable&lt;/h4&gt;
 &lt;p&gt;Although strings (both values and variables) can be indexed letter by letter, keep in mind that they cannot be changed (mutated) to something new. In other words, string are immutable.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [11]: my_string = 'Amir Shahmoradi'
 
@@ -2742,8 +3338,8 @@ Out[33]: 5
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-variables-strings-test&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;-testing-if-a-string-is-part-of-another-string&quot;&gt;&lt;a href=&quot;#python-variables-strings-test&quot;&gt;¶¶¶&lt;/a&gt; Testing if a string is part of another string&lt;/h4&gt;
+&lt;h4 id=&quot;testing-if-a-string-is-part-of-another-string&quot;&gt;Testing if a string is part of another string&lt;/h4&gt;
+
 &lt;p&gt;We have already discussed some boolean string operations in Lecture 4. There are howver two more boolean operations that deserve to be mentioned here.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [48]: text = &quot;Engineering Computation program at UT Austin, is the first of its kind in the nation&quot;
 
@@ -2760,8 +3356,7 @@ Out[51]: True
 &lt;p&gt;&lt;br /&gt;
 To know more about string values and variables in general, visit &lt;a href=&quot;https://docs.python.org/2/tutorial/introduction.html#strings&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-variables-lists&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-list-variables&quot;&gt;&lt;a href=&quot;#python-variables-lists&quot;&gt;¶¶&lt;/a&gt; List variables&lt;/h3&gt;
+&lt;h3 id=&quot;list-variables&quot;&gt;List variables&lt;/h3&gt;
 &lt;p&gt;List is another standard variable in type in Python and is composed of an ordered set of values (elements), each of which is identified by an index. Lists are defined by brackets &lt;code&gt;[]&lt;/code&gt;.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [47]: emptyList = [] # initiate an empty list
 
@@ -2776,9 +3371,9 @@ Out[41]: [0, 1, 2, 'Amir', (-1+0j)]
 In [42]: myList[0] # note that list index always begins with 0
 Out[42]: 0
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;a name=&quot;python-variables-lists-slices&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;-list-slices&quot;&gt;&lt;a href=&quot;#python-variables-lists-slices&quot;&gt;¶¶¶&lt;/a&gt; List slices&lt;/h4&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;list-slices&quot;&gt;List slices&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [43]: myList[:-1] # all list elements from beginning to end, similar to myList, or myList[:]
 Out[43]: [0, 1, 2, 'Amir']
@@ -2810,8 +3405,7 @@ Out[46]: [(-1+0j), 'Amir', 2, 1, 0]
 &lt;br&gt;
 --&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-variables-lists-nested&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;-nested-lists&quot;&gt;&lt;a href=&quot;#python-variables-lists-nested&quot;&gt;¶¶¶&lt;/a&gt; Nested lists&lt;/h4&gt;
+&lt;h4 id=&quot;nested-lists&quot;&gt;Nested lists&lt;/h4&gt;
 &lt;p&gt;Lists can also contain other lists as elements. This way you can create matrices of numbers as well.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [53]: smallList = [1,2,3]
 
@@ -2845,9 +3439,9 @@ TypeError: object of type 'int' has no len()
 In [64]: len(list_of_lists[2]) # but the third element in the list, is itself a list, so it does have a length
 Out[64]: 2
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;a name=&quot;python-variables-lists-operations&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;-operations-on-lists&quot;&gt;&lt;a href=&quot;#python-variables-lists-operations&quot;&gt;¶¶¶&lt;/a&gt; Operations on lists&lt;/h4&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;operations-on-lists&quot;&gt;Operations on lists&lt;/h4&gt;
 &lt;p&gt;Two mathematics operations &lt;code&gt;+&lt;/code&gt; and &lt;code&gt;*&lt;/code&gt; are also meaningful for lists, just as it is for string sequences.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [8]: list1 = [1,2,3]
 
@@ -2905,8 +3499,7 @@ Out[25]: 4
 &lt;p&gt;&lt;br /&gt;
 &lt;a href=&quot;https://linuxconfig.org/python-list-methods&quot; target=&quot;_blank&quot;&gt;Here&lt;/a&gt; is a useful reference for available list methods in Python.&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-variables-lists-mutable&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;-lists-are-mutable-unlike-strings&quot;&gt;&lt;a href=&quot;#python-variables-lists-mutable&quot;&gt;¶¶¶&lt;/a&gt; Lists are mutable (unlike Strings)&lt;/h4&gt;
+&lt;h4 id=&quot;lists-are-mutable-unlike-strings&quot;&gt;Lists are mutable (unlike Strings)&lt;/h4&gt;
 &lt;p&gt;Another major difference between list sequences and string sequences in Python is that the elements of lists can be changed (mutated) to something new.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [26]: people = [ 'Amir' , 'Jake' , 'Travis' ]
 
@@ -2925,8 +3518,7 @@ Out[31]: ['Jake', 'Travis']
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-variables-lists-deletion&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;-deleting-list-elements&quot;&gt;&lt;a href=&quot;#python-variables-lists-deletion&quot;&gt;¶¶¶&lt;/a&gt; Deleting list elements&lt;/h4&gt;
+&lt;h4 id=&quot;deleting-list-elements&quot;&gt;Deleting list elements&lt;/h4&gt;
 &lt;p&gt;Deleting list elements can be done by either value of the element, or using its index, like the following,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [138]: a = [1,2,3,1,2,3]
 
@@ -2945,9 +3537,9 @@ In [143]: del a[0:3:2]      # delete element indices 0, 2
 In [144]: a
 Out[144]: [3, 3]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;a name=&quot;python-variables-lists-concatenation&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;-concatenating-a-list-of-strings&quot;&gt;&lt;a href=&quot;#python-variables-lists-concatenation&quot;&gt;¶¶¶&lt;/a&gt; Concatenating a list of strings&lt;/h4&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;concatenating-a-list-of-strings&quot;&gt;Concatenating a list of strings&lt;/h4&gt;
 &lt;p&gt;If a list is all string values, you can use the following string method &lt;code&gt;.join()&lt;/code&gt; to concatenate the content og the list.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [155]: mylist = ['The' , 'weather' , 'is' , 'rainy' , 'today' , 'and' , 'cold' , 'only' , '22' , 'F.']
 
@@ -2956,8 +3548,7 @@ Out[156]: 'The weather is rainy today and cold only 22 F.'
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-variables-tuples&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-tuple-variables&quot;&gt;&lt;a href=&quot;#python-variables-tuples&quot;&gt;¶¶&lt;/a&gt; Tuple variables&lt;/h3&gt;
+&lt;h3 id=&quot;tuple-variables&quot;&gt;Tuple variables&lt;/h3&gt;
 &lt;p&gt;Tuples are a type of Python variables very similar to list sequences, except that they are &lt;strong&gt;immutable&lt;/strong&gt;, meaning that, once generated, they cannot be changed. Another difference is that, tuples use parentheses for definition, whereas lists use square brackets.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [33]: emptyTuple = ()
 
@@ -2986,9 +3577,9 @@ Creating a tuple is as simple as putting different comma-separated values. Optio
 In [47]: type(tuple2)
 Out[47]: tuple
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;a name=&quot;python-variables-tuples-content-modification&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;-modifying-the-content-of-tuples&quot;&gt;&lt;a href=&quot;#python-variables-tuples-content-modification&quot;&gt;¶¶¶&lt;/a&gt; Modifying the content of Tuples&lt;/h4&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;modifying-the-content-of-tuples&quot;&gt;Modifying the content of Tuples&lt;/h4&gt;
 &lt;p&gt;Tuples are an example of data structure in Python, used for organizing and grouping data. Once a tuple is created, its content cannot be changed or manipulated anymore. However, its elements can be called just like lists.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [48]: tuple2[0]
 Out[48]: 1
@@ -3065,8 +3656,7 @@ Out[131]: (('Travis', 'Caleb', 'Lucero'), ('Jake',))
 &lt;p&gt;&lt;br /&gt;
 Tuples can be &lt;strong&gt;heterogeneous&lt;/strong&gt;, as in the above example, meaning that each member of tuple can be a tuple itself, a list, or any other variable type.&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-variables-dictionaries&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-dictionary-variables&quot;&gt;&lt;a href=&quot;#python-variables-dictionaries&quot;&gt;¶¶&lt;/a&gt; Dictionary variables&lt;/h3&gt;
+&lt;h3 id=&quot;dictionary-variables&quot;&gt;Dictionary variables&lt;/h3&gt;
 &lt;p&gt;The past three data types discussed in the previous secitons — strings, lists, and tuples — are of type &lt;strong&gt;sequence&lt;/strong&gt;. For sequences, we have seen above that we use integers as indices to access the values these variables contain. Dictionaries are yet another built-in variable type in Python. A dictionary variable is a sequence of pairs of {key: value}. Instead of using numbers to index elements (as in list, string, tuple), dictionaries use keys in order to retrieve the key’s value.  The keys can be any immutable type (string, number and tuple). Values can be any type (heterogeneous, mutable), just like the elements of a list or tuple. Dictionaries are also called &lt;strong&gt;associative arrays&lt;/strong&gt; since they associate a key with a value. One way to create a dictionary is to start with the empty dictionary and add &lt;code&gt;key:value&lt;/code&gt; pairs.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [161]: age = {}   # empty dictionary
 
@@ -3096,8 +3686,7 @@ Some important features of dictionaries are the following:&lt;/p&gt;
   &lt;li&gt;Query the dictionary using square brackets &lt;code&gt;[ ]&lt;/code&gt;, inside of which you type the key, and the output will be the value correponding to the key.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-variables-dictionaries-construction&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;-three-ways-of-constructing-distionaries&quot;&gt;&lt;a href=&quot;#python-variables-dictionaries-construction&quot;&gt;¶¶¶&lt;/a&gt; Three ways of constructing distionaries&lt;/h4&gt;
+&lt;h4 id=&quot;three-ways-of-constructing-distionaries&quot;&gt;Three ways of constructing distionaries&lt;/h4&gt;
 &lt;p&gt;The are three basic ways for creating dictionaries in Python.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; Create empty dictionary and then add key-value pairs to it.&lt;/p&gt;
@@ -3176,8 +3765,7 @@ Out[5]: {'amir': 'teacher', 'jake': 'student', 'travis': 'student'}
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-variables-dictionaries-manipulation&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;-manipulating-dictionary-variables&quot;&gt;&lt;a href=&quot;#python-variables-dictionaries-manipulation&quot;&gt;¶¶¶&lt;/a&gt; Manipulating dictionary variables&lt;/h4&gt;
+&lt;h4 id=&quot;manipulating-dictionary-variables&quot;&gt;Manipulating dictionary variables&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;1. Removing a dictionary key-value pair&lt;/strong&gt;&lt;br /&gt;
 This can be done using Python’s &lt;code&gt;del&lt;/code&gt; command,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [10]: person_role_dict
@@ -3244,8 +3832,7 @@ Out[28]: {'jake': 'student', 'travis': 'student'}
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-variables-dictionaries-sparse-matrices&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;-dictionary-representation-of-sparse-matrices&quot;&gt;&lt;a href=&quot;#python-variables-dictionaries-sparse-matrices&quot;&gt;¶¶¶&lt;/a&gt; Dictionary representation of sparse matrices&lt;/h4&gt;
+&lt;h4 id=&quot;dictionary-representation-of-sparse-matrices&quot;&gt;Dictionary representation of sparse matrices&lt;/h4&gt;
 &lt;p&gt;We already discussed in the above, the usefulness of nested lists in creating matrices. Now suppose we have a sparse matrix, whose most elements are zero, except a few non-zero elements. An alternative to using nested lists, which can also take less memory of the device, is to use a dictionary representation of the sparse matrix.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [16]: sparseMatrixList = [ [ 0 , 0 , 0 , 1 ]
    ....:                    , [ 2 , 0 , 0 , 0 ]
@@ -3264,8 +3851,7 @@ Out[19]: {(0, 3): 1, (1, 0): 2, (2, 1): 5, (3, 3): 3, (4, 2): 8}
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-variables-sets&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-set-variables&quot;&gt;&lt;a href=&quot;#python-variables-sets&quot;&gt;¶¶&lt;/a&gt; Set variables&lt;/h3&gt;
+&lt;h3 id=&quot;set-variables&quot;&gt;Set variables&lt;/h3&gt;
 &lt;p&gt;Besides all the aforementioned variable types in Python, there is another Python variable type that is useful for constructing and manipulating &lt;strong&gt;unordered collection of unique elements&lt;/strong&gt;. Common uses of sets include &lt;strong&gt;membership testing&lt;/strong&gt;, &lt;strong&gt;removing duplicates from a sequence&lt;/strong&gt;, and &lt;strong&gt;computing standard math operations on sets&lt;/strong&gt; such as intersection, union, difference, and symmetric difference.&lt;/p&gt;
 
 &lt;p&gt;Like other collections, sets support &lt;code&gt;x in set&lt;/code&gt; and &lt;code&gt;len(set)&lt;/code&gt; operations. Being an unordered collection, &lt;strong&gt;sets do not record element position or order of insertion&lt;/strong&gt;. Accordingly, sets do not support indexing, slicing, or other sequence-like behavior.&lt;/p&gt;
@@ -3313,8 +3899,7 @@ Out[70]: frozenset
 &lt;strong&gt;Note&lt;/strong&gt; that mutable types can neither appear in a set nor a frozenset. You can obtain more information about sets and frozensets and the methods that can act on them in the &lt;a href=&quot;https://docs.python.org/2.4/lib/types-set.html&quot; target=&quot;_blank&quot;&gt;Python library reference&lt;/a&gt;.
 &lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-assignment-statements&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;-assignment-statements-in-python&quot;&gt;&lt;a href=&quot;#python-assignment-statements&quot;&gt;¶&lt;/a&gt; Assignment statements in Python&lt;/h2&gt;
+&lt;h2 id=&quot;assignment-statements-in-python&quot;&gt;Assignment statements in Python&lt;/h2&gt;
 
 &lt;p&gt;In Python, an assignment statement is one line of Python code that contains &lt;strong&gt;at least&lt;/strong&gt; one equal sign &lt;code&gt;=&lt;/code&gt; and the purpose of it is to associate name(s) with a certain value in the program. &lt;strong&gt;Assignment statements are the only Python statements that do not start with a keyword&lt;/strong&gt;. In most cases, the assignment statement will only contain one target name, one equal sign, and one expression (reduced to one single value that is assigned to the name).&lt;/p&gt;
 
@@ -3331,8 +3916,7 @@ Out[53]: 2
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-assignment-statements-alias-copy&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-aliasing-vs-copying&quot;&gt;&lt;a href=&quot;#python-assignment-statements-alias-copy&quot;&gt;¶¶&lt;/a&gt; Aliasing vs. copying&lt;/h3&gt;
+&lt;h3 id=&quot;aliasing-vs-copying&quot;&gt;Aliasing vs. copying&lt;/h3&gt;
 &lt;p&gt;It is very important to understand the difference between &lt;strong&gt;alias&lt;/strong&gt; assignment statements and &lt;strong&gt;copy&lt;/strong&gt; assignment statements. As far as assignments are concerned, all data types in Python can be divided into two categories:&lt;/p&gt;
 
 &lt;ol&gt;
@@ -3401,8 +3985,7 @@ So, keep in mind that, assignments in which the value to be assigned is a contai
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-assignment-statements-multiple&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-multiple-simultaneous-assignments-in-one-line&quot;&gt;&lt;a href=&quot;#python-assignment-statements-multiple&quot;&gt;¶¶&lt;/a&gt; Multiple simultaneous assignments in one line&lt;/h3&gt;
+&lt;h3 id=&quot;multiple-simultaneous-assignments-in-one-line&quot;&gt;Multiple simultaneous assignments in one line&lt;/h3&gt;
 &lt;p&gt;A shortcut way of aliasing multiple variables with one single value is the following,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [101]: a = b = c = 3
 
@@ -3478,8 +4061,7 @@ Out[67]: True
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;python-assignment-statements-value-swapping&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-value-swapping&quot;&gt;&lt;a href=&quot;#python-assignment-statements-value-swapping&quot;&gt;¶¶&lt;/a&gt; Value swapping&lt;/h3&gt;
+&lt;h3 id=&quot;value-swapping&quot;&gt;Value swapping&lt;/h3&gt;
 &lt;p&gt;The traditional way of swapping values of two variables in mostprogramming languages is like the following,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [68]: a = 5
 
@@ -4038,19 +4620,19 @@ However, the problem is that, except me (Amir, the instructor) and Vivek (our TA
   
     &lt;p&gt;This is the solution to &lt;a href=&quot;3-problems-python-values-variables-types.html&quot; target=&quot;_blank&quot;&gt;Homework 3: Problems - Python debugging and string manipulation&lt;/a&gt;.&lt;/p&gt;
 
-&lt;!--
-The following figure illustrates the grade distribution for this homework.  
+&lt;p&gt;The following figure illustrates the grade distribution for this homework.&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework3.png&quot; width=&quot;700&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework3.png&quot; width=&quot;700&quot; /&gt;
     &lt;figcaption style=&quot;text-align:center&quot;&gt;
-        Maximum possible points, excluding bonus question, is 100.&lt;br&gt;
-        Maximum possible points, including bonus question, is 200.
+        Maximum possible points is 100.
     &lt;/figcaption&gt;
 &lt;/figure&gt;
---&gt;
+
 &lt;hr /&gt;
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;This homework aims at giving you some experience with String manipulation in Python and debugging a simple Python script. String manipulation is one of the greatest strengths and reasons for popularity of Python. For both questions below, submit your Python scripts in the corresponding &lt;code&gt;*.py&lt;/code&gt; files, and add a readme.md file in HW 3 folder of your project if you need to add any additional explanation (Don’t forget to use markdown syntax highlight in your readme file).&lt;/p&gt;
 
@@ -4230,51 +4812,7 @@ A working Python script file can be downloaded from &lt;a href=&quot;http:/ECL20
   
     &lt;p&gt;This lecture aims at guiding you to understand the how to of programming, difference between programming languages and the natural languages, the type of programming errors and the meaning code debugging how to perform simple arithmetic operations on the Python command line. Throughout this course, I recommend you to use Jupyter for Python programming.&lt;/p&gt;
 
-&lt;!--
-- [Advanced Git cheatsheet](http:/ECL2017S/lecture/1/progit.en.pdf){:target=&quot;_blank&quot;}
-#### Some useful links for future reference:
-
-- [Advanced Git cheatsheet](http://ndpsoftware.com/git-cheatsheet.html){:target=&quot;_blank&quot;}
---&gt;
-
-&lt;h4 id=&quot;table-of-content&quot;&gt;Table of Content&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#glossary&quot;&gt;Programming glossary&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#program-content&quot;&gt;The content of a computer program&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#program-debugging&quot;&gt;Debugging a program&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#first-python-program&quot;&gt;The first Python program&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#ways-to-run-python-program&quot;&gt;Methods of running a Python program&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#python-as-simple-calculator&quot;&gt;Python interpreter as a simple calculator&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-values-types&quot;&gt;Values and their types in Python&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-values-types-function&quot;&gt;Obtaining the type of a value&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-values-types-coercion&quot;&gt;Value coercion in Python&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-values-types-builtin&quot;&gt;Some useful built-in operations/functions in Python&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-order-of-operation&quot;&gt;Order of operation in Python&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-string-operation&quot;&gt;Operations on string values in Python&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-boolean-operations&quot;&gt;Boolean operations in Python&lt;/a&gt;
-            &lt;ul&gt;
-              &lt;li&gt;&lt;a href=&quot;#python-boolean-operations-string-comparison&quot;&gt;String comparison&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-values-types-print&quot;&gt;Python’s print function&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#python-variables&quot;&gt;Variables in Python&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#python-variables-naming-convention&quot;&gt;Variable naming convention in Python&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;div class=&quot;post_toc&quot;&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -5541,35 +6079,9 @@ Don’t forget to push your answers to your remote repository by the end of quiz
   
     &lt;p&gt;This lecture aims at providing an introduction to Python programming for beginners, how to install it, different Python distributoins available, how to write Jupyter notebooks, and how to perform simple arithmetic operations with Python.&lt;/p&gt;
 
-&lt;!--
-- [Advanced Git cheatsheet](http:/ECL2017S/lecture/1/progit.en.pdf){:target=&quot;_blank&quot;}
-#### Some useful links for future reference:
+&lt;div class=&quot;post_toc&quot;&gt;&lt;/div&gt;
 
-- [Advanced Git cheatsheet](http://ndpsoftware.com/git-cheatsheet.html){:target=&quot;_blank&quot;}
---&gt;
-
-&lt;h4 id=&quot;table-of-content&quot;&gt;Table of Content&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#history&quot;&gt;Python: a brief history&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#installation&quot;&gt;Python installation&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#installation-basic&quot;&gt;Basic Python installation&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#installation-recommended&quot;&gt;Recommended Python installation&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#package-installation&quot;&gt;Installing external Python packages&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#IDE&quot;&gt;Python editors and IDEs&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#version&quot;&gt;Which Python version should you use?&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#jupyter-setup-device&quot;&gt;Setting up Jupyter&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#jupyter-setup&quot;&gt;Running Jupyter on Personal Device&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#jupyter-setup-online&quot;&gt;Running Jupyter online&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#jupyter-helpful-commands&quot;&gt;IPython / Jupyter helpful commands&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#jupyter-shortcuts&quot;&gt;Jupyter cheatsheet and keyboard shortcuts&lt;/a&gt;
-&lt;br /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a name=&quot;history&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;python-a-brief-history&quot;&gt;Python: a brief history&lt;/h2&gt;
@@ -6462,136 +6974,6 @@ Ask me in class and I will explain how to do it.&lt;/p&gt;
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/2-solutions-advanced-git&quot;&gt;Homework 2: Solutions - Advanced Git&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 15, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Announcement 2: Course Progress Evaluation]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/announcement/2-course-progress-evaluation"/>
-  <id>http:/ECL2017S/announcement/2-course-progress-evaluation</id>
-  <published>2017-02-15T00:00:00-06:00</published>
-  <updated>2017-02-15T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;The goal of this survey is to assess your progress so far in this class, and to make improvements for the rest of the semester. I rely on your answers and comments to plan for the rest of the semester, so your response and time is appreciated very much!&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-    &lt;script&gt;
-        (function(t,e,c,s){var n,o,r;t.SMCX=t.SMCX||[],e.getElementById(s)||(n=e.getElementsByTagName(c),o=n[n.length-1],r=e.createElement(c),r.type=&quot;text/javascript&quot;,r.async=!0,r.id=s,r.src=[&quot;https:&quot;===location.protocol?&quot;https://&quot;:&quot;http://&quot;,&quot;widget.surveymonkey.com/collect/website/js/d5UY2kDTFxF8A6NQ_2FJ1Vhv2wmTNczXVXxO4ZZ3HU2PQyfRykxLg0hcBrFYhQfcsr.js&quot;].join(&quot;&quot;),o.parentNode.insertBefore(r,o))})(window,document,&quot;script&quot;,&quot;smcx-sdk&quot;)
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;survey-results&quot;&gt;Survey results&lt;/h2&gt;
-&lt;p&gt;The following are the results of the 9 questions of the survey as well as comments. The total number of respondents was 18.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;SUMMARY:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;There is &lt;strong&gt;significant heterogeneity&lt;/strong&gt; in the abilities of individuals &lt;strong&gt;in this class&lt;/strong&gt;, such that some find this course too difficult, and some find it too easy and lame.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;However, despite the great student-heterogeneity, the course-homework-quiz &lt;strong&gt;speed and load are on average fair&lt;/strong&gt;, so far in this class.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;The online &lt;strong&gt;web design of the course&lt;/strong&gt; material is a &lt;strong&gt;great aid to students’ learning&lt;/strong&gt; in this class.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;The entire class unanimously prefer &lt;strong&gt;a Python project instead of final exam&lt;/strong&gt;.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;one-hour per week&lt;/strong&gt; is &lt;strong&gt;not enough&lt;/strong&gt; for this course.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/2/q1.PNG&quot; width=&quot;700&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/2/q2.PNG&quot; width=&quot;700&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/2/q3.PNG&quot; width=&quot;700&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/2/q4.PNG&quot; width=&quot;700&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/2/q5.PNG&quot; width=&quot;700&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/2/q6.PNG&quot; width=&quot;700&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/2/q7.PNG&quot; width=&quot;700&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/2/q8.PNG&quot; width=&quot;700&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/announcement/2/q9.PNG&quot; width=&quot;700&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Comments:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Just a bit slow. I would like to just stop babying people, it’s homework, things should be done by the time we get here or else we’re just debugging problems here.&lt;br /&gt;
-2/22/2017 9:06 AM&lt;/p&gt;
-
-&lt;p&gt;Please end the class on time! I have class at 10 AM sharp and must leave no later than 9:50.&lt;br /&gt;
-2/22/2017 9:02 AM&lt;/p&gt;
-
-&lt;p&gt;At this point, assignments with Python are needed to start improving upon programming and computation based skills, since I feel like not much has been accomplished in the class. The most useful yet easiest change would be to publish the lectures ahead of time, so I have a better idea of what the next class will be over.&lt;br /&gt;
-2/22/2017 1:38 AM&lt;/p&gt;
-
-&lt;p&gt;I would really love class time to be spent exclusively on python and the jupyter environment. I really dislike the use of Git for this class, and I feel it detracts from our learning of the real material. I wish we could just submit our stuff to you via canvas or some other means. I feel like we haven’t adequately covered github, and yet just about all classtime thus far has been dedicated to it. I was hoping for this class to teach me python but I honestly feel bogged down by github and the means of submission- I feel we are spending time on the wrong thing. I think github has a time and place, but I don’t feel that it is appropriate for this class. Overall though, I think you are doing an excellent job teaching and I look forward to learning more with you.&lt;br /&gt;
-2/22/2017 1:26 AM&lt;/p&gt;
-
-&lt;p&gt;I am impressed with how much I have been able to get out of a 1 hour course so far.&lt;br /&gt;
-2/21/2017 11:20 PM&lt;/p&gt;
-
-&lt;p&gt;Not your fault, but simply 1 hour a week of lecture time is not enough.&lt;br /&gt;
-2/21/2017 10:17 PM&lt;/p&gt;
-
-&lt;p&gt;Homework instructions are very clear but I’m confused on the way to present the outputs.&lt;br /&gt;
-2/21/2017 9:20 PM&lt;/p&gt;
-
-&lt;p&gt;I only wish this course was more like a real computing course instead of a 1hr lab. It would be a lot more useful if we could meet 2x a week and had more 1-on-1 time.&lt;br /&gt;
-2/21/2017 7:00 PM&lt;/p&gt;
-
-&lt;p&gt;Love the course so far. Learning so much. The grades worry me though - there needs to be a clearer understanding of what’s going to be on a quiz and the homeworks need to be a little more well defined. The first two quizzes and first homework were rough but quiz 3 and homework 2 already got so much better. Thanks so much!&lt;br /&gt;
-2/21/2017 6:38 PM&lt;/p&gt;
-
-&lt;p&gt;Ask more concept based questions rather than memory. Other than that, I really like this class.&lt;br /&gt;
-2/20/2017 11:48 PM&lt;/p&gt;
-
-&lt;p&gt;All the information we are supposed to get out of this course is so critical. Version Control, python programming, learning linux.. it’s all perfect. We just need more time. If this were a 2 or 3 hours course that would be incredible. If we met MWF 9-10, this class would be my favorite, and I would be so confident in my computer science ability.&lt;br /&gt;
-2/17/2017 12:34 AM&lt;/p&gt;
-
-&lt;p&gt;This class definitely needs more time per week than 1 hour. This is not enough time at all to give out all the information needed. &lt;br /&gt;
-2/16/2017 7:32 PM&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/announcement/2-course-progress-evaluation&quot;&gt;Announcement 2: Course Progress Evaluation&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 15, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>

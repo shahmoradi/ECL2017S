@@ -88,6 +88,11 @@ MathJax.Hub.Queue(function() {
 <link href="/ECL2017S/assets/css/prismCoy.css" rel="stylesheet" />
 -->
 <link href="/ECL2017S/assets/css/prismOkaidia.css" rel="stylesheet" />
+
+<!--The following are for automatic generation of header anchor links: adopted from: http://ben.balter.com/2014/03/13/pages-anchor-links/-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
 <style type="text/css">@media only screen and (min-width:43.75em){.notepad-post-content div>p:first-child:first-letter{float:left;font-size:4.688rem;line-height:4.375rem;padding-top:.25rem;padding-right:.5rem;padding-left:.188rem;font-family:serif}}</style>
 </head>
 <body class="post-template" itemscope itemtype="http://schema.org/WebPage">  
@@ -139,78 +144,17 @@ MathJax.Hub.Queue(function() {
                 </div>
             </header>
 
-        <article class="notepad-post-content post tag-simple">
-            <div style="text-align:justify;"><p>This lecture explains branching statements, how to define functions in Python, and all other important details of functions in Python.</p>
+        
+            <article class="notepad-post-content post tag-simple">
+        
+            <div style="text-align:justify;">
+                <p>This lecture explains branching statements, how to define functions in Python, and all other important details of functions in Python.</p>
 
-<h4 id="table-of-content">Table of Content</h4>
-<!--
-- [Programming glossary](#glossary)
--->
-<ul>
-  <li><a href="#python-branching">Branching in Python</a>
-    <ul>
-      <li><a href="#python-branching-nonboolean">Non-boolean conditions in if-statements</a></li>
-    </ul>
-  </li>
-  <li><a href="#python-function">Functions in Python</a>
-    <ul>
-      <li><a href="#python-function-no-input">Functions with no input arguments</a></li>
-      <li><a href="#python-function-no-output">Functions with no output (return value)</a></li>
-      <li><a href="#python-function-multiple-input">Functions with multiple input arguments</a>
-        <ul>
-          <li><a href="#python-function-multiple-input-order">The order of input arguments both does and does not matter!</a></li>
-        </ul>
-      </li>
-      <li><a href="#python-function-multiple-output">Functions with multiple output (return values)</a></li>
-      <li><a href="#python-function-optional-arguments">Functions with optional input arguments</a></li>
-      <li><a href="#python-function-global-local-variables">Local and global variables in functions</a>
-        <ul>
-          <li><a href="#python-function-side-effect">Avoid function side-effects</a></li>
-        </ul>
-      </li>
-      <li><a href="#python-function-builtin">Python’s built-in functions</a></li>
-      <li><a href="#python-function-docstring">function docstring</a></li>
-      <li><a href="#python-function-as-argument">Functions as input arguments to functions</a></li>
-      <li><a href="#python-function-composition">function composition</a>
-        <ul>
-          <li><a href="#python-function-recursive">Recursive functions</a></li>
-        </ul>
-      </li>
-      <li><a href="#python-function-lambda">Lambda functions</a></li>
-    </ul>
-  </li>
-</ul>
+<div class="post_toc"></div>
 
 <p><br /></p>
 
-<!--
-<a name="glossary"></a>
-## Programming glossary  
-The following table summarizes some of the important keywords in this lecture for you.    
-
-<table class="center">
-<caption class="title" style="padding-bottom:10px;text-align:center;">
-Table 1. Some programming phrases that are discussed in this lecture.
-</caption>
-<thead>
-<tr>
-    <th><font size="4rm" color="red">Expression</font></th>
-    <th><font size="4rm" color="red">Description</font></th>
-</tr>
-</thead>
-<tbody>
-<tr><td><b>immutable</b></td><td>A variable or value that cannot be modified. Assignments to elements of immutable values cause a runtime error. Example immutable Python entities are tuples and strings.</td></tr>
-<tr><td><b>list</b></td><td>A <b>sequence</b> of comma-separated heterogenous values next to each other.</td></tr>
-<tr><td><b>mutable</b></td><td>A variable or value that can be modified. Examples of mutables in Python are lists, and dictionaries.</td></tr>
-<tr><td><b>string</b></td><td>A <b>sequence</b> of characters next to each other.</td></tr>
-<tr><td><b>tuple</b></td><td>An immutable data value that contains related elements. Tuples are used to group together related data, such as a person’s name, their age, and their gender.</td></tr>
-</tbody>
-</table>
-<br>
--->
-
-<p><a name="python-branching"></a></p>
-<h2 id="-branching-in-python"><a href="#python-branching">¶</a> Branching in Python</h2>
+<h2 id="branching-in-python">Branching in Python</h2>
 <p>Consider the last problem in <a href="/ECL2017S/homework/4-problems-python-variables-assignment-statements" target="_blank">homework 4</a>, where we defined a dictionary of people names and their roles in our ECL class.</p>
 <pre><code class="language-python">ecl_dict = { 'nicholas boeker'  : 'student'
            , 'bradley bridges'  : 'student'
@@ -400,8 +344,7 @@ This person is the ECL instructor
 
 <p><br /></p>
 
-<p><a name="python-branching-nonboolean"></a></p>
-<h3 id="-non-boolean-conditions-in-if-statements"><a href="#python-branching-nonboolean">¶¶</a> Non-boolean conditions in if-statements</h3>
+<h3 id="non-boolean-conditions-in-if-statements">Non-boolean conditions in if-statements</h3>
 <p>There is a rather interesting feature of conditions in Python if-statements, that allows the programmer to use a non-boolean variable or value type directly in place of the condition in if-statement. What really happens here is that, Python interpreter converts the non-boolean type to a boolean value, when it occurs in place of an if-statement condition.</p>
 <pre><code class="language-python">if 5.6:
     print('The condition in this if statement is automatically converted from float to boolean')
@@ -504,8 +447,7 @@ This person is the ECL instructor
 
 <p><br /></p>
 
-<p><a name="python-function"></a></p>
-<h2 id="-functions-in-python"><a href="#python-function">¶</a> Functions in Python</h2>
+<h2 id="functions-in-python">Functions in Python</h2>
 
 <p>In Python, like most other programming languages, <strong>function</strong> is a collection of programming statements that can be executed whenever and wherever  requested. Therefore, the definition of function in programming goes far beyond the mathematical definition of function. For example, programming functions can have no input or output.</p>
 
@@ -537,8 +479,7 @@ This corresponds to a temerature of 159.26 degrees Farenheiht!
 
 <p><br /></p>
 
-<p><a name="python-function-no-input"></a></p>
-<h3 id="-functions-with-no-input-arguments"><a href="#python-function-no-input">¶¶</a> Functions with no input arguments</h3>
+<h3 id="functions-with-no-input-arguments">Functions with no input arguments</h3>
 
 <p>We can define functions that take no input argument, yet do something predefined for us. Consider the following function which gives information about the ECL course, when called.</p>
 <pre><code class="language-python">def get_ecl_info():
@@ -551,8 +492,7 @@ get_ecl_info()
 
 <p><br /></p>
 
-<p><a name="python-function-no-output"></a></p>
-<h3 id="-functions-with-no-output-return-value"><a href="#python-function-no-output">¶¶</a> Functions with no output (return value)</h3>
+<h3 id="functions-with-no-output-return-value">Functions with no output (return value)</h3>
 
 <p>We can also modify the above function such that it does not return anything specifically.</p>
 <pre><code class="language-python">def get_ecl_info():
@@ -582,8 +522,7 @@ print(variable)
 None
 </code></pre>
 
-<p><a name="python-function-multiple-input"></a></p>
-<h3 id="-functions-with-multiple-input-arguments"><a href="#python-function-multiple-input">¶¶</a> Functions with multiple input arguments</h3>
+<h3 id="functions-with-multiple-input-arguments">Functions with multiple input arguments</h3>
 
 <p>Functions can take almost as many input arguments as we wish. Consider the following,</p>
 <pre><code class="language-python">def power(base,exponent):
@@ -594,8 +533,7 @@ None
 <pre><code>32
 </code></pre>
 
-<p><a name="python-function-multiple-input-order"></a></p>
-<h4 id="-the-order-of-input-arguments-both-does-and-does-not-matter"><a href="#python-function-multiple-input-order">¶¶¶</a> The order of input arguments both does and does not matter!</h4>
+<h4 id="the-order-of-input-arguments-both-does-and-does-not-matter">The order of input arguments both does and does not matter!</h4>
 
 <p>Note that in the previous code, calling the function with the wrong order of input parameters, can lead to a catastrophe and wrng output.</p>
 <pre><code class="language-python">power(5,2)
@@ -609,8 +547,7 @@ None
 <pre><code>32
 </code></pre>
 
-<p><a name="python-function-multiple-output"></a></p>
-<h3 id="-functions-with-multiple-output-return-values"><a href="#python-function-multiple-output">¶¶</a> Functions with multiple output (return values)</h3>
+<h3 id="functions-with-multiple-output-return-values">Functions with multiple output (return values)</h3>
 
 <p>Python funcitons can return more than one value. For this purpose, tuple variable types become a handy tool. Recall that making a tuple is as simple as writing a sequence of comma separated values/variable, like the following.</p>
 <pre><code class="language-python">mytuple = 1, 2
@@ -668,8 +605,7 @@ print(quotient, remainder)
 <pre><code>3 2
 </code></pre>
 
-<p><a name="python-function-optional-arguments"></a></p>
-<h3 id="-functions-with-optional-input-arguments"><a href="#python-function-optional-arguments">¶¶</a> Functions with optional input arguments</h3>
+<h3 id="functions-with-optional-input-arguments">Functions with optional input arguments</h3>
 
 <p>Like many other high-level programming languages, Python allows you to have optional arguments in your input, which you can drop when calling the function. However, an optional argument must have a preassigned value in the function, otherwise dropping the variable at the time of function call will lead to a runtime error.</p>
 <pre><code class="language-python">def get_quotient_remainder(dividend,divisor=10,message="This is the default message."):
@@ -729,8 +665,7 @@ A new message.
 
 <p><br /></p>
 
-<p><a name="python-function-global-local-variables"></a></p>
-<h3 id="-local-and-global-variables-in-functions"><a href="#python-function-global-local-variables">¶¶</a> Local and global variables in functions</h3>
+<h3 id="local-and-global-variables-in-functions">Local and global variables in functions</h3>
 <p>Variables that are defined insde of a function, are by default invisible outside the function scope. For example, let’s consider  Let us reconsider the original function defined at the beginning of the lecture, which takes in a temperature value in Centigrads and converts it to Fahrenheit.</p>
 <pre><code class="language-python">def c2f(C):
     converted_value = (9.0/5)*C + 32
@@ -849,8 +784,7 @@ f2(3)
 NameError: name 'a' is not defined
 </code></pre>
 
-<p><a name="python-function-side-effect"></a></p>
-<h4 id="-avoid-function-side-effects"><a href="#python-function-side-effect">¶¶¶</a> Avoid function side-effects</h4>
+<h4 id="avoid-function-side-effects">Avoid function side-effects</h4>
 
 <p>A function in which the value of a global variable is changed while the global variable is not the intended output of the function, is called a <strong>function with side-effects</strong>. Here is an example,</p>
 <pre><code class="language-python">def f2(x):
@@ -872,13 +806,11 @@ In general, any <em>lasting effect</em> that occurs in a function, but not throu
 
 <p><br /></p>
 
-<p><a name="python-function-builtin"></a></p>
-<h3 id="-pythons-built-in-functions"><a href="#python-function-builtin">¶¶</a> Python’s built-in functions</h3>
+<h3 id="pythons-built-in-functions">Python’s built-in functions</h3>
 
 <p>Python has a number of built-in functions, which can be handy. <a href="https://docs.python.org/3/library/functions.html" target="_blank">Here</a> is a list of Python’s built-in functions along with a description of what they do.</p>
 
-<p><a name="python-function-docstring"></a></p>
-<h3 id="-function-docstring"><a href="#python-function-docstring">¶¶</a> function docstring</h3>
+<h3 id="function-docstring">function docstring</h3>
 
 <p>There is a convention in Python to insert a documentation string right after the <code>def</code> line of the function definition (the function header). The documentation string, known as a <strong>doc string</strong> or <strong>docstring</strong>, should contain a short description of the purpose of the function and explain what the different arguments and return values are. Doc strings are usually enclosed in triple double quotes <code>"""</code>, which allow the string to span several lines.</p>
 <pre><code class="language-python">def c2f(C):
@@ -921,8 +853,7 @@ c2f(C)
     Note that the docstring must appear before any statement in the function body.
 </blockquote>
 
-<p><a name="python-function-as-argument"></a></p>
-<h3 id="-functions-as-input-arguments-to-functions"><a href="#python-function-as-argument">¶¶</a> Functions as input arguments to functions</h3>
+<h3 id="functions-as-input-arguments-to-functions">Functions as input arguments to functions</h3>
 
 <p>In happens frequently in scientific programming, that a function needs to use another arbitrary function provided by the user to perform some specific tasks with it inside the function. For example, programs doing calculus frequently need to have functions as arguments in functions. For example,</p>
 <ul>
@@ -954,8 +885,7 @@ print ( "g’’(x=%f)=%f" % (x, diff2nd_g) )
 <pre><code>g’’(x=2.000000)=2.001954
 </code></pre>
 
-<p><a name="python-function-composition"></a></p>
-<h3 id="-function-composition"><a href="#python-function-composition">¶¶</a> function composition</h3>
+<h3 id="function-composition">Function composition</h3>
 
 <p>The ability to call one function from within another function is called <strong>composition</strong>. Suppose we have a function <code>distance</code> that calculates the distance between two points on a 2D plane. and another function that takes in a value for radius, and then calculates the corresponding area for that radius.</p>
 <pre><code class="language-python">def distance(x1, y1, x2, y2):
@@ -971,8 +901,7 @@ area(0.0,0.0,0.0,1.0)
 <pre><code>3.141592653589793
 </code></pre>
 
-<p><a name="python-function-recursive"></a></p>
-<h4 id="-recursive-functions"><a href="#python-function-recursive">¶¶¶</a> Recursive functions</h4>
+<h4 id="recursive-functions">Recursive functions</h4>
 
 <p>Now, note that the function being called inside the other, does not necessarily have to be a different function. It could be the same function calling itself repeatedly, <strong>until a condition is met</strong> (otherwise this would be an endless function call to itself for eternity). For example, a function that would calculate the factorial of an input integer would be like the following,</p>
 <pre><code class="language-python">def factorial(n):
@@ -993,10 +922,9 @@ factorial(4.5)
 The input number 4.5 is not an integer!
 </code></pre>
 
-<p><a name="python-function-lambda"></a></p>
-<h3 id="-lambda-functions"><a href="#python-function-lambda">¶¶</a> Lambda functions</h3>
+<h3 id="lambda-functions">Lambda functions</h3>
 
-<p>There is a quick one-line construction of functions that is often convenient to make Python code compact. For example, recall how we defined <code>g(x)</code> in the <a href="#python-function-as-argument">example above</a>. Here is a compact version of it,</p>
+<p>There is a quick one-line construction of functions that is often convenient to make Python code compact. For example, recall how we defined <code>g(x)</code> in the <a href="#functions-as-input-arguments-to-functions">example above</a>. Here is a compact version of it,</p>
 <pre><code class="language-python">g = lambda x: x**2 + 4.0*x + 1.0
 </code></pre>
 <p><br />
@@ -1124,8 +1052,8 @@ This format is particularly useful, if the lambda function contains a constant t
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2017 / 03 / 22</section></br> -->
-         <section>Last updated Wednesday, 22 Mar 2017 at 01:47 PM CST</section></br>
+         <!-- <section>Last updated 2017 / 03 / 26</section></br> -->
+         <section>Last updated Sunday, 26 Mar 2017 at 10:29 PM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>
@@ -1176,11 +1104,20 @@ This format is particularly useful, if the lambda function contains a constant t
   <script type='text/javascript'>console.log("http://www.shahmoradi.org/");</script>
 <!-- End of scripts for the dynamic header of pages -->
 
+<!--The following scripts is for automatic generation of header anchor links: adopted from: http://ben.balter.com/2014/03/13/pages-anchor-links/-->
+<script src="/ECL2017S/assets/js/autoAnchorLink.js"></script>
+<!--End of automatic generation of header anchor links.-->
+
+
+
 <!-- <script src="/ECL2017S/assets/js/prismOkaidia.js"></script>
 <script src="/ECL2017S/assets/js/prismTwilight.js"></script>
 <script src="/ECL2017S/assets/js/prismDefault.js"></script>
  -->
 <script src="/ECL2017S/assets/js/prismCoy.js"></script>
+
+
+
 
 <!-- Start of Google Analytics Code for Default Guide -->
   <script>
@@ -1210,5 +1147,7 @@ This format is particularly useful, if the lambda function contains a constant t
     src="http://c.statcounter.com/10611821/0/902e4bb4/0/"
     alt="shopify visitor statistics"></a></div></noscript>
 <!-- End of StatCounter Code for Default Guide --> 
+<!--automatic Table of Content.-->
+<script src="/ECL2017S/assets/js/autoTOC.js"></script>
 </body>
 </html>

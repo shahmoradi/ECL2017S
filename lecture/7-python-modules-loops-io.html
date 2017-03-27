@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>LECTURE 7: PYTHON - MODULES, LOOPS, AND I/O &vert; COE 111L - SPRING 2017</title>
+<meta name="description" content="Engineering Computation Lab">
+<meta name="keywords" content="">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/ECL2017S/images/logo.png">
+<meta name="twitter:title" content="Lecture 7: Python - modules, loops, and I/O">
+<meta name="twitter:description" content="Engineering Computation Lab">
+<meta name="twitter:creator" content="@AmirShahmoradi">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lecture 7: Python - modules, loops, and I/O">
+<meta property="og:description" content="Engineering Computation Lab">
+<meta property="og:url" content="/ECL2017S/lecture/7-python-modules-loops-io">
+<meta property="og:site_name" content="COE 111L - Spring 2017">
+<meta property="og:image" content="/ECL2017S/images/">
+
+
+
+
+
+<link rel="canonical" href="/ECL2017S/lecture/7-python-modules-loops-io">
+<!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 Feed"> -->
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,300,800,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/ECL2017S/assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/normalize.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/nprogress.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/foundation.min.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/style.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/post.css">
+
+
+
+
+<!--Mathjax loader: taken from http://stackoverflow.com/questions/2188884/how-can-i-mix-latex-in-with-markdown-->
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+    }
+});
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!--End of Mathjax loader: taken from http://stackoverflow.com/questions/2188884/how-can-i-mix-latex-in-with-markdown-->
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/ECL2017S/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/ECL2017S/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/ECL2017S/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/ECL2017S/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/ECL2017S/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/ECL2017S/images/apple-touch-icon-144x144-precomposed.png">
+
+<!-- 
+<link href="/ECL2017S/assets/css/prismTwilight.css" rel="stylesheet" />
+<link href="/ECL2017S/assets/css/prismDefault.css" rel="stylesheet" />
+<link href="/ECL2017S/assets/css/prismCoy.css" rel="stylesheet" />
+-->
+<link href="/ECL2017S/assets/css/prismOkaidia.css" rel="stylesheet" />
+
+<!--The following are for automatic generation of header anchor links: adopted from: http://ben.balter.com/2014/03/13/pages-anchor-links/-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<style type="text/css">@media only screen and (min-width:43.75em){.notepad-post-content div>p:first-child:first-letter{float:left;font-size:4.688rem;line-height:4.375rem;padding-top:.25rem;padding-right:.5rem;padding-left:.188rem;font-family:serif}}</style>
+</head>
+<body class="post-template" itemscope itemtype="http://schema.org/WebPage">  
+
+        <main id="notepad-post-container-simple" class="notepad-post-container-simple" role="main">
+            <header class="notepad-post-header-simple">
+                <div class="notepad-post-menu-header-simple">
+
+                    <a class="notepad-blog-logo" href="http://www.shahmoradi.org" target="_blank"><img src="/ECL2017S/images/logo.png" alt="shahmoradi.org" /></a>
+
+                <div class="notepad-blog-menu">      
+    <div class="notepad-mobile-menu show-for-small">
+        <a href="#"><i class="fa fa-bars"></i></a>
+    </div>
+    <ul class="notepad-menu">
+        <li class="notepad-mobile-close-btn show-for-small text-right">
+            <a href="#"><i class="fa fa-times"></i></a>
+        </li>
+
+            <li>
+                    <a href="/ECL2017S/">Home</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/highlights">Highlights</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/categories">Categories</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/about">About</a>
+                 </li>
+            
+           <li><a href="/ECL2017S/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+    </ul>
+
+</div>
+            </div>
+
+                <div class="notepad-post-title-simple row">
+                    <div class="small-12 columns">
+                        <div class="notepad-post-meta-simple">
+                            <h2>Lecture 7: Python - modules, loops, and I/O</h2>
+                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-03-29T00:00:00-05:00">29 Mar 2017</time></strong></p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+        
+            <article class="notepad-post-content post tag-simple">
+        
+            <div style="text-align:justify;">
+                <p>This lecture explains modules, loops, with a brief introduction to Input/Output processes in Python. Ideally, modules should have been part of the previous lecture (with Python functions). The split was however necessary to reduce the size of lecture 6 to a managable size.</p>
+
+<div class="post_toc"></div>
+
+<h2 id="python-modules">Python modules</h2>
+<p>We have already used Python modules extensively in the past lectures, homework, and quizzes. although we never discussed them. To put it simply, Python modules are a collection of Python definitions, variables, functions, … that can be reused as a library in future.</p>
+
+<p>Sometimes you want to reuse a function from an old program in a new program. The simplest way to do this is to copy and paste the old source code into the new program. However, this is not good programming practice, because you then over
+time end up with multiple identical versions of the same function. When you want to improve the function or correct a bug, you need to remember to do the same update in all files with a copy of the function, and in real life most programmers fail to do so. You easily end up with a mess of different versions with different quality of basically the same code. Therefore, a golden rule of programming is to have one and only one version of a piece of code. All programs that want to use this piece of code must access one and only one place where the source code is kept. This principle is easy to implement if we create a module containing the code we want to reuse later in different programs.</p>
+
+<h3 id="the-import-statement">The import statement</h3>
+<p>We have already used the <code>math</code> module on multiple occasions, using the <code>import</code> statement. Here is an example:</p>
+<pre><code class="language-python">In [11]: import math
+
+In [12]: value = math.factorial(5)
+
+In [13]: print(value)
+120
+
+In [14]: math.pi
+Out[14]: 3.141592653589793
+
+In [15]: math.e
+Out[15]: 2.718281828459045
+</code></pre>
+<p><br />
+In its simplest form, the import has the following syntax:</p>
+<pre><code class="language-python">import module1[, module2[,... moduleN]
+</code></pre>
+<p><br />
+like,</p>
+<pre><code class="language-python">import math, cmath, numpy
+</code></pre>
+<p><br />
+The standard approach for calling the names and definitions (variables, functions, …) inside the module is using the module-name prefix, like the above examples. To call the module names without the prefix, use the following module import statement,</p>
+<pre><code class="language-python">In [16]: from math import *
+
+In [17]: factorial(5)
+Out[17]: 120
+</code></pre>
+<p><br />
+To import only specific names, use the format like the following,</p>
+<pre><code class="language-python">from math import pi,e,factorial,erf
+</code></pre>
+<p><br /></p>
+
+<p>This will import the four math modules names <code>pi,e,factorial,erf</code>. You could also change the name of the input module, or specific names from it, upon importing the module into your code, using <code>import as</code> statement,</p>
+<pre><code class="language-python">In [16]: import numpy as np
+
+In [17]: np.double(5)
+Out[17]: 5.0
+
+In [20]: from numpy import double as dble
+
+In [21]: dble(13)
+Out[21]: 13.0
+</code></pre>
+<p><br /></p>
+
+<blockquote>
+    A module can contain executable statements as well as function definitions. These statements are intended to initialize the module. They are executed <b>only the first time the module name is encountered in an import statement</b>. <br /><br />
+    Also, note that in general the practice of <code>from mod_name import *</code> from a module is discouraged, since it often causes poorly readable code. It is however very useful for saving time and exra typing in interactive sessions like IPython, or Jupyter.
+</blockquote>
+<p><br /></p>
+
+<h3 id="listing-all-names-in-an-imported-module">Listing all names in an imported module</h3>
+<p>To get a list of all available names in an imported module, use <code>dir()</code> function.</p>
+<pre><code class="language-python">In [11]: import math
+
+In [13]: dir(math)
+Out[13]:
+['__doc__',
+ '__loader__',
+ '__name__',
+ '__package__',
+ '__spec__',
+ 'acos',
+ 'acosh',
+ 'asin',
+ 'asinh',
+ 'atan',
+ 'atan2',
+ 'atanh',
+ 'ceil',
+ 'copysign',
+ 'cos',
+ 'cosh',
+ 'degrees',
+ 'e',
+ 'erf',
+ 'erfc',
+ 'exp',
+ 'expm1',
+ 'fabs',
+ 'factorial',
+ 'floor',
+ 'fmod',
+ 'frexp',
+ 'fsum',
+ 'gamma',
+ 'gcd',
+ 'hypot',
+ 'inf',
+ 'isclose',
+ 'isfinite',
+ 'isinf',
+ 'isnan',
+ 'ldexp',
+ 'lgamma',
+ 'log',
+ 'log10',
+ 'log1p',
+ 'log2',
+ 'modf',
+ 'nan',
+ 'pi',
+ 'pow',
+ 'radians',
+ 'sin',
+ 'sinh',
+ 'sqrt',
+ 'tan',
+ 'tanh',
+ 'trunc']
+</code></pre>
+<p><br /></p>
+
+<h3 id="python-standard-modules">Python standard Modules</h3>
+<p>Python comes with a set of standard modules as its library, the so-called <a href="https://docs.python.org/3/library/" target="_blank"><strong>Python Standard Library</strong></a>. Some modules of these are built into the Python interpreter; these provide access to operations that are not part of the core of the language but are nevertheless built in, for efficiency and other reasons.</p>
+
+<h3 id="creating-modules">Creating modules</h3>
+
+<p>To make a Python module, simply collect all the functions that constitute the module in one single file with a given filename, for example, <code>mymodule.py</code>. This file will be automatically a module, with name <code>mymodule</code>, from which you can import functions and definitions in the standard way described above.</p>
+
+<blockquote>
+<b>Why and when do you need to create a module?</b><br /><br />
+    Sometimes you want to reuse a function from an old program in a new program. The simplest way to do this is to copy and paste the old source code into the new program. However, this is not good programming practice, because you then over time end up with multiple identical versions of the same function. When you want to improve the function or correct a bug, you need to remember to do the same update in all files with a copy of the function, and in real life most programmers fail to do so. You easily end up with a mess of different versions with different quality of basically the same code. Therefore, a golden rule of programming is to have one and only one version of a piece of code. All programs that want to use this piece of code must access one and only one place where the source code is kept. This principle is easy to implement if we create a module containing the code we want to reuse later in different programs.
+</blockquote>
+
+<p>Note that modules can import other modules. It is customary but not required to place all import statements at the beginning of a module (or script, for that matter). The imported module names are placed in the importing module’s global <a href="https://en.wikipedia.org/wiki/Symbol_table" target="_blank">symbol table</a>.</p>
+
+<h4 id="executing-modules-as-scripts">Executing modules as scripts</h4>
+
+<p>When a Python module is called from the Bash command prompt like,</p>
+<pre><code class="language-bash">python mycode.py
+</code></pre>
+<p><br />
+the code in the module will be executed, just as if you imported it inside another code. This is good, but can sometimnes become problematic. Let’s explain this with an example from the midterm exam, a <a href="/lecture/7/find_primes.py" target="_blank">script</a> that finds and reports all prime numbers smaller than a given input number $n$.</p>
+
+<p>When you execute this code as astandalone Python script, it will ask you for an integer, to give you all integers that are smaller than the input number. Now suppose you wanted to import this script as a Python module into your code. If you do so, the Python interpreter would run all statements in this script and asks you to input an integer, before importing the rest of the functions in this script.</p>
+<pre><code class="language-python">In [5]: import find_primes
+Enter an integer number:
+n = 13
+
+ Here is a list of all prime numbers smaller than 13:
+13
+11
+7
+5
+3
+2
+</code></pre>
+<p><br />
+This may not be necessarily what we want to do. For example, we may only want to use the functions <code>get_primes</code> and <code>is_prime</code> in this script, without asking the user to input an integer and finding all smaller primes. The solution is to put the part of the code in the script that we don’t want to be executed as module, that is,</p>
+<pre><code class="language-python">print('Enter an integer number: ')
+n = int(input('n = '))
+print('\n Here is a list of all prime numbers smaller than {}:'.format(n))
+get_primes(n)
+</code></pre>
+<p><br />
+inside the following if-block,</p>
+<pre><code class="language-python">if __name__ == "__main__":
+    print('Enter an integer number: ')
+    n = int(input('n = '))
+    print('Here is a list of all prime numbers smaller than {}:'.format(n))
+    get_primes(n)
+</code></pre>
+<p><br />
+When the code is run as a standalone script, the <code>__name__</code> property of the code is set to <code>__main__</code>. However, when the script is imported as a module inside another code, the <code>__name__</code> property is automatically set to the name of the module <code>find_primes</code>. Thus as a module, the above if-block will not be executed, but the rest of the code (the two functions) will be properly imported. The corrected script is named <code>mod_find_primes.py</code> and can be downloaded from <a href="/lecture/7/mod_find_primes.py" target="_blank">here</a>.</p>
+<pre><code class="language-Python">In [6]: import mod_find_primes
+In [7]: mod_find_primes.__name__
+Out[7]: 'mod_find_primes'
+</code></pre>
+<p><br />
+You could also import specific names or funcitons from your own module, for example</p>
+<pre><code class="language-Python">In [11]: from mod_find_primes import is_prime
+</code></pre>
+<p><br />
+In summary,</p>
+
+<blockquote>
+    <b>Add test blocks in your modules</b><br /><br />
+    It is recommended to only have functions and not any statements outside functions in a module. The reason is that the module file is executed from top to bottom during the import. With function definitions only in the module file, and no main program, there will be no calculations or output from the import, just definitions of functions. But in case you need to write a module that can be run standalone, then put all script statements for the standalone part of the module inside a <b>test block</b> (the if-block described above).
+</blockquote>
+<p><br /></p>
+
+<h4 id="command-line-arguments">Command line arguments</h4>
+
+<p>Test blocks are especially useful when your module can be also run as a standalone Python script that takes in <strong>command-line arguments</strong>. <a href="/lecture/7/cmd_find_primes.py" target="_blank">Here</a> is a modified version of the <code>mod_find_primes</code> module now named <code>cmd_find_primes</code> that instead of using <code>input()</code> function, reads the integer number from the Bash command line. To do so, you need to modify the last part of the original module to the following, using Python’s standard <code>sys</code> module,</p>
+<pre><code class="language-python">if __name__ == "__main__":
+    import sys
+    if len( sys.argv ) != 2: # check the number of arguments to be exactly 2.
+        print('''
+    Error: Exactly two arguments must be given on the command line.
+    Usage:''')
+        print("     ", sys.argv[0], "&lt;a positive integer number&gt;", '\n')
+        sys.exit('     Program stopped.\n')
+    else:
+        n = int(sys.argv[1])
+        print('Here is a list of all prime numbers smaller than {}:'.format(n))
+        get_primes(n)
+</code></pre>
+<p><br />
+Now if you run this code, from the Bash command line, or inside IPython, like the following,</p>
+<pre><code class="language-python">In [14]: run cmd_find_primes.py
+
+    Error: Exactly two arguments must be given on the command line.
+    Usage:
+      cmd_find_primes.py &lt;a positive integer number&gt;
+
+An exception has occurred, use %tb to see the full traceback.
+
+SystemExit:      Program stopped.
+</code></pre>
+<p><br />
+The code will expect you to enter an integer right after the nbame of the script,</p>
+<pre><code class="language-python">In [15]: run cmd_find_primes.py 13
+Here is a list of all prime numbers smaller than 13:
+13
+11
+7
+5
+3
+2
+</code></pre>
+<p><br />
+In general, I recommend you to use the <code>sys</code> module for input arguments instead of Python’s <code>input()</code> function.</p>
+
+<blockquote>
+    <b>Modules and main functions</b><br /><br />
+    If you have some functions and a main program in some program file, just move the main program to the test block. Then the file can act as a module, giving access to all the functions in other files, or the file can be executed from the command line, in the same way as the original program.
+</blockquote>
+<p><br /></p>
+
+<h4 id="test-blocks-for-module-code-verification">Test blocks for module code verification</h4>
+
+<p>It is a good programming habit to let the test block do one or more of three things:</p>
+<ol>
+  <li>provide information on how the module or program is used,</li>
+  <li>test if the module functions work properly,</li>
+  <li>offer interaction with users such that the module file can be applied as a useful program.</li>
+</ol>
+
+<p>To achieve the second task, we have to write functions that verify the implementation in a module. The general advice is to write test functions that,</p>
+<ol>
+  <li>have names starting with <code>test_</code>,</li>
+  <li>express the success or failure of a test through a boolean variable, say <code>success</code>,</li>
+  <li>run <code>assert success, msg</code> to raise an <code>AssertionError</code> with an optional message <code>msg</code> in case the test fails.</li>
+</ol>
+
+<p>We talk about this later on in this course.</p>
+
+<blockquote>
+    <b>Doc-strings in modules</b><br /><br />
+    It is a good habit to include a doc-string in the beginning of your module file. This doc string should explain the purpose and use of the module.
+</blockquote>
+
+<p><br /></p>
+
+<h4 id="scope-of-definitions-in-your-module">Scope of definitions in your module</h4>
+
+<p>Once you have created your module, you can import it just like any other module into our program, for example,</p>
+<pre><code class="language-python">In [22]: import cmd_find_primes
+
+In [23]: dir(cmd_find_primes)
+Out[23]:
+['__builtins__',
+ '__cached__',
+ '__doc__',
+ '__file__',
+ '__loader__',
+ '__name__',
+ '__package__',
+ '__spec__',
+ 'get_primes',
+ 'is_prime']
+</code></pre>
+<p><br />
+However, more often than not, you may want to have variables in your module, that are only to be used inside the module and not be accessed by the user. The convention is to start the names of these variables by an underscore. For example,</p>
+<pre><code class="language-python">_course = "Python programming"
+</code></pre>
+<p><br />
+This however, does not prevent the import of the variable <code>_course</code> into your code from your the <a href="/lecture/7/mod_cmd_find_primes_del.py" target="_blank">module</a> containing it. One solution is to delete the variables that we are not interested the user to have access to, at the end of the module,</p>
+<pre><code class="language-python">del _course
+</code></pre>
+<p><br />
+such that the <a href="" target="_blank">module</a> containing the above statement will give,</p>
+<pre><code class="language-python">In [28]: import mod_cmd_find_primes_del
+
+In [29]: dir( mod_cmd_find_primes_del )
+Out[29]:
+['__builtins__',
+ '__cached__',
+ '__doc__',
+ '__file__',
+ '__loader__',
+ '__name__',
+ '__package__',
+ '__spec__',
+ 'get_primes',
+ 'is_prime']
+</code></pre>
+<p><br /></p>
+
+<p>However, note that if you import all definitions in <a href="/lecture/7/mod_cmd_find_primes_all.py" target="_blank">your module</a> as standalone definitions like the following,</p>
+<pre><code class="language-python">In [4]: from mod_cmd_find_primes_all import *
+
+In [5]: dir()
+Out[5]:
+['In',
+ 'Out',
+ '_',
+ '_3',
+ '__',
+ '___',
+ '__builtin__',
+ '__builtins__',
+ '__doc__',
+ '__loader__',
+ '__name__',
+ '__package__',
+ '__spec__',
+ '_dh',
+ '_i',
+ '_i1',
+ '_i2',
+ '_i3',
+ '_i4',
+ '_i5',
+ '_ih',
+ '_ii',
+ '_iii',
+ '_oh',
+ '_sh',
+ 'exit',
+ 'get_ipython',
+ 'get_primes',
+ 'is_prime',
+ 'quit']
+</code></pre>
+<p><br />
+you see that the variable <code>_course</code> is not imported. In general, to avoid confusion, it is best to define an <code>__all__</code> variable in your module, which contains a list of all variable and function names that are to be imported as standalone definitions using <code>from mymodule import *</code>. For example, add the following to the above module,</p>
+<pre><code class="language-python">__all__ = ['get_primes']
+</code></pre>
+<p><br />
+Upong importing this module, now only the function <code>get_prime</code> will be imported and not <code>_course</code> or <code>is_prime</code>.</p>
+
+<h4 id="the-path-to-your-modules">The path to your modules</h4>
+<p>When you create a module, if it is in the current directory of your code, then it will be automatcally found by the Python interpreter. This is however, not generally the case if your module lives in another directory than the current working directory of Python interpreter. To add the module’s directory to the path of your Python interpreter, use the following,</p>
+<pre><code class="language-python">In [5]: myModuleFolder = ’the path to your module’
+
+In [6]: import sys
+
+In [7]: sys.path
+Out[7]:
+['',
+ 'C:\\Program Files\\Anaconda3\\Scripts',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\lmfit-0.9.5_44_gb2041c3-py3.5.egg',
+ 'C:\\Program Files\\Anaconda3\\python35.zip',
+ 'C:\\Program Files\\Anaconda3\\DLLs',
+ 'C:\\Program Files\\Anaconda3\\lib',
+ 'C:\\Program Files\\Anaconda3',
+ 'c:\\program files\\anaconda3\\lib\\site-packages\\setuptools-20.3-py3.5.egg',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\Sphinx-1.3.5-py3.5.egg',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\win32',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\win32\\lib',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\Pythonwin',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\IPython\\extensions',
+ 'C:\\Users\\Amir\\.ipython']
+
+In [8]: sys.path.insert(0,myModuleFolder)
+
+In [9]: sys.path
+Out[9]:
+[’the path to your module’,
+ '',
+ 'C:\\Program Files\\Anaconda3\\Scripts',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\lmfit-0.9.5_44_gb2041c3-py3.5.egg',
+ 'C:\\Program Files\\Anaconda3\\python35.zip',
+ 'C:\\Program Files\\Anaconda3\\DLLs',
+ 'C:\\Program Files\\Anaconda3\\lib',
+ 'C:\\Program Files\\Anaconda3',
+ 'c:\\program files\\anaconda3\\lib\\site-packages\\setuptools-20.3-py3.5.egg',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\Sphinx-1.3.5-py3.5.egg',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\win32',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\win32\\lib',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\Pythonwin',
+ 'C:\\Program Files\\Anaconda3\\lib\\site-packages\\IPython\\extensions',
+ 'C:\\Users\\Amir\\.ipython']
+</code></pre>
+<p><br />
+In the above, we added the path to our module to the list of all paths the Python interpreter will search, in order to find the module requested to be imported (Note that <code>’the path to your module’</code> is not a real system path, this was just an example).</p>
+
+<h3 id="the-collections-module">The <strong>collections</strong> module</h3>
+
+<p>One of the greatest strengths of Python as a scientific programming language is that, for almost everything that you could imagine and want to write a code, someone has already written a code, and so there is <em>no reason to reinvent the wheel if someone has already done it for you</em>. Throughout your career you will get to know many of the most important modules for your own domain of science. Here I will introduce only a general module, that has some interesting and rather useful functions in it. Specifically, this module contains some new non-standard Python data types that can be very handy at times.</p>
+
+<h4 id="the-counter-data-type">The <strong>Counter</strong> data type</h4>
+
+<p>The <code>Counter</code> function from module <code>collections</code> takes in a list and creates a dictionary, whose keys are unique elements in the input list and the values of the keys, are the number of times each key appears in the list. For example,</p>
+<pre><code class="language-python">from collections import Counter
+mylist = [1,1,1,2,3,34,45,34,34,7,8,34,3,3,6,4,4,4,0,34,9,0]
+c = Counter(mylist)
+c
+</code></pre>
+<pre><code>Counter({0: 2, 1: 3, 2: 1, 3: 3, 4: 3, 6: 1, 7: 1, 8: 1, 9: 1, 34: 5, 45: 1})
+</code></pre>
+
+<p>There are basically three methods for generating a Counter dictionary,</p>
+<pre><code class="language-python">c1 = Counter(['a', 'b', 'c', 'a', 'b', 'b']) # input a list directly into Counter
+c2 = Counter({'a':2, 'b':3, 'c':1}) # Give it the Counter dictionary
+c3 = Counter(a=2, b=3, c=1) # or simply give it the counts
+c1 == c2 == c3
+</code></pre>
+<pre><code>True
+</code></pre>
+
+<h5 id="what-is-counter-useful-for">What is Counter useful for?</h5>
+
+<p>Suppose you have a long list of letters, and for some reason you need to count the number of times each letter appears in your string. You can achieve your goal as in the following example,</p>
+<pre><code class="language-python">s = 'amirshahmoradijakelucerotravismike'
+c = Counter(s)
+for key in c.keys():
+    print('The letter {} appears only {} times in the string'.format(key,c[key]))
+</code></pre>
+<pre><code>The letter v appears only 1 times in the string
+The letter a appears only 5 times in the string
+The letter u appears only 1 times in the string
+The letter l appears only 1 times in the string
+The letter j appears only 1 times in the string
+The letter d appears only 1 times in the string
+The letter h appears only 2 times in the string
+The letter o appears only 2 times in the string
+The letter i appears only 4 times in the string
+The letter k appears only 2 times in the string
+The letter c appears only 1 times in the string
+The letter t appears only 1 times in the string
+The letter s appears only 2 times in the string
+The letter m appears only 3 times in the string
+The letter r appears only 4 times in the string
+The letter e appears only 3 times in the string   ​
+</code></pre>
+
+<p>Now suppose you wanted to cound the number of times different words appear in a given text,</p>
+<pre><code class="language-python">text = "Engineering Computation Lab (COE111L) is a new course that is offered by the department of Aerospace Engineering and Engineering Mechanics at the University of Texas at Austin, starting Spring 2017. "
+c = Counter(text.split())
+for word in c.keys():
+    print('The word "{}" appears only {} times in the text'.format(word,c[word]))
+</code></pre>
+<pre><code>The word "Computation" appears only 1 times in the text
+The word "a" appears only 1 times in the text
+The word "Engineering" appears only 3 times in the text
+The word "the" appears only 2 times in the text
+The word "(COE111L)" appears only 1 times in the text
+The word "offered" appears only 1 times in the text
+The word "is" appears only 2 times in the text
+The word "at" appears only 2 times in the text
+The word "of" appears only 2 times in the text
+The word "Lab" appears only 1 times in the text
+The word "course" appears only 1 times in the text
+The word "department" appears only 1 times in the text
+The word "by" appears only 1 times in the text
+The word "and" appears only 1 times in the text
+The word "Texas" appears only 1 times in the text
+The word "Mechanics" appears only 1 times in the text
+The word "2017." appears only 1 times in the text
+The word "new" appears only 1 times in the text
+The word "University" appears only 1 times in the text
+The word "starting" appears only 1 times in the text
+The word "Austin," appears only 1 times in the text
+The word "that" appears only 1 times in the text
+The word "Spring" appears only 1 times in the text
+The word "Aerospace" appears only 1 times in the text  
+</code></pre>
+
+<p>Now, you can also apply all different methods that exists for Counter data types on the variable <code>c</code> in the above case. For example, you could ask for the 3 most common words in in the text,</p>
+<pre><code class="language-python">c.most_common(3)
+</code></pre>
+<pre><code>[('Engineering', 3), ('the', 2), ('is', 2)]
+</code></pre>
+
+<h4 id="the-ordereddict-data-type">The <strong>OrderedDict</strong> data type</h4>
+<p>This is also a subclass of dictionary data type, which provides all the methods provided by <code>dict</code>, but which also retains the order by which elements are added to the dictionary,</p>
+<pre><code class="language-python">
+</code></pre>
+<p><br />
+However, you can define a <code>defaultdict</code> dictionary which will assign a default value to all keys that do not exist, and automatically adds them to the dictionary. A normal dictionary does not conserve the order by which elements were added to the dictionary,</p>
+<pre><code class="language-python">d = {5:5,3:3,6:6,1:1}
+for i,j in d.items():
+    print(i,j)
+</code></pre>
+<p><br />
+    1 1
+    3 3
+    5 5
+    6 6</p>
+
+<p>To get save order of the elements, you can use <code>OrderedDict</code>,</p>
+<pre><code class="language-python">from collections import OrderedDict as od
+d = od([(5,5),(3,3),(6,6),(1,1)])
+for i,j in d.items():
+    print(i,j)
+</code></pre>
+<pre><code>5 5
+3 3
+6 6
+1 1
+</code></pre>
+
+<blockquote>
+Keep in mind that, two order dictionary with the same content may not be necessarily equal, since the order of their content also matters.
+</blockquote>
+
+<p><br /></p>
+
+<h3 id="the-timeit-module">The timeit module</h3>
+<p>This is a module that provides some useful functions for timing the performance and speed of peices of your Python code.</p>
+<pre><code class="language-python">import timeit as tt
+tt.timeit( "-".join(str(n) for n in range(100)) , number=10000 )
+</code></pre>
+<pre><code>0.03779717059364884
+</code></pre>
+
+<p>The first input to <code>timeit</code> function above is the operation which we would like to time, and the second input, tell the function, how many times repeat the task (If the operation takes a tiny amount, you would want to repeat it many many times, in order to get a sensible timing output). Here is the same operation as above, but now using the <a href="http://book.pythontips.com/en/latest/map_filter.html#map" target="_blank">map</a> function,</p>
+<pre><code class="language-python">tt.timeit( "-".join( map(str,range(1000))) , number=10000 )
+</code></pre>
+<pre><code>0.384857713242468  
+</code></pre>
+
+<p>In IPython or Jupyter, you can do the timing operation in a smarter way using IPython magic function <a href="https://ipython.org/ipython-doc/dev/interactive/magics.html#magic-timeit" target="_blank">%timeit</a>,</p>
+<pre><code class="language-python">%timeit "-".join(str(n) for n in range(100))
+</code></pre>
+<pre><code>10000 loops, best of 3: 36.6 µs per loop
+</code></pre>
+
+<p>The IPython’s magic function automatically figures how many times it should run the operation to get a sensible timing of the operation.</p>
+<pre><code class="language-python">%timeit "-".join( map(str,range(100)))
+</code></pre>
+<pre><code>10000 loops, best of 3: 21 µs per loop
+</code></pre>
+
+<p>In general, as you noticed in the above example, the function <code>map</code> performs much better and faster than Python’s for-loop.</p>
+
+<p><br /></p>
+
+<h2 id="loops-in-python">Loops in Python</h2>
+
+<p>We have already seen, both in homework and midterm, what a pain it can be if you wanted to repeat a certain number of tasks using recursive functions and if-blocks. Fortunately, Python has loop statements that can highly simplify the task of repeating certain statements for a certain number of times.</p>
+
+<h3 id="while-loop">While loop</h3>
+
+<p>One such statement is the while-loop:</p>
+<pre><code class="language-python">while this_logical_statement_holds_true : 
+    perform_statements
+</code></pre>
+<p><br />
+For example, here is a code that prints all positive integers smaller than a given input integer,</p>
+<pre><code class="language-python">n = int(input('input a positive integer: '))
+print( 'Here are all positive integers smaller than {}'.format(n) )
+while n &gt; 1:
+    n -= 1
+    print(n)
+</code></pre>
+<pre><code>input a positive integer: 7
+Here are all positive integers smaller than 7
+6
+5
+4
+3
+2
+1
+</code></pre>
+
+<p>Another useful way of writing while-loops is the following (using the example above),</p>
+<pre><code class="language-python">n = int(input('input a positive integer: '))
+print( 'Here are all positive integers smaller than {}'.format(n) )
+while True:
+    n -= 1
+    print(n)
+    if n == 1: break
+</code></pre>
+<pre><code>input a positive integer: 7
+Here are all positive integers smaller than 7
+6
+5
+4
+3
+2
+1
+</code></pre>
+
+<p>In this case, the loop will continue forever, unless the condition <code>n==1</code> is met at some point during the iteration.</p>
+
+<h3 id="for-loop">For loop</h3>
+
+<p>If you are from a Fortran, C, C++ background you maybe already accustomed to counting loops than while loops. Pyhon does not have a direct method for counting loops, however, there is a for-loop syntax that loops over the elements of a list or tuple. For example, if we wanted to rewrite the above code using for-loop, one solution would be like the following,</p>
+<pre><code class="language-python">n = int(input('input a positive integer: '))
+print( 'Here are all positive integers smaller than {}'.format(n) )
+my_range = range(n-1,0,-1)
+for n in my_range:
+    print(n)
+</code></pre>
+<pre><code>input a positive integer: 7
+Here are all positive integers smaller than 7
+7
+6
+5
+4
+3
+2
+1
+</code></pre>
+
+<p>Here the Python’s builtin function <code>range([start,] stop [, step])</code> creates a list of integer that starts from <code>start</code> to <code>end</code> <em>but not including <code>end</code></em>, with a distance of size <code>step</code> between the elements. Here is another way of doing the same thing as in the above example,</p>
+<pre><code class="language-python">n = int(input('input a positive integer: '))
+print( 'Here are all positive integers smaller than {}'.format(n) )
+mylist = list(range(n-1,0,-1))
+for n in mylist:
+    print(n)
+</code></pre>
+<pre><code>input a positive integer: 7
+Here are all positive integers smaller than 7
+6
+5
+4
+3
+2
+1
+</code></pre>
+
+<p>Note how I have used the <code>range</code> function in order to get the same output as in the previous example.</p>
+<pre><code class="language-python">n = int(input('input a positive integer: '))
+mylist = list(range(n-1,0,-1))
+print(mylist)
+</code></pre>
+<pre><code>input a positive integer: 7  
+[6, 5, 4, 3, 2, 1]
+</code></pre>
+
+<h4 id="for-loop-with-list-indices">​For-loop with list indices</h4>
+
+<p>Instead of iterating over over a list directly, as illustrated above, one could iterate over the indices of a list,</p>
+<pre><code class="language-python">mylist = ['amir','jake','lecero','mike','travis']
+for i in range(len(mylist)):
+    print(mylist[i])
+</code></pre>
+<pre><code>amir
+jake
+lecero
+mike
+travis
+</code></pre>
+
+<blockquote>
+    Iterating over list indices, instead of list elements, is particularly udseful, when you have to work with multiple lists in a for-loop.
+</blockquote>
+
+<p><br /></p>
+
+<h4 id="manipulating-lists-using-for-loop">Manipulating lists using for-loop</h4>
+
+<p>Note that when you want to change the elements of a list in a for-loop, you have to change the list itself, and not simply the for-loop variable.</p>
+<pre><code class="language-python">mydigits = [1,3,5,7,9]
+for i in mydigits:
+    i -= 1
+mydigits
+</code></pre>
+<pre><code>[1, 3, 5, 7, 9]
+</code></pre>
+
+<p>The above code won’t change the values in the list, instead only the for-loop variable. If you want to change the list itself, you have to operate on the list elements directly,</p>
+<pre><code class="language-python">mydigits = [1,3,5,7,9]
+for i in rnage(len(mydigits)):
+    mydigits[i] -= 1
+mydigits
+</code></pre>
+<pre><code>[0, 2, 4, 6, 8]
+</code></pre>
+
+<h4 id="list-comprehension">List comprehension</h4>
+
+<p>Frequently in Python programming you may need to create long lists of regurlarly ordered item. As a result, Python has a special concise syntax for such tasks, called <strong>list comprehension</strong> which uses for-loop. For example, supopse you have a list of odd digits as in the example above, and you want to create a list of even digits from it. You could achieve this using the following simple syntax,</p>
+<pre><code class="language-python">odd_digits = [1,3,5,7,9]
+even_digits = [i-1 for i in odd_digits]
+even_digits
+</code></pre>
+<pre><code>[0, 2, 4, 6, 8]
+</code></pre>
+
+<h4 id="simultaneous-looping-over-multiple-lists">Simultaneous looping over multiple lists</h4>
+
+<p>Suppose you have two or more lists of the same length over the elements of which you want to perform a specific set of tasks simultaneously. To do so, it suffices to create a <strong>list of tuples</strong> using Python’s builtin function <code>zip</code> and loop over the tuple elements of this list. For example, let’s assume that you wanted to create a list of the addition of individual elements in the above two lists: <code>odd_digits</code> and <code>even_digits</code>. One way to do it would be the following,</p>
+<pre><code class="language-python">sum_even_odd = []
+for i,j in zip(odd_digits,even_digits):
+    sum_even_odd.append(i+j) 
+sum_even_odd
+</code></pre>
+<pre><code>[1, 5, 9, 13, 17]
+</code></pre>
+
+<p><br /><br /></p>
+
+            </div>
+        </article>
+        <div class="cf"></div>
+        <div class="row text-center">
+            <section class="notepad-post-share">
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Lecture 7: Python - modules, loops, and I/O&quot;%20/ECL2017S/lecture/7-python-modules-loops-io%20via%20&#64;AmirShahmoradi"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/lecture/7-python-modules-loops-io"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/lecture/7-python-modules-loops-io"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </section>
+        </div>
+        <div class="cf"></div>
+        
+            <div class="notepad-author-info">
+                <div class="row">
+                    <section class="notepad-post-author small-12 columns">
+                        
+                            <a href="http://www.shahmoradi.org" target="_blank">
+                                <img src="/ECL2017S/images/logo.png" class="notepad-post-author-avatar" alt="Amir Shahmoradi's photo">
+                            </a>
+                        
+                        
+                            <span class="author-label">Author</span>
+                            <h1>Amir Shahmoradi</h1>
+                        
+                        
+                            <p><a href="mailto:amir@ices.utexas.edu" class="author-website">amir@ices.utexas.edu</a></p>
+                        
+                        
+                            <p>Genius is 99% perspiration and 1% inspiration</p>
+                        
+                    </section>
+                </div>
+            </div> 
+        
+        <div class="cf"></div>
+        
+        <section class="notepad-disqus row">
+    <div class="small-12 columns">
+        <h1 class="notepad-comments-header">Comments</h1>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'shahmoradi'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+
+        <div class="cf"></div>
+
+    <footer class="notepad-site-footer">
+    <div class="copyright">
+         <!-- <section>Last updated 2017 / 03 / 26</section></br> -->
+         <section>Last updated Sunday, 26 Mar 2017 at 10:29 PM CST</section></br>
+         <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
+         <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
+         <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>
+         <section><a class="icon-ghost" href="http://www.utexas.edu/" target="_blank">The University of Texas at Austin</a></section></br>
+         <section>201 E 24th Street, Stop C0200</section></br>
+         <section>Austin, TX 78712-1229</section>
+    </div>
+    <div class="social-icons">
+        
+        
+        <a href="http://twitter.com/AmirShahmoradi" target="_blank">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+        
+        
+        <a href="http://github.com/shahmoradi" target="_blank">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-github fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+    </div>
+    
+    <div class="cf"></div>
+</footer> 
+</main>    
+<!-- The following scripts are needed for the dynamic header of pages -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/ECL2017S/assets/js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+  <script src="/ECL2017S/assets/js/vendor/modernizr.js"></script>
+  <script src="/ECL2017S/assets/js/foundation.min.js"></script>
+  
+  <script src="/ECL2017S/assets/js/notepad.js"></script>
+  <script src="/ECL2017S/assets/js/scripts.min.js"></script>
+  <script src="/ECL2017S/assets/js/vendor/nprogress.js"></script>
+  
+  <script>
+    $(document).foundation();
+  </script>
+  <script type='text/javascript'>console.log("N/A");</script>
+  <script type='text/javascript'>console.log("http://www.shahmoradi.org/");</script>
+<!-- End of scripts for the dynamic header of pages -->
+
+<!--The following scripts is for automatic generation of header anchor links: adopted from: http://ben.balter.com/2014/03/13/pages-anchor-links/-->
+<script src="/ECL2017S/assets/js/autoAnchorLink.js"></script>
+<!--End of automatic generation of header anchor links.-->
+
+
+
+<!-- <script src="/ECL2017S/assets/js/prismOkaidia.js"></script>
+<script src="/ECL2017S/assets/js/prismTwilight.js"></script>
+<script src="/ECL2017S/assets/js/prismDefault.js"></script>
+ -->
+<script src="/ECL2017S/assets/js/prismCoy.js"></script>
+
+
+
+
+<!-- Start of Google Analytics Code for Default Guide -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-67460905-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+<!-- End of Google Analytics Code for Default Guide -->
+   
+<!-- Start of StatCounter Code for Default Guide -->
+  <script type="text/javascript">
+    var sc_project=10611821; 
+    var sc_invisible=1; 
+    var sc_security="902e4bb4"; 
+    var scJsHost = (("https:" == document.location.protocol) ?
+    "https://secure." : "http://www.");
+    document.write("<sc"+"ript type='text/javascript' src='" +
+    scJsHost+
+    "statcounter.com/counter/counter.js'></"+"script>");
+    </script>
+    <noscript><div class="statcounter"><a title="shopify visitor
+    statistics" href="http://statcounter.com/shopify/"
+    target="_blank"><img class="statcounter"
+    src="http://c.statcounter.com/10611821/0/902e4bb4/0/"
+    alt="shopify visitor statistics"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide --> 
+<!--automatic Table of Content.-->
+<script src="/ECL2017S/assets/js/autoTOC.js"></script>
+</body>
+</html>

@@ -854,3 +854,72 @@ blockquote a:hover{
 blockquote em{
   font-style: italic;
 }
+
+/*
+Styles fot auto anchor-link generation. Adopted from  http://ben.balter.com/2014/03/13/pages-anchor-links/
+*/
+    .header-link {
+    position: absolute;
+    /* right: -0.5em; */
+    opacity: 0;
+    
+    \-webkit-transition: opacity 0.2s ease-in-out 0.1s;
+    \-moz-transition: opacity 0.2s ease-in-out 0.1s;
+    \-ms-transition: opacity 0.2s ease-in-out 0.1s;
+    }
+    
+    h2:hover .header-link,
+    h3:hover .header-link,
+    h4:hover .header-link,
+    h5:hover .header-link,
+    h6:hover .header-link {
+    opacity: 1;
+    }
+
+/* The following are for automatic generation of Tbale of Content, adapted from http://codepen.io/jtojnar/pen/Juiop */
+/* also see: https://css-tricks.com/automatic-table-of-contents/ , comment by Jan Tojnar */
+    .table-of-contents {
+    float: right;
+    width: 40%;
+    background: #eee;
+    font-size: 0.8em;
+    padding: 1em 2em;
+    margin: 0 0 0.5em 0.5em;
+    }
+    .table-of-contents ul {
+    padding: 0;
+    padding-left: 1em;
+    }
+    .table-of-contents>ul {
+    padding: 0;
+    }
+    .table-of-contents li {
+    margin: 0 0 0.25em 0;
+    }
+    .table-of-contents a {
+    text-decoration: none;
+    }
+    .table-of-contents a:hover,
+    .table-of-contents a:active {
+    text-decoration: underline;
+    }
+    
+    h2:target {
+    animation: highlight 0.5s ease;
+    }
+    h3:target {
+    animation: highlight 0.5s ease;
+    }
+    h4:target {
+    animation: highlight 0.5s ease;
+    }
+    h5:target {
+    animation: highlight 0.5s ease;
+    }
+    h6:target {
+    animation: highlight 0.5s ease;
+    }
+    @keyframes highlight {
+    from { background: yellow; }
+    to { background: white; }
+    }

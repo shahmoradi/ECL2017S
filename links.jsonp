@@ -52,6 +52,11 @@ callback([
   } ,
 
   {
+    "text": "Lecture 7: Python - modules, loops, and I/O",
+    "href": "/ECL2017S/lecture/7-python-modules-loops-io"
+  } ,
+
+  {
     "text": "Lecture 6: Python - branching and functions",
     "href": "/ECL2017S/lecture/6-python-branching-functions"
   } ,

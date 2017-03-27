@@ -88,6 +88,11 @@ MathJax.Hub.Queue(function() {
 <link href="/ECL2017S/assets/css/prismCoy.css" rel="stylesheet" />
 -->
 <link href="/ECL2017S/assets/css/prismOkaidia.css" rel="stylesheet" />
+
+<!--The following are for automatic generation of header anchor links: adopted from: http://ben.balter.com/2014/03/13/pages-anchor-links/-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
 <style type="text/css">@media only screen and (min-width:43.75em){.notepad-post-content div>p:first-child:first-letter{float:left;font-size:4.688rem;line-height:4.375rem;padding-top:.25rem;padding-right:.5rem;padding-left:.188rem;font-family:serif}}</style>
 </head>
 <body class="post-template" itemscope itemtype="http://schema.org/WebPage">  
@@ -139,11 +144,13 @@ MathJax.Hub.Queue(function() {
                 </div>
             </header>
 
-        <article class="notepad-post-content post tag-simple">
-            <div style="text-align:justify;"><p>This lecture aims at providing a brief review of Version Control Systems, why they are needed, how they work, and the most prominent and popular version control software that are available today for professional collaborative programming.</p>
+        
+            <article class="notepad-post-content post tag-simple">
+        
+            <div style="text-align:justify;">
+                <p>This lecture aims at providing a brief review of Version Control Systems, why they are needed, how they work, and the most prominent and popular version control software that are available today for professional collaborative programming.</p>
 
-<h4 id="some-useful-links-for-future-reference">Some useful links for future reference:</h4>
-
+<p><strong>Some useful links for future reference:</strong></p>
 <ul>
   <li><a href="/ECL2017S/lecture/1/progit.en.pdf" target="_blank">Git reference manual (2009)</a></li>
   <li><a href="/ECL2017S/lecture/1/github-git-cheat-sheet.pdf" target="_blank">Github’s Git cheat-sheet</a></li>
@@ -151,36 +158,31 @@ MathJax.Hub.Queue(function() {
   <li><a href="/ECL2017S/lecture/1/markdown-cheatsheet-online.pdf" target="_blank">Markdown language cheat-sheet</a></li>
 </ul>
 
-<h4 id="table-of-content">Table of Content</h4>
-<ul>
-  <li><a href="#Motivation">Motivation</a></li>
-  <li><a href="#VCS">What is Version Control System (VCS)?</a></li>
-  <li><a href="#GM-VCS">Git/Mercurial version control system</a>
-    <ul>
-      <li><a href="#GM-indexingMethod">Git/Mercurial project indexing method</a></li>
-      <li><a href="#remRepos">Remote repository options for your Git/Mercurial projects</a></li>
-    </ul>
-  </li>
-  <li><a href="#gitProjectSetup">Setting up your first Git project on Github</a>
-    <ul>
-      <li><a href="#gitID">Setting up your Git identity</a></li>
-      <li><a href="#gitInit">Two methods of project initialization</a></li>
-      <li><a href="#lorcalRemoteConnection">Local device and remote repository SSH connection</a></li>
-      <li><a href="#mainGitCommands">Main Git commands</a>
-        <ul>
-          <li><a href="#git-status"><code>git status</code></a></li>
-          <li><a href="#git-add"><code>git add</code></a></li>
-          <li><a href="#git-commit"><code>git commit</code></a></li>
-          <li><a href="#git-push"><code>git push</code></a></li>
-          <li><a href="#git-pull"><code>git pull</code></a></li>
-          <li><a href="#git-summary">Git commands summary</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+<p><br /></p>
+
+<div class="post_toc"></div>
 
 <p><br /></p>
+
+<!--
+#### Table of Content
+- [Motivation](#Motivation)
+- [What is Version Control System (VCS)?](#VCS)
+- [Git/Mercurial version control system](#GM-VCS)
+  - [Git/Mercurial project indexing method](#GM-indexingMethod)
+  - [Remote repository options for your Git/Mercurial projects](#remRepos)
+- [Setting up your first Git project on Github](#gitProjectSetup)
+  - [Setting up your Git identity](#gitID)
+  - [Two methods of project initialization](#gitInit)
+  - [Local device and remote repository SSH connection](#lorcalRemoteConnection)
+  - [Main Git commands](#mainGitCommands)  
+    - [`git status`](#git-status)
+    - [`git add`](#git-add)
+    - [`git commit`](#git-commit)
+    - [`git push`](#git-push)
+    - [`git pull`](#git-pull)
+    - [Git commands summary](#git-summary)
+-->
 
 <p><a name="Motivation"></a></p>
 <h2 id="motivation">Motivation</h2>
@@ -565,7 +567,7 @@ for syncing your local with the remote repository. Remember that you have to use
 
 <p><br /></p>
 
-<h3 id="footnotes">Footnotes:</h3>
+<h2 id="footnotes">Footnotes</h2>
 
 <!--
 [^2]: <span style="font-size:0.7em">For a short history of Git see [Git history](https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git){:target="_blank"}.</span>
@@ -654,8 +656,8 @@ for syncing your local with the remote repository. Remember that you have to use
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2017 / 03 / 22</section></br> -->
-         <section>Last updated Wednesday, 22 Mar 2017 at 01:47 PM CST</section></br>
+         <!-- <section>Last updated 2017 / 03 / 26</section></br> -->
+         <section>Last updated Sunday, 26 Mar 2017 at 10:29 PM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>
@@ -706,11 +708,20 @@ for syncing your local with the remote repository. Remember that you have to use
   <script type='text/javascript'>console.log("http://www.shahmoradi.org/");</script>
 <!-- End of scripts for the dynamic header of pages -->
 
+<!--The following scripts is for automatic generation of header anchor links: adopted from: http://ben.balter.com/2014/03/13/pages-anchor-links/-->
+<script src="/ECL2017S/assets/js/autoAnchorLink.js"></script>
+<!--End of automatic generation of header anchor links.-->
+
+
+
 <!-- <script src="/ECL2017S/assets/js/prismOkaidia.js"></script>
 <script src="/ECL2017S/assets/js/prismTwilight.js"></script>
 <script src="/ECL2017S/assets/js/prismDefault.js"></script>
  -->
 <script src="/ECL2017S/assets/js/prismCoy.js"></script>
+
+
+
 
 <!-- Start of Google Analytics Code for Default Guide -->
   <script>
@@ -740,5 +751,7 @@ for syncing your local with the remote repository. Remember that you have to use
     src="http://c.statcounter.com/10611821/0/902e4bb4/0/"
     alt="shopify visitor statistics"></a></div></noscript>
 <!-- End of StatCounter Code for Default Guide --> 
+<!--automatic Table of Content.-->
+<script src="/ECL2017S/assets/js/autoTOC.js"></script>
 </body>
 </html>
