@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-03-26T22:29:58-05:00</updated>
+<updated>2017-03-29T09:18:24-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -158,7 +158,7 @@ Out[13]:
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;python-standard-modules&quot;&gt;Python standard Modules&lt;/h3&gt;
-&lt;p&gt;Python comes with a set of standard modules as its library, the so-called &lt;a href=&quot;https://docs.python.org/3/library/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Python Standard Library&lt;/strong&gt;&lt;/a&gt;. Some modules of these are built into the Python interpreter; these provide access to operations that are not part of the core of the language but are nevertheless built in, for efficiency and other reasons.&lt;/p&gt;
+&lt;p&gt;Python comes with a set of standard modules as its library, the so-called &lt;a href=&quot;https://docs.python.org/3/library/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Python Standard Library&lt;/strong&gt;&lt;/a&gt;. Some of these modules are built into the Python interpreter; these provide access to operations that are not part of the core of the language but are nevertheless built in, for efficiency and other reasons.&lt;/p&gt;
 
 &lt;h3 id=&quot;creating-modules&quot;&gt;Creating modules&lt;/h3&gt;
 
@@ -750,6 +750,178 @@ sum_even_odd
 
 
 <entry>
+  <title type="html"><![CDATA[Homework 6: Problems - Python modules, loops, and I/O]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/6-problems-python-modules-loops-IO"/>
+  <id>http:/ECL2017S/homework/6-problems-python-modules-loops-IO</id>
+  <published>2017-03-29T00:00:00-05:00</published>
+  <updated>2017-03-29T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This homework aims at giving you some experience with Python for-loops and while-loops as well as reading user input from the Bash command line.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; &lt;strong&gt;The while-loop implementation of a for-loop&lt;/strong&gt;. Consider the following example code, which converts a list of temperature values from Celcius to Ferenheit, using a for-loop and then prints them on screen.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;Cdegrees = [-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40]
+print ('    C     F')
+for C in Cdegrees:
+    F = (9.0/5)*C + 32
+print ('%5d %5.1f' % (C, F))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;    C     F
+  -20  -4.0
+  -15   5.0
+  -10  14.0
+   -5  23.0
+    0  32.0
+    5  41.0
+   10  50.0
+   15  59.0
+   20  68.0
+   25  77.0
+   30  86.0
+   35  95.0
+   40 104.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Write a while-loop implementation of the above code.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Consider the following nested list,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;the following nested list:
+q = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h']]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Write a for-loop that extracts all the letters in the list and finally prints them all as a single string,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;abcdefgh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Consider the following program,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from math import sqrt
+for n in range(1, 60):
+    r_org = 2.0
+    r = r_org
+    for i in range(n):
+        r = sqrt(r)
+    for i in range(n):
+        r = r ** 2
+    print ('With {} times sqrt and then {} times **2, the number {} becomes: {:.16f}'.format(n,n,r_org,r))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Explain what this code does. Then run the code, and explain why do you the behavior observed. In particular, why do you not recover the original value $2$ after many repetitions of the same forward and reverse task?&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; Consider the following code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;eps = 1.0
+while 1.0 != 1.0 + eps:
+    print ('...............', eps)
+    eps /= 2.0
+print ('final eps:', eps)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+Explain what the code is doing. Run the code and observe the output. How could &lt;code&gt;1.0 != 1.0 + eps&lt;/code&gt; be False?&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. &lt;/strong&gt; Consider the following list,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;numbers = list(range(10))
+print(numbers)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now run the following code, given the above list. Explain the weird behavior that you observe.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;for n in numbers:
+    i = len(numbers)//2
+    del numbers[i]
+    print ('n={}, del {}'.format(n,i), numbers)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6. &lt;/strong&gt; Consider a problem similar to what we had in the midterm exam: Write a Python function that when executed, asks the user to enter an integer number, then the function gives out the number of prime numbers that are smaller than the input integer number. Here is the answer to this question using only the knowledge of recursive functions and if-blocks,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def is_prime(n):
+    
+    is_prime = True
+    
+    def is_divisible(n,divisor):
+        if n&amp;lt;(divisor-1)*divisor: return False
+        if n%divisor==0: return True
+        else:
+            divisor += 1
+            return is_divisible(n,divisor)
+
+    if is_divisible(n,divisor=2): is_prime=False
+    return is_prime
+
+def get_primes(n):
+    count = 0
+    if n == 1:
+        return count
+    else:
+        if is_prime(n):
+            count = 1
+        n -= 1
+        return count + get_primes(n)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;get_primes(13)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(A) Now rewrite &lt;code&gt;get_primes(n)&lt;/code&gt; and the other functions in the above code using for-loop this time. Name the new functions &lt;code&gt;get_prime_for(n)&lt;/code&gt; and &lt;code&gt;is_prime_for(n)&lt;/code&gt;, with &lt;em&gt;for&lt;/em&gt; in the names indicating that the functions now use for-loops.&lt;/p&gt;
+
+&lt;p&gt;(B) Now compare the performance of the two functions &lt;code&gt;get_primes(n=500)&lt;/code&gt; and &lt;code&gt;get_primes_for(n500)&lt;/code&gt; using Jupyter’s or IPython’s &lt;code&gt;%timeit&lt;/code&gt; magic function. Which one is faster?&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/6-problems-python-modules-loops-IO&quot;&gt;Homework 6: Problems - Python modules, loops, and I/O&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 29, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
   <title type="html"><![CDATA[Exam 1: Solutions]]></title>
   <link rel="alternate" type="text/html" href="http:/ECL2017S/exam/1-solutions-midterm-exam"/>
   <id>http:/ECL2017S/exam/1-solutions-midterm-exam</id>
@@ -766,15 +938,15 @@ sum_even_odd
     &lt;p&gt;This is the solution to &lt;a href=&quot;1-problems-midterm-exam.html&quot; target=&quot;_blank&quot;&gt;Exam 1: Problems&lt;/a&gt;.&lt;/p&gt;
 
 &lt;!--
-The following figure illustrates the grade distribution for this quiz.  
+--&gt;
+&lt;p&gt;The following figure illustrates the grade distribution for the midterm exam.&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/exam/gradeDist/gradeHistExam1.png&quot; width=&quot;700&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/exam/gradeDist/gradeHistMidtermExam.png&quot; width=&quot;700&quot; /&gt;
     &lt;figcaption style=&quot;text-align:center&quot;&gt;
         Maximum possible points is 100.
     &lt;/figcaption&gt;
 &lt;/figure&gt;
---&gt;
 
 &lt;hr /&gt;
 &lt;hr /&gt;
@@ -1405,15 +1577,15 @@ Rewrite the swapping above, in a more abbreviated Pythonic way, once using lists
     &lt;p&gt;This is the solution to &lt;a href=&quot;5-problems-python-variables-assignment-statements.html&quot; target=&quot;_blank&quot;&gt;Quiz 5: Problems - Python variables and assignment statements&lt;/a&gt;.&lt;/p&gt;
 
 &lt;!--
-The following figure illustrates the grade distribution for this quiz.  
+--&gt;
+&lt;p&gt;The following figure illustrates the grade distribution for this quiz.&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/quiz/gradeDist/gradeHistQuiz4.png&quot; width=&quot;700&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/quiz/gradeDist/gradeHistQuiz5.png&quot; width=&quot;700&quot; /&gt;
     &lt;figcaption style=&quot;text-align:center&quot;&gt;
         Maximum possible points is 100.
     &lt;/figcaption&gt;
 &lt;/figure&gt;
---&gt;
 
 &lt;hr /&gt;
 &lt;hr /&gt;
@@ -2379,16 +2551,16 @@ This format is particularly useful, if the lambda function contains a constant t
     &lt;p&gt;This is the solution to &lt;a href=&quot;5-problems-python-branching-functions.html&quot; target=&quot;_blank&quot;&gt;Homework 5: Problems - Python branching and functions&lt;/a&gt;.&lt;/p&gt;
 
 &lt;!--
-The following figure illustrates the grade distribution for this homework.  
+--&gt;
+&lt;p&gt;The following figure illustrates the grade distribution for this homework.&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework3.png&quot; width=&quot;700&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework5.png&quot; width=&quot;700&quot; /&gt;
     &lt;figcaption style=&quot;text-align:center&quot;&gt;
-        Maximum possible points, excluding bonus question, is 100.&lt;br&gt;
-        Maximum possible points, including bonus question, is 200.
+        Maximum possible points is 100.
     &lt;/figcaption&gt;
 &lt;/figure&gt;
---&gt;
+
 &lt;hr /&gt;
 &lt;hr /&gt;
 
@@ -4123,15 +4295,16 @@ Out[80]: 5
     &lt;p&gt;This is the solution to &lt;a href=&quot;4-problems-python-variables-assignment-statements.html&quot; target=&quot;_blank&quot;&gt;Homework 4: Problems - Python variables and assignment statements&lt;/a&gt;.&lt;/p&gt;
 
 &lt;!--
-The following figure illustrates the grade distribution for this homework.  
+--&gt;
+&lt;p&gt;The following figure illustrates the grade distribution for this homework.&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework4.png&quot; width=&quot;700&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework4.png&quot; width=&quot;700&quot; /&gt;
     &lt;figcaption style=&quot;text-align:center&quot;&gt;
-        Maximum possible points, excluding bonus question, is 100.
+        Maximum possible points is 100.
     &lt;/figcaption&gt;
 &lt;/figure&gt;
---&gt;
+
 &lt;hr /&gt;
 &lt;hr /&gt;
 
@@ -6587,393 +6760,6 @@ Table 2: Some useful shortcuts for Jupyter cells in &lt;i&gt;edit mode&lt;/i&gt;
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/3-python-for-beginners&quot;&gt;Lecture 3: Python for beginners&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 15, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Homework 2: Solutions - Advanced Git]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/2-solutions-advanced-git"/>
-  <id>http:/ECL2017S/homework/2-solutions-advanced-git</id>
-  <published>2017-02-15T00:00:00-06:00</published>
-  <updated>2017-02-15T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This is the solution to &lt;a href=&quot;3-problems-python-values-variables-types.html&quot; target=&quot;_blank&quot;&gt;Homework 3: Problems - Python debugging and string manipulation&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The following figure illustrates the grade distribution for this homework.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework2.png&quot; width=&quot;700&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:center&quot;&gt;
-        Maximum possible points, excluding bonus question, is 100.&lt;br /&gt;
-        Maximum possible points, including bonus question, is 120.
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;This homework aims at giving you some experience on how to create Git branches, develop your project on multiple branches, merge them, resolve potential conflicts between different branches upon merging, and finally how to delete them. It also gives you some experience with using other commonly-used Git commands.
-Write your code sections of your answer in Markdown syntax.
-For example,&lt;br /&gt;
-&lt;code&gt;
-    ```bash  &lt;br /&gt;
-    $ git branch -d test  &lt;br /&gt;
-    error: Cannot delete branch 'test' checked out at 'C:/Users/Amir/git/foo'  &lt;br /&gt;
-    ```
-&lt;/code&gt;
-&lt;br /&gt;
-will display the following text highlighted as &lt;em&gt;bash&lt;/em&gt; code, in your &lt;em&gt;readme.md&lt;/em&gt; file.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git branch -d test
-error: Cannot delete branch 'test' checked out at 'C:/Users/Amir/git/foo'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Create two additional test branches in your project, each of which is branched directly from &lt;em&gt;master&lt;/em&gt;. &lt;strong&gt;For each of the following cases, write the command and the corresponding output message of Git, in Markdown language in a &lt;code&gt;readme.md&lt;/code&gt; file inside your &lt;code&gt;homework/2/&lt;/code&gt; folder in your master branch&lt;/strong&gt;. If you don’t have this folder in your project, then create the folder and then place your initial &lt;code&gt;readme.md&lt;/code&gt; file in this folder with your signature as the content of the file. Then stage and commit this file together with homework-2 folder to your local repository. Throughout the rest of this homework, you will fill this &lt;code&gt;readme.md&lt;/code&gt; file with your answers.&lt;/p&gt;
-
-&lt;p&gt;(A) Create two branches, &lt;strong&gt;both from your &lt;em&gt;master&lt;/em&gt; branch&lt;/strong&gt;, with names &lt;em&gt;test1&lt;/em&gt; and &lt;em&gt;test2&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git branch
-* master
-
-$ git branch test1
-
-$ git branch test2
-
-$ git branch
-* master
-  test1
-  test2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(B) Now checkout the &lt;em&gt;test1&lt;/em&gt; branch and create a new text file named &lt;code&gt;test.txt&lt;/code&gt; in the &lt;code&gt;homework/2/&lt;/code&gt; directory of this branch.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout test1
-Switched to branch 'test1'
-
-$ git status
-On branch test1
-nothing to commit, working tree clean
-
-$ ls
-readme.md
-
-$ touch test.txt
-
-$ ls
-readme.md  test.txt
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(C) Inside &lt;code&gt;test.txt&lt;/code&gt; in &lt;em&gt;test1&lt;/em&gt; branch write this message: &lt;em&gt;This is some example text for branch test1&lt;/em&gt;, and save it.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Use &lt;code&gt;vim test.txt&lt;/code&gt; to open &lt;em&gt;vim&lt;/em&gt; editor. Press &lt;code&gt;shift + I&lt;/code&gt; to switch to &lt;em&gt;vim insert mode&lt;/em&gt;. write &lt;em&gt;This is some example text for branch test1&lt;/em&gt; in &lt;code&gt;test.txt&lt;/code&gt; file. Now, Press &lt;code&gt;ESC&lt;/code&gt; key and write &lt;code&gt;:wq&lt;/code&gt; on the &lt;em&gt;vim&lt;/em&gt; command line to save the file and quit &lt;em&gt;vim&lt;/em&gt;.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(D) Now stage and commit &lt;code&gt;test.txt&lt;/code&gt; file to branch &lt;em&gt;test1&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git status
-On branch test1
-Untracked files:
-  (use &quot;git add &amp;lt;file&amp;gt;...&quot; to include in what will be committed)
-
-        test.txt
-
-nothing added to commit but untracked files present (use &quot;git add&quot; to track)
-
-$ git add --all
-warning: LF will be replaced by CRLF in test.txt.
-The file will have its original line endings in your working directory.
-
-$ git commit -m&quot;commiting the test.txt file in test1 branch&quot;
-[test1 715ca59] commiting the test.txt file in test1 branch
-1 file changed, 1 insertion(+)
-create mode 100644 test.txt
-
-$ git status
-On branch test1
-nothing to commit, working tree clean
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(E) Checkout the branch &lt;em&gt;test2&lt;/em&gt;. Do you still see &lt;code&gt;test.txt&lt;/code&gt; that you just created in your &lt;code&gt;homework/2/&lt;/code&gt; directory? You can search for it by the &lt;em&gt;bash&lt;/em&gt; command &lt;code&gt;ls&lt;/code&gt;. Explain why you see/don’t see the file in your working directory anymore.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout test2
-Switched to branch 'test2'
-
-$ ls
-readme.md
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The &lt;code&gt;test.txt&lt;/code&gt; files is not in the project’s working directory, since I just chaecked out a new branch &lt;em&gt;test2&lt;/em&gt; that does not contain any files that were generated and committed in &lt;em&gt;test1&lt;/em&gt; branch.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(F) Create a new text file named &lt;code&gt;test.txt&lt;/code&gt; in the &lt;code&gt;homework/2/&lt;/code&gt; directory of this branch as well, and add &lt;em&gt;This is some example text for branch test2&lt;/em&gt; to its content.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ touch test.txt
-
-$ vim test.txt
-
-$ git status
-On branch test2
-Untracked files:
-  (use &quot;git add &amp;lt;file&amp;gt;...&quot; to include in what will be committed)
-
-        test.txt
-
-nothing added to commit but untracked files present (use &quot;git add&quot; to track)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The procedure for adding content to the file is very similar to that in part (C) of the problem, explained above.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(G) Now try to checkout &lt;em&gt;test1&lt;/em&gt;. What error/warning message do you get? Fix the source of error and then checkout &lt;em&gt;test1&lt;/em&gt; branch.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout test1
-error: The following untracked working tree files would be overwritten by checkout:
-        test.txt
-Please move or remove them before you switch branches.
-Aborting
-
-$ git add --all
-warning: LF will be replaced by CRLF in test.txt.
-The file will have its original line endings in your working directory.
-
-$ git commit -m&quot;commtting the test2 branch changes&quot;
-[test2 fce6a94] commtting the test2 branch changes
-1 file changed, 1 insertion(+)
-create mode 100644 test.txt
-
-$ git status
-On branch test2
-nothing to commit, working tree clean
-
-$ git checkout test1
-Switched to branch 'test1'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(H) Now merge the content of &lt;em&gt;test1&lt;/em&gt; with &lt;em&gt;master&lt;/em&gt; branch. (Hint: Note from which branch you doing this merge!)&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout master
-Switched to branch 'master'
-
-$ ls
-readme.md
-
-$ git status
-On branch master
-nothing to commit, working tree clean
-
-$ git merge test1
-Updating a661e87..715ca59
-Fast-forward
- test.txt | 1 +
- 1 file changed, 1 insertion(+)
- create mode 100644 test.txt
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(I) Now what do you see as the content of &lt;em&gt;master&lt;/em&gt; branch? (Hint: Use &lt;code&gt;ls&lt;/code&gt; &lt;em&gt;bash&lt;/em&gt; command, to list the files in the working directory.)&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ls
-readme.md  test.txt
-
-$ git status
-On branch master
-nothing to commit, working tree clean
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(J) Now merge the content of &lt;em&gt;test2&lt;/em&gt; with &lt;em&gt;master&lt;/em&gt; branch. What error/warning message do you get? Why does this error arise?&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git merge test2
-Auto-merging test.txt
-CONFLICT (add/add): Merge conflict in test.txt
-Automatic merge failed; fix conflicts and then commit the result.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(K) Now chekcout &lt;em&gt;test2&lt;/em&gt;. What error/warning message do you get?&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout test2
-test.txt: needs merge
-error: you need to resolve your current index first
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(L) Run the Git command &lt;code&gt;git status&lt;/code&gt;. Why does such a conflict exist, as mentioned in &lt;code&gt;git status&lt;/code&gt; output?&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
-Basically, by running &lt;code&gt;git merge test2&lt;/code&gt; command, we attempted to merge test.txt file of &lt;em&gt;test2&lt;/em&gt; branch with the existing &lt;code&gt;test.txt&lt;/code&gt; file of &lt;em&gt;master&lt;/em&gt; branch. But the content of the two is different.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(M) At this stage, you have two options: Either 1. stage and commit the combined conlifting &lt;code&gt;test.txt&lt;/code&gt; file to Git repository (but this is not recommended), or, 2. open the file &lt;code&gt;test.txt&lt;/code&gt; using &lt;em&gt;vim&lt;/em&gt; editor on the command line and reslve the conflict by editing the content of the file to only this sentence: &lt;em&gt;. Then save and quit *vim&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ vim test.txt
-
-$ cat test.txt
-This is some example text from both test1 and test2 branches combined.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The &lt;em&gt;bash&lt;/em&gt; command &lt;code&gt;cat&lt;/code&gt; shows the content of &lt;code&gt;text.txt&lt;/code&gt; file.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(N) Now, run &lt;code&gt;git status&lt;/code&gt;, then stage and commit your conflict-resolved file. Then checkout &lt;em&gt;test2&lt;/em&gt; branch.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git status
-On branch master
-You have unmerged paths.
-  (fix conflicts and run &quot;git commit&quot;)
-  (use &quot;git merge --abort&quot; to abort the merge)
-
-Unmerged paths:
-  (use &quot;git add &amp;lt;file&amp;gt;...&quot; to mark resolution)
-
-        both added:      test.txt
-
-no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
-
-$ git add test.txt
-
-$ git commit -m&quot;adding the test.txt resolution file&quot;
-[master 4c74098] adding the test.txt resolution file
-
-$ git status
-On branch master
-nothing to commit, working tree clean
-
-$ git checkout test2
-Switched to branch 'test2'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(O) Now, try deleting branch &lt;em&gt;test1&lt;/em&gt;, while on branch &lt;em&gt;test2&lt;/em&gt;. What error/warning message do you get?&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git branch -d test1
-error: The branch 'test1' is not fully merged.
-If you are sure you want to delete it, run 'git branch -D test1'.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(P) Now, switch back to &lt;em&gt;master&lt;/em&gt; branch. Now, try deleting branch &lt;em&gt;test1&lt;/em&gt;, while on &lt;em&gt;master&lt;/em&gt; branch. What message do you get from Git? List all the existing branches using &lt;code&gt;git branch&lt;/code&gt; command.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout master
-Switched to branch 'master'
-
-$ git branch
-* master
-  test2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(Q) Why is there such a difference in Git messages between when you tried deleting &lt;em&gt;test1&lt;/em&gt; branch from &lt;em&gt;test2&lt;/em&gt; branch, and when you tried deleting &lt;em&gt;test1&lt;/em&gt; branch from &lt;em&gt;master&lt;/em&gt; branch?&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The difference arises, because whichever branch you are in, Git assumes that the content of any other branch should be first merged for the current branch before deteting the other branch. Therefore, in the first case, Git warns that there is unmerged data between &lt;em&gt;test1&lt;/em&gt; and &lt;em&gt;test2&lt;/em&gt; branches. But the delete command from &lt;em&gt;master&lt;/em&gt; branch gives no error, since the content of &lt;em&gt;test1&lt;/em&gt; branch has been previously appropriately merged with &lt;em&gt;master&lt;/em&gt; branch.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(R) Now checkout &lt;em&gt;test2&lt;/em&gt; branch. While on &lt;em&gt;test2&lt;/em&gt;, try to delete branch &lt;em&gt;test2&lt;/em&gt;. What error/message do you get?&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout test2
-Switched to branch 'test2'
-
-$ git branch -d test2
-error: Cannot delete branch 'test2' checked out at '~/test'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(S) Switch back to &lt;em&gt;master&lt;/em&gt; and delete &lt;em&gt;test2&lt;/em&gt; branch. List all your project branches by the approproiate Git command.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git checkout master
-Switched to branch 'master'
-
-$ git branch -d test2
-Deleted branch test2 (was fce6a94).
-
-$ git branch
-* master
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(T) Stage and commit all the changes (including the file &lt;code&gt;test.txt&lt;/code&gt;) to your project’s &lt;em&gt;master&lt;/em&gt; branch. Now push it all to the remote repository by Wednesday Feb 15 2017, 9:00 a.m. CDT.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git add --all
-
-$ git commit
-On branch master
-nothing to commit, working tree clean
-
-$ git push --all
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Create a &lt;em&gt;gh-pages&lt;/em&gt; branch for your project from master branch, such that your project is accessible through its web address based on the content of &lt;em&gt;gh-pages&lt;/em&gt; branch, not based on the content of &lt;em&gt;master&lt;/em&gt; branch.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
-Ask me in class and I will explain how to do it.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/2-solutions-advanced-git&quot;&gt;Homework 2: Solutions - Advanced Git&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 15, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>

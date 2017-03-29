@@ -92,6 +92,11 @@ callback([
   } ,
 
   {
+    "text": "Homework 6: Problems - Python modules, loops, and I/O",
+    "href": "/ECL2017S/homework/6-problems-python-modules-loops-IO"
+  } ,
+
+  {
     "text": "Homework 5: Solutions - Python branching and functions",
     "href": "/ECL2017S/homework/5-solutions-python-branching-functions"
   } ,

@@ -2,23 +2,23 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>HOMEWORK 2: SOLUTIONS - ADVANCED GIT &vert; COE 111L - SPRING 2017</title>
+<title>HOMEWORK 6: PROBLEMS - PYTHON MODULES, LOOPS, AND I/O &vert; COE 111L - SPRING 2017</title>
 <meta name="description" content="Engineering Computation Lab">
 <meta name="keywords" content="">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/ECL2017S/images/logo.png">
-<meta name="twitter:title" content="Homework 2: Solutions - Advanced Git">
+<meta name="twitter:title" content="Homework 6: Problems - Python modules, loops, and I/O">
 <meta name="twitter:description" content="Engineering Computation Lab">
 <meta name="twitter:creator" content="@AmirShahmoradi">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Homework 2: Solutions - Advanced Git">
+<meta property="og:title" content="Homework 6: Problems - Python modules, loops, and I/O">
 <meta property="og:description" content="Engineering Computation Lab">
-<meta property="og:url" content="/ECL2017S/homework/2-solutions-advanced-git">
+<meta property="og:url" content="/ECL2017S/homework/6-problems-python-modules-loops-IO">
 <meta property="og:site_name" content="COE 111L - Spring 2017">
 <meta property="og:image" content="/ECL2017S/images/">
 
@@ -26,7 +26,7 @@
 
 
 
-<link rel="canonical" href="/ECL2017S/homework/2-solutions-advanced-git">
+<link rel="canonical" href="/ECL2017S/homework/6-problems-python-modules-loops-IO">
 <!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 Feed"> -->
 
 
@@ -137,8 +137,8 @@ MathJax.Hub.Queue(function() {
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h2>Homework 2: Solutions - Advanced Git</h2>
-                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-02-15T00:00:00-06:00">15 Feb 2017</time></strong></p>
+                            <h2>Homework 6: Problems - Python modules, loops, and I/O</h2>
+                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-03-29T00:00:00-05:00">29 Mar 2017</time></strong></p>
                         </div>
                     </div>
                 </div>
@@ -148,37 +148,7 @@ MathJax.Hub.Queue(function() {
             <article class="notepad-post-content post tag-simple">
         
             <div style="text-align:justify;">
-                <p>This is the solution to <a href="3-problems-python-values-variables-types.html" target="_blank">Homework 3: Problems - Python debugging and string manipulation</a>.</p>
-
-<p>The following figure illustrates the grade distribution for this homework.</p>
-
-<figure>
-	<img src="/ECL2017S/homework/gradeDist/gradeHistHomework2.png" width="700" />
-    <figcaption style="text-align:center">
-        Maximum possible points, excluding bonus question, is 100.<br />
-        Maximum possible points, including bonus question, is 120.
-    </figcaption>
-</figure>
-
-<hr />
-<hr />
-
-<p><br /></p>
-
-<p>This homework aims at giving you some experience on how to create Git branches, develop your project on multiple branches, merge them, resolve potential conflicts between different branches upon merging, and finally how to delete them. It also gives you some experience with using other commonly-used Git commands.
-Write your code sections of your answer in Markdown syntax.
-For example,<br />
-<code>
-    ```bash  <br />
-    $ git branch -d test  <br />
-    error: Cannot delete branch 'test' checked out at 'C:/Users/Amir/git/foo'  <br />
-    ```
-</code>
-<br />
-will display the following text highlighted as <em>bash</em> code, in your <em>readme.md</em> file.</p>
-<pre><code class="language-bash">$ git branch -d test
-error: Cannot delete branch 'test' checked out at 'C:/Users/Amir/git/foo'
-</code></pre>
+                <p>This homework aims at giving you some experience with Python for-loops and while-loops as well as reading user input from the Bash command line.</p>
 
 <p><br /></p>
 
@@ -187,319 +157,45 @@ error: Cannot delete branch 'test' checked out at 'C:/Users/Amir/git/foo'
 
 <p><br /></p>
 
-<p><strong>1. </strong> Create two additional test branches in your project, each of which is branched directly from <em>master</em>. <strong>For each of the following cases, write the command and the corresponding output message of Git, in Markdown language in a <code>readme.md</code> file inside your <code>homework/2/</code> folder in your master branch</strong>. If you don’t have this folder in your project, then create the folder and then place your initial <code>readme.md</code> file in this folder with your signature as the content of the file. Then stage and commit this file together with homework-2 folder to your local repository. Throughout the rest of this homework, you will fill this <code>readme.md</code> file with your answers.</p>
-
-<p>(A) Create two branches, <strong>both from your <em>master</em> branch</strong>, with names <em>test1</em> and <em>test2</em>.</p>
-
-<p><strong>Answer:</strong></p>
-<pre><code class="language-bash">$ git branch
-* master
-
-$ git branch test1
-
-$ git branch test2
-
-$ git branch
-* master
-  test1
-  test2
+<p><strong>1. </strong> <strong>The while-loop implementation of a for-loop</strong>. Consider the following example code, which converts a list of temperature values from Celcius to Ferenheit, using a for-loop and then prints them on screen.</p>
+<pre><code class="language-python">Cdegrees = [-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40]
+print ('    C     F')
+for C in Cdegrees:
+    F = (9.0/5)*C + 32
+print ('%5d %5.1f' % (C, F))
+</code></pre>
+<pre><code>    C     F
+  -20  -4.0
+  -15   5.0
+  -10  14.0
+   -5  23.0
+    0  32.0
+    5  41.0
+   10  50.0
+   15  59.0
+   20  68.0
+   25  77.0
+   30  86.0
+   35  95.0
+   40 104.0
 </code></pre>
 
+<p>Write a while-loop implementation of the above code.</p>
+
+<p><br /></p>
+
+<hr />
 <hr />
 
-<p>(B) Now checkout the <em>test1</em> branch and create a new text file named <code>test.txt</code> in the <code>homework/2/</code> directory of this branch.</p>
+<p><br /></p>
 
-<p><strong>Answer:</strong></p>
-<pre><code class="language-bash">$ git checkout test1
-Switched to branch 'test1'
-
-$ git status
-On branch test1
-nothing to commit, working tree clean
-
-$ ls
-readme.md
-
-$ touch test.txt
-
-$ ls
-readme.md  test.txt
+<p><strong>2. </strong> Consider the following nested list,</p>
+<pre><code class="language-python">the following nested list:
+q = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h']]
 </code></pre>
-
-<hr />
-
-<p>(C) Inside <code>test.txt</code> in <em>test1</em> branch write this message: <em>This is some example text for branch test1</em>, and save it.</p>
-
-<p><strong>Answer:</strong></p>
-
-<p>Use <code>vim test.txt</code> to open <em>vim</em> editor. Press <code>shift + I</code> to switch to <em>vim insert mode</em>. write <em>This is some example text for branch test1</em> in <code>test.txt</code> file. Now, Press <code>ESC</code> key and write <code>:wq</code> on the <em>vim</em> command line to save the file and quit <em>vim</em>.</p>
-
-<hr />
-
-<p>(D) Now stage and commit <code>test.txt</code> file to branch <em>test1</em>.</p>
-
-<p><strong>Answer:</strong></p>
-<pre><code class="language-bash">$ git status
-On branch test1
-Untracked files:
-  (use "git add &lt;file&gt;..." to include in what will be committed)
-
-        test.txt
-
-nothing added to commit but untracked files present (use "git add" to track)
-
-$ git add --all
-warning: LF will be replaced by CRLF in test.txt.
-The file will have its original line endings in your working directory.
-
-$ git commit -m"commiting the test.txt file in test1 branch"
-[test1 715ca59] commiting the test.txt file in test1 branch
-1 file changed, 1 insertion(+)
-create mode 100644 test.txt
-
-$ git status
-On branch test1
-nothing to commit, working tree clean
-</code></pre>
-
-<hr />
-
-<p>(E) Checkout the branch <em>test2</em>. Do you still see <code>test.txt</code> that you just created in your <code>homework/2/</code> directory? You can search for it by the <em>bash</em> command <code>ls</code>. Explain why you see/don’t see the file in your working directory anymore.</p>
-
-<p><strong>Answer:</strong></p>
-<pre><code class="language-bash">$ git checkout test2
-Switched to branch 'test2'
-
-$ ls
-readme.md
-</code></pre>
-<p>The <code>test.txt</code> files is not in the project’s working directory, since I just chaecked out a new branch <em>test2</em> that does not contain any files that were generated and committed in <em>test1</em> branch.</p>
-
-<hr />
-
-<p>(F) Create a new text file named <code>test.txt</code> in the <code>homework/2/</code> directory of this branch as well, and add <em>This is some example text for branch test2</em> to its content.</p>
-
-<p><strong>Answer:</strong></p>
-<pre><code class="language-bash">$ touch test.txt
-
-$ vim test.txt
-
-$ git status
-On branch test2
-Untracked files:
-  (use "git add &lt;file&gt;..." to include in what will be committed)
-
-        test.txt
-
-nothing added to commit but untracked files present (use "git add" to track)
-</code></pre>
-<p>The procedure for adding content to the file is very similar to that in part (C) of the problem, explained above.</p>
-
-<hr />
-
-<p>(G) Now try to checkout <em>test1</em>. What error/warning message do you get? Fix the source of error and then checkout <em>test1</em> branch.</p>
-
-<p><strong>Answer:</strong></p>
-<pre><code class="language-bash">$ git checkout test1
-error: The following untracked working tree files would be overwritten by checkout:
-        test.txt
-Please move or remove them before you switch branches.
-Aborting
-
-$ git add --all
-warning: LF will be replaced by CRLF in test.txt.
-The file will have its original line endings in your working directory.
-
-$ git commit -m"commtting the test2 branch changes"
-[test2 fce6a94] commtting the test2 branch changes
-1 file changed, 1 insertion(+)
-create mode 100644 test.txt
-
-$ git status
-On branch test2
-nothing to commit, working tree clean
-
-$ git checkout test1
-Switched to branch 'test1'
-</code></pre>
-
-<hr />
-
-<p>(H) Now merge the content of <em>test1</em> with <em>master</em> branch. (Hint: Note from which branch you doing this merge!)</p>
-
-<p><strong>Answer:</strong></p>
-<pre><code class="language-bash">$ git checkout master
-Switched to branch 'master'
-
-$ ls
-readme.md
-
-$ git status
-On branch master
-nothing to commit, working tree clean
-
-$ git merge test1
-Updating a661e87..715ca59
-Fast-forward
- test.txt | 1 +
- 1 file changed, 1 insertion(+)
- create mode 100644 test.txt
-</code></pre>
-
-<hr />
-
-<p>(I) Now what do you see as the content of <em>master</em> branch? (Hint: Use <code>ls</code> <em>bash</em> command, to list the files in the working directory.)</p>
-
-<p><strong>Answer:</strong></p>
-<pre><code class="language-bash">$ ls
-readme.md  test.txt
-
-$ git status
-On branch master
-nothing to commit, working tree clean
-</code></pre>
-
-<hr />
-
-<p>(J) Now merge the content of <em>test2</em> with <em>master</em> branch. What error/warning message do you get? Why does this error arise?</p>
-
-<p><strong>Answer:</strong></p>
-<pre><code class="language-bash">$ git merge test2
-Auto-merging test.txt
-CONFLICT (add/add): Merge conflict in test.txt
-Automatic merge failed; fix conflicts and then commit the result.
-</code></pre>
-
-<hr />
-
-<p>(K) Now chekcout <em>test2</em>. What error/warning message do you get?</p>
-
-<p><strong>Answer:</strong></p>
-<pre><code class="language-bash">$ git checkout test2
-test.txt: needs merge
-error: you need to resolve your current index first
-</code></pre>
-
-<hr />
-
-<p>(L) Run the Git command <code>git status</code>. Why does such a conflict exist, as mentioned in <code>git status</code> output?</p>
-
-<p><strong>Answer:</strong><br />
-Basically, by running <code>git merge test2</code> command, we attempted to merge test.txt file of <em>test2</em> branch with the existing <code>test.txt</code> file of <em>master</em> branch. But the content of the two is different.</p>
-
-<hr />
-
-<p>(M) At this stage, you have two options: Either 1. stage and commit the combined conlifting <code>test.txt</code> file to Git repository (but this is not recommended), or, 2. open the file <code>test.txt</code> using <em>vim</em> editor on the command line and reslve the conflict by editing the content of the file to only this sentence: <em>. Then save and quit *vim</em>.</p>
-
-<p><strong>Answer:</strong></p>
-<pre><code class="language-bash">$ vim test.txt
-
-$ cat test.txt
-This is some example text from both test1 and test2 branches combined.
-</code></pre>
-<p>The <em>bash</em> command <code>cat</code> shows the content of <code>text.txt</code> file.</p>
-
-<hr />
-
-<p>(N) Now, run <code>git status</code>, then stage and commit your conflict-resolved file. Then checkout <em>test2</em> branch.</p>
-
-<p><strong>Answer:</strong></p>
-<pre><code class="language-bash">$ git status
-On branch master
-You have unmerged paths.
-  (fix conflicts and run "git commit")
-  (use "git merge --abort" to abort the merge)
-
-Unmerged paths:
-  (use "git add &lt;file&gt;..." to mark resolution)
-
-        both added:      test.txt
-
-no changes added to commit (use "git add" and/or "git commit -a")
-
-$ git add test.txt
-
-$ git commit -m"adding the test.txt resolution file"
-[master 4c74098] adding the test.txt resolution file
-
-$ git status
-On branch master
-nothing to commit, working tree clean
-
-$ git checkout test2
-Switched to branch 'test2'
-</code></pre>
-
-<hr />
-
-<p>(O) Now, try deleting branch <em>test1</em>, while on branch <em>test2</em>. What error/warning message do you get?</p>
-
-<p><strong>Answer:</strong></p>
-<pre><code class="language-bash">$ git branch -d test1
-error: The branch 'test1' is not fully merged.
-If you are sure you want to delete it, run 'git branch -D test1'.
-</code></pre>
-
-<hr />
-
-<p>(P) Now, switch back to <em>master</em> branch. Now, try deleting branch <em>test1</em>, while on <em>master</em> branch. What message do you get from Git? List all the existing branches using <code>git branch</code> command.</p>
-
-<p><strong>Answer:</strong></p>
-<pre><code class="language-bash">$ git checkout master
-Switched to branch 'master'
-
-$ git branch
-* master
-  test2
-</code></pre>
-
-<hr />
-
-<p>(Q) Why is there such a difference in Git messages between when you tried deleting <em>test1</em> branch from <em>test2</em> branch, and when you tried deleting <em>test1</em> branch from <em>master</em> branch?</p>
-
-<p><strong>Answer:</strong></p>
-
-<p>The difference arises, because whichever branch you are in, Git assumes that the content of any other branch should be first merged for the current branch before deteting the other branch. Therefore, in the first case, Git warns that there is unmerged data between <em>test1</em> and <em>test2</em> branches. But the delete command from <em>master</em> branch gives no error, since the content of <em>test1</em> branch has been previously appropriately merged with <em>master</em> branch.</p>
-
-<hr />
-
-<p>(R) Now checkout <em>test2</em> branch. While on <em>test2</em>, try to delete branch <em>test2</em>. What error/message do you get?</p>
-
-<p><strong>Answer:</strong></p>
-<pre><code class="language-bash">$ git checkout test2
-Switched to branch 'test2'
-
-$ git branch -d test2
-error: Cannot delete branch 'test2' checked out at '~/test'
-</code></pre>
-
-<hr />
-
-<p>(S) Switch back to <em>master</em> and delete <em>test2</em> branch. List all your project branches by the approproiate Git command.</p>
-
-<p><strong>Answer:</strong></p>
-<pre><code class="language-bash">$ git checkout master
-Switched to branch 'master'
-
-$ git branch -d test2
-Deleted branch test2 (was fce6a94).
-
-$ git branch
-* master
-</code></pre>
-
-<hr />
-
-<p>(T) Stage and commit all the changes (including the file <code>test.txt</code>) to your project’s <em>master</em> branch. Now push it all to the remote repository by Wednesday Feb 15 2017, 9:00 a.m. CDT.</p>
-
-<p><strong>Answer:</strong></p>
-<pre><code class="language-bash">$ git add --all
-
-$ git commit
-On branch master
-nothing to commit, working tree clean
-
-$ git push --all
+<p><br />
+Write a for-loop that extracts all the letters in the list and finally prints them all as a single string,</p>
+<pre><code class="language-python">abcdefgh
 </code></pre>
 
 <p><br /></p>
@@ -509,27 +205,116 @@ $ git push --all
 
 <p><br /></p>
 
-<p><strong>2. </strong> Create a <em>gh-pages</em> branch for your project from master branch, such that your project is accessible through its web address based on the content of <em>gh-pages</em> branch, not based on the content of <em>master</em> branch.</p>
-
-<p><strong>Answer:</strong><br />
-Ask me in class and I will explain how to do it.</p>
+<p><strong>3. </strong> Consider the following program,</p>
+<pre><code class="language-python">from math import sqrt
+for n in range(1, 60):
+    r_org = 2.0
+    r = r_org
+    for i in range(n):
+        r = sqrt(r)
+    for i in range(n):
+        r = r ** 2
+    print ('With {} times sqrt and then {} times **2, the number {} becomes: {:.16f}'.format(n,n,r_org,r))
+</code></pre>
+<p><br />
+Explain what this code does. Then run the code, and explain why do you the behavior observed. In particular, why do you not recover the original value $2$ after many repetitions of the same forward and reverse task?</p>
 
 <p><br /></p>
+
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p><strong>4. </strong> Consider the following code,</p>
+<pre><code class="language-python">eps = 1.0
+while 1.0 != 1.0 + eps:
+    print ('...............', eps)
+    eps /= 2.0
+print ('final eps:', eps)
+</code></pre>
+<p><br /><br />
+Explain what the code is doing. Run the code and observe the output. How could <code>1.0 != 1.0 + eps</code> be False?</p>
+
+<p><br /></p>
+
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p><strong>5. </strong> Consider the following list,</p>
+<pre><code class="language-python">numbers = list(range(10))
+print(numbers)
+</code></pre>
+<pre><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</code></pre>
+
+<p>Now run the following code, given the above list. Explain the weird behavior that you observe.</p>
+<pre><code class="language-python">for n in numbers:
+    i = len(numbers)//2
+    del numbers[i]
+    print ('n={}, del {}'.format(n,i), numbers)
+</code></pre>
+
+<p><br /></p>
+
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p><strong>6. </strong> Consider a problem similar to what we had in the midterm exam: Write a Python function that when executed, asks the user to enter an integer number, then the function gives out the number of prime numbers that are smaller than the input integer number. Here is the answer to this question using only the knowledge of recursive functions and if-blocks,</p>
+<pre><code class="language-python">def is_prime(n):
+    
+    is_prime = True
+    
+    def is_divisible(n,divisor):
+        if n&lt;(divisor-1)*divisor: return False
+        if n%divisor==0: return True
+        else:
+            divisor += 1
+            return is_divisible(n,divisor)
+
+    if is_divisible(n,divisor=2): is_prime=False
+    return is_prime
+
+def get_primes(n):
+    count = 0
+    if n == 1:
+        return count
+    else:
+        if is_prime(n):
+            count = 1
+        n -= 1
+        return count + get_primes(n)
+</code></pre>
+<p><br /></p>
+<pre><code class="language-python">get_primes(13)
+</code></pre>
+<pre><code>5
+</code></pre>
+
+<p>(A) Now rewrite <code>get_primes(n)</code> and the other functions in the above code using for-loop this time. Name the new functions <code>get_prime_for(n)</code> and <code>is_prime_for(n)</code>, with <em>for</em> in the names indicating that the functions now use for-loops.</p>
+
+<p>(B) Now compare the performance of the two functions <code>get_primes(n=500)</code> and <code>get_primes_for(n500)</code> using Jupyter’s or IPython’s <code>%timeit</code> magic function. Which one is faster?</p>
+
+<p><br /><br /></p>
 
             </div>
         </article>
         <div class="cf"></div>
         <div class="row text-center">
             <section class="notepad-post-share">
-                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Homework 2: Solutions - Advanced Git&quot;%20/ECL2017S/homework/2-solutions-advanced-git%20via%20&#64;AmirShahmoradi"
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Homework 6: Problems - Python modules, loops, and I/O&quot;%20/ECL2017S/homework/6-problems-python-modules-loops-IO%20via%20&#64;AmirShahmoradi"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
                     <i class="fa fa-twitter"></i>
                 </a>
-                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/homework/2-solutions-advanced-git"
+                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/homework/6-problems-python-modules-loops-IO"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
                     <i class="fa fa-facebook"></i>
                 </a>
-                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/homework/2-solutions-advanced-git"
+                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/homework/6-problems-python-modules-loops-IO"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
                     <i class="fa fa-google-plus"></i>
                 </a>
