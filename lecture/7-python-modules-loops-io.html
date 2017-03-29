@@ -295,7 +295,7 @@ Out[13]:
 <pre><code class="language-bash">python mycode.py
 </code></pre>
 <p><br />
-the code in the module will be executed, just as if you imported it inside another code. This is good, but can sometimnes become problematic. Let’s explain this with an example from the midterm exam, a <a href="/lecture/7/find_primes.py" target="_blank">script</a> that finds and reports all prime numbers smaller than a given input number $n$.</p>
+the code in the module will be executed, just as if you imported it inside another code. This is good, but can sometimnes become problematic. Let’s explain this with an example from the midterm exam, a <a href="/ECL2017S/lecture/7/find_primes.py" target="_blank">script</a> that finds and reports all prime numbers smaller than a given input number $n$.</p>
 
 <p>When you execute this code as astandalone Python script, it will ask you for an integer, to give you all integers that are smaller than the input number. Now suppose you wanted to import this script as a Python module into your code. If you do so, the Python interpreter would run all statements in this script and asks you to input an integer, before importing the rest of the functions in this script.</p>
 <pre><code class="language-python">In [5]: import find_primes
@@ -326,7 +326,7 @@ inside the following if-block,</p>
     get_primes(n)
 </code></pre>
 <p><br />
-When the code is run as a standalone script, the <code>__name__</code> property of the code is set to <code>__main__</code>. However, when the script is imported as a module inside another code, the <code>__name__</code> property is automatically set to the name of the module <code>find_primes</code>. Thus as a module, the above if-block will not be executed, but the rest of the code (the two functions) will be properly imported. The corrected script is named <code>mod_find_primes.py</code> and can be downloaded from <a href="/lecture/7/mod_find_primes.py" target="_blank">here</a>.</p>
+When the code is run as a standalone script, the <code>__name__</code> property of the code is set to <code>__main__</code>. However, when the script is imported as a module inside another code, the <code>__name__</code> property is automatically set to the name of the module <code>find_primes</code>. Thus as a module, the above if-block will not be executed, but the rest of the code (the two functions) will be properly imported. The corrected script is named <code>mod_find_primes.py</code> and can be downloaded from <a href="/ECL2017S/lecture/7/mod_find_primes.py" target="_blank">here</a>.</p>
 <pre><code class="language-Python">In [6]: import mod_find_primes
 In [7]: mod_find_primes.__name__
 Out[7]: 'mod_find_primes'
@@ -346,7 +346,7 @@ In summary,</p>
 
 <h4 id="command-line-arguments">Command line arguments</h4>
 
-<p>Test blocks are especially useful when your module can be also run as a standalone Python script that takes in <strong>command-line arguments</strong>. <a href="/lecture/7/cmd_find_primes.py" target="_blank">Here</a> is a modified version of the <code>mod_find_primes</code> module now named <code>cmd_find_primes</code> that instead of using <code>input()</code> function, reads the integer number from the Bash command line. To do so, you need to modify the last part of the original module to the following, using Python’s standard <code>sys</code> module,</p>
+<p>Test blocks are especially useful when your module can be also run as a standalone Python script that takes in <strong>command-line arguments</strong>. <a href="/ECL2017S/lecture/7/cmd_find_primes.py" target="_blank">Here</a> is a modified version of the <code>mod_find_primes</code> module now named <code>cmd_find_primes</code> that instead of using <code>input()</code> function, reads the integer number from the Bash command line. To do so, you need to modify the last part of the original module to the following, using Python’s standard <code>sys</code> module,</p>
 <pre><code class="language-python">if __name__ == "__main__":
     import sys
     if len( sys.argv ) != 2: # check the number of arguments to be exactly 2.
@@ -440,7 +440,7 @@ However, more often than not, you may want to have variables in your module, tha
 <pre><code class="language-python">_course = "Python programming"
 </code></pre>
 <p><br />
-This however, does not prevent the import of the variable <code>_course</code> into your code from your the <a href="/lecture/7/mod_cmd_find_primes_del.py" target="_blank">module</a> containing it. One solution is to delete the variables that we are not interested the user to have access to, at the end of the module,</p>
+This however, does not prevent the import of the variable <code>_course</code> into your code from your the <a href="/ECL2017S/lecture/7/mod_cmd_find_primes_del.py" target="_blank">module</a> containing it. One solution is to delete the variables that we are not interested the user to have access to, at the end of the module,</p>
 <pre><code class="language-python">del _course
 </code></pre>
 <p><br />
@@ -462,7 +462,7 @@ Out[29]:
 </code></pre>
 <p><br /></p>
 
-<p>However, note that if you import all definitions in <a href="/lecture/7/mod_cmd_find_primes_all.py" target="_blank">your module</a> as standalone definitions like the following,</p>
+<p>However, note that if you import all definitions in <a href="/ECL2017S/lecture/7/mod_cmd_find_primes_all.py" target="_blank">your module</a> as standalone definitions like the following,</p>
 <pre><code class="language-python">In [4]: from mod_cmd_find_primes_all import *
 
 In [5]: dir()
@@ -939,7 +939,7 @@ sum_even_odd
     <footer class="notepad-site-footer">
     <div class="copyright">
          <!-- <section>Last updated 2017 / 03 / 29</section></br> -->
-         <section>Last updated Wednesday, 29 Mar 2017 at 09:18 AM CST</section></br>
+         <section>Last updated Wednesday, 29 Mar 2017 at 09:34 AM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>

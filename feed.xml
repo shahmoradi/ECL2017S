@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-03-29T09:18:24-05:00</updated>
+<updated>2017-03-29T09:34:43-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -177,7 +177,7 @@ Out[13]:
 &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;python mycode.py
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
-the code in the module will be executed, just as if you imported it inside another code. This is good, but can sometimnes become problematic. Let’s explain this with an example from the midterm exam, a &lt;a href=&quot;/lecture/7/find_primes.py&quot; target=&quot;_blank&quot;&gt;script&lt;/a&gt; that finds and reports all prime numbers smaller than a given input number $n$.&lt;/p&gt;
+the code in the module will be executed, just as if you imported it inside another code. This is good, but can sometimnes become problematic. Let’s explain this with an example from the midterm exam, a &lt;a href=&quot;http:/ECL2017S/lecture/7/find_primes.py&quot; target=&quot;_blank&quot;&gt;script&lt;/a&gt; that finds and reports all prime numbers smaller than a given input number $n$.&lt;/p&gt;
 
 &lt;p&gt;When you execute this code as astandalone Python script, it will ask you for an integer, to give you all integers that are smaller than the input number. Now suppose you wanted to import this script as a Python module into your code. If you do so, the Python interpreter would run all statements in this script and asks you to input an integer, before importing the rest of the functions in this script.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [5]: import find_primes
@@ -208,7 +208,7 @@ inside the following if-block,&lt;/p&gt;
     get_primes(n)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
-When the code is run as a standalone script, the &lt;code&gt;__name__&lt;/code&gt; property of the code is set to &lt;code&gt;__main__&lt;/code&gt;. However, when the script is imported as a module inside another code, the &lt;code&gt;__name__&lt;/code&gt; property is automatically set to the name of the module &lt;code&gt;find_primes&lt;/code&gt;. Thus as a module, the above if-block will not be executed, but the rest of the code (the two functions) will be properly imported. The corrected script is named &lt;code&gt;mod_find_primes.py&lt;/code&gt; and can be downloaded from &lt;a href=&quot;/lecture/7/mod_find_primes.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+When the code is run as a standalone script, the &lt;code&gt;__name__&lt;/code&gt; property of the code is set to &lt;code&gt;__main__&lt;/code&gt;. However, when the script is imported as a module inside another code, the &lt;code&gt;__name__&lt;/code&gt; property is automatically set to the name of the module &lt;code&gt;find_primes&lt;/code&gt;. Thus as a module, the above if-block will not be executed, but the rest of the code (the two functions) will be properly imported. The corrected script is named &lt;code&gt;mod_find_primes.py&lt;/code&gt; and can be downloaded from &lt;a href=&quot;http:/ECL2017S/lecture/7/mod_find_primes.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;In [6]: import mod_find_primes
 In [7]: mod_find_primes.__name__
 Out[7]: 'mod_find_primes'
@@ -228,7 +228,7 @@ In summary,&lt;/p&gt;
 
 &lt;h4 id=&quot;command-line-arguments&quot;&gt;Command line arguments&lt;/h4&gt;
 
-&lt;p&gt;Test blocks are especially useful when your module can be also run as a standalone Python script that takes in &lt;strong&gt;command-line arguments&lt;/strong&gt;. &lt;a href=&quot;/lecture/7/cmd_find_primes.py&quot; target=&quot;_blank&quot;&gt;Here&lt;/a&gt; is a modified version of the &lt;code&gt;mod_find_primes&lt;/code&gt; module now named &lt;code&gt;cmd_find_primes&lt;/code&gt; that instead of using &lt;code&gt;input()&lt;/code&gt; function, reads the integer number from the Bash command line. To do so, you need to modify the last part of the original module to the following, using Python’s standard &lt;code&gt;sys&lt;/code&gt; module,&lt;/p&gt;
+&lt;p&gt;Test blocks are especially useful when your module can be also run as a standalone Python script that takes in &lt;strong&gt;command-line arguments&lt;/strong&gt;. &lt;a href=&quot;http:/ECL2017S/lecture/7/cmd_find_primes.py&quot; target=&quot;_blank&quot;&gt;Here&lt;/a&gt; is a modified version of the &lt;code&gt;mod_find_primes&lt;/code&gt; module now named &lt;code&gt;cmd_find_primes&lt;/code&gt; that instead of using &lt;code&gt;input()&lt;/code&gt; function, reads the integer number from the Bash command line. To do so, you need to modify the last part of the original module to the following, using Python’s standard &lt;code&gt;sys&lt;/code&gt; module,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if __name__ == &quot;__main__&quot;:
     import sys
     if len( sys.argv ) != 2: # check the number of arguments to be exactly 2.
@@ -322,7 +322,7 @@ However, more often than not, you may want to have variables in your module, tha
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;_course = &quot;Python programming&quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
-This however, does not prevent the import of the variable &lt;code&gt;_course&lt;/code&gt; into your code from your the &lt;a href=&quot;/lecture/7/mod_cmd_find_primes_del.py&quot; target=&quot;_blank&quot;&gt;module&lt;/a&gt; containing it. One solution is to delete the variables that we are not interested the user to have access to, at the end of the module,&lt;/p&gt;
+This however, does not prevent the import of the variable &lt;code&gt;_course&lt;/code&gt; into your code from your the &lt;a href=&quot;http:/ECL2017S/lecture/7/mod_cmd_find_primes_del.py&quot; target=&quot;_blank&quot;&gt;module&lt;/a&gt; containing it. One solution is to delete the variables that we are not interested the user to have access to, at the end of the module,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;del _course
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
@@ -344,7 +344,7 @@ Out[29]:
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;However, note that if you import all definitions in &lt;a href=&quot;/lecture/7/mod_cmd_find_primes_all.py&quot; target=&quot;_blank&quot;&gt;your module&lt;/a&gt; as standalone definitions like the following,&lt;/p&gt;
+&lt;p&gt;However, note that if you import all definitions in &lt;a href=&quot;http:/ECL2017S/lecture/7/mod_cmd_find_primes_all.py&quot; target=&quot;_blank&quot;&gt;your module&lt;/a&gt; as standalone definitions like the following,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [4]: from mod_cmd_find_primes_all import *
 
 In [5]: dir()
