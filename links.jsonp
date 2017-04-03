@@ -152,6 +152,11 @@ callback([
   } ,
 
   {
+    "text": "Exam final: Semester Project",
+    "href": "/ECL2017S/exam/2-semester-project"
+  } ,
+
+  {
     "text": "Exam 1: Solutions",
     "href": "/ECL2017S/exam/1-solutions-midterm-exam"
   } ,

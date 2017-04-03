@@ -9,6 +9,14 @@
 		} ,
 	
 		{
+		  "title"      : "Exam final: Semester Project",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/exam/2-semester-project",
+		  "date"       : "2017-04-05 00:00:00 -0500",
+		  "shortdate"  : "April 05, 2017"
+		} ,
+	
+		{
 		  "title"      : "Lecture 7: Python - modules, loops, and I/O",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/7-python-modules-loops-io",
