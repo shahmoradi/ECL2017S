@@ -705,6 +705,29 @@ tt.timeit( "-".join(str(n) for n in range(100)) , number=10000 )
 
 <p><br /></p>
 
+<h3 id="the-time-module">The time module</h3>
+<p>More generally, if you want to measure the CPU time spent on a specific part of your code, you can use the <code>clock()</code> method from <code>time</code> module,</p>
+<pre><code class="language-python">import time
+# do some work
+t0 = time.clock()   # get the initial CPU time
+# do some further work wqhich you want to time
+t1 = time.clock()   # get the final CPU time
+cpu_time = t1 - t0  # This is the time spent on the task being timed.
+</code></pre>
+<p><br />
+The <code>time.clock()</code> function returns the CPU time spent in the program since its start. If the interest is in the total time, also including reading and writing files, <code>time.time()</code> is the appropriate function to call. Now suppose you had a list of functions that performed the same task, but using different methods, and you wanted to time their performance. Since in Python, functions are ordinary objects, making a list of functions is no more special than making a list of strings or numbers. You can therefore, create a list of function names and call them one by one, inside a loop, and time each one repectively.</p>
+<pre><code class="language-python">import time
+functions = [func1, func2, func3, func4,func5, func6, func7, func8,func9, func10]
+timings = [] # timings[i] holds CPU time for functions[i]
+for function in functions:
+    t0 = time.clock()
+    function(&lt;input variables&gt;)
+    t1 = time.clock()
+    cpu_time = t1 - t0
+    timings.append(cpu_time)
+</code></pre>
+<p><br /></p>
+
 <h2 id="loops-in-python">Loops in Python</h2>
 
 <p>We have already seen, both in homework and midterm, what a pain it can be if you wanted to repeat a certain number of tasks using recursive functions and if-blocks. Fortunately, Python has loop statements that can highly simplify the task of repeating certain statements for a certain number of times.</p>
@@ -938,8 +961,8 @@ sum_even_odd
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2017 / 03 / 30</section></br> -->
-         <section>Last updated Thursday, 30 Mar 2017 at 10:54 AM CST</section></br>
+         <!-- <section>Last updated 2017 / 04 / 02</section></br> -->
+         <section>Last updated Sunday, 02 Apr 2017 at 09:29 PM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>

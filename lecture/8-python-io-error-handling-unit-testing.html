@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>LECTURE 8: PYTHON - I/O, ERROR HANDLING, AND TESING FRAMEWORKS &vert; COE 111L - SPRING 2017</title>
+<meta name="description" content="Engineering Computation Lab">
+<meta name="keywords" content="">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/ECL2017S/images/logo.png">
+<meta name="twitter:title" content="Lecture 8: Python - I/O, error handling, and tesing frameworks">
+<meta name="twitter:description" content="Engineering Computation Lab">
+<meta name="twitter:creator" content="@AmirShahmoradi">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lecture 8: Python - I/O, error handling, and tesing frameworks">
+<meta property="og:description" content="Engineering Computation Lab">
+<meta property="og:url" content="/ECL2017S/lecture/8-python-io-error-handling-unit-testing">
+<meta property="og:site_name" content="COE 111L - Spring 2017">
+<meta property="og:image" content="/ECL2017S/images/">
+
+
+
+
+
+<link rel="canonical" href="/ECL2017S/lecture/8-python-io-error-handling-unit-testing">
+<!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 Feed"> -->
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,300,800,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/ECL2017S/assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/normalize.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/nprogress.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/foundation.min.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/style.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/post.css">
+
+
+
+
+<!--Mathjax loader: taken from http://stackoverflow.com/questions/2188884/how-can-i-mix-latex-in-with-markdown-->
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+    }
+});
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!--End of Mathjax loader: taken from http://stackoverflow.com/questions/2188884/how-can-i-mix-latex-in-with-markdown-->
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/ECL2017S/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/ECL2017S/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/ECL2017S/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/ECL2017S/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/ECL2017S/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/ECL2017S/images/apple-touch-icon-144x144-precomposed.png">
+
+<!-- 
+<link href="/ECL2017S/assets/css/prismTwilight.css" rel="stylesheet" />
+<link href="/ECL2017S/assets/css/prismDefault.css" rel="stylesheet" />
+<link href="/ECL2017S/assets/css/prismCoy.css" rel="stylesheet" />
+-->
+<link href="/ECL2017S/assets/css/prismOkaidia.css" rel="stylesheet" />
+
+<!--The following are for automatic generation of header anchor links: adopted from: http://ben.balter.com/2014/03/13/pages-anchor-links/-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<style type="text/css">@media only screen and (min-width:43.75em){.notepad-post-content div>p:first-child:first-letter{float:left;font-size:4.688rem;line-height:4.375rem;padding-top:.25rem;padding-right:.5rem;padding-left:.188rem;font-family:serif}}</style>
+</head>
+<body class="post-template" itemscope itemtype="http://schema.org/WebPage">  
+
+        <main id="notepad-post-container-simple" class="notepad-post-container-simple" role="main">
+            <header class="notepad-post-header-simple">
+                <div class="notepad-post-menu-header-simple">
+
+                    <a class="notepad-blog-logo" href="http://www.shahmoradi.org" target="_blank"><img src="/ECL2017S/images/logo.png" alt="shahmoradi.org" /></a>
+
+                <div class="notepad-blog-menu">      
+    <div class="notepad-mobile-menu show-for-small">
+        <a href="#"><i class="fa fa-bars"></i></a>
+    </div>
+    <ul class="notepad-menu">
+        <li class="notepad-mobile-close-btn show-for-small text-right">
+            <a href="#"><i class="fa fa-times"></i></a>
+        </li>
+
+            <li>
+                    <a href="/ECL2017S/">Home</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/highlights">Highlights</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/categories">Categories</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/about">About</a>
+                 </li>
+            
+           <li><a href="/ECL2017S/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+    </ul>
+
+</div>
+            </div>
+
+                <div class="notepad-post-title-simple row">
+                    <div class="small-12 columns">
+                        <div class="notepad-post-meta-simple">
+                            <h2>Lecture 8: Python - I/O, error handling, and tesing frameworks</h2>
+                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-04-05T00:00:00-05:00">05 Apr 2017</time></strong></p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+        
+            <article class="notepad-post-content post tag-simple">
+        
+            <div style="text-align:justify;">
+                <p>This lecture further explains topics on Input/Output processes and error handling in Python, as well as methods of testing the accuracy and robustness of your code.</p>
+
+<div class="post_toc"></div>
+
+<h2 id="io-continued">I/o (continued)</h2>
+<p>So far in this course, we have indirectly discussed several methods of getting input information from the user, and several methods of outputting the result in a Python program. This lecture, attempts at formalizing all the previous discussions and introduce more general efficient methods of the code interaction with users.</p>
+
+<h3 id="methods-of-inputting-data">Methods of inputting data</h3>
+<p>Let’s begin with an example code, explaining the meaning of input/output (I/O) in Python,</p>
+<pre><code class="language-python">from math import exp
+a = 0.1
+b = 1
+x = 0.6
+y = a*exp(b*x)
+print(y)
+</code></pre>
+<pre><code>0.1822118800390509
+</code></pre>
+
+<p>In the above code, $a,b,x$ are examples of input data to a code, and $y$ is an example of code output. In such case as in the above, the input data is said to be <strong>hardcoded</strong> in the program.</p>
+
+<blockquote>
+    <b>In general, in any programming language, including Python you should always avoid hardcoding input information into your program.</b><br /><br />
+    If data is hardcoded, then everytime it has to change, the user has to change the content of the code, and this is not considered good programming style for software development.
+</blockquote>
+<p><br />
+In general, input data can be fed to a program in four different ways:</p>
+<ol>
+  <li>let the user answer questions in a dialog in the <strong>terminal window</strong>,</li>
+  <li>let the user provide input on the <strong>command line</strong>,</li>
+  <li>let the user provide input data in a <strong>file</strong>,</li>
+  <li>let the user write input data in a <strong>graphical interface</strong>.</li>
+</ol>
+
+<h4 id="input-data-from-terminal-window">Input data from terminal window</h4>
+<p>We have already introduced and used this method frequently in previous lectures, via the Python’s builtin function <code>input()</code>. If we were to get the input data for the above example code via the terminal window, an example would be the following,</p>
+<pre><code class="language-python">from math import exp
+a,b,x = input('input the values for a,b,x (comma separated): ').split(",")
+y = float(a)*exp(float(b)*float(x))
+print(y)
+</code></pre>
+<pre><code>input the values for a,b,x (comma separated): 0.1,1,0.6
+0.1822118800390509
+</code></pre>
+
+<h4 id="input-data-from-command-line">Input data from command line</h4>
+
+<p>This approach, which we discussed in previous lecture, is most popular in Unix-like environments, where most users are accustomed to using Bash command line. However, it can be readily used in Windows environment as well. For this approach, there is a Python module <code>sys</code> that can accomplish what we desire,</p>
+<pre><code class="language-python">from math import exp
+import sys
+a,b,x = sys.argv[1],sys.argv[2],sys.argv[3]
+y = float(a)*exp(float(b)*float(x))
+print(y)
+</code></pre>
+<p><br />
+Now if you save this code in a <a href="/ECL2017S/lecture/8/input_via_sys.py" target="_blank">file</a>, and run it on the Bash command line, the program expects you the enter 3 float numbers following the name of the program,</p>
+<pre><code class="language-bash">$ python input_via_sys.py 0.1 1 0.6
+0.1822118800390509
+</code></pre>
+<p><br /></p>
+<blockquote>
+    <b>ATTENTION: Notice the convention for command-line arguements</b><br /><br />
+    
+    <b>1.</b> As you see in the above example, the name of the program is considered as the first command line argument (<code>sys.argv[0]</code>). Also the arguments must be separated by a white space, and should appear in the proper order.<br /><br />
+    
+    <b>2.</b> If one value has a white space (e.g., a string value with white space character in it), then it has to be contained in quotation marks <code>''</code> or <code>""</code>.<br /><br />
+    
+    <b>3.</b> Also note that all input command-line arguments are taken as string values. Therefore, you will have to convert them to the proper type (e.g., float, int, ...) once they are read from the command line.
+</blockquote>
+<p><br /></p>
+
+<h5 id="variable-number-of-command-line-arguments">Variable number of command line arguments</h5>
+<p>If the number of input arguments on the command line is not known a priori, then you can get a list of all input arguments using <code>sys.argv[1:]</code> and then use a for-loop to loop over individual elements of it, or use <code>len()</code> function to find the total number of input arguments.<br />
+<br /></p>
+
+<h5 id="option-value-pairs-as-command-line-input">Option-value pairs as command-line input</h5>
+<p>Once the number of input arguments to your code increases, the process of inputting data as command line arguments can get complicated. Ideally, the user should be able to enter data in any arbitrary order. This can be done by indicating the meaning of each input by a flag before the input value. For example, suppose you were to find the location $y(t)$ of an object thrown up in the air vertically, given that the object started at $y=y_0$, at $t=0$ with an initial velocity $v_0$, and thereafter was subject to a constant acceleration $a$,
+<script type="math/tex">y(t) = y_0 + v_0t + \frac{1}{2}at^2 ~.</script>
+Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t$, and we don’t the program user to memorize their order of entry on the command line. The solution is to identify the type of each input using a flag preceding the input value. This can be done using <code>argparse</code> Python module. Deatails of the usage of this module goes beyond the limited time of our class. However, I recommend you to have a look at the <a href="https://docs.python.org/3/library/argparse.html" target="_blank">syntax and usage of <em>argparse</em> module</a>, as you will find it very handy in your Python codes, projects, and software development.</p>
+
+<h4 id="input-data-from-file">Input data from file</h4>
+<p>In cases where the input data is large, the command-line arguments and input from terminal window are not efficient anymore. In such cases, the most common approach is to let the code read input data from a file, the path to which is most often given to the code from the command line or the terminal window.</p>
+
+<h5 id="reading-a-file-line-by-line">Reading a file line by line</h5>
+<p>To read a file, say <a href="/ECL2017S/lecture/8/data.in" target="_blank">this file</a>, one first needs to open it,</p>
+<pre><code class="language-python">In [1]: myfile = open('data.in', 'r')
+
+In [2]: type(myfile)
+Out[2]: _io.TextIOWrapper
+
+In [5]: myfile.
+     myfile.buffer         myfile.detach         myfile.fileno         myfile.line_buffering myfile.newlines       myfile.readline       myfile.seekable       myfile.writable
+     myfile.close          myfile.encoding       myfile.flush          myfile.mode           myfile.read           myfile.readlines      myfile.tell           myfile.write
+     myfile.closed         myfile.errors         myfile.isatty         myfile.name           myfile.readable       myfile.seek           myfile.truncate       myfile.writelines
+
+</code></pre>
+<p><br />
+The function <code>open</code> creates a file object, stored in the variable myfile. The second input argument to <code>open</code>, <code>'r'</code> tells the function that the purpose of this file opening is to read data (as opposed to, for example, writing data, or both readina and writing).</p>
+
+<p>Now you can use a for loop to read the data in this file line by line:</p>
+<pre><code class="language-python">for line in myfile:
+    print(line)
+</code></pre>
+<pre><code>1
+
+3
+
+4
+
+5
+
+6
+
+7
+
+88
+
+65
+</code></pre>
+
+<p>What is printed here, is actually the content of <code>data.in</code> file, line by line.</p>
+
+<h5 id="alternative-method-of-reading-file-data">Alternative method of reading file data</h5>
+<p>Instead of reading one line at a time, as in the above, we can load all lines into a single list of strings,</p>
+<pre><code class="language-python">In [9]: myfile = open('data.in', 'r')
+In [10]: lines = myfile.readlines()
+
+In [11]: type(lines)
+Out[11]: list
+</code></pre>
+<p><br />
+No each element of <code>line</code> contains one line of the file.</p>
+<pre><code class="language-python">In [15]: lines
+Out[15]: ['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
+</code></pre>
+<p><br />
+The action of the method <code>readlines()</code> is equivalent to a for-loop like the following,</p>
+<pre><code class="language-python">In [16]: myfile = open('data.in', 'r')
+    ...: lines = []
+    ...: for line in myfile:
+    ...:     lines.append(line)
+    ...: lines
+    ...:
+Out[16]: ['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
+</code></pre>
+<p><br />
+or this <em>list comprehension</em> format,</p>
+<pre><code class="language-python">In [19]: myfile = open('data.in', 'r')
+    ...: lines = [line for line in myfile]
+    ...: lines
+    ...:
+Out[19]: ['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
+</code></pre>
+<p><br />
+Now suppose you were to calculate the mean of the numbers in this file. You could simply use the following list comprehension code to do so,</p>
+<pre><code class="language-python">In [22]: mean = sum([float(line) for line in lines])/len(lines)
+    ...: print(mean)
+22.375
+</code></pre>
+<p><br />
+Note that once you read the file, you can close it using,</p>
+<pre><code class="language-python">myfile.close()
+</code></pre>
+<p><br /></p>
+
+<h5 id="the-with-statement">The <em>with</em> statement</h5>
+<p>More often in modern Python code you may see the <code>with</code> statement for reading a file, like the following</p>
+<pre><code class="language-python">In [34]: with open('data.in', 'r') as myfile:
+    ...:     for line in myfile:
+    ...:         print(line)
+    ...:
+1
+
+3
+
+4
+
+5
+
+6
+
+7
+
+88
+
+65
+</code></pre>
+<p><br />
+This is technically equivalent to,</p>
+<pre><code class="language-python">In [35]: myfile = open('data.in', 'r')
+    ...: for line in myfile:
+    ...:     print(line)
+    ...: myfile.close()
+    ...:
+1
+
+3
+
+4
+
+5
+
+6
+
+7
+
+88
+
+65
+</code></pre>
+<p><br />
+The difference here is that with the modern <code>with</code> statement, there is no need to close the file in the end.</p>
+
+<h5 id="the-old-while-true-construction">The old <em>while True</em> construction</h5>
+<p>The call <code>myfile.readline()</code> returns a string containing the text at the current line. A new <code>myfile.readline()</code> statement will read the next line. If the file reaches the end, then <code>myfile.readline()</code> returns an empty string, the end of the file has
+reached and the code must stop further reading of the file. The traditional way of telling the code to stop at the end of the file is a <code>while</code> loop like the following,</p>
+<pre><code class="language-python">In [36]: myfile = open('data.in', 'r')
+    ...: while True:
+    ...:     line = myfile.readline()
+    ...:     if not line:
+    ...:         break
+    ...:     print(line)
+1
+
+3
+
+4
+
+5
+
+6
+
+7
+
+88
+
+65
+</code></pre>
+<p><br /></p>
+
+<h5 id="reading-an-entire-file-as-a-single-string">Reading an entire file as a single string</h5>
+<p>While the <code>readlines()</code> method returns a list of lines in the file, the <code>read()</code> method returns a string containing the entire content of the file.</p>
+<pre><code class="language-python">
+In [37]: myfile = open('data.in', 'r')
+    ...: s = myfile.read()
+
+In [38]: s
+Out[38]: '1\n3\n4\n5\n6\n7\n88\n65\n'
+
+In [39]: print(s)
+1
+3
+4
+5
+6
+7
+88
+65
+</code></pre>
+<p><br />
+The major advanatge of this method of reading file content is that you can then immediately apply string methods directly on the file content.</p>
+<pre><code class="language-python">In [48]: myfile = open('data.in', 'r')
+    ...: numbers = [float(x) for x in myfile.read().split()]
+    ...: mean = sum(numbers)/len(numbers)
+    ...:
+
+In [49]: print(mean)
+22.375
+</code></pre>
+<p><br /></p>
+
+<h3 id="converting-user-input-to-live-python-objects">Converting user input to live Python objects</h3>
+<p>One of the cool features in Python I/O is that you can provide text containing valid Python code as input to a program and then
+turn that text into <em>live Python objects</em> as if the text were lines of code written directly into the program beforehand. This is a very powerful tool for letting users specify function formulas, for instance, as input to a program. The program code itself has no knowledge about the kind of function the user wants to work with, yet at run time the user’s desired
+formula enters the computations. To achieve the goal, one can use Python’s <strong>magic functions</strong>, a.k.a <strong>special methods</strong>.</p>
+
+<h4 id="the-magic-eval-function">The magic <em>eval</em> function</h4>
+<p>The <code>eval</code> function takes a <strong>string as argument</strong> and <strong>evaluates</strong> this string as a <strong>Python expression</strong>. The result of an expression is an <strong>object</strong>. For example,</p>
+<pre><code class="language-python">In [10]: eval('1+2')
+Out[10]: 3
+</code></pre>
+<p><br />
+This is equivalent to typing,</p>
+<pre><code class="language-python">In [11]: 1+2
+Out[11]: 3
+</code></pre>
+<p><br />
+or another example,</p>
+<pre><code class="language-python">In [12]: a = 1
+
+In [13]: b = 2
+
+In [14]: c = eval('a+b')
+
+In [15]: c
+Out[15]: 3
+</code></pre>
+<p><br />
+or,</p>
+<pre><code class="language-python">In [19]: from math import sqrt
+
+In [20]: eval('sqrt(4)')
+Out[20]: 2.0
+</code></pre>
+<p><br />
+But, note that in all of the above examples, the <code>eval</code> function <strong>evaluates</strong> a Python expression, that is, this function <strong>cannot execute</strong> a Python statement.</p>
+
+<p>Now the cool thing about this function is that, you can directly apply it to the user input. For example, suppose the user is asked to input a Python expression and then the code is supposed to evaluate the input just like a simple calculator,</p>
+<pre><code class="language-python">eval(input('Input an arithmetic expression to evaluate: '))
+</code></pre>
+<pre><code>Input an arithmetic expression to evaluate: 2 + 3.0/5 + exp(7)
+1099.2331584284584
+</code></pre>
+
+<h4 id="the-magic-exec-function">The magic <em>exec</em> function</h4>
+<p>Similar to the <code>eval</code> function, there is also an <code>exec</code> magic function that executes a string containing an arbitrary
+Python code, not just a Python expression. This is a powerful idea since it now enables the user to write a formula as input to the program, available to the program in the form of a string object. The program can then convert this formula to a callable Python code, or function, using the magic <code>exec</code> function.</p>
+<pre><code class="language-python">In [21]: exec('import math')
+
+In [22]: exec('a=1; b=2; c=a+b')
+
+In [23]: a,b,c
+Out[23]: (1, 2, 3)
+</code></pre>
+<p><br />
+One could even input a full function definition to the exec function,</p>
+<pre><code class="language-python">myFuncString = input('Input a Python function definition of interest: ')
+f = exec(myFuncString)
+</code></pre>
+<pre><code>Input a Python function definition of interest, named func: def func(x): return 2*x + 1  
+</code></pre>
+
+<pre><code class="language-python">func(x=1)
+</code></pre>
+<pre><code>3
+</code></pre>
+
+<p>Now, since this is such a useful functionality in Python, there is already a package written <code>scitools</code>, that converts an input expression to a Python function,</p>
+<pre><code class="language-python">from scitools.StringFunction import StringFunction
+myfuncString = input('Input a Python expression to build your requested Python function: ')
+myfunc = StringFunction(myfuncString)
+</code></pre>
+<p><br />
+The only major caveat with this module is that, at the moment, it only works with Python 2.x, and not Python 3. So, the above code will not work on your Python 3 platform.<br />
+<br /></p>
+
+<h3 id="methods-of-outputting-data">Methods of outputting data</h3>
+<p>Two major methods of data output are,</p>
+<ol>
+  <li>writing to the terminal window, as previdously done using <code>print()</code> function, or,</li>
+  <li>writing to an output file.</li>
+</ol>
+
+<p>We have already extensively discussed printing output to the terminal window. Writing data to file is also easy.</p>
+
+<h4 id="writing-to-a-file">Writing to a file</h4>
+<p>Similar to reading from a file, in order to write to a file, one has to first open the file, this time for the purpose of writing, which is indicated by <code>'w'</code> or <code>'a'</code>,</p>
+<pre><code class="language-python">outfile = open(filename, 'w') # write to a new file, or overwrite file
+</code></pre>
+<p><br />
+One could also <strong>append</strong> some output to an <strong>existing file</strong> using the <code>'a'</code> indicator as input to <code>open()</code>,</p>
+<pre><code class="language-python">outfile = open(filename, 'a') # append to the end of an existing file
+</code></pre>
+<p><br />
+In both cases, the string valued variable <code>filename</code> contains the path to the file that should be created or manipulated. Suppose we want to write the output of the above code in previous section to a new file. All you would need to do is the following,</p>
+<pre><code class="language-python">myfile = open('data.in', 'r')
+numbers = [float(x) for x in myfile.read().split()]
+mean = sum(numbers)/len(numbers)
+outfile = open('data.out','w')
+outfile.write(str(mean) + '\n')
+myfile.close()
+outfile.close()
+</code></pre>
+<p><br />
+This will result in the creation of <a href="/ECL2017S/lecture/8/data.out" target="_blank">a new file</a> named <code>data.out</code> which contains the value of <code>mean</code> variable. Note that the addition of the character <code>'\n'</code> at the end of the <code>write</code> statement is necessary, otherwise the next write to the file will not appear on a new line.</p>
+
+<h5 id="writing-a-table-of-data-to-a-file">Writing a table of data to a file</h5>
+<p>Now suppose you were to write the following list to an output file,</p>
+<pre><code class="language-python">data = [[ 0.75, 0.29619813, -0.29619813, -0.75 ],
+[ 0.29619813, 0.11697778, -0.11697778, -0.29619813],
+[-0.29619813, -0.11697778, 0.11697778, 0.29619813],
+[-0.75, -0.29619813, 0.29619813, 0.75 ]]
+</code></pre>
+<p><br />
+One solution would be the following,</p>
+<pre><code class="language-python">outfile = open('table.out', 'w')
+for row in data:
+    for column in row:
+        outfile.write( '{:14.8f}'.format(column) )
+    outfile.write('\n')
+outfile.close()
+</code></pre>
+<p><br />
+This code would result in the creation of an <a href="/ECL2017S/lecture/8/table.out" target="_blank">output file</a> named <code>table.out</code> which contain the content of <code>data</code> variable, in a nice formatted style as the following,</p>
+<pre><code class="language-text">    0.75000000    0.29619813   -0.29619813   -0.75000000
+    0.29619813    0.11697778   -0.11697778   -0.29619813
+   -0.29619813   -0.11697778    0.11697778    0.29619813
+   -0.75000000   -0.29619813    0.29619813    0.75000000
+</code></pre>
+<p><br /></p>
+
+<h2 id="error-handling-in-python">Error handling in Python</h2>
+<p>A good code has to be able to handle exceptional situations that may occur during the code execution. These exceptions may occur during data input from either command line, terminal window, or an input file. They may also occur as a result of repeated operations on the input data, inside the code. For example, in <a href="/ECL2017S/7-python-modules-loops-io#command-line-arguments" target="_blank">lecture 7</a>, we explained a way of handling the wrong number of input command line arguments. This and similar measures to handle nicely the unexpected runtime errors is what’s called <strong>error and exception handling</strong>.</p>
+
+<p>A simple way of error handling is to write multiple if-blocks each of which handle a special exceptional situation. That is, to let the code execute some statements, and if something goes wrong, write the program in such a way that can detect this and jump to a set of statements that handle the erroneous situation as desired.</p>
+
+<p>A more modern and flexible way of handling such potential errors in Python is through the following Python construction,</p>
+<pre><code class="language-python">try:
+    &lt;Python statements&gt;
+except &lt;error type&gt;:
+    &lt;Python statements&gt;
+</code></pre>
+<p><br />
+For example, if we were to rewrite the command line argument section in <a href="/ECL2017S/lecture/7/cmd_find_primes.py" target="_blank">this code</a> in <a href="/ECL2017S/7-python-modules-loops-io#command-line-arguments" target="_blank">lecture 7</a>, to handle exceptions that arise due to <code>ValueError</code> (e.g., not an integer input), it would look something like the following,</p>
+<pre><code class="language-python">if __name__ == "__main__":
+    import sys
+    if len( sys.argv ) != 2: # check the number of arguments to be exactly 2.
+        print('''
+    Error: Exactly two arguments must be given on the command line.
+    Usage:''')
+        print("     ", sys.argv[0], "&lt;a positive integer number&gt;", '\n')
+        sys.exit('     Program stopped.\n')
+    else:
+        try:
+            n = int(sys.argv[1])
+            print('Here is a list of all prime numbers smaller than {}:'.format(n))
+            get_primes(n)
+        except ValueError:
+            print('The input you entered is not an integer!\n Try again...')
+            sys.exit(1)
+</code></pre>
+<p><br />
+The statement <code>sys.exit(1)</code> aborts the program. The whole code can be found <a href="/ECL2017S/lecture/8/cmd_find_primes_modern.py" target="_blank">here</a>. Now if we run the <a href="/ECL2017S/lecture/7/cmd_find_primes.py" target="_blank">original code</a> with a non-integer input, we would get the following Python error,</p>
+<pre><code class="language-bash">$ ../7/cmd_find_primes.py amir
+Traceback (most recent call last):
+  File "../7/cmd_find_primes.py", line 34, in &lt;module&gt;
+    n = int(sys.argv[1])
+ValueError: invalid literal for int() with base 10: 'amir'
+</code></pre>
+<p><br />
+whereas, if we run the <a href="/ECL2017S/lecture/8/cmd_find_primes_modern.py" target="_blank">newly written code</a>, the non-integer error is noicely handled by outputting a gentle error message to the user and exiting the program gracefully.</p>
+<pre><code class="language-bash">$ ./cmd_find_primes_modern.py amir
+The input you entered is not an integer!
+ Try again...
+</code></pre>
+<p><br />
+The type of error ocurring in the above example was <code>ValueError</code>. There can be however, many other types of errors and exceptions. For this reason, Python has a <a href="https://docs.python.org/2/library/exceptions.html" target="_blank">builtin list of exceptions</a> that frequently occur in programming.</p>
+
+<h3 id="the-raise-statement">The <em>raise</em> statement</h3>
+<p>Instead of the print statement in the above <code>except</code> block, Python has a builtin function to handle the error together with an input message from the programmer. For example, the previous code, could be modified to the following code,</p>
+<pre><code class="language-python">if __name__ == "__main__":
+    import sys
+    if len( sys.argv ) != 2: # check the number of arguments to be exactly 2.
+        print('''
+    Error: Exactly two arguments must be given on the command line.
+    Usage:''')
+        print("     ", sys.argv[0], "&lt;a positive integer number&gt;", '\n')
+        sys.exit('     Program stopped.\n')
+    else:
+        try:
+            n = int(sys.argv[1])
+            print('Here is a list of all prime numbers smaller than {}:'.format(n))
+            get_primes(n)
+        except ValueError:
+            raise ValueError('The input you entered is not an integer!\n Try again...')
+            sys.exit(1)
+</code></pre>
+<p><br />
+Executing the <a href="/ECL2017S/lecture/8/cmd_find_primes_raise.py" target="_blank">code</a> with wrong input would give,</p>
+<pre><code class="language-bash">$ ./cmd_find_primes_raise.py amir
+Traceback (most recent call last):
+  File "./cmd_find_primes_raise.py", line 35, in &lt;module&gt;
+    n = int(sys.argv[1])
+ValueError: invalid literal for int() with base 10: 'amir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "./cmd_find_primes_raise.py", line 39, in &lt;module&gt;
+    raise ValueError('The input you entered is not an integer!\n Try again...')
+ValueError: The input you entered is not an integer!
+ Try again...
+</code></pre>
+<p><br />
+A more elegant and cleaner way of handling and outputing the error would be use the following syntax, in <a href="/ECL2017S/lecture/8/cmd_find_primes_raise_as_err.py" target="_blank">this modified code</a>,</p>
+<pre><code class="language-python">if __name__ == "__main__":
+    import sys
+    if len( sys.argv ) != 2: # check the number of arguments to be exactly 2.
+        print('''
+    Error: Exactly two arguments must be given on the command line.
+    Usage:''')
+        print("     ", sys.argv[0], "&lt;a positive integer number&gt;", '\n')
+        sys.exit('     Program stopped.\n')
+    else:
+        try:
+            n = int(sys.argv[1])
+            print('Here is a list of all prime numbers smaller than {}:'.format(n))
+            get_primes(n)
+        except ValueError as err:
+            print(err)
+            sys.exit(1)
+</code></pre>
+<p><br />
+With the following output,</p>
+<pre><code class="language-bash">$ ./cmd_find_primes_raise_as_err.py amir
+invalid literal for int() with base 10: 'amir'
+</code></pre>
+<p><br />
+In the statement <code>except ValueError as err:</code> one could use <code>Exception</code> for all types of errors instead of only <code>ValueError</code> exceptions, or use a tuple syntax such as <code>except (ValueError, IndexError) as err:</code> to cover these two exceptions.</p>
+
+<h2 id="code-verification-and-unit-testing">Code verification and unit testing</h2>
+<p>In the previous lecture we discusses the process of creating modules and collecting functions in one file as a personal module to be used later. As soon as the list of your codes and functions grow, you will need to have a unified way of ensuring all your functions work appropriately, regardless of the potential future internal changes that are made to the functions. This is what the <strong>unit testing</strong> exists for. Unit testing is a software development process in which the smallest testable parts of an application, called <strong>units</strong>, are individually and independently scrutinized for proper operation. Unit testing can be done manually, but if you have a long list of functions (which you most often have), you’d want to automate the testing process.</p>
+
+<p>The grand goal in unit testing is to reduce the risk of encountering potential problems when running the code in the smallest possible units of the code. This means,</p>
+<ol>
+  <li>ensuring the code has the <strong>correct behavior</strong> when given the proper input data.</li>
+  <li>the code is robust to exceptions and invalid input data, meaning that it does not crash when it reaches unexpected situations during the code execution and gracefully handles the error, without interruption.</li>
+</ol>
+
+<p>Because of the goals the unit tests are desgined for, they are mosly written and used by the developers of the code.</p>
+
+<h3 id="unit-test-frameworks">Unit test frameworks</h3>
+<p>There are many ways to write tests for codes. Now, if you asked each software developer to write a unit test for a specific software, each would likely come up with their own set of rules and tests of the software. You will end up with many tests, that will generally only be usable by the developer that wrote the tests. That is why you should select a unit test framework. A unit test framework provides consistency for how the unit tests for your project are written. There are many test frameworks to choose from for just about any language you want to program with, including Python. Just like programming language, almost every programmer has a strong opinion which test framework is the best. Research what’s out there and use the one that meets the needs of your organization (For example, there is one experienced Python programmer in our ECL class who does not like any of the existing unit tests for Python, and wants to write his own unit test as the project of this course!).</p>
+
+<p>The framework will provide a consistent testing structure to create maintainable tests with reproducible results. From a product quality and business point of view, those are the most valuable reasons to use a unit test framework. When you write a code, you should also think of a quick and simple way to develop and verify your logic in isolation. Once you make sure you have it working solidly by itself, then you can proceed to integrate it into the larger project solutions with great confidence.</p>
+
+<p>Python offers three unit testing frameworks,</p>
+<ol>
+  <li><a href="https://docs.python.org/2/library/unittest.html" target="_blank"><strong>unittest</strong></a> (Python’s standard unit testing framework)</li>
+  <li><a href="http://nose.readthedocs.io/en/latest/index.html" target="_blank"><strong>nose</strong></a></li>
+  <li><a href="https://docs.pytest.org/en/latest/" target="_blank"><strong>pytest</strong></a></li>
+</ol>
+
+<p>which automate as much as possible the process of testing all of your codes, whenever required. The last, <code>pytest</code> appears to be the most popular unit testing framework as of today.</p>
+
+<h4 id="conventions-for-test-functions">Conventions for test functions</h4>
+<p>The simplest way of using the testing frameworks (e.g., pytest or nose) is to write a set of test functions, scattered around in files, such that pytest or nose can automatically find and run all of these test functions. To achieve the goal, the test functions need to follow certain conventions:</p>
+<ol>
+  <li>The name of a test function starts with <code>test_</code>.</li>
+  <li>A test function cannot take any arguments.</li>
+  <li>Any test must be formulated as a boolean condition.</li>
+  <li>An <code>AssertionError</code> exception is raised if the boolean condition is <code>False</code> (i.e., when the test fails).<br />
+<br /></li>
+</ol>
+
+<h4 id="testing-function-accuracy">Testing function accuracy</h4>
+<p>Suppose we have written the following function which runs the Newton’s method for solving an algebraic equation of the form $f(x)=0$, and we would like to write a test function that ensures its correct behavior.</p>
+<pre><code class="language-python">def newton(f, dfdx, x, eps=1E-7):
+    n = 0 # iteration counter
+    while abs(f(x)) &gt; eps:
+        x = x - f(x)/dfdx(x)
+        n += 1
+    return x, f(x), n
+</code></pre>
+<p><br />
+Our goal is to write a function that tests the validity of the output of the function for a special case for which we know the results a priori. In the case of the above code, the function output is a not a fixed result, but an approximate float number $x_0$ which satifies the condition $f(x_0)&lt;\epsilon$ where $\epsilon$ is a prescribed number close to zero. Therefore, we have to first come up with a mathematical test input function to the function <code>newton</code>, for which we have calculated the correct answer a priori, and we want to make sure if the above code gives the same answer. Since the output of the function <code>newton</code> is a float that depends on the machine precision, we cannot expect the function to output the exact same result everytime the code is run on any computer. Therefore we have to define our test such that the function passes the test even if the result is not exactly what we expect, but still close enought to the correct answer. Here is an example test function for the above code using the <code>sin(x)</code> function as the test input function to <code>newton()</code>,</p>
+<pre><code class="language-python">def test_newton_sin():
+    
+    from math import sin, cos, pi
+
+    def f(x):
+        return sin(x)
+    
+    def dfdx(x):
+        return cos(x)
+    
+    x_ref = 0.000769691024206
+    f_x_ref = 0.000769690948209
+    n_ref = 3
+    x, f_x, n = newton(f, dfdx, x=-pi/3, eps=1E-2)
+    tol = 1E-15 # tolerance for comparing real numbers
+    assert abs(x_ref - x) &lt; tol , "The test for the value of x_0 failed" # is x correct?
+    assert abs(f_x_ref - f_x) &lt; tol , "The test for the function value failed" # is f_x correct?
+    assert n == 3 , "The test for the number of iterations failed" # is f_x correct? # is n correct?
+</code></pre>
+<p><br />
+Note that in the above test function, the function name begins with <code>test_</code>, takes no arguments, and raises an <code>assertionError</code> at the end. Now if you run the test,</p>
+<pre><code class="language-python">test_newton_sin()
+</code></pre>
+<p><br />
+you will notice that the function passed the test. However, if in the above test, we set <code>eps=1E-10</code>, and run the test again, you will get an assertion error like the following,</p>
+<pre><code class="language-python">---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+&lt;ipython-input-20-8be9faac8d8e&gt; in &lt;module&gt;()
+----&gt; 1 test_newton_sin()
+
+&lt;ipython-input-18-263651ba410f&gt; in test_newton_sin()
+     14     x, f_x, n = newton(f, dfdx, x=-pi/3, eps=1E-10)
+     15     tol = 1E-15 # tolerance for comparing real numbers
+---&gt; 16     assert abs(x_ref - x) &lt; tol , "The test for the value of x_0 failed" # is x correct?
+     17     assert abs(f_x_ref - f_x) &lt; tol , "The test for the function value failed" # is f_x correct?
+     18     assert n == 3 , "The test for the number of iterations failed" # is f_x correct? # is n correct?
+
+AssertionError: The test for the value of x_0 failed
+</code></pre>
+<p><br />
+One could also write exact tests for the function <code>newton</code> which test for an exact result which is known a priori, for example a mathematical linear input function to <code>newton</code>.<br />
+<br /></p>
+
+<h4 id="testing-function-robustness">Testing function robustness</h4>
+<p>The above <code>newton</code> function is very basic and suffers from several problems:</p>
+<ul>
+  <li>for divergent iterations it will iterate forever,</li>
+  <li>it can divide by zero in f(x)/dfdx(x),</li>
+  <li>it can perform integer division in f(x)/dfdx(x),</li>
+  <li>it does not test whether the arguments have acceptable types and values.</li>
+</ul>
+
+<p>A more robust implementation dealing with these potential problems would look like the following:</p>
+<pre><code class="language-python">def Newton(f, dfdx, x, eps=1E-7, maxit=100):
+    if not callable(f): raise TypeError( 'f is %s, should be function or class with __call__' % type(f) )
+    if not callable(dfdx): raise TypeError( 'dfdx is %s, should be function or class with __call__' % type(dfdx) )
+    if not isinstance(maxit, int): raise TypeError( 'maxit is %s, must be int' % type(maxit) )
+    if maxit &lt;= 0: raise ValueError( 'maxit=%d &lt;= 0, must be &gt; 0' % maxit )
+    n = 0 # iteration counter
+    while abs(f(x)) &gt; eps and n &lt; maxit:
+        try:
+            x = x - f(x)/float(dfdx(x))
+        except ZeroDivisionError:
+            raise ZeroDivisionError( 'dfdx(%g)=%g - cannot divide by zero' % (x, dfdx(x)) )
+        n += 1
+    return x, f(x), n
+</code></pre>
+<p><br />
+Now, for this more robust code (than the earlier version: <code>newton</code>), we have to also write a set of tests, examining the robustenss of the code, subject to potential exceptions. For example, one can write a test function that examines the behavior of <code>Newton</code> subject to an input mathematical function that is known to lead to divergent (infinite) iterations, if the initial starting point $x$ is not sufficiently close to the root of the function. One such example is $f(x)=tanh(x)$, for which a starting search value of $x=20$ would lead to infinite iterations in the Newton’s method. So we can set <code>maxit=12</code> in our robust <code>Newton</code> code, and test that the actual number of iterations reaches this limit. Given our prior knowledge for this function, that the value of $x$ will also diverge after 12 iterations, we could also add a test for the value of $x$, like the following,</p>
+<pre><code class="language-python">def test_Newton_divergence():
+    from math import tanh
+    f = tanh
+    dfdx = lambda x: 10./(1 + x**2)
+    
+    x, f_x, n = Newton(f, dfdx, 20, eps=1E-4, maxit=12)
+    assert n == 12
+    assert x &gt; 1E+50
+</code></pre>
+<pre><code class="language-python">test_Newton_divergence()
+</code></pre>
+<p><br />
+The example given here, only tests for the robustenss of <code>Newton()</code> in handling divergent situations. For other potential problems, one has to write other test functions, some which will be given as exercise.</p>
+
+<h3 id="summary-unit-testing">Summary: unit testing</h3>
+<p>Unit testing is a component of <a href="https://en.wikipedia.org/wiki/Test-driven_development" target="_blank">test-driven development (TDD)</a>, a pragmatic methodology that takes a meticulous approach to building a product by means of <em>continual testing and revision</em>.</p>
+
+<p>Unit testing has a steep learning curve. The development team needs to learn what unit testing is, how to unit test, what to unit test and how to use automated software tools to facilitate the process on an on-going basis.  The great benefit to unit testing is that the earlier a problem is identified, the fewer compound errors occur. A compound error is one that doesn’t seem to break anything at first, but eventually conflicts with something down the line and results in a problem.</p>
+
+<p>There is a lot more to unit testing and the existing Python frameworks for it than we discussed here. However, covering all those topics would require a dedicated course for unit testing, which is certainly beyond the capacity of this course. But if you are interested to know more, I recommend you to refer to one of the three unit testing frameworks mentioned <a href="#unit-test-frameworks">above</a>. There are also books already written on this topic an example of which is available <a href="http://chimera.labs.oreilly.com/books/1234000000754/pr01.html" target="_blank">here</a>.</p>
+
+<p><br /><br /></p>
+
+            </div>
+        </article>
+        <div class="cf"></div>
+        <div class="row text-center">
+            <section class="notepad-post-share">
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Lecture 8: Python - I/O, error handling, and tesing frameworks&quot;%20/ECL2017S/lecture/8-python-io-error-handling-unit-testing%20via%20&#64;AmirShahmoradi"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/lecture/8-python-io-error-handling-unit-testing"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/lecture/8-python-io-error-handling-unit-testing"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </section>
+        </div>
+        <div class="cf"></div>
+        
+            <div class="notepad-author-info">
+                <div class="row">
+                    <section class="notepad-post-author small-12 columns">
+                        
+                            <a href="http://www.shahmoradi.org" target="_blank">
+                                <img src="/ECL2017S/images/logo.png" class="notepad-post-author-avatar" alt="Amir Shahmoradi's photo">
+                            </a>
+                        
+                        
+                            <span class="author-label">Author</span>
+                            <h1>Amir Shahmoradi</h1>
+                        
+                        
+                            <p><a href="mailto:amir@ices.utexas.edu" class="author-website">amir@ices.utexas.edu</a></p>
+                        
+                        
+                            <p>Genius is 99% perspiration and 1% inspiration</p>
+                        
+                    </section>
+                </div>
+            </div> 
+        
+        <div class="cf"></div>
+        
+        <section class="notepad-disqus row">
+    <div class="small-12 columns">
+        <h1 class="notepad-comments-header">Comments</h1>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'shahmoradi'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+
+        <div class="cf"></div>
+
+    <footer class="notepad-site-footer">
+    <div class="copyright">
+         <!-- <section>Last updated 2017 / 04 / 02</section></br> -->
+         <section>Last updated Sunday, 02 Apr 2017 at 09:29 PM CST</section></br>
+         <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
+         <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
+         <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>
+         <section><a class="icon-ghost" href="http://www.utexas.edu/" target="_blank">The University of Texas at Austin</a></section></br>
+         <section>201 E 24th Street, Stop C0200</section></br>
+         <section>Austin, TX 78712-1229</section>
+    </div>
+    <div class="social-icons">
+        
+        
+        <a href="http://twitter.com/AmirShahmoradi" target="_blank">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+        
+        
+        <a href="http://github.com/shahmoradi" target="_blank">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-github fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+    </div>
+    
+    <div class="cf"></div>
+</footer> 
+</main>    
+<!-- The following scripts are needed for the dynamic header of pages -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/ECL2017S/assets/js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+  <script src="/ECL2017S/assets/js/vendor/modernizr.js"></script>
+  <script src="/ECL2017S/assets/js/foundation.min.js"></script>
+  
+  <script src="/ECL2017S/assets/js/notepad.js"></script>
+  <script src="/ECL2017S/assets/js/scripts.min.js"></script>
+  <script src="/ECL2017S/assets/js/vendor/nprogress.js"></script>
+  
+  <script>
+    $(document).foundation();
+  </script>
+  <script type='text/javascript'>console.log("N/A");</script>
+  <script type='text/javascript'>console.log("http://www.shahmoradi.org/");</script>
+<!-- End of scripts for the dynamic header of pages -->
+
+<!--The following scripts is for automatic generation of header anchor links: adopted from: http://ben.balter.com/2014/03/13/pages-anchor-links/-->
+<script src="/ECL2017S/assets/js/autoAnchorLink.js"></script>
+<!--End of automatic generation of header anchor links.-->
+
+
+
+<!-- <script src="/ECL2017S/assets/js/prismOkaidia.js"></script>
+<script src="/ECL2017S/assets/js/prismTwilight.js"></script>
+<script src="/ECL2017S/assets/js/prismDefault.js"></script>
+ -->
+<script src="/ECL2017S/assets/js/prismCoy.js"></script>
+
+
+
+
+<!-- Start of Google Analytics Code for Default Guide -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-67460905-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+<!-- End of Google Analytics Code for Default Guide -->
+   
+<!-- Start of StatCounter Code for Default Guide -->
+  <script type="text/javascript">
+    var sc_project=10611821; 
+    var sc_invisible=1; 
+    var sc_security="902e4bb4"; 
+    var scJsHost = (("https:" == document.location.protocol) ?
+    "https://secure." : "http://www.");
+    document.write("<sc"+"ript type='text/javascript' src='" +
+    scJsHost+
+    "statcounter.com/counter/counter.js'></"+"script>");
+    </script>
+    <noscript><div class="statcounter"><a title="shopify visitor
+    statistics" href="http://statcounter.com/shopify/"
+    target="_blank"><img class="statcounter"
+    src="http://c.statcounter.com/10611821/0/902e4bb4/0/"
+    alt="shopify visitor statistics"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide --> 
+<!--automatic Table of Content.-->
+<script src="/ECL2017S/assets/js/autoTOC.js"></script>
+</body>
+</html>

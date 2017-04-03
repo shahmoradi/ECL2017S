@@ -7,13 +7,680 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-03-30T10:54:00-05:00</updated>
+<updated>2017-04-02T21:29:17-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
   <uri>http:/ECL2017S/</uri>
   <email>amir@ices.utexas.edu</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Lecture 8: Python - I/O, error handling, and tesing frameworks]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/lecture/8-python-io-error-handling-unit-testing"/>
+  <id>http:/ECL2017S/lecture/8-python-io-error-handling-unit-testing</id>
+  <published>2017-04-05T00:00:00-05:00</published>
+  <updated>2017-04-05T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This lecture further explains topics on Input/Output processes and error handling in Python, as well as methods of testing the accuracy and robustness of your code.&lt;/p&gt;
+
+&lt;div class=&quot;post_toc&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;io-continued&quot;&gt;I/o (continued)&lt;/h2&gt;
+&lt;p&gt;So far in this course, we have indirectly discussed several methods of getting input information from the user, and several methods of outputting the result in a Python program. This lecture, attempts at formalizing all the previous discussions and introduce more general efficient methods of the code interaction with users.&lt;/p&gt;
+
+&lt;h3 id=&quot;methods-of-inputting-data&quot;&gt;Methods of inputting data&lt;/h3&gt;
+&lt;p&gt;Let’s begin with an example code, explaining the meaning of input/output (I/O) in Python,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from math import exp
+a = 0.1
+b = 1
+x = 0.6
+y = a*exp(b*x)
+print(y)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;0.1822118800390509
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the above code, $a,b,x$ are examples of input data to a code, and $y$ is an example of code output. In such case as in the above, the input data is said to be &lt;strong&gt;hardcoded&lt;/strong&gt; in the program.&lt;/p&gt;
+
+&lt;blockquote&gt;
+    &lt;b&gt;In general, in any programming language, including Python you should always avoid hardcoding input information into your program.&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+    If data is hardcoded, then everytime it has to change, the user has to change the content of the code, and this is not considered good programming style for software development.
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br /&gt;
+In general, input data can be fed to a program in four different ways:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;let the user answer questions in a dialog in the &lt;strong&gt;terminal window&lt;/strong&gt;,&lt;/li&gt;
+  &lt;li&gt;let the user provide input on the &lt;strong&gt;command line&lt;/strong&gt;,&lt;/li&gt;
+  &lt;li&gt;let the user provide input data in a &lt;strong&gt;file&lt;/strong&gt;,&lt;/li&gt;
+  &lt;li&gt;let the user write input data in a &lt;strong&gt;graphical interface&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;input-data-from-terminal-window&quot;&gt;Input data from terminal window&lt;/h4&gt;
+&lt;p&gt;We have already introduced and used this method frequently in previous lectures, via the Python’s builtin function &lt;code&gt;input()&lt;/code&gt;. If we were to get the input data for the above example code via the terminal window, an example would be the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from math import exp
+a,b,x = input('input the values for a,b,x (comma separated): ').split(&quot;,&quot;)
+y = float(a)*exp(float(b)*float(x))
+print(y)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;input the values for a,b,x (comma separated): 0.1,1,0.6
+0.1822118800390509
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;input-data-from-command-line&quot;&gt;Input data from command line&lt;/h4&gt;
+
+&lt;p&gt;This approach, which we discussed in previous lecture, is most popular in Unix-like environments, where most users are accustomed to using Bash command line. However, it can be readily used in Windows environment as well. For this approach, there is a Python module &lt;code&gt;sys&lt;/code&gt; that can accomplish what we desire,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from math import exp
+import sys
+a,b,x = sys.argv[1],sys.argv[2],sys.argv[3]
+y = float(a)*exp(float(b)*float(x))
+print(y)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Now if you save this code in a &lt;a href=&quot;http:/ECL2017S/lecture/8/input_via_sys.py&quot; target=&quot;_blank&quot;&gt;file&lt;/a&gt;, and run it on the Bash command line, the program expects you the enter 3 float numbers following the name of the program,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ python input_via_sys.py 0.1 1 0.6
+0.1822118800390509
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+    &lt;b&gt;ATTENTION: Notice the convention for command-line arguements&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+    
+    &lt;b&gt;1.&lt;/b&gt; As you see in the above example, the name of the program is considered as the first command line argument (&lt;code&gt;sys.argv[0]&lt;/code&gt;). Also the arguments must be separated by a white space, and should appear in the proper order.&lt;br /&gt;&lt;br /&gt;
+    
+    &lt;b&gt;2.&lt;/b&gt; If one value has a white space (e.g., a string value with white space character in it), then it has to be contained in quotation marks &lt;code&gt;''&lt;/code&gt; or &lt;code&gt;&quot;&quot;&lt;/code&gt;.&lt;br /&gt;&lt;br /&gt;
+    
+    &lt;b&gt;3.&lt;/b&gt; Also note that all input command-line arguments are taken as string values. Therefore, you will have to convert them to the proper type (e.g., float, int, ...) once they are read from the command line.
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;variable-number-of-command-line-arguments&quot;&gt;Variable number of command line arguments&lt;/h5&gt;
+&lt;p&gt;If the number of input arguments on the command line is not known a priori, then you can get a list of all input arguments using &lt;code&gt;sys.argv[1:]&lt;/code&gt; and then use a for-loop to loop over individual elements of it, or use &lt;code&gt;len()&lt;/code&gt; function to find the total number of input arguments.&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;option-value-pairs-as-command-line-input&quot;&gt;Option-value pairs as command-line input&lt;/h5&gt;
+&lt;p&gt;Once the number of input arguments to your code increases, the process of inputting data as command line arguments can get complicated. Ideally, the user should be able to enter data in any arbitrary order. This can be done by indicating the meaning of each input by a flag before the input value. For example, suppose you were to find the location $y(t)$ of an object thrown up in the air vertically, given that the object started at $y=y_0$, at $t=0$ with an initial velocity $v_0$, and thereafter was subject to a constant acceleration $a$,
+&lt;script type=&quot;math/tex&quot;&gt;y(t) = y_0 + v_0t + \frac{1}{2}at^2 ~.&lt;/script&gt;
+Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t$, and we don’t the program user to memorize their order of entry on the command line. The solution is to identify the type of each input using a flag preceding the input value. This can be done using &lt;code&gt;argparse&lt;/code&gt; Python module. Deatails of the usage of this module goes beyond the limited time of our class. However, I recommend you to have a look at the &lt;a href=&quot;https://docs.python.org/3/library/argparse.html&quot; target=&quot;_blank&quot;&gt;syntax and usage of &lt;em&gt;argparse&lt;/em&gt; module&lt;/a&gt;, as you will find it very handy in your Python codes, projects, and software development.&lt;/p&gt;
+
+&lt;h4 id=&quot;input-data-from-file&quot;&gt;Input data from file&lt;/h4&gt;
+&lt;p&gt;In cases where the input data is large, the command-line arguments and input from terminal window are not efficient anymore. In such cases, the most common approach is to let the code read input data from a file, the path to which is most often given to the code from the command line or the terminal window.&lt;/p&gt;
+
+&lt;h5 id=&quot;reading-a-file-line-by-line&quot;&gt;Reading a file line by line&lt;/h5&gt;
+&lt;p&gt;To read a file, say &lt;a href=&quot;http:/ECL2017S/lecture/8/data.in&quot; target=&quot;_blank&quot;&gt;this file&lt;/a&gt;, one first needs to open it,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [1]: myfile = open('data.in', 'r')
+
+In [2]: type(myfile)
+Out[2]: _io.TextIOWrapper
+
+In [5]: myfile.
+     myfile.buffer         myfile.detach         myfile.fileno         myfile.line_buffering myfile.newlines       myfile.readline       myfile.seekable       myfile.writable
+     myfile.close          myfile.encoding       myfile.flush          myfile.mode           myfile.read           myfile.readlines      myfile.tell           myfile.write
+     myfile.closed         myfile.errors         myfile.isatty         myfile.name           myfile.readable       myfile.seek           myfile.truncate       myfile.writelines
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+The function &lt;code&gt;open&lt;/code&gt; creates a file object, stored in the variable myfile. The second input argument to &lt;code&gt;open&lt;/code&gt;, &lt;code&gt;'r'&lt;/code&gt; tells the function that the purpose of this file opening is to read data (as opposed to, for example, writing data, or both readina and writing).&lt;/p&gt;
+
+&lt;p&gt;Now you can use a for loop to read the data in this file line by line:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;for line in myfile:
+    print(line)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;1
+
+3
+
+4
+
+5
+
+6
+
+7
+
+88
+
+65
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What is printed here, is actually the content of &lt;code&gt;data.in&lt;/code&gt; file, line by line.&lt;/p&gt;
+
+&lt;h5 id=&quot;alternative-method-of-reading-file-data&quot;&gt;Alternative method of reading file data&lt;/h5&gt;
+&lt;p&gt;Instead of reading one line at a time, as in the above, we can load all lines into a single list of strings,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [9]: myfile = open('data.in', 'r')
+In [10]: lines = myfile.readlines()
+
+In [11]: type(lines)
+Out[11]: list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+No each element of &lt;code&gt;line&lt;/code&gt; contains one line of the file.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [15]: lines
+Out[15]: ['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+The action of the method &lt;code&gt;readlines()&lt;/code&gt; is equivalent to a for-loop like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [16]: myfile = open('data.in', 'r')
+    ...: lines = []
+    ...: for line in myfile:
+    ...:     lines.append(line)
+    ...: lines
+    ...:
+Out[16]: ['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+or this &lt;em&gt;list comprehension&lt;/em&gt; format,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [19]: myfile = open('data.in', 'r')
+    ...: lines = [line for line in myfile]
+    ...: lines
+    ...:
+Out[19]: ['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Now suppose you were to calculate the mean of the numbers in this file. You could simply use the following list comprehension code to do so,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [22]: mean = sum([float(line) for line in lines])/len(lines)
+    ...: print(mean)
+22.375
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Note that once you read the file, you can close it using,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;myfile.close()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;the-with-statement&quot;&gt;The &lt;em&gt;with&lt;/em&gt; statement&lt;/h5&gt;
+&lt;p&gt;More often in modern Python code you may see the &lt;code&gt;with&lt;/code&gt; statement for reading a file, like the following&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [34]: with open('data.in', 'r') as myfile:
+    ...:     for line in myfile:
+    ...:         print(line)
+    ...:
+1
+
+3
+
+4
+
+5
+
+6
+
+7
+
+88
+
+65
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+This is technically equivalent to,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [35]: myfile = open('data.in', 'r')
+    ...: for line in myfile:
+    ...:     print(line)
+    ...: myfile.close()
+    ...:
+1
+
+3
+
+4
+
+5
+
+6
+
+7
+
+88
+
+65
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+The difference here is that with the modern &lt;code&gt;with&lt;/code&gt; statement, there is no need to close the file in the end.&lt;/p&gt;
+
+&lt;h5 id=&quot;the-old-while-true-construction&quot;&gt;The old &lt;em&gt;while True&lt;/em&gt; construction&lt;/h5&gt;
+&lt;p&gt;The call &lt;code&gt;myfile.readline()&lt;/code&gt; returns a string containing the text at the current line. A new &lt;code&gt;myfile.readline()&lt;/code&gt; statement will read the next line. If the file reaches the end, then &lt;code&gt;myfile.readline()&lt;/code&gt; returns an empty string, the end of the file has
+reached and the code must stop further reading of the file. The traditional way of telling the code to stop at the end of the file is a &lt;code&gt;while&lt;/code&gt; loop like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [36]: myfile = open('data.in', 'r')
+    ...: while True:
+    ...:     line = myfile.readline()
+    ...:     if not line:
+    ...:         break
+    ...:     print(line)
+1
+
+3
+
+4
+
+5
+
+6
+
+7
+
+88
+
+65
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;reading-an-entire-file-as-a-single-string&quot;&gt;Reading an entire file as a single string&lt;/h5&gt;
+&lt;p&gt;While the &lt;code&gt;readlines()&lt;/code&gt; method returns a list of lines in the file, the &lt;code&gt;read()&lt;/code&gt; method returns a string containing the entire content of the file.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
+In [37]: myfile = open('data.in', 'r')
+    ...: s = myfile.read()
+
+In [38]: s
+Out[38]: '1\n3\n4\n5\n6\n7\n88\n65\n'
+
+In [39]: print(s)
+1
+3
+4
+5
+6
+7
+88
+65
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+The major advanatge of this method of reading file content is that you can then immediately apply string methods directly on the file content.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [48]: myfile = open('data.in', 'r')
+    ...: numbers = [float(x) for x in myfile.read().split()]
+    ...: mean = sum(numbers)/len(numbers)
+    ...:
+
+In [49]: print(mean)
+22.375
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;converting-user-input-to-live-python-objects&quot;&gt;Converting user input to live Python objects&lt;/h3&gt;
+&lt;p&gt;One of the cool features in Python I/O is that you can provide text containing valid Python code as input to a program and then
+turn that text into &lt;em&gt;live Python objects&lt;/em&gt; as if the text were lines of code written directly into the program beforehand. This is a very powerful tool for letting users specify function formulas, for instance, as input to a program. The program code itself has no knowledge about the kind of function the user wants to work with, yet at run time the user’s desired
+formula enters the computations. To achieve the goal, one can use Python’s &lt;strong&gt;magic functions&lt;/strong&gt;, a.k.a &lt;strong&gt;special methods&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;the-magic-eval-function&quot;&gt;The magic &lt;em&gt;eval&lt;/em&gt; function&lt;/h4&gt;
+&lt;p&gt;The &lt;code&gt;eval&lt;/code&gt; function takes a &lt;strong&gt;string as argument&lt;/strong&gt; and &lt;strong&gt;evaluates&lt;/strong&gt; this string as a &lt;strong&gt;Python expression&lt;/strong&gt;. The result of an expression is an &lt;strong&gt;object&lt;/strong&gt;. For example,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [10]: eval('1+2')
+Out[10]: 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+This is equivalent to typing,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [11]: 1+2
+Out[11]: 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+or another example,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [12]: a = 1
+
+In [13]: b = 2
+
+In [14]: c = eval('a+b')
+
+In [15]: c
+Out[15]: 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+or,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [19]: from math import sqrt
+
+In [20]: eval('sqrt(4)')
+Out[20]: 2.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+But, note that in all of the above examples, the &lt;code&gt;eval&lt;/code&gt; function &lt;strong&gt;evaluates&lt;/strong&gt; a Python expression, that is, this function &lt;strong&gt;cannot execute&lt;/strong&gt; a Python statement.&lt;/p&gt;
+
+&lt;p&gt;Now the cool thing about this function is that, you can directly apply it to the user input. For example, suppose the user is asked to input a Python expression and then the code is supposed to evaluate the input just like a simple calculator,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;eval(input('Input an arithmetic expression to evaluate: '))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Input an arithmetic expression to evaluate: 2 + 3.0/5 + exp(7)
+1099.2331584284584
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;the-magic-exec-function&quot;&gt;The magic &lt;em&gt;exec&lt;/em&gt; function&lt;/h4&gt;
+&lt;p&gt;Similar to the &lt;code&gt;eval&lt;/code&gt; function, there is also an &lt;code&gt;exec&lt;/code&gt; magic function that executes a string containing an arbitrary
+Python code, not just a Python expression. This is a powerful idea since it now enables the user to write a formula as input to the program, available to the program in the form of a string object. The program can then convert this formula to a callable Python code, or function, using the magic &lt;code&gt;exec&lt;/code&gt; function.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [21]: exec('import math')
+
+In [22]: exec('a=1; b=2; c=a+b')
+
+In [23]: a,b,c
+Out[23]: (1, 2, 3)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+One could even input a full function definition to the exec function,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;myFuncString = input('Input a Python function definition of interest: ')
+f = exec(myFuncString)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Input a Python function definition of interest, named func: def func(x): return 2*x + 1  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;func(x=1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, since this is such a useful functionality in Python, there is already a package written &lt;code&gt;scitools&lt;/code&gt;, that converts an input expression to a Python function,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from scitools.StringFunction import StringFunction
+myfuncString = input('Input a Python expression to build your requested Python function: ')
+myfunc = StringFunction(myfuncString)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+The only major caveat with this module is that, at the moment, it only works with Python 2.x, and not Python 3. So, the above code will not work on your Python 3 platform.&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;methods-of-outputting-data&quot;&gt;Methods of outputting data&lt;/h3&gt;
+&lt;p&gt;Two major methods of data output are,&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;writing to the terminal window, as previdously done using &lt;code&gt;print()&lt;/code&gt; function, or,&lt;/li&gt;
+  &lt;li&gt;writing to an output file.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;We have already extensively discussed printing output to the terminal window. Writing data to file is also easy.&lt;/p&gt;
+
+&lt;h4 id=&quot;writing-to-a-file&quot;&gt;Writing to a file&lt;/h4&gt;
+&lt;p&gt;Similar to reading from a file, in order to write to a file, one has to first open the file, this time for the purpose of writing, which is indicated by &lt;code&gt;'w'&lt;/code&gt; or &lt;code&gt;'a'&lt;/code&gt;,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;outfile = open(filename, 'w') # write to a new file, or overwrite file
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+One could also &lt;strong&gt;append&lt;/strong&gt; some output to an &lt;strong&gt;existing file&lt;/strong&gt; using the &lt;code&gt;'a'&lt;/code&gt; indicator as input to &lt;code&gt;open()&lt;/code&gt;,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;outfile = open(filename, 'a') # append to the end of an existing file
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+In both cases, the string valued variable &lt;code&gt;filename&lt;/code&gt; contains the path to the file that should be created or manipulated. Suppose we want to write the output of the above code in previous section to a new file. All you would need to do is the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;myfile = open('data.in', 'r')
+numbers = [float(x) for x in myfile.read().split()]
+mean = sum(numbers)/len(numbers)
+outfile = open('data.out','w')
+outfile.write(str(mean) + '\n')
+myfile.close()
+outfile.close()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+This will result in the creation of &lt;a href=&quot;http:/ECL2017S/lecture/8/data.out&quot; target=&quot;_blank&quot;&gt;a new file&lt;/a&gt; named &lt;code&gt;data.out&lt;/code&gt; which contains the value of &lt;code&gt;mean&lt;/code&gt; variable. Note that the addition of the character &lt;code&gt;'\n'&lt;/code&gt; at the end of the &lt;code&gt;write&lt;/code&gt; statement is necessary, otherwise the next write to the file will not appear on a new line.&lt;/p&gt;
+
+&lt;h5 id=&quot;writing-a-table-of-data-to-a-file&quot;&gt;Writing a table of data to a file&lt;/h5&gt;
+&lt;p&gt;Now suppose you were to write the following list to an output file,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;data = [[ 0.75, 0.29619813, -0.29619813, -0.75 ],
+[ 0.29619813, 0.11697778, -0.11697778, -0.29619813],
+[-0.29619813, -0.11697778, 0.11697778, 0.29619813],
+[-0.75, -0.29619813, 0.29619813, 0.75 ]]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+One solution would be the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;outfile = open('table.out', 'w')
+for row in data:
+    for column in row:
+        outfile.write( '{:14.8f}'.format(column) )
+    outfile.write('\n')
+outfile.close()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+This code would result in the creation of an &lt;a href=&quot;http:/ECL2017S/lecture/8/table.out&quot; target=&quot;_blank&quot;&gt;output file&lt;/a&gt; named &lt;code&gt;table.out&lt;/code&gt; which contain the content of &lt;code&gt;data&lt;/code&gt; variable, in a nice formatted style as the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;    0.75000000    0.29619813   -0.29619813   -0.75000000
+    0.29619813    0.11697778   -0.11697778   -0.29619813
+   -0.29619813   -0.11697778    0.11697778    0.29619813
+   -0.75000000   -0.29619813    0.29619813    0.75000000
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;error-handling-in-python&quot;&gt;Error handling in Python&lt;/h2&gt;
+&lt;p&gt;A good code has to be able to handle exceptional situations that may occur during the code execution. These exceptions may occur during data input from either command line, terminal window, or an input file. They may also occur as a result of repeated operations on the input data, inside the code. For example, in &lt;a href=&quot;http:/ECL2017S/7-python-modules-loops-io#command-line-arguments&quot; target=&quot;_blank&quot;&gt;lecture 7&lt;/a&gt;, we explained a way of handling the wrong number of input command line arguments. This and similar measures to handle nicely the unexpected runtime errors is what’s called &lt;strong&gt;error and exception handling&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;A simple way of error handling is to write multiple if-blocks each of which handle a special exceptional situation. That is, to let the code execute some statements, and if something goes wrong, write the program in such a way that can detect this and jump to a set of statements that handle the erroneous situation as desired.&lt;/p&gt;
+
+&lt;p&gt;A more modern and flexible way of handling such potential errors in Python is through the following Python construction,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;try:
+    &amp;lt;Python statements&amp;gt;
+except &amp;lt;error type&amp;gt;:
+    &amp;lt;Python statements&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+For example, if we were to rewrite the command line argument section in &lt;a href=&quot;http:/ECL2017S/lecture/7/cmd_find_primes.py&quot; target=&quot;_blank&quot;&gt;this code&lt;/a&gt; in &lt;a href=&quot;http:/ECL2017S/7-python-modules-loops-io#command-line-arguments&quot; target=&quot;_blank&quot;&gt;lecture 7&lt;/a&gt;, to handle exceptions that arise due to &lt;code&gt;ValueError&lt;/code&gt; (e.g., not an integer input), it would look something like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if __name__ == &quot;__main__&quot;:
+    import sys
+    if len( sys.argv ) != 2: # check the number of arguments to be exactly 2.
+        print('''
+    Error: Exactly two arguments must be given on the command line.
+    Usage:''')
+        print(&quot;     &quot;, sys.argv[0], &quot;&amp;lt;a positive integer number&amp;gt;&quot;, '\n')
+        sys.exit('     Program stopped.\n')
+    else:
+        try:
+            n = int(sys.argv[1])
+            print('Here is a list of all prime numbers smaller than {}:'.format(n))
+            get_primes(n)
+        except ValueError:
+            print('The input you entered is not an integer!\n Try again...')
+            sys.exit(1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+The statement &lt;code&gt;sys.exit(1)&lt;/code&gt; aborts the program. The whole code can be found &lt;a href=&quot;http:/ECL2017S/lecture/8/cmd_find_primes_modern.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;. Now if we run the &lt;a href=&quot;http:/ECL2017S/lecture/7/cmd_find_primes.py&quot; target=&quot;_blank&quot;&gt;original code&lt;/a&gt; with a non-integer input, we would get the following Python error,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ../7/cmd_find_primes.py amir
+Traceback (most recent call last):
+  File &quot;../7/cmd_find_primes.py&quot;, line 34, in &amp;lt;module&amp;gt;
+    n = int(sys.argv[1])
+ValueError: invalid literal for int() with base 10: 'amir'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+whereas, if we run the &lt;a href=&quot;http:/ECL2017S/lecture/8/cmd_find_primes_modern.py&quot; target=&quot;_blank&quot;&gt;newly written code&lt;/a&gt;, the non-integer error is noicely handled by outputting a gentle error message to the user and exiting the program gracefully.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./cmd_find_primes_modern.py amir
+The input you entered is not an integer!
+ Try again...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+The type of error ocurring in the above example was &lt;code&gt;ValueError&lt;/code&gt;. There can be however, many other types of errors and exceptions. For this reason, Python has a &lt;a href=&quot;https://docs.python.org/2/library/exceptions.html&quot; target=&quot;_blank&quot;&gt;builtin list of exceptions&lt;/a&gt; that frequently occur in programming.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-raise-statement&quot;&gt;The &lt;em&gt;raise&lt;/em&gt; statement&lt;/h3&gt;
+&lt;p&gt;Instead of the print statement in the above &lt;code&gt;except&lt;/code&gt; block, Python has a builtin function to handle the error together with an input message from the programmer. For example, the previous code, could be modified to the following code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if __name__ == &quot;__main__&quot;:
+    import sys
+    if len( sys.argv ) != 2: # check the number of arguments to be exactly 2.
+        print('''
+    Error: Exactly two arguments must be given on the command line.
+    Usage:''')
+        print(&quot;     &quot;, sys.argv[0], &quot;&amp;lt;a positive integer number&amp;gt;&quot;, '\n')
+        sys.exit('     Program stopped.\n')
+    else:
+        try:
+            n = int(sys.argv[1])
+            print('Here is a list of all prime numbers smaller than {}:'.format(n))
+            get_primes(n)
+        except ValueError:
+            raise ValueError('The input you entered is not an integer!\n Try again...')
+            sys.exit(1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Executing the &lt;a href=&quot;http:/ECL2017S/lecture/8/cmd_find_primes_raise.py&quot; target=&quot;_blank&quot;&gt;code&lt;/a&gt; with wrong input would give,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./cmd_find_primes_raise.py amir
+Traceback (most recent call last):
+  File &quot;./cmd_find_primes_raise.py&quot;, line 35, in &amp;lt;module&amp;gt;
+    n = int(sys.argv[1])
+ValueError: invalid literal for int() with base 10: 'amir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;./cmd_find_primes_raise.py&quot;, line 39, in &amp;lt;module&amp;gt;
+    raise ValueError('The input you entered is not an integer!\n Try again...')
+ValueError: The input you entered is not an integer!
+ Try again...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+A more elegant and cleaner way of handling and outputing the error would be use the following syntax, in &lt;a href=&quot;http:/ECL2017S/lecture/8/cmd_find_primes_raise_as_err.py&quot; target=&quot;_blank&quot;&gt;this modified code&lt;/a&gt;,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if __name__ == &quot;__main__&quot;:
+    import sys
+    if len( sys.argv ) != 2: # check the number of arguments to be exactly 2.
+        print('''
+    Error: Exactly two arguments must be given on the command line.
+    Usage:''')
+        print(&quot;     &quot;, sys.argv[0], &quot;&amp;lt;a positive integer number&amp;gt;&quot;, '\n')
+        sys.exit('     Program stopped.\n')
+    else:
+        try:
+            n = int(sys.argv[1])
+            print('Here is a list of all prime numbers smaller than {}:'.format(n))
+            get_primes(n)
+        except ValueError as err:
+            print(err)
+            sys.exit(1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+With the following output,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./cmd_find_primes_raise_as_err.py amir
+invalid literal for int() with base 10: 'amir'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+In the statement &lt;code&gt;except ValueError as err:&lt;/code&gt; one could use &lt;code&gt;Exception&lt;/code&gt; for all types of errors instead of only &lt;code&gt;ValueError&lt;/code&gt; exceptions, or use a tuple syntax such as &lt;code&gt;except (ValueError, IndexError) as err:&lt;/code&gt; to cover these two exceptions.&lt;/p&gt;
+
+&lt;h2 id=&quot;code-verification-and-unit-testing&quot;&gt;Code verification and unit testing&lt;/h2&gt;
+&lt;p&gt;In the previous lecture we discusses the process of creating modules and collecting functions in one file as a personal module to be used later. As soon as the list of your codes and functions grow, you will need to have a unified way of ensuring all your functions work appropriately, regardless of the potential future internal changes that are made to the functions. This is what the &lt;strong&gt;unit testing&lt;/strong&gt; exists for. Unit testing is a software development process in which the smallest testable parts of an application, called &lt;strong&gt;units&lt;/strong&gt;, are individually and independently scrutinized for proper operation. Unit testing can be done manually, but if you have a long list of functions (which you most often have), you’d want to automate the testing process.&lt;/p&gt;
+
+&lt;p&gt;The grand goal in unit testing is to reduce the risk of encountering potential problems when running the code in the smallest possible units of the code. This means,&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;ensuring the code has the &lt;strong&gt;correct behavior&lt;/strong&gt; when given the proper input data.&lt;/li&gt;
+  &lt;li&gt;the code is robust to exceptions and invalid input data, meaning that it does not crash when it reaches unexpected situations during the code execution and gracefully handles the error, without interruption.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Because of the goals the unit tests are desgined for, they are mosly written and used by the developers of the code.&lt;/p&gt;
+
+&lt;h3 id=&quot;unit-test-frameworks&quot;&gt;Unit test frameworks&lt;/h3&gt;
+&lt;p&gt;There are many ways to write tests for codes. Now, if you asked each software developer to write a unit test for a specific software, each would likely come up with their own set of rules and tests of the software. You will end up with many tests, that will generally only be usable by the developer that wrote the tests. That is why you should select a unit test framework. A unit test framework provides consistency for how the unit tests for your project are written. There are many test frameworks to choose from for just about any language you want to program with, including Python. Just like programming language, almost every programmer has a strong opinion which test framework is the best. Research what’s out there and use the one that meets the needs of your organization (For example, there is one experienced Python programmer in our ECL class who does not like any of the existing unit tests for Python, and wants to write his own unit test as the project of this course!).&lt;/p&gt;
+
+&lt;p&gt;The framework will provide a consistent testing structure to create maintainable tests with reproducible results. From a product quality and business point of view, those are the most valuable reasons to use a unit test framework. When you write a code, you should also think of a quick and simple way to develop and verify your logic in isolation. Once you make sure you have it working solidly by itself, then you can proceed to integrate it into the larger project solutions with great confidence.&lt;/p&gt;
+
+&lt;p&gt;Python offers three unit testing frameworks,&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.python.org/2/library/unittest.html&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;unittest&lt;/strong&gt;&lt;/a&gt; (Python’s standard unit testing framework)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://nose.readthedocs.io/en/latest/index.html&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;nose&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.pytest.org/en/latest/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;pytest&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;which automate as much as possible the process of testing all of your codes, whenever required. The last, &lt;code&gt;pytest&lt;/code&gt; appears to be the most popular unit testing framework as of today.&lt;/p&gt;
+
+&lt;h4 id=&quot;conventions-for-test-functions&quot;&gt;Conventions for test functions&lt;/h4&gt;
+&lt;p&gt;The simplest way of using the testing frameworks (e.g., pytest or nose) is to write a set of test functions, scattered around in files, such that pytest or nose can automatically find and run all of these test functions. To achieve the goal, the test functions need to follow certain conventions:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;The name of a test function starts with &lt;code&gt;test_&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;A test function cannot take any arguments.&lt;/li&gt;
+  &lt;li&gt;Any test must be formulated as a boolean condition.&lt;/li&gt;
+  &lt;li&gt;An &lt;code&gt;AssertionError&lt;/code&gt; exception is raised if the boolean condition is &lt;code&gt;False&lt;/code&gt; (i.e., when the test fails).&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;testing-function-accuracy&quot;&gt;Testing function accuracy&lt;/h4&gt;
+&lt;p&gt;Suppose we have written the following function which runs the Newton’s method for solving an algebraic equation of the form $f(x)=0$, and we would like to write a test function that ensures its correct behavior.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def newton(f, dfdx, x, eps=1E-7):
+    n = 0 # iteration counter
+    while abs(f(x)) &amp;gt; eps:
+        x = x - f(x)/dfdx(x)
+        n += 1
+    return x, f(x), n
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Our goal is to write a function that tests the validity of the output of the function for a special case for which we know the results a priori. In the case of the above code, the function output is a not a fixed result, but an approximate float number $x_0$ which satifies the condition $f(x_0)&amp;lt;\epsilon$ where $\epsilon$ is a prescribed number close to zero. Therefore, we have to first come up with a mathematical test input function to the function &lt;code&gt;newton&lt;/code&gt;, for which we have calculated the correct answer a priori, and we want to make sure if the above code gives the same answer. Since the output of the function &lt;code&gt;newton&lt;/code&gt; is a float that depends on the machine precision, we cannot expect the function to output the exact same result everytime the code is run on any computer. Therefore we have to define our test such that the function passes the test even if the result is not exactly what we expect, but still close enought to the correct answer. Here is an example test function for the above code using the &lt;code&gt;sin(x)&lt;/code&gt; function as the test input function to &lt;code&gt;newton()&lt;/code&gt;,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def test_newton_sin():
+    
+    from math import sin, cos, pi
+
+    def f(x):
+        return sin(x)
+    
+    def dfdx(x):
+        return cos(x)
+    
+    x_ref = 0.000769691024206
+    f_x_ref = 0.000769690948209
+    n_ref = 3
+    x, f_x, n = newton(f, dfdx, x=-pi/3, eps=1E-2)
+    tol = 1E-15 # tolerance for comparing real numbers
+    assert abs(x_ref - x) &amp;lt; tol , &quot;The test for the value of x_0 failed&quot; # is x correct?
+    assert abs(f_x_ref - f_x) &amp;lt; tol , &quot;The test for the function value failed&quot; # is f_x correct?
+    assert n == 3 , &quot;The test for the number of iterations failed&quot; # is f_x correct? # is n correct?
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Note that in the above test function, the function name begins with &lt;code&gt;test_&lt;/code&gt;, takes no arguments, and raises an &lt;code&gt;assertionError&lt;/code&gt; at the end. Now if you run the test,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;test_newton_sin()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+you will notice that the function passed the test. However, if in the above test, we set &lt;code&gt;eps=1E-10&lt;/code&gt;, and run the test again, you will get an assertion error like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+&amp;lt;ipython-input-20-8be9faac8d8e&amp;gt; in &amp;lt;module&amp;gt;()
+----&amp;gt; 1 test_newton_sin()
+
+&amp;lt;ipython-input-18-263651ba410f&amp;gt; in test_newton_sin()
+     14     x, f_x, n = newton(f, dfdx, x=-pi/3, eps=1E-10)
+     15     tol = 1E-15 # tolerance for comparing real numbers
+---&amp;gt; 16     assert abs(x_ref - x) &amp;lt; tol , &quot;The test for the value of x_0 failed&quot; # is x correct?
+     17     assert abs(f_x_ref - f_x) &amp;lt; tol , &quot;The test for the function value failed&quot; # is f_x correct?
+     18     assert n == 3 , &quot;The test for the number of iterations failed&quot; # is f_x correct? # is n correct?
+
+AssertionError: The test for the value of x_0 failed
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+One could also write exact tests for the function &lt;code&gt;newton&lt;/code&gt; which test for an exact result which is known a priori, for example a mathematical linear input function to &lt;code&gt;newton&lt;/code&gt;.&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;testing-function-robustness&quot;&gt;Testing function robustness&lt;/h4&gt;
+&lt;p&gt;The above &lt;code&gt;newton&lt;/code&gt; function is very basic and suffers from several problems:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;for divergent iterations it will iterate forever,&lt;/li&gt;
+  &lt;li&gt;it can divide by zero in f(x)/dfdx(x),&lt;/li&gt;
+  &lt;li&gt;it can perform integer division in f(x)/dfdx(x),&lt;/li&gt;
+  &lt;li&gt;it does not test whether the arguments have acceptable types and values.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A more robust implementation dealing with these potential problems would look like the following:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def Newton(f, dfdx, x, eps=1E-7, maxit=100):
+    if not callable(f): raise TypeError( 'f is %s, should be function or class with __call__' % type(f) )
+    if not callable(dfdx): raise TypeError( 'dfdx is %s, should be function or class with __call__' % type(dfdx) )
+    if not isinstance(maxit, int): raise TypeError( 'maxit is %s, must be int' % type(maxit) )
+    if maxit &amp;lt;= 0: raise ValueError( 'maxit=%d &amp;lt;= 0, must be &amp;gt; 0' % maxit )
+    n = 0 # iteration counter
+    while abs(f(x)) &amp;gt; eps and n &amp;lt; maxit:
+        try:
+            x = x - f(x)/float(dfdx(x))
+        except ZeroDivisionError:
+            raise ZeroDivisionError( 'dfdx(%g)=%g - cannot divide by zero' % (x, dfdx(x)) )
+        n += 1
+    return x, f(x), n
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Now, for this more robust code (than the earlier version: &lt;code&gt;newton&lt;/code&gt;), we have to also write a set of tests, examining the robustenss of the code, subject to potential exceptions. For example, one can write a test function that examines the behavior of &lt;code&gt;Newton&lt;/code&gt; subject to an input mathematical function that is known to lead to divergent (infinite) iterations, if the initial starting point $x$ is not sufficiently close to the root of the function. One such example is $f(x)=tanh(x)$, for which a starting search value of $x=20$ would lead to infinite iterations in the Newton’s method. So we can set &lt;code&gt;maxit=12&lt;/code&gt; in our robust &lt;code&gt;Newton&lt;/code&gt; code, and test that the actual number of iterations reaches this limit. Given our prior knowledge for this function, that the value of $x$ will also diverge after 12 iterations, we could also add a test for the value of $x$, like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def test_Newton_divergence():
+    from math import tanh
+    f = tanh
+    dfdx = lambda x: 10./(1 + x**2)
+    
+    x, f_x, n = Newton(f, dfdx, 20, eps=1E-4, maxit=12)
+    assert n == 12
+    assert x &amp;gt; 1E+50
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;test_Newton_divergence()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+The example given here, only tests for the robustenss of &lt;code&gt;Newton()&lt;/code&gt; in handling divergent situations. For other potential problems, one has to write other test functions, some which will be given as exercise.&lt;/p&gt;
+
+&lt;h3 id=&quot;summary-unit-testing&quot;&gt;Summary: unit testing&lt;/h3&gt;
+&lt;p&gt;Unit testing is a component of &lt;a href=&quot;https://en.wikipedia.org/wiki/Test-driven_development&quot; target=&quot;_blank&quot;&gt;test-driven development (TDD)&lt;/a&gt;, a pragmatic methodology that takes a meticulous approach to building a product by means of &lt;em&gt;continual testing and revision&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Unit testing has a steep learning curve. The development team needs to learn what unit testing is, how to unit test, what to unit test and how to use automated software tools to facilitate the process on an on-going basis.  The great benefit to unit testing is that the earlier a problem is identified, the fewer compound errors occur. A compound error is one that doesn’t seem to break anything at first, but eventually conflicts with something down the line and results in a problem.&lt;/p&gt;
+
+&lt;p&gt;There is a lot more to unit testing and the existing Python frameworks for it than we discussed here. However, covering all those topics would require a dedicated course for unit testing, which is certainly beyond the capacity of this course. But if you are interested to know more, I recommend you to refer to one of the three unit testing frameworks mentioned &lt;a href=&quot;#unit-test-frameworks&quot;&gt;above&lt;/a&gt;. There are also books already written on this topic an example of which is available &lt;a href=&quot;http://chimera.labs.oreilly.com/books/1234000000754/pr01.html&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/8-python-io-error-handling-unit-testing&quot;&gt;Lecture 8: Python - I/O, error handling, and tesing frameworks&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -587,6 +1254,29 @@ tt.timeit( &quot;-&quot;.join(str(n) for n in range(100)) , number=10000 )
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
+&lt;h3 id=&quot;the-time-module&quot;&gt;The time module&lt;/h3&gt;
+&lt;p&gt;More generally, if you want to measure the CPU time spent on a specific part of your code, you can use the &lt;code&gt;clock()&lt;/code&gt; method from &lt;code&gt;time&lt;/code&gt; module,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import time
+# do some work
+t0 = time.clock()   # get the initial CPU time
+# do some further work wqhich you want to time
+t1 = time.clock()   # get the final CPU time
+cpu_time = t1 - t0  # This is the time spent on the task being timed.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+The &lt;code&gt;time.clock()&lt;/code&gt; function returns the CPU time spent in the program since its start. If the interest is in the total time, also including reading and writing files, &lt;code&gt;time.time()&lt;/code&gt; is the appropriate function to call. Now suppose you had a list of functions that performed the same task, but using different methods, and you wanted to time their performance. Since in Python, functions are ordinary objects, making a list of functions is no more special than making a list of strings or numbers. You can therefore, create a list of function names and call them one by one, inside a loop, and time each one repectively.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import time
+functions = [func1, func2, func3, func4,func5, func6, func7, func8,func9, func10]
+timings = [] # timings[i] holds CPU time for functions[i]
+for function in functions:
+    t0 = time.clock()
+    function(&amp;lt;input variables&amp;gt;)
+    t1 = time.clock()
+    cpu_time = t1 - t0
+    timings.append(cpu_time)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;h2 id=&quot;loops-in-python&quot;&gt;Loops in Python&lt;/h2&gt;
 
 &lt;p&gt;We have already seen, both in homework and midterm, what a pain it can be if you wanted to repeat a certain number of tasks using recursive functions and if-blocks. Fortunately, Python has loop statements that can highly simplify the task of repeating certain statements for a certain number of times.&lt;/p&gt;
@@ -985,7 +1675,7 @@ C.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Name the three different generations (not different software) of Version Control Systems ever developed. If you don’t remember the exact names, you can instead briefly explain how each VCS paradigm works.&lt;br /&gt;
 &lt;br /&gt;
 &lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
-Local VCS, Centralized VCS, Distributed VCS. For details of each VCS paradigm see &lt;a href=&quot;http://localhost:4000/lecture/1-version-control-system&quot; target=&quot;_blank&quot;&gt;this lecture&lt;/a&gt;.&lt;/p&gt;
+Local VCS, Centralized VCS, Distributed VCS. For details of each VCS paradigm see &lt;a href=&quot;/lecture/1-version-control-system&quot; target=&quot;_blank&quot;&gt;this lecture&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -2563,6 +3253,8 @@ This format is particularly useful, if the lambda function contains a constant t
 
 &lt;hr /&gt;
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;This homework aims at giving you some experience with variables in Python and their syntax, also some experience with using Lists and Dictionaries in Python. Write your Python scripts with the corresponding &lt;code&gt;*.py&lt;/code&gt; file names, and add a readme.md file in HW 5 folder of your project if you need to add any additional explanation (Don’t forget to use markdown syntax highlight in your readme file, if needed).&lt;/p&gt;
 
@@ -4308,6 +5000,8 @@ Out[80]: 5
 &lt;hr /&gt;
 &lt;hr /&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;p&gt;This homework aims at giving you some experience with variables in Python and their syntax, also some experience with using Lists and Dictionaries in Python. Write your Python scripts with the corresponding &lt;code&gt;*.py&lt;/code&gt; file names, and add a readme.md file in HW 4 folder of your project if you need to add any additional explanation (Don’t forget to use markdown syntax highlight in your readme file, if needed).&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -4340,7 +5034,7 @@ A version of the code can be downloaded from &lt;a href=&quot;http:/ECL2017S/hom
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Download &lt;a href=&quot;http:/ECL2017S/homework/4/script_full_0f_errors.py&quot; target=&quot;_blank&quot;&gt;this code&lt;/a&gt;. This code is full syntax errors. Fix the errors and submit the corrected code with name &lt;code&gt;script_full_of_errors_corrected.py&lt;/code&gt; in your hw4 folder of your project. Explain in front of each corrected Python statement, why the error occurred.  On the last line of the script,&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Download &lt;a href=&quot;http:/ECL2017S/homework/4/script_full_of_errors.py&quot; target=&quot;_blank&quot;&gt;this code&lt;/a&gt;. This code is full syntax errors. Fix the errors and submit the corrected code with name &lt;code&gt;script_full_of_errors_corrected.py&lt;/code&gt; in your hw4 folder of your project. Explain in front of each corrected Python statement, why the error occurred.  On the last line of the script,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;true = fox is rev in Persian
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
@@ -6233,533 +6927,6 @@ Don’t forget to push your answers to your remote repository by the end of quiz
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/3-problems-advanced-git&quot;&gt;Quiz 3: Problems - Advanced Git&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 15, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Lecture 3: Python for beginners]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/lecture/3-python-for-beginners"/>
-  <id>http:/ECL2017S/lecture/3-python-for-beginners</id>
-  <published>2017-02-15T00:00:00-06:00</published>
-  <updated>2017-02-15T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This lecture aims at providing an introduction to Python programming for beginners, how to install it, different Python distributoins available, how to write Jupyter notebooks, and how to perform simple arithmetic operations with Python.&lt;/p&gt;
-
-&lt;div class=&quot;post_toc&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;history&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;python-a-brief-history&quot;&gt;Python: a brief history&lt;/h2&gt;
-
-&lt;p&gt;Python was developed clode to the beginning of the 1990’, by &lt;a href=&quot;https://en.wikipedia.org/wiki/Guido_van_Rossum&quot; target=&quot;_blank&quot;&gt;Guido van Rossum&lt;/a&gt;, a former employee of &lt;a href=&quot;https://en.wikipedia.org/wiki/Google&quot; target=&quot;_blank&quot;&gt;Google&lt;/a&gt;, who is now an employee of &lt;a href=&quot;https://en.wikipedia.org/wiki/Dropbox_(service)&quot; target=&quot;_blank&quot;&gt;Dropbox&lt;/a&gt;. The name of the language is attribution to the British sketch comedy &lt;a href=&quot;https://en.wikipedia.org/wiki/Monty_Python%27s_Flying_Circus&quot; target=&quot;_blank&quot;&gt;Monty Python’s Flying Circus&lt;/a&gt;. As of 2016 Python seems to be the fastest growing language for data science. Python has the following features and attributes.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Python is a fourth-generation, high-level programming language.&lt;/strong&gt; Remember from our &lt;a href=&quot;http:/ECL2017S/lecture/0-programming-history&quot; target=&quot;_blank&quot;&gt;zeroth lecture&lt;/a&gt;, that a high-level programming language provides a high level of programming abstraction from details of computer and machine code. For comparison, Fortran, C++, and C are considered high, medium, and low -level programming languages respectively.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Python is general-purpose programming language&lt;/strong&gt;, meaning that it is designed to be used for writing software in a wide variety of application domains, such as &lt;em&gt;scientific computation&lt;/em&gt;, &lt;em&gt;web and interent development&lt;/em&gt;, &lt;em&gt;education&lt;/em&gt;, &lt;em&gt;Software Development&lt;/em&gt;. For more information, visit &lt;a href=&quot;https://www.python.org/about/apps/&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Python is a multi-paradigm programming language&lt;/strong&gt;. A &lt;a href=&quot;https://en.wikipedia.org/wiki/Programming_paradigm&quot; target=&quot;_blank&quot;&gt;programming paradigm&lt;/a&gt; is the style of writing and development of a computer programming language. Python allows the programmer to use the following major programming paradigms.&lt;br /&gt;
-&lt;br /&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Functional_programming&quot; target=&quot;_blank&quot;&gt;functional programming&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Structured_programming&quot; target=&quot;_blank&quot;&gt;structured programming&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Imperative_programming&quot; target=&quot;_blank&quot;&gt;imperative programming&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Procedural_programming&quot; target=&quot;_blank&quot;&gt;procedural programming&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Object-oriented_programming&quot; target=&quot;_blank&quot;&gt;object-oriented programming (OOP)&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;   Later on, we will get to each of these programming paradigms in Python.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;The core philosophy of Python programming&lt;/strong&gt;: Simplicity, Readability, and complexity instead of complication.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Python is an interpreted language&lt;/strong&gt;. A programming language implementation is a system for executing computer programs. There are two general approaches to programming language implementation:&lt;br /&gt;
-&lt;br /&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;Interpretation&lt;/strong&gt;: An interpreter takes as input a program in some language, and performs the actions written in that language on some machine.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Compilation&lt;/strong&gt;: A compiler takes as input a program in some language, and translates that program into some other language, which may serve as input to another interpreter or another compiler.&lt;br /&gt;
-&lt;br /&gt;Python is an interpreted language, meaning that, as soon as you type a Python statement on the Python command line and press enter, the Python interpreter, executes the statement. Python programs can also be compiled, to be executed later when desired. This is a topic that will be covered later on in this course.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;The most popular major implementation of Python is &lt;a href=&quot;https://en.wikipedia.org/wiki/CPython&quot; target=&quot;_blank&quot;&gt;CPython&lt;/a&gt;&lt;/strong&gt;. Other major implementations include &lt;em&gt;IronPython&lt;/em&gt;, &lt;em&gt;Jython&lt;/em&gt;, &lt;em&gt;MicroPython&lt;/em&gt;, &lt;em&gt;PyPy&lt;/em&gt;, each of which is designed for a specific purpose. Throughout this course we will be using &lt;em&gt;CPython&lt;/em&gt;.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;The extension for human-readable Python source code file is “&lt;em&gt;.py&lt;/em&gt;“&lt;/strong&gt;. There are other extensions for Python program files as well, each of which represents a specific type of Python file. For example, “&lt;em&gt;.pyc&lt;/em&gt;” represents compiled (binary) Python source code, and “&lt;em&gt;.pyo&lt;/em&gt;” is used for optimized Python files.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a name=&quot;installation&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;python-installation&quot;&gt;Python installation&lt;/h2&gt;
-&lt;p&gt;Depending on your operating system, you can download and install a specific version of Python for your personal computer from one of the major Python vendors, for example, CPython. For this course, we will rely on CPython implentation.&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;installation-basic&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;basic-python-installation&quot;&gt;Basic Python installation&lt;/h3&gt;
-&lt;p&gt;The official CPython implementation of Python can be found at &lt;a href=&quot;https://www.python.org/downloads/&quot; target=&quot;_blank&quot;&gt;python.org&lt;/a&gt;. Once you go to this webpage, you will see that two versions of Python are available for download (for Windows systems):&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.python.org/ftp/python/3.6.0/python-3.6.0.exe&quot; target=&quot;_blank&quot;&gt;Python 3.6.0&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi&quot; target=&quot;_blank&quot;&gt;Python 2.7.13&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;For operating systems other than Windows, the installation files can be found &lt;a href=&quot;https://www.python.org/downloads/source/&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt; for Linux, and &lt;a href=&quot;https://www.python.org/downloads/mac-osx/&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt; for Mac.&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;installation-recommended&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;recommended-python-installation&quot;&gt;Recommended Python installation&lt;/h3&gt;
-&lt;p&gt;In addition to the basic Python distribution that you can obtain from CPython organization, there are also other popular Python &lt;em&gt;distributions&lt;/em&gt; that, by default, contain some highly useful Python libraries, advanced Python editors and &lt;a href=&quot;https://en.wikipedia.org/wiki/Integrated_development_environment&quot; target=&quot;_blank&quot;&gt;integrated development environments (IDEs)&lt;/a&gt;. A &lt;strong&gt;Python distributions&lt;/strong&gt; is basically the Basic Python core bundled together with many useful Python libraries and IDEs. For example, the basic Python distribution from CPython organization, is bundled along with a simple premitive integrated development environment for Python coding, called &lt;a href=&quot;https://en.wikipedia.org/wiki/IDLE&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;IDLE&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Aside from the official basic CPython distribution of Python available from python.org, there are other Python distributions that based on CPython. A comprehensive list can be found &lt;a href=&quot;https://wiki.python.org/moin/PythonDistributions&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;. Some, among many, of the most popular and useful Python distributions for scientific computing purposes are the following:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.continuum.io/downloads&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Anaconda&lt;/strong&gt;&lt;/a&gt; from &lt;a href=&quot;https://www.continuum.io/&quot; target=&quot;_blank&quot;&gt;Continuum Analytics&lt;/a&gt;. According to the company, Anaconda is the leading open data science platform powered by Python. The open source version of Anaconda is a high performance distribution of Python and R and includes over 100 of the most popular Python, R and Scala packages for data science. Additionally, the Anaconda user has access to over 720 packages that can be easily installed with &lt;a href=&quot;https://en.wikipedia.org/wiki/Conda_(package_manager)&quot; target=&quot;_blank&quot;&gt;conda&lt;/a&gt;. Conda is a language-agnostic package manager and environment management system that is developed and maintained by Continuum Analytics. The package Conda is itself written in Python.&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;&lt;em&gt;The Anaconda distribution of Python is the one that we will use throughout this course.&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;
-&lt;br /&gt;
-The latest version of Anaconda includes an easy installation of Python (2.7.13, 3.4.5, 3.5.2, and/or 3.6.0) and updates of over 100 pre-built and tested scientific and analytic Python packages. These packages include &lt;strong&gt;NumPy&lt;/strong&gt;, &lt;strong&gt;Pandas&lt;/strong&gt;, &lt;strong&gt;SciPy&lt;/strong&gt;, &lt;strong&gt;Matplotlib&lt;/strong&gt;, and &lt;strong&gt;Jupyter&lt;/strong&gt;. Over 620 more packages are available. You can install any of them with just one command,
-    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;conda install package-name
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;&lt;em&gt;(NOTE: Replace “package-name” with the name of the package you want to install.)&lt;/em&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.enthought.com/products/canopy/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Canopy Python&lt;/strong&gt;&lt;/a&gt; from &lt;a href=&quot;https://www.enthought.com/&quot; target=&quot;_blank&quot;&gt;Enthought Canopy&lt;/a&gt;. According to the company, Canopy Python is a comprehensive Python analysis environment that provides easy installation of over 450 core scientific analytic and Python packages, creating a robust platform you can explore, develop, and visualize on. In addition to its pre-built, tested Python distribution. Enthought Canopy has tools for iterative data analysis, visualization and application development. Like Anaconda, Canopy has free and licensed versions available for purchase.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a name=&quot;package-installation&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;installing-external-python-packages&quot;&gt;Installing external Python packages&lt;/h3&gt;
-&lt;p&gt;One of the greatest advantages and reasons for the popularity of Python over other languages is the extensive set of libraries that have been written for Python over the past two decades. As a professional Python programmer, you will virtually always need some of these packages. In any event you need a Python library that is not already installed on your device, you can get the instructions for Linux installation from &lt;a href=&quot;https://packaging.python.org/installing/&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;. For Windows devices, you can get precompiled version of Python external libraries, ready for installation, from &lt;a href=&quot;http://www.lfd.uci.edu/~gohlke/pythonlibs/&quot; target=&quot;_blank&quot;&gt;Christoph Gohlke’s personal website&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;IDE&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;python-editors-and-ides&quot;&gt;Python editors and IDEs&lt;/h3&gt;
-&lt;p&gt;The simple Python code editor, IDLE, that comes with the basic CPython distribution of Python is most not enough helpful for educational and professional programming. As a result, a myriad of Python code editors and IDEs have been also developed over the past decade. A rather complete list of most popular Python IDEs can be found &lt;a href=&quot;https://wiki.python.org/moin/PythonEditors&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;. Some of the most useful for our class and your future professional use are likely the following:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Spyder_(software)&quot; target=&quot;_blank&quot;&gt;Spyder&lt;/a&gt;&lt;br /&gt;
-Spyder (formerly Pydee) is an open source cross-platform IDE for scientific Python programming. It probably has the highest design similarity to MATLAB environment. Therefore, it likely a good start as IDE for those who are already familiar and confortable with MATLAB environment design. Spyder integrates NumPy, SciPy, Matplotlib and IPython, as well as other open source software.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.jetbrains.com/pycharm/&quot; target=&quot;_blank&quot;&gt;PyCharm&lt;/a&gt;&lt;br /&gt;
-PyCharm is full-featured IDE for Python. It is available in Free and Open Source edition, fully supporting Python as well as proprietary Professional Edition with Django, Flask, Pyramid and Google App Engine support.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://ipython.org/&quot; target=&quot;_blank&quot;&gt;IPython&lt;/a&gt;&lt;br /&gt;
-IPython is an enhanced interactive Python shell. It offers a significantly enhanced interactive shell for Python programming, such tab completion (autocompletion), inline Python syntax highlighting, command history, etc. It is highly useful for testing small snippets of your big code immediately on the IPython shell. IPython is installed on your computer as part of Anaconda package installation.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://jupyter.org/about.html&quot; target=&quot;_blank&quot;&gt;Jupyter&lt;/a&gt;&lt;br /&gt;
-Project Jupyter was born out of the IPython Project in 2014 as it evolved to support interactive data science and scientific computing across all programming languages. Jupyter is an abbreviation for Julia, Python, and R programming languages. The Jupyter Notebook is a web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, machine learning and much more.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://notepad-plus-plus.org/&quot; target=&quot;_blank&quot;&gt;Notepad++&lt;/a&gt;  (available only on Windows)&lt;br /&gt;
-The last, but in-my-opinion not least, important Python editor is Notepad++. It is a highly versatile text and source code editor for use with Microsoft Windows. It is likely – and in my opinion, arguably – the most powerful general-purpose text editor that is currently available on the web. Notepad++ automatically identifies the type of code the file contains based on the file extension and highlights the code sytax accordingly. However, you should keep in mind that it is not specifrically designed for Python. If you are professional multi-language programmer, you will soon find the hidden gems in Notepad++ that are not available in any other editor (including Python-specific editors) as of today, at least as far as I am aware.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a name=&quot;version&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;which-python-standard-version-should-you-use&quot;&gt;Which Python standard version should you use?&lt;/h3&gt;
-
-&lt;p&gt;Like any other programming language, Python has also evolved significantly since its inception in 1991. Normally, a good prgramming language should be backward-compatible, meaning that the newer programming standard should not violate the previous standards. For example, an old Python code should be executable on the most recent Python standard implementation. Sometimes however, with some programming language evolutions, this is not the case. It probably happens to all languages that some time, the new standard violates the older standard syntax of the language, causing runtime and compile-time error for an old-standard code.&lt;/p&gt;
-
-&lt;p&gt;For Python standards, this backward-incompatibility occurred between Python versions 2.x and 3.x. A list of the key differences between the two standards can be found &lt;a href=&quot;http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;. If you would like to know which Python version is likely most useful for your future professional project, consult &lt;a href=&quot;https://wiki.python.org/moin/Python2orPython3&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;. However, it is important to keep in mind that &lt;strong&gt;Python 2.x standard is legacy, and Python 3.x is the present and future of the Python language&lt;/strong&gt;. By year 2020, the offical plan is to cut the security updates and support for Python 2.x and most of the major Python packages have already started migrating to Python 3. Therefore, for the rest of this course we will be using Python 3 syntax.
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;jupyter-setup&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;setting-up-jupyter&quot;&gt;Setting up Jupyter&lt;/h2&gt;
-&lt;p&gt;There are two ways to setup and run a Jpuyter notebook:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;on your personal device&lt;/li&gt;
-  &lt;li&gt;online on Jupyter website&lt;br /&gt;
-&lt;br /&gt;
-In the following, both methods will be explained.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;a name=&quot;jupyter-setup-device&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;running-jupyter-on-personal-device&quot;&gt;Running Jupyter on Personal Device&lt;/h3&gt;
-
-&lt;p&gt;Now, if you have already installed Anaconda on you device, you should also have Jupyter and IPython installed automatically. To open a new Jupyter notebook, follow the instructions below (for Windows OS). For other OS, it would also be similar.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; Open Windows’ start menu and search for jupyter.&lt;/p&gt;
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/lecture/3/jupyter1.png&quot; width=&quot;900&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:justify&quot;&gt;
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt; By clicking on &lt;code&gt;Jupyter Notebook&lt;/code&gt;, a Windows Command Prompt for Jupyter will open up, initializing the Jupyter server. Then a web browser window will open up on your default web browser. The content of this web page is a list of the content of your home directory on your personal device, as in the following figure.&lt;/p&gt;
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/lecture/3/jupyter2.png&quot; width=&quot;900&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:justify&quot;&gt;
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt; Now click on the &lt;code&gt;new&lt;/code&gt; tab on the top-right part of the page, and choose &lt;code&gt;python 3&lt;/code&gt;. If you have installed Python 2 as well, you will also see an option for &lt;code&gt;Python 2&lt;/code&gt;. But, for this course proceed with &lt;code&gt;Python 3&lt;/code&gt;.&lt;/p&gt;
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/lecture/3/jupyter3.png&quot; width=&quot;900&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:justify&quot;&gt;
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;strong&gt;4.&lt;/strong&gt; Once you choose and click on your Python version, a new browser tab will open, which contains your &lt;strong&gt;Jupyter notebook&lt;/strong&gt;, as illustrated in the following figure.&lt;/p&gt;
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/lecture/3/jupyter4.png&quot; width=&quot;900&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:justify&quot;&gt;
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;Your Jupyter notebook file is stored in the home direcotry of your device, likely with the name &lt;code&gt;Untitled.ipynb&lt;/code&gt;. The very cool feature of Jupyter notebooks is that you can also export your notebook as a Markdown, PDF, HTML, or a single Python file (with &lt;code&gt;.py&lt;/code&gt; extension), as illustrated in the figure below.&lt;/p&gt;
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/lecture/3/jupyter5.png&quot; width=&quot;900&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:justify&quot;&gt;
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;a name=&quot;jupyter-setup-online&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;running-jupyter-online&quot;&gt;Running Jupyter online&lt;/h3&gt;
-&lt;p&gt;The instructions for setting up your online Jupyter notebooks are very similar to the above for your local device, except the very first step, for which, instead of searching in Windows for Jupyter, you have to visit Jupyter’s website at &lt;a href=&quot;https://try.jupyter.org/&quot; target=&quot;_blank&quot;&gt;https://try.jupyter.org/&lt;/a&gt;.&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;jupyter-helpful-commands&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;ipython--jupyter-helpful-commands&quot;&gt;IPython / Jupyter helpful commands&lt;/h3&gt;
-
-&lt;p&gt;Everytime you start IPython on your local device, the following list of IPython commands are shown on the command line.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;Amir@CCBB-Amir MINGW64 ~
-$ ipython
-Python 3.5.2 |Anaconda 4.2.0 (64-bit)| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)]
-Type &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
-
-IPython 5.1.0 -- An enhanced Interactive Python.
-?         -&amp;gt; Introduction and overview of IPython's features.
-%quickref -&amp;gt; Quick reference.
-help      -&amp;gt; Python's own help system.
-object?   -&amp;gt; Details about 'object', use 'object??' for extra details.
-In [1]:
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Since Jupyter is an extension of IPython, these commands are also executable in Jupyter notebooks. Here is an example for the last command &lt;code&gt;&amp;lt;object&amp;gt;?&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;In [14]: test = 'test'
-
-In [15]: test?
-Type:        str
-String form: test
-Length:      4
-Docstring:
-str(object='') -&amp;gt; str
-str(bytes_or_buffer[, encoding[, errors]]) -&amp;gt; str
-
-Create a new string object from the given object. If encoding or
-errors is specified, then the object must expose a data buffer
-that will be decoded using the given encoding and error handler.
-Otherwise, returns the result of object.__str__() (if defined)
-or repr(object).
-encoding defaults to sys.getdefaultencoding().
-errors defaults to 'strict'.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;div class=&quot;center&quot;&gt;
-&lt;div class=&quot;rcbox&quot;&gt;
-&lt;b&gt;ATTENTION&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
- Note that each cell in Jupyter notebook, can contain either Python code or Markdown code, or any other code that you can select from the &lt;i&gt;code&lt;/i&gt; dropdown menu at the top of the notebook.
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;jupyter-shortcuts&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;jupyter-cheatsheet-and-keyboard-shortcuts&quot;&gt;Jupyter cheatsheet and keyboard shortcuts&lt;/h3&gt;
-&lt;p&gt;There are may useful keyboard shortcuts in  Jupyter that facilitate editing and revising your Jupyter notebook cells. A Jupyter cheatsheet can be downloaded from &lt;a href=&quot;https://www.cheatography.com/weidadeyue/cheat-sheets/jupyter-notebook/#downloads&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;. The following table is a summary of some of the most useful shortcuts, adopted from Jupyter website.&lt;/p&gt;
-
-&lt;table class=&quot;center&quot;&gt;
-&lt;caption class=&quot;title&quot; style=&quot;padding-bottom:10px&quot;&gt;
-Table 1: Some useful shortcuts for Jupyter cells in &lt;i&gt;view mode&lt;/i&gt; (Press &lt;code&gt;ESC&lt;/code&gt; to switch to view mode).
-&lt;/caption&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;keyboard shortcut&lt;/th&gt;
-&lt;th&gt;Description of effect&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Enter&lt;/td&gt;
-    &lt;td&gt;enter edit mode&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Shift + Enter&lt;/td&gt;
-    &lt;td&gt;run cell, select below&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + Enter&lt;/td&gt;
-    &lt;td&gt;run cell&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;Alt + Enter&lt;/td&gt;
-    &lt;td&gt;run cell, insert below&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;Y&lt;/td&gt;
-    &lt;td&gt;to code&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;M&lt;/td&gt;
-    &lt;td&gt;to markdown&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;R&lt;/td&gt;
-    &lt;td&gt;to raw&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;1&lt;/td&gt;
-    &lt;td&gt;to heading 1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;2,3,4,5,6&lt;/td&gt;
-    &lt;td&gt;to heading 2,3,4,5,6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;Up/K&lt;/td&gt;
-    &lt;td&gt;select cell above&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;Down/J&lt;/td&gt;
-    &lt;td&gt;select cell below&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;A/B&lt;/td&gt;
-    &lt;td&gt;insert cell above/below&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;X&lt;/td&gt;
-    &lt;td&gt;cut selected cell&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;C&lt;/td&gt;
-    &lt;td&gt;copy selected cell&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;Shift + V&lt;/td&gt;
-    &lt;td&gt;paste cell above&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;V&lt;/td&gt;
-    &lt;td&gt;paste cell below&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;Z&lt;/td&gt;
-    &lt;td&gt;undo last cell deletion&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;D,D&lt;/td&gt;
-    &lt;td&gt;delete selected cell&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;Shift + M&lt;/td&gt;
-    &lt;td&gt;merge cell below&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + S&lt;/td&gt;
-    &lt;td&gt;Save and Checkpoint&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;L&lt;/td&gt;
-    &lt;td&gt;toggle line numbers&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;O&lt;/td&gt;
-    &lt;td&gt;toggle output&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;Shift + O&lt;/td&gt;
-    &lt;td&gt;toggle output scrolling&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;Esc&lt;/td&gt;
-    &lt;td&gt;close pager&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;H&lt;/td&gt;
-    &lt;td&gt;show keyboard shortcut help dialog&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;I,I&lt;/td&gt;
-    &lt;td&gt;interrupt kernel&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;0,0&lt;/td&gt;
-    &lt;td&gt;restart kernel&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;Space&lt;/td&gt;
-    &lt;td&gt;scroll down&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;Shift + Space&lt;/td&gt;
-    &lt;td&gt;scroll up&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;Shift&lt;/td&gt;
-    &lt;td&gt;ignore&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;table class=&quot;center&quot;&gt;
-&lt;caption class=&quot;title&quot; style=&quot;padding-bottom:10px&quot;&gt;
-Table 2: Some useful shortcuts for Jupyter cells in &lt;i&gt;edit mode&lt;/i&gt; (Press &lt;code&gt;enter&lt;/code&gt; to switch to edit mode).
-&lt;/caption&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;keyboard shortcut&lt;/th&gt;
-&lt;th&gt;Description of effect&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Tab&lt;/td&gt;
-    &lt;td&gt;code completion or indent&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Shift + Tab&lt;/td&gt;
-    &lt;td&gt;tooltip&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + ]&lt;/td&gt;
-    &lt;td&gt;indent&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + [&lt;/td&gt;
-    &lt;td&gt;dedent&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + A&lt;/td&gt;
-    &lt;td&gt;select all&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + Z&lt;/td&gt;
-    &lt;td&gt;undo&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + Shift + Z&lt;/td&gt;
-    &lt;td&gt;redo&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + Y&lt;/td&gt;
-    &lt;td&gt;redo&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + Home&lt;/td&gt;
-    &lt;td&gt;go to cell start&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + Up&lt;/td&gt;
-    &lt;td&gt;go to cell start&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + End&lt;/td&gt;
-    &lt;td&gt;go to cell end&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + Down&lt;/td&gt;
-    &lt;td&gt;go to cell end&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + Left&lt;/td&gt;
-    &lt;td&gt;go one word left&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + Right&lt;/td&gt;
-    &lt;td&gt;go one word right&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + Backspace&lt;/td&gt;
-    &lt;td&gt;delete word before&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + Delete&lt;/td&gt;
-    &lt;td&gt;delete word after&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Esc&lt;/td&gt;
-    &lt;td&gt;command mode&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + M&lt;/td&gt;
-    &lt;td&gt;command mode&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Shift + Enter&lt;/td&gt;
-    &lt;td&gt;run cell, select below&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + Enter&lt;/td&gt;
-    &lt;td&gt;run cell&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Alt + Enter&lt;/td&gt;
-    &lt;td&gt;run cell, insert below&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + Shift + Subtract&lt;/td&gt;
-    &lt;td&gt;split cell&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + Shift + -&lt;/td&gt;
-    &lt;td&gt;split cell&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + S&lt;/td&gt;
-    &lt;td&gt;Save and Checkpoint&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Up&lt;/td&gt;
-    &lt;td&gt;move cursor up or previous cell&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Down&lt;/td&gt;
-    &lt;td&gt;move cursor down or next cell&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-    &lt;td&gt;Ctrl + /&lt;/td&gt;
-    &lt;td&gt;toggle comment on current or selected lines&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/3-python-for-beginners&quot;&gt;Lecture 3: Python for beginners&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 15, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>
