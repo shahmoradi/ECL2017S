@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-04-03T12:53:38-05:00</updated>
+<updated>2017-04-03T14:47:56-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -781,11 +781,16 @@ then all the necessary Python codes to generate all the results will be called b
 
 &lt;p&gt;We have seven data points, so the overall probability of observing all of data $\mathcal{D}$ together given the parameters of the model, $\mathcal{L}(D|a,b,c,\sigma)$, is the product of their invidiual probabilities of observation given by the above equation,&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathcal{L}(D|a,b,c,\sigma) = \prod_{i=1}^{n=7} \pi(N_{obs,i}|N(t),a,b,c) = \prod_{i=1}^{n=7} \frac{1}{\sigma\sqrt{2\pi}} \exp\bigg( - \frac{ \big[ N_{obs,i}(t)-N(t) \big]^2}{2\sigma^2} \bigg) ~,&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathcal{L}(D|a,b,c,\sigma) = \prod_{i=1}^{n=7} \pi(N_{obs}(t_i)|N(t_i),a,b,c) = \prod_{i=1}^{n=7} \frac{1}{\sigma\sqrt{2\pi}} \exp\bigg( - \frac{ \big[ N_{obs}(t_i)-N(t_i) \big]^2}{2\sigma^2} \bigg) ~,&lt;/script&gt;
 
 &lt;p&gt;More often, you would want to work with $\log\mathcal{L}$ instead of $\mathcal{L}$, so the above equation becomes,&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\log\mathcal{L}(D|a,b,c,\sigma) = \sum_{i=1}^{n=7} \log\pi(N_{obs,i}|N(t),a,b,c) = -\frac{n}{2}\bigg( \ln(2\pi) + \ln\sigma^2 \bigg) - \frac{1}{2\sigma^2} \sum_{i=1}^{n=7} \big[ N_{obs,i}(t)-N(t) \big]^2 ~,&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+    \log\mathcal{L}(D|a,b,c,\sigma)
+    &amp;= \sum_{i=1}^{n=7} \log\pi(N_{obs}(t_i)|N(t_i),a,b,c) \\\\
+    &amp;= -\frac{n}{2}\bigg( \ln(2\pi) + \ln\sigma^2 \bigg) - \frac{1}{2\sigma^2} \sum_{i=1}^{n=7} \bigg[ N_{obs}(t_i)-N(t_i) \bigg]^2 ~,
+\end{align*} %]]&gt;&lt;/script&gt;
 
 &lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt;  Now the goal is to use an optimization algorithm, such as Markov Chain Monte Carlo available in Python via &lt;a href=&quot;https://pymc-devs.github.io/pymc/README.html&quot; target=&quot;_blank&quot;&gt;PyMc package&lt;/a&gt;, to find the most likely set of parameters of the model $a,b,c,\sigma$ that give the best prediction of the available data. Use the pymc package, or any other method you wish to obtein the best parameters, then redraw the above tumor evolution curve and show the result from the model as well. You can also alternatively use my own package for MCMC sampling, if which case, please inform me and I will instruct how to use it.&lt;/p&gt;
 

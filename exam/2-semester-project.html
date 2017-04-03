@@ -232,11 +232,16 @@ then all the necessary Python codes to generate all the results will be called b
 
 <p>We have seven data points, so the overall probability of observing all of data $\mathcal{D}$ together given the parameters of the model, $\mathcal{L}(D|a,b,c,\sigma)$, is the product of their invidiual probabilities of observation given by the above equation,</p>
 
-<script type="math/tex; mode=display">\mathcal{L}(D|a,b,c,\sigma) = \prod_{i=1}^{n=7} \pi(N_{obs,i}|N(t),a,b,c) = \prod_{i=1}^{n=7} \frac{1}{\sigma\sqrt{2\pi}} \exp\bigg( - \frac{ \big[ N_{obs,i}(t)-N(t) \big]^2}{2\sigma^2} \bigg) ~,</script>
+<script type="math/tex; mode=display">\mathcal{L}(D|a,b,c,\sigma) = \prod_{i=1}^{n=7} \pi(N_{obs}(t_i)|N(t_i),a,b,c) = \prod_{i=1}^{n=7} \frac{1}{\sigma\sqrt{2\pi}} \exp\bigg( - \frac{ \big[ N_{obs}(t_i)-N(t_i) \big]^2}{2\sigma^2} \bigg) ~,</script>
 
 <p>More often, you would want to work with $\log\mathcal{L}$ instead of $\mathcal{L}$, so the above equation becomes,</p>
 
-<script type="math/tex; mode=display">\log\mathcal{L}(D|a,b,c,\sigma) = \sum_{i=1}^{n=7} \log\pi(N_{obs,i}|N(t),a,b,c) = -\frac{n}{2}\bigg( \ln(2\pi) + \ln\sigma^2 \bigg) - \frac{1}{2\sigma^2} \sum_{i=1}^{n=7} \big[ N_{obs,i}(t)-N(t) \big]^2 ~,</script>
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align*}
+    \log\mathcal{L}(D|a,b,c,\sigma)
+    &= \sum_{i=1}^{n=7} \log\pi(N_{obs}(t_i)|N(t_i),a,b,c) \\\\
+    &= -\frac{n}{2}\bigg( \ln(2\pi) + \ln\sigma^2 \bigg) - \frac{1}{2\sigma^2} \sum_{i=1}^{n=7} \bigg[ N_{obs}(t_i)-N(t_i) \bigg]^2 ~,
+\end{align*} %]]></script>
 
 <p><strong>4. </strong>  Now the goal is to use an optimization algorithm, such as Markov Chain Monte Carlo available in Python via <a href="https://pymc-devs.github.io/pymc/README.html" target="_blank">PyMc package</a>, to find the most likely set of parameters of the model $a,b,c,\sigma$ that give the best prediction of the available data. Use the pymc package, or any other method you wish to obtein the best parameters, then redraw the above tumor evolution curve and show the result from the model as well. You can also alternatively use my own package for MCMC sampling, if which case, please inform me and I will instruct how to use it.</p>
 
@@ -319,7 +324,7 @@ then all the necessary Python codes to generate all the results will be called b
     <footer class="notepad-site-footer">
     <div class="copyright">
          <!-- <section>Last updated 2017 / 04 / 03</section></br> -->
-         <section>Last updated Monday, 03 Apr 2017 at 12:53 PM CST</section></br>
+         <section>Last updated Monday, 03 Apr 2017 at 02:47 PM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>
