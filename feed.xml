@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-04-02T21:29:17-05:00</updated>
+<updated>2017-04-02T21:35:22-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -432,7 +432,7 @@ This code would result in the creation of an &lt;a href=&quot;http:/ECL2017S/lec
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;error-handling-in-python&quot;&gt;Error handling in Python&lt;/h2&gt;
-&lt;p&gt;A good code has to be able to handle exceptional situations that may occur during the code execution. These exceptions may occur during data input from either command line, terminal window, or an input file. They may also occur as a result of repeated operations on the input data, inside the code. For example, in &lt;a href=&quot;http:/ECL2017S/7-python-modules-loops-io#command-line-arguments&quot; target=&quot;_blank&quot;&gt;lecture 7&lt;/a&gt;, we explained a way of handling the wrong number of input command line arguments. This and similar measures to handle nicely the unexpected runtime errors is what’s called &lt;strong&gt;error and exception handling&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;A good code has to be able to handle exceptional situations that may occur during the code execution. These exceptions may occur during data input from either command line, terminal window, or an input file. They may also occur as a result of repeated operations on the input data, inside the code. For example, in &lt;a href=&quot;http:/ECL2017S/lecture/7-python-modules-loops-io#command-line-arguments&quot; target=&quot;_blank&quot;&gt;lecture 7&lt;/a&gt;, we explained a way of handling the wrong number of input command line arguments. This and similar measures to handle nicely the unexpected runtime errors is what’s called &lt;strong&gt;error and exception handling&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;A simple way of error handling is to write multiple if-blocks each of which handle a special exceptional situation. That is, to let the code execute some statements, and if something goes wrong, write the program in such a way that can detect this and jump to a set of statements that handle the erroneous situation as desired.&lt;/p&gt;
 
@@ -1675,7 +1675,7 @@ C.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Name the three different generations (not different software) of Version Control Systems ever developed. If you don’t remember the exact names, you can instead briefly explain how each VCS paradigm works.&lt;br /&gt;
 &lt;br /&gt;
 &lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
-Local VCS, Centralized VCS, Distributed VCS. For details of each VCS paradigm see &lt;a href=&quot;/lecture/1-version-control-system&quot; target=&quot;_blank&quot;&gt;this lecture&lt;/a&gt;.&lt;/p&gt;
+Local VCS, Centralized VCS, Distributed VCS. For details of each VCS paradigm see &lt;a href=&quot;http:/ECL2017S/lecture/1-version-control-system&quot; target=&quot;_blank&quot;&gt;this lecture&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -6882,7 +6882,7 @@ No. One cannot delete a branch while it is checked out to the working directory.
   &lt;li&gt;Name the three different generations (not different software) of Version Control Systems ever developed. If you don’t remember the exact names, you can instead briefly explain how each VCS paradigm works.&lt;br /&gt;
 &lt;br /&gt;
 &lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
-Local VCS, Centralized VCS, Distributed VCS. For details of each VCS paradigm see &lt;a href=&quot;http://localhost:4000/lecture/1-version-control-system&quot; target=&quot;_blank&quot;&gt;this lecture&lt;/a&gt;.
+Local VCS, Centralized VCS, Distributed VCS. For details of each VCS paradigm see &lt;a href=&quot;http:/ECL2017S/lecture/1-version-control-system&quot; target=&quot;_blank&quot;&gt;this lecture&lt;/a&gt;.
 &lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
