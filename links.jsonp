@@ -2,6 +2,11 @@
 callback([
 
   {
+    "text": "Quiz 6: Solutions - Python modules, loops, and IO",
+    "href": "/ECL2017S/quiz/6-solutions-python-modules-loops-io"
+  } ,
+
+  {
     "text": "Quiz 6: Problems - Python modules, loops, and IO",
     "href": "/ECL2017S/quiz/6-problems-python-modules-loops-io"
   } ,

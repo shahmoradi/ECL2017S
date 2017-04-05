@@ -7,13 +7,205 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-04-05T08:59:55-05:00</updated>
+<updated>2017-04-05T09:21:22-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
   <uri>http:/ECL2017S/</uri>
   <email>amir@ices.utexas.edu</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Quiz 6: Solutions - Python modules, loops, and IO]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/quiz/6-solutions-python-modules-loops-io"/>
+  <id>http:/ECL2017S/quiz/6-solutions-python-modules-loops-io</id>
+  <published>2017-04-05T00:00:00-05:00</published>
+  <updated>2017-04-05T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This is the solution to &lt;a href=&quot;6-problems-python-modules-loops-io&quot; target=&quot;_blank&quot;&gt;Quiz 6: Problems - Python modules, loops, and IO&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--
+The following figure illustrates the grade distribution for this quiz.  
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/quiz/gradeDist/gradeHistQuiz6.png&quot; width=&quot;700&quot;&gt;
+    &lt;figcaption style=&quot;text-align:center&quot;&gt;
+        Maximum possible points is 100.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+--&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;This quiz aims at testing your basic knowledge of Python’s modules, loops and simple I/O. Don’t forget to push your answers to your remote repository by the end of quiz time. Push your quiz-6 &lt;em&gt;readme.md&lt;/em&gt; file to quiz/6/ folder in your Github project.  If you write your answers in Python scripts, put the script files in the same folder as well. If you feel uncertain about your answer, you can test your final codes on Jupyter or IPython command lines.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Suppose you write a Python module, which you would also like to run it as a standalone Python code. If you wanted to make sure that some specific Python statements are executed only when the code is run a Python code (and not a module), you may recall from the lecture, that we had to use and if block like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if __name__ == &quot;__main__&quot;:
+    &amp;lt;Python statements&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Briefly explain what this if block does and mean.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+Each Python module has an attribute &lt;code&gt;__name__&lt;/code&gt;. When the code is used as a Python module, the &lt;code&gt;__name__&lt;/code&gt; is set to the name of the module, otherwise it is set to &lt;code&gt;__main__&lt;/code&gt;. Therefore, this if block makes sure that the code is running as a standalone code or not.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Suppose you write a module named &lt;code&gt;myModule&lt;/code&gt;, which contains the function &lt;code&gt;myfunc&lt;/code&gt;. Now you import this module to another code.&lt;/p&gt;
+
+&lt;p&gt;(A) Write down the import statement that would enable you to use &lt;code&gt;myfunc&lt;/code&gt; with name &lt;code&gt;f&lt;/code&gt; instead.&lt;/p&gt;
+
+&lt;p&gt;(B) What would be the output of the following Python print statement,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import myModule as mm
+print(mm.__name__)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+(A)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [27]: from math import sqrt as f
+
+In [28]: f(4.0)
+Out[28]: 2.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+(B)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [25]: import math as m
+
+In [26]: print(m.__name__)
+math
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Suppose there are two lists of numbers,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;even = [0,2,4,6,8]
+odd = [1,3,5,7,9]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Write a &lt;strong&gt;one-line&lt;/strong&gt; Python statement (list comprehension) that gives a list &lt;code&gt;summ&lt;/code&gt; whose elements are the sum of the respective elements in the above two lists &lt;code&gt;odd&lt;/code&gt; and &lt;code&gt;even&lt;/code&gt;, that is,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [37]: summ
+Out[37]: [1, 5, 9, 13, 17]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+(Hint: You can use &lt;code&gt;zip&lt;/code&gt; function inside the list comprehension.)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [39]: even = [0,2,4,6,8]
+
+In [40]: odd = [1,3,5,7,9]
+
+In [41]: summ = [i+j for i,j in zip(odd,even)]
+
+In [42]: summ
+Out[42]: [1, 5, 9, 13, 17]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; Consider the following for-loop,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;mylist = list(range(0,10,2))
+for item in mylist:
+    mylist.append(item+1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+How many iterations does this for-loop perform before ending? Explain briefly why.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+This for-loop never ends! Because at each iteration, a new element is added to the end of the list. You can check if this is indeed the case by adding a print statement inside the loop,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;mylist = list(range(0,10,2))
+for item in mylist:
+    mylist.append(item+1)
+    print(item)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;0
+2
+4
+6
+8
+1
+3
+5
+7
+9
+2
+4
+6
+8
+10
+3
+5
+7
+9
+11
+4
+6
+8
+10
+12
+5
+7
+9
+11
+13
+6
+8
+10
+12
+14
+7
+9
+11
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and the loop keeps printing forever!&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/6-solutions-python-modules-loops-io&quot;&gt;Quiz 6: Solutions - Python modules, loops, and IO&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -6291,198 +6483,6 @@ However, the problem is that, except me (Amir, the instructor) and Vivek (our TA
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/4-problems-python-variables-assignment-statements&quot;&gt;Homework 4: Problems - Python variables and assignment statements&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 01, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Homework 3: Solutions - Python debugging and string manipulation]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/3-solutions-python-values-variables-types"/>
-  <id>http:/ECL2017S/homework/3-solutions-python-values-variables-types</id>
-  <published>2017-03-01T00:00:00-06:00</published>
-  <updated>2017-03-01T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This is the solution to &lt;a href=&quot;3-problems-python-values-variables-types.html&quot; target=&quot;_blank&quot;&gt;Homework 3: Problems - Python debugging and string manipulation&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The following figure illustrates the grade distribution for this homework.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework3.png&quot; width=&quot;700&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:center&quot;&gt;
-        Maximum possible points is 100.
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;This homework aims at giving you some experience with String manipulation in Python and debugging a simple Python script. String manipulation is one of the greatest strengths and reasons for popularity of Python. For both questions below, submit your Python scripts in the corresponding &lt;code&gt;*.py&lt;/code&gt; files, and add a readme.md file in HW 3 folder of your project if you need to add any additional explanation (Don’t forget to use markdown syntax highlight in your readme file).&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Download &lt;a href=&quot;http:/ECL2017S/homework/3/python_script_full_of_errors.pi&quot; target=&quot;_blank&quot;&gt;this Python script&lt;/a&gt;. This Python script is full of syntax, runtime, and semantic errors. Please identify and corrent these errors, such that code becomes fully executable and outputs the following message on the screen, when run from the Git Bash command line:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;The life expectancy for the millennials is projected to be 120 years! (But don't believe it...)
-
-
-    A recent study published in the journal of Nature, discovered that over the past century,
-    although the life expectancy has significantly increased due to technological advances,
-    the maximum life span of the oldest people in the world has not changed much.
-
-
-Cardano was the first to introduce complex numbers of the form a + sqrt(-b) into algebra, but he had misgivings about it.
-In his solution to an algebra equation he encountered the solution 5 + sqrt(-15) for the unknown, which is now mathematically represented by
-
-       (5+3.872983346207417j)
-
-in Python, which can also be obtained as an addition of real and imaginary numbers in Python like this
-
-
-      5 + sqrt(-15) = (5+3.872983346207417j),
-
-
-      which can also be manually stated as
-
-
-      (5+3.872983346207417j)
-
-
-
-
-
-One final note:
-
-        In python the sqrt function from math and cmath modules are different.
-        The sqrt function that returns &quot;float&quot; results is sqrt from math module.
-        Therefore, if using math module, then,
-
-                sqrt(25) = 5.0000,
-
-        which is obviously a float (real number).
-
-
-
-
-Also note that by convention, 0**0 = 1 in Python.
-And division by 0, will give you a runtime exception: 1/0 = NaN
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Identify at least one example in the code for each of the error types.&lt;/p&gt;
-
-&lt;p&gt;Here are a few hints:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;You need to get familiar with string formatting in &lt;code&gt;print&lt;/code&gt; function. See &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/lecture/4-python-values-variables-types&quot; target=&quot;_blank&quot;&gt;Lecture 4&lt;/a&gt;.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Note that in Python, the interpreter is sensitive to &lt;a href=&quot;https://www.python.org/dev/peps/pep-0008/#indentation&quot; target=&quot;_blank&quot;&gt;indentations&lt;/a&gt; in your codes. All lines must be aligned at the beginning (except for looping and branching, … which we will get to them later on).&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Become familiar with &lt;a href=&quot;http://python-reference.readthedocs.io/en/latest/docs/str/escapes.html&quot; target=&quot;_blank&quot;&gt;escape characters&lt;/a&gt; in Python, such as &lt;code&gt;'\n'&lt;/code&gt;, &lt;code&gt;'\t'&lt;/code&gt;, and &lt;code&gt;'\t'&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
-The corrected file can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/3/python_script_full_of_errors_corrected.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;. Examples of different types of programming errors:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;semantic error example: &lt;br /&gt;
-&lt;br /&gt;
-    &lt;ul&gt;
-      &lt;li&gt;line 15, in the wrong script: The purpose is to print the complex number 5+sqrt(-15), but instead 5-15j is printed by the wrong script.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-      &lt;li&gt;line 35, in the wrong script: The purpose is to print float number, but since we used &lt;code&gt;sqrt&lt;/code&gt; from &lt;code&gt;cmath&lt;/code&gt; module, the output is in complex format, which is not what we intend to obtain and print.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;runtime error example:&lt;br /&gt;
-&lt;br /&gt;
-    &lt;ul&gt;
-      &lt;li&gt;in line 45, in the wrong script, division by zero, is a runtime exception.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;syntax error example:&lt;br /&gt;
-Almost any other error in the code is a syntax error. For example, lines 11,12,13 should be aligned, but they are not.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Write a Python script that is directly executable from the Git Bash command line, without any need to invoke &lt;code&gt;python&lt;/code&gt; interpreter. The script should produce &lt;strong&gt;exactly&lt;/strong&gt; the following output, including line breaks and separations. Each part of the output (separated by a line-break, or a new-line character &lt;code&gt;'\n'&lt;/code&gt; from the rest) is generated by &lt;strong&gt;only and only one call&lt;/strong&gt; to print function.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;This is Python version 3.5.2 
-
-Python is the best language for String manipulation!
-
-!noitalupinam gnirtS rof egaugnal tseb eht si nohtyP
-
-!otlpnmgit o gunlte h inhy
-
-pYTHON IS THE BEST LANGUAGE FOR sTRING MANIPULATION!
-
-
-The sentence 'Python is the best language for String manipulation!' contains 
-4 'a' letters, and
-0 'A' letters!
-
-Python
-is
-the
-best
-language
-for
-String
-manipulation!
-
-PYTHON
-IS
-THE
-BEST
-LANGUAGE
-FOR
-STRING
-MANIPULATION!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Here are some hints (all the information you need to answer this question can be found in &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/lecture/4-python-values-variables-types&quot; target=&quot;_blank&quot;&gt;Lecture 4&lt;/a&gt;):&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;To make the script executable, add the appropriate shebang to the script’s file.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Import the appropriate module to get the python version command, as we did in class. Use &lt;code&gt;print&lt;/code&gt; function to print the Python version.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Define a String variable &lt;code&gt;my_string&lt;/code&gt; which contains the string value “Python is the best language for String manipulation!” ( Of course, you can totally accomplish this question without defining a string variable, by only using the string value itself wherever needed… This is also totally fine at this point in our course, if your prefer this method).&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Then use the appropriate examples and external links provided in &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/lecture/4-python-values-variables-types&quot; target=&quot;_blank&quot;&gt;Lecture 4&lt;/a&gt;, to find the proper &lt;strong&gt;string methods&lt;/strong&gt; that can manipulate this string variable/value in order to generate each of the outputs printed above.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Again, note that for each output, the entire output must result from &lt;strong&gt;one single call&lt;/strong&gt; to function &lt;code&gt;print&lt;/code&gt;.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Wherever needed, use the &lt;a href=&quot;http://python-reference.readthedocs.io/en/latest/docs/str/escapes.html&quot; target=&quot;_blank&quot;&gt;escape character&lt;/a&gt; value &lt;code&gt;'\n'&lt;/code&gt; in &lt;code&gt;print&lt;/code&gt; input arguments, in order to generate a line-break (or new line) in the output.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
-A working Python script file can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/3/hw3_prob2_answer.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/3-solutions-python-values-variables-types&quot;&gt;Homework 3: Solutions - Python debugging and string manipulation&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 01, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>

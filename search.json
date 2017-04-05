@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Quiz 6: Solutions - Python modules, loops, and IO",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/quiz/6-solutions-python-modules-loops-io",
+		  "date"       : "2017-04-05 00:00:00 -0500",
+		  "shortdate"  : "April 05, 2017"
+		} ,
+	
+		{
 		  "title"      : "Quiz 6: Problems - Python modules, loops, and IO",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/quiz/6-problems-python-modules-loops-io",
