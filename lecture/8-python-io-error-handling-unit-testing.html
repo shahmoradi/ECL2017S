@@ -245,7 +245,7 @@ In [5]: myfile.
 
 </code></pre>
 <p><br />
-The function <code>open</code> creates a file object, stored in the variable myfile. The second input argument to <code>open</code>, <code>'r'</code> tells the function that the purpose of this file opening is to read data (as opposed to, for example, writing data, or both readina and writing).</p>
+The function <code>open</code> creates a file object, stored in the variable myfile. The second input argument to <code>open</code>, <code>'r'</code> tells the function that the purpose of this file opening is to read data (as opposed to, for example, writing data, or both reading and writing).</p>
 
 <p>Now you can use a for loop to read the data in this file line by line:</p>
 <pre><code class="language-python">for line in myfile:
@@ -279,7 +279,7 @@ In [11]: type(lines)
 Out[11]: list
 </code></pre>
 <p><br />
-No each element of <code>line</code> contains one line of the file.</p>
+Note that each element of <code>line</code> contains one line of the file.</p>
 <pre><code class="language-python">In [15]: lines
 Out[15]: ['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
 </code></pre>
@@ -302,7 +302,7 @@ or this <em>list comprehension</em> format,</p>
 Out[19]: ['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
 </code></pre>
 <p><br />
-Now suppose you were to calculate the mean of the numbers in this file. You could simply use the following list comprehension code to do so,</p>
+Now suppose you were to calculate the mean of the numbers in <a href="/ECL2017S/lecture/8/data.in" target="_blank">this file</a>. You could simply use the following list comprehension code to do so,</p>
 <pre><code class="language-python">In [22]: mean = sum([float(line) for line in lines])/len(lines)
     ...: print(mean)
 22.375
@@ -659,15 +659,15 @@ invalid literal for int() with base 10: 'amir'
 In the statement <code>except ValueError as err:</code> one could use <code>Exception</code> for all types of errors instead of only <code>ValueError</code> exceptions, or use a tuple syntax such as <code>except (ValueError, IndexError) as err:</code> to cover these two exceptions.</p>
 
 <h2 id="code-verification-and-unit-testing">Code verification and unit testing</h2>
-<p>In the previous lecture we discusses the process of creating modules and collecting functions in one file as a personal module to be used later. As soon as the list of your codes and functions grow, you will need to have a unified way of ensuring all your functions work appropriately, regardless of the potential future internal changes that are made to the functions. This is what the <strong>unit testing</strong> exists for. Unit testing is a software development process in which the smallest testable parts of an application, called <strong>units</strong>, are individually and independently scrutinized for proper operation. Unit testing can be done manually, but if you have a long list of functions (which you most often have), you’d want to automate the testing process.</p>
+<p>In the previous lecture we discussed the process of creating modules and collecting functions in one file as a personal module to be used later. As soon as the list of your codes and functions grow, you will need to have a unified way of ensuring all your functions work appropriately, regardless of the potential future internal changes that are made to the functions. This is what the <strong>unit testing</strong> exists for. Unit testing is a software development process in which the smallest testable parts of an application, called <strong>units</strong>, are individually and independently scrutinized for proper operation. Unit testing can be done manually, but if you have a long list of functions (which you most often have), you’d want to automate the testing process.</p>
 
 <p>The grand goal in unit testing is to reduce the risk of encountering potential problems when running the code in the smallest possible units of the code. This means,</p>
 <ol>
   <li>ensuring the code has the <strong>correct behavior</strong> when given the proper input data.</li>
-  <li>the code is robust to exceptions and invalid input data, meaning that it does not crash when it reaches unexpected situations during the code execution and gracefully handles the error, without interruption.</li>
+  <li>ensuring the <strong>code robustness</strong> to exceptions and invalid input data, meaning that it does not crash when it reaches unexpected situations during the code execution and gracefully handles the error, without interruption.</li>
 </ol>
 
-<p>Because of the goals the unit tests are desgined for, they are mosly written and used by the developers of the code.</p>
+<p>Because of the goals for which the unit tests are desgined, they are mosly written and used by the developers of the code.</p>
 
 <h3 id="unit-test-frameworks">Unit test frameworks</h3>
 <p>There are many ways to write tests for codes. Now, if you asked each software developer to write a unit test for a specific software, each would likely come up with their own set of rules and tests of the software. You will end up with many tests, that will generally only be usable by the developer that wrote the tests. That is why you should select a unit test framework. A unit test framework provides consistency for how the unit tests for your project are written. There are many test frameworks to choose from for just about any language you want to program with, including Python. Just like programming language, almost every programmer has a strong opinion which test framework is the best. Research what’s out there and use the one that meets the needs of your organization (For example, there is one experienced Python programmer in our ECL class who does not like any of the existing unit tests for Python, and wants to write his own unit test as the project of this course!).</p>
@@ -872,8 +872,8 @@ The example given here, only tests for the robustenss of <code>Newton()</code> i
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2017 / 04 / 03</section></br> -->
-         <section>Last updated Monday, 03 Apr 2017 at 05:37 PM CST</section></br>
+         <!-- <section>Last updated 2017 / 04 / 05</section></br> -->
+         <section>Last updated Wednesday, 05 Apr 2017 at 08:59 AM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>

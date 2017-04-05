@@ -1,9 +1,25 @@
 [
 	
 		{
+		  "title"      : "Quiz 6: Problems - Python modules, loops, and IO",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/quiz/6-problems-python-modules-loops-io",
+		  "date"       : "2017-04-05 00:00:00 -0500",
+		  "shortdate"  : "April 05, 2017"
+		} ,
+	
+		{
 		  "title"      : "Lecture 8: Python - I/O, error handling, and tesing frameworks",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/8-python-io-error-handling-unit-testing",
+		  "date"       : "2017-04-05 00:00:00 -0500",
+		  "shortdate"  : "April 05, 2017"
+		} ,
+	
+		{
+		  "title"      : "Homework 7: Problems - Python I/O, error handling, and unit testing",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/homework/7-problems-python-IO-error-handling-unit-testing",
 		  "date"       : "2017-04-05 00:00:00 -0500",
 		  "shortdate"  : "April 05, 2017"
 		} ,
@@ -20,6 +36,14 @@
 		  "title"      : "Lecture 7: Python - modules, loops, and I/O",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/7-python-modules-loops-io",
+		  "date"       : "2017-03-29 00:00:00 -0500",
+		  "shortdate"  : "March 29, 2017"
+		} ,
+	
+		{
+		  "title"      : "Homework 6: Solutions - Python modules, loops, and I/O",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/homework/6-solutions-python-modules-loops-IO",
 		  "date"       : "2017-03-29 00:00:00 -0500",
 		  "shortdate"  : "March 29, 2017"
 		} ,

@@ -2,6 +2,11 @@
 callback([
 
   {
+    "text": "Quiz 6: Problems - Python modules, loops, and IO",
+    "href": "/ECL2017S/quiz/6-problems-python-modules-loops-io"
+  } ,
+
+  {
     "text": "Quiz 5: Solutions - Python variables and assignment statements",
     "href": "/ECL2017S/quiz/5-solutions-python-variables-assignment-statements"
   } ,
@@ -94,6 +99,16 @@ callback([
   {
     "text": "Lecture 0: Programming history",
     "href": "/ECL2017S/lecture/0-programming-history"
+  } ,
+
+  {
+    "text": "Homework 7: Problems - Python I/O, error handling, and unit testing",
+    "href": "/ECL2017S/homework/7-problems-python-IO-error-handling-unit-testing"
+  } ,
+
+  {
+    "text": "Homework 6: Solutions - Python modules, loops, and I/O",
+    "href": "/ECL2017S/homework/6-solutions-python-modules-loops-IO"
   } ,
 
   {

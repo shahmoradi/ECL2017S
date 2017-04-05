@@ -2,23 +2,23 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>HOMEWORK 6: PROBLEMS - PYTHON MODULES, LOOPS, AND I/O &vert; COE 111L - SPRING 2017</title>
+<title>HOMEWORK 6: SOLUTIONS - PYTHON MODULES, LOOPS, AND I/O &vert; COE 111L - SPRING 2017</title>
 <meta name="description" content="Engineering Computation Lab">
 <meta name="keywords" content="">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/ECL2017S/images/logo.png">
-<meta name="twitter:title" content="Homework 6: Problems - Python modules, loops, and I/O">
+<meta name="twitter:title" content="Homework 6: Solutions - Python modules, loops, and I/O">
 <meta name="twitter:description" content="Engineering Computation Lab">
 <meta name="twitter:creator" content="@AmirShahmoradi">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Homework 6: Problems - Python modules, loops, and I/O">
+<meta property="og:title" content="Homework 6: Solutions - Python modules, loops, and I/O">
 <meta property="og:description" content="Engineering Computation Lab">
-<meta property="og:url" content="/ECL2017S/homework/6-problems-python-modules-loops-IO">
+<meta property="og:url" content="/ECL2017S/homework/6-solutions-python-modules-loops-IO">
 <meta property="og:site_name" content="COE 111L - Spring 2017">
 <meta property="og:image" content="/ECL2017S/images/">
 
@@ -26,7 +26,7 @@
 
 
 
-<link rel="canonical" href="/ECL2017S/homework/6-problems-python-modules-loops-IO">
+<link rel="canonical" href="/ECL2017S/homework/6-solutions-python-modules-loops-IO">
 <!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 Feed"> -->
 
 
@@ -137,7 +137,7 @@ MathJax.Hub.Queue(function() {
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h2>Homework 6: Problems - Python modules, loops, and I/O</h2>
+                            <h2>Homework 6: Solutions - Python modules, loops, and I/O</h2>
                             <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-03-29T00:00:00-05:00">29 Mar 2017</time></strong></p>
                         </div>
                     </div>
@@ -148,7 +148,22 @@ MathJax.Hub.Queue(function() {
             <article class="notepad-post-content post tag-simple">
         
             <div style="text-align:justify;">
-                <p>This homework aims at giving you some experience with Python for-loops and while-loops as well as reading user input from the Bash command line.</p>
+                <p>This is the solution to <a href="6-problems-python-modules-loops-IO.html" target="_blank">Homework 6: Problems - Python modules, loops, and I/O</a>.</p>
+
+<!--
+The following figure illustrates the grade distribution for this homework.  
+
+<figure>
+	<img src="/ECL2017S/homework/gradeDist/gradeHistHomework6.png" width="700">
+    <figcaption style="text-align:center">
+        Maximum possible points is 100.<br>
+    </figcaption>
+</figure>
+-->
+<hr />
+<hr />
+
+<p>This homework aims at giving you some experience with Python for-loops and while-loops as well as reading user input from the Bash command line.</p>
 
 <p><br /></p>
 
@@ -184,6 +199,35 @@ print ('%5d %5.1f' % (C, F))
 
 <p><br /></p>
 
+<p><strong>Answer:</strong></p>
+
+<pre><code class="language-python">Cdegrees = [-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40]
+index = 0
+print ('    C     F')
+while index &lt; len(Cdegrees):
+    C = Cdegrees[index]
+    F = (9.0/5)*C + 32
+    print('%5d %5.1f' % (C, F))
+    index += 1
+</code></pre>
+<pre><code>    C     F
+  -20  -4.0
+  -15   5.0
+  -10  14.0
+   -5  23.0
+    0  32.0
+    5  41.0
+   10  50.0
+   15  59.0
+   20  68.0
+   25  77.0
+   30  86.0
+   35  95.0
+   40 104.0
+</code></pre>
+
+<p><br /></p>
+
 <hr />
 <hr />
 
@@ -196,6 +240,17 @@ q = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h']]
 <p><br />
 Write a for-loop that extracts all the letters in the list and finally prints them all as a single string,</p>
 <pre><code class="language-python">abcdefgh
+</code></pre>
+
+<p><strong>Answer:</strong></p>
+<pre><code class="language-python">q = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h']]
+s = ''
+for i in q:
+    for j in range(len(i)):
+        s = s + i[j]
+print(s)
+</code></pre>
+<pre><code>abcdefgh
 </code></pre>
 
 <p><br /></p>
@@ -219,6 +274,81 @@ for n in range(1, 60):
 <p><br />
 Explain what this code does. Then run the code, and explain why do you the behavior observed. In particular, why do you not recover the original value $2$ after many repetitions of the same forward and reverse task?</p>
 
+<p><strong>Answer:</strong><br />
+This code will yield the following output:</p>
+<pre><code class="language-python">from math import sqrt
+for n in range(1, 60):
+    r_org = 2.0
+    r = r_org
+    for i in range(n):
+        r = sqrt(r)
+    for i in range(n):
+        r = r ** 2
+    print ('With {} times sqrt and then {} times **2, the number {} becomes: {:.16f}'.format(n,n,r_org,r))
+</code></pre>
+<pre><code class="language-text">With 1 times sqrt and then 1 times **2, the number 2.0 becomes: 2.0000000000000004
+With 2 times sqrt and then 2 times **2, the number 2.0 becomes: 1.9999999999999996
+With 3 times sqrt and then 3 times **2, the number 2.0 becomes: 1.9999999999999996
+With 4 times sqrt and then 4 times **2, the number 2.0 becomes: 1.9999999999999964
+With 5 times sqrt and then 5 times **2, the number 2.0 becomes: 1.9999999999999964
+With 6 times sqrt and then 6 times **2, the number 2.0 becomes: 1.9999999999999964
+With 7 times sqrt and then 7 times **2, the number 2.0 becomes: 1.9999999999999714
+With 8 times sqrt and then 8 times **2, the number 2.0 becomes: 2.0000000000000235
+With 9 times sqrt and then 9 times **2, the number 2.0 becomes: 2.0000000000000235
+With 10 times sqrt and then 10 times **2, the number 2.0 becomes: 2.0000000000000235
+With 11 times sqrt and then 11 times **2, the number 2.0 becomes: 2.0000000000000235
+With 12 times sqrt and then 12 times **2, the number 2.0 becomes: 1.9999999999991336
+With 13 times sqrt and then 13 times **2, the number 2.0 becomes: 1.9999999999973292
+With 14 times sqrt and then 14 times **2, the number 2.0 becomes: 1.9999999999973292
+With 15 times sqrt and then 15 times **2, the number 2.0 becomes: 1.9999999999973292
+With 16 times sqrt and then 16 times **2, the number 2.0 becomes: 2.0000000000117746
+With 17 times sqrt and then 17 times **2, the number 2.0 becomes: 2.0000000000408580
+With 18 times sqrt and then 18 times **2, the number 2.0 becomes: 2.0000000000408580
+With 19 times sqrt and then 19 times **2, the number 2.0 becomes: 2.0000000001573586
+With 20 times sqrt and then 20 times **2, the number 2.0 becomes: 2.0000000001573586
+With 21 times sqrt and then 21 times **2, the number 2.0 becomes: 2.0000000001573586
+With 22 times sqrt and then 22 times **2, the number 2.0 becomes: 2.0000000010885857
+With 23 times sqrt and then 23 times **2, the number 2.0 becomes: 2.0000000029511749
+With 24 times sqrt and then 24 times **2, the number 2.0 becomes: 2.0000000066771721
+With 25 times sqrt and then 25 times **2, the number 2.0 becomes: 2.0000000066771721
+With 26 times sqrt and then 26 times **2, the number 2.0 becomes: 1.9999999917775542
+With 27 times sqrt and then 27 times **2, the number 2.0 becomes: 1.9999999917775542
+With 28 times sqrt and then 28 times **2, the number 2.0 becomes: 1.9999999917775542
+With 29 times sqrt and then 29 times **2, the number 2.0 becomes: 1.9999999917775542
+With 30 times sqrt and then 30 times **2, the number 2.0 becomes: 1.9999999917775542
+With 31 times sqrt and then 31 times **2, the number 2.0 becomes: 1.9999999917775542
+With 32 times sqrt and then 32 times **2, the number 2.0 becomes: 1.9999990380770896
+With 33 times sqrt and then 33 times **2, the number 2.0 becomes: 1.9999971307544144
+With 34 times sqrt and then 34 times **2, the number 2.0 becomes: 1.9999971307544144
+With 35 times sqrt and then 35 times **2, the number 2.0 becomes: 1.9999971307544144
+With 36 times sqrt and then 36 times **2, the number 2.0 becomes: 1.9999971307544144
+With 37 times sqrt and then 37 times **2, the number 2.0 becomes: 1.9999971307544144
+With 38 times sqrt and then 38 times **2, the number 2.0 becomes: 1.9999360966436217
+With 39 times sqrt and then 39 times **2, the number 2.0 becomes: 1.9999360966436217
+With 40 times sqrt and then 40 times **2, the number 2.0 becomes: 1.9999360966436217
+With 41 times sqrt and then 41 times **2, the number 2.0 becomes: 1.9994478907329654
+With 42 times sqrt and then 42 times **2, the number 2.0 becomes: 1.9984718365144798
+With 43 times sqrt and then 43 times **2, the number 2.0 becomes: 1.9965211562778555
+With 44 times sqrt and then 44 times **2, the number 2.0 becomes: 1.9965211562778555
+With 45 times sqrt and then 45 times **2, the number 2.0 becomes: 1.9887374575497223
+With 46 times sqrt and then 46 times **2, the number 2.0 becomes: 1.9887374575497223
+With 47 times sqrt and then 47 times **2, the number 2.0 becomes: 1.9887374575497223
+With 48 times sqrt and then 48 times **2, the number 2.0 becomes: 1.9887374575497223
+With 49 times sqrt and then 49 times **2, the number 2.0 becomes: 1.8682459487159784
+With 50 times sqrt and then 50 times **2, the number 2.0 becomes: 1.6487212645509468
+With 51 times sqrt and then 51 times **2, the number 2.0 becomes: 1.6487212645509468
+With 52 times sqrt and then 52 times **2, the number 2.0 becomes: 1.0000000000000000
+With 53 times sqrt and then 53 times **2, the number 2.0 becomes: 1.0000000000000000
+With 54 times sqrt and then 54 times **2, the number 2.0 becomes: 1.0000000000000000
+With 55 times sqrt and then 55 times **2, the number 2.0 becomes: 1.0000000000000000
+With 56 times sqrt and then 56 times **2, the number 2.0 becomes: 1.0000000000000000
+With 57 times sqrt and then 57 times **2, the number 2.0 becomes: 1.0000000000000000
+With 58 times sqrt and then 58 times **2, the number 2.0 becomes: 1.0000000000000000
+With 59 times sqrt and then 59 times **2, the number 2.0 becomes: 1.0000000000000000
+</code></pre>
+<p><br />
+What is happening is that, 1 is returned for n &gt;= 52 as square root of 2, that is, after 52 times square-root operation, the degree of accuracy required for representing the result goes beyond the degree of accuracy available in a Python float. Consequently, the later squaring operation on 1.00000000000000 will leave the number unchanged and therefore, 2 is not recovered.</p>
+
 <p><br /></p>
 
 <hr />
@@ -235,6 +365,65 @@ print ('final eps:', eps)
 </code></pre>
 <p><br /><br />
 Explain what the code is doing. Run the code and observe the output. How could <code>1.0 != 1.0 + eps</code> be False?</p>
+
+<p><strong>Answer:</strong><br />
+Here is the output of the code,</p>
+<pre><code class="language-text">............... 1.0
+............... 0.5
+............... 0.25
+............... 0.125
+............... 0.0625
+............... 0.03125
+............... 0.015625
+............... 0.0078125
+............... 0.00390625
+............... 0.001953125
+............... 0.0009765625
+............... 0.00048828125
+............... 0.000244140625
+............... 0.0001220703125
+............... 6.103515625e-05
+............... 3.0517578125e-05
+............... 1.52587890625e-05
+............... 7.62939453125e-06
+............... 3.814697265625e-06
+............... 1.9073486328125e-06
+............... 9.5367431640625e-07
+............... 4.76837158203125e-07
+............... 2.384185791015625e-07
+............... 1.1920928955078125e-07
+............... 5.960464477539063e-08
+............... 2.9802322387695312e-08
+............... 1.4901161193847656e-08
+............... 7.450580596923828e-09
+............... 3.725290298461914e-09
+............... 1.862645149230957e-09
+............... 9.313225746154785e-10
+............... 4.656612873077393e-10
+............... 2.3283064365386963e-10
+............... 1.1641532182693481e-10
+............... 5.820766091346741e-11
+............... 2.9103830456733704e-11
+............... 1.4551915228366852e-11
+............... 7.275957614183426e-12
+............... 3.637978807091713e-12
+............... 1.8189894035458565e-12
+............... 9.094947017729282e-13
+............... 4.547473508864641e-13
+............... 2.2737367544323206e-13
+............... 1.1368683772161603e-13
+............... 5.684341886080802e-14
+............... 2.842170943040401e-14
+............... 1.4210854715202004e-14
+............... 7.105427357601002e-15
+............... 3.552713678800501e-15
+............... 1.7763568394002505e-15
+............... 8.881784197001252e-16
+............... 4.440892098500626e-16
+............... 2.220446049250313e-16
+final eps: 1.1102230246251565e-16
+</code></pre>
+<p>What is happening is that after a certain number of divisions performed on the value of <code>eps</code>, the value goes beyond the highest float precision representatble by Python standard ($0.0000000000000001$), and therefore the value of <code>eps</code> is eventually rounded to exact zero. The nonzero eps value computed above is called <strong>machine epsilon</strong> or <strong>machine zero</strong> and is an important parameter to know, since it can lead to disasters in your very important complex calculations.</p>
 
 <p><br /></p>
 
@@ -256,6 +445,23 @@ print(numbers)
     del numbers[i]
     print ('n={}, del {}'.format(n,i), numbers)
 </code></pre>
+<p><br /></p>
+
+<p><strong>Answer:</strong></p>
+<pre><code class="language-python">numbers = list(range(10))
+for n in numbers:
+    i = len(numbers)//2
+    del numbers[i]
+    print ('n={}, del {}'.format(n,i), numbers)
+</code></pre>
+<pre><code>n=0, del 5 [0, 1, 2, 3, 4, 6, 7, 8, 9]
+n=1, del 4 [0, 1, 2, 3, 6, 7, 8, 9]
+n=2, del 4 [0, 1, 2, 3, 7, 8, 9]
+n=3, del 3 [0, 1, 2, 7, 8, 9]
+n=8, del 3 [0, 1, 2, 8, 9]
+</code></pre>
+
+<p>What is really happening is that the list over which we are looping changes its content because of the modifications during on the list in the for-loop. The message in this exercise is to <strong>never modify a list that you are looping over</strong>. Modification is indeed technically possible, as shown above, but you really need to know what you are doing. Otherwise you will experience very strange program behavior.</p>
 
 <p><br /></p>
 
@@ -297,7 +503,45 @@ def get_primes(n):
 
 <p>(A) Now rewrite <code>get_primes(n)</code> and the other functions in the above code using for-loop this time. Name the new functions <code>get_prime_for(n)</code> and <code>is_prime_for(n)</code>, with <em>for</em> in the names indicating that the functions now use for-loops.</p>
 
+<p><strong>Answer:</strong></p>
+<pre><code class="language-python">def is_prime_for(x):
+    if x &gt; 1:
+        n = x // 2
+        for i in range(2, n + 1):
+            if x % i == 0:
+                return False
+        return True
+    else:
+        return False
+
+def get_primes_for(n):
+    count = 0
+    for i in range(2,n):
+        if is_prime(i):
+            count += 1
+    return count
+</code></pre>
+<p><br />
+Here is a test,</p>
+<pre><code class="language-python">get_primes_for(13)
+</code></pre>
+<pre><code>5
+</code></pre>
+
 <p>(B) Now compare the performance of the two functions <code>get_primes(n=500)</code> and <code>get_primes_for(n500)</code> using Jupyter’s or IPython’s <code>%timeit</code> magic function. Which one is faster?</p>
+
+<p><strong>Answer:</strong></p>
+<pre><code class="language-python">%timeit get_primes(500)
+</code></pre>
+<pre><code>1000 loops, best of 3: 1.32 ms per loop
+</code></pre>
+
+<pre><code class="language-python">%timeit get_primes_for(500)
+</code></pre>
+<pre><code>1000 loops, best of 3: 1.69 ms per loop  
+</code></pre>
+
+<p>Interesting, recursive functions seem to be faster than Python for-loops!</p>
 
 <p><br /><br /></p>
 
@@ -306,15 +550,15 @@ def get_primes(n):
         <div class="cf"></div>
         <div class="row text-center">
             <section class="notepad-post-share">
-                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Homework 6: Problems - Python modules, loops, and I/O&quot;%20/ECL2017S/homework/6-problems-python-modules-loops-IO%20via%20&#64;AmirShahmoradi"
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Homework 6: Solutions - Python modules, loops, and I/O&quot;%20/ECL2017S/homework/6-solutions-python-modules-loops-IO%20via%20&#64;AmirShahmoradi"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
                     <i class="fa fa-twitter"></i>
                 </a>
-                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/homework/6-problems-python-modules-loops-IO"
+                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/homework/6-solutions-python-modules-loops-IO"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
                     <i class="fa fa-facebook"></i>
                 </a>
-                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/homework/6-problems-python-modules-loops-IO"
+                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/homework/6-solutions-python-modules-loops-IO"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
                     <i class="fa fa-google-plus"></i>
                 </a>

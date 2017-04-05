@@ -7,13 +7,101 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-04-03T17:37:00-05:00</updated>
+<updated>2017-04-05T08:59:55-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
   <uri>http:/ECL2017S/</uri>
   <email>amir@ices.utexas.edu</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Quiz 6: Problems - Python modules, loops, and IO]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/quiz/6-problems-python-modules-loops-io"/>
+  <id>http:/ECL2017S/quiz/6-problems-python-modules-loops-io</id>
+  <published>2017-04-05T00:00:00-05:00</published>
+  <updated>2017-04-05T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This quiz aims at testing your basic knowledge of Python’s modules, loops and simple I/O. Don’t forget to push your answers to your remote repository by the end of quiz time. Push your quiz-6 &lt;em&gt;readme.md&lt;/em&gt; file to quiz/6/ folder in your Github project.  If you write your answers in Python scripts, put the script files in the same folder as well. If you feel uncertain about your answer, you can test your final codes on Jupyter or IPython command lines.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Suppose you write a Python module, which you would also like to run it as a standalone Python code. If you wanted to make sure that some specific Python statements are executed only when the code is run a Python code (and not a module), you may recall from the lecture, that we had to use and if block like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if __name__ == &quot;__main__&quot;:
+    &amp;lt;Python statements&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Briefly explain what this if block does and mean.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Suppose you write a module named &lt;code&gt;myModule&lt;/code&gt;, which contains the function &lt;code&gt;myfunc&lt;/code&gt;. Now you import this module to another code.&lt;/p&gt;
+
+&lt;p&gt;(A) Write down the import statement that would enable you to use &lt;code&gt;myfunc&lt;/code&gt; with name &lt;code&gt;f&lt;/code&gt; instead.&lt;/p&gt;
+
+&lt;p&gt;(B) What would be the output of the following Python print statement,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import myModule as mm
+print(mm.__name__)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Suppose there are two lists of numbers,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;even = [0,2,4,6,8]
+odd = [1,3,5,7,9]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Write a &lt;strong&gt;one-line&lt;/strong&gt; Python statement (list comprehension) that gives a list &lt;code&gt;summ&lt;/code&gt; whose elements are the sum of the respective elements in the above two lists &lt;code&gt;odd&lt;/code&gt; and &lt;code&gt;even&lt;/code&gt;, that is,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [37]: summ
+Out[37]: [1, 5, 9, 13, 17]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+(Hint: You can use &lt;code&gt;zip&lt;/code&gt; function inside the list comprehension.)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; Consider the following for-loop,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;mylist = list(range(0,10,2))
+for item in mylist:
+    mylist.append(item+1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+How many iterations does this for-loop perform before ending? Explain briefly why.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/6-problems-python-modules-loops-io&quot;&gt;Quiz 6: Problems - Python modules, loops, and IO&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -127,7 +215,7 @@ In [5]: myfile.
 
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
-The function &lt;code&gt;open&lt;/code&gt; creates a file object, stored in the variable myfile. The second input argument to &lt;code&gt;open&lt;/code&gt;, &lt;code&gt;'r'&lt;/code&gt; tells the function that the purpose of this file opening is to read data (as opposed to, for example, writing data, or both readina and writing).&lt;/p&gt;
+The function &lt;code&gt;open&lt;/code&gt; creates a file object, stored in the variable myfile. The second input argument to &lt;code&gt;open&lt;/code&gt;, &lt;code&gt;'r'&lt;/code&gt; tells the function that the purpose of this file opening is to read data (as opposed to, for example, writing data, or both reading and writing).&lt;/p&gt;
 
 &lt;p&gt;Now you can use a for loop to read the data in this file line by line:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;for line in myfile:
@@ -161,7 +249,7 @@ In [11]: type(lines)
 Out[11]: list
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
-No each element of &lt;code&gt;line&lt;/code&gt; contains one line of the file.&lt;/p&gt;
+Note that each element of &lt;code&gt;line&lt;/code&gt; contains one line of the file.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [15]: lines
 Out[15]: ['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
 &lt;/code&gt;&lt;/pre&gt;
@@ -184,7 +272,7 @@ or this &lt;em&gt;list comprehension&lt;/em&gt; format,&lt;/p&gt;
 Out[19]: ['1\n', '3\n', '4\n', '5\n', '6\n', '7\n', '88\n', '65\n']
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
-Now suppose you were to calculate the mean of the numbers in this file. You could simply use the following list comprehension code to do so,&lt;/p&gt;
+Now suppose you were to calculate the mean of the numbers in &lt;a href=&quot;http:/ECL2017S/lecture/8/data.in&quot; target=&quot;_blank&quot;&gt;this file&lt;/a&gt;. You could simply use the following list comprehension code to do so,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [22]: mean = sum([float(line) for line in lines])/len(lines)
     ...: print(mean)
 22.375
@@ -541,15 +629,15 @@ invalid literal for int() with base 10: 'amir'
 In the statement &lt;code&gt;except ValueError as err:&lt;/code&gt; one could use &lt;code&gt;Exception&lt;/code&gt; for all types of errors instead of only &lt;code&gt;ValueError&lt;/code&gt; exceptions, or use a tuple syntax such as &lt;code&gt;except (ValueError, IndexError) as err:&lt;/code&gt; to cover these two exceptions.&lt;/p&gt;
 
 &lt;h2 id=&quot;code-verification-and-unit-testing&quot;&gt;Code verification and unit testing&lt;/h2&gt;
-&lt;p&gt;In the previous lecture we discusses the process of creating modules and collecting functions in one file as a personal module to be used later. As soon as the list of your codes and functions grow, you will need to have a unified way of ensuring all your functions work appropriately, regardless of the potential future internal changes that are made to the functions. This is what the &lt;strong&gt;unit testing&lt;/strong&gt; exists for. Unit testing is a software development process in which the smallest testable parts of an application, called &lt;strong&gt;units&lt;/strong&gt;, are individually and independently scrutinized for proper operation. Unit testing can be done manually, but if you have a long list of functions (which you most often have), you’d want to automate the testing process.&lt;/p&gt;
+&lt;p&gt;In the previous lecture we discussed the process of creating modules and collecting functions in one file as a personal module to be used later. As soon as the list of your codes and functions grow, you will need to have a unified way of ensuring all your functions work appropriately, regardless of the potential future internal changes that are made to the functions. This is what the &lt;strong&gt;unit testing&lt;/strong&gt; exists for. Unit testing is a software development process in which the smallest testable parts of an application, called &lt;strong&gt;units&lt;/strong&gt;, are individually and independently scrutinized for proper operation. Unit testing can be done manually, but if you have a long list of functions (which you most often have), you’d want to automate the testing process.&lt;/p&gt;
 
 &lt;p&gt;The grand goal in unit testing is to reduce the risk of encountering potential problems when running the code in the smallest possible units of the code. This means,&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;ensuring the code has the &lt;strong&gt;correct behavior&lt;/strong&gt; when given the proper input data.&lt;/li&gt;
-  &lt;li&gt;the code is robust to exceptions and invalid input data, meaning that it does not crash when it reaches unexpected situations during the code execution and gracefully handles the error, without interruption.&lt;/li&gt;
+  &lt;li&gt;ensuring the &lt;strong&gt;code robustness&lt;/strong&gt; to exceptions and invalid input data, meaning that it does not crash when it reaches unexpected situations during the code execution and gracefully handles the error, without interruption.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Because of the goals the unit tests are desgined for, they are mosly written and used by the developers of the code.&lt;/p&gt;
+&lt;p&gt;Because of the goals for which the unit tests are desgined, they are mosly written and used by the developers of the code.&lt;/p&gt;
 
 &lt;h3 id=&quot;unit-test-frameworks&quot;&gt;Unit test frameworks&lt;/h3&gt;
 &lt;p&gt;There are many ways to write tests for codes. Now, if you asked each software developer to write a unit test for a specific software, each would likely come up with their own set of rules and tests of the software. You will end up with many tests, that will generally only be usable by the developer that wrote the tests. That is why you should select a unit test framework. A unit test framework provides consistency for how the unit tests for your project are written. There are many test frameworks to choose from for just about any language you want to program with, including Python. Just like programming language, almost every programmer has a strong opinion which test framework is the best. Research what’s out there and use the one that meets the needs of your organization (For example, there is one experienced Python programmer in our ECL class who does not like any of the existing unit tests for Python, and wants to write his own unit test as the project of this course!).&lt;/p&gt;
@@ -680,6 +768,207 @@ The example given here, only tests for the robustenss of &lt;code&gt;Newton()&lt
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/8-python-io-error-handling-unit-testing&quot;&gt;Lecture 8: Python - I/O, error handling, and tesing frameworks&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Homework 7: Problems - Python I/O, error handling, and unit testing]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/7-problems-python-IO-error-handling-unit-testing"/>
+  <id>http:/ECL2017S/homework/7-problems-python-IO-error-handling-unit-testing</id>
+  <published>2017-04-05T00:00:00-05:00</published>
+  <updated>2017-04-05T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This homework aims at giving you some experience with Python I/O, error handling in your code, and testing you code for accuracy and robustness.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Write a simple program named &lt;code&gt;sum.py&lt;/code&gt;, that takes in an arbitrary-size list of input floats from the command-line, and prints out the sum of them on the terminal with the following message,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ python sum.py 1 2 1 23
+The sum of 1 2 1 23 is 27.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Note that you will need to use the Python’s builtin function &lt;code&gt;sum()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Similar to the previous probelm, write a simple program named &lt;code&gt;sum_via_eval.py&lt;/code&gt;, that takes in an arbitrary-size list of input numbers from the command-line, and prints out the sum of them on the terminal, this time using Python’s &lt;code&gt;eval&lt;/code&gt; function. The program output should look like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ python sum.py 1 2 1 23
+The sum of 1 2 1 23 is 27
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Consider &lt;a href=&quot;http:/ECL2017S/homework/7/1A2T_A.dssp&quot; target=&quot;_blank&quot;&gt;this data file&lt;/a&gt;. It contains information about the amino acids in &lt;a href=&quot;http://www.rcsb.org/pdb/explore.do?structureId=1a2t&quot; target=&quot;_blank&quot;&gt;a protein&lt;/a&gt; called &lt;code&gt;1A2T&lt;/code&gt;. Each amino acid in protein is labeled by a single letter. There are 20 amin acid molecules in nature, and each has a total surface area (in units of Angstroms squared) that is given by the following table,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;'A': 129.0
+'R': 274.0
+'N': 195.0
+'D': 193.0
+'C': 167.0
+'Q': 225.0
+'E': 223.0
+'G': 104.0
+'H': 224.0
+'I': 197.0
+'L': 201.0
+'K': 236.0
+'M': 224.0
+'F': 240.0
+'P': 159.0
+'S': 155.0
+'T': 172.0
+'W': 285.0
+'Y': 263.0
+'V': 174.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;However, when these amino acids sit next to each other to form a chain protein, they cover parts of each other, such that only parts of their surfaces is exposed, while the rest is hidden from the outside world by other neighboring amino acids. Therefore, one would expect an amino acid that is at the core of a spherical protein would have almost zero exposed surface area.&lt;/p&gt;
+
+&lt;p&gt;Now given the above information, write a Python program that takes in two command-line input arguments, one of which is a string containing the path to the above &lt;a href=&quot;http:/ECL2017S/homework/7/1A2T_A.dssp&quot; target=&quot;_blank&quot;&gt;input file&lt;/a&gt; &lt;code&gt;1A2T_A.dssp&lt;/code&gt; which contains the partially exposed surface areas of amino acids in protein &lt;code&gt;1A2T&lt;/code&gt; for each of its amino acids, and a second command-line argument which is the path to the file containing output of the code (e.g., it could be &lt;code&gt;./readDSSP.out&lt;/code&gt;). Then,&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;the code reads the content of this file, and&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;extracts the names of the amino acids in this protein from the data column inside the file which has the header &lt;code&gt;AA&lt;/code&gt; (look at the line number 25 inside the input data file, below &lt;code&gt;AA&lt;/code&gt; is the column containing the one-letter names of amino acids in this protein), and&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;also extracts the partially exposed surface area information for each of these amino acids which appear in the column with header &lt;code&gt;ACC&lt;/code&gt;, and&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;then uses the above table of maximum surface area values to calculate the fractional exposed surface area of each amino acid in this protein (i.e., for each amino acid, fraction_of_exposed_surface = ACC / maximum_surface_area_from_table), and&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;finally for each amino acid in this protein, it prints the one-letter name of the amino acid, its corresponding partially exposed surface area (ACC from the input file), and its corresponding fractional exposed surface area (name it RSA) to the output file given by the user on the command line.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;On the first column of the output file, the code should also write the name of the protein (which is basically the name of the input file &lt;code&gt;1A2T_A&lt;/code&gt;) on each line of the output file. &lt;strong&gt;Note that your code should extract the protein name from the input filename&lt;/strong&gt; (by removing the file extension and other unnecessary information from the input command line string). &lt;a href=&quot;http:/ECL2017S/homework/7/readDSSP.out&quot; target=&quot;_blank&quot;&gt;Here&lt;/a&gt; is an example output of the code.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Your code should also be able to handle an error resulting from less or more than 2 input command line arguments. That is, if the number of input arguments is 3 or 1, then it should input the following message on screen and stop.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./readDSSP.py ./1A2T_A.dssp
+
+
+Usage:
+      ./readDSSP.py &amp;lt;input dssp file&amp;gt; &amp;lt;output summary file&amp;gt;
+
+Program aborted.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+or,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./readDSSP.py ./1A2T_A.dssp ./readDSSP.out amir
+
+
+Usage:
+      ./readDSSP.py &amp;lt;input dssp file&amp;gt; &amp;lt;output summary file&amp;gt;
+
+Program aborted.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+To achieve the above goal, you will have to create a dictionary from the above table, with amino acid names as the keys, and the maximum surface areas as the corresponding values. Name your code &lt;code&gt;readDSSP.py&lt;/code&gt; and submit it to your repository.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Write your code in such a way that it checks for the existence of the output file&lt;/strong&gt;. If it already exists, then it does not remove the content of the file, whereas, it appends new data to the existing file. therwise, if the file does not exist, then it creates a new output file as requested by the user. To do so, you will need to use &lt;code&gt;os.path.isfile&lt;/code&gt; function from module &lt;code&gt;os&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ATTENTION&lt;/strong&gt;: Note that in some rows instead of a one-letter amino acid name, there is &lt;code&gt;!&lt;/code&gt;. In such cases, your code should be able to detect the abnormality and skip that row, because that row does not contain amino acid information.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; Consider the simplest program for evaluating the formula $y(t) = v_0t-\frac{1}{2}gt^2$,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;v0 = 3; g = 9.81; t = 0.6
+y = v0*t - 0.5*g*t**2
+print(y)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+(A) Write a program that takes in the above necessary input data ($t$,$v_0$) as command line arguments.&lt;br /&gt;
+&lt;br /&gt;
+(B) Extend your program from part (A) with exception handling such that missing command-line arguments are detected. For example, if the user has entered enough input arguments, then the code should raise &lt;code&gt;IndexError&lt;/code&gt; exception. In the &lt;code&gt;except IndexError&lt;/code&gt; block, the code should use the &lt;code&gt;input&lt;/code&gt; function to ask the user for the missing input data.&lt;br /&gt;
+&lt;br /&gt;
+(C) Add another exception handling block that tests if the $t$ value read from the command line, lies between $0$ and $2v_0/g$. If not, then it raises a &lt;code&gt;ValueError&lt;/code&gt; exception in the if block on the legal values of $t$, and notifes the user about the legal interval for $t$ in the exception message.&lt;/p&gt;
+
+&lt;p&gt;Here are some example runs of the code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./projectile.py
+Both v0 and t must be supplied on the command line
+v0 = ?
+5
+t = ?
+4
+Traceback (most recent call last):
+  File &quot;./projectile.py&quot;, line 17, in &amp;lt;module&amp;gt;
+    'must be between 0 and 2v0/g = {}'.format(t,2.0*v0/g))
+ValueError: t = 4.0 is a non-physical value.
+must be between 0 and 2v0/g = 1.019367991845056
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./projectile.py
+Both v0 and t must be supplied on the command line
+v0 = ?
+5
+t = ?
+0.5
+y = 1.27375
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./projectile.py 5 0.4
+y = 1.2151999999999998
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./projectile.py 5 0.4 3
+y = 1.2151999999999998
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. &lt;/strong&gt; Consider the function &lt;code&gt;Newton&lt;/code&gt; that we discussed in &lt;a href=&quot;http:/ECL2017S/lecture/8-python-io-error-handling-unit-testing&quot; target=&quot;_blank&quot;&gt;lecture 8&lt;/a&gt;,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def Newton(f, dfdx, x, eps=1E-7, maxit=100):
+    if not callable(f): raise TypeError( 'f is %s, should be function or class with __call__' % type(f) )
+    if not callable(dfdx): raise TypeError( 'dfdx is %s, should be function or class with __call__' % type(dfdx) )
+    if not isinstance(maxit, int): raise TypeError( 'maxit is %s, must be int' % type(maxit) )
+    if maxit &amp;lt;= 0: raise ValueError( 'maxit=%d &amp;lt;= 0, must be &amp;gt; 0' % maxit )
+    n = 0 # iteration counter
+    while abs(f(x)) &amp;gt; eps and n &amp;lt; maxit:
+        try:
+            x = x - f(x)/float(dfdx(x))
+        except ZeroDivisionError:
+            raise ZeroDivisionError( 'dfdx(%g)=%g - cannot divide by zero' % (x, dfdx(x)) )
+        n += 1
+    return x, f(x), n
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+This function is supposed to be able to handle exceptions such as divergent iterations (which we discussed in the lecture), and division-by-zero. The latter error happens when &lt;code&gt;dfdx(x)=0&lt;/code&gt; in the above code. Write a test code that ensures the above code is able to correctly identify a division-by-zero exception and raise the correct assertionError.&lt;br /&gt;
+(&lt;em&gt;Hint: To do so, you need to consider a test mathematical function as input to &lt;code&gt;Newton&lt;/code&gt;. One example could be $f(x)=\cos(x)$ with a starting search value $x=0$. This would result in derivative value $f’(x=0)=-\sin(x=0)=0$, which should lead to a &lt;code&gt;ZeroDivisionError&lt;/code&gt; exception. Now, write a test function &lt;code&gt;test_Newton_div_by_zero&lt;/code&gt; that can explicitly handle this exception by introducing a boolean variable &lt;code&gt;success&lt;/code&gt; that is &lt;code&gt;True&lt;/code&gt; if the exception is raised and otherwise &lt;code&gt;False&lt;/code&gt;&lt;/em&gt;.)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/7-problems-python-IO-error-handling-unit-testing&quot;&gt;Homework 7: Problems - Python I/O, error handling, and unit testing&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1554,6 +1843,422 @@ sum_even_odd
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/7-python-modules-loops-io&quot;&gt;Lecture 7: Python - modules, loops, and I/O&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 29, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Homework 6: Solutions - Python modules, loops, and I/O]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/6-solutions-python-modules-loops-IO"/>
+  <id>http:/ECL2017S/homework/6-solutions-python-modules-loops-IO</id>
+  <published>2017-03-29T00:00:00-05:00</published>
+  <updated>2017-03-29T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This is the solution to &lt;a href=&quot;6-problems-python-modules-loops-IO.html&quot; target=&quot;_blank&quot;&gt;Homework 6: Problems - Python modules, loops, and I/O&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--
+The following figure illustrates the grade distribution for this homework.  
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework6.png&quot; width=&quot;700&quot;&gt;
+    &lt;figcaption style=&quot;text-align:center&quot;&gt;
+        Maximum possible points is 100.&lt;br&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+--&gt;
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;This homework aims at giving you some experience with Python for-loops and while-loops as well as reading user input from the Bash command line.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; &lt;strong&gt;The while-loop implementation of a for-loop&lt;/strong&gt;. Consider the following example code, which converts a list of temperature values from Celcius to Ferenheit, using a for-loop and then prints them on screen.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;Cdegrees = [-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40]
+print ('    C     F')
+for C in Cdegrees:
+    F = (9.0/5)*C + 32
+print ('%5d %5.1f' % (C, F))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;    C     F
+  -20  -4.0
+  -15   5.0
+  -10  14.0
+   -5  23.0
+    0  32.0
+    5  41.0
+   10  50.0
+   15  59.0
+   20  68.0
+   25  77.0
+   30  86.0
+   35  95.0
+   40 104.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Write a while-loop implementation of the above code.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;Cdegrees = [-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40]
+index = 0
+print ('    C     F')
+while index &amp;lt; len(Cdegrees):
+    C = Cdegrees[index]
+    F = (9.0/5)*C + 32
+    print('%5d %5.1f' % (C, F))
+    index += 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;    C     F
+  -20  -4.0
+  -15   5.0
+  -10  14.0
+   -5  23.0
+    0  32.0
+    5  41.0
+   10  50.0
+   15  59.0
+   20  68.0
+   25  77.0
+   30  86.0
+   35  95.0
+   40 104.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Consider the following nested list,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;the following nested list:
+q = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h']]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Write a for-loop that extracts all the letters in the list and finally prints them all as a single string,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;abcdefgh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;q = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h']]
+s = ''
+for i in q:
+    for j in range(len(i)):
+        s = s + i[j]
+print(s)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;abcdefgh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Consider the following program,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from math import sqrt
+for n in range(1, 60):
+    r_org = 2.0
+    r = r_org
+    for i in range(n):
+        r = sqrt(r)
+    for i in range(n):
+        r = r ** 2
+    print ('With {} times sqrt and then {} times **2, the number {} becomes: {:.16f}'.format(n,n,r_org,r))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Explain what this code does. Then run the code, and explain why do you the behavior observed. In particular, why do you not recover the original value $2$ after many repetitions of the same forward and reverse task?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+This code will yield the following output:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from math import sqrt
+for n in range(1, 60):
+    r_org = 2.0
+    r = r_org
+    for i in range(n):
+        r = sqrt(r)
+    for i in range(n):
+        r = r ** 2
+    print ('With {} times sqrt and then {} times **2, the number {} becomes: {:.16f}'.format(n,n,r_org,r))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;With 1 times sqrt and then 1 times **2, the number 2.0 becomes: 2.0000000000000004
+With 2 times sqrt and then 2 times **2, the number 2.0 becomes: 1.9999999999999996
+With 3 times sqrt and then 3 times **2, the number 2.0 becomes: 1.9999999999999996
+With 4 times sqrt and then 4 times **2, the number 2.0 becomes: 1.9999999999999964
+With 5 times sqrt and then 5 times **2, the number 2.0 becomes: 1.9999999999999964
+With 6 times sqrt and then 6 times **2, the number 2.0 becomes: 1.9999999999999964
+With 7 times sqrt and then 7 times **2, the number 2.0 becomes: 1.9999999999999714
+With 8 times sqrt and then 8 times **2, the number 2.0 becomes: 2.0000000000000235
+With 9 times sqrt and then 9 times **2, the number 2.0 becomes: 2.0000000000000235
+With 10 times sqrt and then 10 times **2, the number 2.0 becomes: 2.0000000000000235
+With 11 times sqrt and then 11 times **2, the number 2.0 becomes: 2.0000000000000235
+With 12 times sqrt and then 12 times **2, the number 2.0 becomes: 1.9999999999991336
+With 13 times sqrt and then 13 times **2, the number 2.0 becomes: 1.9999999999973292
+With 14 times sqrt and then 14 times **2, the number 2.0 becomes: 1.9999999999973292
+With 15 times sqrt and then 15 times **2, the number 2.0 becomes: 1.9999999999973292
+With 16 times sqrt and then 16 times **2, the number 2.0 becomes: 2.0000000000117746
+With 17 times sqrt and then 17 times **2, the number 2.0 becomes: 2.0000000000408580
+With 18 times sqrt and then 18 times **2, the number 2.0 becomes: 2.0000000000408580
+With 19 times sqrt and then 19 times **2, the number 2.0 becomes: 2.0000000001573586
+With 20 times sqrt and then 20 times **2, the number 2.0 becomes: 2.0000000001573586
+With 21 times sqrt and then 21 times **2, the number 2.0 becomes: 2.0000000001573586
+With 22 times sqrt and then 22 times **2, the number 2.0 becomes: 2.0000000010885857
+With 23 times sqrt and then 23 times **2, the number 2.0 becomes: 2.0000000029511749
+With 24 times sqrt and then 24 times **2, the number 2.0 becomes: 2.0000000066771721
+With 25 times sqrt and then 25 times **2, the number 2.0 becomes: 2.0000000066771721
+With 26 times sqrt and then 26 times **2, the number 2.0 becomes: 1.9999999917775542
+With 27 times sqrt and then 27 times **2, the number 2.0 becomes: 1.9999999917775542
+With 28 times sqrt and then 28 times **2, the number 2.0 becomes: 1.9999999917775542
+With 29 times sqrt and then 29 times **2, the number 2.0 becomes: 1.9999999917775542
+With 30 times sqrt and then 30 times **2, the number 2.0 becomes: 1.9999999917775542
+With 31 times sqrt and then 31 times **2, the number 2.0 becomes: 1.9999999917775542
+With 32 times sqrt and then 32 times **2, the number 2.0 becomes: 1.9999990380770896
+With 33 times sqrt and then 33 times **2, the number 2.0 becomes: 1.9999971307544144
+With 34 times sqrt and then 34 times **2, the number 2.0 becomes: 1.9999971307544144
+With 35 times sqrt and then 35 times **2, the number 2.0 becomes: 1.9999971307544144
+With 36 times sqrt and then 36 times **2, the number 2.0 becomes: 1.9999971307544144
+With 37 times sqrt and then 37 times **2, the number 2.0 becomes: 1.9999971307544144
+With 38 times sqrt and then 38 times **2, the number 2.0 becomes: 1.9999360966436217
+With 39 times sqrt and then 39 times **2, the number 2.0 becomes: 1.9999360966436217
+With 40 times sqrt and then 40 times **2, the number 2.0 becomes: 1.9999360966436217
+With 41 times sqrt and then 41 times **2, the number 2.0 becomes: 1.9994478907329654
+With 42 times sqrt and then 42 times **2, the number 2.0 becomes: 1.9984718365144798
+With 43 times sqrt and then 43 times **2, the number 2.0 becomes: 1.9965211562778555
+With 44 times sqrt and then 44 times **2, the number 2.0 becomes: 1.9965211562778555
+With 45 times sqrt and then 45 times **2, the number 2.0 becomes: 1.9887374575497223
+With 46 times sqrt and then 46 times **2, the number 2.0 becomes: 1.9887374575497223
+With 47 times sqrt and then 47 times **2, the number 2.0 becomes: 1.9887374575497223
+With 48 times sqrt and then 48 times **2, the number 2.0 becomes: 1.9887374575497223
+With 49 times sqrt and then 49 times **2, the number 2.0 becomes: 1.8682459487159784
+With 50 times sqrt and then 50 times **2, the number 2.0 becomes: 1.6487212645509468
+With 51 times sqrt and then 51 times **2, the number 2.0 becomes: 1.6487212645509468
+With 52 times sqrt and then 52 times **2, the number 2.0 becomes: 1.0000000000000000
+With 53 times sqrt and then 53 times **2, the number 2.0 becomes: 1.0000000000000000
+With 54 times sqrt and then 54 times **2, the number 2.0 becomes: 1.0000000000000000
+With 55 times sqrt and then 55 times **2, the number 2.0 becomes: 1.0000000000000000
+With 56 times sqrt and then 56 times **2, the number 2.0 becomes: 1.0000000000000000
+With 57 times sqrt and then 57 times **2, the number 2.0 becomes: 1.0000000000000000
+With 58 times sqrt and then 58 times **2, the number 2.0 becomes: 1.0000000000000000
+With 59 times sqrt and then 59 times **2, the number 2.0 becomes: 1.0000000000000000
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+What is happening is that, 1 is returned for n &amp;gt;= 52 as square root of 2, that is, after 52 times square-root operation, the degree of accuracy required for representing the result goes beyond the degree of accuracy available in a Python float. Consequently, the later squaring operation on 1.00000000000000 will leave the number unchanged and therefore, 2 is not recovered.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; Consider the following code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;eps = 1.0
+while 1.0 != 1.0 + eps:
+    print ('...............', eps)
+    eps /= 2.0
+print ('final eps:', eps)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+Explain what the code is doing. Run the code and observe the output. How could &lt;code&gt;1.0 != 1.0 + eps&lt;/code&gt; be False?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+Here is the output of the code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;............... 1.0
+............... 0.5
+............... 0.25
+............... 0.125
+............... 0.0625
+............... 0.03125
+............... 0.015625
+............... 0.0078125
+............... 0.00390625
+............... 0.001953125
+............... 0.0009765625
+............... 0.00048828125
+............... 0.000244140625
+............... 0.0001220703125
+............... 6.103515625e-05
+............... 3.0517578125e-05
+............... 1.52587890625e-05
+............... 7.62939453125e-06
+............... 3.814697265625e-06
+............... 1.9073486328125e-06
+............... 9.5367431640625e-07
+............... 4.76837158203125e-07
+............... 2.384185791015625e-07
+............... 1.1920928955078125e-07
+............... 5.960464477539063e-08
+............... 2.9802322387695312e-08
+............... 1.4901161193847656e-08
+............... 7.450580596923828e-09
+............... 3.725290298461914e-09
+............... 1.862645149230957e-09
+............... 9.313225746154785e-10
+............... 4.656612873077393e-10
+............... 2.3283064365386963e-10
+............... 1.1641532182693481e-10
+............... 5.820766091346741e-11
+............... 2.9103830456733704e-11
+............... 1.4551915228366852e-11
+............... 7.275957614183426e-12
+............... 3.637978807091713e-12
+............... 1.8189894035458565e-12
+............... 9.094947017729282e-13
+............... 4.547473508864641e-13
+............... 2.2737367544323206e-13
+............... 1.1368683772161603e-13
+............... 5.684341886080802e-14
+............... 2.842170943040401e-14
+............... 1.4210854715202004e-14
+............... 7.105427357601002e-15
+............... 3.552713678800501e-15
+............... 1.7763568394002505e-15
+............... 8.881784197001252e-16
+............... 4.440892098500626e-16
+............... 2.220446049250313e-16
+final eps: 1.1102230246251565e-16
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;What is happening is that after a certain number of divisions performed on the value of &lt;code&gt;eps&lt;/code&gt;, the value goes beyond the highest float precision representatble by Python standard ($0.0000000000000001$), and therefore the value of &lt;code&gt;eps&lt;/code&gt; is eventually rounded to exact zero. The nonzero eps value computed above is called &lt;strong&gt;machine epsilon&lt;/strong&gt; or &lt;strong&gt;machine zero&lt;/strong&gt; and is an important parameter to know, since it can lead to disasters in your very important complex calculations.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. &lt;/strong&gt; Consider the following list,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;numbers = list(range(10))
+print(numbers)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now run the following code, given the above list. Explain the weird behavior that you observe.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;for n in numbers:
+    i = len(numbers)//2
+    del numbers[i]
+    print ('n={}, del {}'.format(n,i), numbers)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;numbers = list(range(10))
+for n in numbers:
+    i = len(numbers)//2
+    del numbers[i]
+    print ('n={}, del {}'.format(n,i), numbers)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;n=0, del 5 [0, 1, 2, 3, 4, 6, 7, 8, 9]
+n=1, del 4 [0, 1, 2, 3, 6, 7, 8, 9]
+n=2, del 4 [0, 1, 2, 3, 7, 8, 9]
+n=3, del 3 [0, 1, 2, 7, 8, 9]
+n=8, del 3 [0, 1, 2, 8, 9]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What is really happening is that the list over which we are looping changes its content because of the modifications during on the list in the for-loop. The message in this exercise is to &lt;strong&gt;never modify a list that you are looping over&lt;/strong&gt;. Modification is indeed technically possible, as shown above, but you really need to know what you are doing. Otherwise you will experience very strange program behavior.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6. &lt;/strong&gt; Consider a problem similar to what we had in the midterm exam: Write a Python function that when executed, asks the user to enter an integer number, then the function gives out the number of prime numbers that are smaller than the input integer number. Here is the answer to this question using only the knowledge of recursive functions and if-blocks,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def is_prime(n):
+    
+    is_prime = True
+    
+    def is_divisible(n,divisor):
+        if n&amp;lt;(divisor-1)*divisor: return False
+        if n%divisor==0: return True
+        else:
+            divisor += 1
+            return is_divisible(n,divisor)
+
+    if is_divisible(n,divisor=2): is_prime=False
+    return is_prime
+
+def get_primes(n):
+    count = 0
+    if n == 1:
+        return count
+    else:
+        if is_prime(n):
+            count = 1
+        n -= 1
+        return count + get_primes(n)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;get_primes(13)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(A) Now rewrite &lt;code&gt;get_primes(n)&lt;/code&gt; and the other functions in the above code using for-loop this time. Name the new functions &lt;code&gt;get_prime_for(n)&lt;/code&gt; and &lt;code&gt;is_prime_for(n)&lt;/code&gt;, with &lt;em&gt;for&lt;/em&gt; in the names indicating that the functions now use for-loops.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def is_prime_for(x):
+    if x &amp;gt; 1:
+        n = x // 2
+        for i in range(2, n + 1):
+            if x % i == 0:
+                return False
+        return True
+    else:
+        return False
+
+def get_primes_for(n):
+    count = 0
+    for i in range(2,n):
+        if is_prime(i):
+            count += 1
+    return count
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Here is a test,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;get_primes_for(13)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(B) Now compare the performance of the two functions &lt;code&gt;get_primes(n=500)&lt;/code&gt; and &lt;code&gt;get_primes_for(n500)&lt;/code&gt; using Jupyter’s or IPython’s &lt;code&gt;%timeit&lt;/code&gt; magic function. Which one is faster?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;%timeit get_primes(500)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;1000 loops, best of 3: 1.32 ms per loop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;%timeit get_primes_for(500)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;1000 loops, best of 3: 1.69 ms per loop  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Interesting, recursive functions seem to be faster than Python for-loops!&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/6-solutions-python-modules-loops-IO&quot;&gt;Homework 6: Solutions - Python modules, loops, and I/O&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 29, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -5778,1234 +6483,6 @@ A working Python script file can be downloaded from &lt;a href=&quot;http:/ECL20
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/3-solutions-python-values-variables-types&quot;&gt;Homework 3: Solutions - Python debugging and string manipulation&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 01, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Lecture 4: Python - values, variables, and types]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/lecture/4-python-values-variables-types"/>
-  <id>http:/ECL2017S/lecture/4-python-values-variables-types</id>
-  <published>2017-02-22T00:00:00-06:00</published>
-  <updated>2017-02-22T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This lecture aims at guiding you to understand the how to of programming, difference between programming languages and the natural languages, the type of programming errors and the meaning code debugging how to perform simple arithmetic operations on the Python command line. Throughout this course, I recommend you to use Jupyter for Python programming.&lt;/p&gt;
-
-&lt;div class=&quot;post_toc&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;glossary&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;programming-glossary&quot;&gt;Programming glossary&lt;/h2&gt;
-&lt;p&gt;The following table contains some technical programming phrases that are often used and heard in the field of computer science and programming, that you need to be familiar as well.&lt;/p&gt;
-
-&lt;table class=&quot;center&quot;&gt;
-&lt;caption class=&quot;title&quot; style=&quot;padding-bottom:10px;text-align:center;&quot;&gt;
-Table 1. Some programming phrases that are discussed in this lecture. The boldface words in the description column indicate items that are expressions with their own description in this table.
-&lt;/caption&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;font size=&quot;4rm&quot; color=&quot;red&quot;&gt;Expression&lt;/font&gt;&lt;/th&gt;
-&lt;th&gt;&lt;font size=&quot;4rm&quot; color=&quot;red&quot;&gt;Description&lt;/font&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;algorithm&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;A general method for solving a class of problems.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;bug&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;An error in &lt;b&gt;program&lt;/b&gt; that has to be resolved for successful execution of the program.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;compiled language&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;A programming language whose programs need to be compiled by a &lt;b&gt;compiler&lt;/b&gt; in order to run.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;compiler&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;A software that translates an entire high-level program into a lower-level language to make it &lt;b&gt;executable&lt;/b&gt;.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;debugging&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;The process of finding and removing any type of error in the program.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;exception&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;An alternative name for &lt;b&gt;runtime error&lt;/b&gt; in the program.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;executable&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;An &lt;b&gt;object code&lt;/b&gt;, ready to be executed. Generally has the file extension &lt;code&gt;.exe&lt;/code&gt; or &lt;code&gt;.out&lt;/code&gt; or no extension at all.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;formal language&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;A language that is intentionally designed for specific purposes, which, unlike &lt;b&gt;natural languages&lt;/b&gt;, follows a strict standard.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;high-level language&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;A programming language (e.g., Python, Fortran, Java, etc) that has high level of abstraction from the underlying hardware.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;interpreted language&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;A programming language whose statements are interpreted line-by-line by an &lt;b&gt;interpreter&lt;/b&gt; and immediately executed.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;low-level language&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;A programming language that has a low-level of abstraction from computer hardware and architecture, such as Assembly. Very close to machine code.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;natural language&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;A language that evolves naturally, and has looser &lt;b&gt;syntax&lt;/b&gt; rules and standard compared to &lt;b&gt;formal languages&lt;/b&gt;.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;object code&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;The output of a compiler after translating a program.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;parsing&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;Reading and examining a file/program and analyzing the syntactic structure of the file/program.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;portability&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;A program's ability to be exucatable on more than one kind of computer architecture, without changing the code.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;problem solving&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;The process of formulating a problem and finding and expressing a solution to it.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;program&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;A set of instructions in a that together specify an algorithm a computation.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;runtime error&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;An error that does not arise and cause the program to stop, until the program has started to execute.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;script&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;A program in an &lt;b&gt;interpreted language&lt;/b&gt; stored in a file.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;semantic error&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;A type of error in a program that makes the program do something other than what was intended. Catching these errors can be very tricky.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;semantics&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;The meaning of a program.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;source code&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;A program in a high-level compiled language, before being compiled by the &lt;b&gt;compiler&lt;/b&gt;.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;syntax error&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;A type of error in program that violates the standard &lt;b&gt;syntax&lt;/b&gt; of the programming language, and hence, the program cannot be interpreted or compiled until the syntax error is resolved.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;syntax&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;The structure of a program.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;token&lt;/b&gt;&lt;/td&gt;
-    &lt;td&gt;One of the basic elements of the syntactic structure of a program, in analogy with &lt;i&gt;word&lt;/i&gt; in a &lt;b&gt;natural language&lt;/b&gt;.&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;program-content&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;the-content-of-a-computer-program&quot;&gt;The content of a computer program&lt;/h2&gt;
-&lt;p&gt;Although different programming languages look different in their syntax standards, virtually all programming languages are comprised of the following major compnents (instructions):&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;input&lt;/strong&gt;&lt;br /&gt;
-  Virtually every program starts with some input data by the user, or the input data that is &lt;a href=&quot;https://en.wikipedia.org/wiki/Hard_coding&quot; target=&quot;_blank&quot;&gt;hard-coded&lt;/a&gt; in the program.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;mathematical/logical operations&lt;/strong&gt;&lt;br /&gt;
-  Virtually all programs involve some sort of mathemtical or logical operations on the input data to the program.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;conditional execution&lt;/strong&gt;&lt;br /&gt;
-  In order to perform the above operations on data, most often (but not always) there is a need to chack if some conditions are met in the program, and then perform specific programming instructions corresponding to each of the conditions.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;repetition / looping&lt;/strong&gt;&lt;br /&gt;
-  Frequently it is needed to perform a specific set of operations repeatedly in the program to achive the program’s goal.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;output&lt;/strong&gt;&lt;br /&gt;
-  At the end of the program, it is always needed to output the program result, either to computer screen, or to a file.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;a name=&quot;program-debugging&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;debugging-a-program&quot;&gt;Debugging a program&lt;/h2&gt;
-&lt;p&gt;&lt;br /&gt;
-As it is obvious from its name, a &lt;strong&gt;bug&lt;/strong&gt; in a computer program is annoying programming error that needs fixing in order for the program to become executable &lt;strong&gt;or&lt;/strong&gt; to give out the correct answer. The process of removing program bugs is called debugging. There are basically three types of programming bugs (errors):&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;syntax error&lt;/strong&gt;&lt;br /&gt;
-&lt;br /&gt;
-A program, wether interpreted or compiled, can be succesfully run only if it is &lt;em&gt;syntactically correct&lt;/em&gt;. Syntax errors are related to the structure and standard of the language, and the order by which the language &lt;strong&gt;tokens&lt;/strong&gt; are allowed to appear in the code. For example, the following Python &lt;code&gt;print&lt;/code&gt; statement is a syntax error in Python 3 standard, whereas it was considered to be the correct syntax for &lt;code&gt;print&lt;/code&gt; in Python 2 standard.&lt;br /&gt;
-&lt;br /&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [21]: print 'Hello World!'
-  File &quot;&amp;lt;ipython-input-21-10fdc521e430&amp;gt;&quot;, line 1
- print 'Hello World!'
-                    ^
-SyntaxError: Missing parentheses in call to 'print'
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;&lt;br /&gt;
-The syntactically correct usage of &lt;code&gt;print&lt;/code&gt; in Python 3 would be,&lt;/p&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [22]: print ('Hello World!')  
-Hello World!
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;runtime error&lt;/strong&gt;&lt;br /&gt;
-&lt;br /&gt;
-Runtime errors or sometimes also named &lt;strong&gt;exceptions&lt;/strong&gt; are a class of programming errors that can be detected only at the time of running the code, that is, they are not syntax errors. Examples include:&lt;br /&gt;
-&lt;br /&gt;
-    &lt;ul&gt;
-      &lt;li&gt;memory leaks (very common error in beginner C and C++ codes)&lt;/li&gt;
-      &lt;li&gt;uninitialized memory&lt;/li&gt;
-      &lt;li&gt;access request to illigal memory address of the computer&lt;/li&gt;
-      &lt;li&gt;security attack vulnerabilities&lt;/li&gt;
-      &lt;li&gt;buffer overflow
-&lt;br /&gt;
-These errors can be sometimes tricky to identify.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;semantic error&lt;/strong&gt;
-&lt;br /&gt;
-Unlike syntax errors that comprise of something the compiler/interpreter does not understand, semantic errors do not cause any compiler/interpreter error messages. However, the resulting compiled/interpreted code will NOT do what it is intended to do. Semantic errors are the most dangerous types of programming errors, as they do not raise any error flag by the compiler/interpreter, yet the program will not do what it is intended to do, although the code may look perfectly fine on its face. Semantic error is almost synonymous with &lt;strong&gt;logical error&lt;/strong&gt;. Dividing two integers using the regular division operator &lt;code&gt;/&lt;/code&gt; in Python 2 and expecting the result to be real, would result in a semantic error. This is because in Python 2 standard, the regular division operator is equivalent to &lt;strong&gt;integer division&lt;/strong&gt; for integer operands:&lt;br /&gt;
-&lt;br /&gt;
-In Python 2,
-    &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [23]: 2/7
-Out[23]: 0
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;&lt;br /&gt;
-Whereas, you might have really meant a &lt;strong&gt;float division&lt;/strong&gt; by using &lt;code&gt;/&lt;/code&gt;, as in Python 3,&lt;/p&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [24]: 2/7
-Out[24]: 0.2857142857142857
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;a name=&quot;first-python-program&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;the-first-python-program&quot;&gt;The first Python program&lt;/h2&gt;
-&lt;p&gt;&lt;br /&gt;
-The traditional first program in Python language has the following form.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [25]: print ('Hello World!')  
-Hello World!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;ways-to-run-python-program&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;methods-of-running-a-python-program&quot;&gt;Methods of running a Python program&lt;/h3&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Running Python code on the Python interpreter’s command prompt:&lt;/strong&gt;&lt;br /&gt;
-Now, as you may have noticed, in the above example, I used IPython command line to code my first simple Python program. This is one of the simplest and quickest method of Python coding and is actually very useful for testing small simple Python ideas and code snippets on-the-fly.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Running Python code inside a Python file Python from the Bash command line:&lt;/strong&gt;&lt;br /&gt;
-As the program size grows, it wiser to put all of your Python script into a single file, and then let the Python interpreter run (i.e., interpret) your entire file all at once. To save the above simple “Hello World” Python code in a file and run it, open a Bash command prompt, then use the Bash &lt;code&gt;cat&lt;/code&gt; command to create and add the Python command to your Python file as in the following (On Windows devices, you can use the Git command prompt).&lt;br /&gt;
-&lt;br /&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;Amir@CCBB-Amir MINGW64 ~
-$ cat &amp;gt;&amp;gt; firstPythonCode.py &amp;lt;&amp;lt; EOF
-print ('Hello World!')
-EOF
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;&lt;br /&gt;
-Then you can use call python interpreter from the Bash command line to execute your Python code.&lt;/p&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ python firstPythonCode.py
-python firstPythonCode.py
-Hello World!
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Running Python code inside a Python file from the Bash command line as an standalone executable:&lt;/strong&gt;&lt;br /&gt;
-You can also avoid typing the name of the interpreter (&lt;code&gt;python&lt;/code&gt;) in order to run your code by adding the following &lt;a href=&quot;https://en.wikipedia.org/wiki/Shebang_(Unix)&quot; target=&quot;_blank&quot;&gt;shebang&lt;/a&gt; at the top of your Python script, like the following.&lt;br /&gt;
-&lt;br /&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ cat &amp;gt;&amp;gt; firstPythonCodeWithShebang.py &amp;lt;&amp;lt; EOF
-#!/usr/bin/env python
-print ('Hello World!')
-print ('This is a Python script with Shebang!')
-EOF
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;&lt;br /&gt;
-The result is that now you can run your Python script without the interpreter’s name, as an executable file:&lt;/p&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./firstPythonCodeWithShebang.py
-Hello World!
-This is a Python script with Shebang!
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;&lt;br /&gt;
-Note that &lt;em&gt;shebang&lt;/em&gt; directive only works under Unix/Linux operating systems and command prompts (not windows). When a Python script with a shebang is run as a program, the program loader parses the rest of the script’s initial line as an interpreter directive. The specified interpreter program is run instead, passing to it as an argument the path that was initially used when attempting to run the script.&lt;br /&gt;
-&lt;br /&gt;
-On the other hand, if you try to run your original code (without Shebang) as an executable without Python interpreter name, you will get an error message like the following,&lt;/p&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;Amir@CCBB-Amir MINGW64 ~
-$ ./firstPythonCode.py
-./firstPythonCode.py: line 1: syntax error near unexpected token `'Hello World!''
-./firstPythonCode.py: line 1: `print ('Hello World!')'
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Running Python code inside a Python file by first compiling it to bytecode from the command line:&lt;/strong&gt;&lt;br /&gt;
-You can also compile your Python script into a bytecode. This is however, a topic of a future lecture.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;a name=&quot;python-as-simple-calculator&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;python-interpreter-as-a-simple-calculator&quot;&gt;Python interpreter as a simple calculator&lt;/h2&gt;
-&lt;p&gt;One of the greatest advantages of Python is that it can be used as a simple calculator and program interpreter on-the-fly, just like MATLAB, Mathematica, R, and other scripting languages. In the following, you will see why and how.&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;python-values-types&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;values-and-their-types-in-python&quot;&gt;Values and their types in Python&lt;/h3&gt;
-&lt;p&gt;Values are one of the most fundamental entities in programming. Like any other language, a value in Python can be of  different types, most importantly &lt;strong&gt;Numeric&lt;/strong&gt; (plain integer, long integer, float (real number), complex), &lt;strong&gt;Boolean&lt;/strong&gt; (logical) which is a subtype of Numeric, or &lt;strong&gt;String&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;The following are a few example arithmetic operations with values in Python. You can perform very simple arithmetic on the Python command line, and the result immediately by pressing &lt;code&gt;enter&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;2 + 5 # Just typing some comment on the Python command line. Anything after # is a comment and will be ignored.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;7
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;2 - 7 # difference
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;-5
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;2 * 7 # product
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;14
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a name=&quot;python-values-types-function&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;obtaining-the-type-of-a-value&quot;&gt;Obtaining the type of a value&lt;/h4&gt;
-
-&lt;p&gt;You can use the Python’s built-in function &lt;code&gt;type&lt;/code&gt; to get the type of a value in Python (Of course, this is somewhat obvious and redundant for a value as we already readily know the type of a value).&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;type(2*7) # type function gives you the type of the input object to function &quot;type&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;int ```python type('This is a Python string') # a string value in Python ```
-str
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;type(&quot;This is a Python string&quot;) # you can also use quotation marks for representing string values, but keep in mind to be consistent!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;str
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;type(True) # type of a boolean True value
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;bool
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;type(True) # type of a boolean False value
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;bool
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a name=&quot;python-values-types-coercion&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;value-coercion-in-python&quot;&gt;Value coercion in Python&lt;/h4&gt;
-&lt;p&gt;Value coercion is the &lt;strong&gt;implicit&lt;/strong&gt; process by which a the Python interpreter/compiler automatically converts a value of one type into a value of another type when that second type is required by the surrounding context. For example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;2.0 * 7 # Note that the product of float and integer, is coerced into a float.
-type(2.*7)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;14.0
-float
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;2 / 7 # floating point division (in Python 3!).
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;0.2857142857142857
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-    &lt;b&gt;ATTENTION: Python 2 Alert!&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
-    In Python 2, the above division would give you 0, that is, in Python 2, the division operator performs an &lt;i&gt;integer division&lt;/i&gt;  for two input integer operands. I recommend you to always coerce the result into float (if float is what you demand) by adding a decimal point to one of the operands in your operation.
-&lt;/blockquote&gt;
-
-&lt;!--
-&lt;div class=&quot;center&quot;&gt;
-    &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
-        &lt;b&gt;ATTENTION: Python 2 Alert!&lt;/b&gt;&lt;br&gt;&lt;br&gt;
-        In Python 2, the above division would give you 0, that is, in Python 2, the division operator performs an &lt;i&gt;integer division&lt;/i&gt; for two input integer operands.
-        &lt;br&gt;&lt;br&gt;
-        &lt;b&gt;
-        I recommend you to always coerce the result into float (if float is what you demand) by adding a decimal point to one of the operands in your operation.
-        &lt;/b&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
---&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;2.0 / 7 # Also floating point division
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;0.2857142857142857
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;2 // 7 #  integer division, or floor division
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;2.0 // 7.0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;0.0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;12 // 7 #  another integer division, or floor division
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;12.0 // 7 #  Also a integer division, or floor division, BUT NOTE THAT the output is now a real number 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;1.0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;span style=&quot;color:red&quot;&gt;&lt;strong&gt;Summary of difference in division between Python 2 and Python 3:&lt;/strong&gt;&lt;/span&gt;&lt;br /&gt;
-Note that there is a difference between Python 2 and 3 for &lt;strong&gt;integer division&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h5 id=&quot;python-2&quot;&gt;Python 2&lt;/h5&gt;
-&lt;p&gt;&lt;strong&gt;input:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print 'Python', python_version()
-print '3 / 2 =', 3 / 2
-print '3 // 2 =', 3 // 2
-print '3 / 2.0 =', 3 / 2.0
-print '3 // 2.0 =', 3 // 2.0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;output:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Python 2.7.6
-3 / 2 = 1
-3 // 2 = 1
-3 / 2.0 = 1.5
-3 // 2.0 = 1.0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id=&quot;python-3&quot;&gt;Python 3&lt;/h5&gt;
-&lt;p&gt;&lt;strong&gt;input:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print('Python', python_version())
-print('3 / 2 =', 3 / 2)
-print('3 // 2 =', 3 // 2)
-print('3 / 2.0 =', 3 / 2.0)
-print('3 // 2.0 =', 3 // 2.0)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;output:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Python 3.5.2
-3 / 2 = 1.5
-3 // 2 = 1
-3 / 2.0 = 1.5
-3 // 2.0 = 1.0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In other words, in &lt;strong&gt;Python 3&lt;/strong&gt;, 3 / 2  performs a &lt;strong&gt;floating point division&lt;/strong&gt;, whereas in &lt;strong&gt;Python 2&lt;/strong&gt;, 3 / 2  performs a &lt;strong&gt;floor division&lt;/strong&gt;, also called &lt;strong&gt;integer division&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;blockquote&gt;
-    &lt;b&gt;NOTE&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
-    If you want to get the Python version you are using, use the following commands. The first command imports from the Python &lt;b&gt;platform&lt;/b&gt; module, the command &lt;b&gt;python_version&lt;/b&gt;. Later on, we will discuss what Python modules are and how and why you should use them.
-&lt;/blockquote&gt;
-
-&lt;!--
-&lt;div class=&quot;center&quot;&gt;
-    &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
-        &lt;b&gt;NOTE&lt;/b&gt;&lt;br&gt;&lt;br&gt;
-        If you want to get the Python version you are using, use the following commands. The first command imports from the Python &lt;b&gt;platform&lt;/b&gt; module, the command &lt;b&gt;python_version&lt;/b&gt;. Later on, we will discuss what Python modules are and how and why you should use them.
-    &lt;/div&gt;
-&lt;/div&gt;
---&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from platform import python_version
-python_version()
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;'3.5.2'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;2**7 # This is an exponentiation operation. The notation is taken from Fortran exponentiation
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;128
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;2.0**7 # This is a float exponentiation.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;128.0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;2**7.0 # ATTN: Avoid this format, if not necessary.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;128.0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;12 % 7  # This is a remainder operation
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;5
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;12.0 % 7 # Another remainder operation, with its result coerced into float
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;5.0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a name=&quot;python-values-types-builtin&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;some-useful-built-in-operationsfunctions-in-python&quot;&gt;Some useful built-in operations/functions in Python&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;pow(2,7) # same operation as 2**7. This is the same exponentiation function as in C language.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;128
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;pow(2.0,7) # same thing but now the result is coerced into float
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;128.0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;abs(-999) # absolute value
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;999
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;int(-999.9) # removes the decmial points and keeps the integer part
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;-999
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;int(999.9) # removes the decmial points and keeps the integer part
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;999
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;complex(-999.9) # complex number with real part -999.9 and no (zero) imaginary part
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;(-999.9+0j)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;complex(-999.9, 2) # complex number with real part -999.9 and imaginary part value of 2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;(-999.9+2j)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;complex(-999.9, 2).conjugate() # the conjugate of the complex number
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;(-999.9-2j)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;type(complex(-999.9, 2).conjugate()) # type function can take complex arguments as input!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;complex
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;divmod(5, 2.0) # gives out the pair (x // y, x % y)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;(2.0, 1.0)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;type(divmod(5, 2.0)) # the type of output from divmod
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;tuple
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a name=&quot;python-order-of-operation&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;order-of-operation-in-python&quot;&gt;Order of operation in Python&lt;/h3&gt;
-&lt;p&gt;The order of operation in Python is pretty much the same as in any other sane language: &lt;strong&gt;anything inside Paratheses&lt;/strong&gt; has precendence over &lt;strong&gt;Exponentiation (**)&lt;/strong&gt; has precedence over &lt;strong&gt;Multiplication &amp;amp; Division (/ &amp;amp; *)&lt;/strong&gt; has precedence over &lt;strong&gt;Addition &amp;amp; Subtraction (+ &amp;amp; -)&lt;/strong&gt;. In abbreviation, the rule of operation precendence is &lt;strong&gt;PEMDAS&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print(&quot;3 + 2.0 - 3 * 2 / 3 =&quot;,3 + 2.0 - 3 * 2 / 3)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;3 + 2.0 - 3 * 2 / 3 = 3.0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a name=&quot;python-string-operation&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;operations-on-string-values-in-python&quot;&gt;Operations on string values in Python&lt;/h4&gt;
-&lt;p&gt;You can concatenate strings in Python just like &lt;strong&gt;adding&lt;/strong&gt; numbers together. Also, you can &lt;strong&gt;multiply&lt;/strong&gt; string values by a number, to get mutiple copies of the string value.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'Amir ' + 'Shahmoradl ' + 'is my full name!' # You can add strings together just like numbers. This is called string concatenation.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;'Amir Shahmoradl is my full name!'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir' - 'shahmoradi' # This is meaningless and syntactically invalid in Python
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;---------------------------------------------------------------------------
-
-TypeError                                 Traceback (most recent call last)
-
-&amp;lt;ipython-input-6-41f5035ed36a&amp;gt; in &amp;lt;module&amp;gt;()
-----&amp;gt; 1 'amir' - 'shahmoradi' # This is meaningless and syntactically invalid in Python
-
-
-TypeError: unsupported operand type(s) for -: 'str' and 'str'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir ' * 5 + 'is 5 amirs concatenated!' # multiplying string values by some number
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;'amir amir amir amir amir is 5 amirs concatenated!'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir ' * 's' # meaningless
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;---------------------------------------------------------------------------
-
-TypeError                                 Traceback (most recent call last)
-
-&amp;lt;ipython-input-11-ddce79744de9&amp;gt; in &amp;lt;module&amp;gt;()
-----&amp;gt; 1 'amir ' * 'r' # meaningless
-
-
-TypeError: can't multiply sequence by non-int of type 'str'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir' / 's' # also meaningless
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;---------------------------------------------------------------------------
-
-TypeError                                 Traceback (most recent call last)
-
-&amp;lt;ipython-input-12-b6e45f1a8ab1&amp;gt; in &amp;lt;module&amp;gt;()
-----&amp;gt; 1 'amir' / 's' # also meaningless
-
-
-TypeError: unsupported operand type(s) for /: 'str' and 'str'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-    &lt;b&gt;COOL FEATURE FOR STRING MANIPULATION&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
-    Note that string values are like vectors of characters in Python! you can call a specific element of it!  
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;!--
-&lt;br&gt;
-&lt;div class=&quot;center&quot;&gt;
-    &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
-        &lt;b&gt;COOL FEATURE FOR STRING MANIPULATION&lt;/b&gt;&lt;br&gt;&lt;br&gt;
-        Note that string values are like vectors of characters in Python! you can call a specific element of it!  
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;br&gt;
---&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir'[0] # first letter in the string
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;'a'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-    &lt;b&gt;NOTE&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
-    In order to count elements from the end of the string, use negative in the index.
-&lt;/blockquote&gt;
-
-&lt;!--
-&lt;br&gt;
-&lt;div class=&quot;center&quot;&gt;
-    &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
-        &lt;b&gt;NOTE&lt;/b&gt;&lt;br&gt;&lt;br&gt;
-        In order to count elements from the end of the string, use negative in the index.
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;br&gt;
---&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir'[-2] # the second letter from the end of the string
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;'i'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir'[-2:-3] # you get nothing because of incorrect indices
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;''
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir'[-3:-2] # you get something because of correct indices!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;'m'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir'[-3] # this is the same as 'amir'[-3:-2] 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;'m'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir'[-3:] # This outputs the three last letters of the string
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;'mir'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amirShahmoradi'[:-3] # This outputs the letters of the string from the beginning up to the fourth letter from the end.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;'amirShahmor'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amirShahmoradi'[::-1] # This outputs ALL the letters in the string in reverse, from the end to the beginning.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;'idaromhahSrima'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amirShahmoradi'[::-2] # This outputs every other letter in the string in reverse, from the end to the beginning.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;'iaohhrm'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amirShahmoradi'[-3:].upper() # This outputs the third last letters of the string
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;'ADI'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-    &lt;b&gt;NOTE: List of string manipulation methods&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
-    To see the full list of powerfull string methods that can manipulate strings, like the above example, see &lt;a href=&quot;https://docs.python.org/2/library/stdtypes.html#string-methods&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;.
-&lt;/blockquote&gt;
-
-&lt;!--
-&lt;div class=&quot;center&quot;&gt;
-    &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
-        &lt;b&gt;NOTE: List of string manipulation methods&lt;/b&gt;&lt;br&gt;&lt;br&gt;
-        To see the full list of powerfull string methods that can manipulate strings, like the above example, see &lt;a href=&quot;https://docs.python.org/2/library/stdtypes.html#string-methods&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;.
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;br&gt;
---&gt;
-
-&lt;p&gt;&lt;a name=&quot;python-boolean-operations&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;boolean-operations-in-python&quot;&gt;Boolean operations in Python&lt;/h4&gt;
-&lt;p&gt;As we mentioned before, Boolean types are a subclass of Integers. Boolean operations are essential in branching statements.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;True or False # This is OR logical operation
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;True
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;True and False # This is AND logical operation
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;False
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;not True # This is not logical operation
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;False
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir' is 'amir' # object identity comarison
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;True
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir' is not 'Jake!' # negated object identity
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;True
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In addition, to the above operations, there also other more complex Boolean operations in Python, some of which you can study further &lt;a href=&quot;https://docs.python.org/2/library/stdtypes.html#bitwise-operations-on-integer-types&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;blockquote&gt;
-    &lt;b&gt;NOTE: Object's identity in Python&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
-    To get the  identity of an object, use Python's &lt;code&gt;id()&lt;/code&gt; command. &lt;code&gt;id()&lt;/code&gt; is a built-in function in Python 3, which returns the identity of an object. This identity is a unique integer for that object during its lifetime. This unique id is also the address of the object in the device memory. Keep in mind that the object's id might change from one computer to another, from one run to another run.  
-&lt;/blockquote&gt;
-
-&lt;!--
-&lt;div class=&quot;center&quot;&gt;
-    &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
-        &lt;b&gt;NOTE: Object's identity in Python&lt;/b&gt;&lt;br&gt;&lt;br&gt;
-        To get the  identity of an object, use Python's &lt;code&gt;id()&lt;/code&gt; command. &lt;code&gt;id()&lt;/code&gt; is a built-in function in Python 3, which returns the identity of an object. This identity is a unique integer for that object during its lifetime. This unique id is also the address of the object in the device memory. Keep in mind that the object's id might change from one computer to another, from one run to another run.  
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;br&gt;
---&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;id('amir')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;81758280
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;id(2)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;501744144
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;id(2) == id(3) # equality operation: tests for the same value
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;False
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;id(2) != id(3) # inequality operation
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;True
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-    &lt;b&gt;ATTENTION&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
-    Be very careful with operations &lt;code&gt;is&lt;/code&gt; and &lt;code&gt;equality&lt;/code&gt; ! These two are not the same! See the examples below.
-&lt;/blockquote&gt;
-
-&lt;!--
-&lt;div class=&quot;center&quot;&gt;
-    &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
-        &lt;b&gt;ATTENTION&lt;/b&gt;&lt;br&gt;&lt;br&gt;
-        Be very careful with operations `is` and `equality` ! These two are not the same! See the examples below.
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;br&gt;
---&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;(1,1) is (1,1) # Two similar tuples have not the same identifiers in Python! Will soon see what tuples are.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;False
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;(1,1) == (1,1) # Two similar tuples have the same value in Python!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;True
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a name=&quot;python-boolean-operations-string-comparison&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h5 id=&quot;string-comparison&quot;&gt;String comparison&lt;/h5&gt;
-&lt;p&gt;Strings are compared lexicographically using the numeric equivalents in ASCII codes (the result of the built-in Python function &lt;code&gt;ord()&lt;/code&gt; of their characters.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir' &amp;gt; 'jake' # String comparison. Basically the character ASCII codes are compared here.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;False
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir' &amp;gt; 'Jake' # 'J' is ahead of 'a' in ASCII characters.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;True
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir' &amp;gt; 'Amir' # 'A' is ahead of (smaller than) 'a' in ASCII characters.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;True
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'amir' &amp;gt; 'amis' # Comaprison is performed is equality for each character holds, until the end is reached.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;False
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a name=&quot;python-values-types-print&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;pythons-print-function&quot;&gt;Python’s print function&lt;/h3&gt;
-&lt;p&gt;We have already used print function to create the first Python program. But note also the difference in &lt;code&gt;print&lt;/code&gt; between the two Python versions. In &lt;strong&gt;Python 3&lt;/strong&gt;, &lt;code&gt;print&lt;/code&gt; is a &lt;strong&gt;Python function&lt;/strong&gt;, whereas in &lt;strong&gt;Python 2&lt;/strong&gt;, it is a &lt;strong&gt;Python statement&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print('My name is Amir')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;My name is Amir
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; You can use wildcards in Python strings. You can also use double quotes for strings.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print(&quot;My name is Amir&quot;,'\n') # You can use wildcards in Python strings. You can also use double quotes for strings.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;My name is Amir 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print('My name is Amir','\n'*2,&quot;I do work at \&quot;UT Austin\&quot;.&quot;) 
-print('''
-You can multiply strings by integer! \n
-Note how I used wildcards for quotation marks around &quot;UT Austin&quot; in my previous print function, in order to be consistent with Python syntax.
-
-Did you also notice how I am creating a multi-line Python string right now?!
-''')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;My name is Amir 
-
- I do work at &quot;UT Austin&quot;.
-
-You can multiply strings by integer! 
-
-Note how I used wildcards for quotation marks around &quot;UT Austin&quot; in my previous print function, in order to be consistent with Python syntax.
-
-Did you also notice how I am creating a multi-line Python string right now?!
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&quot;&quot;&quot;
-This is also a multi-line
-comment in
-Python
-&quot;&quot;&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;'\nThis is also a multi-line\ncomment in\nPython\n'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;'''
-You can use single quotes
-for multi-line commenting as well.
-Always be as expressive as possible with your comments in you code.
-It does not harm!
-'''
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;'\nYou can use single quotes\nfor multi-line commenting as well.\nAlways be as expressive as possible with your comments in you code.\nIt does not harm!\n'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In the following section, you will learn much more about the &lt;code&gt;print&lt;/code&gt; function, especiallu when dealing with variables.&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;python-variables&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;variables-in-python&quot;&gt;Variables in Python&lt;/h3&gt;
-&lt;p&gt;Python has 6 main variable types:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Number&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;String&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;List&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tuple&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Dictionary&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Sets&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;We will get to each of these soon. The variable naming convention in Python is that each variable starts with a letter and can contain only letters, numbers or underscore “_”.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;var1 = 1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print('value of var1 is ',var1,'.')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;value of var1 is  1 .
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a_long_variable_name = 2.5 # The variable name can be almost as long as you wish
-print(a_long_variable_name)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;2.5
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a name=&quot;python-variables-naming-convention&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;variable-naming-convention-in-python&quot;&gt;Variable naming convention in Python&lt;/h4&gt;
-&lt;p&gt;A Python variable can only begin with letter or underscore _. Numbers are only valid if they appear inside or at the end of the variable name. Other symbols are syntactically invalid anywhere in a variable name.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;123new_var = 2.5 # This is an invalid name
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;  File &quot;&amp;lt;ipython-input-10-0e3e63931842&amp;gt;&quot;, line 1
-    123new_var = 2.5 # This is an invalid name
-             ^
-SyntaxError: invalid syntax
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;new_var$ = 2.5 # symbols are not valid in Python variable names
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;  File &quot;&amp;lt;ipython-input-12-71f3fbc68938&amp;gt;&quot;, line 1
-    new_var$ = 2.5 # symbols are not valid in Python variable names
-           ^
-SyntaxError: invalid syntax
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;amir = &quot;teacher&quot;
-print('Amir is a', amir)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;Amir is a teacher
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;123amir = &quot;teacher&quot; # Wrong name for variable
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;  File &quot;&amp;lt;ipython-input-38-85ed673cd303&amp;gt;&quot;, line 1
-    123amir = &quot;teacher&quot;
-          ^
-SyntaxError: invalid syntax
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;life_expectancy = 120; print( &quot;The life expectancy for the millennials is projected to be %d years! (But don't believe it...)&quot; % (life_expectancy) );
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;The life expectancy for the millennials is projected to be 120 years! (But don't believe it...)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# Now lets do a Physics calculation.
-v0 = 5; # initial velocity for a projectile motion.
-g = 9.81 # Earth gravity acceleration.
-t = 0.6
-y = v0*t - 0.5*g*t**2
-print('''
-At t = %f seconds, a ball with initial velocity v0 = %.3E m/s is located at the height %.2f m.
-''' % (t,v0,y) )
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;At t = 0.600000 seconds, a ball with initial velocity v0 = 5.000E+00 m/s is located at the height 1.23 m.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# or on multi-line:
-print('''
-At t = %f seconds,
-a ball with initial velocity v0 = %.3E m/s
-is located at the height %.2f m.
-100%% accurate!
-''' % (t,v0,y) )
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;At t = 0.600000 seconds,
-a ball with initial velocity v0 = 5.000E+00 m/s
-is located at the height 1.23 m.
-100% accurate!
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Here are some &lt;code&gt;printf&lt;/code&gt; format specifications, that can be used with &lt;code&gt;print&lt;/code&gt; function:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;%s   for string&lt;/li&gt;
-  &lt;li&gt;%d   for integer&lt;/li&gt;
-  &lt;li&gt;%0xd for integer padded with x zeros&lt;/li&gt;
-  &lt;li&gt;%f   for decimal notation with 6 decimals&lt;/li&gt;
-  &lt;li&gt;%e   for scientific notation&lt;/li&gt;
-  &lt;li&gt;%E   for scientific notation&lt;/li&gt;
-  &lt;li&gt;%%   percentage sign itself&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;There is also a a more recent, recommended way of determining the string format in Python, using &lt;code&gt;.format()&lt;/code&gt; method, about which you find some more useful information &lt;a href=&quot;https://pyformat.info/&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/4-python-values-variables-types&quot;&gt;Lecture 4: Python - values, variables, and types&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 22, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Homework 3: Problems - Python debugging and string manipulation]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/3-problems-python-values-variables-types"/>
-  <id>http:/ECL2017S/homework/3-problems-python-values-variables-types</id>
-  <published>2017-02-22T00:00:00-06:00</published>
-  <updated>2017-02-22T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This homework aims at giving you some experience with String manipulation in Python and debugging a simple Python script. String manipulation is one of the greatest strengths and reasons for popularity of Python. For both questions below, submit your Python scripts in the corresponding &lt;code&gt;*.py&lt;/code&gt; files, and add a readme.md file in HW 3 folder of your project if you need to add any additional explanation (Don’t forget to use markdown syntax highlight in your readme file).&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Download &lt;a href=&quot;http:/ECL2017S/homework/3/python_script_full_of_errors.pi&quot; target=&quot;_blank&quot;&gt;this Python script&lt;/a&gt;. This Python script is full of syntax, runtime, and semantic errors. Please identify and corrent these errors, such that code becomes fully executable and outputs the following message on the screen, when run from the Git Bash command line:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;The life expectancy for the millennials is projected to be 120 years! (But don't believe it...)
-
-
-    A recent study published in the journal of Nature, discovered that over the past century,
-    although the life expectancy has significantly increased due to technological advances,
-    the maximum life span of the oldest people in the world has not changed much.
-
-
-Cardano was the first to introduce complex numbers of the form a + sqrt(-b) into algebra, but he had misgivings about it.
-In his solution to an algebra equation he encountered the solution 5 + sqrt(-15) for the unknown, which is now mathematically represented by
-
-       (5+3.872983346207417j)
-
-in Python, which can also be obtained as an addition of real and imaginary numbers in Python like this
-
-
-      5 + sqrt(-15) = (5+3.872983346207417j),
-
-
-      which can also be manually stated as
-
-
-      (5+3.872983346207417j)
-
-
-
-
-
-One final note:
-
-        In python the sqrt function from math and cmath modules are different.
-        The sqrt function that returns &quot;float&quot; results is sqrt from math module.
-        Therefore, if using math module, then,
-
-                sqrt(25) = 5.0000,
-
-        which is obviously a float (real number).
-
-
-
-
-Also note that by convention, 0**0 = 1 in Python.
-And division by 0, will give you a runtime exception: 1/0 = NaN
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Identify at least one example in the code for each of the error types.&lt;/p&gt;
-
-&lt;p&gt;Here are a few hints:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;You need to get familiar with string formatting in &lt;code&gt;print&lt;/code&gt; function. See &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/lecture/4-python-values-variables-types&quot; target=&quot;_blank&quot;&gt;Lecture 4&lt;/a&gt;.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Note that in Python, the interpreter is sensitive to &lt;a href=&quot;https://www.python.org/dev/peps/pep-0008/#indentation&quot; target=&quot;_blank&quot;&gt;indentations&lt;/a&gt; in your codes. All lines must be aligned at the beginning (except for looping and branching, … which we will get to them later on).&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Become familiar with &lt;a href=&quot;http://python-reference.readthedocs.io/en/latest/docs/str/escapes.html&quot; target=&quot;_blank&quot;&gt;escape characters&lt;/a&gt; in Python, such as &lt;code&gt;'\n'&lt;/code&gt;, &lt;code&gt;'\t'&lt;/code&gt;, and &lt;code&gt;'\t'&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Write a Python script that is directly executable from the Git Bash command line, without any need to invoke &lt;code&gt;python&lt;/code&gt; interpreter. The script should produce &lt;strong&gt;exactly&lt;/strong&gt; the following output, including line breaks and separations. Each part of the output (separated by a line-break, or a new-line character &lt;code&gt;'\n'&lt;/code&gt; from the rest) is generated by &lt;strong&gt;only and only one call&lt;/strong&gt; to print function.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;This is Python version 3.5.2 
-
-Python is the best language for String manipulation!
-
-!noitalupinam gnirtS rof egaugnal tseb eht si nohtyP
-
-!otlpnmgit o gunlte h inhy
-
-pYTHON IS THE BEST LANGUAGE FOR sTRING MANIPULATION!
-
-
-The sentence 'Python is the best language for String manipulation!' contains 
-4 'a' letters, and
-0 'A' letters!
-
-Python
-is
-the
-best
-language
-for
-String
-manipulation!
-
-PYTHON
-IS
-THE
-BEST
-LANGUAGE
-FOR
-STRING
-MANIPULATION!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Here are some hints (all the information you need to answer this question can be found in &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/lecture/4-python-values-variables-types&quot; target=&quot;_blank&quot;&gt;Lecture 4&lt;/a&gt;):&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;To make the script executable, add the appropriate shebang to the script’s file.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Import the appropriate module to get the python version command, as we did in class. Use &lt;code&gt;print&lt;/code&gt; function to print the Python version.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Define a String variable &lt;code&gt;my_string&lt;/code&gt; which contains the string value “Python is the best language for String manipulation!” ( Of course, you can totally accomplish this question without defining a string variable, by only using the string value itself wherever needed… This is also totally fine at this point in our course, if your prefer this method).&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Then use the appropriate examples and external links provided in &lt;a href=&quot;http://www.shahmoradi.orghttp:/ECL2017S/lecture/4-python-values-variables-types&quot; target=&quot;_blank&quot;&gt;Lecture 4&lt;/a&gt;, to find the proper &lt;strong&gt;string methods&lt;/strong&gt; that can manipulate this string variable/value in order to generate each of the outputs printed above.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Again, note that for each output, the entire output must result from &lt;strong&gt;one single call&lt;/strong&gt; to function &lt;code&gt;print&lt;/code&gt;.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Wherever needed, use the &lt;a href=&quot;http://python-reference.readthedocs.io/en/latest/docs/str/escapes.html&quot; target=&quot;_blank&quot;&gt;escape character&lt;/a&gt; value &lt;code&gt;'\n'&lt;/code&gt; in &lt;code&gt;print&lt;/code&gt; input arguments, in order to generate a line-break (or new line) in the output.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/3-problems-python-values-variables-types&quot;&gt;Homework 3: Problems - Python debugging and string manipulation&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 22, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Quiz 3: Solutions - Advanced Git]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/quiz/3-solutions-advanced-git"/>
-  <id>http:/ECL2017S/quiz/3-solutions-advanced-git</id>
-  <published>2017-02-15T00:00:00-06:00</published>
-  <updated>2017-02-15T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This is the solution to &lt;a href=&quot;3-problems-advanced-git.html&quot; target=&quot;_blank&quot;&gt;Quiz 3: Problems - Advanced Git&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The following figure illustrates the grade distribution for this quiz.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/quiz/gradeDist/gradeHistQuiz3.png&quot; width=&quot;700&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:center&quot;&gt;
-        Maximum possible points is 100.
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;This quiz aims at testing your knowledge of advanced Git commands, such as branching.
-Don’t forget to push your answers to your remote repository by the end of quiz time.&lt;br /&gt;
-Push your quiz-3 &lt;em&gt;readme.md&lt;/em&gt; file to quiz/3/ folder in your Github project.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Write down two out of the three different existing commands for getting help about &lt;code&gt;git add&lt;/code&gt; command.&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git add --help
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git help add
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ man git-add
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Write down the Git command that gives information about the last 3 commits in the project’s history.&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git log -3
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Write down a shortcut Git command that creates a new branch &lt;em&gt;development&lt;/em&gt; and switches to it automatically.&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git checkout -b development
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Write down the Git command for deleting the branch &lt;em&gt;development&lt;/em&gt;.&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git branch -d development
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Is it possible to delete a Git branch while the branch is already checked out to the working directory?&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
-No. One cannot delete a branch while it is checked out to the working directory.&lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;What is the Git command that lists ALL tags in the project?&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git tag
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Name the three different generations (not different software) of Version Control Systems ever developed. If you don’t remember the exact names, you can instead briefly explain how each VCS paradigm works.&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
-Local VCS, Centralized VCS, Distributed VCS. For details of each VCS paradigm see &lt;a href=&quot;http:/ECL2017S/lecture/1-version-control-system&quot; target=&quot;_blank&quot;&gt;this lecture&lt;/a&gt;.
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/3-solutions-advanced-git&quot;&gt;Quiz 3: Solutions - Advanced Git&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on February 15, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>
