@@ -112,11 +112,6 @@ callback([
   } ,
 
   {
-    "text": "Homework 8: Solutions - Python array computing and plotting",
-    "href": "/ECL2017S/homework/8-solutions-python-array-computing-plotting"
-  } ,
-
-  {
     "text": "Homework 8: Problems - Python array computing and plotting",
     "href": "/ECL2017S/homework/8-problems-python-array-computing-plotting"
   } ,
