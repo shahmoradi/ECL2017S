@@ -49,7 +49,23 @@
         <loc>/ECL2017S/page2/</loc>
     </url>
     
+    <url>
+        <loc>/ECL2017S/page3/</loc>
+    </url>
+    
 
+    
+    <url>
+        <loc>/ECL2017S/lecture/9-python-array-computing-plotting</loc>
+    </url>
+    
+    <url>
+        <loc>/ECL2017S/homework/8-solutions-python-array-computing-plotting</loc>
+    </url>
+    
+    <url>
+        <loc>/ECL2017S/homework/8-problems-python-array-computing-plotting</loc>
+    </url>
     
     <url>
         <loc>/ECL2017S/quiz/6-solutions-python-modules-loops-io</loc>
@@ -60,7 +76,7 @@
     </url>
     
     <url>
-        <loc>/ECL2017S/lecture/8-python-io-error-handling-unit-testing</loc>
+        <loc>/ECL2017S/lecture/8-python-io-error-handling-unit-testing-Copy</loc>
     </url>
     
     <url>

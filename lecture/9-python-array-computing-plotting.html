@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>LECTURE 9: PYTHON - ARRAY COMPUTING AND PLOTTING &vert; COE 111L - SPRING 2017</title>
+<meta name="description" content="Engineering Computation Lab">
+<meta name="keywords" content="">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/ECL2017S/images/logo.png">
+<meta name="twitter:title" content="Lecture 9: Python - array computing and plotting">
+<meta name="twitter:description" content="Engineering Computation Lab">
+<meta name="twitter:creator" content="@AmirShahmoradi">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lecture 9: Python - array computing and plotting">
+<meta property="og:description" content="Engineering Computation Lab">
+<meta property="og:url" content="/ECL2017S/lecture/9-python-array-computing-plotting">
+<meta property="og:site_name" content="COE 111L - Spring 2017">
+<meta property="og:image" content="/ECL2017S/images/">
+
+
+
+
+
+<link rel="canonical" href="/ECL2017S/lecture/9-python-array-computing-plotting">
+<!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 Feed"> -->
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,300,800,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/ECL2017S/assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/normalize.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/nprogress.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/foundation.min.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/style.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/post.css">
+
+
+
+
+<!--Mathjax loader: taken from http://stackoverflow.com/questions/2188884/how-can-i-mix-latex-in-with-markdown-->
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+    }
+});
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!--End of Mathjax loader: taken from http://stackoverflow.com/questions/2188884/how-can-i-mix-latex-in-with-markdown-->
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/ECL2017S/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/ECL2017S/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/ECL2017S/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/ECL2017S/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/ECL2017S/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/ECL2017S/images/apple-touch-icon-144x144-precomposed.png">
+
+<!-- 
+<link href="/ECL2017S/assets/css/prismTwilight.css" rel="stylesheet" />
+<link href="/ECL2017S/assets/css/prismDefault.css" rel="stylesheet" />
+<link href="/ECL2017S/assets/css/prismCoy.css" rel="stylesheet" />
+-->
+<link href="/ECL2017S/assets/css/prismOkaidia.css" rel="stylesheet" />
+
+<!--The following are for automatic generation of header anchor links: adopted from: http://ben.balter.com/2014/03/13/pages-anchor-links/-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<style type="text/css">@media only screen and (min-width:43.75em){.notepad-post-content div>p:first-child:first-letter{float:left;font-size:4.688rem;line-height:4.375rem;padding-top:.25rem;padding-right:.5rem;padding-left:.188rem;font-family:serif}}</style>
+</head>
+<body class="post-template" itemscope itemtype="http://schema.org/WebPage">  
+
+        <main id="notepad-post-container-simple" class="notepad-post-container-simple" role="main">
+            <header class="notepad-post-header-simple">
+                <div class="notepad-post-menu-header-simple">
+
+                    <a class="notepad-blog-logo" href="http://www.shahmoradi.org" target="_blank"><img src="/ECL2017S/images/logo.png" alt="shahmoradi.org" /></a>
+
+                <div class="notepad-blog-menu">      
+    <div class="notepad-mobile-menu show-for-small">
+        <a href="#"><i class="fa fa-bars"></i></a>
+    </div>
+    <ul class="notepad-menu">
+        <li class="notepad-mobile-close-btn show-for-small text-right">
+            <a href="#"><i class="fa fa-times"></i></a>
+        </li>
+
+            <li>
+                    <a href="/ECL2017S/">Home</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/highlights">Highlights</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/categories">Categories</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/about">About</a>
+                 </li>
+            
+           <li><a href="/ECL2017S/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+    </ul>
+
+</div>
+            </div>
+
+                <div class="notepad-post-title-simple row">
+                    <div class="small-12 columns">
+                        <div class="notepad-post-meta-simple">
+                            <h2>Lecture 9: Python - array computing and plotting</h2>
+                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-04-12T00:00:00-05:00">12 Apr 2017</time></strong></p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+        
+            <article class="notepad-post-content post tag-simple">
+        
+            <div style="text-align:justify;">
+                <p>This lecture focuses on array computating and code vectorization, as well as methods of plotting data in Python.</p>
+
+<div class="post_toc"></div>
+
+<h2 id="vectorization-and-array-computing">Vectorization and array computing</h2>
+
+<p>With regards to capabilities of Python for scientific calculations, there are conflicting opinions. On the scientific side of the opnion spectrum, some people think that Python is not good enough for number crunching (as a result which, new progamming languages such as <a href="https://en.wikipedia.org/wiki/Julia_(programming_language)" target="_blank">Julia</a> have been developed). However, there are people at the other extreme who believe that Python is too much oriented towards scientific computation (as result of which, new programming languages have emerged, such as Google’s <a href="https://en.wikipedia.org/wiki/Go_(programming_language)" target="_blank">Go language</a>.</p>
+
+<p>So far in this course, you may have noticed that all numerical vector calculations were either performed with lists, tuples, or dictionaries. Sadly, Python standard does not have an intrinsic special way of defining and manipulating numerical vectors and arrays, unlike most High Performance Computing (HPC) languages for scientific computations (such as Fortran, Ada, or C). However, there are powerful Python modules that enable a Python programmer to use Python efficiently for numerical analysis as well.</p>
+
+<blockquote>
+If you expect to use Python heavility and mostly for scientific computation in future, you should keep in mind that Python's builtin list, tuple and dictionary types can be very slow for number crunching. 
+</blockquote>
+<p><br /></p>
+
+<h3 id="vectors-arrays-and-the-numerical-python-numpy-package">Vectors, arrays and the Numerical Python (numpy) package</h3>
+
+<p>In Python, a list can be <strong>heterogeneous</strong> meaning that not all its elements are of the same type. An <strong>array object</strong> in Python can be viewed as a variant of a list, but with the following assumptions:</p>
+<ul>
+  <li>All elements must be of the same type, preferably integer, real, or complex numbers, for efficient numerical computing and storage.</li>
+  <li>The number of elements must be known when the array is created.</li>
+  <li>Arrays are not part of standard Python – one needs an additional package called <strong>Numerical Python</strong>, often abbreviated as <strong>NumPy</strong>. The Python name of the package, to be used in import statements, is <code>numpy</code>.</li>
+  <li>With numpy, a wide range of mathematical operations can be done directly on complete arrays, thereby removing the need for loops over array elements. This is commonly called <strong>vectorization</strong>.</li>
+  <li>Arrays with one index are often called <strong>vectors</strong>. Arrays with two indices are used as an efficient data structure for tables, instead of lists of lists. Arrays can also have three or more indices.</li>
+</ul>
+
+<p>The number of elements of an array can be changed, but keep in mind that this can cause significant computational cost. Creating an array of a given length is frequently referred to as <strong>allocating the
+array</strong>. It means that a part of the computer’s memory is marked for being occupied by this array.</p>
+
+<p>To create a numpy array, you will have to first import it,</p>
+<pre><code class="language-python">import numpy as np
+</code></pre>
+<p><br />
+The tradition is to import <code>numpy</code> as <code>np</code>. To convert a list to a numpy array,</p>
+<pre><code class="language-python">In [3]: import numpy as np
+
+In [4]: a = [1,2,3,4,5]
+
+In [5]: a = np.array(a)
+
+In [6]: type(a)
+Out[6]: numpy.ndarray
+
+In [7]: a
+Out[7]: array([1, 2, 3, 4, 5])
+</code></pre>
+<p><br />
+To create a new <strong>array of length n, filled with zeros</strong>,</p>
+<pre><code class="language-python">a = np.zeros(n)
+</code></pre>
+<p><br />
+Note that numpy automatically identifies the appropriate type for all array elements, whether <code>int</code>, <code>float</code>, or etc.</p>
+<pre><code class="language-python">In [10]: a[1]
+Out[10]: 2
+
+In [11]: type(a[1])
+Out[11]: numpy.int32
+</code></pre>
+<p><br />
+Even if there is a single <code>float</code> element in the list, then all elements in the list will be converted to float in the numpy array by default,</p>
+<pre><code class="language-python">In [11]: type(a[1])
+Out[11]: numpy.int32
+
+In [12]: a = [1,2,3,4,5.0]
+
+In [13]: a = np.array(a)
+
+In [14]: type(a[1])
+Out[14]: numpy.float64
+</code></pre>
+<p><br />
+If you want to get the desired element type, then you will have to ask numpy for it explicitly,</p>
+<pre><code class="language-python">In [17]: a = [1,2,3.5,4.9,5.0]
+
+In [18]: a = np.array(a, int)   # convert all elements in the list to integer
+
+In [19]: a
+Out[19]: array([1, 2, 3, 4, 5])
+</code></pre>
+<p><br />
+You can see the full list of input arguments to np.array function <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html" target="_blank">here</a>.</p>
+
+<p>A similar function <code>np.zeros_like()</code> generates an array of zeros where the length is that of the array c and the element type is the same as those in c.</p>
+<pre><code class="language-python">In [33]: b = [1,2,3,4,5,6,7]
+
+In [34]: a = np.zeros_like(b)
+
+In [35]: a
+Out[35]: array([0, 0, 0, 0, 0, 0, 0])
+</code></pre>
+<p><br />
+Often one wants an array to have $n$ elements with uniformly distributed values in an interval $[p,q]$. The numpy function <code>linspace</code> creates such arrays,</p>
+<pre><code class="language-python">In [36]: a = np.linspace(1, 100, 53)
+
+In [37]: a
+Out[37]:
+array([   1.        ,    2.90384615,    4.80769231,    6.71153846,
+          8.61538462,   10.51923077,   12.42307692,   14.32692308,
+         16.23076923,   18.13461538,   20.03846154,   21.94230769,
+         23.84615385,   25.75      ,   27.65384615,   29.55769231,
+         31.46153846,   33.36538462,   35.26923077,   37.17307692,
+         39.07692308,   40.98076923,   42.88461538,   44.78846154,
+         46.69230769,   48.59615385,   50.5       ,   52.40384615,
+         54.30769231,   56.21153846,   58.11538462,   60.01923077,
+         61.92307692,   63.82692308,   65.73076923,   67.63461538,
+         69.53846154,   71.44230769,   73.34615385,   75.25      ,
+         77.15384615,   79.05769231,   80.96153846,   82.86538462,
+         84.76923077,   86.67307692,   88.57692308,   90.48076923,
+         92.38461538,   94.28846154,   96.19230769,   98.09615385,  100.        ])
+</code></pre>
+<p><br /></p>
+
+<h3 id="vectorization">Vectorization</h3>
+<p>Loops over very long arrays may run slowly. An advantage of arrays is that, with arrays, loops can be avoided the whole array be manipulated directly and simultaneously. If you are a Fortran programmer, you are likely already quite familiar with the powerful idea of array computing and vectorization. If not, then consider the following example,</p>
+<pre><code class="language-python">x = np.linspace(0, 2, 201)
+In [39]: x
+Out[39]:
+array([ 0.  ,  0.02,  0.04,  0.06,  0.08,  0.1 ,  0.12,  0.14,  0.16,
+        0.18,  0.2 ,  0.22,  0.24,  0.26,  0.28,  0.3 ,  0.32,  0.34,
+        0.36,  0.38,  0.4 ,  0.42,  0.44,  0.46,  0.48,  0.5 ,  0.52,
+        0.54,  0.56,  0.58,  0.6 ,  0.62,  0.64,  0.66,  0.68,  0.7 ,
+        0.72,  0.74,  0.76,  0.78,  0.8 ,  0.82,  0.84,  0.86,  0.88,
+        0.9 ,  0.92,  0.94,  0.96,  0.98,  1.  ,  1.02,  1.04,  1.06,
+        1.08,  1.1 ,  1.12,  1.14,  1.16,  1.18,  1.2 ,  1.22,  1.24,
+        1.26,  1.28,  1.3 ,  1.32,  1.34,  1.36,  1.38,  1.4 ,  1.42,
+        1.44,  1.46,  1.48,  1.5 ,  1.52,  1.54,  1.56,  1.58,  1.6 ,
+        1.62,  1.64,  1.66,  1.68,  1.7 ,  1.72,  1.74,  1.76,  1.78,
+        1.8 ,  1.82,  1.84,  1.86,  1.88,  1.9 ,  1.92,  1.94,  1.96,
+        1.98,  2.  ])
+</code></pre>
+<p><br />
+Now, if you wanted to calculate the <code>sin</code> of the elements of <code>x</code> in the traditional way, you would do,</p>
+<pre><code class="language-python">In [41]: from math import sin
+
+In [42]: sinX = [sin(i) for i in x]
+</code></pre>
+<p><br />
+This approach however, can be quite time consuming and computationally costly, because <strong>for-loops are very slow in Python</strong>, up to a few hundred times than what you get in Fortran or C.</p>
+
+<p>A more appropriate solution to the above problem is use the <code>sin</code> function from numpy module, which enables vectorization,</p>
+<pre><code class="language-python">sinX = np.sin(x)
+</code></pre>
+<p><br />
+You see, with the above numpy call, there is no need for a for-loop. The above Python code is an example of a <strong>vectorized code</strong> and the previous code which contained for-loop is an example <strong>scalar code</strong>. The numpy functions are capable of handling arrays as input. Compare the performance of the two codes in the above example,</p>
+<pre><code class="language-python">In [45]: %timeit np.sin(x)
+The slowest run took 11.73 times longer than the fastest. This could mean that an intermediate result is being cached.
+100000 loops, best of 3: 2.21 µs per loop
+</code></pre>
+<p><br /></p>
+<pre><code class="language-python">In [46]: %timeit [sin(i) for i in x]
+10000 loops, best of 3: 23.1 µs per loop
+</code></pre>
+<p><br />
+The vectorized code in this example appears to be more than one order of magnitude (more than 10 times) faster than faster than the scalar version of the code.</p>
+
+<p><strong>Why is the vectorized code faster in Python?</strong><br />
+The reason is that numpy uses precompiled Fortran and C loops to loop over the elements of the input array. loops in Fortran and C have far less overhead than loops in Python. Similar to the above example, you can define your own functions that are also vectorized, for example,</p>
+<pre><code class="language-python">def f(x):
+    return x**2*np.exp(-x**2)
+x = np.linspace(-3, 3, 101)
+y = f(x)
+</code></pre>
+<p><br />
+The numpy package also has a method for <strong>Automatic vectorization</strong> of scalar functions (function that only take scalar arguments), for example,</p>
+<pre><code class="language-python">func_vec = np.vectorize(func_scalar)
+</code></pre>
+<p><br />
+However, for serious programming, I do not recommend you to use this numpy functionality as it can be slow and inefficient.</p>
+
+<h4 id="vectorization-of-if-blocks">vectorization of if-blocks</h4>
+<p>For vectorization of calculations involving boleans and if conditions, the solution can be problem dependent, but one common easy way of addrressing simple boolean problems could be <code>where</code> method in numpy package. For example, suppose you have an list of numbers and you would like to perform a task on all negative numbers in the array, say set them all to zero, and leave the positive numbers intact. One solution would be the following,</p>
+<pre><code class="language-python">In [57]: x = np.array([1,-1,3,-5,-6,8,7,4,10])
+
+In [58]: np.where(x&lt;0,0,x)
+Out[58]: array([ 1,  0,  3,  0,  0,  8,  7,  4, 10])
+</code></pre>
+<p><br /></p>
+
+<h4 id="aliasing-vs-copying-arrays">Aliasing vs. copying arrays</h4>
+<p>If you recall from <a href="/ECL2017S/lecture/5-python-variables-assignments#aliasing-vs-copying" target="_blank">lecture </a>, there is a difference between aliasing and copying sequence objects in Python. The same rules also hold for numpy arrays, meaning that if you need an independent copy of an existing array, then you have to use <code>copy</code> method to generate it,</p>
+<pre><code class="language-python">In [63]: a = np.array([1,2,3,4,5])
+
+In [64]: b = a.copy()
+
+In [65]: b[0] = -1
+
+In [66]: a
+Out[66]: array([1, 2, 3, 4, 5])
+
+In [67]: b
+Out[67]: array([-1,  2,  3,  4,  5])
+</code></pre>
+<p><br />
+otherwise a simple equality assignment like <code>b = a</code> will only create an alias for numpy array <code>a</code>.</p>
+<pre><code class="language-python">In [68]: a = np.array([1,2,3,4,5])
+
+In [69]: b = a
+
+In [70]: b[0] = -1
+
+In [71]: a
+Out[71]: array([-1,  2,  3,  4,  5])
+</code></pre>
+<p><br /></p>
+
+<h4 id="in-place-arithmetic-in-python">In-place arithmetic in Python</h4>
+<p>Consider to arrays <code>a</code> and <code>b</code> of the same shape. The expression <code>a += b</code> means <code>a = a + b</code>. There are however hidden differences between the two. In the statement <code>a = a + b</code>, the sum <code>a + b</code> is first computed, yielding a new array, and then the name <code>a</code> is bound to this new array. The old array a is lost unless there are other names assigned to this array. In the statement <code>a += b</code>, elements of <code>b</code> are added directly into the elements of <code>a</code> (in memory). There is no hidden intermediate array as in <code>a = a + b</code>. This implies that <strong><code>a += b</code> is more efficient than <code>a = a + b</code> since Python avoids making an extra array</strong>. In other words, the operators +=, *=, and similar operators, perform <strong>in-place arithmetics</strong> in arrays.</p>
+
+<h4 id="allocating-arrays-in-python">Allocating arrays in Python</h4>
+<p>We have already seen in the above that the <code>np.zeros</code> function is useful for making a new array of a given size. Very often the size and the type of array elements are known a priori or has to match another existing array’s shape and type <code>b</code>. There are two ways of achieving this goal,</p>
+<pre><code class="language-python">In [66]: a
+Out[66]: array([1, 2, 3, 4, 5])
+
+In [67]: b
+Out[67]: array([-1,  2,  3,  4,  5])
+
+In [68]: a
+Out[68]: array([1, 2, 3, 4, 5])
+
+In [69]: b = a.copy()
+
+In [70]: c = np.zeros(a.shape, a.dtype)
+
+In [71]: a.shape
+Out[71]: (5,)
+
+In [72]: a.
+a.T            a.argsort      a.compress     a.cumsum       a.dumps        a.imag         a.min          a.prod         a.reshape      a.shape        a.sum          a.tostring
+a.all          a.astype       a.conj         a.data         a.fill         a.item         a.nbytes       a.ptp          a.resize       a.size         a.swapaxes     a.trace
+a.any          a.base         a.conjugate    a.diagonal     a.flags        a.itemset      a.ndim         a.put          a.round        a.sort         a.take         a.transpose
+a.argmax       a.byteswap     a.copy         a.dot          a.flat         a.itemsize     a.newbyteorder a.ravel        a.searchsorted a.squeeze      a.tobytes      a.var
+a.argmin       a.choose       a.ctypes       a.dtype        a.flatten      a.max          a.nonzero      a.real         a.setfield     a.std          a.tofile       a.view
+a.argpartition a.clip         a.cumprod      a.dump         a.getfield     a.mean         a.partition    a.repeat       a.setflags     a.strides      a.tolist
+</code></pre>
+<p><br />
+Notice how the attribute <code>a.dtype</code> (dtype standing for data type), and <code>x.shape</code> (a tuple) were used in the above example. The shape attribute in array objects holds the shape, i.e., the size of each dimension. The method <code>size</code> returns the total number of elements in the array.</p>
+
+<p>Sometimes one may also want to ensure that an object is an array, and if not, turn it into an array. The <code>np.asarray</code> function is useful in such cases,</p>
+<pre><code class="language-python">a = np.asarray(a)
+</code></pre>
+<p><br />
+Note that one could have also use,</p>
+<pre><code class="language-python">a = np.array(a)
+</code></pre>
+<p><br />
+There is no difference in the output, but note that the second approach does one redundant step, because in the first approach, if the input object is already an array, then there is no need in converting it to an array.</p>
+
+<h4 id="multidimensional-numpy-arrays">Multidimensional NumPy arrays</h4>
+<p>Creating multidimensional arrays is very much the same as vectors in numpy. The only thing to keep in mind is that the shape of the array is given as a tuple to <code>np.array()</code>. For example, to initialize a 3D array of size (0:3,0:5,0:2), you would do,</p>
+<pre><code class="language-python">In [86]: a = np.zeros((3,5,2))
+
+In [87]: a
+Out[87]:
+array([[[ 0.,  0.],
+        [ 0.,  0.],
+        [ 0.,  0.],
+        [ 0.,  0.],
+        [ 0.,  0.]],
+
+       [[ 0.,  0.],
+        [ 0.,  0.],
+        [ 0.,  0.],
+        [ 0.,  0.],
+        [ 0.,  0.]],
+
+       [[ 0.,  0.],
+        [ 0.,  0.],
+        [ 0.,  0.],
+        [ 0.,  0.],
+        [ 0.,  0.]]])
+</code></pre>
+<p><br />
+The arrays created so far have been of type <code>ndarray</code>. NumPy also has a matrix type called <code>matrix</code> or <code>mat</code> for one- and two-dimensional arrays. One-dimensional arrays are then extended with one extra dimension such that they become matrices, i.e., either a row vector or a column vector,</p>
+<pre><code class="language-python">In [99]: x1 = np.array([1, 2, 3], float)
+
+In [100]: x2 = np.matrix(x1) # or np.mat(x1)
+
+In [102]: x3 = np.mat(x1).T # transpose = column vector
+
+In [103]: x3
+Out[103]:
+matrix([[ 1.],
+        [ 2.],
+        [ 3.]])
+
+In [104]: type(x3)
+Out[104]: numpy.matrixlib.defmatrix.matrix
+</code></pre>
+<p><br />
+A special feature of matrix objects in NumPy is that the multiplication operator represents the matrix-matrix, vector-matrix, or matrix-vector product as we know from linear algebra. However, keep in mind that <strong>the multiplication operator between standard ndarray objects is different from multiplication between numpy matrices</strong>. The <code>ndarray</code> multiplication is simply a vectorized version of scalar multiplication,</p>
+<pre><code class="language-python">In [105]: a = np.array([1,2,3])
+
+In [106]: b = np.array([1,2,3])
+
+In [107]: a*b
+Out[107]: array([1, 4, 9])
+</code></pre>
+<p><br />
+whereas, the matrix multiplication would yield,</p>
+<pre><code class="language-python">In [108]: aMat = np.mat(a)
+
+In [109]: bMat = np.mat(b)
+
+In [110]: aMat*bMat.T
+Out[110]: matrix([[14]])
+
+In [111]: aMat.T*bMat
+Out[111]:
+matrix([[1, 2, 3],
+        [2, 4, 6],
+        [3, 6, 9]])
+</code></pre>
+<p><br />
+If you intend to use Python and MATLAB together for your projects, then I recommend you to consider programming with matrices in Python instead of <code>ndarray</code> objects, because the matrix type in Python behaves quite similar to matrices in MATLAB.
+Numpy has a lot more to offer for linear algebra operation, that far beyond the scope of this lecture. More information about algebraic operations in NumPy can be found <a href="https://docs.scipy.org/doc/numpy/reference/routines.linalg.html" target="_blank">here</a>.</p>
+
+<h4 id="symbolic-linear-algebra">Symbolic linear algebra</h4>
+<p>There also a package <a href="http://www.sympy.org/en/index.html" target="_blank">SymPy</a> that supports symbolic computations for linear algebra operations as well,</p>
+<pre><code class="language-python">In [116]: import sympy as sym
+
+In [117]: a = sym.Matrix([[2, 0], [0, 5]])
+
+In [118]: a**-1     # inverse of matrix a
+Out[118]:
+Matrix([
+[1/2,   0],
+[  0, 1/5]])
+
+In [119]: a.inv()   # same as above, inverse of a
+Out[119]:
+Matrix([
+[1/2,   0],
+[  0, 1/5]])
+
+In [120]: a.det()   # determinant of a
+Out[120]: 10
+
+In [121]: a.eigenvals() # eigenvalues of a
+Out[121]: {2: 1, 5: 1}
+
+In [122]: a.eigenvects()    # eigenvectors of a
+Out[122]:
+[(2, 1, [Matrix([
+   [1],
+   [0]])]), (5, 1, [Matrix([
+   [0],
+   [1]])])]
+</code></pre>
+<p><br />
+A tutorial on <code>sympy</code> can be found <a href="http://docs.sympy.org/dev/tutorial/matrices.html" target="_blank">here</a>.</p>
+
+<h2 id="curve-plotting-in-python">Curve plotting in Python</h2>
+<p>The workhorse of plotting in Python is <a href="https://matplotlib.org/" target="_blank">Matplotlib</a> which is a Python 2D plotting library capable of producing publication quality figures. The usage of matplotlib is very similar to MATLAB.</p>
+
+<h3 id="matplotlib-the-workhorse-of-plotting-in-python">Matplotlib, the workhorse of plotting in Python</h3>
+<p>To see how plotting with Matplotlib works, let’s start with a simple example of 2D curve plotting,</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+def f(x):
+    return x**2*np.exp(-x**2)
+x = np.linspace(0, 3, 51) # 51 points between 0 and 3
+y = np.zeros(len(x)) # allocate y with float elements
+for i in range(len(x)):
+    y[i] = f(x[i])
+plt.plot(x, y)
+plt.show()
+</code></pre>
+<p><br />
+If you try the above code in IPython, the out on screen would be something like the following,</p>
+<figure>
+	<img src="/ECL2017S/lecture/9/simple_curve_screen.png" width="900" />
+</figure>
+<p>You can also save the figure output as a file by,</p>
+<pre><code class="language-python">In [8]: plt.plot(x, y)
+Out[8]: [&lt;matplotlib.lines.Line2D at 0x1bff2e479e8&gt;]
+
+In [9]: plt.savefig('simple_curve.pdf') # produces PDF file.
+
+In [10]: plt.savefig('simple_curve.png') # produces PNG file.
+
+In [11]: pwd
+Out[11]: 'C:\\Users\\Amir'  # files are saved here
+</code></pre>
+<p><br />
+Just like MATLAB, the figures could be also decorated with axis labels, plot title, legend and a lot more, in a syntax very much like MATLAB,</p>
+<pre><code class="language-python">plt.plot(x, y)
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend(['x^2*exp(-x^2)'])
+plt.axis([0, 3, -0.05, 0.6]) # [xmin, xmax, ymin, ymax]
+plt.title('A simple Matplotlib decorated plot')
+plt.savefig('simple_curve_decorated.png')
+plt.show()
+</code></pre>
+<p><br />
+which outputs <a href="/ECL2017S/lecture/9/simple_curve_decorated.png" target="_blank">this file</a> in your current directory,</p>
+
+<figure>
+	<img src="/ECL2017S/lecture/9/simple_curve_decorated.png" width="900" />
+</figure>
+
+<h4 id="plotting-multiple-curves-in-one-figure">Plotting multiple curves in one figure</h4>
+<p>Again, similar to MATLAB, this can be achieved by the statement <code>hold('on')</code> like the following,</p>
+<pre><code class="language-python">def f(x):
+    return x**2*np.exp(-x**2)
+def g(x):
+    return x*np.exp(-x)
+x = np.linspace(0, 3, 51) # 51 points between 0 and 3
+yf = np.zeros(len(x)) # allocate y with float elements
+yg = np.zeros(len(x)) # allocate y with float elements
+for i in range(len(x)):
+    yf[i] = f(x[i])
+    yg[i] = g(x[i])
+plt.plot(x, yf, 'r-')   # plot with color red, as line
+plt.hold('on')
+plt.plot(x, yg, 'bo')   # # plot with color blue, as points
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend(['x^2*exp(-x^2)' , 'x*exp(-x)'])
+plt.axis([0, 3, -0.05, 0.6]) # [xmin, xmax, ymin, ymax]
+plt.title('multiple Matplotlib curves in a decorated plot')
+plt.savefig('multiple_curves_decorated.png')
+plt.show()
+</code></pre>
+<p><br />
+The output of the code is a PNG figure <a href="/ECL2017S/lecture/9/multiple_curves_decorated.png" target="_blank">available here</a>.</p>
+
+<figure>
+	<img src="/ECL2017S/lecture/9/multiple_curves_decorated.png" width="900" />
+</figure>
+
+<p>If you need to discontinue multiple plots on the same figure, again, as in MATLAB, you use <code>hold('off')</code>.</p>
+
+<h4 id="subplots-in-matplotlib">Subplots in Matplotlib</h4>
+<p>Suppose you wanted to generate the same curves as in the above example, but each in a different plot, but in the same figure. One way to do this would be like the following,</p>
+<pre><code class="language-python">plt.figure()            # generates a new figure as in MATLAB
+plt.subplot(2,1,1)      # create a 2-row, 1-column subplot, and this is the 1st subplot.
+plt.plot(x, yf, 'r-')   # plot with color red, as line
+plt.subplot(2,1,2)      # this is the 2nd subplot.
+plt.plot(x, yg, 'bo')   # plot with color blue, as points
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend(['x*exp(-x)'])
+plt.axis([0, 3, -0.05, 0.6]) # [xmin, xmax, ymin, ymax]
+plt.title('an example Matplotlib subplot')
+plt.savefig('two_by_one_subplot.png')
+plt.show()
+</code></pre>
+<p><br />
+The output of the code is a PNG figure <a href="/ECL2017S/lecture/9/two_by_one_subplot.png" target="_blank">available here</a>.</p>
+
+<figure>
+	<img src="/ECL2017S/lecture/9/two_by_one_subplot.png" width="900" />
+</figure>
+
+<p>Note that since the decorations appeared only for the second subplot, only the second one in the figure above is decorated with plot title, legend, etc. Also, note that the <code>figure()</code> method creates a new plot window on the screen.</p>
+
+<h3 id="other-plotting-packages">Other plotting packages</h3>
+<p>For more complicated 2D/3D or vector field plotting, you may find Matplotlib inadequate. To address these inadequacies, other packages have been developed which provide interface to more advanced plotting software such as, MATLAB, Gnuplot, Grace, OpenDX, VTK, and others.</p>
+
+<h4 id="easyviz-from-scitools">Easyviz from SciTools</h4>
+<p>Because each of the above mentioned visualization software has its own plotting syntax, a Python module <code>easyviz</code> has been developed which provides a universal interface for any of the above mentioned back-end plotting software. In other words, the user can request eazyvis to use one of the above-mentioned software as the plotting engine in Python, while the syntax of the Python code is universal and the same for all of them, and this is achieved by using <code>eazyvis</code>. Just like Matplotlib, the syntax of <code>eazyvis</code> has been also purposfully made very similar to MATLAB.</p>
+
+<p>The Easyviz module is part of the <a href="https://github.com/hplgit/scitools" target="_blank">SciTools package</a>, which consists of a set of Python tools building on Numerical Python, ScientificPython, the comprehensive SciPy environment, and other packages for scientific computing with Python. However, keep in mind that <strong>SciTools strictly requires <a href="http://python.org" target="_blank">Python v2.7</a> and <a href="http://numpy.org" target="_blank">Numerical Python</a></strong>.</p>
+
+<h4 id="mayavi-visualization-package">Mayavi visualization package</h4>
+<p><a href="http://docs.enthought.com/mayavi/mayavi/" target="_blank">Mayavi</a> is another advanced, free, scientific data visualizer for Python, with emphasis on <strong>three-dimensional visualization techniques</strong>. The package is written in Python, and uses the <a href="http://www.vtk.org/" target="_blank">Visualization Toolkit (VTK)</a> in C++ for rendering graphics. Since VTK can be configured with different backends, so can Mayavi. Mayavi is cross
+platform and runs on most platforms like Mac OS X, Windows, and Linux.</p>
+
+<p><br /><br /></p>
+
+            </div>
+        </article>
+        <div class="cf"></div>
+        <div class="row text-center">
+            <section class="notepad-post-share">
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Lecture 9: Python - array computing and plotting&quot;%20/ECL2017S/lecture/9-python-array-computing-plotting%20via%20&#64;AmirShahmoradi"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/lecture/9-python-array-computing-plotting"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/lecture/9-python-array-computing-plotting"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </section>
+        </div>
+        <div class="cf"></div>
+        
+            <div class="notepad-author-info">
+                <div class="row">
+                    <section class="notepad-post-author small-12 columns">
+                        
+                            <a href="http://www.shahmoradi.org" target="_blank">
+                                <img src="/ECL2017S/images/logo.png" class="notepad-post-author-avatar" alt="Amir Shahmoradi's photo">
+                            </a>
+                        
+                        
+                            <span class="author-label">Author</span>
+                            <h1>Amir Shahmoradi</h1>
+                        
+                        
+                            <p><a href="mailto:amir@ices.utexas.edu" class="author-website">amir@ices.utexas.edu</a></p>
+                        
+                        
+                            <p>Genius is 99% perspiration and 1% inspiration</p>
+                        
+                    </section>
+                </div>
+            </div> 
+        
+        <div class="cf"></div>
+        
+        <section class="notepad-disqus row">
+    <div class="small-12 columns">
+        <h1 class="notepad-comments-header">Comments</h1>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'shahmoradi'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+
+        <div class="cf"></div>
+
+    <footer class="notepad-site-footer">
+    <div class="copyright">
+         <!-- <section>Last updated 2017 / 04 / 09</section></br> -->
+         <section>Last updated Sunday, 09 Apr 2017 at 10:43 PM CST</section></br>
+         <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
+         <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
+         <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>
+         <section><a class="icon-ghost" href="http://www.utexas.edu/" target="_blank">The University of Texas at Austin</a></section></br>
+         <section>201 E 24th Street, Stop C0200</section></br>
+         <section>Austin, TX 78712-1229</section>
+    </div>
+    <div class="social-icons">
+        
+        
+        <a href="http://twitter.com/AmirShahmoradi" target="_blank">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+        
+        
+        <a href="http://github.com/shahmoradi" target="_blank">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-github fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+    </div>
+    
+    <div class="cf"></div>
+</footer> 
+</main>    
+<!-- The following scripts are needed for the dynamic header of pages -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/ECL2017S/assets/js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+  <script src="/ECL2017S/assets/js/vendor/modernizr.js"></script>
+  <script src="/ECL2017S/assets/js/foundation.min.js"></script>
+  
+  <script src="/ECL2017S/assets/js/notepad.js"></script>
+  <script src="/ECL2017S/assets/js/scripts.min.js"></script>
+  <script src="/ECL2017S/assets/js/vendor/nprogress.js"></script>
+  
+  <script>
+    $(document).foundation();
+  </script>
+  <script type='text/javascript'>console.log("N/A");</script>
+  <script type='text/javascript'>console.log("http://www.shahmoradi.org/");</script>
+<!-- End of scripts for the dynamic header of pages -->
+
+<!--The following scripts is for automatic generation of header anchor links: adopted from: http://ben.balter.com/2014/03/13/pages-anchor-links/-->
+<script src="/ECL2017S/assets/js/autoAnchorLink.js"></script>
+<!--End of automatic generation of header anchor links.-->
+
+
+
+<!-- <script src="/ECL2017S/assets/js/prismOkaidia.js"></script>
+<script src="/ECL2017S/assets/js/prismTwilight.js"></script>
+<script src="/ECL2017S/assets/js/prismDefault.js"></script>
+ -->
+<script src="/ECL2017S/assets/js/prismCoy.js"></script>
+
+
+
+
+<!-- Start of Google Analytics Code for Default Guide -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-67460905-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+<!-- End of Google Analytics Code for Default Guide -->
+   
+<!-- Start of StatCounter Code for Default Guide -->
+  <script type="text/javascript">
+    var sc_project=10611821; 
+    var sc_invisible=1; 
+    var sc_security="902e4bb4"; 
+    var scJsHost = (("https:" == document.location.protocol) ?
+    "https://secure." : "http://www.");
+    document.write("<sc"+"ript type='text/javascript' src='" +
+    scJsHost+
+    "statcounter.com/counter/counter.js'></"+"script>");
+    </script>
+    <noscript><div class="statcounter"><a title="shopify visitor
+    statistics" href="http://statcounter.com/shopify/"
+    target="_blank"><img class="statcounter"
+    src="http://c.statcounter.com/10611821/0/902e4bb4/0/"
+    alt="shopify visitor statistics"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide --> 
+<!--automatic Table of Content.-->
+<script src="/ECL2017S/assets/js/autoTOC.js"></script>
+</body>
+</html>

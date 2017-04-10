@@ -62,8 +62,13 @@ callback([
   } ,
 
   {
+    "text": "Lecture 9: Python - array computing and plotting",
+    "href": "/ECL2017S/lecture/9-python-array-computing-plotting"
+  } ,
+
+  {
     "text": "Lecture 8: Python - I/O, error handling, and tesing frameworks",
-    "href": "/ECL2017S/lecture/8-python-io-error-handling-unit-testing"
+    "href": "/ECL2017S/lecture/8-python-io-error-handling-unit-testing-Copy"
   } ,
 
   {
@@ -104,6 +109,16 @@ callback([
   {
     "text": "Lecture 0: Programming history",
     "href": "/ECL2017S/lecture/0-programming-history"
+  } ,
+
+  {
+    "text": "Homework 8: Solutions - Python array computing and plotting",
+    "href": "/ECL2017S/homework/8-solutions-python-array-computing-plotting"
+  } ,
+
+  {
+    "text": "Homework 8: Problems - Python array computing and plotting",
+    "href": "/ECL2017S/homework/8-problems-python-array-computing-plotting"
   } ,
 
   {

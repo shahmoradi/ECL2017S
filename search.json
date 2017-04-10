@@ -1,6 +1,30 @@
 [
 	
 		{
+		  "title"      : "Lecture 9: Python - array computing and plotting",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/lecture/9-python-array-computing-plotting",
+		  "date"       : "2017-04-12 00:00:00 -0500",
+		  "shortdate"  : "April 12, 2017"
+		} ,
+	
+		{
+		  "title"      : "Homework 8: Solutions - Python array computing and plotting",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/homework/8-solutions-python-array-computing-plotting",
+		  "date"       : "2017-04-12 00:00:00 -0500",
+		  "shortdate"  : "April 12, 2017"
+		} ,
+	
+		{
+		  "title"      : "Homework 8: Problems - Python array computing and plotting",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/homework/8-problems-python-array-computing-plotting",
+		  "date"       : "2017-04-12 00:00:00 -0500",
+		  "shortdate"  : "April 12, 2017"
+		} ,
+	
+		{
 		  "title"      : "Quiz 6: Solutions - Python modules, loops, and IO",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/quiz/6-solutions-python-modules-loops-io",
@@ -19,7 +43,7 @@
 		{
 		  "title"      : "Lecture 8: Python - I/O, error handling, and tesing frameworks",
 		  "category"   : "",
-		  "url"        : "/ECL2017S/lecture/8-python-io-error-handling-unit-testing",
+		  "url"        : "/ECL2017S/lecture/8-python-io-error-handling-unit-testing-Copy",
 		  "date"       : "2017-04-05 00:00:00 -0500",
 		  "shortdate"  : "April 05, 2017"
 		} ,
