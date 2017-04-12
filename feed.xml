@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-04-09T22:44:01-05:00</updated>
+<updated>2017-04-12T08:51:58-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -36,7 +36,7 @@
 
 &lt;h2 id=&quot;vectorization-and-array-computing&quot;&gt;Vectorization and array computing&lt;/h2&gt;
 
-&lt;p&gt;With regards to capabilities of Python for scientific calculations, there are conflicting opinions. On the scientific side of the opnion spectrum, some people think that Python is not good enough for number crunching (as a result which, new progamming languages such as &lt;a href=&quot;https://en.wikipedia.org/wiki/Julia_(programming_language)&quot; target=&quot;_blank&quot;&gt;Julia&lt;/a&gt; have been developed). However, there are people at the other extreme who believe that Python is too much oriented towards scientific computation (as result of which, new programming languages have emerged, such as Google’s &lt;a href=&quot;https://en.wikipedia.org/wiki/Go_(programming_language)&quot; target=&quot;_blank&quot;&gt;Go language&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;With regards to capabilities of Python for scientific calculations, there are conflicting opinions. On the scientific side of the opnion spectrum, some people think that Python is not good enough for number crunching (as a result of which, new progamming languages such as &lt;a href=&quot;https://en.wikipedia.org/wiki/Julia_(programming_language)&quot; target=&quot;_blank&quot;&gt;Julia&lt;/a&gt; have been developed). However, there are people at the other extreme who believe that Python is too much oriented towards scientific computation (as a result of which, new programming languages have emerged, such as Google’s &lt;a href=&quot;https://en.wikipedia.org/wiki/Go_(programming_language)&quot; target=&quot;_blank&quot;&gt;Go language&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;So far in this course, you may have noticed that all numerical vector calculations were either performed with lists, tuples, or dictionaries. Sadly, Python standard does not have an intrinsic special way of defining and manipulating numerical vectors and arrays, unlike most High Performance Computing (HPC) languages for scientific computations (such as Fortran, Ada, or C). However, there are powerful Python modules that enable a Python programmer to use Python efficiently for numerical analysis as well.&lt;/p&gt;
 
@@ -112,7 +112,7 @@ Out[19]: array([1, 2, 3, 4, 5])
 &lt;p&gt;&lt;br /&gt;
 You can see the full list of input arguments to np.array function &lt;a href=&quot;https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;A similar function &lt;code&gt;np.zeros_like()&lt;/code&gt; generates an array of zeros where the length is that of the array c and the element type is the same as those in c.&lt;/p&gt;
+&lt;p&gt;A similar function &lt;code&gt;np.zeros_like(c)&lt;/code&gt; generates an array of zeros where the length of the generated array is that of the input array c and the element type is the same as those in c.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [33]: b = [1,2,3,4,5,6,7]
 
 In [34]: a = np.zeros_like(b)
@@ -236,7 +236,7 @@ Out[71]: array([-1,  2,  3,  4,  5])
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;in-place-arithmetic-in-python&quot;&gt;In-place arithmetic in Python&lt;/h4&gt;
-&lt;p&gt;Consider to arrays &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; of the same shape. The expression &lt;code&gt;a += b&lt;/code&gt; means &lt;code&gt;a = a + b&lt;/code&gt;. There are however hidden differences between the two. In the statement &lt;code&gt;a = a + b&lt;/code&gt;, the sum &lt;code&gt;a + b&lt;/code&gt; is first computed, yielding a new array, and then the name &lt;code&gt;a&lt;/code&gt; is bound to this new array. The old array a is lost unless there are other names assigned to this array. In the statement &lt;code&gt;a += b&lt;/code&gt;, elements of &lt;code&gt;b&lt;/code&gt; are added directly into the elements of &lt;code&gt;a&lt;/code&gt; (in memory). There is no hidden intermediate array as in &lt;code&gt;a = a + b&lt;/code&gt;. This implies that &lt;strong&gt;&lt;code&gt;a += b&lt;/code&gt; is more efficient than &lt;code&gt;a = a + b&lt;/code&gt; since Python avoids making an extra array&lt;/strong&gt;. In other words, the operators +=, *=, and similar operators, perform &lt;strong&gt;in-place arithmetics&lt;/strong&gt; in arrays.&lt;/p&gt;
+&lt;p&gt;Consider two arrays &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; of the same shape. The expression &lt;code&gt;a += b&lt;/code&gt; means &lt;code&gt;a = a + b&lt;/code&gt;. There are however hidden differences between the two. In the statement &lt;code&gt;a = a + b&lt;/code&gt;, the sum &lt;code&gt;a + b&lt;/code&gt; is first computed, yielding a new array, and then the name &lt;code&gt;a&lt;/code&gt; is bound to this new array. The old array a is lost unless there are other names assigned to this array. In the statement &lt;code&gt;a += b&lt;/code&gt;, elements of &lt;code&gt;b&lt;/code&gt; are added directly into the elements of &lt;code&gt;a&lt;/code&gt; (in memory). There is no hidden intermediate array as in &lt;code&gt;a = a + b&lt;/code&gt;. This implies that &lt;strong&gt;&lt;code&gt;a += b&lt;/code&gt; is more efficient than &lt;code&gt;a = a + b&lt;/code&gt; since Python avoids making an extra array&lt;/strong&gt;. In other words, the operators +=, *=, and similar operators, perform &lt;strong&gt;in-place arithmetics&lt;/strong&gt; in arrays.&lt;/p&gt;
 
 &lt;h4 id=&quot;allocating-arrays-in-python&quot;&gt;Allocating arrays in Python&lt;/h4&gt;
 &lt;p&gt;We have already seen in the above that the &lt;code&gt;np.zeros&lt;/code&gt; function is useful for making a new array of a given size. Very often the size and the type of array elements are known a priori or has to match another existing array’s shape and type &lt;code&gt;b&lt;/code&gt;. There are two ways of achieving this goal,&lt;/p&gt;
@@ -898,8 +898,8 @@ How many iterations does this for-loop perform before ending? Explain briefly wh
 
 <entry>
   <title type="html"><![CDATA[Lecture 8: Python - I/O, error handling, and tesing frameworks]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/lecture/8-python-io-error-handling-unit-testing-Copy"/>
-  <id>http:/ECL2017S/lecture/8-python-io-error-handling-unit-testing - Copy</id>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/lecture/8-python-io-error-handling-unit-testing"/>
+  <id>http:/ECL2017S/lecture/8-python-io-error-handling-unit-testing</id>
   <published>2017-04-05T00:00:00-05:00</published>
   <updated>2017-04-05T00:00:00-05:00</updated>
   <author>
@@ -1559,7 +1559,7 @@ The example given here, only tests for the robustenss of &lt;code&gt;Newton()&lt
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/8-python-io-error-handling-unit-testing-Copy&quot;&gt;Lecture 8: Python - I/O, error handling, and tesing frameworks&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/8-python-io-error-handling-unit-testing&quot;&gt;Lecture 8: Python - I/O, error handling, and tesing frameworks&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
 </entry>
 
 
