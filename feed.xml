@@ -7,13 +7,74 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-04-19T09:00:06-05:00</updated>
+<updated>2017-04-19T09:15:38-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
   <uri>http:/ECL2017S/</uri>
   <email>amir@ices.utexas.edu</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Quiz 7: Solutions - Python - I/O, error handling, and tesing frameworks]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/quiz/7-solutions-python-io-error-handling-unit-testing"/>
+  <id>http:/ECL2017S/quiz/7-solutions-python-io-error-handling-unit-testing</id>
+  <published>2017-04-19T00:00:00-05:00</published>
+  <updated>2017-04-19T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This is the solution to &lt;a href=&quot;7-problems-python-io-error-handling-unit-testing&quot; target=&quot;_blank&quot;&gt;Quiz 7: Problems - Python - I/O, error handling, and tesing frameworks&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--
+The following figure illustrates the grade distribution for this quiz.  
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/quiz/gradeDist/gradeHistQuiz7.png&quot; width=&quot;700&quot;&gt;
+    &lt;figcaption style=&quot;text-align:center&quot;&gt;
+        Maximum possible points is 100.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+--&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;This quiz aims at testing your basic knowledge of Python’s I/O.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Consider this &lt;a href=&quot;http:/ECL2017S/quiz/7/testInput.in&quot; target=&quot;_blank&quot;&gt;comma-separated data file&lt;/a&gt;. Write a simple Python code &lt;code&gt;outputter.py&lt;/code&gt; that takes two command line arguments like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;python outputter.py outputter.in outputter.out
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+and then writes the same float data in the output file &lt;code&gt;outputter.out&lt;/code&gt; (whose name and path was taken from the command-line), and writes out data in a formatted style, like this &lt;a href=&quot;http:/ECL2017S/quiz/7/outputter.out&quot; target=&quot;_blank&quot;&gt;example output file&lt;/a&gt;, with only three digits after decimal point.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+&lt;a href=&quot;http:/ECL2017S/quiz/7/solutions/outputter.py&quot; target=&quot;_blank&quot;&gt;Here&lt;/a&gt; is an example attempt.&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/7-solutions-python-io-error-handling-unit-testing&quot;&gt;Quiz 7: Solutions - Python - I/O, error handling, and tesing frameworks&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 19, 2017.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -1180,6 +1241,271 @@ Write a vectorized version of this function. (Hint: you may need numpy’s &lt;c
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/8-problems-python-array-computing-plotting&quot;&gt;Homework 8: Problems - Python array computing and plotting&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 12, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Homework 7: Solutions - Python I/O, error handling, and unit testing]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/7-solutions-python-IO-error-handling-unit-testing"/>
+  <id>http:/ECL2017S/homework/7-solutions-python-IO-error-handling-unit-testing</id>
+  <published>2017-04-12T00:00:00-05:00</published>
+  <updated>2017-04-12T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This is the solution to &lt;a href=&quot;7-problems-python-IO-error-handling-unit-testing&quot; target=&quot;_blank&quot;&gt;Homework 7: Problems - Python I/O, error handling, and unit testing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--
+The following figure illustrates the grade distribution for this homework.  
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework7.png&quot; width=&quot;700&quot;&gt;
+    &lt;figcaption style=&quot;text-align:center&quot;&gt;
+        Maximum possible points is 100.&lt;br&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+--&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;This homework aims at giving you some experience with Python I/O, error handling in your code, and testing you code for accuracy and robustness.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Write a simple program named &lt;code&gt;sum.py&lt;/code&gt;, that takes in an arbitrary-size list of input floats from the command-line, and prints out the sum of them on the terminal with the following message,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ python sum.py 1 2 1 23
+The sum of 1 2 1 23 is 27.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Note that you will need to use the Python’s builtin function &lt;code&gt;sum()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import sys
+print( 'The sum of {} is {}'.format( ' '.join(sys.argv[1:]) , sum([float(x) for x in sys.argv[1:]]) )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Here is the Bash output,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ python sum.py 1 2 1 23
+The sum of 1 2 1 23 is 27.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Similar to the previous probelm, write a simple program named &lt;code&gt;sum_via_eval.py&lt;/code&gt;, that takes in an arbitrary-size list of input numbers from the command-line, and prints out the sum of them on the terminal, this time using Python’s &lt;code&gt;eval&lt;/code&gt; function. The program output should look like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ python sum.py 1 2 1 23
+The sum of 1 2 1 23 is 27
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import sys
+print( 'The sum of {} is {}'.format( ' '.join(sys.argv[1:]) , eval('+'.join(sys.argv[1:]) ) ) )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Here is the Bash output,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ python sum.py 1 2 1 23
+The sum of 1 2 1 23 is 27
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Consider &lt;a href=&quot;http:/ECL2017S/homework/7/1A2T_A.dssp&quot; target=&quot;_blank&quot;&gt;this data file&lt;/a&gt;. It contains information about the amino acids in &lt;a href=&quot;http://www.rcsb.org/pdb/explore.do?structureId=1a2t&quot; target=&quot;_blank&quot;&gt;a protein&lt;/a&gt; called &lt;code&gt;1A2T&lt;/code&gt;. Each amino acid in protein is labeled by a single letter. There are 20 amin acid molecules in nature, and each has a total surface area (in units of Angstroms squared) that is given by the following table,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;'A': 129.0
+'R': 274.0
+'N': 195.0
+'D': 193.0
+'C': 167.0
+'Q': 225.0
+'E': 223.0
+'G': 104.0
+'H': 224.0
+'I': 197.0
+'L': 201.0
+'K': 236.0
+'M': 224.0
+'F': 240.0
+'P': 159.0
+'S': 155.0
+'T': 172.0
+'W': 285.0
+'Y': 263.0
+'V': 174.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;However, when these amino acids sit next to each other to form a chain protein, they cover parts of each other, such that only parts of their surfaces is exposed, while the rest is hidden from the outside world by other neighboring amino acids. Therefore, one would expect an amino acid that is at the core of a spherical protein would have almost zero exposed surface area.&lt;/p&gt;
+
+&lt;p&gt;Now given the above information, write a Python program that takes in two command-line input arguments, one of which is a string containing the path to the above &lt;a href=&quot;http:/ECL2017S/homework/7/1A2T_A.dssp&quot; target=&quot;_blank&quot;&gt;input file&lt;/a&gt; &lt;code&gt;1A2T_A.dssp&lt;/code&gt; which contains the partially exposed surface areas of amino acids in protein &lt;code&gt;1A2T&lt;/code&gt; for each of its amino acids, and a second command-line argument which is the path to the file containing output of the code (e.g., it could be &lt;code&gt;./readDSSP.out&lt;/code&gt;). Then,&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;the code reads the content of this file, and&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;extracts the names of the amino acids in this protein from the data column inside the file which has the header &lt;code&gt;AA&lt;/code&gt; (look at the line number 25 inside the input data file, below &lt;code&gt;AA&lt;/code&gt; is the column containing the one-letter names of amino acids in this protein), and&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;also extracts the partially exposed surface area information for each of these amino acids which appear in the column with header &lt;code&gt;ACC&lt;/code&gt;, and&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;then uses the above table of maximum surface area values to calculate the fractional exposed surface area of each amino acid in this protein (i.e., for each amino acid, fraction_of_exposed_surface = ACC / maximum_surface_area_from_table), and&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;finally for each amino acid in this protein, it prints the one-letter name of the amino acid, its corresponding partially exposed surface area (ACC from the input file), and its corresponding fractional exposed surface area (name it RSA) to the output file given by the user on the command line.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;On the first column of the output file, the code should also write the name of the protein (which is basically the name of the input file &lt;code&gt;1A2T_A&lt;/code&gt;) on each line of the output file. &lt;strong&gt;Note that your code should extract the protein name from the input filename&lt;/strong&gt; (by removing the file extension and other unnecessary information from the input command line string). &lt;a href=&quot;http:/ECL2017S/homework/7/readDSSP.out&quot; target=&quot;_blank&quot;&gt;Here&lt;/a&gt; is an example output of the code.&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Your code should also be able to handle an error resulting from less or more than 2 input command line arguments. That is, if the number of input arguments is 3 or 1, then it should input the following message on screen and stop.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./readDSSP.py ./1A2T_A.dssp
+
+
+Usage:
+      ./readDSSP.py &amp;lt;input dssp file&amp;gt; &amp;lt;output summary file&amp;gt;
+
+Program aborted.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+or,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./readDSSP.py ./1A2T_A.dssp ./readDSSP.out amir
+
+
+Usage:
+      ./readDSSP.py &amp;lt;input dssp file&amp;gt; &amp;lt;output summary file&amp;gt;
+
+Program aborted.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+To achieve the above goal, you will have to create a dictionary from the above table, with amino acid names as the keys, and the maximum surface areas as the corresponding values. Name your code &lt;code&gt;readDSSP.py&lt;/code&gt; and submit it to your repository.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Write your code in such a way that it checks for the existence of the output file&lt;/strong&gt;. If it already exists, then it does not remove the content of the file, whereas, it appends new data to the existing file. therwise, if the file does not exist, then it creates a new output file as requested by the user. To do so, you will need to use &lt;code&gt;os.path.isfile&lt;/code&gt; function from module &lt;code&gt;os&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ATTENTION&lt;/strong&gt;: Note that in some rows instead of a one-letter amino acid name, there is &lt;code&gt;!&lt;/code&gt;. In such cases, your code should be able to detect the abnormality and skip that row, because that row does not contain amino acid information.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+An example implementation can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/7/readDSSP.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; Consider the simplest program for evaluating the formula $y(t) = v_0t-\frac{1}{2}gt^2$,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;v0 = 3; g = 9.81; t = 0.6
+y = v0*t - 0.5*g*t**2
+print(y)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+(A) Write a program that takes in the above necessary input data ($t$,$v_0$) as command line arguments.&lt;br /&gt;
+&lt;br /&gt;
+(B) Extend your program from part (A) with exception handling such that missing command-line arguments are detected. For example, if the user has entered enough input arguments, then the code should raise &lt;code&gt;IndexError&lt;/code&gt; exception. In the &lt;code&gt;except IndexError&lt;/code&gt; block, the code should use the &lt;code&gt;input&lt;/code&gt; function to ask the user for the missing input data.&lt;br /&gt;
+&lt;br /&gt;
+(C) Add another exception handling block that tests if the $t$ value read from the command line, lies between $0$ and $2v_0/g$. If not, then it raises a &lt;code&gt;ValueError&lt;/code&gt; exception in the if block on the legal values of $t$, and notifes the user about the legal interval for $t$ in the exception message.&lt;/p&gt;
+
+&lt;p&gt;Here are some example runs of the code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./projectile.py
+Both v0 and t must be supplied on the command line
+v0 = ?
+5
+t = ?
+4
+Traceback (most recent call last):
+  File &quot;./projectile.py&quot;, line 17, in &amp;lt;module&amp;gt;
+    'must be between 0 and 2v0/g = {}'.format(t,2.0*v0/g))
+ValueError: t = 4.0 is a non-physical value.
+must be between 0 and 2v0/g = 1.019367991845056
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./projectile.py
+Both v0 and t must be supplied on the command line
+v0 = ?
+5
+t = ?
+0.5
+y = 1.27375
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./projectile.py 5 0.4
+y = 1.2151999999999998
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./projectile.py 5 0.4 3
+y = 1.2151999999999998
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+&lt;a href=&quot;http:/ECL2017S/homework/7/projectile.py&quot; target=&quot;_blank&quot;&gt;Here&lt;/a&gt; is an example implementation.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. &lt;/strong&gt; Consider the function &lt;code&gt;Newton&lt;/code&gt; that we discussed in &lt;a href=&quot;http:/ECL2017S/lecture/8-python-io-error-handling-unit-testing&quot; target=&quot;_blank&quot;&gt;lecture 8&lt;/a&gt;,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def Newton(f, dfdx, x, eps=1E-7, maxit=100):
+    if not callable(f): raise TypeError( 'f is %s, should be function or class with __call__' % type(f) )
+    if not callable(dfdx): raise TypeError( 'dfdx is %s, should be function or class with __call__' % type(dfdx) )
+    if not isinstance(maxit, int): raise TypeError( 'maxit is %s, must be int' % type(maxit) )
+    if maxit &amp;lt;= 0: raise ValueError( 'maxit=%d &amp;lt;= 0, must be &amp;gt; 0' % maxit )
+    n = 0 # iteration counter
+    while abs(f(x)) &amp;gt; eps and n &amp;lt; maxit:
+        try:
+            x = x - f(x)/float(dfdx(x))
+        except ZeroDivisionError:
+            raise ZeroDivisionError( 'dfdx(%g)=%g - cannot divide by zero' % (x, dfdx(x)) )
+        n += 1
+    return x, f(x), n
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+This function is supposed to be able to handle exceptions such as divergent iterations (which we discussed in the lecture), and division-by-zero. The latter error happens when &lt;code&gt;dfdx(x)=0&lt;/code&gt; in the above code. Write a test code that ensures the above code is able to correctly identify a division-by-zero exception and raise the correct assertionError.&lt;br /&gt;
+(&lt;em&gt;Hint: To do so, you need to consider a test mathematical function as input to &lt;code&gt;Newton&lt;/code&gt;. One example could be $f(x)=\cos(x)$ with a starting search value $x=0$. This would result in derivative value $f’(x=0)=-\sin(x=0)=0$, which should lead to a &lt;code&gt;ZeroDivisionError&lt;/code&gt; exception. Now, write a test function &lt;code&gt;test_Newton_div_by_zero&lt;/code&gt; that can explicitly handle this exception by introducing a boolean variable &lt;code&gt;success&lt;/code&gt; that is &lt;code&gt;True&lt;/code&gt; if the exception is raised and otherwise &lt;code&gt;False&lt;/code&gt;&lt;/em&gt;.)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def test_Newton_div_by_zero():
+    from math import sin, cos
+    f = cos
+    dfdx = lambda x: -sin(x)
+    success = False
+    try:
+        x, f_x, n = Newton(f, dfdx, 0, eps=1E-4, maxit=1)
+    except ZeroDivisionError:
+        success = True
+    assert success , &quot;Test for division-by-zero failed&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/7-solutions-python-IO-error-handling-unit-testing&quot;&gt;Homework 7: Solutions - Python I/O, error handling, and unit testing&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 12, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -5401,559 +5727,6 @@ This format is particularly useful, if the lambda function contains a constant t
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/6-python-branching-functions&quot;&gt;Lecture 6: Python - branching and functions&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 08, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Homework 5: Solutions - Python branching and functions]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/5-solutions-python-branching-functions"/>
-  <id>http:/ECL2017S/homework/5-solutions-python-branching-functions</id>
-  <published>2017-03-08T00:00:00-06:00</published>
-  <updated>2017-03-08T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This is the solution to &lt;a href=&quot;5-problems-python-branching-functions.html&quot; target=&quot;_blank&quot;&gt;Homework 5: Problems - Python branching and functions&lt;/a&gt;.&lt;/p&gt;
-
-&lt;!--
---&gt;
-&lt;p&gt;The following figure illustrates the grade distribution for this homework.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework5.png&quot; width=&quot;700&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:center&quot;&gt;
-        Maximum possible points is 100.
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;This homework aims at giving you some experience with variables in Python and their syntax, also some experience with using Lists and Dictionaries in Python. Write your Python scripts with the corresponding &lt;code&gt;*.py&lt;/code&gt; file names, and add a readme.md file in HW 5 folder of your project if you need to add any additional explanation (Don’t forget to use markdown syntax highlight in your readme file, if needed).&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; In mathematics, the Fibonacci numbers are the numbers in the following integer sequence, called the Fibonacci sequence, that are characterized by the fact that every number after the first two is the sum of the two preceding ones:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;0,~1,~1,~2,~3,~5,~8,~13,~21,~34,~55,~89,~144,~\dots&lt;/script&gt;
-
-&lt;p&gt;with the following sequence equation,&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{eqnarray}
-     Fib(n) &amp;=&amp; Fib(n-1) + Fib(n-2) ~, \\
-     Fib(0) &amp;=&amp; 0 ~, \\
-     Fib(1) &amp;=&amp; 1 ~.
-\end{eqnarray} %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;Write a Python function named &lt;code&gt;fib&lt;/code&gt; that takes in an input argument which should be integer number &lt;code&gt;n&lt;/code&gt;, and then calculates the $n^{th}$ number in the Fibonacci sequence and outputs it on the screen. Also, if the input argument is not a non-negative integer, it prints an error message on the screen and asks the user to re-enter a non-negative integer number. Also, when it is done with finding the requested Fibonacci number, it asks again the user to either input a new non-negative integer, or enter ‘stop’ to end the function, like the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; fib('amir')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;The input argument amir is not a non-negative integer!
-Please enter a non-negative integer: -123
-The input argument -123 is not a non-negative integer!
-Please enter a non-negative integer: 12.4
-The input argument 12.4 is not a non-negative integer!
-Please enter a non-negative integer: 0
-Fib(0) = 0
-Please enter another non-negative integer or type stop: 1
-Fib(1) = 1
-Please enter another non-negative integer or type stop: 2
-Fib(2) = 1
-Please enter another non-negative integer or type stop: 3
-Fib(3) = 2
-Please enter another non-negative integer or type stop: 4
-Fib(4) = 3
-Please enter another non-negative integer or type stop: 5
-Fib(5) = 5
-Please enter another non-negative integer or type stop: 6
-Fib(6) = 8
-Please enter another non-negative integer or type stop: 7
-Fib(7) = 13
-Please enter another non-negative integer or type stop: 8
-Fib(8) = 21
-Please enter another non-negative integer or type stop: 9
-Fib(9) = 34
-Please enter another non-negative integer or type stop: 10
-Fib(10) = 55
-Please enter another non-negative integer or type stop: 11
-Fib(11) = 89
-Please enter another non-negative integer or type stop: 12
-Fib(12) = 144
-Please enter another non-negative integer or type stop: stop
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Hint:&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;First write a function &lt;code&gt;fibo(n_int)&lt;/code&gt; that finds the requested Fibonacci number for you, given a non-negative integer input (for example, name it &lt;code&gt;n_int&lt;/code&gt;).&lt;/li&gt;
-  &lt;li&gt;Then put this function &lt;strong&gt;inside another Python function &lt;code&gt;fib(n)&lt;/code&gt;&lt;/strong&gt; that checks the type of the input argument &lt;code&gt;n&lt;/code&gt; and prints the appropriate error message as in the above and then asks the user to enter another number (and then again checks for its type to be integer).&lt;/li&gt;
-  &lt;li&gt;Then if this number is an integer, this function &lt;code&gt;fib(n)&lt;/code&gt; passes the integer number &lt;code&gt;n&lt;/code&gt; to the function &lt;code&gt;fibo(n_int)&lt;/code&gt; which is inside of itself (it is a &lt;strong&gt;nested function&lt;/strong&gt;), in order to get the requested Fibonacci number.&lt;/li&gt;
-  &lt;li&gt;Finally, once the requested Fibonaccy number is obtained, it prints the number value with the requested format as in the above example, AND then asks again the user to input a new non-negative integer, or simply type &lt;code&gt;stop&lt;/code&gt; to stop the function.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Note that, if you call the function as &lt;code&gt;fib('stop')&lt;/code&gt; in the Python interpreter, it should return nothing to you, just like the following example,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;fib('stop')
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-I highly recommend you to write your function in Jupyter notebook, test it there, and then get the results for the same input arguments as in the above example (a string, negative integer, float, and n=1,…,12, and also ‘stop’) and download all of the notebook as a Markdown file, and put it in your repository folder for this homework. Name the notebook, &lt;code&gt;fib.md&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Also note that, you don’t need to know or use anything beyond Python function syntax, Python built-in functions and methods (like &lt;code&gt;input&lt;/code&gt;, &lt;code&gt;isdigit()&lt;/code&gt;, &lt;code&gt;print&lt;/code&gt;, &lt;code&gt;str()&lt;/code&gt;, &lt;code&gt;int()&lt;/code&gt;, …), and Python if-blocks.&lt;/p&gt;
-&lt;blockquote&gt;
-    I recommend you to use Jupyter notebook on your device, since the online version of notebook, can be interrupted repeatedly because of internet connection.
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def fib(n):
-
-    def fibo(n_int):
-        if n_int==0: return 0
-        elif n_int==1: return 1
-        else:
-            return fibo(n_int-1) + fibo(n_int-2)
-
-    if n=='stop':
-        return None
-    elif not str(n).isdigit():    # Make sure n is integer, if not then
-        print( 'The input argument {} is not a non-negative integer!'.format(n) )    
-        n = input(&quot;Please enter an integer: &quot;)  # Note that n is read as string!
-        return fib(n)
-    else:
-        n=int(n) 
-        print('Fib({}) = {}'.format(n,fibo(n)))
-        n = input(&quot;Please enter another integer or type stop: &quot;)  # Note that n is read as string!
-        return fib(n)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Branching…, the Pythonic way.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(A)&lt;/strong&gt; Change the &lt;strong&gt;first&lt;/strong&gt; if statement in the following script to an equivalent &lt;strong&gt;one-line&lt;/strong&gt; if-expression. Test the resulting new script, and make sure it behaves as the original,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
-
-abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
-
-answer_status = 'wrong'
-if abbr == 'ECL':
-    answer_status = 'correct'
-
-if answer_status=='correct':
-    print('You answer is correct!')
-else:
-    print(&quot;wrong buddy...try again&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;(B)&lt;/strong&gt; Can you acheive the same goal as in &lt;strong&gt;(A)&lt;/strong&gt; without if-expression or block, but instead using only tuple notation? Explain why your solution works.&lt;/p&gt;
-
-&lt;p&gt;Modify the if block and the print statements that are only in the last part of the code,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if answer_status=='correct':
-    print('You answer is correct!')
-else:
-    print(&quot;wrong buddy...try again&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-to write a single-line Python statement that only uses &lt;code&gt;print&lt;/code&gt; and tuple or list notations, to perform the exact same task as the original print and if-block statement.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(A)&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
-
-abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
-
-answer_status = 'correct' if abbr == 'ECL' else 'wrong'
-
-if answer_status=='correct':
-    print('You answer is correct!')
-else:
-    print(&quot;wrong buddy...try again&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;(B)&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
-
-abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
-
-answer_status = ('wrong','correct')[abbr=='ECL']
-
-if answer_status=='correct':
-    print('You answer is correct!')
-else:
-    print(&quot;wrong buddy...try again&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;(C)&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
-
-abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
-
-answer_status = ('wrong','correct')[abbr=='ECL']
-
-print( ('wrong buddy...try again','You answer is correct!')[answer_status=='correct'] )
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(A)&lt;/strong&gt; Write a &lt;strong&gt;single-line&lt;/strong&gt; Python code that reads a string containing comma-separated first-name, last-name, and the city in which a person lives from the Python interpreter command line, and simultaneouly, in the same line of Python code, removes all white-space characters from the input string, and converts all letters of the input variables to lower-case, and converts the string to a tuple and saves in a tuple &lt;code&gt;(first,last,city)&lt;/code&gt;, such that, for example,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;Enter the first name, last name, and the city of the person (comma-separated): Amir, Shahmoradi  ,  Austin
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-would give,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;(first,last,city)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;('amir', 'shahmoradi', 'austin')
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Hint:&lt;/strong&gt; Use &lt;code&gt;input&lt;/code&gt; function for this purpose. The output of &lt;code&gt;input&lt;/code&gt; is a string, which can be manipulated repeatedly on the same line, using multiple string methods that you learned about in the previous lectures.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(B)&lt;/strong&gt; As discuss in our lecture 6, the one-line if-expression syntax does not provide a functionality like &lt;code&gt;elif&lt;/code&gt; keyword as in the if-statement syntax. Our goal here is to learn how to convert a Python if-statement containing &lt;code&gt;elif&lt;/code&gt; to a one-line Python expression. Convert the following if-block to a single line if-expression. Modify the if-block inside the following function to one-line if-expression:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def dummy(i):
-    if i==0:
-        j=0
-    elif i==1:
-        j=1
-    elif i==2:
-        j=2
-    else: j = 'j is not in [0,1,2]' 
-    return j
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(A)&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;(first,last,univ) = ((input('Enter the first name, last name, and the city of the person (comma-separated): ').replace(' ','')).lower()).split(',')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;(B)&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def dummy(i):
-    j = 0 if i==0 else (1 if i==1 else (2 if i==2 else 'j is not in [0,1,2]') )
-    return j
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; 
-An arbitrary triangle can be described by the coordinates of its three vertices: $(x1,y1),(x2,y2),(x3,y3)$, numbered in a counterclockwise direction. The area of the triangle is given by the formula,&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;A = \frac{1}{2} \bigg| x2y3 - x3y2 - x1y3 + x3y1 + x1y2 - x2y1j \bigg|&lt;/script&gt;
-
-&lt;p&gt;Write a function &lt;code&gt;get_triangle_area(vertices)&lt;/code&gt; that returns the area of a triangle whose vertices are specified by the argument vertices, which is a nested list of the vertex coordinates. Test your implementation with the following test function, which also illustrates how the &lt;code&gt;get_triangle_area&lt;/code&gt; function works.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def test_get_triangle_area():
-    &quot;&quot;&quot;
-    Verify the area of a triangle with vertex coordinates
-    (0,0), (1,0), and (0,2).
-    &quot;&quot;&quot;
-    v1 = (0,0); v2 = (1,0); v3 = (0,2)
-    vertices = [v1, v2, v3]
-    expected = 1
-    computed = get_triangle_area(vertices)
-    tol = 1E-14
-    success = abs(expected - computed) &amp;lt; tol
-    msg = 'computed area=%g != %g (expected)' % (computed, expected)
-    assert success, msg
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def get_triangle_area(vert):
-    area = 0.5 * abs(vert[1][0] * vert[2][1] - vert[2][0] * vert[1][1] -
-                     vert[0][0] * vert[2][1] + vert[2][0] * vert[0][1] +
-                     vert[0][0] * vert[1][1] - vert[1][0] * vert[0][1])
-    return area
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;5. &lt;/strong&gt; Write a logical (boolean) function named &lt;code&gt;is_prime(n)&lt;/code&gt; that takes in an integer number &lt;code&gt;n&lt;/code&gt;, and finds whether it is a Prime number or not. Example output is the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;is_prime(n=23)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;True
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;is_prime(12)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;False
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Note that you do not need and don’t have to use &lt;code&gt;for-loop&lt;/code&gt; for this problem (we have not yet discussed loops in our class!). All of it can be done using recursive function concept.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def is_prime(n):
-    
-    is_prime = True
-    
-    def is_divisible(n,divisor):
-        if n&amp;lt;(divisor-1)*divisor: return False
-        if n%divisor==0: return True
-        else:
-            divisor += 1
-            return is_divisible(n,divisor)
-
-    if is_divisible(n,divisor=2): is_prime=False
-    return is_prime
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/5-solutions-python-branching-functions&quot;&gt;Homework 5: Solutions - Python branching and functions&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 08, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Homework 5: Problems - Python branching and functions]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/5-problems-python-branching-functions"/>
-  <id>http:/ECL2017S/homework/5-problems-python-branching-functions</id>
-  <published>2017-03-08T00:00:00-06:00</published>
-  <updated>2017-03-08T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This homework aims at giving you some experience with variables in Python and their syntax, also some experience with using Lists and Dictionaries in Python. Write your Python scripts with the corresponding &lt;code&gt;*.py&lt;/code&gt; file names, and add a readme.md file in HW 5 folder of your project if you need to add any additional explanation (Don’t forget to use markdown syntax highlight in your readme file, if needed).&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; In mathematics, the Fibonacci numbers are the numbers in the following integer sequence, called the Fibonacci sequence, that are characterized by the fact that every number after the first two is the sum of the two preceding ones:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;0,~1,~1,~2,~3,~5,~8,~13,~21,~34,~55,~89,~144,~\dots&lt;/script&gt;
-
-&lt;p&gt;with the following sequence equation,&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{eqnarray}
-     Fib(n) &amp;=&amp; Fib(n-1) + Fib(n-2) ~, \\
-     Fib(0) &amp;=&amp; 0 ~, \\
-     Fib(1) &amp;=&amp; 1 ~.
-\end{eqnarray} %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;Write a Python function named &lt;code&gt;fib&lt;/code&gt; that takes in an input argument which should be integer number &lt;code&gt;n&lt;/code&gt;, and then calculates the $n^{th}$ number in the Fibonacci sequence and outputs it on the screen. Also, if the input argument is not a non-negative integer, it prints an error message on the screen and asks the user to re-enter a non-negative integer number. Also, when it is done with finding the requested Fibonacci number, it asks again the user to either input a new non-negative integer, or enter ‘stop’ to end the function, like the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; fib('amir')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;The input argument amir is not a non-negative integer!
-Please enter a non-negative integer: -123
-The input argument -123 is not a non-negative integer!
-Please enter a non-negative integer: 12.4
-The input argument 12.4 is not a non-negative integer!
-Please enter a non-negative integer: 0
-Fib(0) = 0
-Please enter another non-negative integer or type stop: 1
-Fib(1) = 1
-Please enter another non-negative integer or type stop: 2
-Fib(2) = 1
-Please enter another non-negative integer or type stop: 3
-Fib(3) = 2
-Please enter another non-negative integer or type stop: 4
-Fib(4) = 3
-Please enter another non-negative integer or type stop: 5
-Fib(5) = 5
-Please enter another non-negative integer or type stop: 6
-Fib(6) = 8
-Please enter another non-negative integer or type stop: 7
-Fib(7) = 13
-Please enter another non-negative integer or type stop: 8
-Fib(8) = 21
-Please enter another non-negative integer or type stop: 9
-Fib(9) = 34
-Please enter another non-negative integer or type stop: 10
-Fib(10) = 55
-Please enter another non-negative integer or type stop: 11
-Fib(11) = 89
-Please enter another non-negative integer or type stop: 12
-Fib(12) = 144
-Please enter another non-negative integer or type stop: stop
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Hint:&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;First write a function &lt;code&gt;fibo(n_int)&lt;/code&gt; that finds the requested Fibonacci number for you, given a non-negative integer input (for example, name it &lt;code&gt;n_int&lt;/code&gt;).&lt;/li&gt;
-  &lt;li&gt;Then put this function &lt;strong&gt;inside another Python function &lt;code&gt;fib(n)&lt;/code&gt;&lt;/strong&gt; that checks the type of the input argument &lt;code&gt;n&lt;/code&gt; and prints the appropriate error message as in the above and then asks the user to enter another number (and then again checks for its type to be integer).&lt;/li&gt;
-  &lt;li&gt;Then if this number is an integer, this function &lt;code&gt;fib(n)&lt;/code&gt; passes the integer number &lt;code&gt;n&lt;/code&gt; to the function &lt;code&gt;fibo(n_int)&lt;/code&gt; which is inside of itself (it is a &lt;strong&gt;nested function&lt;/strong&gt;), in order to get the requested Fibonacci number.&lt;/li&gt;
-  &lt;li&gt;Finally, once the requested Fibonaccy number is obtained, it prints the number value with the requested format as in the above example, AND then asks again the user to input a new non-negative integer, or simply type &lt;code&gt;stop&lt;/code&gt; to stop the function.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Note that, if you call the function as &lt;code&gt;fib('stop')&lt;/code&gt; in the Python interpreter, it should return nothing to you, just like the following example,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;fib('stop')
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-I highly recommend you to write your function in Jupyter notebook, test it there, and then get the results for the same input arguments as in the above example (a string, negative integer, float, and n=1,…,12, and also ‘stop’) and download all of the notebook as a Markdown file, and put it in your repository folder for this homework. Name the notebook, &lt;code&gt;fib.md&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Also note that, you don’t need to know or use anything beyond Python function syntax, Python built-in functions and methods (like &lt;code&gt;input&lt;/code&gt;, &lt;code&gt;isdigit()&lt;/code&gt;, &lt;code&gt;print&lt;/code&gt;, &lt;code&gt;str()&lt;/code&gt;, &lt;code&gt;int()&lt;/code&gt;, …), and Python if-blocks.&lt;/p&gt;
-&lt;blockquote&gt;
-    I recommend you to use Jupyter notebook on your device, since the online version of notebook, can be interrupted repeatedly because of internet connection.
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Branching…, the Pythonic way.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(A)&lt;/strong&gt; Change the &lt;strong&gt;first&lt;/strong&gt; if statement in the following script to an equivalent &lt;strong&gt;one-line&lt;/strong&gt; if-expression. Test the resulting new script, and make sure it behaves as the original,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
-
-abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
-
-answer_status = 'wrong'
-if abbr == 'ECL':
-    answer_status = 'correct'
-
-if answer_status=='correct':
-    print('You answer is correct!')
-else:
-    print(&quot;wrong buddy...try again&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;(B)&lt;/strong&gt; Can you acheive the same goal as in &lt;strong&gt;(A)&lt;/strong&gt; without if-expression or block, but instead using only tuple notation? Explain why your solution works.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(C)&lt;/strong&gt; Modify the if block and the print statements that are only in the last part of the code,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if answer_status=='correct':
-    print('You answer is correct!')
-else:
-    print(&quot;wrong buddy...try again&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-to write a single-line Python statement that only uses &lt;code&gt;print&lt;/code&gt; and tuple or list notations, to perform the exact same task as the original print and if-block statement.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(A)&lt;/strong&gt; Write a &lt;strong&gt;single-line&lt;/strong&gt; Python code that reads a string containing comma-separated first-name, last-name, and the city in which a person lives from the Python interpreter command line, and simultaneouly, in the same line of Python code, removes all white-space characters from the input string, and converts all letters of the input variables to lower-case, and converts the string to a tuple and saves in a tuple &lt;code&gt;(first,last,city)&lt;/code&gt;, such that, for example,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;Enter the first name, last name, and the city of the person (comma-separated): Amir, Shahmoradi  ,  Austin
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-would give,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;(first,last,city)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;('amir', 'shahmoradi', 'austin')
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Hint:&lt;/strong&gt; Use &lt;code&gt;input&lt;/code&gt; function for this purpose. The output of &lt;code&gt;input&lt;/code&gt; is a string, which can be manipulated repeatedly on the same line, using multiple string methods that you learned about in the previous lectures.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(B)&lt;/strong&gt; As discuss in our lecture 6, the one-line if-expression syntax does not provide a functionality like &lt;code&gt;elif&lt;/code&gt; keyword as in the if-statement syntax. Our goal here is to learn how to convert a Python if-statement containing &lt;code&gt;elif&lt;/code&gt; to a one-line Python expression. Convert the following if-block to a single line if-expression. Modify the if-block inside the following function to one-line if-expression:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def dummy(i):
-    if i==0:
-        j=0
-    elif i==1:
-        j=1
-    elif i==2:
-        j=2
-    else: j = 'j is not in [0,1,2]' 
-    return j
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; 
-An arbitrary triangle can be described by the coordinates of its three vertices: $(x1,y1),(x2,y2),(x3,y3)$, numbered in a counterclockwise direction. The area of the triangle is given by the formula,&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;A = \frac{1}{2} \bigg| x2y3 - x3y2 - x1y3 + x3y1 + x1y2 - x2y1j \bigg|&lt;/script&gt;
-
-&lt;p&gt;Write a function &lt;code&gt;get_triangle_area(vertices)&lt;/code&gt; that returns the area of a triangle whose vertices are specified by the argument vertices, which is a nested list of the vertex coordinates. Test your implementation with the following test function, which also illustrates how the &lt;code&gt;get_triangle_area&lt;/code&gt; function works.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def test_get_triangle_area():
-    &quot;&quot;&quot;
-    Verify the area of a triangle with vertex coordinates
-    (0,0), (1,0), and (0,2).
-    &quot;&quot;&quot;
-    v1 = (0,0); v2 = (1,0); v3 = (0,2)
-    vertices = [v1, v2, v3]
-    expected = 1
-    computed = get_triangle_area(vertices)
-    tol = 1E-14
-    success = abs(expected - computed) &amp;lt; tol
-    msg = 'computed area=%g != %g (expected)' % (computed, expected)
-    assert success, msg
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;5. &lt;/strong&gt; Write a logical (boolean) function named &lt;code&gt;is_prime(n)&lt;/code&gt; that takes in an integer number &lt;code&gt;n&lt;/code&gt;, and finds whether it is a Prime number or not. Example output is the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;is_prime(n=23)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;True
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;is_prime(12)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;False
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Note that you do not need and don’t have to use &lt;code&gt;for-loop&lt;/code&gt; for this problem (we have not yet discussed loops in our class!). All of it can be done using recursive function concept.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/5-problems-python-branching-functions&quot;&gt;Homework 5: Problems - Python branching and functions&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 08, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>

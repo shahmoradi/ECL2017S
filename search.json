@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Quiz 7: Solutions - Python - I/O, error handling, and tesing frameworks",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/quiz/7-solutions-python-io-error-handling-unit-testing",
+		  "date"       : "2017-04-19 00:00:00 -0500",
+		  "shortdate"  : "April 19, 2017"
+		} ,
+	
+		{
 		  "title"      : "Quiz 7: Problems - Python - I/O, error handling, and tesing frameworks",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/quiz/7-problems-python-io-error-handling-unit-testing",
@@ -36,6 +44,14 @@
 		  "title"      : "Homework 8: Problems - Python array computing and plotting",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/homework/8-problems-python-array-computing-plotting",
+		  "date"       : "2017-04-12 00:00:00 -0500",
+		  "shortdate"  : "April 12, 2017"
+		} ,
+	
+		{
+		  "title"      : "Homework 7: Solutions - Python I/O, error handling, and unit testing",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/homework/7-solutions-python-IO-error-handling-unit-testing",
 		  "date"       : "2017-04-12 00:00:00 -0500",
 		  "shortdate"  : "April 12, 2017"
 		} ,

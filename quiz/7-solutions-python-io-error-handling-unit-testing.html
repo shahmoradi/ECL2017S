@@ -2,23 +2,23 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ANNOUNCEMENT 1: ASSESSING YOUR PROGRAMMING KNOWLEDGE AND INTERESTS &vert; COE 111L - SPRING 2017</title>
+<title>QUIZ 7: SOLUTIONS - PYTHON - I/O, ERROR HANDLING, AND TESING FRAMEWORKS &vert; COE 111L - SPRING 2017</title>
 <meta name="description" content="Engineering Computation Lab">
 <meta name="keywords" content="">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/ECL2017S/images/logo.png">
-<meta name="twitter:title" content="Announcement 1: Assessing your programming knowledge and interests">
+<meta name="twitter:title" content="Quiz 7: Solutions - Python - I/O, error handling, and tesing frameworks">
 <meta name="twitter:description" content="Engineering Computation Lab">
 <meta name="twitter:creator" content="@AmirShahmoradi">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Announcement 1: Assessing your programming knowledge and interests">
+<meta property="og:title" content="Quiz 7: Solutions - Python - I/O, error handling, and tesing frameworks">
 <meta property="og:description" content="Engineering Computation Lab">
-<meta property="og:url" content="/ECL2017S/announcement/1-assessing-your-programming-knowledge-and-interests-Copy">
+<meta property="og:url" content="/ECL2017S/quiz/7-solutions-python-io-error-handling-unit-testing">
 <meta property="og:site_name" content="COE 111L - Spring 2017">
 <meta property="og:image" content="/ECL2017S/images/">
 
@@ -26,7 +26,7 @@
 
 
 
-<link rel="canonical" href="/ECL2017S/announcement/1-assessing-your-programming-knowledge-and-interests-Copy">
+<link rel="canonical" href="/ECL2017S/quiz/7-solutions-python-io-error-handling-unit-testing">
 <!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 Feed"> -->
 
 
@@ -137,8 +137,8 @@ MathJax.Hub.Queue(function() {
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h2>Announcement 1: Assessing your programming knowledge and interests</h2>
-                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-01-18T00:00:00-06:00">18 Jan 2017</time></strong></p>
+                            <h2>Quiz 7: Solutions - Python - I/O, error handling, and tesing frameworks</h2>
+                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-04-19T00:00:00-05:00">19 Apr 2017</time></strong></p>
                         </div>
                     </div>
                 </div>
@@ -148,45 +148,62 @@ MathJax.Hub.Queue(function() {
             <article class="notepad-post-content post tag-simple">
         
             <div style="text-align:justify;">
-                <p>The goal of this survey is to assess your prior programming experience and to identify the favorite programming language of the class. Please fill out the following two survey questions, and submit them within 3 minutes.</p>
+                <p>This is the solution to <a href="7-problems-python-io-error-handling-unit-testing" target="_blank">Quiz 7: Problems - Python - I/O, error handling, and tesing frameworks</a>.</p>
 
-<div align="center">
-    <script>
-        (function(t,e,c,s){var n,o,r;t.SMCX=t.SMCX||[],e.getElementById(s)||(n=e.getElementsByTagName(c),o=n[n.length-1],r=e.createElement(c),r.type="text/javascript",r.async=!0,r.id=s,r.src=["https:"===location.protocol?"https://":"http://","widget.surveymonkey.com/collect/website/js/cWwdqYkJlcOqqIvX4OQ6L0ROZOarbpr7vA_2BB3stCB3CdrDL1W7Ipzjdzq6PQKazc.js"].join(""),o.parentNode.insertBefore(r,o))})(window,document,"script","smcx-sdk");
-    </script>
-</div>
+<!--
+The following figure illustrates the grade distribution for this quiz.  
+
+<figure>
+	<img src="/ECL2017S/quiz/gradeDist/gradeHistQuiz7.png" width="700">
+    <figcaption style="text-align:center">
+        Maximum possible points is 100.
+    </figcaption>
+</figure>
+-->
 
 <p><br /></p>
 
-<h2 id="survey-results">Survey results</h2>
-<p>The following are the results of the two questions of the survey. The total respondents for both questions were 21. It appears that almost everyone in class, knows at least one programming language at medium level. Also it appears that almost everyone in this class is in love with Python!</p>
-
-<figure>
-	<img src="/ECL2017S/announcement/1/programmingExperience.png" width="700" />
-	<img src="/ECL2017S/announcement/1/programmingExperienceStat.png" width="700" />
-</figure>
-
-<figure>
-	<img src="/ECL2017S/announcement/1/favoriteLanguage.png" width="700" />
-	<img src="/ECL2017S/announcement/1/favoriteLanguageStat.png" width="700" />
-</figure>
+<hr />
+<hr />
 
 <p><br /></p>
+
+<p>This quiz aims at testing your basic knowledge of Python’s I/O.</p>
+
+<p><br /></p>
+
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p><strong>1. </strong> Consider this <a href="/ECL2017S/quiz/7/testInput.in" target="_blank">comma-separated data file</a>. Write a simple Python code <code>outputter.py</code> that takes two command line arguments like the following,</p>
+<pre><code class="language-bash">python outputter.py outputter.in outputter.out
+</code></pre>
+<p><br />
+and then writes the same float data in the output file <code>outputter.out</code> (whose name and path was taken from the command-line), and writes out data in a formatted style, like this <a href="/ECL2017S/quiz/7/outputter.out" target="_blank">example output file</a>, with only three digits after decimal point.</p>
+
+<p><br />
+<strong>Answer:</strong><br />
+<a href="/ECL2017S/quiz/7/solutions/outputter.py" target="_blank">Here</a> is an example attempt.<br />
+<br /></p>
+
+<p><br /><br /></p>
 
             </div>
         </article>
         <div class="cf"></div>
         <div class="row text-center">
             <section class="notepad-post-share">
-                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Announcement 1: Assessing your programming knowledge and interests&quot;%20/ECL2017S/announcement/1-assessing-your-programming-knowledge-and-interests-Copy%20via%20&#64;AmirShahmoradi"
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Quiz 7: Solutions - Python - I/O, error handling, and tesing frameworks&quot;%20/ECL2017S/quiz/7-solutions-python-io-error-handling-unit-testing%20via%20&#64;AmirShahmoradi"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
                     <i class="fa fa-twitter"></i>
                 </a>
-                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/announcement/1-assessing-your-programming-knowledge-and-interests-Copy"
+                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/quiz/7-solutions-python-io-error-handling-unit-testing"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
                     <i class="fa fa-facebook"></i>
                 </a>
-                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/announcement/1-assessing-your-programming-knowledge-and-interests-Copy"
+                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/quiz/7-solutions-python-io-error-handling-unit-testing"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
                     <i class="fa fa-google-plus"></i>
                 </a>
