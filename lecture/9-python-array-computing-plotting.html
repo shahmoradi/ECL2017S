@@ -148,18 +148,18 @@ MathJax.Hub.Queue(function() {
             <article class="notepad-post-content post tag-simple">
         
             <div style="text-align:justify;">
-                <p>This lecture focuses on array computating and code vectorization, as well as methods of plotting data in Python.</p>
+                <p>This lecture focuses on array computing and code vectorization, as well as methods of plotting data in Python.</p>
 
 <div class="post_toc"></div>
 
 <h2 id="vectorization-and-array-computing">Vectorization and array computing</h2>
 
-<p>With regards to capabilities of Python for scientific calculations, there are conflicting opinions. On the scientific side of the opnion spectrum, some people think that Python is not good enough for number crunching (as a result of which, new progamming languages such as <a href="https://en.wikipedia.org/wiki/Julia_(programming_language)" target="_blank">Julia</a> have been developed). However, there are people at the other extreme who believe that Python is too much oriented towards scientific computation (as a result of which, new programming languages have emerged, such as Google’s <a href="https://en.wikipedia.org/wiki/Go_(programming_language)" target="_blank">Go language</a>.</p>
+<p>With regards to capabilities of Python for scientific calculations, there are conflicting opinions. On the scientific side of the opinion spectrum, some people think that Python is not good enough for number crunching (as a result of which, new programming languages such as <a href="https://en.wikipedia.org/wiki/Julia_(programming_language)" target="_blank">Julia</a> have been developed). However, there are people at the other extreme who believe that Python is too much oriented towards scientific computation (as a result of which, new programming languages have emerged, such as Google’s <a href="https://en.wikipedia.org/wiki/Go_(programming_language)" target="_blank">Go language</a>.</p>
 
 <p>So far in this course, you may have noticed that all numerical vector calculations were either performed with lists, tuples, or dictionaries. Sadly, Python standard does not have an intrinsic special way of defining and manipulating numerical vectors and arrays, unlike most High Performance Computing (HPC) languages for scientific computations (such as Fortran, Ada, or C). However, there are powerful Python modules that enable a Python programmer to use Python efficiently for numerical analysis as well.</p>
 
 <blockquote>
-If you expect to use Python heavility and mostly for scientific computation in future, you should keep in mind that Python's builtin list, tuple and dictionary types can be very slow for number crunching. 
+If you expect to use Python heavily and mostly for scientific computation in future, you should keep in mind that Python's builtin list, tuple and dictionary types can be very slow for number crunching. 
 </blockquote>
 <p><br /></p>
 
@@ -318,7 +318,7 @@ The numpy package also has a method for <strong>Automatic vectorization</strong>
 However, for serious programming, I do not recommend you to use this numpy functionality as it can be slow and inefficient.</p>
 
 <h4 id="vectorization-of-if-blocks">vectorization of if-blocks</h4>
-<p>For vectorization of calculations involving boleans and if conditions, the solution can be problem dependent, but one common easy way of addrressing simple boolean problems could be <code>where</code> method in numpy package. For example, suppose you have an list of numbers and you would like to perform a task on all negative numbers in the array, say set them all to zero, and leave the positive numbers intact. One solution would be the following,</p>
+<p>For vectorization of calculations involving booleans and if conditions, the solution can be problem dependent, but one common easy way of addressing simple boolean problems could be <code>where</code> method in numpy package. For example, suppose you have an list of numbers and you would like to perform a task on all negative numbers in the array, say set them all to zero, and leave the positive numbers intact. One solution would be the following,</p>
 <pre><code class="language-python">In [57]: x = np.array([1,-1,3,-5,-6,8,7,4,10])
 
 In [58]: np.where(x&lt;0,0,x)
@@ -354,7 +354,7 @@ Out[71]: array([-1,  2,  3,  4,  5])
 <p><br /></p>
 
 <h4 id="in-place-arithmetic-in-python">In-place arithmetic in Python</h4>
-<p>Consider two arrays <code>a</code> and <code>b</code> of the same shape. The expression <code>a += b</code> means <code>a = a + b</code>. There are however hidden differences between the two. In the statement <code>a = a + b</code>, the sum <code>a + b</code> is first computed, yielding a new array, and then the name <code>a</code> is bound to this new array. The old array a is lost unless there are other names assigned to this array. In the statement <code>a += b</code>, elements of <code>b</code> are added directly into the elements of <code>a</code> (in memory). There is no hidden intermediate array as in <code>a = a + b</code>. This implies that <strong><code>a += b</code> is more efficient than <code>a = a + b</code> since Python avoids making an extra array</strong>. In other words, the operators +=, *=, and similar operators, perform <strong>in-place arithmetics</strong> in arrays.</p>
+<p>Consider two arrays <code>a</code> and <code>b</code> of the same shape. The expression <code>a += b</code> means <code>a = a + b</code>. There are however hidden differences between the two. In the statement <code>a = a + b</code>, the sum <code>a + b</code> is first computed, yielding a new array, and then the name <code>a</code> is bound to this new array. The old array a is lost unless there are other names assigned to this array. In the statement <code>a += b</code>, elements of <code>b</code> are added directly into the elements of <code>a</code> (in memory). There is no hidden intermediate array as in <code>a = a + b</code>. This implies that <strong><code>a += b</code> is more efficient than <code>a = a + b</code> since Python avoids making an extra array</strong>. In other words, the operators +=, *=, and similar operators, perform <strong>in-place arithmetic</strong> in arrays.</p>
 
 <h4 id="allocating-arrays-in-python">Allocating arrays in Python</h4>
 <p>We have already seen in the above that the <code>np.zeros</code> function is useful for making a new array of a given size. Very often the size and the type of array elements are known a priori or has to match another existing array’s shape and type <code>b</code>. There are two ways of achieving this goal,</p>
@@ -609,7 +609,7 @@ The output of the code is a PNG figure <a href="/ECL2017S/lecture/9/two_by_one_s
 <p>For more complicated 2D/3D or vector field plotting, you may find Matplotlib inadequate. To address these inadequacies, other packages have been developed which provide interface to more advanced plotting software such as, MATLAB, Gnuplot, Grace, OpenDX, VTK, and others.</p>
 
 <h4 id="easyviz-from-scitools">Easyviz from SciTools</h4>
-<p>Because each of the above mentioned visualization software has its own plotting syntax, a Python module <code>easyviz</code> has been developed which provides a universal interface for any of the above mentioned back-end plotting software. In other words, the user can request eazyvis to use one of the above-mentioned software as the plotting engine in Python, while the syntax of the Python code is universal and the same for all of them, and this is achieved by using <code>eazyvis</code>. Just like Matplotlib, the syntax of <code>eazyvis</code> has been also purposfully made very similar to MATLAB.</p>
+<p>Because each of the above mentioned visualization software has its own plotting syntax, a Python module <code>easyviz</code> has been developed which provides a universal interface for any of the above mentioned back-end plotting software. In other words, the user can request eazyvis to use one of the above-mentioned software as the plotting engine in Python, while the syntax of the Python code is universal and the same for all of them, and this is achieved by using <code>eazyvis</code>. Just like Matplotlib, the syntax of <code>eazyvis</code> has been also purposefully made very similar to MATLAB.</p>
 
 <p>The Easyviz module is part of the <a href="https://github.com/hplgit/scitools" target="_blank">SciTools package</a>, which consists of a set of Python tools building on Numerical Python, ScientificPython, the comprehensive SciPy environment, and other packages for scientific computing with Python. However, keep in mind that <strong>SciTools strictly requires <a href="http://python.org" target="_blank">Python v2.7</a> and <a href="http://numpy.org" target="_blank">Numerical Python</a></strong>.</p>
 
@@ -695,8 +695,8 @@ platform and runs on most platforms like Mac OS X, Windows, and Linux.</p>
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2017 / 04 / 12</section></br> -->
-         <section>Last updated Wednesday, 12 Apr 2017 at 08:51 AM CST</section></br>
+         <!-- <section>Last updated 2017 / 04 / 18</section></br> -->
+         <section>Last updated Tuesday, 18 Apr 2017 at 09:20 PM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>

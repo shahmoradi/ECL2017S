@@ -7,13 +7,544 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-04-12T08:51:58-05:00</updated>
+<updated>2017-04-18T21:20:24-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
   <uri>http:/ECL2017S/</uri>
   <email>amir@ices.utexas.edu</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Lecture 10: Python advanced topics - IO, Monte Carlo, wrappers and interoperability]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/lecture/10-python-advanced-io-monte-carlo-interoperability"/>
+  <id>http:/ECL2017S/lecture/10-python-advanced-io-monte-carlo-interoperability</id>
+  <published>2017-04-19T00:00:00-05:00</published>
+  <updated>2017-04-19T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This lecture discusses some further important topics in Python IO, the use of random numbers and Monte Carlo simulations, as well as methods of integrating Python codes with codes from other programming languages, in particular, the use of Python as a wrapper for highly efficient, fast, low-level codes written in Fortran and C.&lt;/p&gt;
+
+&lt;div class=&quot;post_toc&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;more-on-io-in-python&quot;&gt;More on IO in Python&lt;/h2&gt;
+&lt;p&gt;There are a few topics and methods of &lt;a href=&quot;https://en.wikipedia.org/wiki/Input/output&quot; target=&quot;_blank&quot;&gt;input/output (IO)&lt;/a&gt; in Python that we have not discussed yet, such as reading data from special data files, or web pages. Such problems, happen almost daily in a scientific research career, even in High Performance Computing, and Python’s capability to easily handle such IO problems is indeed one of the main reasons for Python’s popularity.&lt;/p&gt;
+
+&lt;h3 id=&quot;reading-data-from-special-data-files&quot;&gt;Reading data from special data files&lt;/h3&gt;
+&lt;p&gt;It will happen quite often in your research that you will need to read data from a spreadsheet data file, most importantly &lt;code&gt;*.csv&lt;/code&gt; and Microsoft Excel files (e.g., &lt;code&gt;*.xls&lt;/code&gt; data files), or also frequently, from an &lt;code&gt;*.xml&lt;/code&gt; data file. There are many ways and Python libraries to read such files. For Excel files, the task can be a bit complex, since Excel files can contain multiple sheets. A good starting point might be &lt;a href=&quot;http://www.python-excel.org/&quot; target=&quot;_blank&quot;&gt;this webpage&lt;/a&gt;, also &lt;a href=&quot;http://pbpython.com/excel-pandas-comp.html&quot; target=&quot;_blank&quot;&gt;Pandas module&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For CSV files, Python standard library has a solution. Suppose you want to read &lt;a href=&quot;http:/ECL2017S/lecture/10/jec_pdb_r4s.csv&quot; target=&quot;_blank&quot;&gt;this CSV file&lt;/a&gt;. A Python solution would be the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import csv
+with open('jec_pdb_r4s.csv','r') as myfile:
+    for counter, row in enumerate(csv.reader(myfile)):
+        print(row)
+        if counter&amp;gt;10: break
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;['pdb', 'pdb_id', 'chain', 'site', 'zr4s_JTT', 'r4s_JTT', 'zr4s_JC', 'r4s_JC']
+['132L_A', '132L', 'A', '2', '-0.3133', '1.02', '0.04475', '1.188']
+['132L_A', '132L', 'A', '3', '0.8385', '1.955', '0.2036', '1.311']
+['132L_A', '132L', 'A', '4', '2.093', '2.973', '1.451', '2.272']
+['132L_A', '132L', 'A', '5', '-0.8878', '0.5537', '-0.7985', '0.5382']
+['132L_A', '132L', 'A', '6', '-1.443', '0.1028', '-1.426', '0.05416']
+['132L_A', '132L', 'A', '7', '-0.1195', '1.177', '-0.07917', '1.093']
+['132L_A', '132L', 'A', '8', '-0.7236', '0.6869', '-0.8997', '0.4602']
+['132L_A', '132L', 'A', '9', '-1.107', '0.3755', '-0.8971', '0.4622']
+['132L_A', '132L', 'A', '10', '0.7076', '1.848', '0.7369', '1.722']
+['132L_A', '132L', 'A', '11', '0.9573', '2.051', '0.8809', '1.833']
+['132L_A', '132L', 'A', '12', '-0.8315', '0.5993', '-0.9243', '0.4413']
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note how I have used Python &lt;code&gt;enumerate()&lt;/code&gt; function to control the number of lines that is read from the file (The file contains more than 70000 lines of data!).&lt;/p&gt;
+
+&lt;p&gt;Similarly, if you wanted to write a CSV file, you can use &lt;code&gt;csv.writer()&lt;/code&gt; method,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;with open('jec_pdb_r4s.csv','r') as infile, open('jec_out.csv', 'w') as outfile:
+    for counter, row in enumerate(csv.reader(infile)):
+        csv.writer(outfile).writerow(row)
+        if counter&amp;gt;10: break
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+The output of the code is &lt;a href=&quot;http:/ECL2017S/lecture/10/jec_out.csv&quot; target=&quot;_blank&quot;&gt;this file&lt;/a&gt; (If you run this code on Windows machines, you will probably get an extra empty line between each row in the csv file).&lt;/p&gt;
+
+&lt;p&gt;For &lt;code&gt;*.xml&lt;/code&gt; files, Python standard library has a package &lt;a href=&quot;https://docs.python.org/3/library/xml.etree.elementtree.html&quot; target=&quot;_blank&quot;&gt;ElementTree&lt;/a&gt;, which you can use for both parsing and writing xml data files.&lt;/p&gt;
+
+&lt;h3 id=&quot;reading-data-from-web&quot;&gt;Reading data from web&lt;/h3&gt;
+&lt;p&gt;Nowadays, a lot of data repositories are available online publicly, and you may encounter problems that need to parse data from an online repository. For many of the most famous repositories, such as the &lt;a href=&quot;http://www.rcsb.org/pdb/home/home.do&quot; target=&quot;_blank&quot;&gt;Protein databank&lt;/a&gt;, excellent python packages have been written that automate the process of fetching data from online pages or repositories (e.g., &lt;a href=&quot;http://biopython.org/wiki/Biopython&quot; target=&quot;_blank&quot;&gt;Biopython&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Nevertheless you may need at some point in your research or career to read data from a web address. Most often, the online data is contained in a &lt;code&gt;html&lt;/code&gt; file, like the content of the &lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;about page&lt;/a&gt; for this course, for example, which has the address: &lt;a href=&quot;http:/ECL2017S/about&quot; target=&quot;_blank&quot;&gt;http://www.shahmoradi.orghttp:/ECL2017S/about&lt;/a&gt;. Suppose you wanted to extract the content of this lecture. A simple solution would be the following via Python’s standard &lt;a href=&quot;https://docs.python.org/3/library/urllib.html&quot; target=&quot;_blank&quot;&gt;urllib&lt;/a&gt; module,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import urllib.request as ur
+myurl = 'http://www.shahmoradi.orghttp:/ECL2017S/about'
+with ur.urlopen(myurl) as webfile:
+    webcontent = [line.decode(&quot;utf-8&quot;) for line in webfile.readlines()]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Now the variable &lt;code&gt;webcontent&lt;/code&gt; is a list, whose elements are each row in the html file for this page.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;webcontent[0:10]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;['&amp;lt;!DOCTYPE html&amp;gt;\n',
+'&amp;lt;html&amp;gt;\n',
+'&amp;lt;head&amp;gt;\n',
+'&amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;\n',
+'&amp;lt;title&amp;gt;COE 111L - SPRING 2017&amp;lt;/title&amp;gt;\n',
+'&amp;lt;meta name=&quot;description&quot; content=&quot;Engineering Computation Lab&quot;&amp;gt;\n',
+'&amp;lt;meta name=&quot;keywords&quot; content=&quot;Amir, Shahmoradi, Instructor&quot;&amp;gt;\n',
+'\n',
+'&amp;lt;!-- Twitter Cards --&amp;gt;\n',
+'&amp;lt;meta name=&quot;twitter:card&quot; content=&quot;summary_large_image&quot;&amp;gt;\n']
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that the content of the file is read in &lt;code&gt;byte&lt;/code&gt; format. Therefore, to convert it to string, one has to apply &lt;code&gt;.decode(&quot;utf-8&quot;)&lt;/code&gt; on each line. Similar to opening a file on harddisk, one can also use &lt;code&gt;.read()&lt;/code&gt; and &lt;code&gt;.readline()&lt;/code&gt; methods to read the contant of the web address. Alternatively, one could also save the entire content of the web address, in a single file locally,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import urllib.request as ur
+myurl = 'http://www.shahmoradi.orghttp:/ECL2017S/about'
+ur.urlretrieve(myurl, filename='about.html')
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+This will output &lt;a href=&quot;http:/ECL2017S/lecture/10/about.html&quot; target=&quot;_blank&quot;&gt;this file&lt;/a&gt; in your current working diretory of Python.&lt;/p&gt;
+
+&lt;p&gt;Now, the file that we imported from the web does not contains any scientific data. But, in the homework you will see a real-world scientific example and value of Python’s ability to parse the content web pages.&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;writing-data-in-html-web-format&quot;&gt;Writing data in HTML (web) format&lt;/h3&gt;
+&lt;p&gt;Doing research at a professional level requires reporting the results professionally as well. That is, the results of the project, including the final report itself have to be &lt;strong&gt;auto-generated&lt;/strong&gt; and &lt;strong&gt;reproducile&lt;/strong&gt; as much as possible, and reachable to the widest audience (which nowadays means, availibility on the world-wide web).&lt;/p&gt;
+
+&lt;p&gt;Suppose you have worked on your final project for this course, which has resulted in several figures, that you wanted to put them all together on a single webpage on your repository on Github, together with some information about each figure. Let’s say the figures are
+  &lt;a href=&quot;http:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_1_t10.0.png&quot; target=&quot;_blank&quot;&gt;figure 1&lt;/a&gt;
+, &lt;a href=&quot;http:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_2_t12.0.png&quot; target=&quot;_blank&quot;&gt;figure 2&lt;/a&gt;
+, &lt;a href=&quot;http:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_3_t14.0.png&quot; target=&quot;_blank&quot;&gt;figure 3&lt;/a&gt;
+, &lt;a href=&quot;http:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_4_t15.0.png&quot; target=&quot;_blank&quot;&gt;figure 4&lt;/a&gt;
+, &lt;a href=&quot;http:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_5_t16.0.png&quot; target=&quot;_blank&quot;&gt;figure 5&lt;/a&gt;
+, &lt;a href=&quot;http:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_6_t18.0.png&quot; target=&quot;_blank&quot;&gt;figure 6&lt;/a&gt;
+, &lt;a href=&quot;http:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_7_t20.0.png&quot; target=&quot;_blank&quot;&gt;figure 7&lt;/a&gt;.  Now, since these figures represent the time evolution of the growth of the tumor, you would wnat to write a code that automatically generates an HTML (or Markdown) files, which contains the correct HTML code for adding these figures in your page for the project. You could for example write the following Python code to achieve this goal,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;with open('SampleProjectReport.html', 'w') as html:
+    html.write('&amp;lt;HTML&amp;gt;&amp;lt;BODY BGCOLOR=&quot;white&quot;&amp;gt;\n')
+    html.write('&amp;lt;H1&amp;gt;Sample Semester Project: Tumor growth modeling&amp;lt;/H1&amp;gt;&amp;lt;br&amp;gt; \n')
+    html.write('&amp;lt;H2&amp;gt;Each of following subplots figure represents the stage of the growth of tumor at the specified date in the figure title.&amp;lt;/H2&amp;gt;&amp;lt;br&amp;gt;&amp;lt;br&amp;gt; \n')
+
+    time = [10.0,12.0,14.0,15.0,16.0,18.0,20.0]
+    nfig = 7
+    figReposPrefix = 'http://www.shahmoradi.orghttp:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_'
+    for ifig in range(1,nfig+1):
+        html.write( '&amp;lt;img src=&quot;{}{:d}_t{:.1f}.png&quot; width=&quot;900px&quot;&amp;gt;&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;\n'.format(figReposPrefix,ifig,time[ifig-1]) )
+    html.write('&amp;lt;H2&amp;gt;Conclusions:&amp;lt;/H2&amp;gt;\n')
+    html.write('&amp;lt;p&amp;gt;Chances of survival for this rat are virtually zero.&amp;lt;/p&amp;gt;&amp;lt;br&amp;gt;\n')
+    html.write('&amp;lt;/BODY&amp;gt;&amp;lt;/HTML&amp;gt;\n')
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+This code will generate an HTML file, which you can view in browser &lt;a href=&quot;http:/ECL2017S/lecture/10/SampleProjectReport.html&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;random-numbers-in-python&quot;&gt;Random numbers in Python&lt;/h2&gt;
+&lt;p&gt;One of the most important topics in todays’s science and computer simulation is &lt;a href=&quot;https://en.wikipedia.org/wiki/Random_number_generation&quot; target=&quot;_blank&quot;&gt;random number generation&lt;/a&gt; and &lt;a href=&quot;https://en.wikipedia.org/wiki/Monte_Carlo_method&quot; target=&quot;_blank&quot;&gt;Monte Carlo simulation&lt;/a&gt; methods. In the simplest scenario for your research, you may need to generate a sequence of uniformly distributed random numbers in Python. There are several approaches to handle such random number generation problems in Python. Here is one, via Python’s standard &lt;code&gt;random&lt;/code&gt; module:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [43]: import random as rnd
+
+In [44]: rnd.random()   # generates a random number in the half open interval [0,1)
+Out[44]: 0.012519922307372311
+
+In [45]: rnd.
+rnd.BPF             rnd.Random          rnd.betavariate     rnd.gauss           rnd.normalvariate   rnd.randrange       rnd.shuffle         rnd.weibullvariate
+rnd.LOG4            rnd.SG_MAGICCONST   rnd.choice          rnd.getrandbits     rnd.paretovariate   rnd.sample          rnd.triangular
+rnd.NV_MAGICCONST   rnd.SystemRandom    rnd.expovariate     rnd.getstate        rnd.randint         rnd.seed            rnd.uniform
+rnd.RECIP_BPF       rnd.TWOPI           rnd.gammavariate    rnd.lognormvariate  rnd.random          rnd.setstate        rnd.vonmisesvariate
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+As you see in the list of available methods in &lt;code&gt;random&lt;/code&gt;, you can generate random numbers from a wide variaty of univariate probability distributions, e.g.,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [46]: rnd.betavariate(0.5,0.5)   # Beta variate with the input parameters
+Out[46]: 0.9281984408820623
+
+In [54]: rnd.expovariate(1)         # random variable from exponential distribution with mean 1.
+Out[54]: 2.546912414260747
+
+In [55]: rnd.gammavariate(1,1)      # random variable from gamma distribution with parameters 1,1.
+Out[55]: 0.5364897808236537
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Recal that if you needed help on a method or function in Python, you could use &lt;code&gt;help()&lt;/code&gt;,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [61]: help(rnd.weibullvariate)
+Help on method weibullvariate in module random:
+
+weibullvariate(alpha, beta) method of random.Random instance
+    Weibull distribution.
+
+    alpha is the scale parameter and beta is the shape parameter.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+To generate &lt;code&gt;float&lt;/code&gt; random numbers between the given input bounds,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [64]: rnd.uniform(50,100)    # generate a random float between 50 and 100
+Out[64]: 65.59688328558263
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;b&gt;ATTENTION: &lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+Alwasy make sure you import modules with unique names, as different modules with similar component names may overwrite each other. For example &lt;code&gt;import random&lt;/code&gt; followed by &lt;code&gt;from numpy import *&lt;/code&gt; wil cause the &lt;code&gt;random&lt;/code&gt; module to be overwritten by &lt;code&gt;numpy.random&lt;/code&gt; module.
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br /&gt;
+Also pay attention to sublte differences between similar functions, with the same names, but in different modules. For example,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import numpy as np
+np.random.randint(1,6,1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+will draw a random integer from the interval $[1,6)$ excluding the value $6$ (the third input, $1$, indicates how many numbers has to be drawn randomly by the function). However,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import random as rnd
+rnd.randint(1,6)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+will draw a random integer form the interval $[1,6]$. Also note that &lt;code&gt;randint()&lt;/code&gt; from module &lt;code&gt;random&lt;/code&gt; is a scalar function, whereas the numpy’s version is vectorized.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-deterministic-aspect-of-randomness-in-python&quot;&gt;The deterministic aspect of randomness in Python&lt;/h3&gt;
+&lt;p&gt;There is a truth about random numbers and random number generators and algorithms, not only in Python, but in all programming languages, and that is, &lt;strong&gt;true random numbers do not exist in the world of programming&lt;/strong&gt;. What we call a seuqence of random numbers, is simply a sequence of numbers that we, the user, to the best of our knowledge, don’t know how it was generated, and therefore, &lt;strong&gt;the sequence looks random to us, bu not the to the developer of the algorithm!&lt;/strong&gt;. To prove this, type the following code in a Python session,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [13]: import numpy as np
+
+In [14]: np.random.seed(42)
+
+In [15]: np.random.randint(1,6,6)
+Out[15]: array([4, 5, 3, 5, 5, 2])
+
+In [16]: np.random.randint(1,6,6)
+Out[16]: array([3, 3, 3, 5, 4, 3])
+
+In [17]: np.random.seed(42)
+
+In [18]: np.random.randint(1,6,6)
+Out[18]: array([4, 5, 3, 5, 5, 2])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+You notice that everytime the random function is called, it generates a new sequence of random numbers, apparently completely random. But as soon as the function &lt;code&gt;np.random.seed(42)&lt;/code&gt; is called, it appears that the random number generator also restarts from the beginning, generating the same sequence of random numbers as it did before.&lt;/p&gt;
+
+&lt;p&gt;You can even test the same code on a different computer, and as long as you set the seed of the random number generator to a specific value (here 42), &lt;code&gt;np.random.seed(42)&lt;/code&gt;, you will the same sequence of random numbers. So afterall, random numbers are not random at all, as they can be generated detrerministically, however, they mimic the behavior of true random numbers. The ability to set the seed for a random number generator is actually very useful, since it enables us to replicate the work of a code, exactly it has been done in the past. In particular, this is very useful for code debugging. However, beware of cases were you need to get a different result, everytime you run the code. If you set the random seed of the random generator to to a fixed value, right at the beginning of the code, you will never get a random behavior.&lt;/p&gt;
+
+&lt;h3 id=&quot;drawing-a-random-element-from-a-list&quot;&gt;Drawing a random element from a list&lt;/h3&gt;
+&lt;p&gt;Suppose you have the following list,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import numpy as np
+mylist = np.linspace(0,100,51)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;mylist
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;array([   0.,    2.,    4.,    6.,    8.,   10.,   12.,   14.,   16.,
+         18.,   20.,   22.,   24.,   26.,   28.,   30.,   32.,   34.,
+         36.,   38.,   40.,   42.,   44.,   46.,   48.,   50.,   52.,
+         54.,   56.,   58.,   60.,   62.,   64.,   66.,   68.,   70.,
+         72.,   74.,   76.,   78.,   80.,   82.,   84.,   86.,   88.,
+         90.,   92.,   94.,   96.,   98.,  100.])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and now you wanted to draw a random element from the above list. You could do,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import random as rnd
+rnd.choice(mylist)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;80.0 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will give a random element from the list. You could also generate a random shuffling of the list by,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import random as rnd
+rnd.shuffle(mylist)
+mylist
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;array([  98.,   12.,   76.,   60.,   46.,   22.,   24.,   92.,   66.,
+         16.,    6.,   34.,   14.,    8.,   18.,   50.,   30.,   74.,
+          4.,    2.,   38.,   90.,   70.,   56.,   94.,   80.,   32.,
+         20.,   10.,   44.,   72.,   84.,    0.,   78.,  100.,   88.,
+         86.,   96.,   48.,   52.,   62.,   64.,   26.,   36.,   40.,
+         54.,   68.,   58.,   82.,   42.,   28.])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;summary-of-some-important-random-functions-in-python&quot;&gt;Summary of some important random functions in Python&lt;/h3&gt;
+&lt;p&gt;As you may have noticed, since none of the random functions are builtin, things can get really confusing very easily, by simply mixing numpy’s random mdule with Python’s random module. The following helps to clarify some of the most important differences between these two modules.&lt;/p&gt;
+
+&lt;table class=&quot;center&quot;&gt;
+&lt;caption class=&quot;title&quot; style=&quot;padding-bottom:10px&quot;&gt;
+Table 1: Some useful functions and their functionalities in &lt;code&gt;random&lt;/code&gt; and &lt;code&gt;numpy&lt;/code&gt; modules
+&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Purpose&lt;/th&gt;
+&lt;th&gt;random module&lt;/th&gt;
+&lt;th&gt;numpy.random module&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+    &lt;td&gt;random uniform numbers in $[0,1)$&lt;/td&gt;
+    &lt;td&gt;&lt;code&gt;random()&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;code&gt;random(N)&lt;/code&gt; (vectorized)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;random uniform numbers in $[a,b)$&lt;/td&gt;
+    &lt;td&gt;&lt;code&gt;uniform(a,b)&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;code&gt;uniform(a,b,N)&lt;/code&gt; (vectorized)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;random integers in $[a,b]$&lt;/td&gt;
+    &lt;td&gt;&lt;code&gt;randint(a,b)&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;code&gt;randint(a,b+1,N)&lt;/code&gt; (vectorized) &lt;br /&gt; &lt;code&gt;random_integers(a,b+1,N)&lt;/code&gt; (vectorized) &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;random Gaussian deviate with parameters $[\mu, \sigma]=[m,s]$&lt;/td&gt;
+    &lt;td&gt;&lt;code&gt;gauss(m,s)&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;code&gt;normal(m,s,N)&lt;/code&gt; (vectorized)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;setting random number generator seed $i$&lt;/td&gt;
+    &lt;td&gt;&lt;code&gt;seed(i)&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;code&gt;seed(i)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;shuffling list mylist&lt;/td&gt;
+    &lt;td&gt;&lt;code&gt;shuffle(mylist)&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;code&gt;shuffle(mylist)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;choose a random element from mylist&lt;/td&gt;
+    &lt;td&gt;&lt;code&gt;choice(mylist)&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt; -- &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;monte-carlo-simulations&quot;&gt;Monte Carlo simulations&lt;/h3&gt;
+&lt;p&gt;A Monte Carlo simulation is basically any simulation problem that somehow involves random numbers. Let’s start with an example of throwing a die repeatedly for N times. We can simulate the process of throwing a die by the following python code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def throwFairDie():
+    import random as rnd
+    return rnd.randint(1, 6)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Now, each time the function is called, it returns a random value for one throw of a virtual die,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [7]: throwFairDie()
+Out[7]: 6
+
+In [8]: throwFairDie()
+Out[8]: 1
+
+In [9]: throwFairDie()
+Out[9]: 4
+
+In [10]: throwFairDie()
+Out[10]: 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+This is likely one of the simplest examples of &lt;a href=&quot;https://en.wikipedia.org/wiki/Monte_Carlo_method&quot; target=&quot;_blank&quot;&gt;Monte Carlo simulations&lt;/a&gt;. Now suppose we wanted to make sure that the die is fair, meaning that each number (out of 6 possibilities) only appears with a frequency of $1/6$ over many throws of the die. To test this hypothesis, we could write the following code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import numpy as np
+
+def throwFairDie():
+    import random as rnd
+    return rnd.randint(1, 6)
+
+def getMeanDieValue(n=10000):
+    meanDieValue = np.zeros((n,6),dtype=np.double)
+    randomThrow = throwFairDie() - 1        # assign the first value to the above array
+    meanDieValue[0,randomThrow] = 1.0 / 1.0 # one try so far, one success for the die value that is obtained.
+    for i in range(1,n):
+        randomThrow = throwFairDie() - 1
+        meanDieValue[i,randomThrow] = 1.0   # add one success for the value obtained
+        meanDieValue[i,:] += meanDieValue[i-1,:]    # combine the recent success with the total number of successes from previous tries.
+        meanDieValue[i-1,:] /= np.double(i)  # Now normalize the values form the last try to the total number of tries.
+    meanDieValue[-1:,:] /= np.double(n)  # Now normalize the very last try to the total number of tries.
+    return meanDieValue
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+What this function does, is that it throws a die for given input number of times (n=10000 by default if not given as input), and then calculates for each new try, how many times each of the die values have occurred so far, and then finally outputs all the result as numpy &lt;code&gt;double&lt;/code&gt; array, each row of which contains the number of successes for each of the 6 die values. Normally, if the die is fair, you would expect that with more tries, the average number of successes for each try would converge more and more to the canonical value $1/6\sim0.1667$. We can test this, by calling the function with a large number of tries, and checking the values in the last row of the output array,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print( getMeanDieValue()[-1:,:] )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;[[ 0.1645  0.1668  0.1683  0.1664  0.169   0.165 ]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print( getMeanDieValue(n=100000)[-1:,:] )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;[[ 0.16488  0.1665   0.16635  0.16841  0.1661   0.16776]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A better approach would be plot the output as a function of the number of tries, and see if the results for each of possible die outcomes do indeed converge to the canonical value or not.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import numpy as np
+import matplotlib.pyplot as plt
+
+nDieValues = 6 # 6 possible values for a die throw
+nTrial = 100000 # total number of die throws
+meanDieValues = getMeanDieValue(n=nTrial)
+
+fig1 = plt.figure()
+trial = np.linspace( 1 , nTrial+1 , nTrial )
+lineTypes = ['r-','b-','g-','y-','b-','g-']
+for i in range( nDieValues ) :
+    plt.semilogx( trial[:] \
+            , meanDieValues[:,i] \
+            , lineTypes[i] \
+            ) # plot with color red, as line
+    plt.hold('on')
+plt.xlabel('trial number')
+plt.ylabel('fraction of occurrence for each die number')
+plt.legend(['die value: '+str(i) for i in range(1,7) ])
+plt.axis([1, nTrial , 0.0, 1.0]) # [xmin, xmax, ymin, ymax]
+plt.title('N={} throws of a virtual die in Python'.format(nTrial))
+plt.savefig('diceThrowsN{}.png'.format(nTrial))
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+You can see the output of the above code in the following figure,&lt;/p&gt;
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/lecture/10/diceThrowsN100000.png&quot; width=&quot;900&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;python-wrappers-and-interfaces&quot;&gt;Python wrappers and interfaces&lt;/h2&gt;
+&lt;p&gt;Python is a very convenient language for implementing scientific computations as the code can be made very close to the mathematical algorithms. However, the execution speed of the code is significantly lower than what can be obtained by
+programming in languages such as Fortran, C, or C++. For example see the following performance comparisons and tests in &lt;a href=&quot;https://modelingguru.nasa.gov/docs/DOC-1762&quot; target=&quot;_blank&quot;&gt;NASA modeling guru webpage&lt;/a&gt;. As you can see there, the &lt;strong&gt;performance of Python code can be significantly lower, up to 500 times and more, compared to compiled languages such as Fortran and C&lt;/strong&gt;. These languages compile the program to machine language, which enables the computing resources to be utilized with very high efficiency. Knowing the performance hit in Python, the scientific programming paradigm in Python is to write compute-intensive parts of the code in lower level languages such as Fortran or C, and use Python as wrapper and glue between lower level codes and as a handy tool for high-level tasks.&lt;/p&gt;
+
+&lt;p&gt;Python was initially designed for being integrated with C. This feature has spawned the development of several techniques and tools for calling compiled languages from Python, allowing us to relatively easily reuse fast and
+well-tested scientific libraries in Fortran, C, or C++ from Python, or migrate slow Python code to compiled languages. It often turns out that only smaller parts of the code, usually for loops doing heavy numerical computations, suffer from low speed and can benefit from being implemented in Fortran, C, or C++.&lt;/p&gt;
+
+&lt;p&gt;There are already several Python wrappers developed for integrating Python with other programming language codes. Most prominent examples include &lt;a href=&quot;https://docs.scipy.org/doc/numpy-dev/f2py/&quot; target=&quot;_blank&quot;&gt;F2PY&lt;/a&gt; for Fortran and C codes, &lt;a href=&quot;http://www.swig.org/&quot; target=&quot;_blank&quot;&gt;SWIG&lt;/a&gt; for C, C++, Perl, Java, and many others, &lt;a href=&quot;http://cython.org/&quot; target=&quot;_blank&quot;&gt;Cython&lt;/a&gt; for C, &lt;a href=&quot;http://www.jython.org/&quot; target=&quot;_blank&quot;&gt;Jython&lt;/a&gt; for Java, and several others.&lt;/p&gt;
+
+&lt;p&gt;The usage of some of these wrappers can be tricky and requires some work and good familiarity with the wrapper. This is in particular true about SWIG, which involves a significant amount of manual modifications to the interfaces, compared to F2PY, for example. At the moment, F2PY only works with Python 2.x standard.&lt;/p&gt;
+
+&lt;p&gt;There is also a Python module &lt;a href=&quot;http://pymat.sourceforge.net/&quot; target=&quot;_blank&quot;&gt;pymat&lt;/a&gt; developed for direct interaction of Python code with MATLAB.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/10-python-advanced-io-monte-carlo-interoperability&quot;&gt;Lecture 10: Python advanced topics - IO, Monte Carlo, wrappers and interoperability&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 19, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Homework 9: Problems - Python advanced IO, Monte Carlo]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/9-problems-python-advanced-io-monte-carlo-interoperability"/>
+  <id>http:/ECL2017S/homework/9-problems-python-advanced-io-monte-carlo-interoperability</id>
+  <published>2017-04-19T00:00:00-05:00</published>
+  <updated>2017-04-19T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This homework aims at giving you some experience with Python’s tools for interacting with the World Wide Web and writing Monte Carlo simulations.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; &lt;strong&gt;Reading scientific data from web&lt;/strong&gt;. Consider the webpage of Professor &lt;a href=&quot;http://butler.lab.asu.edu/&quot; target=&quot;_blank&quot;&gt;Nat Butler&lt;/a&gt; at Arizona State University. He has successfully written Python piplines for automated analysis of data from &lt;a href=&quot;https://www.nasa.gov/mission_pages/swift/main&quot; target=&quot;_blank&quot;&gt;NASA’s Swift satellite&lt;/a&gt;. For each &lt;a href=&quot;https://en.wikipedia.org/wiki/Gamma-ray_burst&quot; target=&quot;_blank&quot;&gt;Gamma-Ray Burst (GRB)&lt;/a&gt; detection that Swift makes, his pipline analyzes and reduces data for the burst and summarizes the results on his personal webpage, for example in &lt;a href=&quot;http://butler.lab.asu.edu/swift/bat_spec_table.html&quot; target=&quot;_blank&quot;&gt;this table&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(A)&lt;/strong&gt; Write a Python function named &lt;code&gt;fetchHtmlTable(link,outputPath)&lt;/code&gt; that takes two arguments:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;a web address (which will be this: &lt;a href=&quot;http://butler.lab.asu.edu/swift/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;http://butler.lab.asu.edu/swift/bat_time_table.html&lt;/a&gt;), and&lt;/li&gt;
+  &lt;li&gt;an output path to where you want the code save the resulting files. One file is exact HTML contained in the input webpage address, and a second file, which is the Table contained in this HTML address. To parse the HTML table in this address, you will need the Python code &lt;a href=&quot;http:/ECL2017S/homework/9/parseTable.py&quot; target=&quot;_blank&quot;&gt;parseTable.py&lt;/a&gt; also available and explained on &lt;a href=&quot;https://www.summet.com/dmsi/html/readingTheWeb.html&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;.  This parsed HTML table, will be in the form of a list, whose elements correspond to each row in the HTML table, and each row of element of this parsed table is itself another list, that contains the columns of the HTML table in that row. Output this table as well, in a separate file, in a formatted style, meaning that each element of table in a row has a space of 30 characters for itself (or something appropriate as you wish, e.g., &lt;code&gt;'{:&amp;gt;30}'.format(item)&lt;/code&gt;). You can see an example output of the code &lt;a href=&quot;http:/ECL2017S/homework/9/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;here for the HTML output file&lt;/a&gt;, and &lt;a href=&quot;http:/ECL2017S/homework/9/bat_time_table.html.tab&quot; target=&quot;_blank&quot;&gt;here for parse HTML table&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;(B)&lt;/strong&gt; Now, if you look at the content of the file that your function has generated (once you run it), you will see something like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;                   GRB (Trig#)               Trig_Time (SOD)               Time Region [s]                          T_90                          T_50                       rT_0.90                       rT_0.50                       rT_0.45                          T_av                         T_max                        T_rise                        T_fall                           Cts                       Rate_pk                          Band                              
+       GRB170406x   (00745966)                     44943.130                -40.63-&amp;gt;887.37              881.000 +/-7.697             549.000 +/-25.558             280.000 +/-13.432              124.000 +/-5.751              109.000 +/-4.997             433.667 +/-15.557            877.870 +/-367.494            890.500 +/-366.900              0.000 +/-366.630                6.082 +/-0.344               0.018 +/-0.0065                     15-350keV
+       GRB170402x   (00745090)                     38023.150                  54.35-&amp;gt;66.35                9.000 +/-2.096                5.000 +/-1.490                7.000 +/-1.535                4.000 +/-0.640                3.000 +/-0.559               60.964 +/-1.316               58.850 +/-2.417                1.500 +/-2.894                7.500 +/-2.720                0.162 +/-0.045               0.022 +/-0.0106                     15-350keV
+       GRB170401x   (00745022)                     68455.150                 -19.63-&amp;gt;71.49               78.880 +/-5.224               39.440 +/-4.168               41.480 +/-3.823               18.360 +/-1.585               16.320 +/-1.341               29.541 +/-2.857              24.910 +/-24.386              37.740 +/-24.251              41.140 +/-23.977                1.181 +/-0.122               0.024 +/-0.0130                     15-350keV
+       GRB170331x   (00744791)                      6048.440                 9.835-&amp;gt;35.875               20.160 +/-1.285               10.290 +/-0.914               14.070 +/-1.041                5.880 +/-0.415                5.040 +/-0.359               21.461 +/-0.598               12.460 +/-5.633                0.525 +/-5.718               19.635 +/-5.840                1.875 +/-0.154               0.134 +/-0.0408                     15-350keV
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Now write another function that reads the event unique numbers that appear in this table in parentheses (e.g., 00745966 is the first in table), and puts this number in place of &lt;code&gt;event_id&lt;/code&gt; in this web address template: &lt;code&gt;http://butler.lab.asu.edu/swift/event_id/bat/ep_flu.txt&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now note that, for some events, this address exists, for example,&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://butler.lab.asu.edu/swift/00745966/bat/ep_flu.txt&quot; target=&quot;_blank&quot;&gt;http://butler.lab.asu.edu/swift/00745966/bat/ep_flu.txt&lt;/a&gt;,&lt;/p&gt;
+
+&lt;p&gt;which is a text file named &lt;code&gt;ep_flu.txt&lt;/code&gt;. For some other events, this address might not exist, for example,&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://butler.lab.asu.edu/swift/00680331/bat/ep_flu.txt&quot; target=&quot;_blank&quot;&gt;http://butler.lab.asu.edu/swift/00680331/bat/ep_flu.txt&lt;/a&gt;,&lt;/p&gt;
+
+&lt;p&gt;in which case your code will have to raise a &lt;code&gt;urllib.request.HTTPError&lt;/code&gt; exception. Write your code such that it can smoothly skip these exceptions. Write your code such that it saves all those text files on your local computer, in a file-name format like &lt;a href=&quot;http:/ECL2017S/homework/9/GRB00100433_ep_flu.txt&quot; target=&quot;_blank&quot;&gt;this example: &lt;code&gt;GRB00100433_ep_flu.txt&lt;/code&gt;&lt;/a&gt; (A total of 938 files exist).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(C)&lt;/strong&gt; Now write a third function, that reads all of these files in your directory, one by one, as numpy arrays, and plots the content of all of them together, on a single scatter plot like the following,&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/homework/9/ep_flu.png&quot; width=&quot;900&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;To achieve this goal, your function should start like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def plotBatFiles(inPath,figFile):
+    import os
+    import numpy as np, os
+    import matplotlib.pyplot as plt
+    ax = plt.gca()  # generate a plot handle
+    ax.set_xlabel('Fluence [ ergs/cm^2 ]') # set X axis title
+    ax.set_ylabel('Epeak [ keV ]')  # set Y axis title
+    ax.axis([1.0e-8, 1.0e-1, 1.0, 1.0e4]) # set axix limits [xmin, xmax, ymin, ymax]
+    plt.hold('on')  # add all data files to the same plot
+    counter = 0     # counts the number of events
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+where &lt;code&gt;inPath&lt;/code&gt; and &lt;code&gt;figFile&lt;/code&gt; are the path to the directory containing the files, and the name and path to the output figure file. You will have to use &lt;code&gt;os.listdir(inPath)&lt;/code&gt; to get a list of all files in your input directory. Then loop over this list of files, and use only those that end with &lt;code&gt;ep_flu.txt&lt;/code&gt; because that’s how you saved those files, e.g.,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;for file in os.listdir(inPath):
+        if file.endswith(&quot;ep_flu.txt&quot;):
+            # rest of your code ... 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+But now, you have to also make sure that your input data does indeed contain some numerical data, because some files do contain anything, although they exist, like &lt;a href=&quot;http:/ECL2017S/homework/9/GRB00559075_ep_flu.txt&quot; target=&quot;_blank&quot;&gt;this file: ``&lt;/a&gt;. To do so, you will have to perform a test on the content of file, once you read it as numpy array, like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;            data = np.loadtxt(os.path.join(inPath, file), skiprows=1)
+            if data.size!=0 and all(data[:,1]&amp;lt;0.0):
+                # then plot data
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+the condition &lt;code&gt;all(data[:,1]&amp;lt;0.0)&lt;/code&gt; is rather technical. It makes sure that all values are positive on the second column. Once you have done all these checks, you have to do one final manipulation of data, that is, the data in these files on the second column is actually the log of data, so have to get the &lt;code&gt;exp()&lt;/code&gt; value to plot it (because plot is log-log). To do so you can use,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;            data[:,1] = np.exp(data[:,1])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+and then finally,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;            ax.scatter(data[:,1],data[:,0],s=1,alpha=0.05,c='r',edgecolors='none')
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+which will add the data for the current file to the plot. At the end, you will have to set a title for your plot as well, and save your plot,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;    ax.set_title('Plot of Epeak vs. Fluence for {} Swift GRB events'.format(counter))
+    plt.savefig(figFile)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Note that the variable &lt;code&gt;counter&lt;/code&gt; contains the total number of events for which the text files exists on the website, &lt;strong&gt;and&lt;/strong&gt; the file contained some data (i.e., was not empty).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Question:&lt;/strong&gt; What does &lt;code&gt;alpha=0.05&lt;/code&gt; and &lt;code&gt;s=1&lt;/code&gt; do in the following scatter plot command? (Vary their values to see what happens)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; &lt;strong&gt;Simulating a fun Monte Carlo game.&lt;/strong&gt; Suppose you’re on a game show, and you’re given the choice of three doors:&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/homework/9/Monty_1.png&quot; width=&quot;600&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Behind one door is a car; behind the two others, goats. You pick a door, say No. 1, and the host of the show opens another door, say No. 3, which has a goat.&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/homework/9/Monty_open_door.png&quot; width=&quot;600&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;He then says to you, “Do you want to pick door No. 2?”.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Question: What would you do?&lt;/strong&gt;&lt;br /&gt;
+Is it to your advantage to switch your choice from door 1 to door 2? Is it to your advantage, &lt;strong&gt;in the long run, for a large number of game tries&lt;/strong&gt;, to switch to the other door?&lt;/p&gt;
+
+&lt;p&gt;Now whatever your answer is, I want you to check/prove your answer by a Monte Carlo simulation of this problem. Make a plot of your simulation for $ngames=100000$ repeat of this game, that shows, in the long run, on average, what is the probability of winning this game if you switch your choice, and what is the probability of winning, if you do not switch to the other door.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9-problems-python-advanced-io-monte-carlo-interoperability&quot;&gt;Homework 9: Problems - Python advanced IO, Monte Carlo&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 19, 2017.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -30,18 +561,18 @@
   
   <content type="html">
   
-    &lt;p&gt;This lecture focuses on array computating and code vectorization, as well as methods of plotting data in Python.&lt;/p&gt;
+    &lt;p&gt;This lecture focuses on array computing and code vectorization, as well as methods of plotting data in Python.&lt;/p&gt;
 
 &lt;div class=&quot;post_toc&quot;&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;vectorization-and-array-computing&quot;&gt;Vectorization and array computing&lt;/h2&gt;
 
-&lt;p&gt;With regards to capabilities of Python for scientific calculations, there are conflicting opinions. On the scientific side of the opnion spectrum, some people think that Python is not good enough for number crunching (as a result of which, new progamming languages such as &lt;a href=&quot;https://en.wikipedia.org/wiki/Julia_(programming_language)&quot; target=&quot;_blank&quot;&gt;Julia&lt;/a&gt; have been developed). However, there are people at the other extreme who believe that Python is too much oriented towards scientific computation (as a result of which, new programming languages have emerged, such as Google’s &lt;a href=&quot;https://en.wikipedia.org/wiki/Go_(programming_language)&quot; target=&quot;_blank&quot;&gt;Go language&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;With regards to capabilities of Python for scientific calculations, there are conflicting opinions. On the scientific side of the opinion spectrum, some people think that Python is not good enough for number crunching (as a result of which, new programming languages such as &lt;a href=&quot;https://en.wikipedia.org/wiki/Julia_(programming_language)&quot; target=&quot;_blank&quot;&gt;Julia&lt;/a&gt; have been developed). However, there are people at the other extreme who believe that Python is too much oriented towards scientific computation (as a result of which, new programming languages have emerged, such as Google’s &lt;a href=&quot;https://en.wikipedia.org/wiki/Go_(programming_language)&quot; target=&quot;_blank&quot;&gt;Go language&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;So far in this course, you may have noticed that all numerical vector calculations were either performed with lists, tuples, or dictionaries. Sadly, Python standard does not have an intrinsic special way of defining and manipulating numerical vectors and arrays, unlike most High Performance Computing (HPC) languages for scientific computations (such as Fortran, Ada, or C). However, there are powerful Python modules that enable a Python programmer to use Python efficiently for numerical analysis as well.&lt;/p&gt;
 
 &lt;blockquote&gt;
-If you expect to use Python heavility and mostly for scientific computation in future, you should keep in mind that Python's builtin list, tuple and dictionary types can be very slow for number crunching. 
+If you expect to use Python heavily and mostly for scientific computation in future, you should keep in mind that Python's builtin list, tuple and dictionary types can be very slow for number crunching. 
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -200,7 +731,7 @@ The numpy package also has a method for &lt;strong&gt;Automatic vectorization&lt
 However, for serious programming, I do not recommend you to use this numpy functionality as it can be slow and inefficient.&lt;/p&gt;
 
 &lt;h4 id=&quot;vectorization-of-if-blocks&quot;&gt;vectorization of if-blocks&lt;/h4&gt;
-&lt;p&gt;For vectorization of calculations involving boleans and if conditions, the solution can be problem dependent, but one common easy way of addrressing simple boolean problems could be &lt;code&gt;where&lt;/code&gt; method in numpy package. For example, suppose you have an list of numbers and you would like to perform a task on all negative numbers in the array, say set them all to zero, and leave the positive numbers intact. One solution would be the following,&lt;/p&gt;
+&lt;p&gt;For vectorization of calculations involving booleans and if conditions, the solution can be problem dependent, but one common easy way of addressing simple boolean problems could be &lt;code&gt;where&lt;/code&gt; method in numpy package. For example, suppose you have an list of numbers and you would like to perform a task on all negative numbers in the array, say set them all to zero, and leave the positive numbers intact. One solution would be the following,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [57]: x = np.array([1,-1,3,-5,-6,8,7,4,10])
 
 In [58]: np.where(x&amp;lt;0,0,x)
@@ -236,7 +767,7 @@ Out[71]: array([-1,  2,  3,  4,  5])
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;in-place-arithmetic-in-python&quot;&gt;In-place arithmetic in Python&lt;/h4&gt;
-&lt;p&gt;Consider two arrays &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; of the same shape. The expression &lt;code&gt;a += b&lt;/code&gt; means &lt;code&gt;a = a + b&lt;/code&gt;. There are however hidden differences between the two. In the statement &lt;code&gt;a = a + b&lt;/code&gt;, the sum &lt;code&gt;a + b&lt;/code&gt; is first computed, yielding a new array, and then the name &lt;code&gt;a&lt;/code&gt; is bound to this new array. The old array a is lost unless there are other names assigned to this array. In the statement &lt;code&gt;a += b&lt;/code&gt;, elements of &lt;code&gt;b&lt;/code&gt; are added directly into the elements of &lt;code&gt;a&lt;/code&gt; (in memory). There is no hidden intermediate array as in &lt;code&gt;a = a + b&lt;/code&gt;. This implies that &lt;strong&gt;&lt;code&gt;a += b&lt;/code&gt; is more efficient than &lt;code&gt;a = a + b&lt;/code&gt; since Python avoids making an extra array&lt;/strong&gt;. In other words, the operators +=, *=, and similar operators, perform &lt;strong&gt;in-place arithmetics&lt;/strong&gt; in arrays.&lt;/p&gt;
+&lt;p&gt;Consider two arrays &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; of the same shape. The expression &lt;code&gt;a += b&lt;/code&gt; means &lt;code&gt;a = a + b&lt;/code&gt;. There are however hidden differences between the two. In the statement &lt;code&gt;a = a + b&lt;/code&gt;, the sum &lt;code&gt;a + b&lt;/code&gt; is first computed, yielding a new array, and then the name &lt;code&gt;a&lt;/code&gt; is bound to this new array. The old array a is lost unless there are other names assigned to this array. In the statement &lt;code&gt;a += b&lt;/code&gt;, elements of &lt;code&gt;b&lt;/code&gt; are added directly into the elements of &lt;code&gt;a&lt;/code&gt; (in memory). There is no hidden intermediate array as in &lt;code&gt;a = a + b&lt;/code&gt;. This implies that &lt;strong&gt;&lt;code&gt;a += b&lt;/code&gt; is more efficient than &lt;code&gt;a = a + b&lt;/code&gt; since Python avoids making an extra array&lt;/strong&gt;. In other words, the operators +=, *=, and similar operators, perform &lt;strong&gt;in-place arithmetic&lt;/strong&gt; in arrays.&lt;/p&gt;
 
 &lt;h4 id=&quot;allocating-arrays-in-python&quot;&gt;Allocating arrays in Python&lt;/h4&gt;
 &lt;p&gt;We have already seen in the above that the &lt;code&gt;np.zeros&lt;/code&gt; function is useful for making a new array of a given size. Very often the size and the type of array elements are known a priori or has to match another existing array’s shape and type &lt;code&gt;b&lt;/code&gt;. There are two ways of achieving this goal,&lt;/p&gt;
@@ -491,7 +1022,7 @@ The output of the code is a PNG figure &lt;a href=&quot;http:/ECL2017S/lecture/9
 &lt;p&gt;For more complicated 2D/3D or vector field plotting, you may find Matplotlib inadequate. To address these inadequacies, other packages have been developed which provide interface to more advanced plotting software such as, MATLAB, Gnuplot, Grace, OpenDX, VTK, and others.&lt;/p&gt;
 
 &lt;h4 id=&quot;easyviz-from-scitools&quot;&gt;Easyviz from SciTools&lt;/h4&gt;
-&lt;p&gt;Because each of the above mentioned visualization software has its own plotting syntax, a Python module &lt;code&gt;easyviz&lt;/code&gt; has been developed which provides a universal interface for any of the above mentioned back-end plotting software. In other words, the user can request eazyvis to use one of the above-mentioned software as the plotting engine in Python, while the syntax of the Python code is universal and the same for all of them, and this is achieved by using &lt;code&gt;eazyvis&lt;/code&gt;. Just like Matplotlib, the syntax of &lt;code&gt;eazyvis&lt;/code&gt; has been also purposfully made very similar to MATLAB.&lt;/p&gt;
+&lt;p&gt;Because each of the above mentioned visualization software has its own plotting syntax, a Python module &lt;code&gt;easyviz&lt;/code&gt; has been developed which provides a universal interface for any of the above mentioned back-end plotting software. In other words, the user can request eazyvis to use one of the above-mentioned software as the plotting engine in Python, while the syntax of the Python code is universal and the same for all of them, and this is achieved by using &lt;code&gt;eazyvis&lt;/code&gt;. Just like Matplotlib, the syntax of &lt;code&gt;eazyvis&lt;/code&gt; has been also purposefully made very similar to MATLAB.&lt;/p&gt;
 
 &lt;p&gt;The Easyviz module is part of the &lt;a href=&quot;https://github.com/hplgit/scitools&quot; target=&quot;_blank&quot;&gt;SciTools package&lt;/a&gt;, which consists of a set of Python tools building on Numerical Python, ScientificPython, the comprehensive SciPy environment, and other packages for scientific computing with Python. However, keep in mind that &lt;strong&gt;SciTools strictly requires &lt;a href=&quot;http://python.org&quot; target=&quot;_blank&quot;&gt;Python v2.7&lt;/a&gt; and &lt;a href=&quot;http://numpy.org&quot; target=&quot;_blank&quot;&gt;Numerical Python&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
 
@@ -632,16 +1163,14 @@ Write a vectorized version of this function. (Hint: you may need numpy’s &lt;c
   
     &lt;p&gt;This is the solution to &lt;a href=&quot;6-problems-python-modules-loops-io&quot; target=&quot;_blank&quot;&gt;Quiz 6: Problems - Python modules, loops, and IO&lt;/a&gt;.&lt;/p&gt;
 
-&lt;!--
-The following figure illustrates the grade distribution for this quiz.  
+&lt;p&gt;The following figure illustrates the grade distribution for this quiz.&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/quiz/gradeDist/gradeHistQuiz6.png&quot; width=&quot;700&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/quiz/gradeDist/gradeHistQuiz6.png&quot; width=&quot;700&quot; /&gt;
     &lt;figcaption style=&quot;text-align:center&quot;&gt;
         Maximum possible points is 100.
     &lt;/figcaption&gt;
 &lt;/figure&gt;
---&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -897,7 +1426,7 @@ How many iterations does this for-loop perform before ending? Explain briefly wh
 
 
 <entry>
-  <title type="html"><![CDATA[Lecture 8: Python - I/O, error handling, and tesing frameworks]]></title>
+  <title type="html"><![CDATA[Lecture 8: Python - I/O, error handling, and testing frameworks]]></title>
   <link rel="alternate" type="text/html" href="http:/ECL2017S/lecture/8-python-io-error-handling-unit-testing"/>
   <id>http:/ECL2017S/lecture/8-python-io-error-handling-unit-testing</id>
   <published>2017-04-05T00:00:00-05:00</published>
@@ -933,7 +1462,7 @@ print(y)
 
 &lt;blockquote&gt;
     &lt;b&gt;In general, in any programming language, including Python you should always avoid hardcoding input information into your program.&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
-    If data is hardcoded, then everytime it has to change, the user has to change the content of the code, and this is not considered good programming style for software development.
+    If data is hardcoded, then every time it has to change, the user has to change the content of the code, and this is not considered good programming style for software development.
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;br /&gt;
 In general, input data can be fed to a program in four different ways:&lt;/p&gt;
@@ -971,7 +1500,7 @@ Now if you save this code in a &lt;a href=&quot;http:/ECL2017S/lecture/8/input_v
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-    &lt;b&gt;ATTENTION: Notice the convention for command-line arguements&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+    &lt;b&gt;ATTENTION: Notice the convention for command-line arguments&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
     
     &lt;b&gt;1.&lt;/b&gt; As you see in the above example, the name of the program is considered as the first command line argument (&lt;code&gt;sys.argv[0]&lt;/code&gt;). Also the arguments must be separated by a white space, and should appear in the proper order.&lt;br /&gt;&lt;br /&gt;
     
@@ -988,7 +1517,7 @@ Now if you save this code in a &lt;a href=&quot;http:/ECL2017S/lecture/8/input_v
 &lt;h5 id=&quot;option-value-pairs-as-command-line-input&quot;&gt;Option-value pairs as command-line input&lt;/h5&gt;
 &lt;p&gt;Once the number of input arguments to your code increases, the process of inputting data as command line arguments can get complicated. Ideally, the user should be able to enter data in any arbitrary order. This can be done by indicating the meaning of each input by a flag before the input value. For example, suppose you were to find the location $y(t)$ of an object thrown up in the air vertically, given that the object started at $y=y_0$, at $t=0$ with an initial velocity $v_0$, and thereafter was subject to a constant acceleration $a$,
 &lt;script type=&quot;math/tex&quot;&gt;y(t) = y_0 + v_0t + \frac{1}{2}at^2 ~.&lt;/script&gt;
-Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t$, and we don’t the program user to memorize their order of entry on the command line. The solution is to identify the type of each input using a flag preceding the input value. This can be done using &lt;code&gt;argparse&lt;/code&gt; Python module. Deatails of the usage of this module goes beyond the limited time of our class. However, I recommend you to have a look at the &lt;a href=&quot;https://docs.python.org/3/library/argparse.html&quot; target=&quot;_blank&quot;&gt;syntax and usage of &lt;em&gt;argparse&lt;/em&gt; module&lt;/a&gt;, as you will find it very handy in your Python codes, projects, and software development.&lt;/p&gt;
+Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t$, and we don’t the program user to memorize their order of entry on the command line. The solution is to identify the type of each input using a flag preceding the input value. This can be done using &lt;code&gt;argparse&lt;/code&gt; Python module. Details of the usage of this module goes beyond the limited time of our class. However, I recommend you to have a look at the &lt;a href=&quot;https://docs.python.org/3/library/argparse.html&quot; target=&quot;_blank&quot;&gt;syntax and usage of &lt;em&gt;argparse&lt;/em&gt; module&lt;/a&gt;, as you will find it very handy in your Python codes, projects, and software development.&lt;/p&gt;
 
 &lt;h4 id=&quot;input-data-from-file&quot;&gt;Input data from file&lt;/h4&gt;
 &lt;p&gt;In cases where the input data is large, the command-line arguments and input from terminal window are not efficient anymore. In such cases, the most common approach is to let the code read input data from a file, the path to which is most often given to the code from the command line or the terminal window.&lt;/p&gt;
@@ -1007,7 +1536,7 @@ In [5]: myfile.
 
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
-The function &lt;code&gt;open&lt;/code&gt; creates a file object, stored in the variable myfile. The second input argument to &lt;code&gt;open&lt;/code&gt;, &lt;code&gt;'r'&lt;/code&gt; tells the function that the purpose of this file opening is to read data (as opposed to, for example, writing data, or both reading and writing).&lt;/p&gt;
+The function &lt;code&gt;open&lt;/code&gt; creates a file object, stored in the variable &lt;code&gt;myfile&lt;/code&gt;. The second input argument to &lt;code&gt;open&lt;/code&gt;, &lt;code&gt;'r'&lt;/code&gt; tells the function that the purpose of this file opening is to read data (as opposed to, for example, writing data, or both reading and writing).&lt;/p&gt;
 
 &lt;p&gt;Now you can use a for loop to read the data in this file line by line:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;for line in myfile:
@@ -1170,7 +1699,7 @@ In [39]: print(s)
 65
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
-The major advanatge of this method of reading file content is that you can then immediately apply string methods directly on the file content.&lt;/p&gt;
+The major advantage of this method of reading file content is that you can then immediately apply string methods directly on the file content.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [48]: myfile = open('data.in', 'r')
     ...: numbers = [float(x) for x in myfile.read().split()]
     ...: mean = sum(numbers)/len(numbers)
@@ -1184,7 +1713,7 @@ In [49]: print(mean)
 &lt;h3 id=&quot;converting-user-input-to-live-python-objects&quot;&gt;Converting user input to live Python objects&lt;/h3&gt;
 &lt;p&gt;One of the cool features in Python I/O is that you can provide text containing valid Python code as input to a program and then
 turn that text into &lt;em&gt;live Python objects&lt;/em&gt; as if the text were lines of code written directly into the program beforehand. This is a very powerful tool for letting users specify function formulas, for instance, as input to a program. The program code itself has no knowledge about the kind of function the user wants to work with, yet at run time the user’s desired
-formula enters the computations. To achieve the goal, one can use Python’s &lt;strong&gt;magic functions&lt;/strong&gt;, a.k.a &lt;strong&gt;special methods&lt;/strong&gt;.&lt;/p&gt;
+formula enters the computations. To achieve the goal, one can use Python’s &lt;strong&gt;magic functions&lt;/strong&gt;, a.k.a. &lt;strong&gt;special methods&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h4 id=&quot;the-magic-eval-function&quot;&gt;The magic &lt;em&gt;eval&lt;/em&gt; function&lt;/h4&gt;
 &lt;p&gt;The &lt;code&gt;eval&lt;/code&gt; function takes a &lt;strong&gt;string as argument&lt;/strong&gt; and &lt;strong&gt;evaluates&lt;/strong&gt; this string as a &lt;strong&gt;Python expression&lt;/strong&gt;. The result of an expression is an &lt;strong&gt;object&lt;/strong&gt;. For example,&lt;/p&gt;
@@ -1259,7 +1788,7 @@ The only major caveat with this module is that, at the moment, it only works wit
 &lt;h3 id=&quot;methods-of-outputting-data&quot;&gt;Methods of outputting data&lt;/h3&gt;
 &lt;p&gt;Two major methods of data output are,&lt;/p&gt;
 &lt;ol&gt;
-  &lt;li&gt;writing to the terminal window, as previdously done using &lt;code&gt;print()&lt;/code&gt; function, or,&lt;/li&gt;
+  &lt;li&gt;writing to the terminal window, as previously done using &lt;code&gt;print()&lt;/code&gt; function, or,&lt;/li&gt;
   &lt;li&gt;writing to an output file.&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -1356,7 +1885,7 @@ The input you entered is not an integer!
  Try again...
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
-The type of error ocurring in the above example was &lt;code&gt;ValueError&lt;/code&gt;. There can be however, many other types of errors and exceptions. For this reason, Python has a &lt;a href=&quot;https://docs.python.org/2/library/exceptions.html&quot; target=&quot;_blank&quot;&gt;builtin list of exceptions&lt;/a&gt; that frequently occur in programming.&lt;/p&gt;
+The type of error occurring in the above example was &lt;code&gt;ValueError&lt;/code&gt;. There can be however, many other types of errors and exceptions. For this reason, Python has a &lt;a href=&quot;https://docs.python.org/2/library/exceptions.html&quot; target=&quot;_blank&quot;&gt;builtin list of exceptions&lt;/a&gt; that frequently occur in programming.&lt;/p&gt;
 
 &lt;h3 id=&quot;the-raise-statement&quot;&gt;The &lt;em&gt;raise&lt;/em&gt; statement&lt;/h3&gt;
 &lt;p&gt;Instead of the print statement in the above &lt;code&gt;except&lt;/code&gt; block, Python has a builtin function to handle the error together with an input message from the programmer. For example, the previous code, could be modified to the following code,&lt;/p&gt;
@@ -1394,7 +1923,7 @@ ValueError: The input you entered is not an integer!
  Try again...
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
-A more elegant and cleaner way of handling and outputing the error would be use the following syntax, in &lt;a href=&quot;http:/ECL2017S/lecture/8/cmd_find_primes_raise_as_err.py&quot; target=&quot;_blank&quot;&gt;this modified code&lt;/a&gt;,&lt;/p&gt;
+A more elegant and cleaner way of handling and outputting the error would be use the following syntax, in &lt;a href=&quot;http:/ECL2017S/lecture/8/cmd_find_primes_raise_as_err.py&quot; target=&quot;_blank&quot;&gt;this modified code&lt;/a&gt;,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if __name__ == &quot;__main__&quot;:
     import sys
     if len( sys.argv ) != 2: # check the number of arguments to be exactly 2.
@@ -1429,7 +1958,7 @@ In the statement &lt;code&gt;except ValueError as err:&lt;/code&gt; one could us
   &lt;li&gt;ensuring the &lt;strong&gt;code robustness&lt;/strong&gt; to exceptions and invalid input data, meaning that it does not crash when it reaches unexpected situations during the code execution and gracefully handles the error, without interruption.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Because of the goals for which the unit tests are desgined, they are mosly written and used by the developers of the code.&lt;/p&gt;
+&lt;p&gt;Because of the goals for which the unit tests are designed, they are mostly written and used by the developers of the code.&lt;/p&gt;
 
 &lt;h3 id=&quot;unit-test-frameworks&quot;&gt;Unit test frameworks&lt;/h3&gt;
 &lt;p&gt;There are many ways to write tests for codes. Now, if you asked each software developer to write a unit test for a specific software, each would likely come up with their own set of rules and tests of the software. You will end up with many tests, that will generally only be usable by the developer that wrote the tests. That is why you should select a unit test framework. A unit test framework provides consistency for how the unit tests for your project are written. There are many test frameworks to choose from for just about any language you want to program with, including Python. Just like programming language, almost every programmer has a strong opinion which test framework is the best. Research what’s out there and use the one that meets the needs of your organization (For example, there is one experienced Python programmer in our ECL class who does not like any of the existing unit tests for Python, and wants to write his own unit test as the project of this course!).&lt;/p&gt;
@@ -1465,7 +1994,7 @@ In the statement &lt;code&gt;except ValueError as err:&lt;/code&gt; one could us
     return x, f(x), n
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
-Our goal is to write a function that tests the validity of the output of the function for a special case for which we know the results a priori. In the case of the above code, the function output is a not a fixed result, but an approximate float number $x_0$ which satifies the condition $f(x_0)&amp;lt;\epsilon$ where $\epsilon$ is a prescribed number close to zero. Therefore, we have to first come up with a mathematical test input function to the function &lt;code&gt;newton&lt;/code&gt;, for which we have calculated the correct answer a priori, and we want to make sure if the above code gives the same answer. Since the output of the function &lt;code&gt;newton&lt;/code&gt; is a float that depends on the machine precision, we cannot expect the function to output the exact same result everytime the code is run on any computer. Therefore we have to define our test such that the function passes the test even if the result is not exactly what we expect, but still close enought to the correct answer. Here is an example test function for the above code using the &lt;code&gt;sin(x)&lt;/code&gt; function as the test input function to &lt;code&gt;newton()&lt;/code&gt;,&lt;/p&gt;
+Our goal is to write a function that tests the validity of the output of the function for a special case for which we know the results a priori. In the case of the above code, the function output is a not a fixed result, but an approximate float number $x_0$ which satisfies the condition $f(x_0)&amp;lt;\epsilon$ where $\epsilon$ is a prescribed number close to zero. Therefore, we have to first come up with a mathematical test input function to the function &lt;code&gt;newton&lt;/code&gt;, for which we have calculated the correct answer a priori, and we want to make sure if the above code gives the same answer. Since the output of the function &lt;code&gt;newton&lt;/code&gt; is a float that depends on the machine precision, we cannot expect the function to output the exact same result every time the code is run on any computer. Therefore, we have to define our test such that the function passes the test even if the result is not exactly what we expect, but still close enough to the correct answer. Here is an example test function for the above code using the &lt;code&gt;sin(x)&lt;/code&gt; function as the test input function to &lt;code&gt;newton()&lt;/code&gt;,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def test_newton_sin():
     
     from math import sin, cos, pi
@@ -1534,7 +2063,7 @@ One could also write exact tests for the function &lt;code&gt;newton&lt;/code&gt
     return x, f(x), n
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
-Now, for this more robust code (than the earlier version: &lt;code&gt;newton&lt;/code&gt;), we have to also write a set of tests, examining the robustenss of the code, subject to potential exceptions. For example, one can write a test function that examines the behavior of &lt;code&gt;Newton&lt;/code&gt; subject to an input mathematical function that is known to lead to divergent (infinite) iterations, if the initial starting point $x$ is not sufficiently close to the root of the function. One such example is $f(x)=tanh(x)$, for which a starting search value of $x=20$ would lead to infinite iterations in the Newton’s method. So we can set &lt;code&gt;maxit=12&lt;/code&gt; in our robust &lt;code&gt;Newton&lt;/code&gt; code, and test that the actual number of iterations reaches this limit. Given our prior knowledge for this function, that the value of $x$ will also diverge after 12 iterations, we could also add a test for the value of $x$, like the following,&lt;/p&gt;
+Now, for this more robust code (than the earlier version: &lt;code&gt;newton&lt;/code&gt;), we have to also write a set of tests, examining the robustness of the code, subject to potential exceptions. For example, one can write a test function that examines the behavior of &lt;code&gt;Newton&lt;/code&gt; subject to an input mathematical function that is known to lead to divergent (infinite) iterations, if the initial starting point $x$ is not sufficiently close to the root of the function. One such example is $f(x)=tanh(x)$, for which a starting search value of $x=20$ would lead to infinite iterations in the Newton’s method. So we can set &lt;code&gt;maxit=12&lt;/code&gt; in our robust &lt;code&gt;Newton&lt;/code&gt; code, and test that the actual number of iterations reaches this limit. Given our prior knowledge for this function, that the value of $x$ will also diverge after 12 iterations, we could also add a test for the value of $x$, like the following,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def test_Newton_divergence():
     from math import tanh
     f = tanh
@@ -1547,7 +2076,7 @@ Now, for this more robust code (than the earlier version: &lt;code&gt;newton&lt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;test_Newton_divergence()
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
-The example given here, only tests for the robustenss of &lt;code&gt;Newton()&lt;/code&gt; in handling divergent situations. For other potential problems, one has to write other test functions, some which will be given as exercise.&lt;/p&gt;
+The example given here, only tests for the robustness of &lt;code&gt;Newton()&lt;/code&gt; in handling divergent situations. For other potential problems, one has to write other test functions, some which will be given as exercise.&lt;/p&gt;
 
 &lt;h3 id=&quot;summary-unit-testing&quot;&gt;Summary: unit testing&lt;/h3&gt;
 &lt;p&gt;Unit testing is a component of &lt;a href=&quot;https://en.wikipedia.org/wiki/Test-driven_development&quot; target=&quot;_blank&quot;&gt;test-driven development (TDD)&lt;/a&gt;, a pragmatic methodology that takes a meticulous approach to building a product by means of &lt;em&gt;continual testing and revision&lt;/em&gt;.&lt;/p&gt;
@@ -1559,7 +2088,7 @@ The example given here, only tests for the robustenss of &lt;code&gt;Newton()&lt
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/8-python-io-error-handling-unit-testing&quot;&gt;Lecture 8: Python - I/O, error handling, and tesing frameworks&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/8-python-io-error-handling-unit-testing&quot;&gt;Lecture 8: Python - I/O, error handling, and testing frameworks&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -5466,1122 +5995,6 @@ syntax, runtime, and semantic errors.&lt;br /&gt;
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/4-solutions-python-values-variables-types&quot;&gt;Quiz 4: Solutions - Python values, variables, types&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 01, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Quiz 4: Problems - Python values, variables, types]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/quiz/4-problems-python-values-variables-types"/>
-  <id>http:/ECL2017S/quiz/4-problems-python-values-variables-types</id>
-  <published>2017-03-01T00:00:00-06:00</published>
-  <updated>2017-03-01T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This quiz aims at testing your basic knowledge of Python’s print function, and the how to string manipulation in Python. Don’t forget to push your answers to your remote repository by the end of quiz time. Push your quiz-4 &lt;em&gt;readme.md&lt;/em&gt; file to quiz/4/ folder in your Github project.  If you write your answers in Python scripts, put the script files in the same folder as well. If you feel uncertain about your answer, you can test your final codes on Jupyter or IPython command lines.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Write a &lt;strong&gt;single-line&lt;/strong&gt; python script, that prints your full name 5 times, each on a separate line.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Write a &lt;strong&gt;single-line&lt;/strong&gt; python script, that applies the relevant Python string manipulator methods to this string,&lt;br /&gt;
-&lt;br /&gt;
-    &lt;pre&gt;&lt;code&gt;Python Is Great For String Manipulation.
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;and transforms it to the following string and and prints it on screen,&lt;/p&gt;
-    &lt;pre&gt;&lt;code&gt;.noitalupinaMgnirtSroFtaerGsInohtyP
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Name the three major types of programming errors.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/4-problems-python-values-variables-types&quot;&gt;Quiz 4: Problems - Python values, variables, types&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 01, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Lecture 5: Python - variables and assignment statements]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/lecture/5-python-variables-assignments"/>
-  <id>http:/ECL2017S/lecture/5-python-variables-assignments</id>
-  <published>2017-03-01T00:00:00-06:00</published>
-  <updated>2017-03-01T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This lecture further explains different types of variables in Python, branching statements, how to define functions, and what Python modules are.&lt;/p&gt;
-
-&lt;div class=&quot;post_toc&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;programming-glossary&quot;&gt;Programming glossary&lt;/h2&gt;
-&lt;p&gt;The following table summarizes some of the important keywords in this lecture for you.&lt;/p&gt;
-
-&lt;table class=&quot;center&quot;&gt;
-&lt;caption class=&quot;title&quot; style=&quot;padding-bottom:10px;text-align:center;&quot;&gt;
-Table 1. Some programming phrases that are discussed in this lecture.
-&lt;/caption&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-    &lt;th&gt;&lt;font size=&quot;4rm&quot; color=&quot;red&quot;&gt;Expression&lt;/font&gt;&lt;/th&gt;
-    &lt;th&gt;&lt;font size=&quot;4rm&quot; color=&quot;red&quot;&gt;Description&lt;/font&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;dictionary&lt;/b&gt;&lt;/td&gt;&lt;td&gt;A collection of `key:value` mapping pairs, in which the values can be obtained by calling the value's key.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;hashable&lt;/b&gt;&lt;/td&gt;&lt;td&gt;A Python object (e.g., variable) that has a &lt;a href=&quot;https://en.wikipedia.org/wiki/Hash_function&quot; target=&quot;_blank&quot;&gt;hash value&lt;/a&gt; which never changes during its lifetime.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;immutable&lt;/b&gt;&lt;/td&gt;&lt;td&gt;A variable or value that cannot be modified. Assignments to elements of immutable values cause a runtime error. Example immutable Python entities are tuples and strings.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;invocation&lt;/b&gt;&lt;/td&gt;&lt;td&gt;The process of calling an object's method, usually done through &lt;code&gt;&amp;#60;object name&amp;#62;.&amp;#60;method name&amp;#62;&lt;/code&gt; notation.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;list&lt;/b&gt;&lt;/td&gt;&lt;td&gt;A sequence of comma-separated heterogenous values next to each other.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;method&lt;/b&gt;&lt;/td&gt;&lt;td&gt;Similar to a function, a method is a predefined built-in Python script that performs a specific task on the data object to which the method belongs.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;mutable&lt;/b&gt;&lt;/td&gt;&lt;td&gt;A variable or value that can be modified. Examples of mutables in Python are lists, and dictionaries.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;set&lt;/b&gt;&lt;/td&gt;&lt;td&gt;An unordered collection of unique elements, just like the mathemtical sets.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;string&lt;/b&gt;&lt;/td&gt;&lt;td&gt;A sequence of characters next to each other.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;tuple&lt;/b&gt;&lt;/td&gt;&lt;td&gt;An immutable data value that contains related elements. Tuples are used to group together related data, such as a person’s name, their age, and their gender.&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;variables-in-python-continued&quot;&gt;Variables in Python (continued)&lt;/h2&gt;
-&lt;p&gt;A variable is simply a name that we assign to a specific value, in order to avoid repeating the same value frequently in the code, thus writing a cleaner, less error-prone script/code. As we discussed before, Python has 6 main variable types:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Number&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;String&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;List&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tuple&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Dictionary&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Set and Frozenset&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;We will get to each of these below. But before that, here are some official and unofficial tips on the variable naming conventions in Python.&lt;/p&gt;
-
-&lt;h3 id=&quot;variable-naming-convention-in-python&quot;&gt;Variable naming convention in Python&lt;/h3&gt;
-
-&lt;p&gt;A Python variable can only begin with letter or underscore _. Numbers are only valid if they appear inside or at the end of the variable name. Other symbols are syntactically invalid anywhere in a variable name.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;123new_var = 2.5 # This is an invalid name
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;  File &quot;&amp;lt;ipython-input-10-0e3e63931842&amp;gt;&quot;, line 1
-    123new_var = 2.5 # This is an invalid name
-             ^
-SyntaxError: invalid syntax
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;new_var$ = 2.5 # symbols are not valid in Python variable names
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;  File &quot;&amp;lt;ipython-input-12-71f3fbc68938&amp;gt;&quot;, line 1
-    new_var$ = 2.5 # symbols are not valid in Python variable names
-           ^
-SyntaxError: invalid syntax
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;amir = &quot;teacher&quot;
-print('Amir is a', amir)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;Amir is a teacher
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;123amir = &quot;teacher&quot; # Wrong name for variable
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;  File &quot;&amp;lt;ipython-input-38-85ed673cd303&amp;gt;&quot;, line 1
-    123amir = &quot;teacher&quot;
-          ^
-SyntaxError: invalid syntax
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;life_expectancy = 120; print( &quot;The life expectancy for the millennials is projected to be %d years! (But don't believe it...)&quot; % (life_expectancy) );
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;The life expectancy for the millennials is projected to be 120 years! (But don't believe it...)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;python-reserved-names-keywords&quot;&gt;Python reserved names (keywords)&lt;/h3&gt;
-&lt;p&gt;There are some limitation as what names you can choose for your variables, even if they completely obey the Python syntax standard. Variable names in Python cannot be the same as &lt;strong&gt;Python keywords&lt;/strong&gt;, which are simply names that reserved for a specific purpose in Python programming.  A keyword as variable name, function name or any other identifier. They are used to define the syntax and structure of the Python language. Note that &lt;strong&gt;Python keywords are case-sensitive&lt;/strong&gt;.  There are already more than 30 keywords in Python 3. In order to see a complete list of all keywords use the following python codes,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [38]: import keyword
-
-In [39]: print(keyword.
-keyword.iskeyword keyword.kwlist    keyword.main
-
-In [39]: print(keyword.kwlist)
-['False', 'None', 'True', 'and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
-
-In [40]: keyword.kwlist # same thing as above, but each keyword printed on a new line.
-Out[40]:
-['False',
- 'None',
- 'True',
- 'and',
- 'as',
- 'assert',
- 'break',
- 'class',
- 'continue',
- 'def',
- 'del',
- 'elif',
- 'else',
- 'except',
- 'finally',
- 'for',
- 'from',
- 'global',
- 'if',
- 'import',
- 'in',
- 'is',
- 'lambda',
- 'nonlocal',
- 'not',
- 'or',
- 'pass',
- 'raise',
- 'return',
- 'try',
- 'while',
- 'with',
- 'yield']
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Note that all keywords except &lt;code&gt;True&lt;/code&gt;, &lt;code&gt;False&lt;/code&gt; and &lt;code&gt;None&lt;/code&gt; are in lowercase and they must be written as lowercase. To understand the meaning and function of each of these keywords, see &lt;a href=&quot;https://www.programiz.com/python-programming/keyword-list&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;meaning-of-underscore-_-in-python&quot;&gt;Meaning of underscore _ in Python&lt;/h3&gt;
-
-&lt;p&gt;Frequently, as you learn more about Python, you will notice the presence of underscores in Python variables, function and method names. Depending on where and how underscore appears in a Python name, it can have a different meaning.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1. Underscore as word separator in variable/function naming&lt;/strong&gt;&lt;br /&gt;
-The convention in Python programming is to separate multiple words in Python variable names by underscore. For example,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;an_example_long_variable_name = 123
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Of course, this is totally a convension. But I highly recommend you to follow the conventions that everyone else follows, so that you can understand other people’s codes and others can understand your code easily. 
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. Underscore meaning in Python interpreter&lt;/strong&gt;&lt;br /&gt;
-A variable named solely by underscore &lt;strong&gt;_&lt;/strong&gt; in Python interpreter points to the result of the &lt;strong&gt;last executed statement&lt;/strong&gt; in the interactive interpreter session. This convention was first implemented by the standard CPython interpreter, but now other implementations are also following the convention.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [1]: _
-Out[1]: ''
-
-In [2]: a = 120
-
-In [3]: _
-Out[3]: ''
-
-In [4]: a + a
-Out[4]: 240
-
-In [5]: _
-Out[5]: 240
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;3. _ as a dummy name in Python scripts&lt;/strong&gt;&lt;br /&gt;
-The underscore _ can be used as a dummy name in Python scripts, a name for an entity that does play an important role in the code, for example, the index of a loop. This allows the next person who reads the code to know which entites (variables, …) are dummy and not intended to be used.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = 1
-b = 2
-print(&quot;a =&quot;,a,&quot;b =&quot;,b)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;a = 1 b = 2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;_ = a
-a = b
-b = _
-print(&quot;a =&quot;,a,&quot;b =&quot;,b) # the values are swapped. _ is just a dummy indtermediate variable.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;a = 2 b = 1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;4. Underscore as an indicator of the local-scope of a variable/function&lt;/strong&gt;&lt;br /&gt;
-A single underscore that appears at the beginning of a name in Python code indicates that the name has to be treated as &lt;em&gt;private&lt;/em&gt; by the programmer. In other words, a name starting with _ is for internal use. In Python documentation the following note exist about such names:&lt;/p&gt;
-
-&lt;blockquote&gt;
-    A name prefixed with an underscore (e.g. _spam) should be treated as a non-public part of the API (whether it is a function, a method or a data member). It should be considered an implementation detail and subject to change without notice.  
-&lt;/blockquote&gt;
-
-&lt;p&gt;For Python module functions, if you use &lt;code&gt;from module_name import __all__&lt;/code&gt; instead of &lt;code&gt;from module_name import *&lt;/code&gt;, then all internal names in the module (that begin with _) will be imported to your environment as well.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;5. Double Underscore Before and After a Name (e.g., &lt;code&gt;__init__&lt;/code&gt;)&lt;/strong&gt;&lt;br /&gt;
-Such names are special method names used by Python. This is just a convention, that is, a way for the Python system to use names that won’t conflict with user-defined names. These names can be typically overridden to define the desired behaviour for when Python calls them. For example, the &lt;code&gt;__init__&lt;/code&gt; method is often overridden when writing a Python class. We will get to these topics later on in this course.&lt;/p&gt;
-
-&lt;p&gt;A good review of underscore in Python can be found &lt;a href=&quot;https://shahriar.svbtle.com/underscores-in-python&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;number-variables&quot;&gt;Number variables&lt;/h3&gt;
-
-&lt;p&gt;We have already extensively discussed number values in the previous lecture. Basically, everything that we have said about number values, holds also for variables of type number. But here is a very cool fear of number values and variables, that we skipped over in our previous lecture. When you define a Python number variable (or value), then python interpreter automatically allows you to perform some pre-defined operations on the variable/value by default. To access these operations, the dot &lt;code&gt;.&lt;/code&gt; syntax has to be used. Type the variable name, followed by &lt;code&gt;.&lt;/code&gt;, and then press &lt;code&gt;tab&lt;/code&gt; in your IPython/Jupyter editor.  Depending on the type of number (integer/float/complex) you will get a different set of operations that are allowed on the variable. The following shows some examples in IPython environment.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [18]: a = 120 # This is an integer variable
-
-In [19]: a.
-a.bit_length  a.conjugate   a.denominator a.from_bytes  a.imag        a.numerator   a.real        a.to_bytes
-
-In [19]: a.conjugate
-Out[19]: &amp;lt;function int.conjugate&amp;gt;
-
-In [20]: a.conjugate()
-Out[20]: 120
-
-In [21]: a.imag
-Out[21]: 0
-
-In [22]: a.real
-Out[22]: 120
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [23]: a = 120.5  # Now 'a' is a float variable
-
-In [24]: a.
-a.as_integer_ratio a.conjugate        a.fromhex          a.hex              a.imag             a.is_integer       a.real
-
-In [25]: a.as_integer_ratio()  # Gives out the two numbers whose division is the value of the variable 'a'.
-Out[25]: (241, 2)
-
-In [28]: a.is_integer()   # 120.5 is not a whole number! (it would be True if a = 120.0)
-Out[28]: False
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-You can repeat the above for a complex number and see what you get.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [33]: a = 1+1j
-
-In [34]: a.
-a.conjugate a.imag      a.real
-
-In [34]: a.conjugate()
-Out[34]: (1-1j)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;string-variables&quot;&gt;String variables&lt;/h3&gt;
-&lt;p&gt;Just as with numbers, string is another variable/value type in Python with many handy features that come withit. For example, if you create a string variable or value, fllowed by &lt;code&gt;.&lt;/code&gt; and then press &lt;code&gt;tab&lt;/code&gt; you will see a long list of methods that can be applied on the string,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [8]: my_string = 'this is a String'
-
-In [9]: my_string.
-my_string.capitalize   my_string.find         my_string.isdigit      my_string.isupper      my_string.replace      my_string.split        my_string.upper
-my_string.casefold     my_string.format       my_string.isidentifier my_string.join         my_string.rfind        my_string.splitlines   my_string.zfill
-my_string.center       my_string.format_map   my_string.islower      my_string.ljust        my_string.rindex       my_string.startswith
-my_string.count        my_string.index        my_string.isnumeric    my_string.lower        my_string.rjust        my_string.strip
-my_string.encode       my_string.isalnum      my_string.isprintable  my_string.lstrip       my_string.rpartition   my_string.swapcase
-my_string.endswith     my_string.isalpha      my_string.isspace      my_string.maketrans    my_string.rsplit       my_string.title
-my_string.expandtabs   my_string.isdecimal    my_string.istitle      my_string.partition    my_string.rstrip       my_string.translate
-
-In [9]: my_string.upper()
-Out[9]: 'THIS IS A STRING'
-
-In [10]: my_string.swapcase()
-Out[10]: 'THIS IS A sTRING'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;strings-are-immutable&quot;&gt;Strings are immutable&lt;/h4&gt;
-&lt;p&gt;Although strings (both values and variables) can be indexed letter by letter, keep in mind that they cannot be changed (mutated) to something new. In other words, string are immutable.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [11]: my_string = 'Amir Shahmoradi'
-
-In [13]: my_string[0] = 'a'
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-&amp;lt;ipython-input-13-27fc86283e06&amp;gt; in &amp;lt;module&amp;gt;()
-----&amp;gt; 1 my_string[0] = 'a'
-
-TypeError: 'str' object does not support item assignment
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-The correct way of doing this would be through the indirect use of string methods or string slicing.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [18]: my_string = my_string[:4] + ' ' + my_string[4:] # mutating my_string: add a space between first and last names.
-
-In [19]: my_string
-Out[19]: 'Amir  Shahmoradi'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-It is often very useful to know the length of a string. This can be done using &lt;code&gt;len()&lt;/code&gt; function.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [32]: len(my_string)
-Out[32]: 16
-
-In [33]: len(my_string[0:5])
-Out[33]: 5
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;testing-if-a-string-is-part-of-another-string&quot;&gt;Testing if a string is part of another string&lt;/h4&gt;
-
-&lt;p&gt;We have already discussed some boolean string operations in Lecture 4. There are howver two more boolean operations that deserve to be mentioned here.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [48]: text = &quot;Engineering Computation program at UT Austin, is the first of its kind in the nation&quot;
-
-In [49]: &quot;comp&quot; in text     # test if &quot;comp&quot; is part of the &quot;text&quot; string variable.
-Out[49]: False
-
-In [50]: &quot;Comp&quot; in text
-Out[50]: True
-
-In [51]: &quot;comp&quot; not in text     # test if &quot;comp&quot; is NOT part of the &quot;text&quot; string variable.
-Out[51]: True
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-To know more about string values and variables in general, visit &lt;a href=&quot;https://docs.python.org/2/tutorial/introduction.html#strings&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;list-variables&quot;&gt;List variables&lt;/h3&gt;
-&lt;p&gt;List is another standard variable in type in Python and is composed of an ordered set of values (elements), each of which is identified by an index. Lists are defined by brackets &lt;code&gt;[]&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [47]: emptyList = [] # initiate an empty list
-
-In [48]: emptyList
-Out[48]: []
-
-In [40]: myList = [ 0,1,2,'Amir',complex(1,2j) ]
-
-In [41]: myList
-Out[41]: [0, 1, 2, 'Amir', (-1+0j)]
-
-In [42]: myList[0] # note that list index always begins with 0
-Out[42]: 0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;list-slices&quot;&gt;List slices&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [43]: myList[:-1] # all list elements from beginning to end, similar to myList, or myList[:]
-Out[43]: [0, 1, 2, 'Amir']
-
-In [44]: myList[:]
-Out[44]: [0, 1, 2, 'Amir', (-1+0j)]
-
-In [45]: myList[-1:] # select only the last element in list
-Out[45]: [(-1+0j)]
-
-In [46]: myList[::-1] # Creat list in reverse order.
-Out[46]: [(-1+0j), 'Amir', 2, 1, 0]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-    &lt;b&gt;Lists vs. Strings&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
-    You may have already noticed that lists behave very similar to strings in Python. In fact, both List and String are examples of ordered sets in Python known as &lt;b&gt;sequence&lt;/b&gt;. The only difference between list and python is that the elements of strings have to be all of type character, whereas lists do not have such restriction, as seen in the example above.
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;!--
-&lt;br&gt;
-&lt;div class=&quot;center&quot;&gt;
-    &lt;div class=&quot;rcbox&quot; style=&quot;text-align:justify;&quot;&gt;
-        &lt;b&gt;Lists vs. Strings&lt;/b&gt;&lt;br&gt;&lt;br&gt;
-        You may have already noticed that lists behave very similar to strings in Python. In fact, both List and String are examples of ordered sets in Python known as &lt;b&gt;sequence&lt;/b&gt;. The only difference between list and python is that the elements of strings have to be all of type character, whereas lists do not have such restriction, as seen in the example above.
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;br&gt;
---&gt;
-
-&lt;h4 id=&quot;nested-lists&quot;&gt;Nested lists&lt;/h4&gt;
-&lt;p&gt;Lists can also contain other lists as elements. This way you can create matrices of numbers as well.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [53]: smallList = [1,2,3]
-
-In [54]: list_of_lists = [ 10 , 100.0 , ['amir','shahmoradi'] , smallList ]
-
-In [55]: list_of_lists
-Out[55]: [10, 100.0, ['amir', 'shahmoradi'], [1, 2, 3]]
-
-In [56]: my_matrix = [ [1,2,3] , [4,5,6] , [7,8,9] ]
-
-In [57]: my_matrix[0][2] # the first index points to the 0th element in the list of lists, and the second index calls the list that is the first element of the big list. 
-Out[57]: 3
-
-In [68]: my_matrix[5-5][(2+2)//2]  # note that list indices can be the result of arithmetic operations too.
-Out[68]: 3
-
-In [61]: len(my_matrix) # This function gives the length of the list of lists.
-Out[61]: 3
-
-In [62]: list_of_lists
-Out[62]: [10, 100.0, ['amir', 'shahmoradi'], [1, 2, 3]]
-
-In [63]: len(list_of_lists[0]) # The first element, being an integer, does not have a length
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-&amp;lt;ipython-input-63-11f2bd3dda3d&amp;gt; in &amp;lt;module&amp;gt;()
-----&amp;gt; 1 len(list_of_lists[0])
-
-TypeError: object of type 'int' has no len()
-
-In [64]: len(list_of_lists[2]) # but the third element in the list, is itself a list, so it does have a length
-Out[64]: 2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;operations-on-lists&quot;&gt;Operations on lists&lt;/h4&gt;
-&lt;p&gt;Two mathematics operations &lt;code&gt;+&lt;/code&gt; and &lt;code&gt;*&lt;/code&gt; are also meaningful for lists, just as it is for string sequences.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [8]: list1 = [1,2,3]
-
-In [9]: list2 = [4,5,6]
-
-In [10]: list1 + list2
-Out[10]: [1, 2, 3, 4, 5, 6]
-
-In [11]: list1 * 3
-Out[11]: [1, 2, 3, 1, 2, 3, 1, 2, 3]
-
-In [12]: (list1 + list2) * 3
-Out[12]: [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-In addition, once a list is created, by default, a list of pre-defined operations (methods) are available to act on the list content. To access these methods, again use &lt;code&gt;.&lt;/code&gt; notation, just as you did for strings before.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [13]: list1.
-list1.append  list1.clear   list1.copy    list1.count   list1.extend  list1.index   list1.insert  list1.pop     list1.remove  list1.reverse list1.sort
-
-In [13]: list1
-Out[13]: [1, 2, 3]
-
-In [14]: list1.append(4) # append number 4 to the end of list1
-
-In [15]: list1
-Out[15]: [1, 2, 3, 4]
-
-In [16]: list1.append([1,1,1]) # append the given list to the end of list1
-
-In [17]: list1
-Out[17]: [1, 2, 3, 4, [1, 1, 1]]
-
-In [18]: list1.count(1) # count the number of times 1 appears as element of list1
-Out[18]: 1
-
-In [19]: list1[-1].count(1) # count the number of times 1 appears as element in the list appearing as the element in list1.
-Out[19]: 3
-
-In [20]: list1[-2].count(4)  # Note that count is a method only for lists, and therefore cannot be applied to numbers.
----------------------------------------------------------------------------
-AttributeError                            Traceback (most recent call last)
-&amp;lt;ipython-input-21-2add981bfc56&amp;gt; in &amp;lt;module&amp;gt;()
-----&amp;gt; 1 list1[-2].count(4)
-
-AttributeError: 'int' object has no attribute 'count'
-
-In [23]: list1.extend([1,1,1])  # extend list1 by 3 more members
-
-In [24]: list1
-Out[24]: [1, 2, 3, 4, [1, 1, 1], 1, 1, 1]
-
-In [25]: list1.count(1) # This time counting 1, gives 4, since the list was extended by 3 more '1'.
-Out[25]: 4
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;a href=&quot;https://linuxconfig.org/python-list-methods&quot; target=&quot;_blank&quot;&gt;Here&lt;/a&gt; is a useful reference for available list methods in Python.&lt;/p&gt;
-
-&lt;h4 id=&quot;lists-are-mutable-unlike-strings&quot;&gt;Lists are mutable (unlike Strings)&lt;/h4&gt;
-&lt;p&gt;Another major difference between list sequences and string sequences in Python is that the elements of lists can be changed (mutated) to something new.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [26]: people = [ 'Amir' , 'Jake' , 'Travis' ]
-
-In [27]: people
-Out[27]: ['Amir', 'Jake', 'Travis']
-
-In [28]: people[0] = 'Brandon'
-
-In [29]: people
-Out[29]: ['Brandon', 'Jake', 'Travis']
-
-In [30]: people.remove('Brandon')
-
-In [31]: people
-Out[31]: ['Jake', 'Travis']
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;deleting-list-elements&quot;&gt;Deleting list elements&lt;/h4&gt;
-&lt;p&gt;Deleting list elements can be done by either value of the element, or using its index, like the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [138]: a = [1,2,3,1,2,3]
-
-In [139]: a.remove(1)   # remove the first element correponding to value of 1.
-
-In [140]: a
-Out[140]: [2, 3, 1, 2, 3]
-
-In [141]: a.remove(1)   # remove the first element correponding to value of 1.
-
-In [142]: a
-Out[142]: [2, 3, 2, 3]
-
-In [143]: del a[0:3:2]      # delete element indices 0, 2
-
-In [144]: a
-Out[144]: [3, 3]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;concatenating-a-list-of-strings&quot;&gt;Concatenating a list of strings&lt;/h4&gt;
-&lt;p&gt;If a list is all string values, you can use the following string method &lt;code&gt;.join()&lt;/code&gt; to concatenate the content og the list.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [155]: mylist = ['The' , 'weather' , 'is' , 'rainy' , 'today' , 'and' , 'cold' , 'only' , '22' , 'F.']
-
-In [156]: &quot; &quot;.join(mylist)
-Out[156]: 'The weather is rainy today and cold only 22 F.'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;tuple-variables&quot;&gt;Tuple variables&lt;/h3&gt;
-&lt;p&gt;Tuples are a type of Python variables very similar to list sequences, except that they are &lt;strong&gt;immutable&lt;/strong&gt;, meaning that, once generated, they cannot be changed. Another difference is that, tuples use parentheses for definition, whereas lists use square brackets.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [33]: emptyTuple = ()
-
-In [34]: single_element_tuple = (1,)  # ATTN: note the comma after the element
-
-In [35]: tuple1 = (1, 2, 3, 'amir', 'Jake')
-
-In [36]: single_element_tuple
-Out[36]: (1,)
-
-In [37]: type(single_element_tuple)
-Out[37]: tuple
-
-In [38]: single_element_tuple = (1)
-
-In [39]: single_element_tuple
-Out[39]: 1
-
-In [40]: type(single_element_tuple)
-Out[40]: int
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Creating a tuple is as simple as putting different comma-separated values. Optionally you can put these comma-separated values between parentheses also.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [46]: tuple2 = 1,2,3,4   # another way of creating a tuple
-
-In [47]: type(tuple2)
-Out[47]: tuple
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;modifying-the-content-of-tuples&quot;&gt;Modifying the content of Tuples&lt;/h4&gt;
-&lt;p&gt;Tuples are an example of data structure in Python, used for organizing and grouping data. Once a tuple is created, its content cannot be changed or manipulated anymore. However, its elements can be called just like lists.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [48]: tuple2[0]
-Out[48]: 1
-
-In [49]: tuple2[1:3]
-Out[49]: (2, 3)
-
-In [50]: tuple2.    # press tab key to get the list methods
-tuple2.count tuple2.index
-
-In [51]: tuple2.count(2) # count the number of members that are 2
-Out[51]: 1
-
-In [52]: tuple2.count(5) # count the number of members that are 5
-Out[52]: 0
-
-In [53]: tuple2.index(2) # get the index of the first member in tuple that is 2
-Out[53]: 1
-
-In [54]: tuple2.index(5) # get the index of the first member in tuple that is 5. (error! 5 is not a member)
----------------------------------------------------------------------------
-ValueError                                Traceback (most recent call last)
-&amp;lt;ipython-input-54-f0077f9af98b&amp;gt; in &amp;lt;module&amp;gt;()
-----&amp;gt; 1 tuple2.index(5)
-
-ValueError: tuple.index(x): x not in tuple
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Moreover, although the content of tuple cannot be changed, there is nothing to prevent the programmer from redefining the tuple with new content,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [106]: tuple1 = (1, 2, 3, 'amir', 'Jake')
-
-In [107]: tuple1
-Out[107]: (1, 2, 3, 'amir', 'Jake')
-
-In [108]: tuple1 = ('Travis','Caleb','Lucero') + tuple1[-1:]    # redefining tuple1
-
-In [109]: tuple1
-Out[109]: ('Travis', 'Caleb', 'Lucero', 'Jake')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-But pay attention that the above, all the terms in the assigment must be a tuple, otherwise you will get an error like the following (e.g., a single member of a tuple, is not a tuple by itself),&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [110]: tuple1 = (1, 2, 3, 'amir', 'Jake')
-
-In [111]: tuple1 = ('Travis','Caleb','Lucero') + tuple1[-1] # Note that tuple1[-1] is a string, and not a tuple!
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-&amp;lt;ipython-input-111-4c6018fb7529&amp;gt; in &amp;lt;module&amp;gt;()
-----&amp;gt; 1 tuple1 = ('Travis','Caleb','Lucero') + tuple1[-1]
-
-TypeError: can only concatenate tuple (not &quot;str&quot;) to tuple
-
-In [112]: type(tuple1[-1])
-Out[112]: str
-
-In [113]: type(tuple1[-1:])
-Out[113]: tuple
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Note also the difference between &lt;code&gt;+&lt;/code&gt; operations in the above tuple redefinition, and &lt;code&gt;,&lt;/code&gt; operations below,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [126]: tuple1 = (1, 2, 3, 'amir', 'Jake')
-
-In [127]: tuple1 = ('Travis','Caleb','Lucero') + tuple1[-1:]
-
-In [128]: tuple1
-Out[128]: ('Travis', 'Caleb', 'Lucero', 'Jake')
-
-In [129]: tuple1 = (1, 2, 3, 'amir', 'Jake')
-
-In [130]: tuple1 = ('Travis','Caleb','Lucero') , tuple1[-1:]
-
-In [131]: tuple1
-Out[131]: (('Travis', 'Caleb', 'Lucero'), ('Jake',))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Tuples can be &lt;strong&gt;heterogeneous&lt;/strong&gt;, as in the above example, meaning that each member of tuple can be a tuple itself, a list, or any other variable type.&lt;/p&gt;
-
-&lt;h3 id=&quot;dictionary-variables&quot;&gt;Dictionary variables&lt;/h3&gt;
-&lt;p&gt;The past three data types discussed in the previous secitons — strings, lists, and tuples — are of type &lt;strong&gt;sequence&lt;/strong&gt;. For sequences, we have seen above that we use integers as indices to access the values these variables contain. Dictionaries are yet another built-in variable type in Python. A dictionary variable is a sequence of pairs of {key: value}. Instead of using numbers to index elements (as in list, string, tuple), dictionaries use keys in order to retrieve the key’s value.  The keys can be any immutable type (string, number and tuple). Values can be any type (heterogeneous, mutable), just like the elements of a list or tuple. Dictionaries are also called &lt;strong&gt;associative arrays&lt;/strong&gt; since they associate a key with a value. One way to create a dictionary is to start with the empty dictionary and add &lt;code&gt;key:value&lt;/code&gt; pairs.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [161]: age = {}   # empty dictionary
-
-In [162]: age
-Out[162]: {}
-
-In [163]: type(age)
-Out[163]: dict
-
-In [164]: age = { 'amir':120 , 'jake':22 , 'Lucero':19 , 'Travis':20 }
-
-In [165]: age
-Out[165]: {'Lucero': 19, 'Travis': 20, 'amir': 120, 'jake': 22}
-
-In [166]: age['Lucero']
-Out[166]: 19
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Some important features of dictionaries are the following:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;A dictionary is a collection of key-value pairs.&lt;/li&gt;
-  &lt;li&gt;A dictionary is a set of key:value pairs.&lt;/li&gt;
-  &lt;li&gt;All keys in a dictionary must be unique.&lt;/li&gt;
-  &lt;li&gt;In a dictionary, a key and its value are separated by a colon (:).&lt;/li&gt;
-  &lt;li&gt;Each key-value pair is separated by a comma from another pair in dictionary.&lt;/li&gt;
-  &lt;li&gt;All the key-value pairs together are listed between curly brackets &lt;code&gt;{ }&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Query the dictionary using square brackets &lt;code&gt;[ ]&lt;/code&gt;, inside of which you type the key, and the output will be the value correponding to the key.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;three-ways-of-constructing-distionaries&quot;&gt;Three ways of constructing distionaries&lt;/h4&gt;
-&lt;p&gt;The are three basic ways for creating dictionaries in Python.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; Create empty dictionary and then add key-value pairs to it.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [1]: dic = {}
-
-In [2]: dic['amir'] = 'teacher'
-
-In [3]: dic
-Out[3]: {'amir': 'teacher'}
-
-In [4]: dic['Jake'] = 'student'
-
-In [5]: dic['Travis'] = 'student'
-
-In [6]: dic
-Out[6]: {'Jake': 'student', 'Travis': 'student', 'amir': 'teacher'}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;2.&lt;/strong&gt; Create a dictionary from a list if tuples, using Python’s built-in function &lt;code&gt;dict()&lt;/code&gt;. The input argument of &lt;code&gt;dict()&lt;/code&gt; is &lt;strong&gt;a list of tuples&lt;/strong&gt;,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [7]: month = dict( [ ( 1 , 'Jan') \
-   ...:               , ( 2 , 'Feb') \
-   ...:               , ( 3 , 'Mar') \
-   ...:               , ( 4 , 'Apr') \
-   ...:               , ( 5 , 'May') \
-   ...:               , ( 6 , 'Jun') \
-   ...:               , ( 7 , 'Jul') \
-   ...:               , ( 8 , 'Aug') \
-   ...:               , ( 9 , 'Sep') \
-   ...:               , (10 , 'Oct') \
-   ...:               , (11 , 'Nov') \
-   ...:               , (12 , 'Dec') ] )
-
-In [8]: month
-Out[8]:
-{1: 'Jan',
- 2: 'Feb',
- 3: 'Mar',
- 4: 'Apr',
- 5: 'May',
- 6: 'Jun',
- 7: 'Jul',
- 8: 'Aug',
- 9: 'Sep',
- 10: 'Oct',
- 11: 'Nov',
- 12: 'Dec'}
-
-In [9]: month[5]
-Out[9]: 'May'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-But, be careful to not override the Python’s function &lt;code&gt;dict()&lt;/code&gt; by your user-defined variable or function of the same name, otherwise you will get an error like the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [10]: dict = 5
-
-In [11]: new_dic = dict([('amir','teacher')])   # This will give error because dict is not pointing to the built-in function dict() anymore! It was overridden by the above assignment.
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-&amp;lt;ipython-input-10-271a21fe772b&amp;gt; in &amp;lt;module&amp;gt;()
-----&amp;gt; 1 new_dic = dict([('amir','teacher')])
-
-TypeError: 'int' object is not callable
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;3.&lt;/strong&gt; Create a dictionary from two lists in parallel. Let’s say the keys and values of our desired dictionary, each are in the form of a list. The question is now, if there is an easy Pythonic way to combine these two lists of keys and values to get a dictionary? The answer is yes, and it is achieved by a Python function named &lt;a href=&quot;https://docs.python.org/2/library/functions.html#zip&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;zip()&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [1]: person = ['amir','jake','travis']
-
-In [2]: role = ['teacher','student','student']
-
-In [3]: person_role_dict = dict( zip( person , role ) )
-
-In [4]: type(person_role_dict)
-Out[4]: dict
-
-In [5]: person_role_dict
-Out[5]: {'amir': 'teacher', 'jake': 'student', 'travis': 'student'}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;manipulating-dictionary-variables&quot;&gt;Manipulating dictionary variables&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;1. Removing a dictionary key-value pair&lt;/strong&gt;&lt;br /&gt;
-This can be done using Python’s &lt;code&gt;del&lt;/code&gt; command,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [10]: person_role_dict
-Out[10]: {'amir': 'teacher', 'jake': 'student', 'travis': 'student'}
-
-In [11]: del person_role_dict['amir']
-
-In [12]: person_role_dict
-Out[12]: {'jake': 'student', 'travis': 'student'}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;2. Adding a dictionary key&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [14]: person_role_dict
-Out[14]: {'jake': 'student', 'travis': 'student'}
-
-In [15]: person_role_dict['amir'] = 'teacher'  # adding a new key-value pair ('amir' : 'teacher')
-
-In [16]: person_role_dict
-Out[16]: {'amir': 'teacher', 'jake': 'student', 'travis': 'student'}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;2. Changing the value of a key&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [17]: person_role_dict['amir'] = 'instructor' # changing the value of the key 'amir'
-
-In [18]: person_role_dict
-Out[18]: {'amir': 'instructor', 'jake': 'student', 'travis': 'student'}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;3. Getting the length of dictionary (number of key-value pairs)&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [19]: len(person_role_dict)
-Out[19]: 3
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;4. Using dictionary methods&lt;/strong&gt;&lt;br /&gt;
-Just as with other Python variable types, typing the name of a dictionary that is already defined, followed by &lt;code&gt;.&lt;/code&gt; followed by pressing the &lt;code&gt;tab&lt;/code&gt; key (in a good Python editor) will show you the list of methods that can act on the dictionary.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [20]: person_role_dict.
-                           person_role_dict.clear      person_role_dict.get        person_role_dict.pop        person_role_dict.update
-                           person_role_dict.copy       person_role_dict.items      person_role_dict.popitem    person_role_dict.values
-                           person_role_dict.fromkeys   person_role_dict.keys       person_role_dict.setdefault
-
-In [20]: person_role_dict.keys()
-Out[20]: dict_keys(['amir', 'jake', 'travis'])
-
-In [21]: list ( person_role_dict.keys() )
-Out[21]: ['amir', 'jake', 'travis']
-
-In [22]: type ( person_role_dict.keys() )
-Out[22]: dict_keys
-
-In [23]: type ( list ( person_role_dict.keys() ) )
-Out[23]: list
-
-In [24]: person_role_dict.values()
-Out[24]: dict_values(['instructor', 'student', 'student'])
-
-In [10]: person_role_dict
-Out[10]: {'amir': 'teacher', 'jake': 'student', 'travis': 'student'}
-
-In [27]: person_role_dict.pop('amir')  # remove the key-value pair ('amir':'teacher') and return the corresponding value of the key as output.
-Out[27]: 'instructor'
-
-In [28]: person_role_dict
-Out[28]: {'jake': 'student', 'travis': 'student'}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;dictionary-representation-of-sparse-matrices&quot;&gt;Dictionary representation of sparse matrices&lt;/h4&gt;
-&lt;p&gt;We already discussed in the above, the usefulness of nested lists in creating matrices. Now suppose we have a sparse matrix, whose most elements are zero, except a few non-zero elements. An alternative to using nested lists, which can also take less memory of the device, is to use a dictionary representation of the sparse matrix.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [16]: sparseMatrixList = [ [ 0 , 0 , 0 , 1 ]
-   ....:                    , [ 2 , 0 , 0 , 0 ]
-   ....:                    , [ 0 , 5 , 0 , 0 ]
-   ....:                    , [ 0 , 0 , 0 , 3 ]
-   ....:                    , [ 0 , 0 , 8 , 0 ]
-   ....:                    ]
-
-In [17]: sparseMatrixList
-Out[17]: [[0, 0, 0, 1], [2, 0, 0, 0], [0, 5, 0, 0], [0, 0, 0, 3], [0, 0, 8, 0]]
-
-In [18]: sparseMatrixDict = { (0,3): 1 , (1,0): 2 , (2,1): 5 , (3,3): 3 , (4,2): 8 }
-
-In [19]: sparseMatrixDict
-Out[19]: {(0, 3): 1, (1, 0): 2, (2, 1): 5, (3, 3): 3, (4, 2): 8}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;set-variables&quot;&gt;Set variables&lt;/h3&gt;
-&lt;p&gt;Besides all the aforementioned variable types in Python, there is another Python variable type that is useful for constructing and manipulating &lt;strong&gt;unordered collection of unique elements&lt;/strong&gt;. Common uses of sets include &lt;strong&gt;membership testing&lt;/strong&gt;, &lt;strong&gt;removing duplicates from a sequence&lt;/strong&gt;, and &lt;strong&gt;computing standard math operations on sets&lt;/strong&gt; such as intersection, union, difference, and symmetric difference.&lt;/p&gt;
-
-&lt;p&gt;Like other collections, sets support &lt;code&gt;x in set&lt;/code&gt; and &lt;code&gt;len(set)&lt;/code&gt; operations. Being an unordered collection, &lt;strong&gt;sets do not record element position or order of insertion&lt;/strong&gt;. Accordingly, sets do not support indexing, slicing, or other sequence-like behavior.&lt;/p&gt;
-
-&lt;p&gt;There are currently &lt;strong&gt;two built-in set types&lt;/strong&gt;, &lt;strong&gt;set&lt;/strong&gt; and &lt;strong&gt;frozenset&lt;/strong&gt;. The set type is mutable — the contents can be changed using methods like add() and remove().&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [61]: a = set( [ 1,2,3,(1,2),'amir' ] )
-
-In [62]: a.
-a.add                         a.difference                  a.intersection                a.issubset                    a.remove                      a.union
-a.clear                       a.difference_update           a.intersection_update         a.issuperset                  a.symmetric_difference        a.update
-a.copy                        a.discard                     a.isdisjoint                  a.pop                         a.symmetric_difference_update
-
-In [62]: a.add('jake')
-
-In [63]: a
-Out[63]: {(1, 2), 1, 2, 3, 'jake', 'amir'}
-
-In [64]: a.add([1,3])   # Note that mutable types cannot appear in a set!
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-&amp;lt;ipython-input-64-2a5b54498213&amp;gt; in &amp;lt;module&amp;gt;()
-----&amp;gt; 1 a.add([1,3])
-
-TypeError: unhashable type: 'list'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Sets can be also simply created by &lt;code&gt;{}&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [71]: a = {1,2,3}
-
-In [72]: type(a)
-Out[72]: set
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-The &lt;strong&gt;frozenset type&lt;/strong&gt; is &lt;strong&gt;immutable&lt;/strong&gt; and &lt;strong&gt;hashable&lt;/strong&gt; (i.e., its contents cannot be altered after it is created). It can therefore be used as a dictionary key or as an element of another set.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [69]: a = frozenset( [ 1,2,3,(1,2),'amir' ] )
-
-In [70]: a.
-a.copy                 a.intersection         a.issubset             a.symmetric_difference
-a.difference           a.isdisjoint           a.issuperset           a.union
-
-In [70]: type(a)
-Out[70]: frozenset
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Note&lt;/strong&gt; that mutable types can neither appear in a set nor a frozenset. You can obtain more information about sets and frozensets and the methods that can act on them in the &lt;a href=&quot;https://docs.python.org/2.4/lib/types-set.html&quot; target=&quot;_blank&quot;&gt;Python library reference&lt;/a&gt;.
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;assignment-statements-in-python&quot;&gt;Assignment statements in Python&lt;/h2&gt;
-
-&lt;p&gt;In Python, an assignment statement is one line of Python code that contains &lt;strong&gt;at least&lt;/strong&gt; one equal sign &lt;code&gt;=&lt;/code&gt; and the purpose of it is to associate name(s) with a certain value in the program. &lt;strong&gt;Assignment statements are the only Python statements that do not start with a keyword&lt;/strong&gt;. In most cases, the assignment statement will only contain one target name, one equal sign, and one expression (reduced to one single value that is assigned to the name).&lt;/p&gt;
-
-&lt;p&gt;A &lt;strong&gt;binding&lt;/strong&gt; is an association between a name and a value. Note that in Python, unlike many other languages, &lt;strong&gt;names themselves are not associated with a specific variable types&lt;/strong&gt;. A name is just a label, and therefore it can be bound to any value of any type at any time. For example,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [50]: a = 'some text'
-
-In [51]: a
-Out[51]: 'some text'
-
-In [52]: a = 2
-
-In [53]: a
-Out[53]: 2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;aliasing-vs-copying&quot;&gt;Aliasing vs. copying&lt;/h3&gt;
-&lt;p&gt;It is very important to understand the difference between &lt;strong&gt;alias&lt;/strong&gt; assignment statements and &lt;strong&gt;copy&lt;/strong&gt; assignment statements. As far as assignments are concerned, all data types in Python can be divided into two categories:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;simple data types (e.g., int, float, string, tuple)&lt;/li&gt;
-  &lt;li&gt;container data types (e.g., list, dict, set, …)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;For &lt;strong&gt;simple data types&lt;/strong&gt;, an assignment means that their value is &lt;strong&gt;copied&lt;/strong&gt; to the assigned variable.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [80]: x = 1
-
-In [81]: y = x   # An assignment statement that copies the value of x into y.
-
-In [82]: x = 2   # Now changing the value of x, won't change the value of y.
-
-In [83]: x
-Out[83]: 2
-
-In [84]: y
-Out[84]: 1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;For &lt;strong&gt;container data types&lt;/strong&gt;, an assignment in the form of copy can be computationally and memory-wise very expensive, and so it makes sense, when an assignment involves container types as values, then the new name would only &lt;strong&gt;point&lt;/strong&gt; to the original container. In other words, the new assignment provides an &lt;strong&gt;alias&lt;/strong&gt; for the container value.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [85]: a = [1,2,3]
-
-In [86]: b = a      # In this assignment, b is simply an alias for a. The value of a is NOT copied into b
-
-In [87]: a
-Out[87]: [1, 2, 3]
-
-In [88]: b
-Out[88]: [1, 2, 3]
-
-In [89]: a is b     # a and b have the same identity
-Out[89]: True
-
-In [90]: a == b     # a and b have the same value
-Out[90]: True
-
-In [91]: a = [1,2,3]
-
-In [92]: b = [1,2,3]
-
-In [93]: a is b     # a and b don't have the same identity anymore, since they are not pointing to the same value anymore.
-Out[93]: False
-
-In [94]: a == b     # Despite not being identical, a and b still have the same value.
-Out[94]: True
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-If you want to get a copy of a container object, instead of an alias for it, you should use the &lt;code&gt;copy&lt;/code&gt; method of the container object.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [97]: a = [1,2,3]
-
-In [98]: b = a.copy()   # Copy the content of a into b
-
-In [99]: a is b
-Out[99]: False
-
-In [100]: a == b
-Out[100]: True
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;b&gt;Conclusion:&lt;/b&gt;&lt;br /&gt;
-So, keep in mind that, assignments in which the value to be assigned is a container type (e.g., list, dict, set) will result in an alias, and not a fresh copy of the original value.
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;multiple-simultaneous-assignments-in-one-line&quot;&gt;Multiple simultaneous assignments in one line&lt;/h3&gt;
-&lt;p&gt;A shortcut way of aliasing multiple variables with one single value is the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [101]: a = b = c = 3
-
-In [102]: a is b
-Out[102]: True
-
-In [103]: a is b is c
-Out[103]: True
-
-In [104]: a == b == c
-Out[104]: True
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Here, an integer object is created with the value 1, and all three variables are assigned to the same memory location. This is also true for container variable types.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [105]: a = b = c = [1,2,3]
-
-In [106]: a is b is c
-Out[106]: True
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-You can also assign multiple objects to multiple variables all in the same asignment statement. But keep in mind that the number of assignments on both sides of equal sign must be equal.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [1]: a, b, c = 1, 2, &quot;amir&quot;
-
-In [2]: a
-Out[2]: 1
-
-In [3]: b
-Out[3]: 2
-
-In [4]: c
-Out[4]: 'amir'
-&amp;lt;br&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Here, two integer objects with values 1 and 2 are assigned to variables a and b respectively, and one string object with the value “amir” is assigned to the variable c. This form of assignment in the above is basically like setting the tuple &lt;code&gt;(a,b,c) = (1,2,&quot;amir&quot;)&lt;/code&gt;. This is why it is important that both sides of the equal sign have the same number of elements. Here are some other examples:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [5]: a, b, c = 3, 3, 3
-
-In [6]: a is b
-Out[6]: True
-
-In [7]: a == b
-Out[7]: True
-
-In [57]: [ a , b ] = [ 5 , 4 ]
-
-In [58]: a
-Out[58]: 5
-
-In [59]: [ a , b ] = ( 5 , 4 )
-
-In [60]: a
-Out[60]: 5
-
-In [61]: [a,b] = [c,d] = [4,5]
-
-In [62]: a is b
-Out[62]: False
-
-In [63]: a is c
-Out[63]: True
-
-In [64]: [a,b] is [c,d]
-Out[64]: False
-
-In [65]: [a,b] is [4,5]
-Out[65]: False
-
-In [66]: [a,b] == [c,d]
-Out[66]: True
-
-In [67]: [a,b] == [4,5]
-Out[67]: True
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;value-swapping&quot;&gt;Value swapping&lt;/h3&gt;
-&lt;p&gt;The traditional way of swapping values of two variables in mostprogramming languages is like the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [68]: a = 5
-
-In [69]: b = 7
-
-In [70]: _ = a
-
-In [71]: a = b
-
-In [72]: b = _
-
-In [73]: a
-Out[73]: 7
-
-In [74]: b
-Out[74]: 5
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-With either Python lists or tuples, this swapping can be achived neatly in just one line of code,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [75]: (a,b) = (b,a)
-
-In [76]: a
-Out[76]: 5
-
-In [77]: b
-Out[77]: 7
-
-In [78]: [a,b] = [b,a]
-
-In [79]: a
-Out[79]: 7
-
-In [80]: b
-Out[80]: 5
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/5-python-variables-assignments&quot;&gt;Lecture 5: Python - variables and assignment statements&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 01, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>

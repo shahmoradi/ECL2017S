@@ -67,7 +67,7 @@ callback([
   } ,
 
   {
-    "text": "Lecture 8: Python - I/O, error handling, and tesing frameworks",
+    "text": "Lecture 8: Python - I/O, error handling, and testing frameworks",
     "href": "/ECL2017S/lecture/8-python-io-error-handling-unit-testing"
   } ,
 
@@ -107,8 +107,18 @@ callback([
   } ,
 
   {
+    "text": "Lecture 10: Python advanced topics - IO, Monte Carlo, wrappers and interoperability",
+    "href": "/ECL2017S/lecture/10-python-advanced-io-monte-carlo-interoperability"
+  } ,
+
+  {
     "text": "Lecture 0: Programming history",
     "href": "/ECL2017S/lecture/0-programming-history"
+  } ,
+
+  {
+    "text": "Homework 9: Problems - Python advanced IO, Monte Carlo",
+    "href": "/ECL2017S/homework/9-problems-python-advanced-io-monte-carlo-interoperability"
   } ,
 
   {

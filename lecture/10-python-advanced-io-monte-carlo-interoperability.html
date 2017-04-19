@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>LECTURE 10: PYTHON ADVANCED TOPICS - IO, MONTE CARLO, WRAPPERS AND INTEROPERABILITY &vert; COE 111L - SPRING 2017</title>
+<meta name="description" content="Engineering Computation Lab">
+<meta name="keywords" content="">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/ECL2017S/images/logo.png">
+<meta name="twitter:title" content="Lecture 10: Python advanced topics - IO, Monte Carlo, wrappers and interoperability">
+<meta name="twitter:description" content="Engineering Computation Lab">
+<meta name="twitter:creator" content="@AmirShahmoradi">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lecture 10: Python advanced topics - IO, Monte Carlo, wrappers and interoperability">
+<meta property="og:description" content="Engineering Computation Lab">
+<meta property="og:url" content="/ECL2017S/lecture/10-python-advanced-io-monte-carlo-interoperability">
+<meta property="og:site_name" content="COE 111L - Spring 2017">
+<meta property="og:image" content="/ECL2017S/images/">
+
+
+
+
+
+<link rel="canonical" href="/ECL2017S/lecture/10-python-advanced-io-monte-carlo-interoperability">
+<!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 Feed"> -->
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,300,800,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/ECL2017S/assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/normalize.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/nprogress.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/foundation.min.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/style.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/post.css">
+
+
+
+
+<!--Mathjax loader: taken from http://stackoverflow.com/questions/2188884/how-can-i-mix-latex-in-with-markdown-->
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+    }
+});
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!--End of Mathjax loader: taken from http://stackoverflow.com/questions/2188884/how-can-i-mix-latex-in-with-markdown-->
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/ECL2017S/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/ECL2017S/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/ECL2017S/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/ECL2017S/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/ECL2017S/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/ECL2017S/images/apple-touch-icon-144x144-precomposed.png">
+
+<!-- 
+<link href="/ECL2017S/assets/css/prismTwilight.css" rel="stylesheet" />
+<link href="/ECL2017S/assets/css/prismDefault.css" rel="stylesheet" />
+<link href="/ECL2017S/assets/css/prismCoy.css" rel="stylesheet" />
+-->
+<link href="/ECL2017S/assets/css/prismOkaidia.css" rel="stylesheet" />
+
+<!--The following are for automatic generation of header anchor links: adopted from: http://ben.balter.com/2014/03/13/pages-anchor-links/-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<style type="text/css">@media only screen and (min-width:43.75em){.notepad-post-content div>p:first-child:first-letter{float:left;font-size:4.688rem;line-height:4.375rem;padding-top:.25rem;padding-right:.5rem;padding-left:.188rem;font-family:serif}}</style>
+</head>
+<body class="post-template" itemscope itemtype="http://schema.org/WebPage">  
+
+        <main id="notepad-post-container-simple" class="notepad-post-container-simple" role="main">
+            <header class="notepad-post-header-simple">
+                <div class="notepad-post-menu-header-simple">
+
+                    <a class="notepad-blog-logo" href="http://www.shahmoradi.org" target="_blank"><img src="/ECL2017S/images/logo.png" alt="shahmoradi.org" /></a>
+
+                <div class="notepad-blog-menu">      
+    <div class="notepad-mobile-menu show-for-small">
+        <a href="#"><i class="fa fa-bars"></i></a>
+    </div>
+    <ul class="notepad-menu">
+        <li class="notepad-mobile-close-btn show-for-small text-right">
+            <a href="#"><i class="fa fa-times"></i></a>
+        </li>
+
+            <li>
+                    <a href="/ECL2017S/">Home</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/highlights">Highlights</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/categories">Categories</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/about">About</a>
+                 </li>
+            
+           <li><a href="/ECL2017S/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+    </ul>
+
+</div>
+            </div>
+
+                <div class="notepad-post-title-simple row">
+                    <div class="small-12 columns">
+                        <div class="notepad-post-meta-simple">
+                            <h2>Lecture 10: Python advanced topics - IO, Monte Carlo, wrappers and interoperability</h2>
+                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-04-19T00:00:00-05:00">19 Apr 2017</time></strong></p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+        
+            <article class="notepad-post-content post tag-simple">
+        
+            <div style="text-align:justify;">
+                <p>This lecture discusses some further important topics in Python IO, the use of random numbers and Monte Carlo simulations, as well as methods of integrating Python codes with codes from other programming languages, in particular, the use of Python as a wrapper for highly efficient, fast, low-level codes written in Fortran and C.</p>
+
+<div class="post_toc"></div>
+
+<h2 id="more-on-io-in-python">More on IO in Python</h2>
+<p>There are a few topics and methods of <a href="https://en.wikipedia.org/wiki/Input/output" target="_blank">input/output (IO)</a> in Python that we have not discussed yet, such as reading data from special data files, or web pages. Such problems, happen almost daily in a scientific research career, even in High Performance Computing, and Python’s capability to easily handle such IO problems is indeed one of the main reasons for Python’s popularity.</p>
+
+<h3 id="reading-data-from-special-data-files">Reading data from special data files</h3>
+<p>It will happen quite often in your research that you will need to read data from a spreadsheet data file, most importantly <code>*.csv</code> and Microsoft Excel files (e.g., <code>*.xls</code> data files), or also frequently, from an <code>*.xml</code> data file. There are many ways and Python libraries to read such files. For Excel files, the task can be a bit complex, since Excel files can contain multiple sheets. A good starting point might be <a href="http://www.python-excel.org/" target="_blank">this webpage</a>, also <a href="http://pbpython.com/excel-pandas-comp.html" target="_blank">Pandas module</a>.</p>
+
+<p>For CSV files, Python standard library has a solution. Suppose you want to read <a href="/ECL2017S/lecture/10/jec_pdb_r4s.csv" target="_blank">this CSV file</a>. A Python solution would be the following,</p>
+<pre><code class="language-python">import csv
+with open('jec_pdb_r4s.csv','r') as myfile:
+    for counter, row in enumerate(csv.reader(myfile)):
+        print(row)
+        if counter&gt;10: break
+</code></pre>
+<pre><code>['pdb', 'pdb_id', 'chain', 'site', 'zr4s_JTT', 'r4s_JTT', 'zr4s_JC', 'r4s_JC']
+['132L_A', '132L', 'A', '2', '-0.3133', '1.02', '0.04475', '1.188']
+['132L_A', '132L', 'A', '3', '0.8385', '1.955', '0.2036', '1.311']
+['132L_A', '132L', 'A', '4', '2.093', '2.973', '1.451', '2.272']
+['132L_A', '132L', 'A', '5', '-0.8878', '0.5537', '-0.7985', '0.5382']
+['132L_A', '132L', 'A', '6', '-1.443', '0.1028', '-1.426', '0.05416']
+['132L_A', '132L', 'A', '7', '-0.1195', '1.177', '-0.07917', '1.093']
+['132L_A', '132L', 'A', '8', '-0.7236', '0.6869', '-0.8997', '0.4602']
+['132L_A', '132L', 'A', '9', '-1.107', '0.3755', '-0.8971', '0.4622']
+['132L_A', '132L', 'A', '10', '0.7076', '1.848', '0.7369', '1.722']
+['132L_A', '132L', 'A', '11', '0.9573', '2.051', '0.8809', '1.833']
+['132L_A', '132L', 'A', '12', '-0.8315', '0.5993', '-0.9243', '0.4413']
+</code></pre>
+
+<p>Note how I have used Python <code>enumerate()</code> function to control the number of lines that is read from the file (The file contains more than 70000 lines of data!).</p>
+
+<p>Similarly, if you wanted to write a CSV file, you can use <code>csv.writer()</code> method,</p>
+<pre><code class="language-python">with open('jec_pdb_r4s.csv','r') as infile, open('jec_out.csv', 'w') as outfile:
+    for counter, row in enumerate(csv.reader(infile)):
+        csv.writer(outfile).writerow(row)
+        if counter&gt;10: break
+</code></pre>
+<p><br />
+The output of the code is <a href="/ECL2017S/lecture/10/jec_out.csv" target="_blank">this file</a> (If you run this code on Windows machines, you will probably get an extra empty line between each row in the csv file).</p>
+
+<p>For <code>*.xml</code> files, Python standard library has a package <a href="https://docs.python.org/3/library/xml.etree.elementtree.html" target="_blank">ElementTree</a>, which you can use for both parsing and writing xml data files.</p>
+
+<h3 id="reading-data-from-web">Reading data from web</h3>
+<p>Nowadays, a lot of data repositories are available online publicly, and you may encounter problems that need to parse data from an online repository. For many of the most famous repositories, such as the <a href="http://www.rcsb.org/pdb/home/home.do" target="_blank">Protein databank</a>, excellent python packages have been written that automate the process of fetching data from online pages or repositories (e.g., <a href="http://biopython.org/wiki/Biopython" target="_blank">Biopython</a>).</p>
+
+<p>Nevertheless you may need at some point in your research or career to read data from a web address. Most often, the online data is contained in a <code>html</code> file, like the content of the <a href="" target="_blank">about page</a> for this course, for example, which has the address: <a href="/ECL2017S/about" target="_blank">http://www.shahmoradi.org/ECL2017S/about</a>. Suppose you wanted to extract the content of this lecture. A simple solution would be the following via Python’s standard <a href="https://docs.python.org/3/library/urllib.html" target="_blank">urllib</a> module,</p>
+<pre><code class="language-python">import urllib.request as ur
+myurl = 'http://www.shahmoradi.org/ECL2017S/about'
+with ur.urlopen(myurl) as webfile:
+    webcontent = [line.decode("utf-8") for line in webfile.readlines()]
+</code></pre>
+<p><br />
+Now the variable <code>webcontent</code> is a list, whose elements are each row in the html file for this page.</p>
+<pre><code class="language-python">webcontent[0:10]
+</code></pre>
+<pre><code>['&lt;!DOCTYPE html&gt;\n',
+'&lt;html&gt;\n',
+'&lt;head&gt;\n',
+'&lt;meta charset="utf-8"&gt;\n',
+'&lt;title&gt;COE 111L - SPRING 2017&lt;/title&gt;\n',
+'&lt;meta name="description" content="Engineering Computation Lab"&gt;\n',
+'&lt;meta name="keywords" content="Amir, Shahmoradi, Instructor"&gt;\n',
+'\n',
+'&lt;!-- Twitter Cards --&gt;\n',
+'&lt;meta name="twitter:card" content="summary_large_image"&gt;\n']
+</code></pre>
+
+<p>Note that the content of the file is read in <code>byte</code> format. Therefore, to convert it to string, one has to apply <code>.decode("utf-8")</code> on each line. Similar to opening a file on harddisk, one can also use <code>.read()</code> and <code>.readline()</code> methods to read the contant of the web address. Alternatively, one could also save the entire content of the web address, in a single file locally,</p>
+<pre><code class="language-python">import urllib.request as ur
+myurl = 'http://www.shahmoradi.org/ECL2017S/about'
+ur.urlretrieve(myurl, filename='about.html')
+</code></pre>
+<p><br />
+This will output <a href="/ECL2017S/lecture/10/about.html" target="_blank">this file</a> in your current working diretory of Python.</p>
+
+<p>Now, the file that we imported from the web does not contains any scientific data. But, in the homework you will see a real-world scientific example and value of Python’s ability to parse the content web pages.<br />
+<br /></p>
+
+<h3 id="writing-data-in-html-web-format">Writing data in HTML (web) format</h3>
+<p>Doing research at a professional level requires reporting the results professionally as well. That is, the results of the project, including the final report itself have to be <strong>auto-generated</strong> and <strong>reproducile</strong> as much as possible, and reachable to the widest audience (which nowadays means, availibility on the world-wide web).</p>
+
+<p>Suppose you have worked on your final project for this course, which has resulted in several figures, that you wanted to put them all together on a single webpage on your repository on Github, together with some information about each figure. Let’s say the figures are
+  <a href="/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_1_t10.0.png" target="_blank">figure 1</a>
+, <a href="/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_2_t12.0.png" target="_blank">figure 2</a>
+, <a href="/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_3_t14.0.png" target="_blank">figure 3</a>
+, <a href="/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_4_t15.0.png" target="_blank">figure 4</a>
+, <a href="/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_5_t16.0.png" target="_blank">figure 5</a>
+, <a href="/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_6_t18.0.png" target="_blank">figure 6</a>
+, <a href="/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_7_t20.0.png" target="_blank">figure 7</a>.  Now, since these figures represent the time evolution of the growth of the tumor, you would wnat to write a code that automatically generates an HTML (or Markdown) files, which contains the correct HTML code for adding these figures in your page for the project. You could for example write the following Python code to achieve this goal,</p>
+<pre><code class="language-python">with open('SampleProjectReport.html', 'w') as html:
+    html.write('&lt;HTML&gt;&lt;BODY BGCOLOR="white"&gt;\n')
+    html.write('&lt;H1&gt;Sample Semester Project: Tumor growth modeling&lt;/H1&gt;&lt;br&gt; \n')
+    html.write('&lt;H2&gt;Each of following subplots figure represents the stage of the growth of tumor at the specified date in the figure title.&lt;/H2&gt;&lt;br&gt;&lt;br&gt; \n')
+
+    time = [10.0,12.0,14.0,15.0,16.0,18.0,20.0]
+    nfig = 7
+    figReposPrefix = 'http://www.shahmoradi.org/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_'
+    for ifig in range(1,nfig+1):
+        html.write( '&lt;img src="{}{:d}_t{:.1f}.png" width="900px"&gt;&lt;br&gt;&lt;br&gt;\n'.format(figReposPrefix,ifig,time[ifig-1]) )
+    html.write('&lt;H2&gt;Conclusions:&lt;/H2&gt;\n')
+    html.write('&lt;p&gt;Chances of survival for this rat are virtually zero.&lt;/p&gt;&lt;br&gt;\n')
+    html.write('&lt;/BODY&gt;&lt;/HTML&gt;\n')
+</code></pre>
+<p><br />
+This code will generate an HTML file, which you can view in browser <a href="/ECL2017S/lecture/10/SampleProjectReport.html" target="_blank">here</a>.</p>
+
+<h2 id="random-numbers-in-python">Random numbers in Python</h2>
+<p>One of the most important topics in todays’s science and computer simulation is <a href="https://en.wikipedia.org/wiki/Random_number_generation" target="_blank">random number generation</a> and <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method" target="_blank">Monte Carlo simulation</a> methods. In the simplest scenario for your research, you may need to generate a sequence of uniformly distributed random numbers in Python. There are several approaches to handle such random number generation problems in Python. Here is one, via Python’s standard <code>random</code> module:</p>
+<pre><code class="language-python">In [43]: import random as rnd
+
+In [44]: rnd.random()   # generates a random number in the half open interval [0,1)
+Out[44]: 0.012519922307372311
+
+In [45]: rnd.
+rnd.BPF             rnd.Random          rnd.betavariate     rnd.gauss           rnd.normalvariate   rnd.randrange       rnd.shuffle         rnd.weibullvariate
+rnd.LOG4            rnd.SG_MAGICCONST   rnd.choice          rnd.getrandbits     rnd.paretovariate   rnd.sample          rnd.triangular
+rnd.NV_MAGICCONST   rnd.SystemRandom    rnd.expovariate     rnd.getstate        rnd.randint         rnd.seed            rnd.uniform
+rnd.RECIP_BPF       rnd.TWOPI           rnd.gammavariate    rnd.lognormvariate  rnd.random          rnd.setstate        rnd.vonmisesvariate
+</code></pre>
+<p><br />
+As you see in the list of available methods in <code>random</code>, you can generate random numbers from a wide variaty of univariate probability distributions, e.g.,</p>
+<pre><code class="language-python">In [46]: rnd.betavariate(0.5,0.5)   # Beta variate with the input parameters
+Out[46]: 0.9281984408820623
+
+In [54]: rnd.expovariate(1)         # random variable from exponential distribution with mean 1.
+Out[54]: 2.546912414260747
+
+In [55]: rnd.gammavariate(1,1)      # random variable from gamma distribution with parameters 1,1.
+Out[55]: 0.5364897808236537
+</code></pre>
+<p><br />
+Recal that if you needed help on a method or function in Python, you could use <code>help()</code>,</p>
+<pre><code class="language-python">In [61]: help(rnd.weibullvariate)
+Help on method weibullvariate in module random:
+
+weibullvariate(alpha, beta) method of random.Random instance
+    Weibull distribution.
+
+    alpha is the scale parameter and beta is the shape parameter.
+</code></pre>
+<p><br />
+To generate <code>float</code> random numbers between the given input bounds,</p>
+<pre><code class="language-python">In [64]: rnd.uniform(50,100)    # generate a random float between 50 and 100
+Out[64]: 65.59688328558263
+</code></pre>
+<p><br /></p>
+<blockquote>
+<b>ATTENTION: </b><br /><br />
+Alwasy make sure you import modules with unique names, as different modules with similar component names may overwrite each other. For example <code>import random</code> followed by <code>from numpy import *</code> wil cause the <code>random</code> module to be overwritten by <code>numpy.random</code> module.
+</blockquote>
+<p><br />
+Also pay attention to sublte differences between similar functions, with the same names, but in different modules. For example,</p>
+<pre><code class="language-python">import numpy as np
+np.random.randint(1,6,1)
+</code></pre>
+<p><br />
+will draw a random integer from the interval $[1,6)$ excluding the value $6$ (the third input, $1$, indicates how many numbers has to be drawn randomly by the function). However,</p>
+<pre><code class="language-python">import random as rnd
+rnd.randint(1,6)
+</code></pre>
+<p><br />
+will draw a random integer form the interval $[1,6]$. Also note that <code>randint()</code> from module <code>random</code> is a scalar function, whereas the numpy’s version is vectorized.</p>
+
+<h3 id="the-deterministic-aspect-of-randomness-in-python">The deterministic aspect of randomness in Python</h3>
+<p>There is a truth about random numbers and random number generators and algorithms, not only in Python, but in all programming languages, and that is, <strong>true random numbers do not exist in the world of programming</strong>. What we call a seuqence of random numbers, is simply a sequence of numbers that we, the user, to the best of our knowledge, don’t know how it was generated, and therefore, <strong>the sequence looks random to us, bu not the to the developer of the algorithm!</strong>. To prove this, type the following code in a Python session,</p>
+<pre><code class="language-python">In [13]: import numpy as np
+
+In [14]: np.random.seed(42)
+
+In [15]: np.random.randint(1,6,6)
+Out[15]: array([4, 5, 3, 5, 5, 2])
+
+In [16]: np.random.randint(1,6,6)
+Out[16]: array([3, 3, 3, 5, 4, 3])
+
+In [17]: np.random.seed(42)
+
+In [18]: np.random.randint(1,6,6)
+Out[18]: array([4, 5, 3, 5, 5, 2])
+</code></pre>
+<p><br />
+You notice that everytime the random function is called, it generates a new sequence of random numbers, apparently completely random. But as soon as the function <code>np.random.seed(42)</code> is called, it appears that the random number generator also restarts from the beginning, generating the same sequence of random numbers as it did before.</p>
+
+<p>You can even test the same code on a different computer, and as long as you set the seed of the random number generator to a specific value (here 42), <code>np.random.seed(42)</code>, you will the same sequence of random numbers. So afterall, random numbers are not random at all, as they can be generated detrerministically, however, they mimic the behavior of true random numbers. The ability to set the seed for a random number generator is actually very useful, since it enables us to replicate the work of a code, exactly it has been done in the past. In particular, this is very useful for code debugging. However, beware of cases were you need to get a different result, everytime you run the code. If you set the random seed of the random generator to to a fixed value, right at the beginning of the code, you will never get a random behavior.</p>
+
+<h3 id="drawing-a-random-element-from-a-list">Drawing a random element from a list</h3>
+<p>Suppose you have the following list,</p>
+<pre><code class="language-python">import numpy as np
+mylist = np.linspace(0,100,51)
+</code></pre>
+<pre><code class="language-python">mylist
+</code></pre>
+<pre><code>array([   0.,    2.,    4.,    6.,    8.,   10.,   12.,   14.,   16.,
+         18.,   20.,   22.,   24.,   26.,   28.,   30.,   32.,   34.,
+         36.,   38.,   40.,   42.,   44.,   46.,   48.,   50.,   52.,
+         54.,   56.,   58.,   60.,   62.,   64.,   66.,   68.,   70.,
+         72.,   74.,   76.,   78.,   80.,   82.,   84.,   86.,   88.,
+         90.,   92.,   94.,   96.,   98.,  100.])
+</code></pre>
+
+<p>and now you wanted to draw a random element from the above list. You could do,</p>
+<pre><code class="language-python">import random as rnd
+rnd.choice(mylist)
+</code></pre>
+<pre><code>80.0 
+</code></pre>
+
+<p>This will give a random element from the list. You could also generate a random shuffling of the list by,</p>
+<pre><code class="language-python">import random as rnd
+rnd.shuffle(mylist)
+mylist
+</code></pre>
+<pre><code>array([  98.,   12.,   76.,   60.,   46.,   22.,   24.,   92.,   66.,
+         16.,    6.,   34.,   14.,    8.,   18.,   50.,   30.,   74.,
+          4.,    2.,   38.,   90.,   70.,   56.,   94.,   80.,   32.,
+         20.,   10.,   44.,   72.,   84.,    0.,   78.,  100.,   88.,
+         86.,   96.,   48.,   52.,   62.,   64.,   26.,   36.,   40.,
+         54.,   68.,   58.,   82.,   42.,   28.])
+</code></pre>
+
+<p><br /></p>
+
+<h3 id="summary-of-some-important-random-functions-in-python">Summary of some important random functions in Python</h3>
+<p>As you may have noticed, since none of the random functions are builtin, things can get really confusing very easily, by simply mixing numpy’s random mdule with Python’s random module. The following helps to clarify some of the most important differences between these two modules.</p>
+
+<table class="center">
+<caption class="title" style="padding-bottom:10px">
+Table 1: Some useful functions and their functionalities in <code>random</code> and <code>numpy</code> modules
+</caption>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>random module</th>
+<th>numpy.random module</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>random uniform numbers in $[0,1)$</td>
+    <td><code>random()</code></td>
+    <td><code>random(N)</code> (vectorized)</td>
+</tr>
+<tr>
+    <td>random uniform numbers in $[a,b)$</td>
+    <td><code>uniform(a,b)</code></td>
+    <td><code>uniform(a,b,N)</code> (vectorized)</td>
+</tr>
+<tr>
+    <td>random integers in $[a,b]$</td>
+    <td><code>randint(a,b)</code></td>
+    <td><code>randint(a,b+1,N)</code> (vectorized) <br /> <code>random_integers(a,b+1,N)</code> (vectorized) </td>
+</tr>
+<tr>
+    <td>random Gaussian deviate with parameters $[\mu, \sigma]=[m,s]$</td>
+    <td><code>gauss(m,s)</code></td>
+    <td><code>normal(m,s,N)</code> (vectorized)</td>
+</tr>
+<tr>
+    <td>setting random number generator seed $i$</td>
+    <td><code>seed(i)</code></td>
+    <td><code>seed(i)</code></td>
+</tr>
+<tr>
+    <td>shuffling list mylist</td>
+    <td><code>shuffle(mylist)</code></td>
+    <td><code>shuffle(mylist)</code></td>
+</tr>
+<tr>
+    <td>choose a random element from mylist</td>
+    <td><code>choice(mylist)</code></td>
+    <td> -- </td>
+</tr>
+</tbody>
+</table>
+<p><br /></p>
+
+<h3 id="monte-carlo-simulations">Monte Carlo simulations</h3>
+<p>A Monte Carlo simulation is basically any simulation problem that somehow involves random numbers. Let’s start with an example of throwing a die repeatedly for N times. We can simulate the process of throwing a die by the following python code,</p>
+<pre><code class="language-python">def throwFairDie():
+    import random as rnd
+    return rnd.randint(1, 6)
+</code></pre>
+<p><br />
+Now, each time the function is called, it returns a random value for one throw of a virtual die,</p>
+<pre><code class="language-python">In [7]: throwFairDie()
+Out[7]: 6
+
+In [8]: throwFairDie()
+Out[8]: 1
+
+In [9]: throwFairDie()
+Out[9]: 4
+
+In [10]: throwFairDie()
+Out[10]: 1
+</code></pre>
+<p><br />
+This is likely one of the simplest examples of <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method" target="_blank">Monte Carlo simulations</a>. Now suppose we wanted to make sure that the die is fair, meaning that each number (out of 6 possibilities) only appears with a frequency of $1/6$ over many throws of the die. To test this hypothesis, we could write the following code,</p>
+<pre><code class="language-python">import numpy as np
+
+def throwFairDie():
+    import random as rnd
+    return rnd.randint(1, 6)
+
+def getMeanDieValue(n=10000):
+    meanDieValue = np.zeros((n,6),dtype=np.double)
+    randomThrow = throwFairDie() - 1        # assign the first value to the above array
+    meanDieValue[0,randomThrow] = 1.0 / 1.0 # one try so far, one success for the die value that is obtained.
+    for i in range(1,n):
+        randomThrow = throwFairDie() - 1
+        meanDieValue[i,randomThrow] = 1.0   # add one success for the value obtained
+        meanDieValue[i,:] += meanDieValue[i-1,:]    # combine the recent success with the total number of successes from previous tries.
+        meanDieValue[i-1,:] /= np.double(i)  # Now normalize the values form the last try to the total number of tries.
+    meanDieValue[-1:,:] /= np.double(n)  # Now normalize the very last try to the total number of tries.
+    return meanDieValue
+</code></pre>
+<p><br />
+What this function does, is that it throws a die for given input number of times (n=10000 by default if not given as input), and then calculates for each new try, how many times each of the die values have occurred so far, and then finally outputs all the result as numpy <code>double</code> array, each row of which contains the number of successes for each of the 6 die values. Normally, if the die is fair, you would expect that with more tries, the average number of successes for each try would converge more and more to the canonical value $1/6\sim0.1667$. We can test this, by calling the function with a large number of tries, and checking the values in the last row of the output array,</p>
+<pre><code class="language-python">print( getMeanDieValue()[-1:,:] )
+</code></pre>
+<pre><code>[[ 0.1645  0.1668  0.1683  0.1664  0.169   0.165 ]]
+</code></pre>
+
+<pre><code class="language-python">print( getMeanDieValue(n=100000)[-1:,:] )
+</code></pre>
+<pre><code>[[ 0.16488  0.1665   0.16635  0.16841  0.1661   0.16776]]
+</code></pre>
+
+<p>A better approach would be plot the output as a function of the number of tries, and see if the results for each of possible die outcomes do indeed converge to the canonical value or not.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+nDieValues = 6 # 6 possible values for a die throw
+nTrial = 100000 # total number of die throws
+meanDieValues = getMeanDieValue(n=nTrial)
+
+fig1 = plt.figure()
+trial = np.linspace( 1 , nTrial+1 , nTrial )
+lineTypes = ['r-','b-','g-','y-','b-','g-']
+for i in range( nDieValues ) :
+    plt.semilogx( trial[:] \
+            , meanDieValues[:,i] \
+            , lineTypes[i] \
+            ) # plot with color red, as line
+    plt.hold('on')
+plt.xlabel('trial number')
+plt.ylabel('fraction of occurrence for each die number')
+plt.legend(['die value: '+str(i) for i in range(1,7) ])
+plt.axis([1, nTrial , 0.0, 1.0]) # [xmin, xmax, ymin, ymax]
+plt.title('N={} throws of a virtual die in Python'.format(nTrial))
+plt.savefig('diceThrowsN{}.png'.format(nTrial))
+plt.show()
+</code></pre>
+<p><br />
+You can see the output of the above code in the following figure,</p>
+<figure>
+	<img src="/ECL2017S/lecture/10/diceThrowsN100000.png" width="900" />
+</figure>
+<p><br /></p>
+
+<h2 id="python-wrappers-and-interfaces">Python wrappers and interfaces</h2>
+<p>Python is a very convenient language for implementing scientific computations as the code can be made very close to the mathematical algorithms. However, the execution speed of the code is significantly lower than what can be obtained by
+programming in languages such as Fortran, C, or C++. For example see the following performance comparisons and tests in <a href="https://modelingguru.nasa.gov/docs/DOC-1762" target="_blank">NASA modeling guru webpage</a>. As you can see there, the <strong>performance of Python code can be significantly lower, up to 500 times and more, compared to compiled languages such as Fortran and C</strong>. These languages compile the program to machine language, which enables the computing resources to be utilized with very high efficiency. Knowing the performance hit in Python, the scientific programming paradigm in Python is to write compute-intensive parts of the code in lower level languages such as Fortran or C, and use Python as wrapper and glue between lower level codes and as a handy tool for high-level tasks.</p>
+
+<p>Python was initially designed for being integrated with C. This feature has spawned the development of several techniques and tools for calling compiled languages from Python, allowing us to relatively easily reuse fast and
+well-tested scientific libraries in Fortran, C, or C++ from Python, or migrate slow Python code to compiled languages. It often turns out that only smaller parts of the code, usually for loops doing heavy numerical computations, suffer from low speed and can benefit from being implemented in Fortran, C, or C++.</p>
+
+<p>There are already several Python wrappers developed for integrating Python with other programming language codes. Most prominent examples include <a href="https://docs.scipy.org/doc/numpy-dev/f2py/" target="_blank">F2PY</a> for Fortran and C codes, <a href="http://www.swig.org/" target="_blank">SWIG</a> for C, C++, Perl, Java, and many others, <a href="http://cython.org/" target="_blank">Cython</a> for C, <a href="http://www.jython.org/" target="_blank">Jython</a> for Java, and several others.</p>
+
+<p>The usage of some of these wrappers can be tricky and requires some work and good familiarity with the wrapper. This is in particular true about SWIG, which involves a significant amount of manual modifications to the interfaces, compared to F2PY, for example. At the moment, F2PY only works with Python 2.x standard.</p>
+
+<p>There is also a Python module <a href="http://pymat.sourceforge.net/" target="_blank">pymat</a> developed for direct interaction of Python code with MATLAB.</p>
+
+<p><br /><br /></p>
+
+            </div>
+        </article>
+        <div class="cf"></div>
+        <div class="row text-center">
+            <section class="notepad-post-share">
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Lecture 10: Python advanced topics - IO, Monte Carlo, wrappers and interoperability&quot;%20/ECL2017S/lecture/10-python-advanced-io-monte-carlo-interoperability%20via%20&#64;AmirShahmoradi"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/lecture/10-python-advanced-io-monte-carlo-interoperability"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/lecture/10-python-advanced-io-monte-carlo-interoperability"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </section>
+        </div>
+        <div class="cf"></div>
+        
+            <div class="notepad-author-info">
+                <div class="row">
+                    <section class="notepad-post-author small-12 columns">
+                        
+                            <a href="http://www.shahmoradi.org" target="_blank">
+                                <img src="/ECL2017S/images/logo.png" class="notepad-post-author-avatar" alt="Amir Shahmoradi's photo">
+                            </a>
+                        
+                        
+                            <span class="author-label">Author</span>
+                            <h1>Amir Shahmoradi</h1>
+                        
+                        
+                            <p><a href="mailto:amir@ices.utexas.edu" class="author-website">amir@ices.utexas.edu</a></p>
+                        
+                        
+                            <p>Genius is 99% perspiration and 1% inspiration</p>
+                        
+                    </section>
+                </div>
+            </div> 
+        
+        <div class="cf"></div>
+        
+        <section class="notepad-disqus row">
+    <div class="small-12 columns">
+        <h1 class="notepad-comments-header">Comments</h1>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'shahmoradi'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+
+        <div class="cf"></div>
+
+    <footer class="notepad-site-footer">
+    <div class="copyright">
+         <!-- <section>Last updated 2017 / 04 / 18</section></br> -->
+         <section>Last updated Tuesday, 18 Apr 2017 at 09:20 PM CST</section></br>
+         <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
+         <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
+         <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>
+         <section><a class="icon-ghost" href="http://www.utexas.edu/" target="_blank">The University of Texas at Austin</a></section></br>
+         <section>201 E 24th Street, Stop C0200</section></br>
+         <section>Austin, TX 78712-1229</section>
+    </div>
+    <div class="social-icons">
+        
+        
+        <a href="http://twitter.com/AmirShahmoradi" target="_blank">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+        
+        
+        <a href="http://github.com/shahmoradi" target="_blank">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-github fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+    </div>
+    
+    <div class="cf"></div>
+</footer> 
+</main>    
+<!-- The following scripts are needed for the dynamic header of pages -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/ECL2017S/assets/js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+  <script src="/ECL2017S/assets/js/vendor/modernizr.js"></script>
+  <script src="/ECL2017S/assets/js/foundation.min.js"></script>
+  
+  <script src="/ECL2017S/assets/js/notepad.js"></script>
+  <script src="/ECL2017S/assets/js/scripts.min.js"></script>
+  <script src="/ECL2017S/assets/js/vendor/nprogress.js"></script>
+  
+  <script>
+    $(document).foundation();
+  </script>
+  <script type='text/javascript'>console.log("N/A");</script>
+  <script type='text/javascript'>console.log("http://www.shahmoradi.org/");</script>
+<!-- End of scripts for the dynamic header of pages -->
+
+<!--The following scripts is for automatic generation of header anchor links: adopted from: http://ben.balter.com/2014/03/13/pages-anchor-links/-->
+<script src="/ECL2017S/assets/js/autoAnchorLink.js"></script>
+<!--End of automatic generation of header anchor links.-->
+
+
+
+<!-- <script src="/ECL2017S/assets/js/prismOkaidia.js"></script>
+<script src="/ECL2017S/assets/js/prismTwilight.js"></script>
+<script src="/ECL2017S/assets/js/prismDefault.js"></script>
+ -->
+<script src="/ECL2017S/assets/js/prismCoy.js"></script>
+
+
+
+
+<!-- Start of Google Analytics Code for Default Guide -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-67460905-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+<!-- End of Google Analytics Code for Default Guide -->
+   
+<!-- Start of StatCounter Code for Default Guide -->
+  <script type="text/javascript">
+    var sc_project=10611821; 
+    var sc_invisible=1; 
+    var sc_security="902e4bb4"; 
+    var scJsHost = (("https:" == document.location.protocol) ?
+    "https://secure." : "http://www.");
+    document.write("<sc"+"ript type='text/javascript' src='" +
+    scJsHost+
+    "statcounter.com/counter/counter.js'></"+"script>");
+    </script>
+    <noscript><div class="statcounter"><a title="shopify visitor
+    statistics" href="http://statcounter.com/shopify/"
+    target="_blank"><img class="statcounter"
+    src="http://c.statcounter.com/10611821/0/902e4bb4/0/"
+    alt="shopify visitor statistics"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide --> 
+<!--automatic Table of Content.-->
+<script src="/ECL2017S/assets/js/autoTOC.js"></script>
+</body>
+</html>

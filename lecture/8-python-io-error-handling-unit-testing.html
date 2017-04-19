@@ -2,21 +2,21 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>LECTURE 8: PYTHON - I/O, ERROR HANDLING, AND TESING FRAMEWORKS &vert; COE 111L - SPRING 2017</title>
+<title>LECTURE 8: PYTHON - I/O, ERROR HANDLING, AND TESTING FRAMEWORKS &vert; COE 111L - SPRING 2017</title>
 <meta name="description" content="Engineering Computation Lab">
 <meta name="keywords" content="">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/ECL2017S/images/logo.png">
-<meta name="twitter:title" content="Lecture 8: Python - I/O, error handling, and tesing frameworks">
+<meta name="twitter:title" content="Lecture 8: Python - I/O, error handling, and testing frameworks">
 <meta name="twitter:description" content="Engineering Computation Lab">
 <meta name="twitter:creator" content="@AmirShahmoradi">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lecture 8: Python - I/O, error handling, and tesing frameworks">
+<meta property="og:title" content="Lecture 8: Python - I/O, error handling, and testing frameworks">
 <meta property="og:description" content="Engineering Computation Lab">
 <meta property="og:url" content="/ECL2017S/lecture/8-python-io-error-handling-unit-testing">
 <meta property="og:site_name" content="COE 111L - Spring 2017">
@@ -137,7 +137,7 @@ MathJax.Hub.Queue(function() {
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h2>Lecture 8: Python - I/O, error handling, and tesing frameworks</h2>
+                            <h2>Lecture 8: Python - I/O, error handling, and testing frameworks</h2>
                             <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-04-05T00:00:00-05:00">05 Apr 2017</time></strong></p>
                         </div>
                     </div>
@@ -171,7 +171,7 @@ print(y)
 
 <blockquote>
     <b>In general, in any programming language, including Python you should always avoid hardcoding input information into your program.</b><br /><br />
-    If data is hardcoded, then everytime it has to change, the user has to change the content of the code, and this is not considered good programming style for software development.
+    If data is hardcoded, then every time it has to change, the user has to change the content of the code, and this is not considered good programming style for software development.
 </blockquote>
 <p><br />
 In general, input data can be fed to a program in four different ways:</p>
@@ -209,7 +209,7 @@ Now if you save this code in a <a href="/ECL2017S/lecture/8/input_via_sys.py" ta
 </code></pre>
 <p><br /></p>
 <blockquote>
-    <b>ATTENTION: Notice the convention for command-line arguements</b><br /><br />
+    <b>ATTENTION: Notice the convention for command-line arguments</b><br /><br />
     
     <b>1.</b> As you see in the above example, the name of the program is considered as the first command line argument (<code>sys.argv[0]</code>). Also the arguments must be separated by a white space, and should appear in the proper order.<br /><br />
     
@@ -226,7 +226,7 @@ Now if you save this code in a <a href="/ECL2017S/lecture/8/input_via_sys.py" ta
 <h5 id="option-value-pairs-as-command-line-input">Option-value pairs as command-line input</h5>
 <p>Once the number of input arguments to your code increases, the process of inputting data as command line arguments can get complicated. Ideally, the user should be able to enter data in any arbitrary order. This can be done by indicating the meaning of each input by a flag before the input value. For example, suppose you were to find the location $y(t)$ of an object thrown up in the air vertically, given that the object started at $y=y_0$, at $t=0$ with an initial velocity $v_0$, and thereafter was subject to a constant acceleration $a$,
 <script type="math/tex">y(t) = y_0 + v_0t + \frac{1}{2}at^2 ~.</script>
-Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t$, and we don’t the program user to memorize their order of entry on the command line. The solution is to identify the type of each input using a flag preceding the input value. This can be done using <code>argparse</code> Python module. Deatails of the usage of this module goes beyond the limited time of our class. However, I recommend you to have a look at the <a href="https://docs.python.org/3/library/argparse.html" target="_blank">syntax and usage of <em>argparse</em> module</a>, as you will find it very handy in your Python codes, projects, and software development.</p>
+Obviously, this formula requires four input variables: $y_0$, $v_0$, $a$, and $t$, and we don’t the program user to memorize their order of entry on the command line. The solution is to identify the type of each input using a flag preceding the input value. This can be done using <code>argparse</code> Python module. Details of the usage of this module goes beyond the limited time of our class. However, I recommend you to have a look at the <a href="https://docs.python.org/3/library/argparse.html" target="_blank">syntax and usage of <em>argparse</em> module</a>, as you will find it very handy in your Python codes, projects, and software development.</p>
 
 <h4 id="input-data-from-file">Input data from file</h4>
 <p>In cases where the input data is large, the command-line arguments and input from terminal window are not efficient anymore. In such cases, the most common approach is to let the code read input data from a file, the path to which is most often given to the code from the command line or the terminal window.</p>
@@ -245,7 +245,7 @@ In [5]: myfile.
 
 </code></pre>
 <p><br />
-The function <code>open</code> creates a file object, stored in the variable myfile. The second input argument to <code>open</code>, <code>'r'</code> tells the function that the purpose of this file opening is to read data (as opposed to, for example, writing data, or both reading and writing).</p>
+The function <code>open</code> creates a file object, stored in the variable <code>myfile</code>. The second input argument to <code>open</code>, <code>'r'</code> tells the function that the purpose of this file opening is to read data (as opposed to, for example, writing data, or both reading and writing).</p>
 
 <p>Now you can use a for loop to read the data in this file line by line:</p>
 <pre><code class="language-python">for line in myfile:
@@ -408,7 +408,7 @@ In [39]: print(s)
 65
 </code></pre>
 <p><br />
-The major advanatge of this method of reading file content is that you can then immediately apply string methods directly on the file content.</p>
+The major advantage of this method of reading file content is that you can then immediately apply string methods directly on the file content.</p>
 <pre><code class="language-python">In [48]: myfile = open('data.in', 'r')
     ...: numbers = [float(x) for x in myfile.read().split()]
     ...: mean = sum(numbers)/len(numbers)
@@ -422,7 +422,7 @@ In [49]: print(mean)
 <h3 id="converting-user-input-to-live-python-objects">Converting user input to live Python objects</h3>
 <p>One of the cool features in Python I/O is that you can provide text containing valid Python code as input to a program and then
 turn that text into <em>live Python objects</em> as if the text were lines of code written directly into the program beforehand. This is a very powerful tool for letting users specify function formulas, for instance, as input to a program. The program code itself has no knowledge about the kind of function the user wants to work with, yet at run time the user’s desired
-formula enters the computations. To achieve the goal, one can use Python’s <strong>magic functions</strong>, a.k.a <strong>special methods</strong>.</p>
+formula enters the computations. To achieve the goal, one can use Python’s <strong>magic functions</strong>, a.k.a. <strong>special methods</strong>.</p>
 
 <h4 id="the-magic-eval-function">The magic <em>eval</em> function</h4>
 <p>The <code>eval</code> function takes a <strong>string as argument</strong> and <strong>evaluates</strong> this string as a <strong>Python expression</strong>. The result of an expression is an <strong>object</strong>. For example,</p>
@@ -497,7 +497,7 @@ The only major caveat with this module is that, at the moment, it only works wit
 <h3 id="methods-of-outputting-data">Methods of outputting data</h3>
 <p>Two major methods of data output are,</p>
 <ol>
-  <li>writing to the terminal window, as previdously done using <code>print()</code> function, or,</li>
+  <li>writing to the terminal window, as previously done using <code>print()</code> function, or,</li>
   <li>writing to an output file.</li>
 </ol>
 
@@ -594,7 +594,7 @@ The input you entered is not an integer!
  Try again...
 </code></pre>
 <p><br />
-The type of error ocurring in the above example was <code>ValueError</code>. There can be however, many other types of errors and exceptions. For this reason, Python has a <a href="https://docs.python.org/2/library/exceptions.html" target="_blank">builtin list of exceptions</a> that frequently occur in programming.</p>
+The type of error occurring in the above example was <code>ValueError</code>. There can be however, many other types of errors and exceptions. For this reason, Python has a <a href="https://docs.python.org/2/library/exceptions.html" target="_blank">builtin list of exceptions</a> that frequently occur in programming.</p>
 
 <h3 id="the-raise-statement">The <em>raise</em> statement</h3>
 <p>Instead of the print statement in the above <code>except</code> block, Python has a builtin function to handle the error together with an input message from the programmer. For example, the previous code, could be modified to the following code,</p>
@@ -632,7 +632,7 @@ ValueError: The input you entered is not an integer!
  Try again...
 </code></pre>
 <p><br />
-A more elegant and cleaner way of handling and outputing the error would be use the following syntax, in <a href="/ECL2017S/lecture/8/cmd_find_primes_raise_as_err.py" target="_blank">this modified code</a>,</p>
+A more elegant and cleaner way of handling and outputting the error would be use the following syntax, in <a href="/ECL2017S/lecture/8/cmd_find_primes_raise_as_err.py" target="_blank">this modified code</a>,</p>
 <pre><code class="language-python">if __name__ == "__main__":
     import sys
     if len( sys.argv ) != 2: # check the number of arguments to be exactly 2.
@@ -667,7 +667,7 @@ In the statement <code>except ValueError as err:</code> one could use <code>Exce
   <li>ensuring the <strong>code robustness</strong> to exceptions and invalid input data, meaning that it does not crash when it reaches unexpected situations during the code execution and gracefully handles the error, without interruption.</li>
 </ol>
 
-<p>Because of the goals for which the unit tests are desgined, they are mosly written and used by the developers of the code.</p>
+<p>Because of the goals for which the unit tests are designed, they are mostly written and used by the developers of the code.</p>
 
 <h3 id="unit-test-frameworks">Unit test frameworks</h3>
 <p>There are many ways to write tests for codes. Now, if you asked each software developer to write a unit test for a specific software, each would likely come up with their own set of rules and tests of the software. You will end up with many tests, that will generally only be usable by the developer that wrote the tests. That is why you should select a unit test framework. A unit test framework provides consistency for how the unit tests for your project are written. There are many test frameworks to choose from for just about any language you want to program with, including Python. Just like programming language, almost every programmer has a strong opinion which test framework is the best. Research what’s out there and use the one that meets the needs of your organization (For example, there is one experienced Python programmer in our ECL class who does not like any of the existing unit tests for Python, and wants to write his own unit test as the project of this course!).</p>
@@ -703,7 +703,7 @@ In the statement <code>except ValueError as err:</code> one could use <code>Exce
     return x, f(x), n
 </code></pre>
 <p><br />
-Our goal is to write a function that tests the validity of the output of the function for a special case for which we know the results a priori. In the case of the above code, the function output is a not a fixed result, but an approximate float number $x_0$ which satifies the condition $f(x_0)&lt;\epsilon$ where $\epsilon$ is a prescribed number close to zero. Therefore, we have to first come up with a mathematical test input function to the function <code>newton</code>, for which we have calculated the correct answer a priori, and we want to make sure if the above code gives the same answer. Since the output of the function <code>newton</code> is a float that depends on the machine precision, we cannot expect the function to output the exact same result everytime the code is run on any computer. Therefore we have to define our test such that the function passes the test even if the result is not exactly what we expect, but still close enought to the correct answer. Here is an example test function for the above code using the <code>sin(x)</code> function as the test input function to <code>newton()</code>,</p>
+Our goal is to write a function that tests the validity of the output of the function for a special case for which we know the results a priori. In the case of the above code, the function output is a not a fixed result, but an approximate float number $x_0$ which satisfies the condition $f(x_0)&lt;\epsilon$ where $\epsilon$ is a prescribed number close to zero. Therefore, we have to first come up with a mathematical test input function to the function <code>newton</code>, for which we have calculated the correct answer a priori, and we want to make sure if the above code gives the same answer. Since the output of the function <code>newton</code> is a float that depends on the machine precision, we cannot expect the function to output the exact same result every time the code is run on any computer. Therefore, we have to define our test such that the function passes the test even if the result is not exactly what we expect, but still close enough to the correct answer. Here is an example test function for the above code using the <code>sin(x)</code> function as the test input function to <code>newton()</code>,</p>
 <pre><code class="language-python">def test_newton_sin():
     
     from math import sin, cos, pi
@@ -772,7 +772,7 @@ One could also write exact tests for the function <code>newton</code> which test
     return x, f(x), n
 </code></pre>
 <p><br />
-Now, for this more robust code (than the earlier version: <code>newton</code>), we have to also write a set of tests, examining the robustenss of the code, subject to potential exceptions. For example, one can write a test function that examines the behavior of <code>Newton</code> subject to an input mathematical function that is known to lead to divergent (infinite) iterations, if the initial starting point $x$ is not sufficiently close to the root of the function. One such example is $f(x)=tanh(x)$, for which a starting search value of $x=20$ would lead to infinite iterations in the Newton’s method. So we can set <code>maxit=12</code> in our robust <code>Newton</code> code, and test that the actual number of iterations reaches this limit. Given our prior knowledge for this function, that the value of $x$ will also diverge after 12 iterations, we could also add a test for the value of $x$, like the following,</p>
+Now, for this more robust code (than the earlier version: <code>newton</code>), we have to also write a set of tests, examining the robustness of the code, subject to potential exceptions. For example, one can write a test function that examines the behavior of <code>Newton</code> subject to an input mathematical function that is known to lead to divergent (infinite) iterations, if the initial starting point $x$ is not sufficiently close to the root of the function. One such example is $f(x)=tanh(x)$, for which a starting search value of $x=20$ would lead to infinite iterations in the Newton’s method. So we can set <code>maxit=12</code> in our robust <code>Newton</code> code, and test that the actual number of iterations reaches this limit. Given our prior knowledge for this function, that the value of $x$ will also diverge after 12 iterations, we could also add a test for the value of $x$, like the following,</p>
 <pre><code class="language-python">def test_Newton_divergence():
     from math import tanh
     f = tanh
@@ -785,7 +785,7 @@ Now, for this more robust code (than the earlier version: <code>newton</code>), 
 <pre><code class="language-python">test_Newton_divergence()
 </code></pre>
 <p><br />
-The example given here, only tests for the robustenss of <code>Newton()</code> in handling divergent situations. For other potential problems, one has to write other test functions, some which will be given as exercise.</p>
+The example given here, only tests for the robustness of <code>Newton()</code> in handling divergent situations. For other potential problems, one has to write other test functions, some which will be given as exercise.</p>
 
 <h3 id="summary-unit-testing">Summary: unit testing</h3>
 <p>Unit testing is a component of <a href="https://en.wikipedia.org/wiki/Test-driven_development" target="_blank">test-driven development (TDD)</a>, a pragmatic methodology that takes a meticulous approach to building a product by means of <em>continual testing and revision</em>.</p>
@@ -801,7 +801,7 @@ The example given here, only tests for the robustenss of <code>Newton()</code> i
         <div class="cf"></div>
         <div class="row text-center">
             <section class="notepad-post-share">
-                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Lecture 8: Python - I/O, error handling, and tesing frameworks&quot;%20/ECL2017S/lecture/8-python-io-error-handling-unit-testing%20via%20&#64;AmirShahmoradi"
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Lecture 8: Python - I/O, error handling, and testing frameworks&quot;%20/ECL2017S/lecture/8-python-io-error-handling-unit-testing%20via%20&#64;AmirShahmoradi"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
                     <i class="fa fa-twitter"></i>
                 </a>
@@ -872,8 +872,8 @@ The example given here, only tests for the robustenss of <code>Newton()</code> i
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2017 / 04 / 12</section></br> -->
-         <section>Last updated Wednesday, 12 Apr 2017 at 08:51 AM CST</section></br>
+         <!-- <section>Last updated 2017 / 04 / 18</section></br> -->
+         <section>Last updated Tuesday, 18 Apr 2017 at 09:20 PM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>

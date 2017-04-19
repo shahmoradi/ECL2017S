@@ -1,6 +1,22 @@
 [
 	
 		{
+		  "title"      : "Lecture 10: Python advanced topics - IO, Monte Carlo, wrappers and interoperability",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/lecture/10-python-advanced-io-monte-carlo-interoperability",
+		  "date"       : "2017-04-19 00:00:00 -0500",
+		  "shortdate"  : "April 19, 2017"
+		} ,
+	
+		{
+		  "title"      : "Homework 9: Problems - Python advanced IO, Monte Carlo",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/homework/9-problems-python-advanced-io-monte-carlo-interoperability",
+		  "date"       : "2017-04-19 00:00:00 -0500",
+		  "shortdate"  : "April 19, 2017"
+		} ,
+	
+		{
 		  "title"      : "Lecture 9: Python - array computing and plotting",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/9-python-array-computing-plotting",
@@ -33,7 +49,7 @@
 		} ,
 	
 		{
-		  "title"      : "Lecture 8: Python - I/O, error handling, and tesing frameworks",
+		  "title"      : "Lecture 8: Python - I/O, error handling, and testing frameworks",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/8-python-io-error-handling-unit-testing",
 		  "date"       : "2017-04-05 00:00:00 -0500",
