@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-04-18T21:27:37-05:00</updated>
+<updated>2017-04-19T08:43:11-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -77,7 +77,7 @@ The output of the code is &lt;a href=&quot;http:/ECL2017S/lecture/10/jec_out.csv
 &lt;h3 id=&quot;reading-data-from-web&quot;&gt;Reading data from web&lt;/h3&gt;
 &lt;p&gt;Nowadays, a lot of data repositories are available online publicly, and you may encounter problems that need to parse data from an online repository. For many of the most famous repositories, such as the &lt;a href=&quot;http://www.rcsb.org/pdb/home/home.do&quot; target=&quot;_blank&quot;&gt;Protein databank&lt;/a&gt;, excellent python packages have been written that automate the process of fetching data from online pages or repositories (e.g., &lt;a href=&quot;http://biopython.org/wiki/Biopython&quot; target=&quot;_blank&quot;&gt;Biopython&lt;/a&gt;).&lt;/p&gt;
 
-&lt;p&gt;Nevertheless you may need at some point in your research or career to read data from a web address. Most often, the online data is contained in a &lt;code&gt;html&lt;/code&gt; file, like the content of the &lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;about page&lt;/a&gt; for this course, for example, which has the address: &lt;a href=&quot;http:/ECL2017S/about&quot; target=&quot;_blank&quot;&gt;http://www.shahmoradi.orghttp:/ECL2017S/about&lt;/a&gt;. Suppose you wanted to extract the content of this lecture. A simple solution would be the following via Python’s standard &lt;a href=&quot;https://docs.python.org/3/library/urllib.html&quot; target=&quot;_blank&quot;&gt;urllib&lt;/a&gt; module,&lt;/p&gt;
+&lt;p&gt;Nevertheless you may need at some point in your research or career to read data from a web address. Most often, the online data is contained in a &lt;code&gt;html&lt;/code&gt; file, like the content of the &lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;about page&lt;/a&gt; for this course, for example, which has the address: &lt;a href=&quot;http:/ECL2017S/about&quot; target=&quot;_blank&quot;&gt;http://www.shahmoradi.orghttp:/ECL2017S/about&lt;/a&gt;. Suppose you wanted to extract the content of this page. A simple solution would be the following via Python’s standard &lt;a href=&quot;https://docs.python.org/3/library/urllib.html&quot; target=&quot;_blank&quot;&gt;urllib&lt;/a&gt; module,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import urllib.request as ur
 myurl = 'http://www.shahmoradi.orghttp:/ECL2017S/about'
 with ur.urlopen(myurl) as webfile:
@@ -107,13 +107,13 @@ ur.urlretrieve(myurl, filename='about.html')
 &lt;p&gt;&lt;br /&gt;
 This will output &lt;a href=&quot;http:/ECL2017S/lecture/10/about.html&quot; target=&quot;_blank&quot;&gt;this file&lt;/a&gt; in your current working diretory of Python.&lt;/p&gt;
 
-&lt;p&gt;Now, the file that we imported from the web does not contains any scientific data. But, in the homework you will see a real-world scientific example and value of Python’s ability to parse the content web pages.&lt;br /&gt;
+&lt;p&gt;Now, the file that we imported from the web does not contains any scientific data. But, in the homework you will see a real-world scientific example and value of Python’s ability to parse the content of web pages.&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;writing-data-in-html-web-format&quot;&gt;Writing data in HTML (web) format&lt;/h3&gt;
 &lt;p&gt;Doing research at a professional level requires reporting the results professionally as well. That is, the results of the project, including the final report itself have to be &lt;strong&gt;auto-generated&lt;/strong&gt; and &lt;strong&gt;reproducile&lt;/strong&gt; as much as possible, and reachable to the widest audience (which nowadays means, availibility on the world-wide web).&lt;/p&gt;
 
-&lt;p&gt;Suppose you have worked on your final project for this course, which has resulted in several figures, that you wanted to put them all together on a single webpage on your repository on Github, together with some information about each figure. Let’s say the figures are
+&lt;p&gt;Suppose you have worked on your final project for this course, which has resulted in several figures, that you wanted to put them all together on a single webpage in your repository on Github, together with some information about each figure. Let’s say the figures are
   &lt;a href=&quot;http:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_1_t10.0.png&quot; target=&quot;_blank&quot;&gt;figure 1&lt;/a&gt;
 , &lt;a href=&quot;http:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_2_t12.0.png&quot; target=&quot;_blank&quot;&gt;figure 2&lt;/a&gt;
 , &lt;a href=&quot;http:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_3_t14.0.png&quot; target=&quot;_blank&quot;&gt;figure 3&lt;/a&gt;
@@ -163,7 +163,7 @@ In [55]: rnd.gammavariate(1,1)      # random variable from gamma distribution wi
 Out[55]: 0.5364897808236537
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
-Recal that if you needed help on a method or function in Python, you could use &lt;code&gt;help()&lt;/code&gt;,&lt;/p&gt;
+Recall that if you needed help on a method or function in Python, you could use &lt;code&gt;help()&lt;/code&gt;,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [61]: help(rnd.weibullvariate)
 Help on method weibullvariate in module random:
 

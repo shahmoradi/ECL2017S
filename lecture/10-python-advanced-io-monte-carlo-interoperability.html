@@ -195,7 +195,7 @@ The output of the code is <a href="/ECL2017S/lecture/10/jec_out.csv" target="_bl
 <h3 id="reading-data-from-web">Reading data from web</h3>
 <p>Nowadays, a lot of data repositories are available online publicly, and you may encounter problems that need to parse data from an online repository. For many of the most famous repositories, such as the <a href="http://www.rcsb.org/pdb/home/home.do" target="_blank">Protein databank</a>, excellent python packages have been written that automate the process of fetching data from online pages or repositories (e.g., <a href="http://biopython.org/wiki/Biopython" target="_blank">Biopython</a>).</p>
 
-<p>Nevertheless you may need at some point in your research or career to read data from a web address. Most often, the online data is contained in a <code>html</code> file, like the content of the <a href="" target="_blank">about page</a> for this course, for example, which has the address: <a href="/ECL2017S/about" target="_blank">http://www.shahmoradi.org/ECL2017S/about</a>. Suppose you wanted to extract the content of this lecture. A simple solution would be the following via Python’s standard <a href="https://docs.python.org/3/library/urllib.html" target="_blank">urllib</a> module,</p>
+<p>Nevertheless you may need at some point in your research or career to read data from a web address. Most often, the online data is contained in a <code>html</code> file, like the content of the <a href="" target="_blank">about page</a> for this course, for example, which has the address: <a href="/ECL2017S/about" target="_blank">http://www.shahmoradi.org/ECL2017S/about</a>. Suppose you wanted to extract the content of this page. A simple solution would be the following via Python’s standard <a href="https://docs.python.org/3/library/urllib.html" target="_blank">urllib</a> module,</p>
 <pre><code class="language-python">import urllib.request as ur
 myurl = 'http://www.shahmoradi.org/ECL2017S/about'
 with ur.urlopen(myurl) as webfile:
@@ -225,13 +225,13 @@ ur.urlretrieve(myurl, filename='about.html')
 <p><br />
 This will output <a href="/ECL2017S/lecture/10/about.html" target="_blank">this file</a> in your current working diretory of Python.</p>
 
-<p>Now, the file that we imported from the web does not contains any scientific data. But, in the homework you will see a real-world scientific example and value of Python’s ability to parse the content web pages.<br />
+<p>Now, the file that we imported from the web does not contains any scientific data. But, in the homework you will see a real-world scientific example and value of Python’s ability to parse the content of web pages.<br />
 <br /></p>
 
 <h3 id="writing-data-in-html-web-format">Writing data in HTML (web) format</h3>
 <p>Doing research at a professional level requires reporting the results professionally as well. That is, the results of the project, including the final report itself have to be <strong>auto-generated</strong> and <strong>reproducile</strong> as much as possible, and reachable to the widest audience (which nowadays means, availibility on the world-wide web).</p>
 
-<p>Suppose you have worked on your final project for this course, which has resulted in several figures, that you wanted to put them all together on a single webpage on your repository on Github, together with some information about each figure. Let’s say the figures are
+<p>Suppose you have worked on your final project for this course, which has resulted in several figures, that you wanted to put them all together on a single webpage in your repository on Github, together with some information about each figure. Let’s say the figures are
   <a href="/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_1_t10.0.png" target="_blank">figure 1</a>
 , <a href="/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_2_t12.0.png" target="_blank">figure 2</a>
 , <a href="/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_3_t14.0.png" target="_blank">figure 3</a>
@@ -281,7 +281,7 @@ In [55]: rnd.gammavariate(1,1)      # random variable from gamma distribution wi
 Out[55]: 0.5364897808236537
 </code></pre>
 <p><br />
-Recal that if you needed help on a method or function in Python, you could use <code>help()</code>,</p>
+Recall that if you needed help on a method or function in Python, you could use <code>help()</code>,</p>
 <pre><code class="language-python">In [61]: help(rnd.weibullvariate)
 Help on method weibullvariate in module random:
 
@@ -601,8 +601,8 @@ well-tested scientific libraries in Fortran, C, or C++ from Python, or migrate s
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2017 / 04 / 18</section></br> -->
-         <section>Last updated Tuesday, 18 Apr 2017 at 09:27 PM CST</section></br>
+         <!-- <section>Last updated 2017 / 04 / 19</section></br> -->
+         <section>Last updated Wednesday, 19 Apr 2017 at 08:43 AM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>
