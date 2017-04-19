@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Quiz 7: Problems - Python - I/O, error handling, and tesing frameworks",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/quiz/7-problems-python-io-error-handling-unit-testing",
+		  "date"       : "2017-04-19 00:00:00 -0500",
+		  "shortdate"  : "April 19, 2017"
+		} ,
+	
+		{
 		  "title"      : "Lecture 10: Python advanced topics - IO, Monte Carlo, wrappers and interoperability",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/10-python-advanced-io-monte-carlo-interoperability",

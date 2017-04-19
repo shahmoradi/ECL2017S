@@ -2,6 +2,11 @@
 callback([
 
   {
+    "text": "Quiz 7: Problems - Python - I/O, error handling, and tesing frameworks",
+    "href": "/ECL2017S/quiz/7-problems-python-io-error-handling-unit-testing"
+  } ,
+
+  {
     "text": "Quiz 6: Solutions - Python modules, loops, and IO",
     "href": "/ECL2017S/quiz/6-solutions-python-modules-loops-io"
   } ,
