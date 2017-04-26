@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-04-26T13:24:31-05:00</updated>
+<updated>2017-04-26T14:03:58-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -880,6 +880,16 @@ well-tested scientific libraries in Fortran, C, or C++ from Python, or migrate s
 &lt;hr /&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; As I discussed in class, in order to avoid creating potential traffic on Professor Butler’s webpage, I have now uploaded all the necessary files on &lt;a href=&quot;http:/ECL2017S/homework/9/swift/&quot; target=&quot;_blank&quot;&gt;this address&lt;/a&gt;. So now, your goal is to first read the event-ID HTML table from&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9/swift/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;http://www.shahmoradi.org/homework/9/swift/bat_time_table.html&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then, use the even IDs in this table to generate web addresses like:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9/swift/GRB00100433_ep_flu.txt&quot; target=&quot;_blank&quot;&gt;http://www.shahmoradi.org/homework/9/swift/GRB00100433_ep_flu.txt&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;in order to download these &lt;code&gt;.txt&lt;/code&gt; files from the web. The rest of the homework is just as you would have done this problem as descibed below.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; &lt;strong&gt;Reading scientific data from web&lt;/strong&gt;. Consider the webpage of Professor &lt;a href=&quot;http://butler.lab.asu.edu/&quot; target=&quot;_blank&quot;&gt;Nat Butler&lt;/a&gt; at Arizona State University. He has successfully written Python piplines for automated analysis of data from &lt;a href=&quot;https://www.nasa.gov/mission_pages/swift/main&quot; target=&quot;_blank&quot;&gt;NASA’s Swift satellite&lt;/a&gt;. For each &lt;a href=&quot;https://en.wikipedia.org/wiki/Gamma-ray_burst&quot; target=&quot;_blank&quot;&gt;Gamma-Ray Burst (GRB)&lt;/a&gt; detection that Swift makes, his pipline analyzes and reduces data for the burst and summarizes the results on his personal webpage, for example in &lt;a href=&quot;http://butler.lab.asu.edu/swift/bat_spec_table.html&quot; target=&quot;_blank&quot;&gt;this table&lt;/a&gt;.&lt;/p&gt;
 
