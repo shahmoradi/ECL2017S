@@ -7,13 +7,245 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-04-19T09:15:38-05:00</updated>
+<updated>2017-04-26T08:56:03-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
   <uri>http:/ECL2017S/</uri>
   <email>amir@ices.utexas.edu</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Lecture 11: Python advanced topics - decorators and classes]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/lecture/11-python-advanced-decorator-class"/>
+  <id>http:/ECL2017S/lecture/11-python-advanced-decorator-class</id>
+  <published>2017-04-25T00:00:00-05:00</published>
+  <updated>2017-04-25T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This lecture discusses some further important topics in Python, Decorators and Classes.&lt;/p&gt;
+
+&lt;div class=&quot;post_toc&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;pyton-decorators&quot;&gt;Pyton Decorators&lt;/h2&gt;
+&lt;p&gt;Decorators can be thought of as functions which modify the functionality of another function. They help to make your code shorter and more Pythonic. To properly explain decorators we will slowly build up from functions. Consider the following simple function,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def hello(name='Amir'):
+    return 'Hello ' + name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Now if you assign a new variable to this name,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;greet = hello
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+You will notice that greet is also a function, and more importantly, it is not attached to the original function &lt;code&gt;hello()&lt;/code&gt;,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;greet
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;function __main__.hello&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;del hello
+hello
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&amp;lt;ipython-input-6-b1946ac92492&amp;gt; in &amp;lt;module&amp;gt;()
+----&amp;gt; 1 hello
+
+NameError: name 'hello' is not defined
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;functions-inside-other-functions&quot;&gt;Functions inside other functions&lt;/h3&gt;
+&lt;p&gt;Now one thing to keep in mind, is that you can define functions inside functions in Python, just as you can do in almost any other capable language.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def hello(name='Amir'):
+    print('The hello() function has been executed')
+    
+    def greet():
+        return '\t This is inside the greet() function'
+    
+    def welcome():
+        return &quot;\t This is inside the welcome() function&quot;
+    
+    print(greet())
+    print(welcome())
+    print(&quot;Now we are back inside the hello() function&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+So now, if you type,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;hello()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;The hello() function has been executed
+    This is inside the greet() function
+    This is inside the welcome() function
+Now we are back inside the hello() function
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Another cool feature to know about, is that you can have functions both as input and return values to and from another function. With this in mind, let’s create a function like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def new_decorator(func):
+
+    def wrap_func():
+        print(&quot;Code would be here, before executing the func&quot;)
+
+        func()
+
+        print(&quot;Code here will execute after the func()&quot;)
+
+    return wrap_func
+
+def func_needs_decorator():
+    print(&quot;This function is in need of a Decorator&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+So now,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;func_needs_decorator()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;This function is in need of a Decorator
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, see what happens with,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# Reassign func_needs_decorator
+func_needs_decorator = new_decorator(func_needs_decorator)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+which upon calling outputs,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;func_needs_decorator()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Code would be here, before executing the func
+This function is in need of a Decorator
+Code here will execute after the func()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What happened above is that we wrapped the function and modified its behavior using a simple &lt;strong&gt;decorator&lt;/strong&gt;. Now, since this functionality is needed frequently in Python, Python has a special syntax for it, the Decorator syntax,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;@new_decorator
+def func_needs_decorator():
+    print &quot;This function is in need of a Decorator&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+The above statement, is an exact equivalent to,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# Reassign func_needs_decorator
+func_needs_decorator = new_decorator(func_needs_decorator)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+which we used before to decorate our function.&lt;/p&gt;
+
+&lt;p&gt;Now, what is the use of decorators? Basically it can be a handy tool, for functionalities that has to be repeated for many functions. For example, Porofiling and timing the performance of functions require the idea of decorators. Most often, decorators are useful and needed in web development with Python.&lt;/p&gt;
+
+&lt;h2 id=&quot;pyton-classes&quot;&gt;Pyton classes&lt;/h2&gt;
+
+&lt;p&gt;The concept of Python class, as in almost any programming language, relates to packing &lt;strong&gt;a set of variables&lt;/strong&gt; together &lt;strong&gt;with a set of functions&lt;/strong&gt; operating on the data. The goal is to achieve more modular code by grouping data and functions into manageable units. One thing to keep in mind for scientific computing is that, classes, and more generally, Object Oriented Programming, are not necessary, and could be a hinderance to efficient computing if used naively. Nevertheless, classes enable either more elegant solutions or code that is easier to extend at a later stage. In the non-mathematical world, where there are no mathematical concepts and associated algorithms to help structure the problem solving, software development can be very challenging. Classes may then improve the understanding of the problem and contribute to simplify the modeling of data and actions in programs. As a consequence, almost all large software systems being developed in the world today are heavily based on classes.&lt;/p&gt;
+
+&lt;p&gt;Programming with classes is offered by most modern programming languages, including Python. Although Python employs classes extensively, but the user can use the language for many of purposes without even knowing what a class is, as we have done in this class so far.&lt;/p&gt;
+
+&lt;p&gt;Classes can be used for many things in scientific computations, but one of the most frequent programming tasks is to represent mathematical functions that have a set of parameters in addition to one or more independent variables. To expand on this, consider the problem described in the following section.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-common-programming-challenge-in-numerical-computing&quot;&gt;A common programming challenge in numerical computing&lt;/h3&gt;
+&lt;p&gt;To motivate for the class concept, let’s look at functions with parameters. One example is $y(t) = v_0t-\frac{1}{2}gt^2$. Conceptually, in physics, $y$ is viewed as a function of $t$, but mathematically $y$ also depends on two other parameters, $v_0$ and $g$, although it is not natural to view $y$ as a function of these parameters. One can therefore write $f(t;v_0g)$ to emphasize that $t$ is the independent variable, while $v_0$ and $g$ are parameters. Strictly speaking, $g$ is a fixed parameter (as long as the experiment is run on the surface of the earth), so only $v_0$ and $t$ can be arbitrarily chosen in the formula.
+It would then be better to write $y(t;v_0). Here is an implementation of this function,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def y(t, v0):
+    g = 9.81
+    return v0*t - 0.5*g*t**2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+This function gives the height of the projectile as a function of time. Now suppose you wanted to differentiate $y$ with respect to $t$ in order to obtain the velocity. You could write the following code to do so,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def diff(f, x, h=1E-5):
+    return (f(x+h) - f(x))/h
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+But, here is the catch with this problem of differentiation. The &lt;code&gt;diff&lt;/code&gt; function works with any function &lt;code&gt;f&lt;/code&gt; that takes &lt;strong&gt;only&lt;/strong&gt; one argument. In other words, if we want to input &lt;code&gt;y&lt;/code&gt; to &lt;code&gt;diff&lt;/code&gt;, then we will have to redefine &lt;code&gt;y&lt;/code&gt; to take only one argument.  You may wonder why not change &lt;code&gt;diff&lt;/code&gt;. For this simple problem, this could be a solution. But, with larger problems, you are more likely to use sophisticated routines and modules that have been already developed and many of these routines take a function as input that only has one input variable. This is quite often the case with high-performance integration routines.&lt;/p&gt;
+
+&lt;p&gt;One, perhaps bad, solution to the above problem is to use &lt;strong&gt;global variables&lt;/strong&gt;. The requirement is thus to define Python implementations of mathematical functions of one variable with one argument, the independent variable,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def y(t):
+    g = 9.81
+    return v0*t - 0.5*g*t**2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+This function will work only if &lt;code&gt;v0&lt;/code&gt; is a global variable, initialized before one attempts to call the function. Here is an example call where &lt;code&gt;diff&lt;/code&gt; differentiates y,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;v0 = 3
+dy = diff(y, 1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+The use of global variables is in general considered bad programming. Why global variables are problematic in the present case can be illustrated when there is need to work with several versions of a function. Suppose we want to work with two versions of $y(t;v_0)$, one with $v_0=1$ and one with $v_0=5$. Every time we call &lt;code&gt;y&lt;/code&gt;, we must remember which version of the function we work with, and set &lt;code&gt;v0&lt;/code&gt; accordingly prior to the call,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;v0 = 1; r1 = y(t)
+v0 = 5; r2 = y(t)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Another problem&lt;/em&gt; is that variables with simple names like &lt;code&gt;v0&lt;/code&gt;, may easily be used as global variables in other parts of the program. These parts may change our &lt;code&gt;v0&lt;/code&gt; in a context different from the &lt;code&gt;y&lt;/code&gt; function, but the change affects the correctness of the &lt;code&gt;y&lt;/code&gt; function. In such a case, we say that changing &lt;code&gt;v0&lt;/code&gt; has &lt;strong&gt;side effects&lt;/strong&gt;, i.e., &lt;strong&gt;the change affects other parts of the program in an unintentional way&lt;/strong&gt;. This is one reason why a golden rule of programming tells us to &lt;strong&gt;limit the use of global variables as much as possible&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;An alternative solution to the problem of needing two &lt;code&gt;v0&lt;/code&gt; parameters could be to introduce two &lt;code&gt;y&lt;/code&gt; functions, each with a distinct &lt;code&gt;v0&lt;/code&gt; parameter,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def y1(t):
+    g = 9.81
+    return v0_1*t - 0.5*g*t**2
+def y2(t):
+    g = 9.81
+    return v0_2*t - 0.5*g*t**2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we need to initialize &lt;code&gt;v0_1&lt;/code&gt; and &lt;code&gt;v0_2&lt;/code&gt; once, and then we can work with &lt;code&gt;y1&lt;/code&gt; and &lt;code&gt;y2&lt;/code&gt;. However, if we need $100$ &lt;code&gt;v0&lt;/code&gt; parameters, we need $100$ functions. This is tedious to code, error prone, difficult to administer, and simply a really bad solution to a programming problem.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;So, is there a good remedy?&lt;/strong&gt; The answer is yes: the class concept solves all the problems described above.&lt;/p&gt;
+
+&lt;h4 id=&quot;class-representation-of-a-function&quot;&gt;Class representation of a function&lt;/h4&gt;
+&lt;p&gt;A class as contains a set of variables (data) and a set of functions, held together as one unit. The variables are visible in all the functions in the class. That is, we can view the variables as “global” in these functions. These characteristics also apply to modules, and modules can be used to obtain many of the same advantages as classes offer (see comments in Sect. 7.1.6). However, classes are technically very different from modules. You can also make many copies of a class, while there can be only one copy of a module. When you master both modules and classes, you will clearly see the similarities and differences. Now we continue with a specific example of a class.&lt;/p&gt;
+
+&lt;p&gt;Consider the function $y(t;v_0) = v_0t - \frac{1}{2}gt^2$. We may say that $v_0$ and $g$, represented by the variables &lt;code&gt;v0&lt;/code&gt; and &lt;code&gt;g&lt;/code&gt;, constitute the data. A Python function, say &lt;code&gt;value(t)&lt;/code&gt;, is then needed to compute the value of $y(t;v_0)$ and this function must have access to the data &lt;code&gt;v0&lt;/code&gt; and &lt;code&gt;g&lt;/code&gt;, while &lt;code&gt;t&lt;/code&gt; is an argument. A programmer experienced with classes will then suggest to collect the data &lt;code&gt;v0&lt;/code&gt; and &lt;code&gt;g&lt;/code&gt;, and the function &lt;code&gt;value(t)&lt;/code&gt;, together as a &lt;strong&gt;class&lt;/strong&gt;. In addition, a class usually has another function, called &lt;strong&gt;constructor&lt;/strong&gt; for &lt;strong&gt;initializing the data&lt;/strong&gt;. The constructor is always named &lt;code&gt;__init__&lt;/code&gt;. Every &lt;strong&gt;class must have a name&lt;/strong&gt;, often &lt;strong&gt;starting with a capital&lt;/strong&gt;, so we choose &lt;code&gt;Y&lt;/code&gt; as the name since the class represents a mathematical function with name &lt;code&gt;y&lt;/code&gt;. The next step is to implement this class in Python. A complete class code &lt;code&gt;Y&lt;/code&gt; for our problem here would look as follows in Python:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Y:
+    def __init__(self, v0):
+        self.v0 = v0
+        self.g = 9.81
+    def value(self, t):
+        return self.v0*t - 0.5*self.g*t**2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;A class creates a new data type&lt;/strong&gt;, here of name &lt;code&gt;Y&lt;/code&gt;, so when we use the class to make objects, those objects are of type Y. &lt;strong&gt;All the standard Python objects, such as lists, tuples, strings, floating-point numbers, integers, …, are built-in Python classes&lt;/strong&gt;, and each time the user creates on these variable types, one instance os these classes is created by the Python interpreter. A user-defined object class (like Y) is usually called an &lt;strong&gt;instance&lt;/strong&gt;. We need such an instance in order to use the data in the class and call the value function. The following statement constructs an instance bound to the variable name y:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;y = Y(3)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Seemingly, we &lt;em&gt;call the class &lt;code&gt;Y&lt;/code&gt; as if it were a function&lt;/em&gt;. Indeed, &lt;code&gt;Y(3)&lt;/code&gt; is automatically translated by Python to a call to the constructor &lt;code&gt;__init__&lt;/code&gt; in class Y. The arguments in the call, here only the number &lt;code&gt;3&lt;/code&gt;, are always passed on as arguments to &lt;code&gt;__init__&lt;/code&gt; after the &lt;code&gt;self&lt;/code&gt; argument. That is, &lt;code&gt;v0&lt;/code&gt; gets the value &lt;code&gt;3&lt;/code&gt; and self is just dropped in the call. This may be confusing, but it is a rule that the self argument is never used in calls to functions in classes.
+With the instance &lt;code&gt;y&lt;/code&gt;, we can compute the value of y(t=0.1;v_0=3) by the statement,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;v = y.value(0.1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Note that the &lt;code&gt;self&lt;/code&gt; input argument is dropped in the call to &lt;code&gt;value()&lt;/code&gt;. To access functions and variables in a class, one must prefix the function and variable names by the name of the instance and a dot: the value function is reached as &lt;code&gt;y.value&lt;/code&gt;, and the variables are reached as &lt;code&gt;y.v0&lt;/code&gt; and &lt;code&gt;y.g&lt;/code&gt;. One could, for example, print the value of &lt;code&gt;v0&lt;/code&gt; in the instance &lt;code&gt;y&lt;/code&gt; by writing,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print y.v0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+We have already introduced the term &lt;strong&gt;instance&lt;/strong&gt; for the object of a class. &lt;strong&gt;Functions&lt;/strong&gt; in classes are commonly called &lt;strong&gt;methods&lt;/strong&gt;, and &lt;strong&gt;variables (data)&lt;/strong&gt; in classes are called &lt;strong&gt;data attributes&lt;/strong&gt;. Methods are also known as &lt;strong&gt;method attributes&lt;/strong&gt;. For example, in our sample class &lt;code&gt;Y&lt;/code&gt; we have two methods or method attributes, &lt;code&gt;__init__&lt;/code&gt; and &lt;code&gt;value&lt;/code&gt;, two data attributes, &lt;code&gt;v0&lt;/code&gt; and &lt;code&gt;g&lt;/code&gt;, and four attributes in total (&lt;code&gt;__init__&lt;/code&gt;, &lt;code&gt;value&lt;/code&gt;, &lt;code&gt;v0&lt;/code&gt;, &lt;code&gt;g&lt;/code&gt;). Note that the names of attributes can be chosen freely, just as names of ordinary Python functions and variables. However, &lt;strong&gt;the constructor
+must have the name &lt;code&gt;__init__&lt;/code&gt;, otherwise it is not automatically called when new instances are created&lt;/strong&gt;. You can do whatever you want in whatever method, but it is a common convention to &lt;strong&gt;use the constructor for initializing the variables in the class&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;So far, we have explained a method of writing our function of interest in a class style, which resolves the need to pass a auxiliary variable to a function explicitly. But if you look at the original problem that we had, you will notice that we still cannot use our class &lt;code&gt;Y&lt;/code&gt; instance &lt;code&gt;y&lt;/code&gt; as an argument to other functions similar to &lt;code&gt;diff()&lt;/code&gt;. The final resolution to this problem is to add a &lt;code&gt;__call__&lt;/code&gt; method to our originally defined &lt;code&gt;Y&lt;/code&gt; class.&lt;/p&gt;
+
+&lt;h3 id=&quot;callable-objects&quot;&gt;Callable objects&lt;/h3&gt;
+&lt;p&gt;If you recall, computing the value of the mathematical function represented by class &lt;code&gt;Y&lt;/code&gt;, with &lt;code&gt;y&lt;/code&gt; as the name of the instance, is performed by writing &lt;code&gt;y.value(t)&lt;/code&gt;. If we could write just &lt;code&gt;y(t)&lt;/code&gt;, the &lt;code&gt;y&lt;/code&gt; instance would look as an ordinary function. Such a syntax is indeed possible and offered by the special method named &lt;code&gt;__call__&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Y:
+    def __init__(self, v0):
+        self.v0 = v0
+        self.g = 9.81
+    def value(self, t):
+        return self.v0*t - 0.5*self.g*t**2
+    def __call__(self, t):
+        return self.v0*t - 0.5*self.g*t**2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+then, writing &lt;code&gt;y(t)&lt;/code&gt; implies a call like &lt;code&gt;y.__call__(t)&lt;/code&gt;, which is equivalent to &lt;code&gt;y.value(t)&lt;/code&gt;. The previous value method is now redundant. A good programming convention is to &lt;strong&gt;include a &lt;code&gt;__call__&lt;/code&gt; method in all classes that represent a mathematical function&lt;/strong&gt;. Instances with &lt;code&gt;__call__&lt;/code&gt; methods are said to be &lt;strong&gt;callable objects&lt;/strong&gt;, just as plain functions are callable objects as well. The call syntax for callable objects is the same, regardless of whether the object is a function or a class instance.&lt;/p&gt;
+
+&lt;p&gt;You can always test if an instance is callable or not by &lt;code&gt;callable()&lt;/code&gt;,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;callable(y)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;True
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/11-python-advanced-decorator-class&quot;&gt;Lecture 11: Python advanced topics - decorators and classes&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 25, 2017.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -536,9 +768,11 @@ well-tested scientific libraries in Fortran, C, or C++ from Python, or migrate s
 
 &lt;p&gt;&lt;strong&gt;(A)&lt;/strong&gt; Write a Python function named &lt;code&gt;fetchHtmlTable(link,outputPath)&lt;/code&gt; that takes two arguments:&lt;/p&gt;
 &lt;ol&gt;
-  &lt;li&gt;a web address (which will be this: &lt;a href=&quot;http://butler.lab.asu.edu/swift/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;http://butler.lab.asu.edu/swift/bat_time_table.html&lt;/a&gt;), and&lt;/li&gt;
-  &lt;li&gt;an output path to where you want the code save the resulting files. One file is exact HTML contained in the input webpage address, and a second file, which is the Table contained in this HTML address. To parse the HTML table in this address, you will need the Python code &lt;a href=&quot;http:/ECL2017S/homework/9/parseTable.py&quot; target=&quot;_blank&quot;&gt;parseTable.py&lt;/a&gt; also available and explained on &lt;a href=&quot;https://www.summet.com/dmsi/html/readingTheWeb.html&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;.  This parsed HTML table, will be in the form of a list, whose elements correspond to each row in the HTML table, and each row of element of this parsed table is itself another list, that contains the columns of the HTML table in that row. Output this table as well, in a separate file, in a formatted style, meaning that each element of table in a row has a space of 30 characters for itself (or something appropriate as you wish, e.g., &lt;code&gt;'{:&amp;gt;30}'.format(item)&lt;/code&gt;). You can see an example output of the code &lt;a href=&quot;http:/ECL2017S/homework/9/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;here for the HTML output file&lt;/a&gt;, and &lt;a href=&quot;http:/ECL2017S/homework/9/bat_time_table.html.tab&quot; target=&quot;_blank&quot;&gt;here for parse HTML table&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;a web address (which will be this: &lt;a href=&quot;http://butler.lab.asu.edu/swift/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;http://butler.lab.asu.edu/swift/bat_time_table.html&lt;/a&gt;), and,&lt;/li&gt;
+  &lt;li&gt;an output path to where you want the code save the resulting files.&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;One file is exact HTML contained in the input webpage address, and a second file, which is the Table contained in this HTML address. To parse the HTML table in this address, you will need the Python code &lt;a href=&quot;http:/ECL2017S/homework/9/parseTable.py&quot; target=&quot;_blank&quot;&gt;parseTable.py&lt;/a&gt; also available and explained on &lt;a href=&quot;https://www.summet.com/dmsi/html/readingTheWeb.html&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;.  This parsed HTML table, will be in the form of a list, whose elements correspond to each row in the HTML table, and each row of element of this parsed table is itself another list, that contains the columns of the HTML table in that row. Output this table as well, in a separate file, in a formatted style, meaning that each element of table in a row has a space of 30 characters for itself (or something appropriate as you wish, e.g., &lt;code&gt;'{:&amp;gt;30}'.format(item)&lt;/code&gt;). You can see an example output of the code &lt;a href=&quot;http:/ECL2017S/homework/9/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;here for the HTML output file&lt;/a&gt;, and &lt;a href=&quot;http:/ECL2017S/homework/9/bat_time_table.html.tab&quot; target=&quot;_blank&quot;&gt;here for parse HTML table&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;(B)&lt;/strong&gt; Now, if you look at the content of the file that your function has generated (once you run it), you will see something like the following,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;                   GRB (Trig#)               Trig_Time (SOD)               Time Region [s]                          T_90                          T_50                       rT_0.90                       rT_0.50                       rT_0.45                          T_av                         T_max                        T_rise                        T_fall                           Cts                       Rate_pk                          Band                              
@@ -548,7 +782,7 @@ well-tested scientific libraries in Fortran, C, or C++ from Python, or migrate s
        GRB170331x   (00744791)                      6048.440                 9.835-&amp;gt;35.875               20.160 +/-1.285               10.290 +/-0.914               14.070 +/-1.041                5.880 +/-0.415                5.040 +/-0.359               21.461 +/-0.598               12.460 +/-5.633                0.525 +/-5.718               19.635 +/-5.840                1.875 +/-0.154               0.134 +/-0.0408                     15-350keV
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
-Now write another function that reads the event unique numbers that appear in this table in parentheses (e.g., 00745966 is the first in table), and puts this number in place of &lt;code&gt;event_id&lt;/code&gt; in this web address template: &lt;code&gt;http://butler.lab.asu.edu/swift/event_id/bat/ep_flu.txt&lt;/code&gt;.&lt;/p&gt;
+Now write another function that reads the events’ unique numbers that appear in this table in parentheses (e.g., 00745966 is the first in table), and puts this number in place of &lt;code&gt;event_id&lt;/code&gt; in this web address template: &lt;code&gt;http://butler.lab.asu.edu/swift/event_id/bat/ep_flu.txt&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Now note that, for some events, this address exists, for example,&lt;/p&gt;
 
@@ -558,7 +792,7 @@ Now write another function that reads the event unique numbers that appear in th
 
 &lt;p&gt;&lt;a href=&quot;http://butler.lab.asu.edu/swift/00680331/bat/ep_flu.txt&quot; target=&quot;_blank&quot;&gt;http://butler.lab.asu.edu/swift/00680331/bat/ep_flu.txt&lt;/a&gt;,&lt;/p&gt;
 
-&lt;p&gt;in which case your code will have to raise a &lt;code&gt;urllib.request.HTTPError&lt;/code&gt; exception. Write your code such that it can smoothly skip these exceptions. Write your code such that it saves all those text files on your local computer, in a file-name format like &lt;a href=&quot;http:/ECL2017S/homework/9/GRB00100433_ep_flu.txt&quot; target=&quot;_blank&quot;&gt;this example: &lt;code&gt;GRB00100433_ep_flu.txt&lt;/code&gt;&lt;/a&gt; (A total of 938 files exist).&lt;/p&gt;
+&lt;p&gt;in which case your code will have to raise a &lt;code&gt;urllib.request.HTTPError&lt;/code&gt; exception. Write your code such that it can smoothly skip these exceptions. Write your code such that it saves all those existing text files on your local computer, in a file-name format like &lt;a href=&quot;http:/ECL2017S/homework/9/GRB00100433_ep_flu.txt&quot; target=&quot;_blank&quot;&gt;this example: &lt;code&gt;GRB00100433_ep_flu.txt&lt;/code&gt;&lt;/a&gt; (A total of 938 files exist).&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;(C)&lt;/strong&gt; Now write a third function, that reads all of these files in your directory, one by one, as numpy arrays, and plots the content of all of them together, on a single scatter plot like the following,&lt;/p&gt;
 
@@ -641,6 +875,171 @@ Is it to your advantage to switch your choice from door 1 to door 2? Is it to yo
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9-problems-python-advanced-io-monte-carlo-interoperability&quot;&gt;Homework 9: Problems - Python advanced IO, Monte Carlo&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 19, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Homework 8: Solutions - Python array computing and plotting]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/8-solutions-python-array-computing-plotting"/>
+  <id>http:/ECL2017S/homework/8-solutions-python-array-computing-plotting</id>
+  <published>2017-04-19T00:00:00-05:00</published>
+  <updated>2017-04-19T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This is the solution to &lt;a href=&quot;8-problems-python-array-computing-plotting.html&quot; target=&quot;_blank&quot;&gt;Homework 8: Problems - Python array computing and plotting&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--
+The following figure illustrates the grade distribution for this homework.  
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework8.png&quot; width=&quot;700&quot;&gt;
+    &lt;figcaption style=&quot;text-align:center&quot;&gt;
+        Maximum possible points is 100.&lt;br&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+--&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;This homework aims at giving you some experience with Python’s array computing and plotting features.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; &lt;strong&gt;The while-loop implementation of a for-loop&lt;/strong&gt;. Consider the following mathematical function resembling a Hat function,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+f(x) = 
+\begin{cases}
+    0 ~,    &amp; \text{if}~~ x&lt;0 \\
+    x ~,    &amp; \text{if}~~ 0\leq x &lt;1 \\
+    2-x ~,  &amp; \text{if}~~ 1\leq x &lt;2 \\
+    0 ~,    &amp; \text{if}~~ x \geq 2 \\
+\end{cases} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;A scalar implementation of this function would be,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def hatFunc(x):
+    if x &amp;lt; 0:
+        return 0.0
+    elif 0 &amp;lt;= x &amp;lt; 1:
+        return x
+    elif 1 &amp;lt;= x &amp;lt; 2:
+        return 2 - x
+    elif x &amp;gt;= 2:
+        return 0.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Write a vectorized version of this function. (Hint: you may need numpy’s &lt;code&gt;logical_and&lt;/code&gt; method for building the vectorized version of this function.)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def hatFunc(x):
+    condition1 = x &amp;lt; 0
+    condition2 = np.logical_and(0 &amp;lt;= x, x &amp;lt; 1)
+    condition3 = np.logical_and(1 &amp;lt;= x, x &amp;lt; 2)
+    condition4 = x &amp;gt;= 2
+    r = np.zeros(len(x))
+    r[condition1] = 0.0
+    r[condition2] = x[condition2]
+    r[condition3] = 2-x[condition3]
+    r[condition4] = 0.0
+    return r
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; The vertical position $y(t)$ of a ball thrown upward is given by $y(t)=v_0t-\frac{1}{2}gt^2$, where $g$ is the acceleration of gravity and $v_0$ is the initial vertical velocity at $t=0$. Two important physical quantities in this context are the potential energy, obtained by doing work against gravity, and the kinetic energy, arising from motion. The potential energy is defined as $P=mgy$, where $m$ is the mass of the ball. The kinetic energy is defined as $K=\frac{1}{2}mv^2$, where $v$ is the velocity of the ball, related to $y$ by $v(t)=y’(t)$.&lt;/p&gt;
+
+&lt;p&gt;Write a program that can plot $P(t)$ and $K(t)$ in the same plot, along with their sum $E = P + K$. Let $t\in[0,2v_0/g]$. Write your program such that $m$ and $v_0$ are read from the command line. Run the program with various choices of $m$ and $v_0$ and observe that $P+K$ always remains constant in this motion, regardless of initial conditions. This is in fact, the fundamental principle of conservation of energy in Physics.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+A sample code can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/8/ball_energy.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;. Here is an example output figure of the code:&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/homework/8/ball_energy.png&quot; width=&quot;900&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; &lt;strong&gt;Integration by midpoint rule&lt;/strong&gt;: The idea of the Midpoint rule for integration is to divide the area under a curve $f(x)$ into $n$ equal-sized rectangles. The height of the rectangle is determined by the value of $f$ at the midpoint of the rectangle. The figure below illustrates the idea,&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/homework/8/midpnt.gif&quot; width=&quot;700&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;To implement the midpointrule, one has to compute the area of each rectangle, sum them up, just as in the formula for the Midpoint rule,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\int^b_a f(x) dx \approx h\sum^{n-1}_{i=0} f(a+ih+0.5h) ~,&lt;/script&gt;
+
+&lt;p&gt;where $h=(b-a)/n$ is the width of each rectangle. Implement this formula as a Python function midpoint(f, a, b, n) and test the integrator with the following example input mathematical functions.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+    f_1(x) &amp;= exp(x) ~,~ \text{for integration range } ~ [0, \log(3)] \\\\
+    f_2(x) &amp;= cos(x) ~,~ \text{for integration range } ~ [0, \pi]     \\\\
+    f_3(x) &amp;= sin(x) ~,~ \text{for integration range } ~ [0, \pi]     \\\\
+    f_4(x) &amp;= sin(x) ~,~ \text{for integration range } ~ [0, \pi / 2] \\\\
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+An example code can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/8/midpoint.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;. Here is the output of the code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [38]: run midpoint.py
+The exact integral of exp(x) between 0.00000 and 1.09861 is 2.00000.            The approximate answer is 1.99899 giving an error of 0.00101
+The exact integral of cos(x) between 0.00000 and 3.14159 is 0.00000.            The approximate answer is 0.00000 giving an error of 0.00000
+The exact integral of sin(x) between 0.00000 and 3.14159 is 2.00000.            The approximate answer is 2.00825 giving an error of 0.00825
+The exact integral of sin(x) between 0.00000 and 1.57080 is 1.00000.            The approximate answer is 1.00103 giving an error of 0.00103
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; &lt;strong&gt;Visualize approximations in the Midpoint integration rule&lt;/strong&gt; Now consider the following function,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f(x) = x(12-x)+\sin(\pi x) ~~,~~ x\in[0,10] ~,&lt;/script&gt;
+
+&lt;p&gt;which we wish to integrate using the midpoint integrator that you wrote in the previous example. Now write a new code that visualizes the midpoint rule, similar to in the following figure. (Hint: you will need to use the Matplotlib function &lt;code&gt;fill_between&lt;/code&gt; and use this function to create the filled areas between f(x) and the approximating rectangles)&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/homework/8/midpoint_visualization.png&quot; width=&quot;700&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+An example code can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/8/visualize_midpoint.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/8-solutions-python-array-computing-plotting&quot;&gt;Homework 8: Solutions - Python array computing and plotting&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 19, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -4835,898 +5234,6 @@ No. Yes.
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/5-solutions-python-variables-assignment-statements&quot;&gt;Quiz 5: Solutions - Python variables and assignment statements&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 08, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Quiz 5: Problems - Python variables and assignment statements]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/quiz/5-problems-python-variables-assignment-statements"/>
-  <id>http:/ECL2017S/quiz/5-problems-python-variables-assignment-statements</id>
-  <published>2017-03-08T00:00:00-06:00</published>
-  <updated>2017-03-08T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This quiz aims at testing your basic knowledge of Python’s print function, and the how to string manipulation in Python. Don’t forget to push your answers to your remote repository by the end of quiz time. Push your quiz-5 &lt;em&gt;readme.md&lt;/em&gt; file to quiz/5/ folder in your Github project.  If you write your answers in Python scripts, put the script files in the same folder as well. If you feel uncertain about your answer, you can test your final codes on Jupyter or IPython command lines.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Make a string from the following list, with one one-line of Python code.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;mylist = ['The' , 'weather' , 'is' , 'rainy' , 'today' , 'and' , 'cold' , 'only' , '22' , 'F.']
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;2. &lt;/strong&gt; Are tuples mutable objects? Can they be redefined?&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; How do you define an empty dictionary?&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; Write a dictionary representation of the following matrix.&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{bmatrix}
-    0 &amp; 0 &amp; 0 &amp; 1 \\
-    2 &amp; 0 &amp; 0 &amp; 0 \\
-    0 &amp; 5 &amp; 0 &amp; 0 \\
-    0 &amp; 0 &amp; 0 &amp; 3
-\end{bmatrix} %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/5-problems-python-variables-assignment-statements&quot;&gt;Quiz 5: Problems - Python variables and assignment statements&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 08, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Lecture 6: Python - branching and functions]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/lecture/6-python-branching-functions"/>
-  <id>http:/ECL2017S/lecture/6-python-branching-functions</id>
-  <published>2017-03-08T00:00:00-06:00</published>
-  <updated>2017-03-08T00:00:00-06:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This lecture explains branching statements, how to define functions in Python, and all other important details of functions in Python.&lt;/p&gt;
-
-&lt;div class=&quot;post_toc&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;branching-in-python&quot;&gt;Branching in Python&lt;/h2&gt;
-&lt;p&gt;Consider the last problem in &lt;a href=&quot;http:/ECL2017S/homework/4-problems-python-variables-assignment-statements&quot; target=&quot;_blank&quot;&gt;homework 4&lt;/a&gt;, where we defined a dictionary of people names and their roles in our ECL class.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;ecl_dict = { 'nicholas boeker'  : 'student'
-           , 'bradley bridges'  : 'student'
-           , 'sagar dhana'      : 'student' 
-           , 'travis driver'    : 'student'
-           , 'eric gagliano'    : 'student'
-           , 'christian garcia' : 'student'
-           , 'matthew goree'    : 'student'
-           , 'lucero herrera'   : 'student'
-           , 'jake janssen'     : 'student'
-           , 'michael langford' : 'student'
-           , 'colin lewis'      : 'student'
-           , 'mark loveland'    : 'student'
-           , 'emilio mendiola'  : 'student'
-           , 'kreshel nguyen'   : 'student'
-           , 'russell philley'  : 'student'
-           , 'caleb phillips'   : 'student'
-           , 'joseph robbins'   : 'student'
-           , 'bradley smith'    : 'student'
-           , 'vivek varier'     : 'assistant'
-           , 'amir shahmoradi'  : 'instructor'
-           }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Now suppose we would like to write a Python script that, when executed, asks the user to input the full name of a person in our class and then outputs on screen, the role of the person in class. To do this, first we should get familiar with Python’s built-in function &lt;code&gt;input()&lt;/code&gt;.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;b&gt;ATTENTION: Python 2 Alert!&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
-In Python 2, the corresponding function is &lt;code&gt;raw_input()&lt;/code&gt;. In Python 3, it is now renamed to &lt;code&gt;input()&lt;/code&gt;.
-&lt;/blockquote&gt;
-&lt;!--
-&lt;div class=&quot;center&quot;&gt;
-    &lt;div class=&quot;rcbox&quot; style=&quot;text-align:center&quot;&gt;
-        &lt;b&gt;ATTENTION: Python 2 Alert!&lt;/b&gt;&lt;br&gt;&lt;br&gt;
-        In Python 2, the corresponding function is &lt;code&gt;raw_input()&lt;/code&gt;. In Python 3, it is now renamed to &lt;code&gt;input()&lt;/code&gt;.
-    &lt;/div&gt;
-&lt;/div&gt;
---&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [11]: input(&quot;\n Please enter the full name of the person: &quot;)
-
- Please enter the full name of the person: Amir Shahmoradi
-Out[11]: 'Amir Shahmoradi'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-The function &lt;code&gt;input()&lt;/code&gt; is a Python built-in function that outputs the input string inside parantheses to the output screen, and then waits for the user to enter an input. This function reads a line from input, and converts it to a &lt;strong&gt;string&lt;/strong&gt; (stripping a trailing newline), and returns that. One can also put the user’s input directly into a variable, which is the normal way of using this function.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [13]: input_variable = input(&quot;\n Please enter the full name of the person: &quot;)
-
- Please enter the full name of the person: Amir Shahmoradi
-
-In [14]: print(input
-input          input_key      input_variable
-
-In [14]: print(input_variable)
-Amir Shahmoradi
-
-In [15]: type(input_variable)
-Out[15]: str
-
-In [16]: input_variable = input(&quot;\n Please enter the full name of the person: &quot;)
-
- Please enter the full name of the person: 1234
-
-In [17]: type(input_variable)   # whatever type the input is, it will be converted to string by Python interpreter
-Out[17]: str
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Now, back to our originally stated problem in the above, we want to write a program that takes in the name of a person from the command line and then tells the user some information about them, depending on their name. To achive this, we need to become familiar with the concept of &lt;strong&gt;branching&lt;/strong&gt; in Python.  Specifically, we can achieve our goal by writing a &lt;code&gt;if-elif&lt;/code&gt; statement in Python as in the following python script.&lt;/p&gt;
-
-&lt;p&gt;The general syntax for &lt;code&gt;if&lt;/code&gt; blocks in python is the following.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if expression1:     # if expression1 is True
-   statement(s)         # execute the required Python statements
-elif expression2:   # else if expression2 is True
-   statement(s)         # execute the required Python statements
-elif expression3:   # else if expression3 is True
-   statement(s)         # execute the required Python statements
-else:               # else if neither of the above were True
-   statement(s)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Note that the indentations at beginning of each of the statements is necessary, otherwise the Python interpreter will give you a syntax error. However, if it important to note also that the number of indentations is arbitrary.&lt;/p&gt;
-
-&lt;blockquote&gt;
-    &lt;b&gt;ATTENTION!&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
-    I highly recommend you to be consistent in indentations of your Python code. The whole point of Python is to write a highly-human-readable code. and this requires you to write your code in the most consistent way possible. For example, I recommend you to always use either 2,3, or 4 white-space characters for indentations in your code, and
-    &lt;br /&gt;&lt;br /&gt;
-    &lt;div style=&quot;text-align:center&quot;&gt;
-        &lt;b&gt;AVOID USING &lt;code&gt;tab&lt;/code&gt; CHARACTER AS INDENTATION IN YOUR CODES&lt;/b&gt;
-    &lt;/div&gt;
-    &lt;br /&gt;
-    unless your editor automatically converts it to a pre-specified number of white-space characters. The &lt;code&gt;tab&lt;/code&gt; character can create a huge mess in your Python codes, and some extra work to clean them up. &lt;a href=&quot;http://www.secnetix.de/olli/Python/block_indentation.hawk&quot; target=&quot;_blank&quot;&gt;Here&lt;/a&gt; is a good resource to learn more about indentations in Python
-&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
-ecl_dict = { 'nicholas boeker'  : 'student'
-           , 'bradley bridges'  : 'student'
-           , 'sagar dhana'      : 'student' 
-           , 'travis driver'    : 'student'
-           , 'eric gagliano'    : 'student'
-           , 'christian garcia' : 'student'
-           , 'matthew goree'    : 'student'
-           , 'lucero herrera'   : 'student'
-           , 'jake janssen'     : 'student'
-           , 'michael langford' : 'student'
-           , 'colin lewis'      : 'student'
-           , 'mark loveland'    : 'student'
-           , 'emilio mendiola'  : 'student'
-           , 'kreshel nguyen'   : 'student'
-           , 'russell philley'  : 'student'
-           , 'caleb phillips'   : 'student'
-           , 'joseph robbins'   : 'student'
-           , 'bradley smith'    : 'student'
-           , 'vivek varier'     : 'assistant'
-           , 'amir shahmoradi'  : 'instructor'
-           }
-name = input(&quot;\n Please enter the full name of the person: &quot;)
-if name in ecl_dict:    # First make sure the name is in our dictionary
-    if ecl_dict[name] == 'instructor':
-        print( '\nThe name you enetered: {} belongs to the instructor of the ECL course. His office hours are Mondays 5-6 p.m.\n'.format(name) )
-    elif ecl_dict[name] == 'assistant':
-        print( '\nThe name you enetered: {} belongs to the Teaching Assistant of the ECL course. His office hours are Tuesdays 9-11 a.m.\n'.format(name) )
-    elif ecl_dict[name] == 'student':
-        print( '\nThe name you enetered: {} belongs to one of the amazing students in our class. You can certainly reach him during the weekly ECL classes on Wednesdays 9-10 a.m.\n'.format(name) )
-else:
-    print('\nThe name you entered: {} does not correspond to any real person in ECL class. Make sure you are not looking for a ghost, as our class is ghost-free.\n'.format(name) )
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Now, if we run the &lt;a href=&quot;http:/ECL2017S/lecture/6/ecl_names.py&quot; target=&quot;_blank&quot;&gt;file&lt;/a&gt; containing this script, we will get something like the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./ecl_names.py
-
- Please enter the full name of the person: amir shahmoradi
-
-The name you enetered: amir shahmoradi belongs to the instructor of the ECL course. His office hours are Mondays 5-6 p.m.
-
-$ ./ecl_names.py
-
- Please enter the full name of the person: Harry Potter
-
-The name you entered: Harry Potter does not correspond to any real person in ECL class. Make sure you are not looking for a ghost, as our class is ghost-free.
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Conditional &lt;code&gt;if&lt;/code&gt; statement is the only built-in branching method in Python. However, it can be written in several different sytaxes, each of which can be useful in some circumstances:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; One-line conditional &lt;strong&gt;statement&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if condition: statement
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-For example:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if sqrt(2) &amp;lt; 2: print('sqrt(2) &amp;lt; 2\nOf course that was obvious!')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;sqrt(2) &amp;lt; 2
-Of course that was obvious!
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt; multiple line (as stated above) conditional &lt;strong&gt;statement&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if condition:
-    block statements
-elif:
-    block statements
-else:
-    block statements
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;3.&lt;/strong&gt; Inline conditional &lt;strong&gt;expression&lt;/strong&gt;: This is a particularly useful syntax for conditional value assignments in Python.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;expression1 if condition_is_met else expression2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-For example, instead of writing,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if condition:
-    a = value1
-else
-    a = value2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-one can summarize it all in one line,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = (value1 if condition else value2)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Note that the paratheses are not necessary, however, they are recommended for clarity. Here is an example code,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;name = input('Input the name: ')
-print( 'This person is the ECL instructor' if name == 'amir' else 'This person is not the ECL instructor')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;Input the name: amir
-This person is the ECL instructor
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;non-boolean-conditions-in-if-statements&quot;&gt;Non-boolean conditions in if-statements&lt;/h3&gt;
-&lt;p&gt;There is a rather interesting feature of conditions in Python if-statements, that allows the programmer to use a non-boolean variable or value type directly in place of the condition in if-statement. What really happens here is that, Python interpreter converts the non-boolean type to a boolean value, when it occurs in place of an if-statement condition.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if 5.6:
-    print('The condition in this if statement is automatically converted from float to boolean')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;The condition in this if statement is automatically converted from float to boolean
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if 0.0:
-    print('A float value of zero is converted to False')
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if not 0.0:
-    print('A float value of zero is converted to False')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;A float value of zero is converted to False
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if 0.000000000000000000000000000000000000000000000000000000000000000000001:
-    print('Any non-zero float value of any precision is converted to True')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;A float value of zero is converted to False
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if 1.e-323:
-    print('Any non-zero float value of any precision is converted to True')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;Any non-zero float value of any precision is converted to True
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if 1.e-324: # make sure you don't go beyond computer precision
-    print('Any non-zero float value smaller than the computer precision will be set to 0')
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if not 1.e-324: # make sure you don't go beyond computer precision
-    print('Any non-zero float value smaller than the computer precision will be set to 0')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;Any non-zero float value smaller than the computer precision will be set to 0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if 12:
-    print('The same rules also hold for integers.')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;The same rules also hold for integers.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if &quot;&quot;:
-    print('An empty string is converted to boolean False')
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if not &quot;&quot;:
-    print('An empty string is converted to boolean False')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;An empty string is converted to boolean False
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if &quot; &quot;:
-    print('A non-empty string is converted to boolean True')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;A non-empty string is converted to boolean True
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if []:
-    print('An empty list is converted to boolean False')
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if not []:
-    print('An empty list is converted to boolean False')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;An empty list is converted to boolean False
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if [1]:
-    print('A non-empty list is converted to boolean True')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;A non-empty list is converted to boolean True
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if not {}:
-    print('The same rules also hold for sets and dictionaries.')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;The same rules also hold for sets and dictionaries.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if {1:2}:
-    print('The same rules also hold for sets and dictionaries.')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;The same rules also hold for sets and dictionaries.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if not None:
-    print('The keyword None is also equivalent to False.')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;The keyword None is also equivalent to False.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;bool(&quot;amir&quot;) # You can always get the boolean-conversion of a value or type using Python's built-in function bool().
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;True
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;functions-in-python&quot;&gt;Functions in Python&lt;/h2&gt;
-
-&lt;p&gt;In Python, like most other programming languages, &lt;strong&gt;function&lt;/strong&gt; is a collection of programming statements that can be executed whenever and wherever  requested. Therefore, the definition of function in programming goes far beyond the mathematical definition of function. For example, programming functions can have no input or output.&lt;/p&gt;
-
-&lt;p&gt;In Python, the syntax of a function is like the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def function_name(argument_1, argument_2, ..., argument_N)
-    python_statment_1
-    python_statment_2
-    ...
-    return output
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Here, the line beginning with &lt;code&gt;def&lt;/code&gt; is referred to as the &lt;strong&gt;function header&lt;/strong&gt;, and the statements inside the function are called the &lt;strong&gt;function body&lt;/strong&gt;. To use a function, it must be first defined like above, and then called where it is needed inside the code.&lt;br /&gt;
-&lt;strong&gt;Example:&lt;/strong&gt;&lt;br /&gt;
-Let’s write a Python function that takes in a temperature value in Centigrads and converts it to Fahrenheit.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def c2f(C):
-    return (9.0/5)*C + 32
-
-c_temp = 70.7       # The hottest place on Earth, Lut Desert in Iran 
-f_temp = c2f(c_temp)
-
-print(&quot;&quot;&quot;
-The hottest place on Earth as of 2005 is in the Lut Desert in Iran at {0} degrees Celsius.
-This corresponds to a temerature of {1} degrees Farenheiht!
-&quot;&quot;&quot;.format(c_temp,c2f(c_temp)) )
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;The hottest place on Earth as of 2005 is in the Lut Desert in Iran at 70.7 degrees Celsius.
-This corresponds to a temerature of 159.26 degrees Farenheiht!
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;functions-with-no-input-arguments&quot;&gt;Functions with no input arguments&lt;/h3&gt;
-
-&lt;p&gt;We can define functions that take no input argument, yet do something predefined for us. Consider the following function which gives information about the ECL course, when called.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def get_ecl_info():
-    return &quot;Engineering Computation Lab (COE111L) is a new course that is offered by the department of Aerospace Engineering and Engineering Mechanics at the University of Texas at Austin, starting Spring 2017. The overarching goal of the course is to introduce Aerospace undergraduate students with the principles of scientific computing, as well as the applications of numerical methods that the students learn in Engineering Computation (ASE 211K), offered parallel to this course. Towards this goal, Python was chosen as default programming language for the first offering of this course, but it can be switched to other languages such as R, MATLAB, Fortran, C++, etc., depending on the future needs of the Aerospace undergraduate program at UT Austin.&quot;
-
-get_ecl_info()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;'Engineering Computation Lab (COE111L) is a new course that is offered by the department of Aerospace Engineering and Engineering Mechanics at the University of Texas at Austin, starting Spring 2017. The overarching goal of the course is to introduce Aerospace undergraduate students with the principles of scientific computing, as well as the applications of numerical methods that the students learn in Engineering Computation (ASE 211K), offered parallel to this course. Towards this goal, Python was chosen as default programming language for the first offering of this course, but it can be switched to other languages such as R, MATLAB, Fortran, C++, etc., depending on the future needs of the Aerospace undergraduate program at UT Austin.'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;functions-with-no-output-return-value&quot;&gt;Functions with no output (return value)&lt;/h3&gt;
-
-&lt;p&gt;We can also modify the above function such that it does not return anything specifically.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def get_ecl_info():
-    print( &quot;Engineering Computation Lab (COE111L) is a new course that is offered by the department of Aerospace Engineering and Engineering Mechanics at the University of Texas at Austin, starting Spring 2017. The overarching goal of the course is to introduce Aerospace undergraduate students with the principles of scientific computing, as well as the applications of numerical methods that the students learn in Engineering Computation (ASE 211K), offered parallel to this course. Towards this goal, Python was chosen as default programming language for the first offering of this course, but it can be switched to other languages such as R, MATLAB, Fortran, C++, etc., depending on the future needs of the Aerospace undergraduate program at UT Austin.&quot; )
-
-get_ecl_info()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;Engineering Computation Lab (COE111L) is a new course that is offered by the department of Aerospace Engineering and Engineering Mechanics at the University of Texas at Austin, starting Spring 2017. The overarching goal of the course is to introduce Aerospace undergraduate students with the principles of scientific computing, as well as the applications of numerical methods that the students learn in Engineering Computation (ASE 211K), offered parallel to this course. Towards this goal, Python was chosen as default programming language for the first offering of this course, but it can be switched to other languages such as R, MATLAB, Fortran, C++, etc., depending on the future needs of the Aerospace undergraduate program at UT Austin.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In such cases, you may have already noticed that we can readily skip the &lt;code&gt;return&lt;/code&gt; statement. In reality, in such cases, what happens is that Python interpereter adds an invisible &lt;code&gt;return None&lt;/code&gt; statement at the end of the function. &lt;code&gt;None&lt;/code&gt; is a special reserved keyword of Python that represents &lt;strong&gt;nothing&lt;/strong&gt; or &lt;strong&gt;empty data&lt;/strong&gt; in Python. It is almost equivalent to the word &lt;strong&gt;void&lt;/strong&gt; in languages like Java, C, and C++.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def get_ecl_info():
-    print( &quot;Engineering Computation Lab (COE111L) is a new course that is offered at UT Austin.&quot; )
-    return None
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;get_ecl_info()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;Engineering Computation Lab (COE111L) is a new course that is offered at UT Austin.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you set a variable equal to this function, the value of the variable will be &lt;code&gt;None&lt;/code&gt;, because the function returns nothing on the output.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;variable = get_ecl_info()
-type(variable)
-print(variable)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;NoneType
-None
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;functions-with-multiple-input-arguments&quot;&gt;Functions with multiple input arguments&lt;/h3&gt;
-
-&lt;p&gt;Functions can take almost as many input arguments as we wish. Consider the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def power(base,exponent):
-    return base**exponent
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;power(2,5)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;32
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;the-order-of-input-arguments-both-does-and-does-not-matter&quot;&gt;The order of input arguments both does and does not matter!&lt;/h4&gt;
-
-&lt;p&gt;Note that in the previous code, calling the function with the wrong order of input parameters, can lead to a catastrophe and wrng output.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;power(5,2)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;25
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;However, a really cool feature for function input arguments is that, when calling the function, you can also name the argument variable, and if you name them all, then the order by which the arguments appera becomes irrelevant.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;power(exponent=5,base=2)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;32
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;functions-with-multiple-output-return-values&quot;&gt;Functions with multiple output (return values)&lt;/h3&gt;
-
-&lt;p&gt;Python funcitons can return more than one value. For this purpose, tuple variable types become a handy tool. Recall that making a tuple is as simple as writing a sequence of comma separated values/variable, like the following.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;mytuple = 1, 2
-mytuple
-type(mytuple)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;(1, 2)
-tuple
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now, if you need to write a function that has multiple return value, you can simply return them all in one sequence of comma separated values/variables. For example, suppose a function takes in two numbers, and then outputs the quotient (the result of integer division) and the remainder of the integer division. An example such function would be like the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def get_quotient_remainder(dividend,divisor):
-    return divmod(dividend,divisor)
-
-get_quotient_remainder(11,3)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;(3, 2)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;type(get_quotient_remainder(11,3))  # By default, the output is a tuple
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;tuple
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;By default, the output of this function is a tuple, since we are returning a tuple in the function. But we could also return the output as a list, or any other appropriate format we wish.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def get_quotient_remainder(dividend,divisor):
-    return list(divmod(dividend,divisor))   # convert the output to list before passing it to main program
-
-type(get_quotient_remainder(11,3))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;list
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You can also save the output in a variable as well,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def get_quotient_remainder(dividend,divisor):
-    return divmod(dividend,divisor)
-
-result = get_quotient_remainder(dividend=11,divisor=3) # You can also name the input variables to make sure you assign them in the correct order.
-print(result)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;(3, 2)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;or save the individual results in separate variables, like,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;quotient, remainder = get_quotient_remainder(dividend=11,divisor=3)
-print(quotient, remainder)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;3 2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;or save it in the form of a tuple or list,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;[quotient, remainder] = get_quotient_remainder(dividend=11,divisor=3)
-print(quotient, remainder)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;3 2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;functions-with-optional-input-arguments&quot;&gt;Functions with optional input arguments&lt;/h3&gt;
-
-&lt;p&gt;Like many other high-level programming languages, Python allows you to have optional arguments in your input, which you can drop when calling the function. However, an optional argument must have a preassigned value in the function, otherwise dropping the variable at the time of function call will lead to a runtime error.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def get_quotient_remainder(dividend,divisor=10,message=&quot;This is the default message.&quot;):
-    print( &quot;divmod({},{}) = &quot;.format(divmod(dividend,divisor)) )
-    print( message )
-    return divmod(dividend,divisor)
-
-result = get_quotient_remainder(dividend=11,divisor=3) # the optional input argument 'message' is set to its default value.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;divmod(11,3) = (3, 2)
-This is the default message.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The above function, default the value of optional message argument to &lt;code&gt;&quot;This is the default message.&quot;&lt;/code&gt; since it is not given at the time of calling the function. The function’s &lt;strong&gt;optional input arguments&lt;/strong&gt; whose values are initialized to a default value are more famously known in Python as &lt;strong&gt;keyword arguments&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;blockquote&gt;
-    &lt;b&gt;ATTENTION:&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
-    Note that when the optional arguments are named and assigned a value at the time of function call, then their order of appearance in the function call does not matter. However, keep in mind that the **ordinary** or **positional** arguments should all appear in order and first, before the keyword arguments appear. However, the keyword arguments can appear in any order one may wish.
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;For the above example function, the following function calls would be valid,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;get_quotient_remainder(dividend=11)
-get_quotient_remainder(11,divisor=3)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-and the following would be invalid,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;get_quotient_remainder(divisor=3,11,message=&quot;A new message.&quot;)   # This is invalid
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;  File &quot;&amp;lt;ipython-input-36-27658299aa76&amp;gt;&quot;, line 1
-    get_quotient_remainder(divisor=3,11,message=&quot;A new message.&quot;)   # This is invalid, the order is incorrect.
-                                    ^
-SyntaxError: positional argument follows keyword argument
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;get_quotient_remainder(11,divisor=3,&quot;A new message.&quot;)   # Also invalid, all arguments after the first named argument must appear with name as well.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;  File &quot;&amp;lt;ipython-input-37-1643cc8d6910&amp;gt;&quot;, line 1
-    get_quotient_remainder(11,divisor=3,&quot;A new message.&quot;)
-                                       ^
-SyntaxError: positional argument follows keyword argument
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-    &lt;b&gt;ATTENTION:&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
-    Note that the keyword arguments must be always listed after the positional arguments in the function definition. Note also, as in the above examples, that the sequence of input arguments **at the time of function call** does not matter, so long as the names of all positional and keyword arguments are provided in the function call.
-&lt;/blockquote&gt;
-
-&lt;p&gt;Note also, that the number input arguments at the time of call must be exactly the same as the number of arguments in the function definition.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;get_quotient_remainder(11,3,&quot;A new message.&quot;,)  # THis works even though, there is an extra comma at the end of the arguments of the function call.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;divmod(11,3) = (3, 2)
-A new message.
-
-(3, 2)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;local-and-global-variables-in-functions&quot;&gt;Local and global variables in functions&lt;/h3&gt;
-&lt;p&gt;Variables that are defined insde of a function, are by default invisible outside the function scope. For example, let’s consider  Let us reconsider the original function defined at the beginning of the lecture, which takes in a temperature value in Centigrads and converts it to Fahrenheit.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def c2f(C):
-    converted_value = (9.0/5)*C + 32
-    return converted_value
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Now, if the variable &lt;code&gt;converted_value&lt;/code&gt; is called outside the function, it will result in a syntax error since it is undefined outside the function scope.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;c2f(70)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;158.0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;converted_value
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;NameError                                 Traceback (most recent call last)
-&amp;lt;ipython-input-42-1aa75d9b79c4&amp;gt; in &amp;lt;module&amp;gt;()
-----&amp;gt; 1 converted_value
-
-NameError: name 'converted_value' is not defined
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-    Local variables are created inside a function and destroyed when the program control goes back to the main code, outside the function.
-&lt;/blockquote&gt;
-
-&lt;p&gt;Now suppose we had the following script,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def c2f(C):
-    converted_value = (9.0/5)*C + 32
-    print('Value of C inside function: {}'.format(C))
-    return converted_value
-
-C = 70
-c2f(50)
-print('Value of C outside function: {}'.format(C))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;Value of C inside function: 50
-Value of C outside function: 70
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Clearly, the two values are not the same, even though the variable names are the same. But, if you really want to access the global variable &lt;code&gt;C&lt;/code&gt; inside of the function, then you can use Python’s built-in function &lt;code&gt;globals()&lt;/code&gt; which returns a &lt;strong&gt;dictionary&lt;/strong&gt; of all global variables in the main program, and then use the keyword &lt;code&gt;'C'&lt;/code&gt; to get its value inside the function.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;type(globals())
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;dict
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;globals()['C']
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;70
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now, the same function as above, but with the global variable value would give you,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def c2f(C):
-    converted_value = (9.0/5)*globals()['C'] + 32
-    print('Value of C inside function: {}'.format(globals()['C']))
-    return converted_value
-
-C = 70
-c2f(50)
-print('Value of C outside function: {}'.format(C))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;Value of C inside function: 70
-Value of C outside function: 70
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-    As a general rule, when there are &lt;b&gt;several variables with the same name&lt;/b&gt;, Python interpreter &lt;b&gt;first&lt;/b&gt; tries to look up the variable name among the &lt;b&gt;local variables&lt;/b&gt;, &lt;b&gt;then&lt;/b&gt; there is a search among &lt;b&gt;global variables&lt;/b&gt;, and &lt;b&gt;finally&lt;/b&gt; among built-in &lt;b&gt;Python functions&lt;/b&gt;.  
-&lt;/blockquote&gt;
-
-&lt;p&gt;In order to declare a variable inside the function global, use the keyword &lt;code&gt;global&lt;/code&gt; as in the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = 20; b = -2.5 # global variables
-def f1(x):
-    a = 21 # this is a new local variable
-    return a*x + b
-
-print (a) # yields 20
-
-def f2(x):
-    global a
-    a = 21 # the global a is changed
-    return a*x + b
-
-f1(3); print (a) # 20 is printed
-f2(3); print (a) # 21 is printed
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;20
-20
-21
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Note that in function &lt;code&gt;f1&lt;/code&gt;, $a = 21$ creates a local variable a. One may think the global &lt;code&gt;a&lt;/code&gt; has changed, but it does not happen. However, in the second function &lt;code&gt;f2&lt;/code&gt;, the globally declared variable is assigned a new value and therefore, the global value of &lt;code&gt;a&lt;/code&gt; outside the function also changes. Test this script yourself and see what you get.&lt;/p&gt;
-
-&lt;blockquote&gt;
-    Be careful with using global variables inside your functions, because if you do not define them prior to using the function, then you get a runtime error.
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;br /&gt;
-Here is an example of the error,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def f2(x):
-    global a    # a must be defined outside the function prior to function call
-    return a*x + b
-
-f2(3)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;NameError                                 Traceback (most recent call last)
-&amp;lt;ipython-input-55-ea6f63a0f6d6&amp;gt; in &amp;lt;module&amp;gt;()
-    3     return a*x + b
-    4 
-----&amp;gt; 5 f2(3)
-
-&amp;lt;ipython-input-55-ea6f63a0f6d6&amp;gt; in f2(x)
-    1 def f2(x):
-    2     global a    # a must be defined outside the function prior to function call
-----&amp;gt; 3     return a*x + b
-    4 
-    5 f2(3)
-
-NameError: name 'a' is not defined
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;avoid-function-side-effects&quot;&gt;Avoid function side-effects&lt;/h4&gt;
-
-&lt;p&gt;A function in which the value of a global variable is changed while the global variable is not the intended output of the function, is called a &lt;strong&gt;function with side-effects&lt;/strong&gt;. Here is an example,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def f2(x):
-    global a
-    a = 21 # the global a is changed
-    return a*x + b
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-In general, any &lt;em&gt;lasting effect&lt;/em&gt; that occurs in a function, but not through its &lt;code&gt;return&lt;/code&gt; value, is called a &lt;strong&gt;side effect&lt;/strong&gt;. There are three ways to have side effects:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Changing the value of a mutable object.&lt;/li&gt;
-  &lt;li&gt;Changing the binding (the storage space) of a global variable.&lt;/li&gt;
-  &lt;li&gt;Printing out a value. This doesn’t change any objects or variable bindings, but it does have a potential lasting effect outside the function execution, because a person might see the output and be influenced by it.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-    In general, avoid defining functions that have side-effects. In large codes and projects, side-effects can create complex semantic errors and become a hurdle for optimization and code debugging. 
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;pythons-built-in-functions&quot;&gt;Python’s built-in functions&lt;/h3&gt;
-
-&lt;p&gt;Python has a number of built-in functions, which can be handy. &lt;a href=&quot;https://docs.python.org/3/library/functions.html&quot; target=&quot;_blank&quot;&gt;Here&lt;/a&gt; is a list of Python’s built-in functions along with a description of what they do.&lt;/p&gt;
-
-&lt;h3 id=&quot;function-docstring&quot;&gt;function docstring&lt;/h3&gt;
-
-&lt;p&gt;There is a convention in Python to insert a documentation string right after the &lt;code&gt;def&lt;/code&gt; line of the function definition (the function header). The documentation string, known as a &lt;strong&gt;doc string&lt;/strong&gt; or &lt;strong&gt;docstring&lt;/strong&gt;, should contain a short description of the purpose of the function and explain what the different arguments and return values are. Doc strings are usually enclosed in triple double quotes &lt;code&gt;&quot;&quot;&quot;&lt;/code&gt;, which allow the string to span several lines.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def c2f(C):
-    &quot;&quot;&quot;
-    This function converts Celsius degrees (C) to Fahrenheit.
-    Uses global variable C.
-    &quot;&quot;&quot;
-    converted_value = (9.0/5)*globals()['C'] + 32
-    print('Value of C inside function: {}'.format(globals()['C']))
-    return converted_value
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-The docstring is then stored in &lt;code&gt;__doc__&lt;/code&gt; attribute of the function, and can be called like the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;c2f.__doc__
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;'\n    This function converts Celsius degrees (C) to Fahrenheit.\n    Uses global variable C.\n    '
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you’d like to get the formatted docstring, use Python’s &lt;code&gt;help()&lt;/code&gt; function,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;help(c2f)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;Help on function c2f in module __main__:
-
-c2f(C)
-    This function converts Celsius degrees (C) to Fahrenheit.
-    Uses global variable C.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;One can also use &lt;code&gt;&quot;&lt;/code&gt; in place of &lt;code&gt;&quot;&quot;&quot;&lt;/code&gt;, although less conventional. But then for multiple lines of docstring, one has to use line continuation.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def c2f(C):
-    &quot;\
-    This function converts Celsius degrees (C) to Fahrenheit.\
-    Uses global variable C.\
-    &quot;
-    converted_value = (9.0/5)*globals()['C'] + 32
-    print('Value of C inside function: {}'.format(globals()['C']))
-    return converted_value
-&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-    Note that the docstring must appear before any statement in the function body.
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;functions-as-input-arguments-to-functions&quot;&gt;Functions as input arguments to functions&lt;/h3&gt;
-
-&lt;p&gt;In happens frequently in scientific programming, that a function needs to use another arbitrary function provided by the user to perform some specific tasks with it inside the function. For example, programs doing calculus frequently need to have functions as arguments in functions. For example,&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;a Python function that finds the root of a mathematical function, given as input argument.&lt;/li&gt;
-  &lt;li&gt;a Python function that differentiates of a mathematical function, given as input argument.&lt;/li&gt;
-  &lt;li&gt;a Python function that integrates a mathematical function, given as input argument.&lt;/li&gt;
-  &lt;li&gt;a Python function that solves a mathematical differential equation, given as input argument.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In such cases, Python functions need to have the mathematical function as an input argument with some name(e.g., &lt;code&gt;func&lt;/code&gt;). Like Fortran, this is straightforward in Python and hardly needs any explanation, but in most other languages special constructions must be used for transferring a function to another function as argument. For example, suppose we want to compute numerically the second-derivative of a user given mathematical function,&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def diff2nd(func, x, h=1E-6):
-    r = (func(x-h) - 2*func(x) + func(x+h))/float(h*h)
-    return r
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The &lt;code&gt;func&lt;/code&gt; input argument is like any other argument, i.e., a name for an object, here a function
-object that we can call as we normally call functions. An an application, suppose we want to calculate the second derivative of a quadratic function $g(x)$ of the following form at $x=2$,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def diff2nd(func, x, h=1E-6):
-    r = (func(x-h) - 2*func(x) + func(x+h))/float(h*h)
-    return r
-
-def g(x):
-    return x**2 + 4.0*x + 1.0
-
-x = 2
-diff2nd_g = diff2nd(g, x)
-print ( &quot;g’’(x=%f)=%f&quot; % (x, diff2nd_g) )
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;g’’(x=2.000000)=2.001954
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;function-composition&quot;&gt;Function composition&lt;/h3&gt;
-
-&lt;p&gt;The ability to call one function from within another function is called &lt;strong&gt;composition&lt;/strong&gt;. Suppose we have a function &lt;code&gt;distance&lt;/code&gt; that calculates the distance between two points on a 2D plane. and another function that takes in a value for radius, and then calculates the corresponding area for that radius.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def distance(x1, y1, x2, y2):
-    from math import sqrt
-    return sqrt( (x2-x1)**2 + (y2-y1)**2 )
-
-def area(x1, y1, x2, y2):
-    from math import pi
-    return pi*distance(x1, y1, x2, y2)**2
-
-area(0.0,0.0,0.0,1.0)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;3.141592653589793
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;recursive-functions&quot;&gt;Recursive functions&lt;/h4&gt;
-
-&lt;p&gt;Now, note that the function being called inside the other, does not necessarily have to be a different function. It could be the same function calling itself repeatedly, &lt;strong&gt;until a condition is met&lt;/strong&gt; (otherwise this would be an endless function call to itself for eternity). For example, a function that would calculate the factorial of an input integer would be like the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def factorial(n):
-    if isinstance(n,float):
-        print('The input number {} is not an integer!'.format(n))
-        return None
-    if n==0:
-        return 1
-    elif n==1:
-        return n
-    else:
-        return n*factorial(n-1)
-
-factorial(4)
-factorial(4.5)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;24
-The input number 4.5 is not an integer!
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;lambda-functions&quot;&gt;Lambda functions&lt;/h3&gt;
-
-&lt;p&gt;There is a quick one-line construction of functions that is often convenient to make Python code compact. For example, recall how we defined &lt;code&gt;g(x)&lt;/code&gt; in the &lt;a href=&quot;#functions-as-input-arguments-to-functions&quot;&gt;example above&lt;/a&gt;. Here is a compact version of it,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;g = lambda x: x**2 + 4.0*x + 1.0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-This code is equivalent to the original code that wrote before,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def g(x):
-    return x**2 + 4.0*x + 1.0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-In general, a function of the form,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def g(arg1, arg2, arg3, ...):
-    return expression
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-can be converted to the compact form,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;g = lambda arg1, arg2, arg3, ...: expression
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Lambda functions are very useful for defining simple functions in the argument list that is passed to another function. For example, recall our &lt;code&gt;diff2nd&lt;/code&gt; function that we defined in the above,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def diff2nd(func, x, h=1E-6):
-    r = (func(x-h) - 2*func(x) + func(x+h))/float(h*h)
-    return r
-
-def g(x):
-    return x**2 + 4.0*x + 1.0
-
-x = 2
-diff2nd_g = diff2nd(g, x)
-print ( &quot;g’’(x=%f)=%f&quot; % (x, diff2nd_g) )
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;g’’(x=2.000000)=2.001954
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now instead of defining &lt;code&gt;g(x)&lt;/code&gt; separately when calling &lt;code&gt;diff2nd&lt;/code&gt; function, we can use the following compact form,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def diff2nd(func, x, h=1E-6):
-    r = (func(x-h) - 2*func(x) + func(x+h))/float(h*h)
-    return r
-
-x = 2
-print ( &quot;g’’(x=%f)=%f&quot; % (x, diff2nd(lambda x: x**2 + 4.0*x + 1.0, x) ) )
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;g’’(x=2.000000)=2.001954
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Lambda functions may also take &lt;strong&gt;keyword arguments&lt;/strong&gt;. For example,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;d2 = diff2nd(lambda t, A=1, a=0.5: -a*2*t*A*exp(-a*t**2), 1.2)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-This format is particularly useful, if the lambda function contains a constant that is repeatedly used in the expression of the function, the value of which may need to be updated in future runs of the code, or later on in the same code.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/6-python-branching-functions&quot;&gt;Lecture 6: Python - branching and functions&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 08, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>

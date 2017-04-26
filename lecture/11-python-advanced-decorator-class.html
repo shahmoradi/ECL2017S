@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>LECTURE 11: PYTHON ADVANCED TOPICS - DECORATORS AND CLASSES &vert; COE 111L - SPRING 2017</title>
+<meta name="description" content="Engineering Computation Lab">
+<meta name="keywords" content="">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/ECL2017S/images/logo.png">
+<meta name="twitter:title" content="Lecture 11: Python advanced topics - decorators and classes">
+<meta name="twitter:description" content="Engineering Computation Lab">
+<meta name="twitter:creator" content="@AmirShahmoradi">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lecture 11: Python advanced topics - decorators and classes">
+<meta property="og:description" content="Engineering Computation Lab">
+<meta property="og:url" content="/ECL2017S/lecture/11-python-advanced-decorator-class">
+<meta property="og:site_name" content="COE 111L - Spring 2017">
+<meta property="og:image" content="/ECL2017S/images/">
+
+
+
+
+
+<link rel="canonical" href="/ECL2017S/lecture/11-python-advanced-decorator-class">
+<!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 Feed"> -->
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,300,800,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/ECL2017S/assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/normalize.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/nprogress.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/foundation.min.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/style.css">
+    <link rel="stylesheet" href="/ECL2017S/assets/css/post.css">
+
+
+
+
+<!--Mathjax loader: taken from http://stackoverflow.com/questions/2188884/how-can-i-mix-latex-in-with-markdown-->
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+    }
+});
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!--End of Mathjax loader: taken from http://stackoverflow.com/questions/2188884/how-can-i-mix-latex-in-with-markdown-->
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/ECL2017S/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/ECL2017S/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/ECL2017S/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/ECL2017S/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/ECL2017S/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/ECL2017S/images/apple-touch-icon-144x144-precomposed.png">
+
+<!-- 
+<link href="/ECL2017S/assets/css/prismTwilight.css" rel="stylesheet" />
+<link href="/ECL2017S/assets/css/prismDefault.css" rel="stylesheet" />
+<link href="/ECL2017S/assets/css/prismCoy.css" rel="stylesheet" />
+-->
+<link href="/ECL2017S/assets/css/prismOkaidia.css" rel="stylesheet" />
+
+<!--The following are for automatic generation of header anchor links: adopted from: http://ben.balter.com/2014/03/13/pages-anchor-links/-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<style type="text/css">@media only screen and (min-width:43.75em){.notepad-post-content div>p:first-child:first-letter{float:left;font-size:4.688rem;line-height:4.375rem;padding-top:.25rem;padding-right:.5rem;padding-left:.188rem;font-family:serif}}</style>
+</head>
+<body class="post-template" itemscope itemtype="http://schema.org/WebPage">  
+
+        <main id="notepad-post-container-simple" class="notepad-post-container-simple" role="main">
+            <header class="notepad-post-header-simple">
+                <div class="notepad-post-menu-header-simple">
+
+                    <a class="notepad-blog-logo" href="http://www.shahmoradi.org" target="_blank"><img src="/ECL2017S/images/logo.png" alt="shahmoradi.org" /></a>
+
+                <div class="notepad-blog-menu">      
+    <div class="notepad-mobile-menu show-for-small">
+        <a href="#"><i class="fa fa-bars"></i></a>
+    </div>
+    <ul class="notepad-menu">
+        <li class="notepad-mobile-close-btn show-for-small text-right">
+            <a href="#"><i class="fa fa-times"></i></a>
+        </li>
+
+            <li>
+                    <a href="/ECL2017S/">Home</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/highlights">Highlights</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/categories">Categories</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/about">About</a>
+                 </li>
+            
+           <li><a href="/ECL2017S/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+    </ul>
+
+</div>
+            </div>
+
+                <div class="notepad-post-title-simple row">
+                    <div class="small-12 columns">
+                        <div class="notepad-post-meta-simple">
+                            <h2>Lecture 11: Python advanced topics - decorators and classes</h2>
+                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-04-25T00:00:00-05:00">25 Apr 2017</time></strong></p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+        
+            <article class="notepad-post-content post tag-simple">
+        
+            <div style="text-align:justify;">
+                <p>This lecture discusses some further important topics in Python, Decorators and Classes.</p>
+
+<div class="post_toc"></div>
+
+<h2 id="pyton-decorators">Pyton Decorators</h2>
+<p>Decorators can be thought of as functions which modify the functionality of another function. They help to make your code shorter and more Pythonic. To properly explain decorators we will slowly build up from functions. Consider the following simple function,</p>
+<pre><code class="language-python">def hello(name='Amir'):
+    return 'Hello ' + name
+</code></pre>
+<p><br />
+Now if you assign a new variable to this name,</p>
+<pre><code class="language-python">greet = hello
+</code></pre>
+<p><br />
+You will notice that greet is also a function, and more importantly, it is not attached to the original function <code>hello()</code>,</p>
+<pre><code class="language-python">greet
+</code></pre>
+<pre><code>&lt;function __main__.hello&gt;
+</code></pre>
+
+<pre><code class="language-python">del hello
+hello
+</code></pre>
+<pre><code>---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-6-b1946ac92492&gt; in &lt;module&gt;()
+----&gt; 1 hello
+
+NameError: name 'hello' is not defined
+</code></pre>
+
+<h3 id="functions-inside-other-functions">Functions inside other functions</h3>
+<p>Now one thing to keep in mind, is that you can define functions inside functions in Python, just as you can do in almost any other capable language.</p>
+<pre><code class="language-python">def hello(name='Amir'):
+    print('The hello() function has been executed')
+    
+    def greet():
+        return '\t This is inside the greet() function'
+    
+    def welcome():
+        return "\t This is inside the welcome() function"
+    
+    print(greet())
+    print(welcome())
+    print("Now we are back inside the hello() function")
+</code></pre>
+<p><br />
+So now, if you type,</p>
+<pre><code class="language-python">hello()
+</code></pre>
+<pre><code>The hello() function has been executed
+    This is inside the greet() function
+    This is inside the welcome() function
+Now we are back inside the hello() function
+</code></pre>
+
+<p>Another cool feature to know about, is that you can have functions both as input and return values to and from another function. With this in mind, let’s create a function like the following,</p>
+<pre><code class="language-python">def new_decorator(func):
+
+    def wrap_func():
+        print("Code would be here, before executing the func")
+
+        func()
+
+        print("Code here will execute after the func()")
+
+    return wrap_func
+
+def func_needs_decorator():
+    print("This function is in need of a Decorator")
+</code></pre>
+<p><br />
+So now,</p>
+<pre><code class="language-python">func_needs_decorator()
+</code></pre>
+<pre><code>This function is in need of a Decorator
+</code></pre>
+
+<p>Now, see what happens with,</p>
+<pre><code class="language-python"># Reassign func_needs_decorator
+func_needs_decorator = new_decorator(func_needs_decorator)
+</code></pre>
+<p><br />
+which upon calling outputs,</p>
+<pre><code class="language-python">func_needs_decorator()
+</code></pre>
+<pre><code>Code would be here, before executing the func
+This function is in need of a Decorator
+Code here will execute after the func()
+</code></pre>
+
+<p>What happened above is that we wrapped the function and modified its behavior using a simple <strong>decorator</strong>. Now, since this functionality is needed frequently in Python, Python has a special syntax for it, the Decorator syntax,</p>
+<pre><code class="language-python">@new_decorator
+def func_needs_decorator():
+    print "This function is in need of a Decorator"
+</code></pre>
+<p><br />
+The above statement, is an exact equivalent to,</p>
+<pre><code class="language-python"># Reassign func_needs_decorator
+func_needs_decorator = new_decorator(func_needs_decorator)
+</code></pre>
+<p><br />
+which we used before to decorate our function.</p>
+
+<p>Now, what is the use of decorators? Basically it can be a handy tool, for functionalities that has to be repeated for many functions. For example, Porofiling and timing the performance of functions require the idea of decorators. Most often, decorators are useful and needed in web development with Python.</p>
+
+<h2 id="pyton-classes">Pyton classes</h2>
+
+<p>The concept of Python class, as in almost any programming language, relates to packing <strong>a set of variables</strong> together <strong>with a set of functions</strong> operating on the data. The goal is to achieve more modular code by grouping data and functions into manageable units. One thing to keep in mind for scientific computing is that, classes, and more generally, Object Oriented Programming, are not necessary, and could be a hinderance to efficient computing if used naively. Nevertheless, classes enable either more elegant solutions or code that is easier to extend at a later stage. In the non-mathematical world, where there are no mathematical concepts and associated algorithms to help structure the problem solving, software development can be very challenging. Classes may then improve the understanding of the problem and contribute to simplify the modeling of data and actions in programs. As a consequence, almost all large software systems being developed in the world today are heavily based on classes.</p>
+
+<p>Programming with classes is offered by most modern programming languages, including Python. Although Python employs classes extensively, but the user can use the language for many of purposes without even knowing what a class is, as we have done in this class so far.</p>
+
+<p>Classes can be used for many things in scientific computations, but one of the most frequent programming tasks is to represent mathematical functions that have a set of parameters in addition to one or more independent variables. To expand on this, consider the problem described in the following section.</p>
+
+<h3 id="a-common-programming-challenge-in-numerical-computing">A common programming challenge in numerical computing</h3>
+<p>To motivate for the class concept, let’s look at functions with parameters. One example is $y(t) = v_0t-\frac{1}{2}gt^2$. Conceptually, in physics, $y$ is viewed as a function of $t$, but mathematically $y$ also depends on two other parameters, $v_0$ and $g$, although it is not natural to view $y$ as a function of these parameters. One can therefore write $f(t;v_0g)$ to emphasize that $t$ is the independent variable, while $v_0$ and $g$ are parameters. Strictly speaking, $g$ is a fixed parameter (as long as the experiment is run on the surface of the earth), so only $v_0$ and $t$ can be arbitrarily chosen in the formula.
+It would then be better to write $y(t;v_0). Here is an implementation of this function,</p>
+<pre><code class="language-python">def y(t, v0):
+    g = 9.81
+    return v0*t - 0.5*g*t**2
+</code></pre>
+<p><br />
+This function gives the height of the projectile as a function of time. Now suppose you wanted to differentiate $y$ with respect to $t$ in order to obtain the velocity. You could write the following code to do so,</p>
+<pre><code class="language-python">def diff(f, x, h=1E-5):
+    return (f(x+h) - f(x))/h
+</code></pre>
+<p><br />
+But, here is the catch with this problem of differentiation. The <code>diff</code> function works with any function <code>f</code> that takes <strong>only</strong> one argument. In other words, if we want to input <code>y</code> to <code>diff</code>, then we will have to redefine <code>y</code> to take only one argument.  You may wonder why not change <code>diff</code>. For this simple problem, this could be a solution. But, with larger problems, you are more likely to use sophisticated routines and modules that have been already developed and many of these routines take a function as input that only has one input variable. This is quite often the case with high-performance integration routines.</p>
+
+<p>One, perhaps bad, solution to the above problem is to use <strong>global variables</strong>. The requirement is thus to define Python implementations of mathematical functions of one variable with one argument, the independent variable,</p>
+<pre><code class="language-python">def y(t):
+    g = 9.81
+    return v0*t - 0.5*g*t**2
+</code></pre>
+<p><br />
+This function will work only if <code>v0</code> is a global variable, initialized before one attempts to call the function. Here is an example call where <code>diff</code> differentiates y,</p>
+<pre><code class="language-python">v0 = 3
+dy = diff(y, 1)
+</code></pre>
+<p><br />
+The use of global variables is in general considered bad programming. Why global variables are problematic in the present case can be illustrated when there is need to work with several versions of a function. Suppose we want to work with two versions of $y(t;v_0)$, one with $v_0=1$ and one with $v_0=5$. Every time we call <code>y</code>, we must remember which version of the function we work with, and set <code>v0</code> accordingly prior to the call,</p>
+<pre><code class="language-python">v0 = 1; r1 = y(t)
+v0 = 5; r2 = y(t)
+</code></pre>
+<p><br />
+<em>Another problem</em> is that variables with simple names like <code>v0</code>, may easily be used as global variables in other parts of the program. These parts may change our <code>v0</code> in a context different from the <code>y</code> function, but the change affects the correctness of the <code>y</code> function. In such a case, we say that changing <code>v0</code> has <strong>side effects</strong>, i.e., <strong>the change affects other parts of the program in an unintentional way</strong>. This is one reason why a golden rule of programming tells us to <strong>limit the use of global variables as much as possible</strong>.</p>
+
+<p>An alternative solution to the problem of needing two <code>v0</code> parameters could be to introduce two <code>y</code> functions, each with a distinct <code>v0</code> parameter,</p>
+<pre><code class="language-python">def y1(t):
+    g = 9.81
+    return v0_1*t - 0.5*g*t**2
+def y2(t):
+    g = 9.81
+    return v0_2*t - 0.5*g*t**2
+</code></pre>
+<p><br /></p>
+
+<p>Now we need to initialize <code>v0_1</code> and <code>v0_2</code> once, and then we can work with <code>y1</code> and <code>y2</code>. However, if we need $100$ <code>v0</code> parameters, we need $100$ functions. This is tedious to code, error prone, difficult to administer, and simply a really bad solution to a programming problem.</p>
+
+<p><strong>So, is there a good remedy?</strong> The answer is yes: the class concept solves all the problems described above.</p>
+
+<h4 id="class-representation-of-a-function">Class representation of a function</h4>
+<p>A class as contains a set of variables (data) and a set of functions, held together as one unit. The variables are visible in all the functions in the class. That is, we can view the variables as “global” in these functions. These characteristics also apply to modules, and modules can be used to obtain many of the same advantages as classes offer (see comments in Sect. 7.1.6). However, classes are technically very different from modules. You can also make many copies of a class, while there can be only one copy of a module. When you master both modules and classes, you will clearly see the similarities and differences. Now we continue with a specific example of a class.</p>
+
+<p>Consider the function $y(t;v_0) = v_0t - \frac{1}{2}gt^2$. We may say that $v_0$ and $g$, represented by the variables <code>v0</code> and <code>g</code>, constitute the data. A Python function, say <code>value(t)</code>, is then needed to compute the value of $y(t;v_0)$ and this function must have access to the data <code>v0</code> and <code>g</code>, while <code>t</code> is an argument. A programmer experienced with classes will then suggest to collect the data <code>v0</code> and <code>g</code>, and the function <code>value(t)</code>, together as a <strong>class</strong>. In addition, a class usually has another function, called <strong>constructor</strong> for <strong>initializing the data</strong>. The constructor is always named <code>__init__</code>. Every <strong>class must have a name</strong>, often <strong>starting with a capital</strong>, so we choose <code>Y</code> as the name since the class represents a mathematical function with name <code>y</code>. The next step is to implement this class in Python. A complete class code <code>Y</code> for our problem here would look as follows in Python:</p>
+<pre><code class="language-python">class Y:
+    def __init__(self, v0):
+        self.v0 = v0
+        self.g = 9.81
+    def value(self, t):
+        return self.v0*t - 0.5*self.g*t**2
+</code></pre>
+<p><br />
+<strong>A class creates a new data type</strong>, here of name <code>Y</code>, so when we use the class to make objects, those objects are of type Y. <strong>All the standard Python objects, such as lists, tuples, strings, floating-point numbers, integers, …, are built-in Python classes</strong>, and each time the user creates on these variable types, one instance os these classes is created by the Python interpreter. A user-defined object class (like Y) is usually called an <strong>instance</strong>. We need such an instance in order to use the data in the class and call the value function. The following statement constructs an instance bound to the variable name y:</p>
+<pre><code class="language-python">y = Y(3)
+</code></pre>
+<p><br />
+Seemingly, we <em>call the class <code>Y</code> as if it were a function</em>. Indeed, <code>Y(3)</code> is automatically translated by Python to a call to the constructor <code>__init__</code> in class Y. The arguments in the call, here only the number <code>3</code>, are always passed on as arguments to <code>__init__</code> after the <code>self</code> argument. That is, <code>v0</code> gets the value <code>3</code> and self is just dropped in the call. This may be confusing, but it is a rule that the self argument is never used in calls to functions in classes.
+With the instance <code>y</code>, we can compute the value of y(t=0.1;v_0=3) by the statement,</p>
+<pre><code class="language-python">v = y.value(0.1)
+</code></pre>
+<p><br />
+Note that the <code>self</code> input argument is dropped in the call to <code>value()</code>. To access functions and variables in a class, one must prefix the function and variable names by the name of the instance and a dot: the value function is reached as <code>y.value</code>, and the variables are reached as <code>y.v0</code> and <code>y.g</code>. One could, for example, print the value of <code>v0</code> in the instance <code>y</code> by writing,</p>
+<pre><code class="language-python">print y.v0
+</code></pre>
+<p><br />
+We have already introduced the term <strong>instance</strong> for the object of a class. <strong>Functions</strong> in classes are commonly called <strong>methods</strong>, and <strong>variables (data)</strong> in classes are called <strong>data attributes</strong>. Methods are also known as <strong>method attributes</strong>. For example, in our sample class <code>Y</code> we have two methods or method attributes, <code>__init__</code> and <code>value</code>, two data attributes, <code>v0</code> and <code>g</code>, and four attributes in total (<code>__init__</code>, <code>value</code>, <code>v0</code>, <code>g</code>). Note that the names of attributes can be chosen freely, just as names of ordinary Python functions and variables. However, <strong>the constructor
+must have the name <code>__init__</code>, otherwise it is not automatically called when new instances are created</strong>. You can do whatever you want in whatever method, but it is a common convention to <strong>use the constructor for initializing the variables in the class</strong>.</p>
+
+<p>So far, we have explained a method of writing our function of interest in a class style, which resolves the need to pass a auxiliary variable to a function explicitly. But if you look at the original problem that we had, you will notice that we still cannot use our class <code>Y</code> instance <code>y</code> as an argument to other functions similar to <code>diff()</code>. The final resolution to this problem is to add a <code>__call__</code> method to our originally defined <code>Y</code> class.</p>
+
+<h3 id="callable-objects">Callable objects</h3>
+<p>If you recall, computing the value of the mathematical function represented by class <code>Y</code>, with <code>y</code> as the name of the instance, is performed by writing <code>y.value(t)</code>. If we could write just <code>y(t)</code>, the <code>y</code> instance would look as an ordinary function. Such a syntax is indeed possible and offered by the special method named <code>__call__</code>.</p>
+<pre><code class="language-python">class Y:
+    def __init__(self, v0):
+        self.v0 = v0
+        self.g = 9.81
+    def value(self, t):
+        return self.v0*t - 0.5*self.g*t**2
+    def __call__(self, t):
+        return self.v0*t - 0.5*self.g*t**2
+</code></pre>
+<p><br />
+then, writing <code>y(t)</code> implies a call like <code>y.__call__(t)</code>, which is equivalent to <code>y.value(t)</code>. The previous value method is now redundant. A good programming convention is to <strong>include a <code>__call__</code> method in all classes that represent a mathematical function</strong>. Instances with <code>__call__</code> methods are said to be <strong>callable objects</strong>, just as plain functions are callable objects as well. The call syntax for callable objects is the same, regardless of whether the object is a function or a class instance.</p>
+
+<p>You can always test if an instance is callable or not by <code>callable()</code>,</p>
+<pre><code class="language-python">callable(y)
+</code></pre>
+<pre><code>True
+</code></pre>
+
+<p><br /><br /></p>
+
+            </div>
+        </article>
+        <div class="cf"></div>
+        <div class="row text-center">
+            <section class="notepad-post-share">
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Lecture 11: Python advanced topics - decorators and classes&quot;%20/ECL2017S/lecture/11-python-advanced-decorator-class%20via%20&#64;AmirShahmoradi"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/lecture/11-python-advanced-decorator-class"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/lecture/11-python-advanced-decorator-class"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </section>
+        </div>
+        <div class="cf"></div>
+        
+            <div class="notepad-author-info">
+                <div class="row">
+                    <section class="notepad-post-author small-12 columns">
+                        
+                            <a href="http://www.shahmoradi.org" target="_blank">
+                                <img src="/ECL2017S/images/logo.png" class="notepad-post-author-avatar" alt="Amir Shahmoradi's photo">
+                            </a>
+                        
+                        
+                            <span class="author-label">Author</span>
+                            <h1>Amir Shahmoradi</h1>
+                        
+                        
+                            <p><a href="mailto:amir@ices.utexas.edu" class="author-website">amir@ices.utexas.edu</a></p>
+                        
+                        
+                            <p>Genius is 99% perspiration and 1% inspiration</p>
+                        
+                    </section>
+                </div>
+            </div> 
+        
+        <div class="cf"></div>
+        
+        <section class="notepad-disqus row">
+    <div class="small-12 columns">
+        <h1 class="notepad-comments-header">Comments</h1>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'shahmoradi'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+
+        <div class="cf"></div>
+
+    <footer class="notepad-site-footer">
+    <div class="copyright">
+         <!-- <section>Last updated 2017 / 04 / 26</section></br> -->
+         <section>Last updated Wednesday, 26 Apr 2017 at 08:56 AM CST</section></br>
+         <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
+         <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
+         <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>
+         <section><a class="icon-ghost" href="http://www.utexas.edu/" target="_blank">The University of Texas at Austin</a></section></br>
+         <section>201 E 24th Street, Stop C0200</section></br>
+         <section>Austin, TX 78712-1229</section>
+    </div>
+    <div class="social-icons">
+        
+        
+        <a href="http://twitter.com/AmirShahmoradi" target="_blank">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+        
+        
+        <a href="http://github.com/shahmoradi" target="_blank">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-github fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+    </div>
+    
+    <div class="cf"></div>
+</footer> 
+</main>    
+<!-- The following scripts are needed for the dynamic header of pages -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/ECL2017S/assets/js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+  <script src="/ECL2017S/assets/js/vendor/modernizr.js"></script>
+  <script src="/ECL2017S/assets/js/foundation.min.js"></script>
+  
+  <script src="/ECL2017S/assets/js/notepad.js"></script>
+  <script src="/ECL2017S/assets/js/scripts.min.js"></script>
+  <script src="/ECL2017S/assets/js/vendor/nprogress.js"></script>
+  
+  <script>
+    $(document).foundation();
+  </script>
+  <script type='text/javascript'>console.log("N/A");</script>
+  <script type='text/javascript'>console.log("http://www.shahmoradi.org/");</script>
+<!-- End of scripts for the dynamic header of pages -->
+
+<!--The following scripts is for automatic generation of header anchor links: adopted from: http://ben.balter.com/2014/03/13/pages-anchor-links/-->
+<script src="/ECL2017S/assets/js/autoAnchorLink.js"></script>
+<!--End of automatic generation of header anchor links.-->
+
+
+
+<!-- <script src="/ECL2017S/assets/js/prismOkaidia.js"></script>
+<script src="/ECL2017S/assets/js/prismTwilight.js"></script>
+<script src="/ECL2017S/assets/js/prismDefault.js"></script>
+ -->
+<script src="/ECL2017S/assets/js/prismCoy.js"></script>
+
+
+
+
+<!-- Start of Google Analytics Code for Default Guide -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-67460905-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+<!-- End of Google Analytics Code for Default Guide -->
+   
+<!-- Start of StatCounter Code for Default Guide -->
+  <script type="text/javascript">
+    var sc_project=10611821; 
+    var sc_invisible=1; 
+    var sc_security="902e4bb4"; 
+    var scJsHost = (("https:" == document.location.protocol) ?
+    "https://secure." : "http://www.");
+    document.write("<sc"+"ript type='text/javascript' src='" +
+    scJsHost+
+    "statcounter.com/counter/counter.js'></"+"script>");
+    </script>
+    <noscript><div class="statcounter"><a title="shopify visitor
+    statistics" href="http://statcounter.com/shopify/"
+    target="_blank"><img class="statcounter"
+    src="http://c.statcounter.com/10611821/0/902e4bb4/0/"
+    alt="shopify visitor statistics"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide --> 
+<!--automatic Table of Content.-->
+<script src="/ECL2017S/assets/js/autoTOC.js"></script>
+</body>
+</html>
