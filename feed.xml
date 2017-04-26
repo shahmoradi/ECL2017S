@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-04-26T14:12:31-05:00</updated>
+<updated>2017-04-26T14:15:38-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -881,9 +881,9 @@ well-tested scientific libraries in Fortran, C, or C++ from Python, or migrate s
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; As I discussed in class, in order to avoid creating potential traffic on Professor Butler’s webpage, I have now uploaded all the necessary files on &lt;a href=&quot;http:/ECL2017S/homework/9/swift/&quot; target=&quot;_blank&quot;&gt;this address&lt;/a&gt; (don’t click on the links in this table, because it will take you to Professor Butler’s repository for this data. I have all the data already saved in our domain locally). So now, your goal is to first read the event-ID HTML table from&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; As I discussed in class, in order to avoid creating potential traffic on Professor Butler’s webpage, I have now uploaded all the necessary files on &lt;a href=&quot;http:/ECL2017S/homework/9/swift/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;this address&lt;/a&gt; (don’t click on the links in this table, because it will take you to Professor Butler’s repository for this data. I have all the data already saved in our domain locally). So now, your goal is to first read the event-ID HTML table from&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9/swift/index.html&quot; target=&quot;_blank&quot;&gt;http://www.shahmoradi.org/homework/9/swift/index.html&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9/swift/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;http://www.shahmoradi.org/homework/9/swift/bat_time_table.html&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Then, use the event-IDs in this table to generate web addresses like:&lt;/p&gt;
 
