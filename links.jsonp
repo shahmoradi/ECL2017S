@@ -217,11 +217,6 @@ callback([
   } ,
 
   {
-    "text": "Homework 10: Solutions - Python advanced, Monte Carlo methods",
-    "href": "/ECL2017S/homework/10-solutions-python-advanced-monte-carlo"
-  } ,
-
-  {
     "text": "Homework 10: Problems - Python advanced, Monte Carlo methods",
     "href": "/ECL2017S/homework/10-problems-python-advanced-monte-carlo"
   } ,
