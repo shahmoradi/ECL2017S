@@ -153,21 +153,24 @@ MathJax.Hub.Queue(function() {
 <div class="post_toc"></div>
 
 <h2 id="pyton-decorators">Pyton Decorators</h2>
-<p>Decorators can be thought of as functions which modify the functionality of another function. They help to make your code shorter and more Pythonic. To properly explain decorators we will slowly build up from functions. Consider the following simple function,</p>
+<p>In simple words, Python decorators are functions that can modify (e.g., add to) the functionality of another function. As will be described below, decorators are particularly useful in making your code shorter. The understand the workings of decorators, we will have to recall a few properties of functions in Python.</p>
+
+<p>Firstly, since every entity in Python is an object, including functions, almost everything, including functions can be assigned to a variable. For example, the simple function,</p>
 <pre><code class="language-python">def hello(name='Amir'):
     return 'Hello ' + name
 </code></pre>
 <p><br />
-Now if you assign a new variable to this name,</p>
+can be assigned to a new variable,</p>
 <pre><code class="language-python">greet = hello
 </code></pre>
 <p><br />
-You will notice that greet is also a function, and more importantly, it is not attached to the original function <code>hello()</code>,</p>
+which is also a function,</p>
 <pre><code class="language-python">greet
 </code></pre>
 <pre><code>&lt;function __main__.hello&gt;
 </code></pre>
 
+<p>and more importantly, it is not attached to the original function <code>hello()</code>,</p>
 <pre><code class="language-python">del hello
 hello
 </code></pre>
@@ -179,88 +182,118 @@ NameError                                 Traceback (most recent call last)
 NameError: name 'hello' is not defined
 </code></pre>
 
+<pre><code class="language-python">greet
+</code></pre>
+<pre><code>&lt;function __main__.hello&gt;
+</code></pre>
+
+<pre><code class="language-python">greet()
+</code></pre>
+<pre><code>'Hello Amir'
+</code></pre>
+
 <h3 id="functions-inside-other-functions">Functions inside other functions</h3>
 <p>Now one thing to keep in mind, is that you can define functions inside functions in Python, just as you can do in almost any other capable language.</p>
 <pre><code class="language-python">def hello(name='Amir'):
-    print('The hello() function has been executed')
+    print('This is from inside function hello()')
     
     def greet():
-        return '\t This is inside the greet() function'
+        return '\t This is from inside function greet() inside function hello()'
     
     def welcome():
-        return "\t This is inside the welcome() function"
+        return '\t This is from inside function welcome() inside function hello()'
     
     print(greet())
     print(welcome())
-    print("Now we are back inside the hello() function")
+    print("This is from inside function hello()")
 </code></pre>
 <p><br />
 So now, if you type,</p>
 <pre><code class="language-python">hello()
 </code></pre>
-<pre><code>The hello() function has been executed
-    This is inside the greet() function
-    This is inside the welcome() function
-Now we are back inside the hello() function
+<pre><code>This is from inside function hello()
+    This is from inside function greet() inside function hello()
+    This is from inside function welcome() inside function hello()
+This is from inside function hello()
 </code></pre>
 
-<p>Another cool feature to know about, is that you can have functions both as input and return values to and from another function. With this in mind, let’s create a function like the following,</p>
-<pre><code class="language-python">def new_decorator(func):
+<p>Another cool feature to know about, is that you can have functions both as input and return values to and from another function. We have seen this already in previous lectures, where we discussed functions for the first time.</p>
 
-    def wrap_func():
-        print("Code would be here, before executing the func")
+<p>With this in mind, let’s create a function like the following,</p>
+<pre><code class="language-python">def decorateThisFunction(func):
+
+    def wrapInputFunction():
+        print("Some decorating code can be executed here, before calling the input function")
 
         func()
 
-        print("Code here will execute after the func()")
+        print("Some decorating code can be executed here, after calling the input function")
 
-    return wrap_func
+    return wrapInputFunction
 
-def func_needs_decorator():
-    print("This function is in need of a Decorator")
+def needsDecorator():
+    print("\t This function needs a Decorator")
 </code></pre>
 <p><br />
 So now,</p>
-<pre><code class="language-python">func_needs_decorator()
+<pre><code class="language-python">needsDecorator()
 </code></pre>
-<pre><code>This function is in need of a Decorator
+<pre><code>This function needs a Decorator
 </code></pre>
 
-<p>Now, see what happens with,</p>
-<pre><code class="language-python"># Reassign func_needs_decorator
-func_needs_decorator = new_decorator(func_needs_decorator)
+<p>Now, it can happen in your programming that you need to do a specific set of tasks for a function repeatedly, so you may prefer to redefine/reassign your function to your decorated function, such that whenever you call your function by its own name, it is always returned in the modified (decorated) state. For example, see what happens with,</p>
+<pre><code class="language-python">needsDecorator = decorateThisFunction(needsDecorator)   # Reassign needsDecorator to the new decorated state
 </code></pre>
 <p><br />
 which upon calling outputs,</p>
-<pre><code class="language-python">func_needs_decorator()
+<pre><code class="language-python">needsDecorator()
 </code></pre>
-<pre><code>Code would be here, before executing the func
-This function is in need of a Decorator
-Code here will execute after the func()
+<pre><code>Some decorating code can be executed here, before calling the input function
+    This function needs a Decorator
+Some decorating code can be executed here, after calling the input function
 </code></pre>
 
-<p>What happened above is that we wrapped the function and modified its behavior using a simple <strong>decorator</strong>. Now, since this functionality is needed frequently in Python, Python has a special syntax for it, the Decorator syntax,</p>
-<pre><code class="language-python">@new_decorator
-def func_needs_decorator():
-    print "This function is in need of a Decorator"
+<p>What happened above is that we wrapped the function and modified its behavior using a simple <strong>decorator</strong>. We could have also assigned this new modified (decorated) state of the function to a variable with other name than the function name itself. For example,</p>
+<pre><code class="language-python">test = decorateThisFunction(needsDecorator)
+test()
+</code></pre>
+<pre><code>Some decorating code can be executed here, before calling the input function
+    This function needs a Decorator
+Some decorating code can be executed here, after calling the input function
+</code></pre>
+
+<p>But, you should have done this <strong>before</strong> reassigning the function name <code>needsDecorator</code> to its new, decorated, state. If you do this after the reassignment, then this is what you get,</p>
+<pre><code class="language-python">test = decorateThisFunction(needsDecorator)
+test()
+</code></pre>
+<pre><code>Some decorating code can be executed here, before calling the input function
+Some decorating code can be executed here, before calling the input function
+    This function needs a Decorator
+Some decorating code can be executed here, after calling the input function
+Some decorating code can be executed here, after calling the input function
+</code></pre>
+
+<p>In other word, you decorate your already-decorated function <code>needsDecorator()</code>, one more time by passing it to <code>decorateThisFunction()</code>.  Now, since this functionality is needed frequently in Python, Python has a special syntax for it, the <strong>Decorator syntax</strong>,</p>
+<pre><code class="language-python">@decorateThisFunction
+def needsDecorator():
+    print "This function needs a Decorator"
 </code></pre>
 <p><br />
-The above statement, is an exact equivalent to,</p>
-<pre><code class="language-python"># Reassign func_needs_decorator
-func_needs_decorator = new_decorator(func_needs_decorator)
+The above statement is an exact equivalent to,</p>
+<pre><code class="language-python">needsDecorator = decorateThisFunction(needsDecorator)   # Reassign needsDecorator to the new decorated state
 </code></pre>
 <p><br />
 which we used before to decorate our function.</p>
 
-<p>Now, what is the use of decorators? Basically it can be a handy tool, for functionalities that has to be repeated for many functions. For example, Porofiling and timing the performance of functions require the idea of decorators. Most often, decorators are useful and needed in web development with Python.</p>
+<p>You may wonder what the use of decorators could be. Decorators can be a handy tool for functionalities that have to be repeated for many functions. For example, <a href="https://en.wikipedia.org/wiki/Profiling_(computer_programming)" target="_blank">Porofiling</a> and timing the performance of functions require the idea of decorators. Most often, decorators are useful and needed in web development with Python.</p>
 
 <h2 id="pyton-classes">Pyton classes</h2>
 
-<p>The concept of Python class, as in almost any programming language, relates to packing <strong>a set of variables</strong> together <strong>with a set of functions</strong> operating on the data. The goal is to achieve more modular code by grouping data and functions into manageable units. One thing to keep in mind for scientific computing is that, classes, and more generally, Object Oriented Programming, are not necessary, and could be a hinderance to efficient computing if used naively. Nevertheless, classes enable either more elegant solutions or code that is easier to extend at a later stage. In the non-mathematical world, where there are no mathematical concepts and associated algorithms to help structure the problem solving, software development can be very challenging. Classes may then improve the understanding of the problem and contribute to simplify the modeling of data and actions in programs. As a consequence, almost all large software systems being developed in the world today are heavily based on classes.</p>
+<p>The concept of Python class, as in almost any other programming language, relates to packing <strong>a set of variables</strong> together <strong>with a set of functions</strong> operating on the data. The goal of writing classes is to achieve more modular code by grouping data and functions into manageable units. One thing to keep in mind for scientific computing is that, classes, and more generally, <a href="https://en.wikipedia.org/wiki/Object-oriented_programming" target="_blank">Object Oriented Programming (OOP)</a>, are not necessary, and could be a hinderance to efficient computing if used naively. Nevertheless, classes lead to either more elegant solutions to the programming problem, or a code that is easier to extend and maintain in large scale projects. In the non-mathematical programming world where there are no mathematical concepts and associated algorithms to help structure the programming problem, software development can be very challenging. In those cases, Classes greatly improve the understanding of the problem and simplify the modeling of data. As a consequence, almost all large-scale software systems being developed in the world today are heavily based on classes (but certainly not all scientific projects!).</p>
 
-<p>Programming with classes is offered by most modern programming languages, including Python. Although Python employs classes extensively, but the user can use the language for many of purposes without even knowing what a class is, as we have done in this class so far.</p>
+<p>Programming with classes is offered by most modern programming languages, including Python. Python uses the concept of classes in almost every bit of it. However, most Python users don’t even notice the heavy dependence of Python on classes under the hood, until the actually learn what a class is, just as we have made progress in this class so far, without knowing about classes.</p>
 
-<p>Classes can be used for many things in scientific computations, but one of the most frequent programming tasks is to represent mathematical functions that have a set of parameters in addition to one or more independent variables. To expand on this, consider the problem described in the following section.</p>
+<p>Classes can be used for many purposes in scientific programming and computation. One of the most frequently encountered tasks is to represent mathematical functions that have a set of parameters in addition to one or more independent variables. To expand on this, consider the problem described in the following section.</p>
 
 <h3 id="a-common-programming-challenge-in-numerical-computing">A common programming challenge in numerical computing</h3>
 <p>To motivate for the class concept, let’s look at functions with parameters. One example is $y(t) = v_0t-\frac{1}{2}gt^2$. Conceptually, in physics, $y$ is viewed as a function of $t$, but mathematically $y$ also depends on two other parameters, $v_0$ and $g$, although it is not natural to view $y$ as a function of these parameters. One can therefore write $f(t;v_0g)$ to emphasize that $t$ is the independent variable, while $v_0$ and $g$ are parameters. Strictly speaking, $g$ is a fixed parameter (as long as the experiment is run on the surface of the earth), so only $v_0$ and $t$ can be arbitrarily chosen in the formula.
@@ -359,6 +392,11 @@ then, writing <code>y(t)</code> implies a call like <code>y.__call__(t)</code>, 
 <pre><code>True
 </code></pre>
 
+<p><br /><br />
+<strong>Reference</strong><br />
+<br />
+The book <a href="http://link.springer.com/book/10.1007%2F978-3-662-49887-3" target="_blank">A Primer on Scientific Programming with Python</a> by Hans Petter Langtangen, provides a good starting point on the use of Classes and OOP in Python from a scientific programming perspective. The examples provided in this lecture heavily rely on Langtangen’s notes on Python classes in his textbook in chapter 7. You can download a complete electronic copy of this book for free from Springer website, if you redirect to Springer page from <a href="http://www.lib.utexas.edu/" target="_blank">UT Austin library page</a>.</p>
+
 <p><br /><br /></p>
 
             </div>
@@ -437,8 +475,8 @@ then, writing <code>y(t)</code> implies a call like <code>y.__call__(t)</code>, 
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2017 / 04 / 26</section></br> -->
-         <section>Last updated Wednesday, 26 Apr 2017 at 02:15 PM CST</section></br>
+         <!-- <section>Last updated 2017 / 05 / 02</section></br> -->
+         <section>Last updated Tuesday, 02 May 2017 at 07:56 PM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>

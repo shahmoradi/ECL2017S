@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-04-26T14:15:38-05:00</updated>
+<updated>2017-05-02T19:56:09-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -71,7 +71,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; &lt;strong&gt;Monte Carlo sampling of distribution functions&lt;/strong&gt; Suppose that you wanted to generate points whose distribution follows the blue curve in the following curve, whose mathematical formulation is known (in the case here, the function is just the sum of two Gaussian distributions).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; &lt;strong&gt;Monte Carlo sampling of distribution functions&lt;/strong&gt; Suppose that you wanted to generate points whose distribution follows the blue curve in the following figure, whose mathematical formulation is known (in the case here, the function is just the sum of two Gaussian distributions).&lt;/p&gt;
 
 &lt;figure&gt;
 	&lt;img src=&quot;http:/ECL2017S/homework/10/normSum.gif&quot; width=&quot;700&quot; /&gt;
@@ -103,7 +103,7 @@
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;f(x) = \frac{(x+1)}{12} \exp\bigg(-\frac{(x-1)^2}{2x}\bigg) ~~,~~ x &gt; 0.&lt;/script&gt;
 
-&lt;p&gt;Suppose we know already that the highest point (maximum value) of this function is $f&amp;lt;0.2$, so that the value of this function always remains below $0.2$ everywhere along the positive x-axis, as seen in the following figure,&lt;/p&gt;
+&lt;p&gt;Suppose we know already that the highest point (maximum value) of this function is $f_{\rm max}&amp;lt;0.2$, so that the value of this function always remains below $0.2$ everywhere along the positive x-axis, as seen in the following figure,&lt;/p&gt;
 
 &lt;figure&gt;
 	&lt;img src=&quot;http:/ECL2017S/homework/10/prob2Func.png&quot; width=&quot;900&quot; /&gt;
@@ -152,21 +152,24 @@
 &lt;div class=&quot;post_toc&quot;&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;pyton-decorators&quot;&gt;Pyton Decorators&lt;/h2&gt;
-&lt;p&gt;Decorators can be thought of as functions which modify the functionality of another function. They help to make your code shorter and more Pythonic. To properly explain decorators we will slowly build up from functions. Consider the following simple function,&lt;/p&gt;
+&lt;p&gt;In simple words, Python decorators are functions that can modify (e.g., add to) the functionality of another function. As will be described below, decorators are particularly useful in making your code shorter. The understand the workings of decorators, we will have to recall a few properties of functions in Python.&lt;/p&gt;
+
+&lt;p&gt;Firstly, since every entity in Python is an object, including functions, almost everything, including functions can be assigned to a variable. For example, the simple function,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def hello(name='Amir'):
     return 'Hello ' + name
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
-Now if you assign a new variable to this name,&lt;/p&gt;
+can be assigned to a new variable,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;greet = hello
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
-You will notice that greet is also a function, and more importantly, it is not attached to the original function &lt;code&gt;hello()&lt;/code&gt;,&lt;/p&gt;
+which is also a function,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;greet
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;function __main__.hello&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;and more importantly, it is not attached to the original function &lt;code&gt;hello()&lt;/code&gt;,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;del hello
 hello
 &lt;/code&gt;&lt;/pre&gt;
@@ -178,88 +181,118 @@ NameError                                 Traceback (most recent call last)
 NameError: name 'hello' is not defined
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;greet
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;function __main__.hello&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;greet()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;'Hello Amir'
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h3 id=&quot;functions-inside-other-functions&quot;&gt;Functions inside other functions&lt;/h3&gt;
 &lt;p&gt;Now one thing to keep in mind, is that you can define functions inside functions in Python, just as you can do in almost any other capable language.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def hello(name='Amir'):
-    print('The hello() function has been executed')
+    print('This is from inside function hello()')
     
     def greet():
-        return '\t This is inside the greet() function'
+        return '\t This is from inside function greet() inside function hello()'
     
     def welcome():
-        return &quot;\t This is inside the welcome() function&quot;
+        return '\t This is from inside function welcome() inside function hello()'
     
     print(greet())
     print(welcome())
-    print(&quot;Now we are back inside the hello() function&quot;)
+    print(&quot;This is from inside function hello()&quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
 So now, if you type,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;hello()
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;The hello() function has been executed
-    This is inside the greet() function
-    This is inside the welcome() function
-Now we are back inside the hello() function
+&lt;pre&gt;&lt;code&gt;This is from inside function hello()
+    This is from inside function greet() inside function hello()
+    This is from inside function welcome() inside function hello()
+This is from inside function hello()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Another cool feature to know about, is that you can have functions both as input and return values to and from another function. With this in mind, let’s create a function like the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def new_decorator(func):
+&lt;p&gt;Another cool feature to know about, is that you can have functions both as input and return values to and from another function. We have seen this already in previous lectures, where we discussed functions for the first time.&lt;/p&gt;
 
-    def wrap_func():
-        print(&quot;Code would be here, before executing the func&quot;)
+&lt;p&gt;With this in mind, let’s create a function like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def decorateThisFunction(func):
+
+    def wrapInputFunction():
+        print(&quot;Some decorating code can be executed here, before calling the input function&quot;)
 
         func()
 
-        print(&quot;Code here will execute after the func()&quot;)
+        print(&quot;Some decorating code can be executed here, after calling the input function&quot;)
 
-    return wrap_func
+    return wrapInputFunction
 
-def func_needs_decorator():
-    print(&quot;This function is in need of a Decorator&quot;)
+def needsDecorator():
+    print(&quot;\t This function needs a Decorator&quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
 So now,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;func_needs_decorator()
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;needsDecorator()
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;This function is in need of a Decorator
+&lt;pre&gt;&lt;code&gt;This function needs a Decorator
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Now, see what happens with,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# Reassign func_needs_decorator
-func_needs_decorator = new_decorator(func_needs_decorator)
+&lt;p&gt;Now, it can happen in your programming that you need to do a specific set of tasks for a function repeatedly, so you may prefer to redefine/reassign your function to your decorated function, such that whenever you call your function by its own name, it is always returned in the modified (decorated) state. For example, see what happens with,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;needsDecorator = decorateThisFunction(needsDecorator)   # Reassign needsDecorator to the new decorated state
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
 which upon calling outputs,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;func_needs_decorator()
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;needsDecorator()
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;Code would be here, before executing the func
-This function is in need of a Decorator
-Code here will execute after the func()
+&lt;pre&gt;&lt;code&gt;Some decorating code can be executed here, before calling the input function
+    This function needs a Decorator
+Some decorating code can be executed here, after calling the input function
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;What happened above is that we wrapped the function and modified its behavior using a simple &lt;strong&gt;decorator&lt;/strong&gt;. Now, since this functionality is needed frequently in Python, Python has a special syntax for it, the Decorator syntax,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;@new_decorator
-def func_needs_decorator():
-    print &quot;This function is in need of a Decorator&quot;
+&lt;p&gt;What happened above is that we wrapped the function and modified its behavior using a simple &lt;strong&gt;decorator&lt;/strong&gt;. We could have also assigned this new modified (decorated) state of the function to a variable with other name than the function name itself. For example,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;test = decorateThisFunction(needsDecorator)
+test()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Some decorating code can be executed here, before calling the input function
+    This function needs a Decorator
+Some decorating code can be executed here, after calling the input function
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But, you should have done this &lt;strong&gt;before&lt;/strong&gt; reassigning the function name &lt;code&gt;needsDecorator&lt;/code&gt; to its new, decorated, state. If you do this after the reassignment, then this is what you get,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;test = decorateThisFunction(needsDecorator)
+test()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Some decorating code can be executed here, before calling the input function
+Some decorating code can be executed here, before calling the input function
+    This function needs a Decorator
+Some decorating code can be executed here, after calling the input function
+Some decorating code can be executed here, after calling the input function
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In other word, you decorate your already-decorated function &lt;code&gt;needsDecorator()&lt;/code&gt;, one more time by passing it to &lt;code&gt;decorateThisFunction()&lt;/code&gt;.  Now, since this functionality is needed frequently in Python, Python has a special syntax for it, the &lt;strong&gt;Decorator syntax&lt;/strong&gt;,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;@decorateThisFunction
+def needsDecorator():
+    print &quot;This function needs a Decorator&quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
-The above statement, is an exact equivalent to,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# Reassign func_needs_decorator
-func_needs_decorator = new_decorator(func_needs_decorator)
+The above statement is an exact equivalent to,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;needsDecorator = decorateThisFunction(needsDecorator)   # Reassign needsDecorator to the new decorated state
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
 which we used before to decorate our function.&lt;/p&gt;
 
-&lt;p&gt;Now, what is the use of decorators? Basically it can be a handy tool, for functionalities that has to be repeated for many functions. For example, Porofiling and timing the performance of functions require the idea of decorators. Most often, decorators are useful and needed in web development with Python.&lt;/p&gt;
+&lt;p&gt;You may wonder what the use of decorators could be. Decorators can be a handy tool for functionalities that have to be repeated for many functions. For example, &lt;a href=&quot;https://en.wikipedia.org/wiki/Profiling_(computer_programming)&quot; target=&quot;_blank&quot;&gt;Porofiling&lt;/a&gt; and timing the performance of functions require the idea of decorators. Most often, decorators are useful and needed in web development with Python.&lt;/p&gt;
 
 &lt;h2 id=&quot;pyton-classes&quot;&gt;Pyton classes&lt;/h2&gt;
 
-&lt;p&gt;The concept of Python class, as in almost any programming language, relates to packing &lt;strong&gt;a set of variables&lt;/strong&gt; together &lt;strong&gt;with a set of functions&lt;/strong&gt; operating on the data. The goal is to achieve more modular code by grouping data and functions into manageable units. One thing to keep in mind for scientific computing is that, classes, and more generally, Object Oriented Programming, are not necessary, and could be a hinderance to efficient computing if used naively. Nevertheless, classes enable either more elegant solutions or code that is easier to extend at a later stage. In the non-mathematical world, where there are no mathematical concepts and associated algorithms to help structure the problem solving, software development can be very challenging. Classes may then improve the understanding of the problem and contribute to simplify the modeling of data and actions in programs. As a consequence, almost all large software systems being developed in the world today are heavily based on classes.&lt;/p&gt;
+&lt;p&gt;The concept of Python class, as in almost any other programming language, relates to packing &lt;strong&gt;a set of variables&lt;/strong&gt; together &lt;strong&gt;with a set of functions&lt;/strong&gt; operating on the data. The goal of writing classes is to achieve more modular code by grouping data and functions into manageable units. One thing to keep in mind for scientific computing is that, classes, and more generally, &lt;a href=&quot;https://en.wikipedia.org/wiki/Object-oriented_programming&quot; target=&quot;_blank&quot;&gt;Object Oriented Programming (OOP)&lt;/a&gt;, are not necessary, and could be a hinderance to efficient computing if used naively. Nevertheless, classes lead to either more elegant solutions to the programming problem, or a code that is easier to extend and maintain in large scale projects. In the non-mathematical programming world where there are no mathematical concepts and associated algorithms to help structure the programming problem, software development can be very challenging. In those cases, Classes greatly improve the understanding of the problem and simplify the modeling of data. As a consequence, almost all large-scale software systems being developed in the world today are heavily based on classes (but certainly not all scientific projects!).&lt;/p&gt;
 
-&lt;p&gt;Programming with classes is offered by most modern programming languages, including Python. Although Python employs classes extensively, but the user can use the language for many of purposes without even knowing what a class is, as we have done in this class so far.&lt;/p&gt;
+&lt;p&gt;Programming with classes is offered by most modern programming languages, including Python. Python uses the concept of classes in almost every bit of it. However, most Python users don’t even notice the heavy dependence of Python on classes under the hood, until the actually learn what a class is, just as we have made progress in this class so far, without knowing about classes.&lt;/p&gt;
 
-&lt;p&gt;Classes can be used for many things in scientific computations, but one of the most frequent programming tasks is to represent mathematical functions that have a set of parameters in addition to one or more independent variables. To expand on this, consider the problem described in the following section.&lt;/p&gt;
+&lt;p&gt;Classes can be used for many purposes in scientific programming and computation. One of the most frequently encountered tasks is to represent mathematical functions that have a set of parameters in addition to one or more independent variables. To expand on this, consider the problem described in the following section.&lt;/p&gt;
 
 &lt;h3 id=&quot;a-common-programming-challenge-in-numerical-computing&quot;&gt;A common programming challenge in numerical computing&lt;/h3&gt;
 &lt;p&gt;To motivate for the class concept, let’s look at functions with parameters. One example is $y(t) = v_0t-\frac{1}{2}gt^2$. Conceptually, in physics, $y$ is viewed as a function of $t$, but mathematically $y$ also depends on two other parameters, $v_0$ and $g$, although it is not natural to view $y$ as a function of these parameters. One can therefore write $f(t;v_0g)$ to emphasize that $t$ is the independent variable, while $v_0$ and $g$ are parameters. Strictly speaking, $g$ is a fixed parameter (as long as the experiment is run on the surface of the earth), so only $v_0$ and $t$ can be arbitrarily chosen in the formula.
@@ -357,6 +390,11 @@ then, writing &lt;code&gt;y(t)&lt;/code&gt; implies a call like &lt;code&gt;y.__
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;True
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;strong&gt;Reference&lt;/strong&gt;&lt;br /&gt;
+&lt;br /&gt;
+The book &lt;a href=&quot;http://link.springer.com/book/10.1007%2F978-3-662-49887-3&quot; target=&quot;_blank&quot;&gt;A Primer on Scientific Programming with Python&lt;/a&gt; by Hans Petter Langtangen, provides a good starting point on the use of Classes and OOP in Python from a scientific programming perspective. The examples provided in this lecture heavily rely on Langtangen’s notes on Python classes in his textbook in chapter 7. You can download a complete electronic copy of this book for free from Springer website, if you redirect to Springer page from &lt;a href=&quot;http://www.lib.utexas.edu/&quot; target=&quot;_blank&quot;&gt;UT Austin library page&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -883,11 +921,11 @@ well-tested scientific libraries in Fortran, C, or C++ from Python, or migrate s
 
 &lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; As I discussed in class, in order to avoid creating potential traffic on Professor Butler’s webpage, I have now uploaded all the necessary files on &lt;a href=&quot;http:/ECL2017S/homework/9/swift/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;this address&lt;/a&gt; (don’t click on the links in this table, because it will take you to Professor Butler’s repository for this data. I have all the data already saved in our domain locally). So now, your goal is to first read the event-ID HTML table from&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9/swift/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;http://www.shahmoradi.org/homework/9/swift/bat_time_table.html&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9/swift/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;http://www.shahmoradi.orghttp:/ECL2017S/homework/9/swift/bat_time_table.html&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Then, use the event-IDs in this table to generate web addresses like:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9/swift/GRB00100433_ep_flu.txt&quot; target=&quot;_blank&quot;&gt;http://www.shahmoradi.org/homework/9/swift/GRB00100433_ep_flu.txt&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9/swift/GRB00100433_ep_flu.txt&quot; target=&quot;_blank&quot;&gt;http://www.shahmoradi.orghttp:/ECL2017S/homework/9/swift/GRB00100433_ep_flu.txt&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;in order to download these &lt;code&gt;.txt&lt;/code&gt; files from the web. The rest of the homework is just as you would have done this problem as descibed below.&lt;/p&gt;
 
@@ -4071,18 +4109,21 @@ sum_even_odd
   
     &lt;p&gt;This is the solution to &lt;a href=&quot;6-problems-python-modules-loops-IO.html&quot; target=&quot;_blank&quot;&gt;Homework 6: Problems - Python modules, loops, and I/O&lt;/a&gt;.&lt;/p&gt;
 
-&lt;!--
-The following figure illustrates the grade distribution for this homework.  
+&lt;p&gt;The following figure illustrates the grade distribution for this homework.&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework6.png&quot; width=&quot;700&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework6.png&quot; width=&quot;700&quot; /&gt;
     &lt;figcaption style=&quot;text-align:center&quot;&gt;
-        Maximum possible points is 100.&lt;br&gt;
+        Maximum possible points is 100.&lt;br /&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
---&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;This homework aims at giving you some experience with Python for-loops and while-loops as well as reading user input from the Bash command line.&lt;/p&gt;
 
