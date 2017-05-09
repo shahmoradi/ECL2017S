@@ -35,19 +35,16 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,300,800,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/ECL2017S/assets/css/vendor/font-awesome.min.css">
+<link rel="stylesheet" href="/ECL2017S/assets/css/vendor/normalize.css">
+<link rel="stylesheet" href="/ECL2017S/assets/css/vendor/nprogress.css">
+<link rel="stylesheet" href="/ECL2017S/assets/css/vendor/foundation.min.css">
+<link rel="stylesheet" href="/ECL2017S/assets/css/style.css">
+<link rel="stylesheet" href="/ECL2017S/assets/css/post.css">
 
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,300,800,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="/ECL2017S/assets/css/vendor/font-awesome.min.css">
-    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/normalize.css">
-    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/nprogress.css">
-    <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/foundation.min.css">
-    <link rel="stylesheet" href="/ECL2017S/assets/css/style.css">
-    <link rel="stylesheet" href="/ECL2017S/assets/css/post.css">
+<!--Mathjax-->
 
-
-
-
-<!--Mathjax loader: taken from http://stackoverflow.com/questions/2188884/how-can-i-mix-latex-in-with-markdown-->
 <style TYPE="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
@@ -66,32 +63,22 @@ MathJax.Hub.Queue(function() {
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<!--End of Mathjax loader: taken from http://stackoverflow.com/questions/2188884/how-can-i-mix-latex-in-with-markdown-->
 
 <!-- Icons -->
-<!-- 16x16 -->
 <link rel="shortcut icon" href="/ECL2017S/favicon.ico">
-<!-- 32x32 -->
 <link rel="shortcut icon" href="/ECL2017S/favicon.png">
-<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="/ECL2017S/images/apple-touch-icon-precomposed.png">
-<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/ECL2017S/images/apple-touch-icon-72x72-precomposed.png">
-<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/ECL2017S/images/apple-touch-icon-114x114-precomposed.png">
-<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/ECL2017S/images/apple-touch-icon-144x144-precomposed.png">
 
-<!-- 
+
+<!-- prism
 <link href="/ECL2017S/assets/css/prismTwilight.css" rel="stylesheet" />
 <link href="/ECL2017S/assets/css/prismDefault.css" rel="stylesheet" />
 <link href="/ECL2017S/assets/css/prismCoy.css" rel="stylesheet" />
 -->
 <link href="/ECL2017S/assets/css/prismOkaidia.css" rel="stylesheet" />
 
-<!--The following are for automatic generation of header anchor links: adopted from: http://ben.balter.com/2014/03/13/pages-anchor-links/-->
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!--header anchor links-->
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 <style type="text/css">@media only screen and (min-width:43.75em){.notepad-post-content div>p:first-child:first-letter{float:left;font-size:4.688rem;line-height:4.375rem;padding-top:.25rem;padding-right:.5rem;padding-left:.188rem;font-family:serif}}</style>
 </head>
@@ -215,6 +202,8 @@ then all the necessary Python codes to generate all the results will be called b
 </figure>
 <p><br /></p>
 
+<p><strong>Note</strong>. There is no need to regenerate the error bars in the plot above for this project.</p>
+
 <h3 id="the-mathematical-model-of-tumor-growth">The mathematical model of tumor growth</h3>
 <p><br /></p>
 
@@ -222,24 +211,26 @@ then all the necessary Python codes to generate all the results will be called b
 
 <script type="math/tex; mode=display">N(t,a,b,c) = a\exp\big( -b\exp(-ct) \big) ~,</script>
 
-<p>where $N(t)$ is the number of tumor cells at time $t$, and $a$, $b$, and $c$ are the parameters that we would like to find their best values given the input tumor cell data.</p>
+<p>where $N(t)$ is the number of tumor cells at time $t$, and $a$, $b$, and $c$ are the parameters that we would like to find their best values given the input tumor cell data. This Gompertzian growth model is our <strong>physical model</strong> for this problem.</p>
 
 <h4 id="combining-the-mathematical-model-with-a-regression-model">Combining the mathematical model with a regression model</h4>
 
-<p>Now, if the model was ideally perfect in describing the data, the curve of the model predicion would pass through all the points in the growth curve plot in the above, providing a prefect description of data. This is however, never the case, as it is famously said <strong>all models are wrong, but some are useful</strong>. In other words, the model prediction never matches observation perfectly. Therefore, we have to seek for the parameter values of the model that can get us closet possible to data. To do so, we define a statistical regression model (the renowned least-squares method) that gives us the probability $\pi(N_{obs}|N(t))$ of observing individual data points at each of the given times,</p>
+<p>Now, if the model was ideally perfect in describing the data, the curve of the model predicion would pass through all the points in the growth curve plot in the above, providing a prefect description of data. This is however, never the case, as it is famously said <strong>all models are wrong, but some are useful</strong>. In other words, the model prediction never matches observation perfectly. Therefore, we have to seek for the parameter values of the model that can get us closet possible to data. To do so, we define a <strong>statistical model</strong> in addition to the <strong>physical model</strong> described above. In other words, we have to define a statistical regression model (the renowned least-squares method) that gives us the probability $\pi(N_{obs}|N(t))$ of observing individual data points at each of the given times,</p>
 
-<script type="math/tex; mode=display">\pi(N_{obs}|N(t),a,b,c) = \frac{1}{\sigma\sqrt{2\pi}} \exp\bigg( - \frac{ \big[ N_{obs}(t)-N(t) \big]^2}{2\sigma^2} \bigg) ~,</script>
+<script type="math/tex; mode=display">\pi(N_{obs}|N(t|a,b,c),\sigma) = \frac{1}{\sigma\sqrt{2\pi}} \exp\bigg( - \frac{ \big[ N_{obs}(t)-N(t|a,b,c) \big]^2}{2\sigma^2} \bigg) ~,</script>
 
-<p>We have seven data points, so the overall probability of observing all of data $\mathcal{D}$ together given the parameters of the model, $\mathcal{L}(D|a,b,c,\sigma)$, is the product of their invidiual probabilities of observation given by the above equation,</p>
+<p>Note that our statistical model given above is a Gaussian probability density function, with its mean parameter represented by the output of our physical model, $N(t|a,b,c)$, and its stndard deviation represented by $\sigma$, which is unknown, and we seek to minimize it.</p>
 
-<script type="math/tex; mode=display">\mathcal{L}(D|a,b,c,\sigma) = \prod_{i=1}^{n=7} \pi(N_{obs}(t_i)|N(t_i),a,b,c) = \prod_{i=1}^{n=7} \frac{1}{\sigma\sqrt{2\pi}} \exp\bigg( - \frac{ \big[ N_{obs}(t_i)-N(t_i) \big]^2}{2\sigma^2} \bigg) ~,</script>
+<p>We have seven data points, so the overall probability of observing all of data $\mathcal{D}$ together given the parameters of the model, $\mathcal{L}(\mathcal{D}|a,b,c,\sigma)$, is the product of their invidiual probabilities of observation given by the above equation,</p>
+
+<script type="math/tex; mode=display">\mathcal{L}(\mathcal{D}|a,b,c,\sigma) = \prod_{i=1}^{n=7} \pi(N_{obs}(t_i)|N(t_i|a,b,c),\sigma) = \prod_{i=1}^{n=7} \frac{1}{\sigma\sqrt{2\pi}} \exp\bigg( - \frac{ \big[ N_{obs}(t_i)-N(t_i|a,b,c) \big]^2}{2\sigma^2} \bigg) ~,</script>
 
 <p>More often, you would want to work with $\log\mathcal{L}$ instead of $\mathcal{L}$, so the above equation becomes,</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
 \begin{align*}
-    \log\mathcal{L}(D|a,b,c,\sigma)
-    &= \sum_{i=1}^{n=7} \log\pi(N_{obs}(t_i)|N(t_i),a,b,c) \\\\
+    \log\mathcal{L}(\mathcal{D}|a,b,c,\sigma)
+    &= \sum_{i=1}^{n=7} \log\pi(N_{obs}(t_i)|N(t_i|a,b,c),\sigma) \\\\
     &= -\frac{n}{2}\bigg( \ln(2\pi) + \ln\sigma^2 \bigg) - \frac{1}{2\sigma^2} \sum_{i=1}^{n=7} \bigg[ N_{obs}(t_i)-N(t_i) \bigg]^2 ~,
 \end{align*} %]]></script>
 
@@ -250,45 +241,37 @@ then all the necessary Python codes to generate all the results will be called b
             </div>
         </article>
         <div class="cf"></div>
-        <div class="row text-center">
-            <section class="notepad-post-share">
-                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Exam final: semester project&quot;%20/ECL2017S/exam/2-semester-project%20via%20&#64;AmirShahmoradi"
-                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
-                    <i class="fa fa-twitter"></i>
-                </a>
-                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/exam/2-semester-project"
-                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
-                    <i class="fa fa-facebook"></i>
-                </a>
-                <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/exam/2-semester-project"
-                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
-                    <i class="fa fa-google-plus"></i>
-                </a>
-            </section>
-        </div>
+<div class="row text-center">
+    <section class="notepad-post-share">
+        <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Exam final: semester project&quot;%20/ECL2017S/exam/2-semester-project%20via%20&#64;AmirShahmoradi"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
+            <i class="fa fa-twitter"></i>
+        </a>
+        <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/exam/2-semester-project"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
+            <i class="fa fa-facebook"></i>
+        </a>
+        <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/exam/2-semester-project"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
+            <i class="fa fa-google-plus"></i>
+        </a>
+    </section>
+</div>
         <div class="cf"></div>
         
-            <div class="notepad-author-info">
-                <div class="row">
-                    <section class="notepad-post-author small-12 columns">
-                        
-                            <a href="http://www.shahmoradi.org" target="_blank">
-                                <img src="/ECL2017S/images/logo.png" class="notepad-post-author-avatar" alt="Amir Shahmoradi's photo">
-                            </a>
-                        
-                        
-                            <span class="author-label">Author</span>
-                            <h1>Amir Shahmoradi</h1>
-                        
-                        
-                            <p><a href="mailto:amir@ices.utexas.edu" class="author-website">amir@ices.utexas.edu</a></p>
-                        
-                        
-                            <p>Genius is 99% perspiration and 1% inspiration</p>
-                        
-                    </section>
-                </div>
-            </div> 
+<div class="notepad-author-info">
+    <div class="row">
+        <section class="notepad-post-author small-12 columns">
+            <a href="http://www.shahmoradi.org" target="_blank">
+                <img src="/ECL2017S/images/logo.png" class="notepad-post-author-avatar" alt="Amir Shahmoradi's photo">
+            </a>
+            <span class="author-label">Author</span>
+            <h1>Amir Shahmoradi</h1>
+            <p><a href="mailto:amir@ices.utexas.edu" class="author-website">amir@ices.utexas.edu</a></p>
+            <p>Genius is 99% perspiration and 1% inspiration</p>
+        </section>
+    </div>
+</div> 
         
         <div class="cf"></div>
         
@@ -323,8 +306,8 @@ then all the necessary Python codes to generate all the results will be called b
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2017 / 05 / 02</section></br> -->
-         <section>Last updated Tuesday, 02 May 2017 at 07:56 PM CST</section></br>
+         <!-- <section>Last updated 2017 / 05 / 09</section></br> -->
+         <section>Last updated Tuesday, 09 May 2017 at 03:46 PM CST</section></br>
          <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>
@@ -358,7 +341,7 @@ then all the necessary Python codes to generate all the results will be called b
     <div class="cf"></div>
 </footer> 
 </main>    
-<!-- The following scripts are needed for the dynamic header of pages -->
+<!--dynamic page header-->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="/ECL2017S/assets/js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
   <script src="/ECL2017S/assets/js/vendor/modernizr.js"></script>
@@ -373,22 +356,15 @@ then all the necessary Python codes to generate all the results will be called b
   </script>
   <script type='text/javascript'>console.log("N/A");</script>
   <script type='text/javascript'>console.log("http://www.shahmoradi.org/");</script>
-<!-- End of scripts for the dynamic header of pages -->
 
-<!--The following scripts is for automatic generation of header anchor links: adopted from: http://ben.balter.com/2014/03/13/pages-anchor-links/-->
+<!--header anchor links-->
 <script src="/ECL2017S/assets/js/autoAnchorLink.js"></script>
-<!--End of automatic generation of header anchor links.-->
-
-
 
 <!-- <script src="/ECL2017S/assets/js/prismOkaidia.js"></script>
 <script src="/ECL2017S/assets/js/prismTwilight.js"></script>
 <script src="/ECL2017S/assets/js/prismDefault.js"></script>
  -->
 <script src="/ECL2017S/assets/js/prismCoy.js"></script>
-
-
-
 
 <!-- Start of Google Analytics Code for Default Guide -->
   <script>

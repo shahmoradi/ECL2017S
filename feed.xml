@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-05-02T19:56:09-05:00</updated>
+<updated>2017-05-09T15:46:41-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -3300,6 +3300,8 @@ then all the necessary Python codes to generate all the results will be called b
 &lt;/figure&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;. There is no need to regenerate the error bars in the plot above for this project.&lt;/p&gt;
+
 &lt;h3 id=&quot;the-mathematical-model-of-tumor-growth&quot;&gt;The mathematical model of tumor growth&lt;/h3&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -3307,24 +3309,26 @@ then all the necessary Python codes to generate all the results will be called b
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;N(t,a,b,c) = a\exp\big( -b\exp(-ct) \big) ~,&lt;/script&gt;
 
-&lt;p&gt;where $N(t)$ is the number of tumor cells at time $t$, and $a$, $b$, and $c$ are the parameters that we would like to find their best values given the input tumor cell data.&lt;/p&gt;
+&lt;p&gt;where $N(t)$ is the number of tumor cells at time $t$, and $a$, $b$, and $c$ are the parameters that we would like to find their best values given the input tumor cell data. This Gompertzian growth model is our &lt;strong&gt;physical model&lt;/strong&gt; for this problem.&lt;/p&gt;
 
 &lt;h4 id=&quot;combining-the-mathematical-model-with-a-regression-model&quot;&gt;Combining the mathematical model with a regression model&lt;/h4&gt;
 
-&lt;p&gt;Now, if the model was ideally perfect in describing the data, the curve of the model predicion would pass through all the points in the growth curve plot in the above, providing a prefect description of data. This is however, never the case, as it is famously said &lt;strong&gt;all models are wrong, but some are useful&lt;/strong&gt;. In other words, the model prediction never matches observation perfectly. Therefore, we have to seek for the parameter values of the model that can get us closet possible to data. To do so, we define a statistical regression model (the renowned least-squares method) that gives us the probability $\pi(N_{obs}|N(t))$ of observing individual data points at each of the given times,&lt;/p&gt;
+&lt;p&gt;Now, if the model was ideally perfect in describing the data, the curve of the model predicion would pass through all the points in the growth curve plot in the above, providing a prefect description of data. This is however, never the case, as it is famously said &lt;strong&gt;all models are wrong, but some are useful&lt;/strong&gt;. In other words, the model prediction never matches observation perfectly. Therefore, we have to seek for the parameter values of the model that can get us closet possible to data. To do so, we define a &lt;strong&gt;statistical model&lt;/strong&gt; in addition to the &lt;strong&gt;physical model&lt;/strong&gt; described above. In other words, we have to define a statistical regression model (the renowned least-squares method) that gives us the probability $\pi(N_{obs}|N(t))$ of observing individual data points at each of the given times,&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\pi(N_{obs}|N(t),a,b,c) = \frac{1}{\sigma\sqrt{2\pi}} \exp\bigg( - \frac{ \big[ N_{obs}(t)-N(t) \big]^2}{2\sigma^2} \bigg) ~,&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\pi(N_{obs}|N(t|a,b,c),\sigma) = \frac{1}{\sigma\sqrt{2\pi}} \exp\bigg( - \frac{ \big[ N_{obs}(t)-N(t|a,b,c) \big]^2}{2\sigma^2} \bigg) ~,&lt;/script&gt;
 
-&lt;p&gt;We have seven data points, so the overall probability of observing all of data $\mathcal{D}$ together given the parameters of the model, $\mathcal{L}(D|a,b,c,\sigma)$, is the product of their invidiual probabilities of observation given by the above equation,&lt;/p&gt;
+&lt;p&gt;Note that our statistical model given above is a Gaussian probability density function, with its mean parameter represented by the output of our physical model, $N(t|a,b,c)$, and its stndard deviation represented by $\sigma$, which is unknown, and we seek to minimize it.&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathcal{L}(D|a,b,c,\sigma) = \prod_{i=1}^{n=7} \pi(N_{obs}(t_i)|N(t_i),a,b,c) = \prod_{i=1}^{n=7} \frac{1}{\sigma\sqrt{2\pi}} \exp\bigg( - \frac{ \big[ N_{obs}(t_i)-N(t_i) \big]^2}{2\sigma^2} \bigg) ~,&lt;/script&gt;
+&lt;p&gt;We have seven data points, so the overall probability of observing all of data $\mathcal{D}$ together given the parameters of the model, $\mathcal{L}(\mathcal{D}|a,b,c,\sigma)$, is the product of their invidiual probabilities of observation given by the above equation,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathcal{L}(\mathcal{D}|a,b,c,\sigma) = \prod_{i=1}^{n=7} \pi(N_{obs}(t_i)|N(t_i|a,b,c),\sigma) = \prod_{i=1}^{n=7} \frac{1}{\sigma\sqrt{2\pi}} \exp\bigg( - \frac{ \big[ N_{obs}(t_i)-N(t_i|a,b,c) \big]^2}{2\sigma^2} \bigg) ~,&lt;/script&gt;
 
 &lt;p&gt;More often, you would want to work with $\log\mathcal{L}$ instead of $\mathcal{L}$, so the above equation becomes,&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 \begin{align*}
-    \log\mathcal{L}(D|a,b,c,\sigma)
-    &amp;= \sum_{i=1}^{n=7} \log\pi(N_{obs}(t_i)|N(t_i),a,b,c) \\\\
+    \log\mathcal{L}(\mathcal{D}|a,b,c,\sigma)
+    &amp;= \sum_{i=1}^{n=7} \log\pi(N_{obs}(t_i)|N(t_i|a,b,c),\sigma) \\\\
     &amp;= -\frac{n}{2}\bigg( \ln(2\pi) + \ln\sigma^2 \bigg) - \frac{1}{2\sigma^2} \sum_{i=1}^{n=7} \bigg[ N_{obs}(t_i)-N(t_i) \bigg]^2 ~,
 \end{align*} %]]&gt;&lt;/script&gt;
 
