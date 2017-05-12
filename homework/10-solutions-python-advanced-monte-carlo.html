@@ -2,23 +2,23 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>QUIZ 1: PROBLEMS - PROGRAMMING HISTORY &vert; COE 111L - SPRING 2017</title>
+<title>HOMEWORK 10: SOLUTIONS - PYTHON ADVANCED, MONTE CARLO METHODS &vert; COE 111L - SPRING 2017</title>
 <meta name="description" content="Engineering Computation Lab">
 <meta name="keywords" content="">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/ECL2017S/images/logo.png">
-<meta name="twitter:title" content="Quiz 1: Problems - Programming history">
+<meta name="twitter:title" content="Homework 10: Solutions - Python advanced, Monte Carlo methods">
 <meta name="twitter:description" content="Engineering Computation Lab">
 <meta name="twitter:creator" content="@AmirShahmoradi">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Quiz 1: Problems - Programming history">
+<meta property="og:title" content="Homework 10: Solutions - Python advanced, Monte Carlo methods">
 <meta property="og:description" content="Engineering Computation Lab">
-<meta property="og:url" content="/ECL2017S/quiz/1-problems-programming-history">
+<meta property="og:url" content="/ECL2017S/homework/10-solutions-python-advanced-monte-carlo">
 <meta property="og:site_name" content="COE 111L - Spring 2017">
 <meta property="og:image" content="/ECL2017S/images/">
 
@@ -26,7 +26,7 @@
 
 
 
-<link rel="canonical" href="/ECL2017S/quiz/1-problems-programming-history">
+<link rel="canonical" href="/ECL2017S/homework/10-solutions-python-advanced-monte-carlo">
 <!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 Feed"> -->
 
 
@@ -124,8 +124,8 @@ MathJax.Hub.Queue(function() {
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h2>Quiz 1: Problems - Programming history</h2>
-                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-01-25T00:00:00-06:00">25 Jan 2017</time></strong></p>
+                            <h2>Homework 10: Solutions - Python advanced, Monte Carlo methods</h2>
+                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-05-04T00:00:00-05:00">04 May 2017</time></strong></p>
                         </div>
                     </div>
                 </div>
@@ -135,45 +135,213 @@ MathJax.Hub.Queue(function() {
             <article class="notepad-post-content post tag-simple">
         
             <div style="text-align:justify;">
-                <p>This quiz aims at testing your very basic level of programming history as much as we discussed in Lecture 0.
-Please submit your answers to each of these questions in a single file (readme.md) in the appropriate directory in your private repository for this course that we created in class today.
-Don’t forget to push your answers to your remote repository by the end of quiz time.<br />
-Push your quiz-1 <em>readme.md</em> file to quiz/1/ folder in your Github project.</p>
+                <p>This is the solution to <a href="10-problems-python-advanced-monte-carlo.html" target="_blank">Homework 10: Problems - Python advanced Monte Carlo</a>.</p>
 
-<ol>
-  <li>(A) What is the closest programming language to machine code?<br />
-(B) Does it need interpretation in order to become machine-comprehensible?
-<br /><br /></li>
-  <li>(A) Name the oldest high-level programming language that is still in active daily usage.<br />
-(B) Approximately how many decades is it old? (the decade it was created is also an acceptable answer)
-<br /><br /></li>
-  <li>(A) Name a second-generation programming language.<br />
-(B) Which language-generation are Fortran, C, C++, Java, Python, and R programming languages?
-<br /><br /></li>
-  <li>In what decades C, C++, and Python were created, respectively?
-<br /><br /></li>
-  <li>Name a programming language ancestor of C.
-<br /><br /></li>
-  <li>Name a programming language ancestor of C++.
-<br /><br /></li>
-  <li>Name a programming language ancestor of Python.
-<br /><br /></li>
-</ol>
+<p>The following figure illustrates the grade distribution for this homework.</p>
+
+<figure>
+	<img src="/ECL2017S/homework/gradeDist/gradeHistHomework10.png" width="700" />
+    <figcaption style="text-align:center">
+        Maximum possible points is 100.<br />
+    </figcaption>
+</figure>
+
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p>This homework further explores Monte Carlo methods in Python.</p>
+
+<p><br /></p>
+
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p><strong>1. </strong> <strong>Monte Carlo approximation of the number $\pi$</strong>. Suppose we did not know the value of $\pi$ and we wanted to estimate its value using Monte Carlo methods. One practical approach is to draw a square of unit side, with its diagonal opposite corners extending from the coordinates origin $(0,0)$ to $(1,1)$. Now we try to simulate uniform random points from inside of this square by generating uniform random points along the $X$ and $Y$ axes, i.e., by generating two random uniform numbers (x,y) from the range $[0,1]$.</p>
+
+<p>Now the generated random point $P$ has ther coordinate $(x,y)$, so we can calculate its distance from the coordiante origin. Now suppose we also draw a quarter-circle inside of this square whose radius is unit and is centered at the origin $(0,0)$. The ratio of the area of this quarter-circle, $S_C$ to the area of the area of the square enclosing it, $S_S$ is,</p>
+
+<script type="math/tex; mode=display">\frac{S_C}{S_S} = \frac{\frac{1}{4}\pi r^2}{r^2} = \frac{1}{4}\pi</script>
+
+<p>This is because the area of the square of unit sides, is just 1. Therefore, if we can somehow measure the area of the quarter $S_C$, then we can use the following equation, to get an estimate of $\pi$,</p>
+
+<script type="math/tex; mode=display">\pi = 4S_C</script>
+
+<p>In order to obtain, $S_C$, we are going to throw random points in the square, just as described above, and then find the fraction of points, $f=n_C/n_{\rm total}$, that fall inside this quarter-circle. This fracton is related to the area of the circle and square by the following equation,</p>
+
+<script type="math/tex; mode=display">f=\frac{n_C}{n_{\rm total}} = \frac{S_C}{S_S}</script>
+
+<p>Therefore, one can obtain an estimate of $\pi$ using this fraction,</p>
+
+<script type="math/tex; mode=display">\pi \approx \frac{1}{4}\frac{n_C}{n_{\rm total}}</script>
+
+<p>Now, write a Python function, that takes in the number of points to be simulated, and the calculate an approximate value for $\pi$ based on the Monte Carlo algorithm described above.  Write a second function that plot the estimate of $\pi$ versus the number of points simulated, like the following,</p>
+
+<figure>
+	<img src="/ECL2017S/homework/10/approximatePi_10000.png" width="900" />
+</figure>
+<p><br /></p>
+
+<p><br />
+<strong>Answer:</strong><br />
+Here is an example Python code that estimates $\pi$.</p>
+<pre><code class="language-python">import numpy.random as rnd
+import numpy.linalg as nlg
+import numpy as np
+import matplotlib.pyplot as plt
+
+def estimatePi(n=100000):
+    x = np.zeros((n,4),dtype=np.dtype)
+    counter = 0
+    for i in range(n):
+        x[i,0:2] = rnd.uniform(0.0,1.0,2)  # generate two uniform random numbers
+        x[i,2] = nlg.norm(x[i,:], ord=2)
+        if (x[i,2]&lt;=1.0): counter += 1
+        x[i,3] = 4.0*np.double(counter)/np.double(i+1)
+    return x # the running approximate of pi is returned as a vector in the fourth column of x
+
+def plotPi(n=10000):
+    x = estimatePi(n)
+    plt.semilogx( list(range(1,n+1)) \
+                , x[:,3] \
+                ) # plot with color red, as line
+    plt.xlabel('Number of simulated points')
+    plt.ylabel('Approximate value of Pi')
+    #plt.axis([1, n , 0.1, 4.0]) # [xmin, xmax, ymin, ymax]
+    plt.title('Estimating Pi by Monte Carlo simulation')
+    plt.savefig('approximatePi_{}.png'.format(n))
+    plt.show()
+
+plotPi()
+</code></pre>
+<p><br /></p>
+
+<p><br /></p>
+
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p><strong>2. </strong> <strong>Monte Carlo sampling of distribution functions</strong> Suppose that you wanted to generate points whose distribution follows the blue curve in the following curve, whose mathematical formulation is known (in the case here, the function is just the sum of two Gaussian distributions).</p>
+
+<figure>
+	<img src="/ECL2017S/homework/10/normSum.gif" width="700" />
+</figure>
+<p><br /></p>
+
+<p>Now, one oway of doing this, is to draw a box around this curve, such that the box encompasses the entire curve.</p>
+
+<figure>
+	<img src="/ECL2017S/homework/10/normSumWithRec_2.gif" width="700" />
+</figure>
+<p><br /></p>
+
+<p>Then, just as we did in the previous problem above, we draw random points from this square, and keep only those points that fall beneath this blue curve, like the red points in the following animation.</p>
+
+<figure>
+	<img src="/ECL2017S/homework/10/RejSamForever.gif" width="700" />
+</figure>
+<p><br /></p>
+
+<p>Now, if you plot the histogram of these points, you will see that the distribution of the red points follows closely the blue curve that we wanted to sample.</p>
+
+<figure>
+	<img src="/ECL2017S/homework/10/rejSamHistForever.gif" width="700" />
+</figure>
+<p><br /></p>
+
+<p>Now, given the above example, consider the following distribution function which we want to sample,</p>
+
+<script type="math/tex; mode=display">f(x) = \frac{(x+1)}{12} \exp\bigg(-\frac{(x-1)^2}{2x}\bigg) ~~,~~ x > 0.</script>
+
+<p>Suppose we know already that the highest point (maximum value) of this function is $f&lt;0.2$, so that the value of this function always remains below $0.2$ everywhere along the positive x-axis, as seen in the following figure,</p>
+
+<figure>
+	<img src="/ECL2017S/homework/10/prob2Func.png" width="900" />
+</figure>
+<p><br /></p>
+
+<p><strong>(A)</strong> Now, first write a function that generates a plot of this function, similar to the above plot.</p>
+
+<p><br />
+<strong>Answer:</strong><br />
+Here is an example Python script that plots the requested curve.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+x = np.linspace(0.001,15,100)
+fig,ax=plt.subplots()
+f= lambda x: np.exp(-(x-1)**2/2./x)*(x+1)/12.
+fx = f(x)
+ax.plot(x,fx,label='$f(x)$')
+ax.legend(loc=0,fontsize=16);
+plt.savefig('prob2Func.png')
+</code></pre>
+<p><br /></p>
+
+<p><strong>(B)</strong> Then write another Python script, that samples from this function by first drawing a rectangle of base size $[0,15]$ and height $[0,h]$ with $h=0.2$. Then, draw uniform random points from this rectangle, and keep those that fall beneath the the value of $f(x)$ given above as points that are sampled from this function. Finally make a histogram of these points like the following.</p>
+
+<figure>
+	<img src="/ECL2017S/homework/10/prob2FuncHist.png" width="900" />
+</figure>
+<p><br /></p>
+
+<p><br />
+<strong>Answer:</strong><br />
+Here is an example Python script that makes the requested plot.</p>
+<pre><code class="language-python">h=.2
+u1 = np.random.rand(10000)*15 # uniform random samples scaled out
+u2 = np.random.rand(10000)    # uniform random samples
+idx = np.where(u2&lt;=f(u1)/h)[0] # rejection criterion
+v = u1[idx]
+fig,ax=plt.subplots()
+plt.hold(True)
+ax.hist(v,normed=1,bins=40,alpha=.3)
+ax.plot(x,fx,'r',lw=3.,label='$f(x)$')
+ax.legend(fontsize=18)
+plt.savefig('prob2FuncHist.png')
+plt.show()
+</code></pre>
+<p><br /></p>
+
+<p><strong>(C)</strong> Now make a plot of all generated points, both those that were accepted as samples, and those that were rejected, similar to the following plot, with accepted points in red color, and rejected points in black,</p>
+
+<figure>
+	<img src="/ECL2017S/homework/10/prob2FuncScatter.png" width="700" />
+</figure>
+<p><br /></p>
+
+<p><br />
+<strong>Answer:</strong><br />
+Here is an example Python script that makes the requested plot.</p>
+<pre><code class="language-python">fig,ax=plt.subplots()
+ax.plot(u1,u2,'k.',label='rejected',alpha=.3)
+ax.plot(u1[idx],u2[idx],'r.',label='accepted',alpha=.3)
+ax.legend(fontsize=16)
+plt.savefig('prob2FuncScatter.png')
+plt.show()
+</code></pre>
+<p><br /></p>
+
+<p><br /><br /></p>
 
             </div>
         </article>
         <div class="cf"></div>
 <div class="row text-center">
     <section class="notepad-post-share">
-        <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Quiz 1: Problems - Programming history&quot;%20/ECL2017S/quiz/1-problems-programming-history%20via%20&#64;AmirShahmoradi"
+        <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Homework 10: Solutions - Python advanced, Monte Carlo methods&quot;%20/ECL2017S/homework/10-solutions-python-advanced-monte-carlo%20via%20&#64;AmirShahmoradi"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
             <i class="fa fa-twitter"></i>
         </a>
-        <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/quiz/1-problems-programming-history"
+        <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/homework/10-solutions-python-advanced-monte-carlo"
             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
             <i class="fa fa-facebook"></i>
         </a>
-        <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/quiz/1-problems-programming-history"
+        <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/homework/10-solutions-python-advanced-monte-carlo"
            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
             <i class="fa fa-google-plus"></i>
         </a>
