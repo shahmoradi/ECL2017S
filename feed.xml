@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-05-15T19:15:40-05:00</updated>
+<updated>2017-05-15T22:02:54-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -541,16 +541,14 @@ The book &lt;a href=&quot;http://link.springer.com/book/10.1007%2F978-3-662-4988
   
     &lt;p&gt;This is the solution to &lt;a href=&quot;9-problems-python-advanced-io-monte-carlo-interoperability.html&quot; target=&quot;_blank&quot;&gt;Homework 9: Problems - Python advanced IO, Monte Carlo&lt;/a&gt;.&lt;/p&gt;
 
-&lt;!--
-The following figure illustrates the grade distribution for this homework.  
+&lt;p&gt;The following figure illustrates the grade distribution for this homework.&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework9.png&quot; width=&quot;700&quot;&gt;
+	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework9.png&quot; width=&quot;700&quot; /&gt;
     &lt;figcaption style=&quot;text-align:center&quot;&gt;
-        Maximum possible points is 100.&lt;br&gt;
+        Maximum possible points is 100.&lt;br /&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
---&gt;
 
 &lt;hr /&gt;
 &lt;hr /&gt;
