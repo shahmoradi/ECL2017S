@@ -1,11 +1,27 @@
 [
 	
 		{
+		  "title"      : "Announcement 3: Final Semester Grades",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/announcement/3-final-grades",
+		  "date"       : "2017-05-16 00:00:00 -0500",
+		  "shortdate"  : "May 16, 2017"
+		} ,
+	
+		{
 		  "title"      : "Homework 10: Solutions - Python advanced, Monte Carlo methods",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/homework/10-solutions-python-advanced-monte-carlo",
 		  "date"       : "2017-05-04 00:00:00 -0500",
 		  "shortdate"  : "May 04, 2017"
+		} ,
+	
+		{
+		  "title"      : "Lecture 11: Python advanced topics - decorators and classes",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/lecture/11-python-advanced-decorator-class",
+		  "date"       : "2017-04-26 00:00:00 -0500",
+		  "shortdate"  : "April 26, 2017"
 		} ,
 	
 		{
@@ -22,14 +38,6 @@
 		  "url"        : "/ECL2017S/homework/10-problems-python-advanced-monte-carlo",
 		  "date"       : "2017-04-26 00:00:00 -0500",
 		  "shortdate"  : "April 26, 2017"
-		} ,
-	
-		{
-		  "title"      : "Lecture 11: Python advanced topics - decorators and classes",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/lecture/11-python-advanced-decorator-class",
-		  "date"       : "2017-04-25 00:00:00 -0500",
-		  "shortdate"  : "April 25, 2017"
 		} ,
 	
 		{
@@ -315,7 +323,7 @@
 		{
 		  "title"      : "Announcement 2: Course Progress Evaluation",
 		  "category"   : "",
-		  "url"        : "/ECL2017S/announcement/2-course-progress-evaluation",
+		  "url"        : "/ECL2017S/announcement/2-course-progress-evaluation-Copy",
 		  "date"       : "2017-02-15 00:00:00 -0600",
 		  "shortdate"  : "February 15, 2017"
 		} ,

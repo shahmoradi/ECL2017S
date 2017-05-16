@@ -7,13 +7,40 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-05-12T15:22:56-05:00</updated>
+<updated>2017-05-15T19:15:40-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
   <uri>http:/ECL2017S/</uri>
   <email>amir@ices.utexas.edu</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Announcement 3: Final Semester Grades]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/announcement/3-final-grades"/>
+  <id>http:/ECL2017S/announcement/3-final-grades</id>
+  <published>2017-05-16T00:00:00-05:00</published>
+  <updated>2017-05-16T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;The following figure is the histogram of the grand total grade for this course. Anyone above $3.5/4.0$, received a letter grade of &lt;strong&gt;A&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/announcement/3/gradeDistECL2017S.png&quot; width=&quot;700&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/announcement/3-final-grades&quot;&gt;Announcement 3: Final Semester Grades&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on May 16, 2017.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -225,6 +252,276 @@ plt.show()
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/10-solutions-python-advanced-monte-carlo&quot;&gt;Homework 10: Solutions - Python advanced, Monte Carlo methods&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on May 04, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Lecture 11: Python advanced topics - decorators and classes]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/lecture/11-python-advanced-decorator-class"/>
+  <id>http:/ECL2017S/lecture/11-python-advanced-decorator-class</id>
+  <published>2017-04-26T00:00:00-05:00</published>
+  <updated>2017-04-26T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This lecture discusses some further important topics in Python, Decorators and Classes.&lt;/p&gt;
+
+&lt;div class=&quot;post_toc&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;pyton-decorators&quot;&gt;Pyton Decorators&lt;/h2&gt;
+&lt;p&gt;In simple words, Python decorators are functions that can modify (e.g., add to) the functionality of another function. As will be described below, decorators are particularly useful in making your code shorter. The understand the workings of decorators, we will have to recall a few properties of functions in Python.&lt;/p&gt;
+
+&lt;p&gt;Firstly, since every entity in Python is an object, including functions, almost everything, including functions can be assigned to a variable. For example, the simple function,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def hello(name='Amir'):
+    return 'Hello ' + name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+can be assigned to a new variable,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;greet = hello
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+which is also a function,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;greet
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;function __main__.hello&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and more importantly, it is not attached to the original function &lt;code&gt;hello()&lt;/code&gt;,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;del hello
+hello
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&amp;lt;ipython-input-6-b1946ac92492&amp;gt; in &amp;lt;module&amp;gt;()
+----&amp;gt; 1 hello
+
+NameError: name 'hello' is not defined
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;greet
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;function __main__.hello&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;greet()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;'Hello Amir'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;functions-inside-other-functions&quot;&gt;Functions inside other functions&lt;/h3&gt;
+&lt;p&gt;Now one thing to keep in mind, is that you can define functions inside functions in Python, just as you can do in almost any other capable language.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def hello(name='Amir'):
+    print('This is from inside function hello()')
+    
+    def greet():
+        return '\t This is from inside function greet() inside function hello()'
+    
+    def welcome():
+        return '\t This is from inside function welcome() inside function hello()'
+    
+    print(greet())
+    print(welcome())
+    print(&quot;This is from inside function hello()&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+So now, if you type,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;hello()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;This is from inside function hello()
+    This is from inside function greet() inside function hello()
+    This is from inside function welcome() inside function hello()
+This is from inside function hello()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Another cool feature to know about, is that you can have functions both as input and return values to and from another function. We have seen this already in previous lectures, where we discussed functions for the first time.&lt;/p&gt;
+
+&lt;p&gt;With this in mind, let’s create a function like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def decorateThisFunction(func):
+
+    def wrapInputFunction():
+        print(&quot;Some decorating code can be executed here, before calling the input function&quot;)
+
+        func()
+
+        print(&quot;Some decorating code can be executed here, after calling the input function&quot;)
+
+    return wrapInputFunction
+
+def needsDecorator():
+    print(&quot;\t This function needs a Decorator&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+So now,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;needsDecorator()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;This function needs a Decorator
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, it can happen in your programming that you need to do a specific set of tasks for a function repeatedly, so you may prefer to redefine/reassign your function to your decorated function, such that whenever you call your function by its own name, it is always returned in the modified (decorated) state. For example, see what happens with,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;needsDecorator = decorateThisFunction(needsDecorator)   # Reassign needsDecorator to the new decorated state
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+which upon calling outputs,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;needsDecorator()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Some decorating code can be executed here, before calling the input function
+    This function needs a Decorator
+Some decorating code can be executed here, after calling the input function
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What happened above is that we wrapped the function and modified its behavior using a simple &lt;strong&gt;decorator&lt;/strong&gt;. We could have also assigned this new modified (decorated) state of the function to a variable with other name than the function name itself. For example,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;test = decorateThisFunction(needsDecorator)
+test()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Some decorating code can be executed here, before calling the input function
+    This function needs a Decorator
+Some decorating code can be executed here, after calling the input function
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But, you should have done this &lt;strong&gt;before&lt;/strong&gt; reassigning the function name &lt;code&gt;needsDecorator&lt;/code&gt; to its new, decorated, state. If you do this after the reassignment, then this is what you get,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;test = decorateThisFunction(needsDecorator)
+test()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Some decorating code can be executed here, before calling the input function
+Some decorating code can be executed here, before calling the input function
+    This function needs a Decorator
+Some decorating code can be executed here, after calling the input function
+Some decorating code can be executed here, after calling the input function
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In other word, you decorate your already-decorated function &lt;code&gt;needsDecorator()&lt;/code&gt;, one more time by passing it to &lt;code&gt;decorateThisFunction()&lt;/code&gt;.  Now, since this functionality is needed frequently in Python, Python has a special syntax for it, the &lt;strong&gt;Decorator syntax&lt;/strong&gt;,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;@decorateThisFunction
+def needsDecorator():
+    print &quot;This function needs a Decorator&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+The above statement is an exact equivalent to,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;needsDecorator = decorateThisFunction(needsDecorator)   # Reassign needsDecorator to the new decorated state
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+which we used before to decorate our function.&lt;/p&gt;
+
+&lt;p&gt;You may wonder what the use of decorators could be. Decorators can be a handy tool for functionalities that have to be repeated for many functions. For example, &lt;a href=&quot;https://en.wikipedia.org/wiki/Profiling_(computer_programming)&quot; target=&quot;_blank&quot;&gt;Porofiling&lt;/a&gt; and timing the performance of functions require the idea of decorators. Most often, decorators are useful and needed in web development with Python.&lt;/p&gt;
+
+&lt;h2 id=&quot;pyton-classes&quot;&gt;Pyton classes&lt;/h2&gt;
+
+&lt;p&gt;The concept of Python class, as in almost any other programming language, relates to packing &lt;strong&gt;a set of variables&lt;/strong&gt; together &lt;strong&gt;with a set of functions&lt;/strong&gt; operating on the data. The goal of writing classes is to achieve more modular code by grouping data and functions into manageable units. One thing to keep in mind for scientific computing is that, classes, and more generally, &lt;a href=&quot;https://en.wikipedia.org/wiki/Object-oriented_programming&quot; target=&quot;_blank&quot;&gt;Object Oriented Programming (OOP)&lt;/a&gt;, are not necessary, and could be a hinderance to efficient computing if used naively. Nevertheless, classes lead to either more elegant solutions to the programming problem, or a code that is easier to extend and maintain in large scale projects. In the non-mathematical programming world where there are no mathematical concepts and associated algorithms to help structure the programming problem, software development can be very challenging. In those cases, Classes greatly improve the understanding of the problem and simplify the modeling of data. As a consequence, almost all large-scale software systems being developed in the world today are heavily based on classes (but certainly not all scientific projects!).&lt;/p&gt;
+
+&lt;p&gt;Programming with classes is offered by most modern programming languages, including Python. Python uses the concept of classes in almost every bit of it. However, most Python users don’t even notice the heavy dependence of Python on classes under the hood, until the actually learn what a class is, just as we have made progress in this class so far, without knowing about classes.&lt;/p&gt;
+
+&lt;p&gt;Classes can be used for many purposes in scientific programming and computation. One of the most frequently encountered tasks is to represent mathematical functions that have a set of parameters in addition to one or more independent variables. To expand on this, consider the problem described in the following section.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-common-programming-challenge-in-numerical-computing&quot;&gt;A common programming challenge in numerical computing&lt;/h3&gt;
+&lt;p&gt;To motivate for the class concept, let’s look at functions with parameters. One example is $y(t) = v_0t-\frac{1}{2}gt^2$. Conceptually, in physics, $y$ is viewed as a function of $t$, but mathematically $y$ also depends on two other parameters, $v_0$ and $g$, although it is not natural to view $y$ as a function of these parameters. One can therefore write $f(t;v_0g)$ to emphasize that $t$ is the independent variable, while $v_0$ and $g$ are parameters. Strictly speaking, $g$ is a fixed parameter (as long as the experiment is run on the surface of the earth), so only $v_0$ and $t$ can be arbitrarily chosen in the formula.
+It would then be better to write $y(t;v_0). Here is an implementation of this function,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def y(t, v0):
+    g = 9.81
+    return v0*t - 0.5*g*t**2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+This function gives the height of the projectile as a function of time. Now suppose you wanted to differentiate $y$ with respect to $t$ in order to obtain the velocity. You could write the following code to do so,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def diff(f, x, h=1E-5):
+    return (f(x+h) - f(x))/h
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+But, here is the catch with this problem of differentiation. The &lt;code&gt;diff&lt;/code&gt; function works with any function &lt;code&gt;f&lt;/code&gt; that takes &lt;strong&gt;only&lt;/strong&gt; one argument. In other words, if we want to input &lt;code&gt;y&lt;/code&gt; to &lt;code&gt;diff&lt;/code&gt;, then we will have to redefine &lt;code&gt;y&lt;/code&gt; to take only one argument.  You may wonder why not change &lt;code&gt;diff&lt;/code&gt;. For this simple problem, this could be a solution. But, with larger problems, you are more likely to use sophisticated routines and modules that have been already developed and many of these routines take a function as input that only has one input variable. This is quite often the case with high-performance integration routines.&lt;/p&gt;
+
+&lt;p&gt;One, perhaps bad, solution to the above problem is to use &lt;strong&gt;global variables&lt;/strong&gt;. The requirement is thus to define Python implementations of mathematical functions of one variable with one argument, the independent variable,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def y(t):
+    g = 9.81
+    return v0*t - 0.5*g*t**2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+This function will work only if &lt;code&gt;v0&lt;/code&gt; is a global variable, initialized before one attempts to call the function. Here is an example call where &lt;code&gt;diff&lt;/code&gt; differentiates y,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;v0 = 3
+dy = diff(y, 1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+The use of global variables is in general considered bad programming. Why global variables are problematic in the present case can be illustrated when there is need to work with several versions of a function. Suppose we want to work with two versions of $y(t;v_0)$, one with $v_0=1$ and one with $v_0=5$. Every time we call &lt;code&gt;y&lt;/code&gt;, we must remember which version of the function we work with, and set &lt;code&gt;v0&lt;/code&gt; accordingly prior to the call,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;v0 = 1; r1 = y(t)
+v0 = 5; r2 = y(t)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Another problem&lt;/em&gt; is that variables with simple names like &lt;code&gt;v0&lt;/code&gt;, may easily be used as global variables in other parts of the program. These parts may change our &lt;code&gt;v0&lt;/code&gt; in a context different from the &lt;code&gt;y&lt;/code&gt; function, but the change affects the correctness of the &lt;code&gt;y&lt;/code&gt; function. In such a case, we say that changing &lt;code&gt;v0&lt;/code&gt; has &lt;strong&gt;side effects&lt;/strong&gt;, i.e., &lt;strong&gt;the change affects other parts of the program in an unintentional way&lt;/strong&gt;. This is one reason why a golden rule of programming tells us to &lt;strong&gt;limit the use of global variables as much as possible&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;An alternative solution to the problem of needing two &lt;code&gt;v0&lt;/code&gt; parameters could be to introduce two &lt;code&gt;y&lt;/code&gt; functions, each with a distinct &lt;code&gt;v0&lt;/code&gt; parameter,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def y1(t):
+    g = 9.81
+    return v0_1*t - 0.5*g*t**2
+def y2(t):
+    g = 9.81
+    return v0_2*t - 0.5*g*t**2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we need to initialize &lt;code&gt;v0_1&lt;/code&gt; and &lt;code&gt;v0_2&lt;/code&gt; once, and then we can work with &lt;code&gt;y1&lt;/code&gt; and &lt;code&gt;y2&lt;/code&gt;. However, if we need $100$ &lt;code&gt;v0&lt;/code&gt; parameters, we need $100$ functions. This is tedious to code, error prone, difficult to administer, and simply a really bad solution to a programming problem.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;So, is there a good remedy?&lt;/strong&gt; The answer is yes: the class concept solves all the problems described above.&lt;/p&gt;
+
+&lt;h4 id=&quot;class-representation-of-a-function&quot;&gt;Class representation of a function&lt;/h4&gt;
+&lt;p&gt;A class as contains a set of variables (data) and a set of functions, held together as one unit. The variables are visible in all the functions in the class. That is, we can view the variables as “global” in these functions. These characteristics also apply to modules, and modules can be used to obtain many of the same advantages as classes offer (see comments in Sect. 7.1.6). However, classes are technically very different from modules. You can also make many copies of a class, while there can be only one copy of a module. When you master both modules and classes, you will clearly see the similarities and differences. Now we continue with a specific example of a class.&lt;/p&gt;
+
+&lt;p&gt;Consider the function $y(t;v_0) = v_0t - \frac{1}{2}gt^2$. We may say that $v_0$ and $g$, represented by the variables &lt;code&gt;v0&lt;/code&gt; and &lt;code&gt;g&lt;/code&gt;, constitute the data. A Python function, say &lt;code&gt;value(t)&lt;/code&gt;, is then needed to compute the value of $y(t;v_0)$ and this function must have access to the data &lt;code&gt;v0&lt;/code&gt; and &lt;code&gt;g&lt;/code&gt;, while &lt;code&gt;t&lt;/code&gt; is an argument. A programmer experienced with classes will then suggest to collect the data &lt;code&gt;v0&lt;/code&gt; and &lt;code&gt;g&lt;/code&gt;, and the function &lt;code&gt;value(t)&lt;/code&gt;, together as a &lt;strong&gt;class&lt;/strong&gt;. In addition, a class usually has another function, called &lt;strong&gt;constructor&lt;/strong&gt; for &lt;strong&gt;initializing the data&lt;/strong&gt;. The constructor is always named &lt;code&gt;__init__&lt;/code&gt;. Every &lt;strong&gt;class must have a name&lt;/strong&gt;, often &lt;strong&gt;starting with a capital&lt;/strong&gt;, so we choose &lt;code&gt;Y&lt;/code&gt; as the name since the class represents a mathematical function with name &lt;code&gt;y&lt;/code&gt;. The next step is to implement this class in Python. A complete class code &lt;code&gt;Y&lt;/code&gt; for our problem here would look as follows in Python:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Y:
+    def __init__(self, v0):
+        self.v0 = v0
+        self.g = 9.81
+    def value(self, t):
+        return self.v0*t - 0.5*self.g*t**2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;A class creates a new data type&lt;/strong&gt;, here of name &lt;code&gt;Y&lt;/code&gt;, so when we use the class to make objects, those objects are of type Y. &lt;strong&gt;All the standard Python objects, such as lists, tuples, strings, floating-point numbers, integers, …, are built-in Python classes&lt;/strong&gt;, and each time the user creates on these variable types, one instance os these classes is created by the Python interpreter. A user-defined object class (like Y) is usually called an &lt;strong&gt;instance&lt;/strong&gt;. We need such an instance in order to use the data in the class and call the value function. The following statement constructs an instance bound to the variable name y:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;y = Y(3)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Seemingly, we &lt;em&gt;call the class &lt;code&gt;Y&lt;/code&gt; as if it were a function&lt;/em&gt;. Indeed, &lt;code&gt;Y(3)&lt;/code&gt; is automatically translated by Python to a call to the constructor &lt;code&gt;__init__&lt;/code&gt; in class Y. The arguments in the call, here only the number &lt;code&gt;3&lt;/code&gt;, are always passed on as arguments to &lt;code&gt;__init__&lt;/code&gt; after the &lt;code&gt;self&lt;/code&gt; argument. That is, &lt;code&gt;v0&lt;/code&gt; gets the value &lt;code&gt;3&lt;/code&gt; and self is just dropped in the call. This may be confusing, but it is a rule that the self argument is never used in calls to functions in classes.
+With the instance &lt;code&gt;y&lt;/code&gt;, we can compute the value of y(t=0.1;v_0=3) by the statement,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;v = y.value(0.1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Note that the &lt;code&gt;self&lt;/code&gt; input argument is dropped in the call to &lt;code&gt;value()&lt;/code&gt;. To access functions and variables in a class, one must prefix the function and variable names by the name of the instance and a dot: the value function is reached as &lt;code&gt;y.value&lt;/code&gt;, and the variables are reached as &lt;code&gt;y.v0&lt;/code&gt; and &lt;code&gt;y.g&lt;/code&gt;. One could, for example, print the value of &lt;code&gt;v0&lt;/code&gt; in the instance &lt;code&gt;y&lt;/code&gt; by writing,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print y.v0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+We have already introduced the term &lt;strong&gt;instance&lt;/strong&gt; for the object of a class. &lt;strong&gt;Functions&lt;/strong&gt; in classes are commonly called &lt;strong&gt;methods&lt;/strong&gt;, and &lt;strong&gt;variables (data)&lt;/strong&gt; in classes are called &lt;strong&gt;data attributes&lt;/strong&gt;. Methods are also known as &lt;strong&gt;method attributes&lt;/strong&gt;. For example, in our sample class &lt;code&gt;Y&lt;/code&gt; we have two methods or method attributes, &lt;code&gt;__init__&lt;/code&gt; and &lt;code&gt;value&lt;/code&gt;, two data attributes, &lt;code&gt;v0&lt;/code&gt; and &lt;code&gt;g&lt;/code&gt;, and four attributes in total (&lt;code&gt;__init__&lt;/code&gt;, &lt;code&gt;value&lt;/code&gt;, &lt;code&gt;v0&lt;/code&gt;, &lt;code&gt;g&lt;/code&gt;). Note that the names of attributes can be chosen freely, just as names of ordinary Python functions and variables. However, &lt;strong&gt;the constructor
+must have the name &lt;code&gt;__init__&lt;/code&gt;, otherwise it is not automatically called when new instances are created&lt;/strong&gt;. You can do whatever you want in whatever method, but it is a common convention to &lt;strong&gt;use the constructor for initializing the variables in the class&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;So far, we have explained a method of writing our function of interest in a class style, which resolves the need to pass a auxiliary variable to a function explicitly. But if you look at the original problem that we had, you will notice that we still cannot use our class &lt;code&gt;Y&lt;/code&gt; instance &lt;code&gt;y&lt;/code&gt; as an argument to other functions similar to &lt;code&gt;diff()&lt;/code&gt;. The final resolution to this problem is to add a &lt;code&gt;__call__&lt;/code&gt; method to our originally defined &lt;code&gt;Y&lt;/code&gt; class.&lt;/p&gt;
+
+&lt;h3 id=&quot;callable-objects&quot;&gt;Callable objects&lt;/h3&gt;
+&lt;p&gt;If you recall, computing the value of the mathematical function represented by class &lt;code&gt;Y&lt;/code&gt;, with &lt;code&gt;y&lt;/code&gt; as the name of the instance, is performed by writing &lt;code&gt;y.value(t)&lt;/code&gt;. If we could write just &lt;code&gt;y(t)&lt;/code&gt;, the &lt;code&gt;y&lt;/code&gt; instance would look as an ordinary function. Such a syntax is indeed possible and offered by the special method named &lt;code&gt;__call__&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Y:
+    def __init__(self, v0):
+        self.v0 = v0
+        self.g = 9.81
+    def value(self, t):
+        return self.v0*t - 0.5*self.g*t**2
+    def __call__(self, t):
+        return self.v0*t - 0.5*self.g*t**2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+then, writing &lt;code&gt;y(t)&lt;/code&gt; implies a call like &lt;code&gt;y.__call__(t)&lt;/code&gt;, which is equivalent to &lt;code&gt;y.value(t)&lt;/code&gt;. The previous value method is now redundant. A good programming convention is to &lt;strong&gt;include a &lt;code&gt;__call__&lt;/code&gt; method in all classes that represent a mathematical function&lt;/strong&gt;. Instances with &lt;code&gt;__call__&lt;/code&gt; methods are said to be &lt;strong&gt;callable objects&lt;/strong&gt;, just as plain functions are callable objects as well. The call syntax for callable objects is the same, regardless of whether the object is a function or a class instance.&lt;/p&gt;
+
+&lt;p&gt;You can always test if an instance is callable or not by &lt;code&gt;callable()&lt;/code&gt;,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;callable(y)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;True
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;strong&gt;Reference&lt;/strong&gt;&lt;br /&gt;
+&lt;br /&gt;
+The book &lt;a href=&quot;http://link.springer.com/book/10.1007%2F978-3-662-49887-3&quot; target=&quot;_blank&quot;&gt;A Primer on Scientific Programming with Python&lt;/a&gt; by Hans Petter Langtangen, provides a good starting point on the use of Classes and OOP in Python from a scientific programming perspective. The examples provided in this lecture heavily rely on Langtangen’s notes on Python classes in his textbook in chapter 7. You can download a complete electronic copy of this book for free from Springer website, if you redirect to Springer page from &lt;a href=&quot;http://www.lib.utexas.edu/&quot; target=&quot;_blank&quot;&gt;UT Austin library page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/11-python-advanced-decorator-class&quot;&gt;Lecture 11: Python advanced topics - decorators and classes&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 26, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -517,276 +814,6 @@ As you see in the figure, although you may initially win by not switching your c
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/10-problems-python-advanced-monte-carlo&quot;&gt;Homework 10: Problems - Python advanced, Monte Carlo methods&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 26, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Lecture 11: Python advanced topics - decorators and classes]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/lecture/11-python-advanced-decorator-class"/>
-  <id>http:/ECL2017S/lecture/11-python-advanced-decorator-class</id>
-  <published>2017-04-25T00:00:00-05:00</published>
-  <updated>2017-04-25T00:00:00-05:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This lecture discusses some further important topics in Python, Decorators and Classes.&lt;/p&gt;
-
-&lt;div class=&quot;post_toc&quot;&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;pyton-decorators&quot;&gt;Pyton Decorators&lt;/h2&gt;
-&lt;p&gt;In simple words, Python decorators are functions that can modify (e.g., add to) the functionality of another function. As will be described below, decorators are particularly useful in making your code shorter. The understand the workings of decorators, we will have to recall a few properties of functions in Python.&lt;/p&gt;
-
-&lt;p&gt;Firstly, since every entity in Python is an object, including functions, almost everything, including functions can be assigned to a variable. For example, the simple function,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def hello(name='Amir'):
-    return 'Hello ' + name
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-can be assigned to a new variable,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;greet = hello
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-which is also a function,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;greet
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;function __main__.hello&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and more importantly, it is not attached to the original function &lt;code&gt;hello()&lt;/code&gt;,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;del hello
-hello
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&amp;lt;ipython-input-6-b1946ac92492&amp;gt; in &amp;lt;module&amp;gt;()
-----&amp;gt; 1 hello
-
-NameError: name 'hello' is not defined
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;greet
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;function __main__.hello&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;greet()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;'Hello Amir'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;functions-inside-other-functions&quot;&gt;Functions inside other functions&lt;/h3&gt;
-&lt;p&gt;Now one thing to keep in mind, is that you can define functions inside functions in Python, just as you can do in almost any other capable language.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def hello(name='Amir'):
-    print('This is from inside function hello()')
-    
-    def greet():
-        return '\t This is from inside function greet() inside function hello()'
-    
-    def welcome():
-        return '\t This is from inside function welcome() inside function hello()'
-    
-    print(greet())
-    print(welcome())
-    print(&quot;This is from inside function hello()&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-So now, if you type,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;hello()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;This is from inside function hello()
-    This is from inside function greet() inside function hello()
-    This is from inside function welcome() inside function hello()
-This is from inside function hello()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Another cool feature to know about, is that you can have functions both as input and return values to and from another function. We have seen this already in previous lectures, where we discussed functions for the first time.&lt;/p&gt;
-
-&lt;p&gt;With this in mind, let’s create a function like the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def decorateThisFunction(func):
-
-    def wrapInputFunction():
-        print(&quot;Some decorating code can be executed here, before calling the input function&quot;)
-
-        func()
-
-        print(&quot;Some decorating code can be executed here, after calling the input function&quot;)
-
-    return wrapInputFunction
-
-def needsDecorator():
-    print(&quot;\t This function needs a Decorator&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-So now,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;needsDecorator()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;This function needs a Decorator
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now, it can happen in your programming that you need to do a specific set of tasks for a function repeatedly, so you may prefer to redefine/reassign your function to your decorated function, such that whenever you call your function by its own name, it is always returned in the modified (decorated) state. For example, see what happens with,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;needsDecorator = decorateThisFunction(needsDecorator)   # Reassign needsDecorator to the new decorated state
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-which upon calling outputs,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;needsDecorator()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;Some decorating code can be executed here, before calling the input function
-    This function needs a Decorator
-Some decorating code can be executed here, after calling the input function
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;What happened above is that we wrapped the function and modified its behavior using a simple &lt;strong&gt;decorator&lt;/strong&gt;. We could have also assigned this new modified (decorated) state of the function to a variable with other name than the function name itself. For example,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;test = decorateThisFunction(needsDecorator)
-test()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;Some decorating code can be executed here, before calling the input function
-    This function needs a Decorator
-Some decorating code can be executed here, after calling the input function
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;But, you should have done this &lt;strong&gt;before&lt;/strong&gt; reassigning the function name &lt;code&gt;needsDecorator&lt;/code&gt; to its new, decorated, state. If you do this after the reassignment, then this is what you get,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;test = decorateThisFunction(needsDecorator)
-test()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;Some decorating code can be executed here, before calling the input function
-Some decorating code can be executed here, before calling the input function
-    This function needs a Decorator
-Some decorating code can be executed here, after calling the input function
-Some decorating code can be executed here, after calling the input function
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In other word, you decorate your already-decorated function &lt;code&gt;needsDecorator()&lt;/code&gt;, one more time by passing it to &lt;code&gt;decorateThisFunction()&lt;/code&gt;.  Now, since this functionality is needed frequently in Python, Python has a special syntax for it, the &lt;strong&gt;Decorator syntax&lt;/strong&gt;,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;@decorateThisFunction
-def needsDecorator():
-    print &quot;This function needs a Decorator&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-The above statement is an exact equivalent to,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;needsDecorator = decorateThisFunction(needsDecorator)   # Reassign needsDecorator to the new decorated state
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-which we used before to decorate our function.&lt;/p&gt;
-
-&lt;p&gt;You may wonder what the use of decorators could be. Decorators can be a handy tool for functionalities that have to be repeated for many functions. For example, &lt;a href=&quot;https://en.wikipedia.org/wiki/Profiling_(computer_programming)&quot; target=&quot;_blank&quot;&gt;Porofiling&lt;/a&gt; and timing the performance of functions require the idea of decorators. Most often, decorators are useful and needed in web development with Python.&lt;/p&gt;
-
-&lt;h2 id=&quot;pyton-classes&quot;&gt;Pyton classes&lt;/h2&gt;
-
-&lt;p&gt;The concept of Python class, as in almost any other programming language, relates to packing &lt;strong&gt;a set of variables&lt;/strong&gt; together &lt;strong&gt;with a set of functions&lt;/strong&gt; operating on the data. The goal of writing classes is to achieve more modular code by grouping data and functions into manageable units. One thing to keep in mind for scientific computing is that, classes, and more generally, &lt;a href=&quot;https://en.wikipedia.org/wiki/Object-oriented_programming&quot; target=&quot;_blank&quot;&gt;Object Oriented Programming (OOP)&lt;/a&gt;, are not necessary, and could be a hinderance to efficient computing if used naively. Nevertheless, classes lead to either more elegant solutions to the programming problem, or a code that is easier to extend and maintain in large scale projects. In the non-mathematical programming world where there are no mathematical concepts and associated algorithms to help structure the programming problem, software development can be very challenging. In those cases, Classes greatly improve the understanding of the problem and simplify the modeling of data. As a consequence, almost all large-scale software systems being developed in the world today are heavily based on classes (but certainly not all scientific projects!).&lt;/p&gt;
-
-&lt;p&gt;Programming with classes is offered by most modern programming languages, including Python. Python uses the concept of classes in almost every bit of it. However, most Python users don’t even notice the heavy dependence of Python on classes under the hood, until the actually learn what a class is, just as we have made progress in this class so far, without knowing about classes.&lt;/p&gt;
-
-&lt;p&gt;Classes can be used for many purposes in scientific programming and computation. One of the most frequently encountered tasks is to represent mathematical functions that have a set of parameters in addition to one or more independent variables. To expand on this, consider the problem described in the following section.&lt;/p&gt;
-
-&lt;h3 id=&quot;a-common-programming-challenge-in-numerical-computing&quot;&gt;A common programming challenge in numerical computing&lt;/h3&gt;
-&lt;p&gt;To motivate for the class concept, let’s look at functions with parameters. One example is $y(t) = v_0t-\frac{1}{2}gt^2$. Conceptually, in physics, $y$ is viewed as a function of $t$, but mathematically $y$ also depends on two other parameters, $v_0$ and $g$, although it is not natural to view $y$ as a function of these parameters. One can therefore write $f(t;v_0g)$ to emphasize that $t$ is the independent variable, while $v_0$ and $g$ are parameters. Strictly speaking, $g$ is a fixed parameter (as long as the experiment is run on the surface of the earth), so only $v_0$ and $t$ can be arbitrarily chosen in the formula.
-It would then be better to write $y(t;v_0). Here is an implementation of this function,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def y(t, v0):
-    g = 9.81
-    return v0*t - 0.5*g*t**2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-This function gives the height of the projectile as a function of time. Now suppose you wanted to differentiate $y$ with respect to $t$ in order to obtain the velocity. You could write the following code to do so,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def diff(f, x, h=1E-5):
-    return (f(x+h) - f(x))/h
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-But, here is the catch with this problem of differentiation. The &lt;code&gt;diff&lt;/code&gt; function works with any function &lt;code&gt;f&lt;/code&gt; that takes &lt;strong&gt;only&lt;/strong&gt; one argument. In other words, if we want to input &lt;code&gt;y&lt;/code&gt; to &lt;code&gt;diff&lt;/code&gt;, then we will have to redefine &lt;code&gt;y&lt;/code&gt; to take only one argument.  You may wonder why not change &lt;code&gt;diff&lt;/code&gt;. For this simple problem, this could be a solution. But, with larger problems, you are more likely to use sophisticated routines and modules that have been already developed and many of these routines take a function as input that only has one input variable. This is quite often the case with high-performance integration routines.&lt;/p&gt;
-
-&lt;p&gt;One, perhaps bad, solution to the above problem is to use &lt;strong&gt;global variables&lt;/strong&gt;. The requirement is thus to define Python implementations of mathematical functions of one variable with one argument, the independent variable,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def y(t):
-    g = 9.81
-    return v0*t - 0.5*g*t**2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-This function will work only if &lt;code&gt;v0&lt;/code&gt; is a global variable, initialized before one attempts to call the function. Here is an example call where &lt;code&gt;diff&lt;/code&gt; differentiates y,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;v0 = 3
-dy = diff(y, 1)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-The use of global variables is in general considered bad programming. Why global variables are problematic in the present case can be illustrated when there is need to work with several versions of a function. Suppose we want to work with two versions of $y(t;v_0)$, one with $v_0=1$ and one with $v_0=5$. Every time we call &lt;code&gt;y&lt;/code&gt;, we must remember which version of the function we work with, and set &lt;code&gt;v0&lt;/code&gt; accordingly prior to the call,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;v0 = 1; r1 = y(t)
-v0 = 5; r2 = y(t)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Another problem&lt;/em&gt; is that variables with simple names like &lt;code&gt;v0&lt;/code&gt;, may easily be used as global variables in other parts of the program. These parts may change our &lt;code&gt;v0&lt;/code&gt; in a context different from the &lt;code&gt;y&lt;/code&gt; function, but the change affects the correctness of the &lt;code&gt;y&lt;/code&gt; function. In such a case, we say that changing &lt;code&gt;v0&lt;/code&gt; has &lt;strong&gt;side effects&lt;/strong&gt;, i.e., &lt;strong&gt;the change affects other parts of the program in an unintentional way&lt;/strong&gt;. This is one reason why a golden rule of programming tells us to &lt;strong&gt;limit the use of global variables as much as possible&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;An alternative solution to the problem of needing two &lt;code&gt;v0&lt;/code&gt; parameters could be to introduce two &lt;code&gt;y&lt;/code&gt; functions, each with a distinct &lt;code&gt;v0&lt;/code&gt; parameter,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def y1(t):
-    g = 9.81
-    return v0_1*t - 0.5*g*t**2
-def y2(t):
-    g = 9.81
-    return v0_2*t - 0.5*g*t**2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Now we need to initialize &lt;code&gt;v0_1&lt;/code&gt; and &lt;code&gt;v0_2&lt;/code&gt; once, and then we can work with &lt;code&gt;y1&lt;/code&gt; and &lt;code&gt;y2&lt;/code&gt;. However, if we need $100$ &lt;code&gt;v0&lt;/code&gt; parameters, we need $100$ functions. This is tedious to code, error prone, difficult to administer, and simply a really bad solution to a programming problem.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;So, is there a good remedy?&lt;/strong&gt; The answer is yes: the class concept solves all the problems described above.&lt;/p&gt;
-
-&lt;h4 id=&quot;class-representation-of-a-function&quot;&gt;Class representation of a function&lt;/h4&gt;
-&lt;p&gt;A class as contains a set of variables (data) and a set of functions, held together as one unit. The variables are visible in all the functions in the class. That is, we can view the variables as “global” in these functions. These characteristics also apply to modules, and modules can be used to obtain many of the same advantages as classes offer (see comments in Sect. 7.1.6). However, classes are technically very different from modules. You can also make many copies of a class, while there can be only one copy of a module. When you master both modules and classes, you will clearly see the similarities and differences. Now we continue with a specific example of a class.&lt;/p&gt;
-
-&lt;p&gt;Consider the function $y(t;v_0) = v_0t - \frac{1}{2}gt^2$. We may say that $v_0$ and $g$, represented by the variables &lt;code&gt;v0&lt;/code&gt; and &lt;code&gt;g&lt;/code&gt;, constitute the data. A Python function, say &lt;code&gt;value(t)&lt;/code&gt;, is then needed to compute the value of $y(t;v_0)$ and this function must have access to the data &lt;code&gt;v0&lt;/code&gt; and &lt;code&gt;g&lt;/code&gt;, while &lt;code&gt;t&lt;/code&gt; is an argument. A programmer experienced with classes will then suggest to collect the data &lt;code&gt;v0&lt;/code&gt; and &lt;code&gt;g&lt;/code&gt;, and the function &lt;code&gt;value(t)&lt;/code&gt;, together as a &lt;strong&gt;class&lt;/strong&gt;. In addition, a class usually has another function, called &lt;strong&gt;constructor&lt;/strong&gt; for &lt;strong&gt;initializing the data&lt;/strong&gt;. The constructor is always named &lt;code&gt;__init__&lt;/code&gt;. Every &lt;strong&gt;class must have a name&lt;/strong&gt;, often &lt;strong&gt;starting with a capital&lt;/strong&gt;, so we choose &lt;code&gt;Y&lt;/code&gt; as the name since the class represents a mathematical function with name &lt;code&gt;y&lt;/code&gt;. The next step is to implement this class in Python. A complete class code &lt;code&gt;Y&lt;/code&gt; for our problem here would look as follows in Python:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Y:
-    def __init__(self, v0):
-        self.v0 = v0
-        self.g = 9.81
-    def value(self, t):
-        return self.v0*t - 0.5*self.g*t**2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;A class creates a new data type&lt;/strong&gt;, here of name &lt;code&gt;Y&lt;/code&gt;, so when we use the class to make objects, those objects are of type Y. &lt;strong&gt;All the standard Python objects, such as lists, tuples, strings, floating-point numbers, integers, …, are built-in Python classes&lt;/strong&gt;, and each time the user creates on these variable types, one instance os these classes is created by the Python interpreter. A user-defined object class (like Y) is usually called an &lt;strong&gt;instance&lt;/strong&gt;. We need such an instance in order to use the data in the class and call the value function. The following statement constructs an instance bound to the variable name y:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;y = Y(3)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Seemingly, we &lt;em&gt;call the class &lt;code&gt;Y&lt;/code&gt; as if it were a function&lt;/em&gt;. Indeed, &lt;code&gt;Y(3)&lt;/code&gt; is automatically translated by Python to a call to the constructor &lt;code&gt;__init__&lt;/code&gt; in class Y. The arguments in the call, here only the number &lt;code&gt;3&lt;/code&gt;, are always passed on as arguments to &lt;code&gt;__init__&lt;/code&gt; after the &lt;code&gt;self&lt;/code&gt; argument. That is, &lt;code&gt;v0&lt;/code&gt; gets the value &lt;code&gt;3&lt;/code&gt; and self is just dropped in the call. This may be confusing, but it is a rule that the self argument is never used in calls to functions in classes.
-With the instance &lt;code&gt;y&lt;/code&gt;, we can compute the value of y(t=0.1;v_0=3) by the statement,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;v = y.value(0.1)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Note that the &lt;code&gt;self&lt;/code&gt; input argument is dropped in the call to &lt;code&gt;value()&lt;/code&gt;. To access functions and variables in a class, one must prefix the function and variable names by the name of the instance and a dot: the value function is reached as &lt;code&gt;y.value&lt;/code&gt;, and the variables are reached as &lt;code&gt;y.v0&lt;/code&gt; and &lt;code&gt;y.g&lt;/code&gt;. One could, for example, print the value of &lt;code&gt;v0&lt;/code&gt; in the instance &lt;code&gt;y&lt;/code&gt; by writing,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print y.v0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-We have already introduced the term &lt;strong&gt;instance&lt;/strong&gt; for the object of a class. &lt;strong&gt;Functions&lt;/strong&gt; in classes are commonly called &lt;strong&gt;methods&lt;/strong&gt;, and &lt;strong&gt;variables (data)&lt;/strong&gt; in classes are called &lt;strong&gt;data attributes&lt;/strong&gt;. Methods are also known as &lt;strong&gt;method attributes&lt;/strong&gt;. For example, in our sample class &lt;code&gt;Y&lt;/code&gt; we have two methods or method attributes, &lt;code&gt;__init__&lt;/code&gt; and &lt;code&gt;value&lt;/code&gt;, two data attributes, &lt;code&gt;v0&lt;/code&gt; and &lt;code&gt;g&lt;/code&gt;, and four attributes in total (&lt;code&gt;__init__&lt;/code&gt;, &lt;code&gt;value&lt;/code&gt;, &lt;code&gt;v0&lt;/code&gt;, &lt;code&gt;g&lt;/code&gt;). Note that the names of attributes can be chosen freely, just as names of ordinary Python functions and variables. However, &lt;strong&gt;the constructor
-must have the name &lt;code&gt;__init__&lt;/code&gt;, otherwise it is not automatically called when new instances are created&lt;/strong&gt;. You can do whatever you want in whatever method, but it is a common convention to &lt;strong&gt;use the constructor for initializing the variables in the class&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;So far, we have explained a method of writing our function of interest in a class style, which resolves the need to pass a auxiliary variable to a function explicitly. But if you look at the original problem that we had, you will notice that we still cannot use our class &lt;code&gt;Y&lt;/code&gt; instance &lt;code&gt;y&lt;/code&gt; as an argument to other functions similar to &lt;code&gt;diff()&lt;/code&gt;. The final resolution to this problem is to add a &lt;code&gt;__call__&lt;/code&gt; method to our originally defined &lt;code&gt;Y&lt;/code&gt; class.&lt;/p&gt;
-
-&lt;h3 id=&quot;callable-objects&quot;&gt;Callable objects&lt;/h3&gt;
-&lt;p&gt;If you recall, computing the value of the mathematical function represented by class &lt;code&gt;Y&lt;/code&gt;, with &lt;code&gt;y&lt;/code&gt; as the name of the instance, is performed by writing &lt;code&gt;y.value(t)&lt;/code&gt;. If we could write just &lt;code&gt;y(t)&lt;/code&gt;, the &lt;code&gt;y&lt;/code&gt; instance would look as an ordinary function. Such a syntax is indeed possible and offered by the special method named &lt;code&gt;__call__&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Y:
-    def __init__(self, v0):
-        self.v0 = v0
-        self.g = 9.81
-    def value(self, t):
-        return self.v0*t - 0.5*self.g*t**2
-    def __call__(self, t):
-        return self.v0*t - 0.5*self.g*t**2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-then, writing &lt;code&gt;y(t)&lt;/code&gt; implies a call like &lt;code&gt;y.__call__(t)&lt;/code&gt;, which is equivalent to &lt;code&gt;y.value(t)&lt;/code&gt;. The previous value method is now redundant. A good programming convention is to &lt;strong&gt;include a &lt;code&gt;__call__&lt;/code&gt; method in all classes that represent a mathematical function&lt;/strong&gt;. Instances with &lt;code&gt;__call__&lt;/code&gt; methods are said to be &lt;strong&gt;callable objects&lt;/strong&gt;, just as plain functions are callable objects as well. The call syntax for callable objects is the same, regardless of whether the object is a function or a class instance.&lt;/p&gt;
-
-&lt;p&gt;You can always test if an instance is callable or not by &lt;code&gt;callable()&lt;/code&gt;,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;callable(y)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;True
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
-&lt;strong&gt;Reference&lt;/strong&gt;&lt;br /&gt;
-&lt;br /&gt;
-The book &lt;a href=&quot;http://link.springer.com/book/10.1007%2F978-3-662-49887-3&quot; target=&quot;_blank&quot;&gt;A Primer on Scientific Programming with Python&lt;/a&gt; by Hans Petter Langtangen, provides a good starting point on the use of Classes and OOP in Python from a scientific programming perspective. The examples provided in this lecture heavily rely on Langtangen’s notes on Python classes in his textbook in chapter 7. You can download a complete electronic copy of this book for free from Springer website, if you redirect to Springer page from &lt;a href=&quot;http://www.lib.utexas.edu/&quot; target=&quot;_blank&quot;&gt;UT Austin library page&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/11-python-advanced-decorator-class&quot;&gt;Lecture 11: Python advanced topics - decorators and classes&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 25, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -4894,178 +4921,6 @@ Here is a test,&lt;/p&gt;
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/6-solutions-python-modules-loops-IO&quot;&gt;Homework 6: Solutions - Python modules, loops, and I/O&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 29, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Homework 6: Problems - Python modules, loops, and I/O]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/6-problems-python-modules-loops-IO"/>
-  <id>http:/ECL2017S/homework/6-problems-python-modules-loops-IO</id>
-  <published>2017-03-29T00:00:00-05:00</published>
-  <updated>2017-03-29T00:00:00-05:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This homework aims at giving you some experience with Python for-loops and while-loops as well as reading user input from the Bash command line.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; &lt;strong&gt;The while-loop implementation of a for-loop&lt;/strong&gt;. Consider the following example code, which converts a list of temperature values from Celcius to Ferenheit, using a for-loop and then prints them on screen.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;Cdegrees = [-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40]
-print ('    C     F')
-for C in Cdegrees:
-    F = (9.0/5)*C + 32
-print ('%5d %5.1f' % (C, F))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;    C     F
-  -20  -4.0
-  -15   5.0
-  -10  14.0
-   -5  23.0
-    0  32.0
-    5  41.0
-   10  50.0
-   15  59.0
-   20  68.0
-   25  77.0
-   30  86.0
-   35  95.0
-   40 104.0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Write a while-loop implementation of the above code.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Consider the following nested list,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;the following nested list:
-q = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h']]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Write a for-loop that extracts all the letters in the list and finally prints them all as a single string,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;abcdefgh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Consider the following program,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from math import sqrt
-for n in range(1, 60):
-    r_org = 2.0
-    r = r_org
-    for i in range(n):
-        r = sqrt(r)
-    for i in range(n):
-        r = r ** 2
-    print ('With {} times sqrt and then {} times **2, the number {} becomes: {:.16f}'.format(n,n,r_org,r))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Explain what this code does. Then run the code, and explain why do you the behavior observed. In particular, why do you not recover the original value $2$ after many repetitions of the same forward and reverse task?&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; Consider the following code,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;eps = 1.0
-while 1.0 != 1.0 + eps:
-    print ('...............', eps)
-    eps /= 2.0
-print ('final eps:', eps)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
-Explain what the code is doing. Run the code and observe the output. How could &lt;code&gt;1.0 != 1.0 + eps&lt;/code&gt; be False?&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;5. &lt;/strong&gt; Consider the following list,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;numbers = list(range(10))
-print(numbers)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now run the following code, given the above list. Explain the weird behavior that you observe.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;for n in numbers:
-    i = len(numbers)//2
-    del numbers[i]
-    print ('n={}, del {}'.format(n,i), numbers)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;6. &lt;/strong&gt; Consider a problem similar to what we had in the midterm exam: Write a Python function that when executed, asks the user to enter an integer number, then the function gives out the number of prime numbers that are smaller than the input integer number. Here is the answer to this question using only the knowledge of recursive functions and if-blocks,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def is_prime(n):
-    
-    is_prime = True
-    
-    def is_divisible(n,divisor):
-        if n&amp;lt;(divisor-1)*divisor: return False
-        if n%divisor==0: return True
-        else:
-            divisor += 1
-            return is_divisible(n,divisor)
-
-    if is_divisible(n,divisor=2): is_prime=False
-    return is_prime
-
-def get_primes(n):
-    count = 0
-    if n == 1:
-        return count
-    else:
-        if is_prime(n):
-            count = 1
-        n -= 1
-        return count + get_primes(n)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;get_primes(13)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;5
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;(A) Now rewrite &lt;code&gt;get_primes(n)&lt;/code&gt; and the other functions in the above code using for-loop this time. Name the new functions &lt;code&gt;get_prime_for(n)&lt;/code&gt; and &lt;code&gt;is_prime_for(n)&lt;/code&gt;, with &lt;em&gt;for&lt;/em&gt; in the names indicating that the functions now use for-loops.&lt;/p&gt;
-
-&lt;p&gt;(B) Now compare the performance of the two functions &lt;code&gt;get_primes(n=500)&lt;/code&gt; and &lt;code&gt;get_primes_for(n500)&lt;/code&gt; using Jupyter’s or IPython’s &lt;code&gt;%timeit&lt;/code&gt; magic function. Which one is faster?&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/6-problems-python-modules-loops-IO&quot;&gt;Homework 6: Problems - Python modules, loops, and I/O&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 29, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>

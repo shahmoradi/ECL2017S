@@ -247,8 +247,13 @@ callback([
   } ,
 
   {
+    "text": "Announcement 3: Final Semester Grades",
+    "href": "/ECL2017S/announcement/3-final-grades"
+  } ,
+
+  {
     "text": "Announcement 2: Course Progress Evaluation",
-    "href": "/ECL2017S/announcement/2-course-progress-evaluation"
+    "href": "/ECL2017S/announcement/2-course-progress-evaluation-Copy"
   } ,
 
   {

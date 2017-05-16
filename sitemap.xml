@@ -56,7 +56,15 @@
 
     
     <url>
+        <loc>/ECL2017S/announcement/3-final-grades</loc>
+    </url>
+    
+    <url>
         <loc>/ECL2017S/homework/10-solutions-python-advanced-monte-carlo</loc>
+    </url>
+    
+    <url>
+        <loc>/ECL2017S/lecture/11-python-advanced-decorator-class</loc>
     </url>
     
     <url>
@@ -65,10 +73,6 @@
     
     <url>
         <loc>/ECL2017S/homework/10-problems-python-advanced-monte-carlo</loc>
-    </url>
-    
-    <url>
-        <loc>/ECL2017S/lecture/11-python-advanced-decorator-class</loc>
     </url>
     
     <url>
@@ -212,7 +216,7 @@
     </url>
     
     <url>
-        <loc>/ECL2017S/announcement/2-course-progress-evaluation</loc>
+        <loc>/ECL2017S/announcement/2-course-progress-evaluation-Copy</loc>
     </url>
     
     <url>
