@@ -164,7 +164,9 @@ main, .notepad-share-icons, .notepad-disqus {
   background-color: black;
   */
   background: url(../../images/utaustin.jpg) no-repeat center center rgb(1,2,2);
-  background-size: cover; }
+  background-size: cover;
+  background-attachment: fixed;
+  }
   .notepad-site-head .notepad-site-head-content.with-bg-cover {
     background-color: rgba(0, 0, 0, 0.7); }
   .notepad-site-head .notepad-site-head-content .notepad-site-head-title-bg {
