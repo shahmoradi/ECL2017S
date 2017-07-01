@@ -3,11 +3,11 @@
 
 
 
-<title type="text">COE 111L - Spring 2017</title>
+<title type="text">COE 111L - Spring 2017 - W 9-10 AM - WRW 209</title>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-05-29T12:14:39-05:00</updated>
+<updated>2017-07-01T15:42:17-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -39,7 +39,7 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/announcement/3-final-grades&quot;&gt;Announcement 3: Final Semester Grades&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on May 16, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/announcement/3-final-grades&quot;&gt;Announcement 3: Final Semester Grades&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on May 16, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -251,7 +251,7 @@ plt.show()
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/10-solutions-python-advanced-monte-carlo&quot;&gt;Homework 10: Solutions - Python advanced, Monte Carlo methods&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on May 04, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/10-solutions-python-advanced-monte-carlo&quot;&gt;Homework 10: Solutions - Python advanced, Monte Carlo methods&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on May 04, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -521,7 +521,7 @@ The book &lt;a href=&quot;http://link.springer.com/book/10.1007%2F978-3-662-4988
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/11-python-advanced-decorator-class&quot;&gt;Lecture 11: Python advanced topics - decorators and classes&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 26, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/11-python-advanced-decorator-class&quot;&gt;Lecture 11: Python advanced topics - decorators and classes&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 26, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -694,7 +694,7 @@ As you see in the figure, although you may initially win by not switching your c
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9-solutions-python-advanced-io-monte-carlo-interoperability&quot;&gt;Homework 9: Solutions - Python advanced IO, Monte Carlo&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 26, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9-solutions-python-advanced-io-monte-carlo-interoperability&quot;&gt;Homework 9: Solutions - Python advanced IO, Monte Carlo&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 26, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -811,7 +811,7 @@ As you see in the figure, although you may initially win by not switching your c
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/10-problems-python-advanced-monte-carlo&quot;&gt;Homework 10: Problems - Python advanced, Monte Carlo methods&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 26, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/10-problems-python-advanced-monte-carlo&quot;&gt;Homework 10: Problems - Python advanced, Monte Carlo methods&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 26, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -870,7 +870,7 @@ and then writes the same float data in the output file &lt;code&gt;outputter.out
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/7-solutions-python-io-error-handling-unit-testing&quot;&gt;Quiz 7: Solutions - Python - I/O, error handling, and tesing frameworks&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 19, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/7-solutions-python-io-error-handling-unit-testing&quot;&gt;Quiz 7: Solutions - Python - I/O, error handling, and tesing frameworks&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 19, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -906,7 +906,7 @@ and then writes the same float data in the output file &lt;code&gt;outputter.out
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/7-problems-python-io-error-handling-unit-testing&quot;&gt;Quiz 7: Problems - Python - I/O, error handling, and tesing frameworks&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 19, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/7-problems-python-io-error-handling-unit-testing&quot;&gt;Quiz 7: Problems - Python - I/O, error handling, and tesing frameworks&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 19, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1302,7 +1302,7 @@ well-tested scientific libraries in Fortran, C, or C++ from Python, or migrate s
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/10-python-advanced-io-monte-carlo-interoperability&quot;&gt;Lecture 10: Python advanced topics - IO, Monte Carlo, wrappers and interoperability&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 19, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/10-python-advanced-io-monte-carlo-interoperability&quot;&gt;Lecture 10: Python advanced topics - IO, Monte Carlo, wrappers and interoperability&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 19, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1449,7 +1449,7 @@ Is it to your advantage to switch your choice from door 1 to door 2? Is it to yo
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9-problems-python-advanced-io-monte-carlo-interoperability&quot;&gt;Homework 9: Problems - Python advanced IO, Monte Carlo&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 19, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9-problems-python-advanced-io-monte-carlo-interoperability&quot;&gt;Homework 9: Problems - Python advanced IO, Monte Carlo&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 19, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1612,7 +1612,7 @@ An example code can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/8-solutions-python-array-computing-plotting&quot;&gt;Homework 8: Solutions - Python array computing and plotting&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 19, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/8-solutions-python-array-computing-plotting&quot;&gt;Homework 8: Solutions - Python array computing and plotting&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 19, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -2102,7 +2102,7 @@ platform and runs on most platforms like Mac OS X, Windows, and Linux.&lt;/p&gt;
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/9-python-array-computing-plotting&quot;&gt;Lecture 9: Python - array computing and plotting&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 12, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/9-python-array-computing-plotting&quot;&gt;Lecture 9: Python - array computing and plotting&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 12, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -2212,7 +2212,7 @@ Write a vectorized version of this function. (Hint: you may need numpy’s &lt;c
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/8-problems-python-array-computing-plotting&quot;&gt;Homework 8: Problems - Python array computing and plotting&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 12, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/8-problems-python-array-computing-plotting&quot;&gt;Homework 8: Problems - Python array computing and plotting&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 12, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -2475,7 +2475,7 @@ This function is supposed to be able to handle exceptions such as divergent iter
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/7-solutions-python-IO-error-handling-unit-testing&quot;&gt;Homework 7: Solutions - Python I/O, error handling, and unit testing&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 12, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/7-solutions-python-IO-error-handling-unit-testing&quot;&gt;Homework 7: Solutions - Python I/O, error handling, and unit testing&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 12, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -2665,7 +2665,7 @@ for item in mylist:
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/6-solutions-python-modules-loops-io&quot;&gt;Quiz 6: Solutions - Python modules, loops, and IO&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/6-solutions-python-modules-loops-io&quot;&gt;Quiz 6: Solutions - Python modules, loops, and IO&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -2753,7 +2753,7 @@ How many iterations does this for-loop perform before ending? Explain briefly wh
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/6-problems-python-modules-loops-io&quot;&gt;Quiz 6: Problems - Python modules, loops, and IO&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/quiz/6-problems-python-modules-loops-io&quot;&gt;Quiz 6: Problems - Python modules, loops, and IO&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -3420,7 +3420,7 @@ The example given here, only tests for the robustness of &lt;code&gt;Newton()&lt
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/8-python-io-error-handling-unit-testing&quot;&gt;Lecture 8: Python - I/O, error handling, and testing frameworks&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/8-python-io-error-handling-unit-testing&quot;&gt;Lecture 8: Python - I/O, error handling, and testing frameworks&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -3621,7 +3621,7 @@ This function is supposed to be able to handle exceptions such as divergent iter
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/7-problems-python-IO-error-handling-unit-testing&quot;&gt;Homework 7: Problems - Python I/O, error handling, and unit testing&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/7-problems-python-IO-error-handling-unit-testing&quot;&gt;Homework 7: Problems - Python I/O, error handling, and unit testing&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -3743,7 +3743,7 @@ then all the necessary Python codes to generate all the results will be called b
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/exam/2-semester-project&quot;&gt;Exam final: semester project&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/exam/2-semester-project&quot;&gt;Exam final: semester project&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -4499,7 +4499,7 @@ sum_even_odd
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/7-python-modules-loops-io&quot;&gt;Lecture 7: Python - modules, loops, and I/O&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 29, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/7-python-modules-loops-io&quot;&gt;Lecture 7: Python - modules, loops, and I/O&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on March 29, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -4918,7 +4918,7 @@ Here is a test,&lt;/p&gt;
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/6-solutions-python-modules-loops-IO&quot;&gt;Homework 6: Solutions - Python modules, loops, and I/O&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017&lt;/a&gt; on March 29, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/6-solutions-python-modules-loops-IO&quot;&gt;Homework 6: Solutions - Python modules, loops, and I/O&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on March 29, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>
