@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2017-11-06T17:12:06-06:00</updated>
+<updated>2018-04-04T12:54:15-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -85,7 +85,7 @@
 
 &lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; &lt;strong&gt;Monte Carlo approximation of the number $\pi$&lt;/strong&gt;. Suppose we did not know the value of $\pi$ and we wanted to estimate its value using Monte Carlo methods. One practical approach is to draw a square of unit side, with its diagonal opposite corners extending from the coordinates origin $(0,0)$ to $(1,1)$. Now we try to simulate uniform random points from inside of this square by generating uniform random points along the $X$ and $Y$ axes, i.e., by generating two random uniform numbers (x,y) from the range $[0,1]$.&lt;/p&gt;
 
-&lt;p&gt;Now the generated random point $P$ has ther coordinate $(x,y)$, so we can calculate its distance from the coordiante origin. Now suppose we also draw a quarter-circle inside of this square whose radius is unit and is centered at the origin $(0,0)$. The ratio of the area of this quarter-circle, $S_C$ to the area of the area of the square enclosing it, $S_S$ is,&lt;/p&gt;
+&lt;p&gt;Now the generated random point $P$ has the coordinate $(x,y)$, so we can calculate its distance from the coordinate origin. Now suppose we also draw a quarter-circle inside of this square whose radius is unit and is centered at the origin $(0,0)$. The ratio of the area of this quarter-circle, $S_C$ to the area of the area of the square enclosing it, $S_S$ is,&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{S_C}{S_S} = \frac{\frac{1}{4}\pi r^2}{r^2} = \frac{1}{4}\pi&lt;/script&gt;
 
@@ -93,7 +93,7 @@
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\pi = 4S_C&lt;/script&gt;
 
-&lt;p&gt;In order to obtain, $S_C$, we are going to throw random points in the square, just as described above, and then find the fraction of points, $f=n_C/n_{\rm total}$, that fall inside this quarter-circle. This fracton is related to the area of the circle and square by the following equation,&lt;/p&gt;
+&lt;p&gt;In order to obtain, $S_C$, we are going to throw random points in the square, just as described above, and then find the fraction of points, $f=n_C/n_{\rm total}$, that fall inside this quarter-circle. This fraction is related to the area of the circle and square by the following equation,&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;f=\frac{n_C}{n_{\rm total}} = \frac{S_C}{S_S}&lt;/script&gt;
 
@@ -101,7 +101,7 @@
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\pi \approx \frac{1}{4}\frac{n_C}{n_{\rm total}}&lt;/script&gt;
 
-&lt;p&gt;Now, write a Python function, that takes in the number of points to be simulated, and the calculate an approximate value for $\pi$ based on the Monte Carlo algorithm described above.  Write a second function that plot the estimate of $\pi$ versus the number of points simulated, like the following,&lt;/p&gt;
+&lt;p&gt;Now, write a Python function, that takes in the number of points to be simulated, and then calculates an approximate value for $\pi$ based on the Monte Carlo algorithm described above.  Write a second function that plot the estimate of $\pi$ versus the number of points simulated, like the following,&lt;/p&gt;
 
 &lt;figure&gt;
 	&lt;img src=&quot;http:/ECL2017S/homework/10/approximatePi_10000.png&quot; width=&quot;900&quot; /&gt;
@@ -565,11 +565,11 @@ This homework aims at giving you some experience with Python’s tools for inter
 
 &lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; As I discussed in class, in order to avoid creating potential traffic on Professor Butler’s webpage, I have now uploaded all the necessary files on &lt;a href=&quot;http:/ECL2017S/homework/9/swift/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;this address&lt;/a&gt; (don’t click on the links in this table, because it will take you to Professor Butler’s repository for this data. I have all the data already saved in our domain locally). So now, your goal is to first read the event-ID HTML table from&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9/swift/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;http://www.shahmoradi.orghttp:/ECL2017S/homework/9/swift/bat_time_table.html&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9/swift/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;https://www.shahmoradi.orghttp:/ECL2017S/homework/9/swift/bat_time_table.html&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Then, use the event-IDs in this table to generate web addresses like:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9/swift/GRB00100433_ep_flu.txt&quot; target=&quot;_blank&quot;&gt;http://www.shahmoradi.orghttp:/ECL2017S/homework/9/swift/GRB00100433_ep_flu.txt&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9/swift/GRB00100433_ep_flu.txt&quot; target=&quot;_blank&quot;&gt;https://www.shahmoradi.orghttp:/ECL2017S/homework/9/swift/GRB00100433_ep_flu.txt&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;in order to download these &lt;code&gt;.txt&lt;/code&gt; files from the web. The rest of the homework is just as you would have done this problem as descibed below.&lt;/p&gt;
 
@@ -972,9 +972,9 @@ The output of the code is &lt;a href=&quot;http:/ECL2017S/lecture/10/jec_out.csv
 &lt;h3 id=&quot;reading-data-from-web&quot;&gt;Reading data from web&lt;/h3&gt;
 &lt;p&gt;Nowadays, a lot of data repositories are available online publicly, and you may encounter problems that need to parse data from an online repository. For many of the most famous repositories, such as the &lt;a href=&quot;http://www.rcsb.org/pdb/home/home.do&quot; target=&quot;_blank&quot;&gt;Protein databank&lt;/a&gt;, excellent python packages have been written that automate the process of fetching data from online pages or repositories (e.g., &lt;a href=&quot;http://biopython.org/wiki/Biopython&quot; target=&quot;_blank&quot;&gt;Biopython&lt;/a&gt;).&lt;/p&gt;
 
-&lt;p&gt;Nevertheless you may need at some point in your research or career to read data from a web address. Most often, the online data is contained in a &lt;code&gt;html&lt;/code&gt; file, like the content of the &lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;about page&lt;/a&gt; for this course, for example, which has the address: &lt;a href=&quot;http:/ECL2017S/about&quot; target=&quot;_blank&quot;&gt;http://www.shahmoradi.orghttp:/ECL2017S/about&lt;/a&gt;. Suppose you wanted to extract the content of this page. A simple solution would be the following via Python’s standard &lt;a href=&quot;https://docs.python.org/3/library/urllib.html&quot; target=&quot;_blank&quot;&gt;urllib&lt;/a&gt; module,&lt;/p&gt;
+&lt;p&gt;Nevertheless you may need at some point in your research or career to read data from a web address. Most often, the online data is contained in a &lt;code&gt;html&lt;/code&gt; file, like the content of the &lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;about page&lt;/a&gt; for this course, for example, which has the address: &lt;a href=&quot;http:/ECL2017S/about&quot; target=&quot;_blank&quot;&gt;https://www.shahmoradi.orghttp:/ECL2017S/about&lt;/a&gt;. Suppose you wanted to extract the content of this page. A simple solution would be the following via Python’s standard &lt;a href=&quot;https://docs.python.org/3/library/urllib.html&quot; target=&quot;_blank&quot;&gt;urllib&lt;/a&gt; module,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import urllib.request as ur
-myurl = 'http://www.shahmoradi.orghttp:/ECL2017S/about'
+myurl = 'https://www.shahmoradi.orghttp:/ECL2017S/about'
 with ur.urlopen(myurl) as webfile:
     webcontent = [line.decode(&quot;utf-8&quot;) for line in webfile.readlines()]
 &lt;/code&gt;&lt;/pre&gt;
@@ -996,7 +996,7 @@ Now the variable &lt;code&gt;webcontent&lt;/code&gt; is a list, whose elements a
 
 &lt;p&gt;Note that the content of the file is read in &lt;code&gt;byte&lt;/code&gt; format. Therefore, to convert it to string, one has to apply &lt;code&gt;.decode(&quot;utf-8&quot;)&lt;/code&gt; on each line. Similar to opening a file on harddisk, one can also use &lt;code&gt;.read()&lt;/code&gt; and &lt;code&gt;.readline()&lt;/code&gt; methods to read the contant of the web address. Alternatively, one could also save the entire content of the web address, in a single file locally,&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import urllib.request as ur
-myurl = 'http://www.shahmoradi.orghttp:/ECL2017S/about'
+myurl = 'https://www.shahmoradi.orghttp:/ECL2017S/about'
 ur.urlretrieve(myurl, filename='about.html')
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;br /&gt;
@@ -1023,7 +1023,7 @@ This will output &lt;a href=&quot;http:/ECL2017S/lecture/10/about.html&quot; tar
 
     time = [10.0,12.0,14.0,15.0,16.0,18.0,20.0]
     nfig = 7
-    figReposPrefix = 'http://www.shahmoradi.orghttp:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_'
+    figReposPrefix = 'https://www.shahmoradi.orghttp:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_'
     for ifig in range(1,nfig+1):
         html.write( '&amp;lt;img src=&quot;{}{:d}_t{:.1f}.png&quot; width=&quot;900px&quot;&amp;gt;&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;\n'.format(figReposPrefix,ifig,time[ifig-1]) )
     html.write('&amp;lt;H2&amp;gt;Conclusions:&amp;lt;/H2&amp;gt;\n')
@@ -1332,11 +1332,11 @@ well-tested scientific libraries in Fortran, C, or C++ from Python, or migrate s
 
 &lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; As I discussed in class, in order to avoid creating potential traffic on Professor Butler’s webpage, I have now uploaded all the necessary files on &lt;a href=&quot;http:/ECL2017S/homework/9/swift/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;this address&lt;/a&gt; (don’t click on the links in this table, because it will take you to Professor Butler’s repository for this data. I have all the data already saved in our domain locally). So now, your goal is to first read the event-ID HTML table from&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9/swift/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;http://www.shahmoradi.orghttp:/ECL2017S/homework/9/swift/bat_time_table.html&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9/swift/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;https://www.shahmoradi.orghttp:/ECL2017S/homework/9/swift/bat_time_table.html&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Then, use the event-IDs in this table to generate web addresses like:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9/swift/GRB00100433_ep_flu.txt&quot; target=&quot;_blank&quot;&gt;http://www.shahmoradi.orghttp:/ECL2017S/homework/9/swift/GRB00100433_ep_flu.txt&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9/swift/GRB00100433_ep_flu.txt&quot; target=&quot;_blank&quot;&gt;https://www.shahmoradi.orghttp:/ECL2017S/homework/9/swift/GRB00100433_ep_flu.txt&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;in order to download these &lt;code&gt;.txt&lt;/code&gt; files from the web. The rest of the homework is just as you would have done this problem as descibed below.&lt;/p&gt;
 
@@ -3627,6 +3627,128 @@ This function is supposed to be able to handle exceptions such as divergent iter
 
 
 <entry>
+  <title type="html"><![CDATA[Exam final: semester project]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/exam/2-semester-project"/>
+  <id>http:/ECL2017S/exam/2-semester-project</id>
+  <published>2017-04-05T00:00:00-05:00</published>
+  <updated>2017-04-05T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This is page describes the course project that will serve as the final exam for this course. Please submit all your efforts for this project (all files and data and results) in &lt;code&gt;ECL2017S/exams/final/&lt;/code&gt; directory in your private repository for this course. Don’t forget to push your answers to your remote Github repository by the end of the semester.&lt;/p&gt;
+
+&lt;p&gt;Inside the directory for the project (&lt;code&gt;ECL2017S/exams/final/&lt;/code&gt;) create three other folders: &lt;code&gt;data&lt;/code&gt;, &lt;code&gt;src&lt;/code&gt;, &lt;code&gt;results&lt;/code&gt;. The &lt;code&gt;data&lt;/code&gt; folder contains the &lt;a href=&quot;http:/ECL2017S/exam/2/cells.mat&quot; target=&quot;_blank&quot;&gt;input data&lt;/a&gt; for this project. The &lt;code&gt;src&lt;/code&gt; folder should contain all your codes that you write for this project, and the &lt;code&gt;results&lt;/code&gt; folder should contain all the results generated by your code.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Our goal in this project is to fit a mathemtical model of the growth to living cells to data for the growth of a tumor mass in the brain of a rat. You can download the MATLAB data file for this project from &lt;a href=&quot;http:/ECL2017S/exam/2/cells.mat&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;. Write a Python code, set of separate codes that performs the following tasks one after the other, and output all the results to the &lt;code&gt;results&lt;/code&gt; folder described above. If you have multiple Python codes each in a separate file, then write a &lt;code&gt;main.py&lt;/code&gt; Python code, such that if the user runs&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;./main.py ../data/cells.mat ../results/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+then all the necessary Python codes to generate all the results will be called by this &lt;code&gt;main.py&lt;/code&gt; code. The first command line argument to this code is the path to the input &lt;a href=&quot;http:/ECL2017S/exam/2/cells.mat&quot; target=&quot;_blank&quot;&gt;MATLAB data file&lt;/a&gt; containing data for this project, and the second command line tells the code where to write all the output and results of the project.&lt;/p&gt;
+
+&lt;h3 id=&quot;data-structure-of-the-input-matlab-file&quot;&gt;Data structure of the input MATLAB file&lt;/h3&gt;
+&lt;p&gt;The input file, is a 4-dimensional double-precision MATLAB matrix &lt;code&gt;cells(:,:,:,:)&lt;/code&gt;, corresponding to dimensions &lt;code&gt;cells(y,x,z,time)&lt;/code&gt;. This data is collected from MRI imaging of the rat’s brain almost every other day for a period of two weeks. For example, &lt;code&gt;cells(:,:,:,1)&lt;/code&gt; contains the number of cells at each point in space (y,x,z) at the first time point, or, &lt;code&gt;cells(:,:,10,1)&lt;/code&gt; represents a (XY) slice of MRI at $z=1$ and $t=1$.&lt;/p&gt;
+
+&lt;p&gt;Now write a set of Python codes that perform the following tasks.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;data-reduction-and-visualization&quot;&gt;Data reduction and visualization&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; First write a code that reads the input MATLAB file and converts the data to a 4-D NumPy array.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Write Python codes that generate figures as similar as possible to the following figures (specific color-codes of the curves and figures do not matter, focus more on the format of the plots and its parts).&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_1_t10.0.png&quot; width=&quot;900&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_2_t12.0.png&quot; width=&quot;900&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_3_t14.0.png&quot; width=&quot;900&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_5_t16.0.png&quot; width=&quot;900&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_6_t18.0.png&quot; width=&quot;900&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_7_t20.0.png&quot; width=&quot;900&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;and finally, a plot that shows the time evolution of the total number of tumor cells at all time points available in the input data. The time points are  $T=[10, 12, 14, 15, 16, 18, 20]$ in units of days.&lt;/p&gt;
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/exam/2/figures/growthCurve_CellCount_rad_00gy.png&quot; width=&quot;900&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;. There is no need to regenerate the error bars in the plot above for this project.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-mathematical-model-of-tumor-growth&quot;&gt;The mathematical model of tumor growth&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Now our goal is to fit the time evolution of the growth of this tumor, using a mathematical model, and use the maximum likelihood approach and Markov Chain Monte Carlo Technique to find the best-fit parameters of the model. The model we use is called the &lt;a href=&quot;https://en.wikipedia.org/wiki/Gompertz_function&quot; target=&quot;_blank&quot;&gt;Gompertizan growth model&lt;/a&gt;,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;N(t,a,b,c) = a\exp\big( -b\exp(-ct) \big) ~,&lt;/script&gt;
+
+&lt;p&gt;where $N(t)$ is the number of tumor cells at time $t$, and $a$, $b$, and $c$ are the parameters that we would like to find their best values given the input tumor cell data. This Gompertzian growth model is our &lt;strong&gt;physical model&lt;/strong&gt; for this problem.&lt;/p&gt;
+
+&lt;h4 id=&quot;combining-the-mathematical-model-with-a-regression-model&quot;&gt;Combining the mathematical model with a regression model&lt;/h4&gt;
+
+&lt;p&gt;Now, if the model was ideally perfect in describing the data, the curve of the model predicion would pass through all the points in the growth curve plot in the above, providing a prefect description of data. This is however, never the case, as it is famously said &lt;strong&gt;all models are wrong, but some are useful&lt;/strong&gt;. In other words, the model prediction never matches observation perfectly. Therefore, we have to seek for the parameter values of the model that can get us as close as possible to data. To do so, we define a &lt;strong&gt;statistical model&lt;/strong&gt; in addition to the &lt;strong&gt;physical model&lt;/strong&gt; described above. In other words, we have to define a statistical regression model (the renowned least-squares method) that gives us the probability $\pi(N_{obs}|N(t))$ of observing individual data points at each of the given times,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\pi(N_{obs}|N(t|a,b,c),\sigma) = \frac{1}{\sigma\sqrt{2\pi}} \exp\bigg( - \frac{ \big[ N_{obs}(t)-N(t|a,b,c) \big]^2}{2\sigma^2} \bigg) ~,&lt;/script&gt;
+
+&lt;p&gt;Note that our statistical model given above is a Gaussian probability density function, with its mean parameter represented by the output of our physical model, $N(t|a,b,c)$, and its standard deviation represented by $\sigma$, which is unknown, and we seek to extremize it.&lt;/p&gt;
+
+&lt;p&gt;We have seven data points, so the overall probability of observing all of data $\mathcal{D}$ together given the parameters of the model, $\mathcal{L}(\mathcal{D}|a,b,c,\sigma)$, is the product of their invidiual probabilities of observations given by the above equation,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathcal{L}(\mathcal{D}|a,b,c,\sigma) = \prod_{i=1}^{n=7} \pi(N_{obs}(t_i)|N(t_i|a,b,c),\sigma) = \prod_{i=1}^{n=7} \frac{1}{\sigma\sqrt{2\pi}} \exp\bigg( - \frac{ \big[ N_{obs}(t_i)-N(t_i|a,b,c) \big]^2}{2\sigma^2} \bigg) ~,&lt;/script&gt;
+
+&lt;p&gt;More often, you would want to work with $\log\mathcal{L}$ instead of $\mathcal{L}$, so the above equation becomes,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+    \log\mathcal{L}(\mathcal{D}|a,b,c,\sigma)
+    &amp;= \sum_{i=1}^{n=7} \log\pi(N_{obs}(t_i)|N(t_i|a,b,c),\sigma) \\\\
+    &amp;= -\frac{n}{2}\bigg( \ln(2\pi) + \ln\sigma^2 \bigg) - \frac{1}{2\sigma^2} \sum_{i=1}^{n=7} \bigg[ N_{obs}(t_i)-N(t_i) \bigg]^2 ~,
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt;  Now the goal is to use an optimization algorithm, such as Markov Chain Monte Carlo available in Python via &lt;a href=&quot;https://pymc-devs.github.io/pymc/README.html&quot; target=&quot;_blank&quot;&gt;PyMc package&lt;/a&gt;, to find the most likely set of parameters of the model $a,b,c,\sigma$ that give the best prediction of the available data. Use the pymc package, or any other method you wish to obtein the best parameters, then redraw the above tumor evolution curve and show the result from the model as well. You can also alternatively use my own package for MCMC sampling, if which case, please inform me and I will instruct you how to use it.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/exam/2-semester-project&quot;&gt;Exam final: semester project&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 05, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
   <title type="html"><![CDATA[Lecture 7: Python - modules, loops, and I/O]]></title>
   <link rel="alternate" type="text/html" href="http:/ECL2017S/lecture/7-python-modules-loops-io"/>
   <id>http:/ECL2017S/lecture/7-python-modules-loops-io</id>
@@ -4798,178 +4920,6 @@ Here is a test,&lt;/p&gt;
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/6-solutions-python-modules-loops-IO&quot;&gt;Homework 6: Solutions - Python modules, loops, and I/O&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on March 29, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Homework 6: Problems - Python modules, loops, and I/O]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/6-problems-python-modules-loops-IO"/>
-  <id>http:/ECL2017S/homework/6-problems-python-modules-loops-IO</id>
-  <published>2017-03-29T00:00:00-05:00</published>
-  <updated>2017-03-29T00:00:00-05:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This homework aims at giving you some experience with Python for-loops and while-loops as well as reading user input from the Bash command line.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; &lt;strong&gt;The while-loop implementation of a for-loop&lt;/strong&gt;. Consider the following example code, which converts a list of temperature values from Celcius to Ferenheit, using a for-loop and then prints them on screen.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;Cdegrees = [-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40]
-print ('    C     F')
-for C in Cdegrees:
-    F = (9.0/5)*C + 32
-print ('%5d %5.1f' % (C, F))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;    C     F
-  -20  -4.0
-  -15   5.0
-  -10  14.0
-   -5  23.0
-    0  32.0
-    5  41.0
-   10  50.0
-   15  59.0
-   20  68.0
-   25  77.0
-   30  86.0
-   35  95.0
-   40 104.0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Write a while-loop implementation of the above code.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Consider the following nested list,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;the following nested list:
-q = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h']]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Write a for-loop that extracts all the letters in the list and finally prints them all as a single string,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;abcdefgh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Consider the following program,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from math import sqrt
-for n in range(1, 60):
-    r_org = 2.0
-    r = r_org
-    for i in range(n):
-        r = sqrt(r)
-    for i in range(n):
-        r = r ** 2
-    print ('With {} times sqrt and then {} times **2, the number {} becomes: {:.16f}'.format(n,n,r_org,r))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Explain what this code does. Then run the code, and explain why do you the behavior observed. In particular, why do you not recover the original value $2$ after many repetitions of the same forward and reverse task?&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; Consider the following code,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;eps = 1.0
-while 1.0 != 1.0 + eps:
-    print ('...............', eps)
-    eps /= 2.0
-print ('final eps:', eps)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
-Explain what the code is doing. Run the code and observe the output. How could &lt;code&gt;1.0 != 1.0 + eps&lt;/code&gt; be False?&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;5. &lt;/strong&gt; Consider the following list,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;numbers = list(range(10))
-print(numbers)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now run the following code, given the above list. Explain the weird behavior that you observe.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;for n in numbers:
-    i = len(numbers)//2
-    del numbers[i]
-    print ('n={}, del {}'.format(n,i), numbers)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;6. &lt;/strong&gt; Consider a problem similar to what we had in the midterm exam: Write a Python function that when executed, asks the user to enter an integer number, then the function gives out the number of prime numbers that are smaller than the input integer number. Here is the answer to this question using only the knowledge of recursive functions and if-blocks,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def is_prime(n):
-    
-    is_prime = True
-    
-    def is_divisible(n,divisor):
-        if n&amp;lt;(divisor-1)*divisor: return False
-        if n%divisor==0: return True
-        else:
-            divisor += 1
-            return is_divisible(n,divisor)
-
-    if is_divisible(n,divisor=2): is_prime=False
-    return is_prime
-
-def get_primes(n):
-    count = 0
-    if n == 1:
-        return count
-    else:
-        if is_prime(n):
-            count = 1
-        n -= 1
-        return count + get_primes(n)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;get_primes(13)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;5
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;(A) Now rewrite &lt;code&gt;get_primes(n)&lt;/code&gt; and the other functions in the above code using for-loop this time. Name the new functions &lt;code&gt;get_prime_for(n)&lt;/code&gt; and &lt;code&gt;is_prime_for(n)&lt;/code&gt;, with &lt;em&gt;for&lt;/em&gt; in the names indicating that the functions now use for-loops.&lt;/p&gt;
-
-&lt;p&gt;(B) Now compare the performance of the two functions &lt;code&gt;get_primes(n=500)&lt;/code&gt; and &lt;code&gt;get_primes_for(n500)&lt;/code&gt; using Jupyter’s or IPython’s &lt;code&gt;%timeit&lt;/code&gt; magic function. Which one is faster?&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/6-problems-python-modules-loops-IO&quot;&gt;Homework 6: Problems - Python modules, loops, and I/O&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on March 29, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>

@@ -137,6 +137,14 @@
 		} ,
 	
 		{
+		  "title"      : "Exam final: semester project",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/exam/2-semester-project",
+		  "date"       : "2017-04-05 00:00:00 -0500",
+		  "shortdate"  : "April 05, 2017"
+		} ,
+	
+		{
 		  "title"      : "Lecture 7: Python - modules, loops, and I/O",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/7-python-modules-loops-io",
@@ -158,6 +166,22 @@
 		  "url"        : "/ECL2017S/homework/6-problems-python-modules-loops-IO",
 		  "date"       : "2017-03-29 00:00:00 -0500",
 		  "shortdate"  : "March 29, 2017"
+		} ,
+	
+		{
+		  "title"      : "Exam 1: Solutions",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/exam/1-solutions-midterm-exam",
+		  "date"       : "2017-03-22 00:00:00 -0500",
+		  "shortdate"  : "March 22, 2017"
+		} ,
+	
+		{
+		  "title"      : "Exam 1: Problems",
+		  "category"   : "",
+		  "url"        : "/ECL2017S/exam/1-problems-midterm-exam",
+		  "date"       : "2017-03-22 00:00:00 -0500",
+		  "shortdate"  : "March 22, 2017"
 		} ,
 	
 		{

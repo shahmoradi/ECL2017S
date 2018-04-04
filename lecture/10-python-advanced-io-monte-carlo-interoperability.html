@@ -35,7 +35,7 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,300,800,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,300,800,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/font-awesome.min.css">
 <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/normalize.css">
 <link rel="stylesheet" href="/ECL2017S/assets/css/vendor/nprogress.css">
@@ -62,7 +62,7 @@ MathJax.Hub.Queue(function() {
     }
 });
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 <!-- Icons -->
 <link rel="shortcut icon" href="/ECL2017S/favicon.ico">
@@ -182,9 +182,9 @@ The output of the code is <a href="/ECL2017S/lecture/10/jec_out.csv" target="_bl
 <h3 id="reading-data-from-web">Reading data from web</h3>
 <p>Nowadays, a lot of data repositories are available online publicly, and you may encounter problems that need to parse data from an online repository. For many of the most famous repositories, such as the <a href="http://www.rcsb.org/pdb/home/home.do" target="_blank">Protein databank</a>, excellent python packages have been written that automate the process of fetching data from online pages or repositories (e.g., <a href="http://biopython.org/wiki/Biopython" target="_blank">Biopython</a>).</p>
 
-<p>Nevertheless you may need at some point in your research or career to read data from a web address. Most often, the online data is contained in a <code>html</code> file, like the content of the <a href="" target="_blank">about page</a> for this course, for example, which has the address: <a href="/ECL2017S/about" target="_blank">http://www.shahmoradi.org/ECL2017S/about</a>. Suppose you wanted to extract the content of this page. A simple solution would be the following via Python’s standard <a href="https://docs.python.org/3/library/urllib.html" target="_blank">urllib</a> module,</p>
+<p>Nevertheless you may need at some point in your research or career to read data from a web address. Most often, the online data is contained in a <code>html</code> file, like the content of the <a href="" target="_blank">about page</a> for this course, for example, which has the address: <a href="/ECL2017S/about" target="_blank">https://www.shahmoradi.org/ECL2017S/about</a>. Suppose you wanted to extract the content of this page. A simple solution would be the following via Python’s standard <a href="https://docs.python.org/3/library/urllib.html" target="_blank">urllib</a> module,</p>
 <pre><code class="language-python">import urllib.request as ur
-myurl = 'http://www.shahmoradi.org/ECL2017S/about'
+myurl = 'https://www.shahmoradi.org/ECL2017S/about'
 with ur.urlopen(myurl) as webfile:
     webcontent = [line.decode("utf-8") for line in webfile.readlines()]
 </code></pre>
@@ -206,7 +206,7 @@ Now the variable <code>webcontent</code> is a list, whose elements are each row 
 
 <p>Note that the content of the file is read in <code>byte</code> format. Therefore, to convert it to string, one has to apply <code>.decode("utf-8")</code> on each line. Similar to opening a file on harddisk, one can also use <code>.read()</code> and <code>.readline()</code> methods to read the contant of the web address. Alternatively, one could also save the entire content of the web address, in a single file locally,</p>
 <pre><code class="language-python">import urllib.request as ur
-myurl = 'http://www.shahmoradi.org/ECL2017S/about'
+myurl = 'https://www.shahmoradi.org/ECL2017S/about'
 ur.urlretrieve(myurl, filename='about.html')
 </code></pre>
 <p><br />
@@ -233,7 +233,7 @@ This will output <a href="/ECL2017S/lecture/10/about.html" target="_blank">this 
 
     time = [10.0,12.0,14.0,15.0,16.0,18.0,20.0]
     nfig = 7
-    figReposPrefix = 'http://www.shahmoradi.org/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_'
+    figReposPrefix = 'https://www.shahmoradi.org/ECL2017S/exam/2/figures/tvccZSliceSubplotWithXYlab_rad_00gy_'
     for ifig in range(1,nfig+1):
         html.write( '&lt;img src="{}{:d}_t{:.1f}.png" width="900px"&gt;&lt;br&gt;&lt;br&gt;\n'.format(figReposPrefix,ifig,time[ifig-1]) )
     html.write('&lt;H2&gt;Conclusions:&lt;/H2&gt;\n')
@@ -572,7 +572,7 @@ well-tested scientific libraries in Fortran, C, or C++ from Python, or migrate s
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
 </section>
 
@@ -580,19 +580,19 @@ well-tested scientific libraries in Fortran, C, or C++ from Python, or migrate s
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2017 / 11 / 06</section></br> -->
-         <section>Last updated Monday, 06 Nov 2017 at 05:12 PM CST</section></br>
-         <section>All content exclusively maintained by <a href="http://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
-         <section><a class="icon-ghost" href="http://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
+         <!-- <section>Last updated 2018 / 04 / 04</section></br> -->
+         <section>Last updated Wednesday, 04 Apr 2018 at 12:54 PM CST</section></br>
+         <section>All content exclusively maintained by <a href="https://shahmoradi.org" target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
+         <section><a class="icon-ghost" href="https://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>
-         <section><a class="icon-ghost" href="http://www.utexas.edu/" target="_blank">The University of Texas at Austin</a></section></br>
+         <section><a class="icon-ghost" href="https://www.utexas.edu/" target="_blank">The University of Texas at Austin</a></section></br>
          <section>201 E 24th Street, Stop C0200</section></br>
          <section>Austin, TX 78712-1229</section>
     </div>
     <div class="social-icons">
         
         
-        <a href="http://twitter.com/AmirShahmoradi" target="_blank">
+        <a href="https://twitter.com/AmirShahmoradi" target="_blank">
             <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
                 <i class="fa fa-twitter fa-stack-1x"></i>
@@ -602,7 +602,7 @@ well-tested scientific libraries in Fortran, C, or C++ from Python, or migrate s
         
         
         
-        <a href="http://github.com/shahmoradi" target="_blank">
+        <a href="https://github.com/shahmoradi" target="_blank">
             <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
                 <i class="fa fa-github fa-stack-1x"></i>
@@ -629,7 +629,7 @@ well-tested scientific libraries in Fortran, C, or C++ from Python, or migrate s
     $(document).foundation();
   </script>
   <script type='text/javascript'>console.log("N/A");</script>
-  <script type='text/javascript'>console.log("http://www.shahmoradi.org/");</script>
+  <script type='text/javascript'>console.log("https://www.shahmoradi.org/");</script>
 
 <!--header anchor links-->
 <script src="/ECL2017S/assets/js/autoAnchorLink.js"></script>

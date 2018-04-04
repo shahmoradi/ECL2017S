@@ -124,6 +124,10 @@
     </url>
     
     <url>
+        <loc>/ECL2017S/exam/2-semester-project</loc>
+    </url>
+    
+    <url>
         <loc>/ECL2017S/lecture/7-python-modules-loops-io</loc>
     </url>
     
@@ -133,6 +137,14 @@
     
     <url>
         <loc>/ECL2017S/homework/6-problems-python-modules-loops-IO</loc>
+    </url>
+    
+    <url>
+        <loc>/ECL2017S/exam/1-solutions-midterm-exam</loc>
+    </url>
+    
+    <url>
+        <loc>/ECL2017S/exam/1-problems-midterm-exam</loc>
     </url>
     
     <url>

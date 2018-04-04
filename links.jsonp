@@ -222,6 +222,21 @@ callback([
   } ,
 
   {
+    "text": "Exam final: semester project",
+    "href": "/ECL2017S/exam/2-semester-project"
+  } ,
+
+  {
+    "text": "Exam 1: Solutions",
+    "href": "/ECL2017S/exam/1-solutions-midterm-exam"
+  } ,
+
+  {
+    "text": "Exam 1: Problems",
+    "href": "/ECL2017S/exam/1-problems-midterm-exam"
+  } ,
+
+  {
     "text": "Announcement 3: Final Semester Grades",
     "href": "/ECL2017S/announcement/3-final-grades"
   } ,
