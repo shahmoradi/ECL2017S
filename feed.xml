@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/ECL2017S/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/ECL2017S/" />
-<updated>2018-04-17T12:23:50-05:00</updated>
+<updated>2019-04-08T10:29:28-05:00</updated>
 <id>http:/ECL2017S/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -41,218 +41,6 @@
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/announcement/3-final-grades&quot;&gt;Announcement 3: Final Semester Grades&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on May 16, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Homework 10: Solutions - Python advanced, Monte Carlo methods]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/10-solutions-python-advanced-monte-carlo"/>
-  <id>http:/ECL2017S/homework/10-solutions-python-advanced-monte-carlo</id>
-  <published>2017-05-04T00:00:00-05:00</published>
-  <updated>2017-05-04T00:00:00-05:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This is the solution to &lt;a href=&quot;10-problems-python-advanced-monte-carlo.html&quot; target=&quot;_blank&quot;&gt;Homework 10: Problems - Python advanced Monte Carlo&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The following figure illustrates the grade distribution for this homework.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework10.png&quot; width=&quot;700&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:center&quot;&gt;
-        Maximum possible points is 100.&lt;br /&gt;
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;This homework further explores Monte Carlo methods in Python.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; &lt;strong&gt;Monte Carlo approximation of the number $\pi$&lt;/strong&gt;. Suppose we did not know the value of $\pi$ and we wanted to estimate its value using Monte Carlo methods. One practical approach is to draw a square of unit side, with its diagonal opposite corners extending from the coordinates origin $(0,0)$ to $(1,1)$. Now we try to simulate uniform random points from inside of this square by generating uniform random points along the $X$ and $Y$ axes, i.e., by generating two random uniform numbers (x,y) from the range $[0,1]$.&lt;/p&gt;
-
-&lt;p&gt;Now the generated random point $P$ has the coordinate $(x,y)$, so we can calculate its distance from the coordinate origin. Now suppose we also draw a quarter-circle inside of this square whose radius is unit and is centered at the origin $(0,0)$. The ratio of the area of this quarter-circle, $S_C$ to the area of the area of the square enclosing it, $S_S$ is,&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{S_C}{S_S} = \frac{\frac{1}{4}\pi r^2}{r^2} = \frac{1}{4}\pi&lt;/script&gt;
-
-&lt;p&gt;This is because the area of the square of unit sides, is just 1. Therefore, if we can somehow measure the area of the quarter $S_C$, then we can use the following equation, to get an estimate of $\pi$,&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\pi = 4S_C&lt;/script&gt;
-
-&lt;p&gt;In order to obtain, $S_C$, we are going to throw random points in the square, just as described above, and then find the fraction of points, $f=n_C/n_{\rm total}$, that fall inside this quarter-circle. This fraction is related to the area of the circle and square by the following equation,&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;f=\frac{n_C}{n_{\rm total}} = \frac{S_C}{S_S}&lt;/script&gt;
-
-&lt;p&gt;Therefore, one can obtain an estimate of $\pi$ using this fraction,&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\pi \approx \frac{1}{4}\frac{n_C}{n_{\rm total}}&lt;/script&gt;
-
-&lt;p&gt;Now, write a Python function, that takes in the number of points to be simulated, and then calculates an approximate value for $\pi$ based on the Monte Carlo algorithm described above.  Write a second function that plot the estimate of $\pi$ versus the number of points simulated, like the following,&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/10/approximatePi_10000.png&quot; width=&quot;900&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
-Here is an example Python code that estimates $\pi$.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import numpy.random as rnd
-import numpy.linalg as nlg
-import numpy as np
-import matplotlib.pyplot as plt
-
-def estimatePi(n=100000):
-    x = np.zeros((n,4),dtype=np.dtype)
-    counter = 0
-    for i in range(n):
-        x[i,0:2] = rnd.uniform(0.0,1.0,2)  # generate two uniform random numbers
-        x[i,2] = nlg.norm(x[i,:], ord=2)
-        if (x[i,2]&amp;lt;=1.0): counter += 1
-        x[i,3] = 4.0*np.double(counter)/np.double(i+1)
-    return x # the running approximate of pi is returned as a vector in the fourth column of x
-
-def plotPi(n=10000):
-    x = estimatePi(n)
-    plt.semilogx( list(range(1,n+1)) \
-                , x[:,3] \
-                ) # plot with color red, as line
-    plt.xlabel('Number of simulated points')
-    plt.ylabel('Approximate value of Pi')
-    #plt.axis([1, n , 0.1, 4.0]) # [xmin, xmax, ymin, ymax]
-    plt.title('Estimating Pi by Monte Carlo simulation')
-    plt.savefig('approximatePi_{}.png'.format(n))
-    plt.show()
-
-plotPi()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; &lt;strong&gt;Monte Carlo sampling of distribution functions&lt;/strong&gt; Suppose that you wanted to generate points whose distribution follows the blue curve in the following curve, whose mathematical formulation is known (in the case here, the function is just the sum of two Gaussian distributions).&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/10/normSum.gif&quot; width=&quot;700&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Now, one oway of doing this, is to draw a box around this curve, such that the box encompasses the entire curve.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/10/normSumWithRec_2.gif&quot; width=&quot;700&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Then, just as we did in the previous problem above, we draw random points from this square, and keep only those points that fall beneath this blue curve, like the red points in the following animation.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/10/RejSamForever.gif&quot; width=&quot;700&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Now, if you plot the histogram of these points, you will see that the distribution of the red points follows closely the blue curve that we wanted to sample.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/10/rejSamHistForever.gif&quot; width=&quot;700&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Now, given the above example, consider the following distribution function which we want to sample,&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;f(x) = \frac{(x+1)}{12} \exp\bigg(-\frac{(x-1)^2}{2x}\bigg) ~~,~~ x &gt; 0.&lt;/script&gt;
-
-&lt;p&gt;Suppose we know already that the highest point (maximum value) of this function is $f&amp;lt;0.2$, so that the value of this function always remains below $0.2$ everywhere along the positive x-axis, as seen in the following figure,&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/10/prob2Func.png&quot; width=&quot;900&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(A)&lt;/strong&gt; Now, first write a function that generates a plot of this function, similar to the above plot.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
-Here is an example Python script that plots the requested curve.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import numpy as np
-import matplotlib.pyplot as plt
-x = np.linspace(0.001,15,100)
-fig,ax=plt.subplots()
-f= lambda x: np.exp(-(x-1)**2/2./x)*(x+1)/12.
-fx = f(x)
-ax.plot(x,fx,label='$f(x)$')
-ax.legend(loc=0,fontsize=16);
-plt.savefig('prob2Func.png')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(B)&lt;/strong&gt; Then write another Python script, that samples from this function by first drawing a rectangle of base size $[0,15]$ and height $[0,h]$ with $h=0.2$. Then, draw uniform random points from this rectangle, and keep those that fall beneath the the value of $f(x)$ given above as points that are sampled from this function. Finally make a histogram of these points like the following.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/10/prob2FuncHist.png&quot; width=&quot;900&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
-Here is an example Python script that makes the requested plot.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;h=.2
-u1 = np.random.rand(10000)*15 # uniform random samples scaled out
-u2 = np.random.rand(10000)    # uniform random samples
-idx = np.where(u2&amp;lt;=f(u1)/h)[0] # rejection criterion
-v = u1[idx]
-fig,ax=plt.subplots()
-plt.hold(True)
-ax.hist(v,normed=1,bins=40,alpha=.3)
-ax.plot(x,fx,'r',lw=3.,label='$f(x)$')
-ax.legend(fontsize=18)
-plt.savefig('prob2FuncHist.png')
-plt.show()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(C)&lt;/strong&gt; Now make a plot of all generated points, both those that were accepted as samples, and those that were rejected, similar to the following plot, with accepted points in red color, and rejected points in black,&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/10/prob2FuncScatter.png&quot; width=&quot;700&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
-Here is an example Python script that makes the requested plot.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;fig,ax=plt.subplots()
-ax.plot(u1,u2,'k.',label='rejected',alpha=.3)
-ax.plot(u1[idx],u2[idx],'r.',label='accepted',alpha=.3)
-ax.legend(fontsize=16)
-plt.savefig('prob2FuncScatter.png')
-plt.show()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/10-solutions-python-advanced-monte-carlo&quot;&gt;Homework 10: Solutions - Python advanced, Monte Carlo methods&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on May 04, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -523,179 +311,6 @@ The book &lt;a href=&quot;http://link.springer.com/book/10.1007%2F978-3-662-4988
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/lecture/11-python-advanced-decorator-class&quot;&gt;Lecture 11: Python advanced topics - decorators and classes&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 26, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Homework 9: Solutions - Python advanced IO, Monte Carlo]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/9-solutions-python-advanced-io-monte-carlo-interoperability"/>
-  <id>http:/ECL2017S/homework/9-solutions-python-advanced-io-monte-carlo-interoperability</id>
-  <published>2017-04-26T00:00:00-05:00</published>
-  <updated>2017-04-26T00:00:00-05:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This is the solution to &lt;a href=&quot;9-problems-python-advanced-io-monte-carlo-interoperability.html&quot; target=&quot;_blank&quot;&gt;Homework 9: Problems - Python advanced IO, Monte Carlo&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The following figure illustrates the grade distribution for this homework.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework9.png&quot; width=&quot;700&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:center&quot;&gt;
-        Maximum possible points is 100.&lt;br /&gt;
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
-This homework aims at giving you some experience with Python’s tools for interacting with the World Wide Web and writing Monte Carlo simulations.
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; As I discussed in class, in order to avoid creating potential traffic on Professor Butler’s webpage, I have now uploaded all the necessary files on &lt;a href=&quot;http:/ECL2017S/homework/9/swift/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;this address&lt;/a&gt; (don’t click on the links in this table, because it will take you to Professor Butler’s repository for this data. I have all the data already saved in our domain locally). So now, your goal is to first read the event-ID HTML table from&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9/swift/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;https://www.shahmoradi.orghttp:/ECL2017S/homework/9/swift/bat_time_table.html&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Then, use the event-IDs in this table to generate web addresses like:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9/swift/GRB00100433_ep_flu.txt&quot; target=&quot;_blank&quot;&gt;https://www.shahmoradi.orghttp:/ECL2017S/homework/9/swift/GRB00100433_ep_flu.txt&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;in order to download these &lt;code&gt;.txt&lt;/code&gt; files from the web. The rest of the homework is just as you would have done this problem as descibed below.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; &lt;strong&gt;Reading scientific data from web&lt;/strong&gt;. Consider the webpage of Professor &lt;a href=&quot;http://butler.lab.asu.edu/&quot; target=&quot;_blank&quot;&gt;Nat Butler&lt;/a&gt; at Arizona State University. He has successfully written Python piplines for automated analysis of data from &lt;a href=&quot;https://www.nasa.gov/mission_pages/swift/main&quot; target=&quot;_blank&quot;&gt;NASA’s Swift satellite&lt;/a&gt;. For each &lt;a href=&quot;https://en.wikipedia.org/wiki/Gamma-ray_burst&quot; target=&quot;_blank&quot;&gt;Gamma-Ray Burst (GRB)&lt;/a&gt; detection that Swift makes, his pipline analyzes and reduces data for the burst and summarizes the results on his personal webpage, for example in &lt;a href=&quot;http://butler.lab.asu.edu/swift/bat_spec_table.html&quot; target=&quot;_blank&quot;&gt;this table&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(A)&lt;/strong&gt; Write a Python function named &lt;code&gt;fetchHtmlTable(link,outputPath)&lt;/code&gt; that takes two arguments:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;a web address (which will be this: &lt;a href=&quot;http://butler.lab.asu.edu/swift/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;http://butler.lab.asu.edu/swift/bat_time_table.html&lt;/a&gt;), and&lt;/li&gt;
-  &lt;li&gt;an output path to where you want the code save the resulting files. One file is exact HTML contained in the input webpage address, and a second file, which is the Table contained in this HTML address. To parse the HTML table in this address, you will need the Python code &lt;a href=&quot;http:/ECL2017S/homework/9/parseTable.py&quot; target=&quot;_blank&quot;&gt;parseTable.py&lt;/a&gt; also available and explained on &lt;a href=&quot;https://www.summet.com/dmsi/html/readingTheWeb.html&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;.  This parsed HTML table, will be in the form of a list, whose elements correspond to each row in the HTML table, and each row of element of this parsed table is itself another list, that contains the columns of the HTML table in that row. Output this table as well, in a separate file, in a formatted style, meaning that each element of table in a row has a space of 30 characters for itself (or something appropriate as you wish, e.g., &lt;code&gt;'{:&amp;gt;30}'.format(item)&lt;/code&gt;). You can see an example output of the code &lt;a href=&quot;http:/ECL2017S/homework/9/bat_time_table.html&quot; target=&quot;_blank&quot;&gt;here for the HTML output file&lt;/a&gt;, and &lt;a href=&quot;http:/ECL2017S/homework/9/bat_time_table.html.tab&quot; target=&quot;_blank&quot;&gt;here for parse HTML table&lt;/a&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;(B)&lt;/strong&gt; Now, if you look at the content of the file that your function has generated (once you run it), you will see something like the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;                   GRB (Trig#)               Trig_Time (SOD)               Time Region [s]                          T_90                          T_50                       rT_0.90                       rT_0.50                       rT_0.45                          T_av                         T_max                        T_rise                        T_fall                           Cts                       Rate_pk                          Band                              
-       GRB170406x   (00745966)                     44943.130                -40.63-&amp;gt;887.37              881.000 +/-7.697             549.000 +/-25.558             280.000 +/-13.432              124.000 +/-5.751              109.000 +/-4.997             433.667 +/-15.557            877.870 +/-367.494            890.500 +/-366.900              0.000 +/-366.630                6.082 +/-0.344               0.018 +/-0.0065                     15-350keV
-       GRB170402x   (00745090)                     38023.150                  54.35-&amp;gt;66.35                9.000 +/-2.096                5.000 +/-1.490                7.000 +/-1.535                4.000 +/-0.640                3.000 +/-0.559               60.964 +/-1.316               58.850 +/-2.417                1.500 +/-2.894                7.500 +/-2.720                0.162 +/-0.045               0.022 +/-0.0106                     15-350keV
-       GRB170401x   (00745022)                     68455.150                 -19.63-&amp;gt;71.49               78.880 +/-5.224               39.440 +/-4.168               41.480 +/-3.823               18.360 +/-1.585               16.320 +/-1.341               29.541 +/-2.857              24.910 +/-24.386              37.740 +/-24.251              41.140 +/-23.977                1.181 +/-0.122               0.024 +/-0.0130                     15-350keV
-       GRB170331x   (00744791)                      6048.440                 9.835-&amp;gt;35.875               20.160 +/-1.285               10.290 +/-0.914               14.070 +/-1.041                5.880 +/-0.415                5.040 +/-0.359               21.461 +/-0.598               12.460 +/-5.633                0.525 +/-5.718               19.635 +/-5.840                1.875 +/-0.154               0.134 +/-0.0408                     15-350keV
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Now write another function that reads the event unique numbers that appear in this table in parentheses (e.g., 00745966 is the first in table), and puts this number in place of &lt;code&gt;event_id&lt;/code&gt; in this web address template: &lt;code&gt;http://butler.lab.asu.edu/swift/event_id/bat/ep_flu.txt&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Now note that, for some events, this address exists, for example,&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://butler.lab.asu.edu/swift/00745966/bat/ep_flu.txt&quot; target=&quot;_blank&quot;&gt;http://butler.lab.asu.edu/swift/00745966/bat/ep_flu.txt&lt;/a&gt;,&lt;/p&gt;
-
-&lt;p&gt;which is a text file named &lt;code&gt;ep_flu.txt&lt;/code&gt;. For some other events, this address might not exist, for example,&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://butler.lab.asu.edu/swift/00680331/bat/ep_flu.txt&quot; target=&quot;_blank&quot;&gt;http://butler.lab.asu.edu/swift/00680331/bat/ep_flu.txt&lt;/a&gt;,&lt;/p&gt;
-
-&lt;p&gt;in which case your code will have to raise a &lt;code&gt;urllib.request.HTTPError&lt;/code&gt; exception. Write your code such that it can smoothly skip these exceptions. Write your code such that it saves all those text files on your local computer, in a file-name format like &lt;a href=&quot;http:/ECL2017S/homework/9/GRB00100433_ep_flu.txt&quot; target=&quot;_blank&quot;&gt;this example: &lt;code&gt;GRB00100433_ep_flu.txt&lt;/code&gt;&lt;/a&gt; (A total of 938 files exist).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(C)&lt;/strong&gt; Now write a third function, that reads all of these files in your directory, one by one, as numpy arrays, and plots the content of all of them together, on a single scatter plot like the following,&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/9/ep_flu.png&quot; width=&quot;900&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;To achieve this goal, your function should start like the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def plotBatFiles(inPath,figFile):
-    import os
-    import numpy as np, os
-    import matplotlib.pyplot as plt
-    ax = plt.gca()  # generate a plot handle
-    ax.set_xlabel('Fluence [ ergs/cm^2 ]') # set X axis title
-    ax.set_ylabel('Epeak [ keV ]')  # set Y axis title
-    ax.axis([1.0e-8, 1.0e-1, 1.0, 1.0e4]) # set axix limits [xmin, xmax, ymin, ymax]
-    plt.hold('on')  # add all data files to the same plot
-    counter = 0     # counts the number of events
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-where &lt;code&gt;inPath&lt;/code&gt; and &lt;code&gt;figFile&lt;/code&gt; are the path to the directory containing the files, and the name and path to the output figure file. You will have to use &lt;code&gt;os.listdir(inPath)&lt;/code&gt; to get a list of all files in your input directory. Then loop over this list of files, and use only those that end with &lt;code&gt;ep_flu.txt&lt;/code&gt; because that’s how you saved those files, e.g.,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;for file in os.listdir(inPath):
-        if file.endswith(&quot;ep_flu.txt&quot;):
-            # rest of your code ... 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-But now, you have to also make sure that your input data does indeed contain some numerical data, because some files do contain anything, although they exist, like &lt;a href=&quot;http:/ECL2017S/homework/9/GRB00559075_ep_flu.txt&quot; target=&quot;_blank&quot;&gt;this file: ``&lt;/a&gt;. To do so, you will have to perform a test on the content of file, once you read it as numpy array, like the following,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;            data = np.loadtxt(os.path.join(inPath, file), skiprows=1)
-            if data.size!=0 and all(data[:,1]&amp;lt;0.0):
-                # then plot data
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-the condition &lt;code&gt;all(data[:,1]&amp;lt;0.0)&lt;/code&gt; is rather technical. It makes sure that all values are positive on the second column. Once you have done all these checks, you have to do one final manipulation of data, that is, the data in these files on the second column is actually the log of data, so have to get the &lt;code&gt;exp()&lt;/code&gt; value to plot it (because plot is log-log). To do so you can use,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;            data[:,1] = np.exp(data[:,1])
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-and then finally,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;            ax.scatter(data[:,1],data[:,0],s=1,alpha=0.05,c='r',edgecolors='none')
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-which will add the data for the current file to the plot. At the end, you will have to set a title for your plot as well, and save your plot,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;    ax.set_title('Plot of Epeak vs. Fluence for {} Swift GRB events'.format(counter))
-    plt.savefig(figFile)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Note that the variable &lt;code&gt;counter&lt;/code&gt; contains the total number of events for which the text files exists on the website, &lt;strong&gt;and&lt;/strong&gt; the file contained some data (i.e., was not empty).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Question:&lt;/strong&gt; What does &lt;code&gt;alpha=0.05&lt;/code&gt; and &lt;code&gt;s=1&lt;/code&gt; do in the following scatter plot command? (Vary their values to see what happens)&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
-An example code can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/9/solutions/readTable.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; &lt;strong&gt;Simulating a fun Monte Carlo game.&lt;/strong&gt; Suppose you’re on a game show, and you’re given the choice of three doors:&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/9/Monty_1.png&quot; width=&quot;600&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Behind one door is a car; behind the two others, goats. You pick a door, say No. 1, and the host of the show opens another door, say No. 3, which has a goat.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/9/Monty_open_door.png&quot; width=&quot;600&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;He then says to you, “Do you want to pick door No. 2?”.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Question: What would you do?&lt;/strong&gt;&lt;br /&gt;
-Is it to your advantage to switch your choice from door 1 to door 2? Is it to your advantage, &lt;strong&gt;in the long run, for a large number of game tries&lt;/strong&gt;, to switch to the other door?&lt;/p&gt;
-
-&lt;p&gt;Now whatever your answer is, I want you to check/prove your answer by a Monte Carlo simulation of this problem. Make a plot of your simulation for $ngames=100000$ repeat of this game, that shows, in the long run, on average, what is the probability of winning this game if you switch your choice, and what is the probability of winning, if you do not switch to the other door.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
-An example code can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/9/solutions/monteGame.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;. Here is the code figure output,&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/9/solutions/MontyGameResult.png&quot; width=&quot;800&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;
-As you see in the figure, although you may initially win by not switching your choice, but in the long run, on average, you will lose, if you don’t switch your choice.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9-solutions-python-advanced-io-monte-carlo-interoperability&quot;&gt;Homework 9: Solutions - Python advanced IO, Monte Carlo&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 26, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1451,169 +1066,6 @@ Is it to your advantage to switch your choice from door 1 to door 2? Is it to yo
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/9-problems-python-advanced-io-monte-carlo-interoperability&quot;&gt;Homework 9: Problems - Python advanced IO, Monte Carlo&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 19, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Homework 8: Solutions - Python array computing and plotting]]></title>
-  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/8-solutions-python-array-computing-plotting"/>
-  <id>http:/ECL2017S/homework/8-solutions-python-array-computing-plotting</id>
-  <published>2017-04-19T00:00:00-05:00</published>
-  <updated>2017-04-19T00:00:00-05:00</updated>
-  <author>
-    <name>Amir Shahmoradi</name>
-    <uri>http:/ECL2017S</uri>
-    <email>amir@ices.utexas.edu</email>
-  </author>
-  
-  <content type="html">
-  
-    &lt;p&gt;This is the solution to &lt;a href=&quot;8-problems-python-array-computing-plotting.html&quot; target=&quot;_blank&quot;&gt;Homework 8: Problems - Python array computing and plotting&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The following figure illustrates the grade distribution for this homework.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/gradeDist/gradeHistHomework8.png&quot; width=&quot;700&quot; /&gt;
-    &lt;figcaption style=&quot;text-align:center&quot;&gt;
-        Maximum possible points is 100.&lt;br /&gt;
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;This homework aims at giving you some experience with Python’s array computing and plotting features.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; &lt;strong&gt;The while-loop implementation of a for-loop&lt;/strong&gt;. Consider the following mathematical function resembling a Hat function,&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-f(x) = 
-\begin{cases}
-    0 ~,    &amp; \text{if}~~ x&lt;0 \\
-    x ~,    &amp; \text{if}~~ 0\leq x &lt;1 \\
-    2-x ~,  &amp; \text{if}~~ 1\leq x &lt;2 \\
-    0 ~,    &amp; \text{if}~~ x \geq 2 \\
-\end{cases} %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;A scalar implementation of this function would be,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def hatFunc(x):
-    if x &amp;lt; 0:
-        return 0.0
-    elif 0 &amp;lt;= x &amp;lt; 1:
-        return x
-    elif 1 &amp;lt;= x &amp;lt; 2:
-        return 2 - x
-    elif x &amp;gt;= 2:
-        return 0.0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;
-Write a vectorized version of this function. (Hint: you may need numpy’s &lt;code&gt;logical_and&lt;/code&gt; method for building the vectorized version of this function.)&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def hatFunc(x):
-    condition1 = x &amp;lt; 0
-    condition2 = np.logical_and(0 &amp;lt;= x, x &amp;lt; 1)
-    condition3 = np.logical_and(1 &amp;lt;= x, x &amp;lt; 2)
-    condition4 = x &amp;gt;= 2
-    r = np.zeros(len(x))
-    r[condition1] = 0.0
-    r[condition2] = x[condition2]
-    r[condition3] = 2-x[condition3]
-    r[condition4] = 0.0
-    return r
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; The vertical position $y(t)$ of a ball thrown upward is given by $y(t)=v_0t-\frac{1}{2}gt^2$, where $g$ is the acceleration of gravity and $v_0$ is the initial vertical velocity at $t=0$. Two important physical quantities in this context are the potential energy, obtained by doing work against gravity, and the kinetic energy, arising from motion. The potential energy is defined as $P=mgy$, where $m$ is the mass of the ball. The kinetic energy is defined as $K=\frac{1}{2}mv^2$, where $v$ is the velocity of the ball, related to $y$ by $v(t)=y’(t)$.&lt;/p&gt;
-
-&lt;p&gt;Write a program that can plot $P(t)$ and $K(t)$ in the same plot, along with their sum $E = P + K$. Let $t\in[0,2v_0/g]$. Write your program such that $m$ and $v_0$ are read from the command line. Run the program with various choices of $m$ and $v_0$ and observe that $P+K$ always remains constant in this motion, regardless of initial conditions. This is in fact, the fundamental principle of conservation of energy in Physics.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
-A sample code can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/8/ball_energy.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;. Here is an example output figure of the code:&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/8/ball_energy.png&quot; width=&quot;900&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; &lt;strong&gt;Integration by midpoint rule&lt;/strong&gt;: The idea of the Midpoint rule for integration is to divide the area under a curve $f(x)$ into $n$ equal-sized rectangles. The height of the rectangle is determined by the value of $f$ at the midpoint of the rectangle. The figure below illustrates the idea,&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/8/midpnt.gif&quot; width=&quot;700&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;To implement the midpointrule, one has to compute the area of each rectangle, sum them up, just as in the formula for the Midpoint rule,&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\int^b_a f(x) dx \approx h\sum^{n-1}_{i=0} f(a+ih+0.5h) ~,&lt;/script&gt;
-
-&lt;p&gt;where $h=(b-a)/n$ is the width of each rectangle. Implement this formula as a Python function midpoint(f, a, b, n) and test the integrator with the following example input mathematical functions.&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{align*}
-    f_1(x) &amp;= exp(x) ~,~ \text{for integration range } ~ [0, \log(3)] \\\\
-    f_2(x) &amp;= cos(x) ~,~ \text{for integration range } ~ [0, \pi]     \\\\
-    f_3(x) &amp;= sin(x) ~,~ \text{for integration range } ~ [0, \pi]     \\\\
-    f_4(x) &amp;= sin(x) ~,~ \text{for integration range } ~ [0, \pi / 2] \\\\
-\end{align*} %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
-An example code can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/8/midpoint.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;. Here is the output of the code,&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [38]: run midpoint.py
-The exact integral of exp(x) between 0.00000 and 1.09861 is 2.00000.            The approximate answer is 1.99899 giving an error of 0.00101
-The exact integral of cos(x) between 0.00000 and 3.14159 is 0.00000.            The approximate answer is 0.00000 giving an error of 0.00000
-The exact integral of sin(x) between 0.00000 and 3.14159 is 2.00000.            The approximate answer is 2.00825 giving an error of 0.00825
-The exact integral of sin(x) between 0.00000 and 1.57080 is 1.00000.            The approximate answer is 1.00103 giving an error of 0.00103
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; &lt;strong&gt;Visualize approximations in the Midpoint integration rule&lt;/strong&gt; Now consider the following function,&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;f(x) = x(12-x)+\sin(\pi x) ~~,~~ x\in[0,10] ~,&lt;/script&gt;
-
-&lt;p&gt;which we wish to integrate using the midpoint integrator that you wrote in the previous example. Now write a new code that visualizes the midpoint rule, similar to in the following figure. (Hint: you will need to use the Matplotlib function &lt;code&gt;fill_between&lt;/code&gt; and use this function to create the filled areas between f(x) and the approximating rectangles)&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;img src=&quot;http:/ECL2017S/homework/8/midpoint_visualization.png&quot; width=&quot;700&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
-An example code can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/8/visualize_midpoint.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/8-solutions-python-array-computing-plotting&quot;&gt;Homework 8: Solutions - Python array computing and plotting&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on April 19, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -4920,6 +4372,817 @@ Here is a test,&lt;/p&gt;
 
   
   &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/6-solutions-python-modules-loops-IO&quot;&gt;Homework 6: Solutions - Python modules, loops, and I/O&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on March 29, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Homework 6: Problems - Python modules, loops, and I/O]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/homework/6-problems-python-modules-loops-IO"/>
+  <id>http:/ECL2017S/homework/6-problems-python-modules-loops-IO</id>
+  <published>2017-03-29T00:00:00-05:00</published>
+  <updated>2017-03-29T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This homework aims at giving you some experience with Python for-loops and while-loops as well as reading user input from the Bash command line.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; &lt;strong&gt;The while-loop implementation of a for-loop&lt;/strong&gt;. Consider the following example code, which converts a list of temperature values from Celcius to Ferenheit, using a for-loop and then prints them on screen.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;Cdegrees = [-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40]
+print ('    C     F')
+for C in Cdegrees:
+    F = (9.0/5)*C + 32
+print ('%5d %5.1f' % (C, F))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;    C     F
+  -20  -4.0
+  -15   5.0
+  -10  14.0
+   -5  23.0
+    0  32.0
+    5  41.0
+   10  50.0
+   15  59.0
+   20  68.0
+   25  77.0
+   30  86.0
+   35  95.0
+   40 104.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Write a while-loop implementation of the above code.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Consider the following nested list,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;the following nested list:
+q = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h']]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Write a for-loop that extracts all the letters in the list and finally prints them all as a single string,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;abcdefgh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Consider the following program,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from math import sqrt
+for n in range(1, 60):
+    r_org = 2.0
+    r = r_org
+    for i in range(n):
+        r = sqrt(r)
+    for i in range(n):
+        r = r ** 2
+    print ('With {} times sqrt and then {} times **2, the number {} becomes: {:.16f}'.format(n,n,r_org,r))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Explain what this code does. Then run the code, and explain why do you the behavior observed. In particular, why do you not recover the original value $2$ after many repetitions of the same forward and reverse task?&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; Consider the following code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;eps = 1.0
+while 1.0 != 1.0 + eps:
+    print ('...............', eps)
+    eps /= 2.0
+print ('final eps:', eps)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+Explain what the code is doing. Run the code and observe the output. How could &lt;code&gt;1.0 != 1.0 + eps&lt;/code&gt; be False?&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. &lt;/strong&gt; Consider the following list,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;numbers = list(range(10))
+print(numbers)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now run the following code, given the above list. Explain the weird behavior that you observe.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;for n in numbers:
+    i = len(numbers)//2
+    del numbers[i]
+    print ('n={}, del {}'.format(n,i), numbers)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6. &lt;/strong&gt; Consider a problem similar to what we had in the midterm exam: Write a Python function that when executed, asks the user to enter an integer number, then the function gives out the number of prime numbers that are smaller than the input integer number. Here is the answer to this question using only the knowledge of recursive functions and if-blocks,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def is_prime(n):
+    
+    is_prime = True
+    
+    def is_divisible(n,divisor):
+        if n&amp;lt;(divisor-1)*divisor: return False
+        if n%divisor==0: return True
+        else:
+            divisor += 1
+            return is_divisible(n,divisor)
+
+    if is_divisible(n,divisor=2): is_prime=False
+    return is_prime
+
+def get_primes(n):
+    count = 0
+    if n == 1:
+        return count
+    else:
+        if is_prime(n):
+            count = 1
+        n -= 1
+        return count + get_primes(n)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;get_primes(13)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(A) Now rewrite &lt;code&gt;get_primes(n)&lt;/code&gt; and the other functions in the above code using for-loop this time. Name the new functions &lt;code&gt;get_prime_for(n)&lt;/code&gt; and &lt;code&gt;is_prime_for(n)&lt;/code&gt;, with &lt;em&gt;for&lt;/em&gt; in the names indicating that the functions now use for-loops.&lt;/p&gt;
+
+&lt;p&gt;(B) Now compare the performance of the two functions &lt;code&gt;get_primes(n=500)&lt;/code&gt; and &lt;code&gt;get_primes_for(n500)&lt;/code&gt; using Jupyter’s or IPython’s &lt;code&gt;%timeit&lt;/code&gt; magic function. Which one is faster?&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/homework/6-problems-python-modules-loops-IO&quot;&gt;Homework 6: Problems - Python modules, loops, and I/O&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on March 29, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Exam 1: Solutions]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/exam/1-solutions-midterm-exam"/>
+  <id>http:/ECL2017S/exam/1-solutions-midterm-exam</id>
+  <published>2017-03-22T00:00:00-05:00</published>
+  <updated>2017-03-22T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This is the solution to &lt;a href=&quot;1-problems-midterm-exam.html&quot; target=&quot;_blank&quot;&gt;Exam 1: Problems&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--
+--&gt;
+&lt;p&gt;The following figure illustrates the grade distribution for the midterm exam.&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;http:/ECL2017S/exam/gradeDist/gradeHistMidtermExam.png&quot; width=&quot;700&quot; /&gt;
+    &lt;figcaption style=&quot;text-align:center&quot;&gt;
+        Maximum possible points is 100.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is the first (and last) midterm exam of this course, covering lectures 1-6. Please submit your answers to each of the following questions in a single &lt;code&gt;readme.md&lt;/code&gt; file, in &lt;code&gt;ECL2017S/exams/1/&lt;/code&gt; directory in your private repository for this course. Don’t forget to push your answers to your remote Github repository by the end of the exam.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Name the closest programming language to machine code, and the oldest high-level programming language in history, respectively.&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;
+Assembly, Fortran.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Name a programming language ancestor of Python.&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;
+C.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Name the three different generations (not different software) of Version Control Systems ever developed. If you don’t remember the exact names, you can instead briefly explain how each VCS paradigm works.&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+Local VCS, Centralized VCS, Distributed VCS. For details of each VCS paradigm see &lt;a href=&quot;http:/ECL2017S/lecture/1-version-control-system&quot; target=&quot;_blank&quot;&gt;this lecture&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; What is the Git command that lists ALL tags in the project?&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git tag
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. &lt;/strong&gt;  Write a &lt;strong&gt;single-line&lt;/strong&gt; python script, that applies the relevant Python string manipulator methods to this string,&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Python Is Great For String Manipulation.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and transforms it to the following string and and prints it on screen,&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.noitalupinam-gnirts-rof-taerg-si-nohtyp
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print( &quot;Python Is Great For String Manipulation.&quot;.lower().replace(' ','-')[::-1] )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;.noitalupinam-gnirts-rof-taerg-si-nohtyp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6. &lt;/strong&gt; Name the three major types of programming errors.&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+syntax, runtime, and semantic errors.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;7. &lt;/strong&gt; Are tuples mutable objects? Can they be redefined?&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+No. Yes.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;8. &lt;/strong&gt; Download &lt;a href=&quot;http:/ECL2017S/homework/4/script_full_of_errors.py&quot; target=&quot;_blank&quot;&gt;this code&lt;/a&gt;. This code is full syntax errors. Fix the errors and submit the corrected code with name &lt;code&gt;script_full_of_errors_corrected.py&lt;/code&gt; in your &lt;code&gt;exams/1/&lt;/code&gt; folder of your project. Explain in front of each corrected Python statement, why the error occurred.  On the last line of the script,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;true = fox is rev in Persian
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+the statement runs without error. But can you explain what it does?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+The corrected file can be downloaded from &lt;a href=&quot;http:/ECL2017S/homework/4/solutions/script_full_of_errors_corrected.py&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;br /&gt;
+The last line of the script, first compares the identity of &lt;code&gt;fox&lt;/code&gt; with &lt;code&gt;rev&lt;/code&gt;, the result of which is either &lt;code&gt;True&lt;/code&gt; or &lt;code&gt;False&lt;/code&gt;, then checks if this result is in the list &lt;code&gt;Persian&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;9. &lt;/strong&gt; (A) In the following code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [26]: a = [1,2,3,4,5]
+
+In [27]: b = a
+
+In [28]: b
+Out[28]: [1, 2, 3, 5]
+
+In [29]: b.append(6)
+
+In [30]: a
+Out[30]: [1, 2, 3, 5, 6]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+explain the relationship between &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; (why does &lt;code&gt;a&lt;/code&gt; change from line 25 to line 30?).&lt;/p&gt;
+
+&lt;p&gt;(B) Continuing with the above code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [31]: b = a + a
+
+In [32]: a
+Out[32]: [1, 2, 3, 5, 6]
+
+In [33]: b
+Out[33]: [1, 2, 3, 5, 6, 1, 2, 3, 5, 6]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+explain why the values of &lt;code&gt;b&lt;/code&gt; and &lt;code&gt;a&lt;/code&gt; are different?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+Simple.&lt;br /&gt;
+(A) &lt;code&gt;b&lt;/code&gt; is an alias for the content of &lt;code&gt;a&lt;/code&gt;.&lt;br /&gt;
+(B) When &lt;code&gt;b&lt;/code&gt; is redefined in line 31, the alias between &lt;code&gt;b&lt;/code&gt; and &lt;code&gt;a&lt;/code&gt; is automatically broken.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;10. &lt;/strong&gt; Are the following variable assignments considered an alias for the same value (list), or independent copies of the list?&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = b = c = [1,2,3,4]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+If they constitute an alias, how can you assign independent copy of the values of one variable (e.g., &lt;code&gt;c&lt;/code&gt;) to another variable (e.g., &lt;code&gt;a&lt;/code&gt;)? Otherwise, if the above assignment, creates independent copies, how would you change the assignment, such that they becomes aliases for the same value?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+Multiple assignment statements result in aliases for &lt;em&gt;list&lt;/em&gt; values. To make hard copies, use the following &lt;code&gt;copy()&lt;/code&gt; method:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [45]: a = b = c = [1,2,3,4]
+
+In [46]: a is b
+Out[46]: True
+
+In [47]: a = b.copy()
+
+In [48]: a is b
+Out[48]: False
+
+In [49]: a
+Out[49]: [1, 2, 3, 4]
+
+In [50]: b
+Out[50]: [1, 2, 3, 4]
+
+In [51]: a == b
+Out[51]: True
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;11. &lt;/strong&gt; Write a Python program, &lt;code&gt;find_primes.py&lt;/code&gt;, that when executed, asks the user to enter an integer number, then the program prints on screen all the prime numbers smaller than the input integer number.&lt;br /&gt;
+(&lt;strong&gt;Hint:&lt;/strong&gt; Start with writing a function that finds whether an input integer number is prime or not, then write another function that repeatedly calls this function to find all the prime numbers smaller than the initial input number.)&lt;/p&gt;
+
+&lt;p&gt;Here is a sample output from the code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;Enter an integer number: 50
+Here is a list of all prime numbers smaller than 50:
+47
+43
+41
+37
+31
+29
+23
+19
+17
+13
+11
+7
+5
+3
+2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+A sample answer can be downloaded from &lt;a href=&quot;http:/ECL2017S/exam/1/find_primes.py&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;12. &lt;/strong&gt; (A) Rewrite the following statement in two different but equivalent ways:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;A &lt;strong&gt;one-line&lt;/strong&gt; if-expression.&lt;/li&gt;
+  &lt;li&gt;Using only tuple notation, instead of if-block or if-expression syntax.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
+
+abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
+
+answer_status = 'wrong'
+if abbr == 'ECL':
+    answer_status = 'correct'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+(B) Which one of the above two methods, would also be applicable to the following if-block + print statements. Rewrite it in whichever format that is suitable.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if answer_status=='correct':
+    print('You answer is correct!')
+else:
+    print(&quot;wrong buddy...try again&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+(A)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
+abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
+answer_status = 'correct' if abbr == 'ECL' else 'wrong'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+or,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
+abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
+answer_status = ('wrong','correct')[abbr=='ECL']
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+(B)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
+abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
+print( ('wrong buddy...try again','You answer is correct!')[answer_status=='correct'] )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+or,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
+abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
+print( 'You answer is correct!' if answer_status=='correct' else 'wrong buddy...try again' )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;13. &lt;/strong&gt; Consider the following two Python expressions,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;(1,1) is (1,1)
+(1,1) == (1,1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Are these two the same? Explain your answer.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;br /&gt;
+The keyword &lt;code&gt;is&lt;/code&gt; checks for the same identity of the objects that are compared. The operator &lt;code&gt;==&lt;/code&gt; checks for the same value of the objects.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;14. &lt;/strong&gt; Consider the following function which takes another function as input:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def diff2nd(func, x, h=1E-6):
+    r = (func(x-h) - 2*func(x) + func(x+h))/float(h*h)
+    return r
+
+x = 2
+diff2nd_g = diff2nd(g, x)
+print ( &quot;g’’(x=%f)=%f&quot; % (x, diff2nd_g) )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Write a lambda function as an input to this function, that calculates the function value &lt;script type=&quot;math/tex&quot;&gt;x^2 + 4x + 1&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;g = lambda x: x**2 + 4.0*x + 1.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;15. &lt;/strong&gt; The traditional way of swapping values of two variables in most programming languages is like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [68]: a = 5
+
+In [69]: b = 7
+
+In [70]: _ = a
+
+In [71]: a = b
+
+In [72]: b = _
+
+In [73]: a
+Out[73]: 7
+
+In [74]: b
+Out[74]: 5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Rewrite the swapping above, in a more abbreviated Pythonic way, once using lists, and another using tuples.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [75]: (a,b) = (b,a)
+
+In [76]: a
+Out[76]: 5
+
+In [77]: b
+Out[77]: 7
+
+In [78]: [a,b] = [b,a]
+
+In [79]: a
+Out[79]: 7
+
+In [80]: b
+Out[80]: 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/exam/1-solutions-midterm-exam&quot;&gt;Exam 1: Solutions&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on March 22, 2017.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Exam 1: Problems]]></title>
+  <link rel="alternate" type="text/html" href="http:/ECL2017S/exam/1-problems-midterm-exam"/>
+  <id>http:/ECL2017S/exam/1-problems-midterm-exam</id>
+  <published>2017-03-22T00:00:00-05:00</published>
+  <updated>2017-03-22T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/ECL2017S</uri>
+    <email>amir@ices.utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This is the first (and last) midterm exam of this course, covering lectures 1-6. Please submit your answers to each of the following questions in a single &lt;code&gt;readme.md&lt;/code&gt; file, in &lt;code&gt;ECL2017S/exams/1/&lt;/code&gt; directory in your private repository for this course. Don’t forget to push your answers to your remote Github repository by the end of the exam.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. &lt;/strong&gt; Name the closest programming language to machine code, and the oldest high-level programming language in history, respectively.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. &lt;/strong&gt; Name a programming language ancestor of Python.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Name the three different generations (not different software) of Version Control Systems ever developed. If you don’t remember the exact names, you can instead briefly explain how each VCS paradigm works.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. &lt;/strong&gt; What is the Git command that lists ALL tags in the project?&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. &lt;/strong&gt;  Write a &lt;strong&gt;single-line&lt;/strong&gt; python script, that applies the relevant Python string manipulator methods to this string,&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Python Is Great For String Manipulation.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and transforms it to the following string and and prints it on screen,&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.noitalupinam-gnirts-rof-taerg-si-nohtyp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6. &lt;/strong&gt; Name the three major types of programming errors.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;7. &lt;/strong&gt; Are tuples mutable objects? Can they be redefined?&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;8. &lt;/strong&gt; Download &lt;a href=&quot;http:/ECL2017S/homework/4/script_full_of_errors.py&quot; target=&quot;_blank&quot;&gt;this code&lt;/a&gt;. This code is full syntax errors. Fix the errors and submit the corrected code with name &lt;code&gt;script_full_of_errors_corrected.py&lt;/code&gt; in your &lt;code&gt;exams/1/&lt;/code&gt; folder of your project. Explain in front of each corrected Python statement, why the error occurred.  On the last line of the script,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;true = fox is rev in Persian
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+the statement runs without error. But can you explain what it does?&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;9. &lt;/strong&gt; (A) In the following code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [26]: a = [1,2,3,4,5]
+
+In [27]: b = a
+
+In [28]: b
+Out[28]: [1, 2, 3, 5]
+
+In [29]: b.append(6)
+
+In [30]: a
+Out[30]: [1, 2, 3, 5, 6]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+explain the relationship between &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; (why does &lt;code&gt;a&lt;/code&gt; change from line 25 to line 30?).&lt;/p&gt;
+
+&lt;p&gt;(B) Continuing with the above code,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [31]: b = a + a
+
+In [32]: a
+Out[32]: [1, 2, 3, 5, 6]
+
+In [33]: b
+Out[33]: [1, 2, 3, 5, 6, 1, 2, 3, 5, 6]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+explain why the values of &lt;code&gt;b&lt;/code&gt; and &lt;code&gt;a&lt;/code&gt; are different?&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;10. &lt;/strong&gt; Are the following variable assignments considered an alias for the same value (list), or independent copies of the list?&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = b = c = [1,2,3,4]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+If they constitute an alias, how can you assign independent copy of the values of one variable (e.g., &lt;code&gt;c&lt;/code&gt;) to another variable (e.g., &lt;code&gt;a&lt;/code&gt;)? Otherwise, if the above assignment, creates independent copies, how would you change the assignment, such that they becomes aliases for the same value?&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;11. &lt;/strong&gt; Write a Python program, &lt;code&gt;find_primes.py&lt;/code&gt;, that when executed, asks the user to enter an integer number, then the program prints on screen all the prime numbers smaller than the input integer number.&lt;br /&gt;
+(&lt;strong&gt;Hint:&lt;/strong&gt; Start with writing a function that finds whether an input integer number is prime or not, then write another function that repeatedly calls this function to find all the prime numbers smaller than the initial input number.)&lt;/p&gt;
+
+&lt;p&gt;Here is a sample output from the code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;Enter an integer number: 50
+Here is a list of all prime numbers smaller than 50:
+47
+43
+41
+37
+31
+29
+23
+19
+17
+13
+11
+7
+5
+3
+2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;12. &lt;/strong&gt; (A) Rewrite the following statement in two different but equivalent ways:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;A &lt;strong&gt;one-line&lt;/strong&gt; if-expression.&lt;/li&gt;
+  &lt;li&gt;Using only tuple notation, instead of if-block or if-expression syntax.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;#!/usr/bin/env python
+
+abbr = input (&quot;What is the three letter abbreviation of this course? &quot;)
+
+answer_status = 'wrong'
+if abbr == 'ECL':
+    answer_status = 'correct'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+(B) Which one of the above two methods, would also be applicable to the following if-block + print statements. Rewrite it in whichever format that is suitable.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if answer_status=='correct':
+    print('You answer is correct!')
+else:
+    print(&quot;wrong buddy...try again&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;13. &lt;/strong&gt; Consider the following two Python expressions,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;(1,1) is (1,1)
+(1,1) == (1,1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Are these two the same? Explain your answer.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;14. &lt;/strong&gt; Consider the following function which takes another function as input:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def diff2nd(func, x, h=1E-6):
+    r = (func(x-h) - 2*func(x) + func(x+h))/float(h*h)
+    return r
+
+x = 2
+diff2nd_g = diff2nd(g, x)
+print ( &quot;g’’(x=%f)=%f&quot; % (x, diff2nd_g) )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Write a lambda function as an input to this function, that calculates the function value &lt;script type=&quot;math/tex&quot;&gt;x^2 + 4x + 1&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;15. &lt;/strong&gt; The traditional way of swapping values of two variables in most programming languages is like the following,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;In [68]: a = 5
+
+In [69]: b = 7
+
+In [70]: _ = a
+
+In [71]: a = b
+
+In [72]: b = _
+
+In [73]: a
+Out[73]: 7
+
+In [74]: b
+Out[74]: 5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Rewrite the swapping above, in a more abbreviated Pythonic way, once using lists, and another using tuples.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/ECL2017S/exam/1-problems-midterm-exam&quot;&gt;Exam 1: Problems&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/ECL2017S&quot;&gt;COE 111L - Spring 2017 - W 9-10 AM - WRW 209&lt;/a&gt; on March 22, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>
