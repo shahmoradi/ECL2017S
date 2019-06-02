@@ -122,8 +122,18 @@ callback([
   } ,
 
   {
+    "text": "Homework 9: Solutions - Python advanced IO, Monte Carlo",
+    "href": "/ECL2017S/homework/9-solutions-python-advanced-io-monte-carlo-interoperability"
+  } ,
+
+  {
     "text": "Homework 9: Problems - Python advanced IO, Monte Carlo",
     "href": "/ECL2017S/homework/9-problems-python-advanced-io-monte-carlo-interoperability"
+  } ,
+
+  {
+    "text": "Homework 8: Solutions - Python array computing and plotting",
+    "href": "/ECL2017S/homework/8-solutions-python-array-computing-plotting"
   } ,
 
   {
@@ -199,6 +209,11 @@ callback([
   {
     "text": "Homework 1: Problems - Designing a Github README file and web-page for your project",
     "href": "/ECL2017S/homework/1-problems-project-readme-file"
+  } ,
+
+  {
+    "text": "Homework 10: Solutions - Python advanced, Monte Carlo methods",
+    "href": "/ECL2017S/homework/10-solutions-python-advanced-monte-carlo"
   } ,
 
   {

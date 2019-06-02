@@ -2,23 +2,23 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>HOMEWORK 9: PROBLEMS - PYTHON ADVANCED IO, MONTE CARLO &vert; COE 111L - SPRING 2017 - W 9-10 AM - WRW 209</title>
+<title>HOMEWORK 9: SOLUTIONS - PYTHON ADVANCED IO, MONTE CARLO &vert; COE 111L - SPRING 2017 - W 9-10 AM - WRW 209</title>
 <meta name="description" content="Engineering Computation Lab">
 <meta name="keywords" content="">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/ECL2017S/images/logo.png">
-<meta name="twitter:title" content="Homework 9: Problems - Python advanced IO, Monte Carlo">
+<meta name="twitter:title" content="Homework 9: Solutions - Python advanced IO, Monte Carlo">
 <meta name="twitter:description" content="Engineering Computation Lab">
 <meta name="twitter:creator" content="@AmirShahmoradi">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Homework 9: Problems - Python advanced IO, Monte Carlo">
+<meta property="og:title" content="Homework 9: Solutions - Python advanced IO, Monte Carlo">
 <meta property="og:description" content="Engineering Computation Lab">
-<meta property="og:url" content="/ECL2017S/homework/9-problems-python-advanced-io-monte-carlo-interoperability">
+<meta property="og:url" content="/ECL2017S/homework/9-solutions-python-advanced-io-monte-carlo-interoperability">
 <meta property="og:site_name" content="COE 111L - Spring 2017 - W 9-10 AM - WRW 209">
 <meta property="og:image" content="/ECL2017S/images/">
 
@@ -26,7 +26,7 @@
 
 
 
-<link rel="canonical" href="/ECL2017S/homework/9-problems-python-advanced-io-monte-carlo-interoperability">
+<link rel="canonical" href="/ECL2017S/homework/9-solutions-python-advanced-io-monte-carlo-interoperability">
 <!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 - W 9-10 AM - WRW 209 Feed"> -->
 
 
@@ -124,8 +124,8 @@ MathJax.Hub.Queue(function() {
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h2>Homework 9: Problems - Python advanced IO, Monte Carlo</h2>
-                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-04-19T00:00:00-05:00">19 Apr 2017</time></strong></p>
+                            <h2>Homework 9: Solutions - Python advanced IO, Monte Carlo</h2>
+                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-04-26T00:00:00-05:00">26 Apr 2017</time></strong></p>
                         </div>
                     </div>
                 </div>
@@ -135,9 +135,23 @@ MathJax.Hub.Queue(function() {
             <article class="notepad-post-content post tag-simple">
         
             <div style="text-align:justify;">
-                <p>This homework aims at giving you some experience with Python’s tools for interacting with the World Wide Web and writing Monte Carlo simulations.</p>
+                <p>This is the solution to <a href="9-problems-python-advanced-io-monte-carlo-interoperability.html" target="_blank">Homework 9: Problems - Python advanced IO, Monte Carlo</a>.</p>
 
-<p><br /></p>
+<p>The following figure illustrates the grade distribution for this homework.</p>
+
+<figure>
+	<img src="/ECL2017S/homework/gradeDist/gradeHistHomework9.png" width="700" />
+    <figcaption style="text-align:center">
+        Maximum possible points is 100.<br />
+    </figcaption>
+</figure>
+
+<hr />
+<hr />
+
+<p><br /><br />
+This homework aims at giving you some experience with Python’s tools for interacting with the World Wide Web and writing Monte Carlo simulations.
+<br /></p>
 
 <hr />
 <hr />
@@ -158,11 +172,9 @@ MathJax.Hub.Queue(function() {
 
 <p><strong>(A)</strong> Write a Python function named <code>fetchHtmlTable(link,outputPath)</code> that takes two arguments:</p>
 <ol>
-  <li>a web address (which will be this: <a href="http://butler.lab.asu.edu/swift/bat_time_table.html" target="_blank">http://butler.lab.asu.edu/swift/bat_time_table.html</a>), and,</li>
-  <li>an output path to where you want the code save the resulting files.</li>
+  <li>a web address (which will be this: <a href="http://butler.lab.asu.edu/swift/bat_time_table.html" target="_blank">http://butler.lab.asu.edu/swift/bat_time_table.html</a>), and</li>
+  <li>an output path to where you want the code save the resulting files. One file is exact HTML contained in the input webpage address, and a second file, which is the Table contained in this HTML address. To parse the HTML table in this address, you will need the Python code <a href="/ECL2017S/homework/9/parseTable.py" target="_blank">parseTable.py</a> also available and explained on <a href="https://www.summet.com/dmsi/html/readingTheWeb.html" target="_blank">this page</a>.  This parsed HTML table, will be in the form of a list, whose elements correspond to each row in the HTML table, and each row of element of this parsed table is itself another list, that contains the columns of the HTML table in that row. Output this table as well, in a separate file, in a formatted style, meaning that each element of table in a row has a space of 30 characters for itself (or something appropriate as you wish, e.g., <code>'{:&gt;30}'.format(item)</code>). You can see an example output of the code <a href="/ECL2017S/homework/9/bat_time_table.html" target="_blank">here for the HTML output file</a>, and <a href="/ECL2017S/homework/9/bat_time_table.html.tab" target="_blank">here for parse HTML table</a>.</li>
 </ol>
-
-<p>One file is exact HTML contained in the input webpage address, and a second file, which is the Table contained in this HTML address. To parse the HTML table in this address, you will need the Python code <a href="/ECL2017S/homework/9/parseTable.py" target="_blank">parseTable.py</a> also available and explained on <a href="https://www.summet.com/dmsi/html/readingTheWeb.html" target="_blank">this page</a>.  This parsed HTML table, will be in the form of a list, whose elements correspond to each row in the HTML table, and each row of element of this parsed table is itself another list, that contains the columns of the HTML table in that row. Output this table as well, in a separate file, in a formatted style, meaning that each element of table in a row has a space of 30 characters for itself (or something appropriate as you wish, e.g., <code>'{:&gt;30}'.format(item)</code>). You can see an example output of the code <a href="/ECL2017S/homework/9/bat_time_table.html" target="_blank">here for the HTML output file</a>, and <a href="/ECL2017S/homework/9/bat_time_table.html.tab" target="_blank">here for parse HTML table</a>.</p>
 
 <p><strong>(B)</strong> Now, if you look at the content of the file that your function has generated (once you run it), you will see something like the following,</p>
 <pre><code class="language-text">                   GRB (Trig#)               Trig_Time (SOD)               Time Region [s]                          T_90                          T_50                       rT_0.90                       rT_0.50                       rT_0.45                          T_av                         T_max                        T_rise                        T_fall                           Cts                       Rate_pk                          Band                              
@@ -172,7 +184,7 @@ MathJax.Hub.Queue(function() {
        GRB170331x   (00744791)                      6048.440                 9.835-&gt;35.875               20.160 +/-1.285               10.290 +/-0.914               14.070 +/-1.041                5.880 +/-0.415                5.040 +/-0.359               21.461 +/-0.598               12.460 +/-5.633                0.525 +/-5.718               19.635 +/-5.840                1.875 +/-0.154               0.134 +/-0.0408                     15-350keV
 </code></pre>
 <p><br />
-Now write another function that reads the events’ unique numbers that appear in this table in parentheses (e.g., 00745966 is the first in table), and puts this number in place of <code>event_id</code> in this web address template: <code>http://butler.lab.asu.edu/swift/event_id/bat/ep_flu.txt</code>.</p>
+Now write another function that reads the event unique numbers that appear in this table in parentheses (e.g., 00745966 is the first in table), and puts this number in place of <code>event_id</code> in this web address template: <code>http://butler.lab.asu.edu/swift/event_id/bat/ep_flu.txt</code>.</p>
 
 <p>Now note that, for some events, this address exists, for example,</p>
 
@@ -182,7 +194,7 @@ Now write another function that reads the events’ unique numbers that appear i
 
 <p><a href="http://butler.lab.asu.edu/swift/00680331/bat/ep_flu.txt" target="_blank">http://butler.lab.asu.edu/swift/00680331/bat/ep_flu.txt</a>,</p>
 
-<p>in which case your code will have to raise a <code>urllib.request.HTTPError</code> exception. Write your code such that it can smoothly skip these exceptions. Write your code such that it saves all those existing text files on your local computer, in a file-name format like <a href="/ECL2017S/homework/9/GRB00100433_ep_flu.txt" target="_blank">this example: <code>GRB00100433_ep_flu.txt</code></a> (A total of 938 files exist).</p>
+<p>in which case your code will have to raise a <code>urllib.request.HTTPError</code> exception. Write your code such that it can smoothly skip these exceptions. Write your code such that it saves all those text files on your local computer, in a file-name format like <a href="/ECL2017S/homework/9/GRB00100433_ep_flu.txt" target="_blank">this example: <code>GRB00100433_ep_flu.txt</code></a> (A total of 938 files exist).</p>
 
 <p><strong>(C)</strong> Now write a third function, that reads all of these files in your directory, one by one, as numpy arrays, and plots the content of all of them together, on a single scatter plot like the following,</p>
 
@@ -233,6 +245,10 @@ Note that the variable <code>counter</code> contains the total number of events 
 
 <p><strong>Question:</strong> What does <code>alpha=0.05</code> and <code>s=1</code> do in the following scatter plot command? (Vary their values to see what happens)</p>
 
+<p><br />
+<strong>Answer:</strong><br />
+An example code can be downloaded from <a href="/ECL2017S/homework/9/solutions/readTable.py" target="_blank">here</a>.</p>
+
 <p><br /></p>
 
 <hr />
@@ -261,6 +277,16 @@ Is it to your advantage to switch your choice from door 1 to door 2? Is it to yo
 
 <p>Now whatever your answer is, I want you to check/prove your answer by a Monte Carlo simulation of this problem. Make a plot of your simulation for $ngames=100000$ repeat of this game, that shows, in the long run, on average, what is the probability of winning this game if you switch your choice, and what is the probability of winning, if you do not switch to the other door.</p>
 
+<p><br />
+<strong>Answer:</strong><br />
+An example code can be downloaded from <a href="/ECL2017S/homework/9/solutions/monteGame.py" target="_blank">here</a>. Here is the code figure output,</p>
+
+<figure>
+	<img src="/ECL2017S/homework/9/solutions/MontyGameResult.png" width="800" />
+</figure>
+<p><br />
+As you see in the figure, although you may initially win by not switching your choice, but in the long run, on average, you will lose, if you don’t switch your choice.</p>
+
 <p><br /><br /></p>
 
             </div>
@@ -268,15 +294,15 @@ Is it to your advantage to switch your choice from door 1 to door 2? Is it to yo
         <div class="cf"></div>
 <div class="row text-center">
     <section class="notepad-post-share">
-        <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Homework 9: Problems - Python advanced IO, Monte Carlo&quot;%20/ECL2017S/homework/9-problems-python-advanced-io-monte-carlo-interoperability%20via%20&#64;AmirShahmoradi"
+        <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Homework 9: Solutions - Python advanced IO, Monte Carlo&quot;%20/ECL2017S/homework/9-solutions-python-advanced-io-monte-carlo-interoperability%20via%20&#64;AmirShahmoradi"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
             <i class="fa fa-twitter"></i>
         </a>
-        <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/homework/9-problems-python-advanced-io-monte-carlo-interoperability"
+        <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/homework/9-solutions-python-advanced-io-monte-carlo-interoperability"
             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
             <i class="fa fa-facebook"></i>
         </a>
-        <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/homework/9-problems-python-advanced-io-monte-carlo-interoperability"
+        <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/homework/9-solutions-python-advanced-io-monte-carlo-interoperability"
            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
             <i class="fa fa-google-plus"></i>
         </a>
