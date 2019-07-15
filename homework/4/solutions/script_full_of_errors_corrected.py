@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 a1 = 2  # variable names cannot start with number
 b = a1  # b is not defined yet, so it can be for example defined by a1
 x = 2

@@ -2,23 +2,23 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ANNOUNCEMENT 0: STUDENT-PROFESSOR CONNECTION DAY &vert; COE 111L - SPRING 2017 - W 9-10 AM - WRW 209</title>
+<title>HOMEWORK 8: SOLUTIONS - PYTHON ARRAY COMPUTING AND PLOTTING &vert; COE 111L - SPRING 2017 - W 9-10 AM - WRW 209</title>
 <meta name="description" content="Engineering Computation Lab">
 <meta name="keywords" content="">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/ECL2017S/images/logo.png">
-<meta name="twitter:title" content="Announcement 0: Student-professor connection day">
+<meta name="twitter:title" content="Homework 8: Solutions - Python array computing and plotting">
 <meta name="twitter:description" content="Engineering Computation Lab">
 <meta name="twitter:creator" content="@AmirShahmoradi">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Announcement 0: Student-professor connection day">
+<meta property="og:title" content="Homework 8: Solutions - Python array computing and plotting">
 <meta property="og:description" content="Engineering Computation Lab">
-<meta property="og:url" content="/ECL2017S/announcement/0-student-professor-connection-day">
+<meta property="og:url" content="/ECL2017S/homework/8-solutions-python-array-computing-plotting">
 <meta property="og:site_name" content="COE 111L - Spring 2017 - W 9-10 AM - WRW 209">
 <meta property="og:image" content="/ECL2017S/images/">
 
@@ -26,7 +26,7 @@
 
 
 
-<link rel="canonical" href="/ECL2017S/announcement/0-student-professor-connection-day">
+<link rel="canonical" href="/ECL2017S/homework/8-solutions-python-array-computing-plotting">
 <!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 - W 9-10 AM - WRW 209 Feed"> -->
 
 
@@ -117,8 +117,8 @@ MathJax.Hub.Queue(function() {
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h2>Announcement 0: Student-professor connection day</h2>
-                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-01-18T00:00:00-06:00">18 Jan 2017</time></strong></p>
+                            <h2>Homework 8: Solutions - Python array computing and plotting</h2>
+                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-04-19T00:00:00-05:00">19 Apr 2017</time></strong></p>
                         </div>
                     </div>
                 </div>
@@ -128,103 +128,164 @@ MathJax.Hub.Queue(function() {
             <article class="notepad-post-content post tag-simple">
         
             <div style="text-align:justify;">
-                <p>I have ordered cookies to be delivered to our first ECL class. We will try to get to know each other and I will attempt to describe my research work and educational background for you, as well as what we should expect from this course. Then I will give you links to two surveys that will assess your programming knowledge and will determine the favorite programming language which the majority of class wish to learn.</p>
+                <p>This is the solution to <a href="8-problems-python-array-computing-plotting.html" target="_blank">Homework 8: Problems - Python array computing and plotting</a>.</p>
 
-<h2 id="about-me-amir-the-instructor">About me, Amir, the instructor</h2>
-
-<p>I am a physicist and researcher, currently at <a target="_blank" href="https://www.ices.utexas.edu/">Institute for Computational Engineering and Sciences</a> at <a target="_blank" href="http://www.utexas.edu/">The University of Texas at Austin</a>. I am a member of the <a target="_blank" href="http://cco.ices.utexas.edu/">Center for Computational Oncology</a> led by <a target="_blank" href="https://www.bme.utexas.edu/about-us/faculty-directory/yankeelov">Dr. Thomas E. Yankeelov</a> and <a target="_blank" href="https://www.ices.utexas.edu/people/85/">Dr. J. Tinsley Oden</a> at ICES with the goal of understanding Tumor Growth.</p>
-
-<p>The following figures show the growth of Glioblastoma tumor cells in a Rat’s brain over time.</p>
+<p>The following figure illustrates the grade distribution for this homework.</p>
 
 <figure>
-	<img src="/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_1_t10.0.png" width="900" />
+	<img src="/ECL2017S/homework/gradeDist/gradeHistHomework8.png" width="700" />
+    <figcaption style="text-align:center">
+        Maximum possible points is 100.<br />
+    </figcaption>
 </figure>
+
+<hr />
+<hr />
+
+<p>This homework aims at giving you some experience with Python’s array computing and plotting features.</p>
+
 <p><br /></p>
+
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p><strong>1. </strong> <strong>The while-loop implementation of a for-loop</strong>. Consider the following mathematical function resembling a Hat function,</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+f(x) = 
+\begin{cases}
+    0 ~,    & \text{if}~~ x<0 \\
+    x ~,    & \text{if}~~ 0\leq x <1 \\
+    2-x ~,  & \text{if}~~ 1\leq x <2 \\
+    0 ~,    & \text{if}~~ x \geq 2 \\
+\end{cases} %]]></script>
+
+<p>A scalar implementation of this function would be,</p>
+<pre><code class="language-python">def hatFunc(x):
+    if x &lt; 0:
+        return 0.0
+    elif 0 &lt;= x &lt; 1:
+        return x
+    elif 1 &lt;= x &lt; 2:
+        return 2 - x
+    elif x &gt;= 2:
+        return 0.0
+</code></pre>
+<p><br />
+Write a vectorized version of this function. (Hint: you may need numpy’s <code>logical_and</code> method for building the vectorized version of this function.)</p>
+
+<p><br />
+<strong>Answer:</strong></p>
+
+<pre><code class="language-python">def hatFunc(x):
+    condition1 = x &lt; 0
+    condition2 = np.logical_and(0 &lt;= x, x &lt; 1)
+    condition3 = np.logical_and(1 &lt;= x, x &lt; 2)
+    condition4 = x &gt;= 2
+    r = np.zeros(len(x))
+    r[condition1] = 0.0
+    r[condition2] = x[condition2]
+    r[condition3] = 2-x[condition3]
+    r[condition4] = 0.0
+    return r
+</code></pre>
+
+<p><br /></p>
+
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p><strong>2. </strong> The vertical position $y(t)$ of a ball thrown upward is given by $y(t)=v_0t-\frac{1}{2}gt^2$, where $g$ is the acceleration of gravity and $v_0$ is the initial vertical velocity at $t=0$. Two important physical quantities in this context are the potential energy, obtained by doing work against gravity, and the kinetic energy, arising from motion. The potential energy is defined as $P=mgy$, where $m$ is the mass of the ball. The kinetic energy is defined as $K=\frac{1}{2}mv^2$, where $v$ is the velocity of the ball, related to $y$ by $v(t)=y’(t)$.</p>
+
+<p>Write a program that can plot $P(t)$ and $K(t)$ in the same plot, along with their sum $E = P + K$. Let $t\in[0,2v_0/g]$. Write your program such that $m$ and $v_0$ are read from the command line. Run the program with various choices of $m$ and $v_0$ and observe that $P+K$ always remains constant in this motion, regardless of initial conditions. This is in fact, the fundamental principle of conservation of energy in Physics.</p>
+
+<p><br />
+<strong>Answer:</strong><br />
+A sample code can be downloaded from <a href="/ECL2017S/homework/8/ball_energy.py" target="_blank">here</a>. Here is an example output figure of the code:</p>
+
 <figure>
-	<img src="/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_2_t12.0.png" width="900" />
+	<img src="/ECL2017S/homework/8/ball_energy.png" width="900" />
 </figure>
-<p><br /></p>
-<figure>
-	<img src="/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_3_t14.0.png" width="900" />
-</figure>
-<p><br /></p>
-<figure>
-	<img src="/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_5_t16.0.png" width="900" />
-</figure>
-<p><br /></p>
-<figure>
-	<img src="/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_6_t18.0.png" width="900" />
-</figure>
-<p><br /></p>
-<figure>
-	<img src="/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_7_t20.0.png" width="900" />
-</figure>
+
 <p><br /></p>
 
-<p>One of the fields on which my research is currently focused, is developing Monte Carlo optimizer/sampler and integrator algorithms for Bayesian inverse problems. Below you see example animations of two <a href="https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo" target="_blank">Markov Chain Monte Carlo</a> (MCMC) samplers, both of which sample a double Gaussian-peak function, but with different MCMC sampling parameters.</p>
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p><strong>3. </strong> <strong>Integration by midpoint rule</strong>: The idea of the Midpoint rule for integration is to divide the area under a curve $f(x)$ into $n$ equal-sized rectangles. The height of the rectangle is determined by the value of $f$ at the midpoint of the rectangle. The figure below illustrates the idea,</p>
 
 <figure>
-	<img src="/ECL2017S/announcement/0/PDF_RS_L_Forever20ms.gif" width="900" />
-    <figcaption style="text-align:center">Example of low-efficiency, but good-mixing MCMC sampler.</figcaption>
+	<img src="/ECL2017S/homework/8/midpnt.gif" width="700" />
 </figure>
 
+<p>To implement the midpointrule, one has to compute the area of each rectangle, sum them up, just as in the formula for the Midpoint rule,</p>
+
+<script type="math/tex; mode=display">\int^b_a f(x) dx \approx h\sum^{n-1}_{i=0} f(a+ih+0.5h) ~,</script>
+
+<p>where $h=(b-a)/n$ is the width of each rectangle. Implement this formula as a Python function midpoint(f, a, b, n) and test the integrator with the following example input mathematical functions.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align*}
+    f_1(x) &= exp(x) ~,~ \text{for integration range } ~ [0, \log(3)] \\\\
+    f_2(x) &= cos(x) ~,~ \text{for integration range } ~ [0, \pi]     \\\\
+    f_3(x) &= sin(x) ~,~ \text{for integration range } ~ [0, \pi]     \\\\
+    f_4(x) &= sin(x) ~,~ \text{for integration range } ~ [0, \pi / 2] \\\\
+\end{align*} %]]></script>
+
+<p><br />
+<strong>Answer:</strong><br />
+An example code can be downloaded from <a href="/ECL2017S/homework/8/midpoint.py" target="_blank">here</a>. Here is the output of the code,</p>
+<pre><code class="language-python">In [38]: run midpoint.py
+The exact integral of exp(x) between 0.00000 and 1.09861 is 2.00000.            The approximate answer is 1.99899 giving an error of 0.00101
+The exact integral of cos(x) between 0.00000 and 3.14159 is 0.00000.            The approximate answer is 0.00000 giving an error of 0.00000
+The exact integral of sin(x) between 0.00000 and 3.14159 is 2.00000.            The approximate answer is 2.00825 giving an error of 0.00825
+The exact integral of sin(x) between 0.00000 and 1.57080 is 1.00000.            The approximate answer is 1.00103 giving an error of 0.00103
+</code></pre>
 <p><br /></p>
+
+<p><br /></p>
+
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p><strong>4. </strong> <strong>Visualize approximations in the Midpoint integration rule</strong> Now consider the following function,</p>
+
+<script type="math/tex; mode=display">f(x) = x(12-x)+\sin(\pi x) ~~,~~ x\in[0,10] ~,</script>
+
+<p>which we wish to integrate using the midpoint integrator that you wrote in the previous example. Now write a new code that visualizes the midpoint rule, similar to in the following figure. (Hint: you will need to use the Matplotlib function <code>fill_between</code> and use this function to create the filled areas between f(x) and the approximating rectangles)</p>
 
 <figure>
-	<img src="/ECL2017S/announcement/0/PDF_RS_H_Forever20ms.gif" width="900" />
-    <figcaption style="text-align:center">Example of highly-efficiency, but bad-mixing MCMC sampler.</figcaption>
+	<img src="/ECL2017S/homework/8/midpoint_visualization.png" width="700" />
 </figure>
 
-<p>While my current focus of research is mathematical modelling of tumor growth and Monte Carlo samplers, I am and have been working in multiple branches of science and engineering for several years, from the subatomic world of <a target="_blank" href="https://en.wikipedia.org/wiki/Elementary_particle">elementary particles</a>, to the microscopic world of <a target="_blank" href="https://en.wikipedia.org/wiki/Macromolecule">biological macromolecules</a>, to <a target="_blank" href="https://en.wikipedia.org/wiki/Gamma-ray_burst">astrophysical phenomena</a> occurring on the grandest scales of the <a target="_blank" href="https://en.wikipedia.org/wiki/Observable_universe">observable Universe</a>.</p>
+<p><br />
+<strong>Answer:</strong><br />
+An example code can be downloaded from <a href="/ECL2017S/homework/8/visualize_midpoint.py" target="_blank">here</a>.</p>
 
-<p>For several years of my research, I have been working on understanding Gamma-Ray Bursts (GRB) and their physics. Below is a movie of the moment a Short-duration GRB is generated from the merger of a binary Neutron star system.</p>
-
-<div class="center">
-<div class="video-wrapper">
-	<div class="video-container">
-		<iframe width="853" height="480" src="https://www.youtube.com/embed/P2ESs1rPO_A?rel=0" frameborder="0" allowfullscreen=""></iframe>
-	</div>
-</div>
-</div>
-
-<p><br /></p>
-
-<p>I have also worked for a few years in the field of bioinformatics and evolutionary biology. The overarching goal in the field of protein bioinformatics and biophysics is to understand how proteins fold into their unique structure, and what determines the stability of the protein <abbr title="3-Dimensional">3D</abbr> structure. One of the workhorses of this field, is therefore <a href="https://en.wikipedia.org/wiki/Molecular_dynamics" target="_blank">molecular dynamic simulation</a> to probe the dynamics of proteins and their interactions with other molecules. The following is a 1.5ns molecular dynamics simulation of Human Influenza H1 Hemagglutinin protein (<a href="http://www.rcsb.org/pdb/explore.do?structureId=1rd8" target="_blank">1RD8</a>, chains AB).</p>
-
-<div class="center">
-<div class="video-wrapper">
-	<div class="video-container">
-		<iframe width="853" height="480" src="https://www.youtube.com/embed/0XL8RNxzrdw?rel=0" frameborder="0" allowfullscreen=""></iframe>
-	</div>
-</div>
-</div>
-
-<p><br /></p>
-
-<!-- <div id="video"> -->
-
-<!--
-<div class="videoWrapper">
-<div class="flex-video">
-    <embed src="https://www.youtube.com/embed/P2ESs1rPO_A?rel=0" style="width:100%;height:480px" frameborder="0" allowfullscreen>
-</div>
-</div>
--->
+<p><br /><br /></p>
 
             </div>
         </article>
         <div class="cf"></div>
 <div class="row text-center">
     <section class="notepad-post-share">
-        <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Announcement 0: Student-professor connection day&quot;%20/ECL2017S/announcement/0-student-professor-connection-day%20via%20&#64;AmirShahmoradi"
+        <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Homework 8: Solutions - Python array computing and plotting&quot;%20/ECL2017S/homework/8-solutions-python-array-computing-plotting%20via%20&#64;AmirShahmoradi"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
             <i class="fa fa-twitter"></i>
         </a>
-        <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/announcement/0-student-professor-connection-day"
+        <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/homework/8-solutions-python-array-computing-plotting"
             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
             <i class="fa fa-facebook"></i>
         </a>
-        <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/announcement/0-student-professor-connection-day"
+        <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/homework/8-solutions-python-array-computing-plotting"
            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
             <i class="fa fa-google-plus"></i>
         </a>

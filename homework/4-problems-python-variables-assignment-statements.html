@@ -2,23 +2,23 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ANNOUNCEMENT 0: STUDENT-PROFESSOR CONNECTION DAY &vert; COE 111L - SPRING 2017 - W 9-10 AM - WRW 209</title>
+<title>HOMEWORK 4: PROBLEMS - PYTHON VARIABLES AND ASSIGNMENT STATEMENTS &vert; COE 111L - SPRING 2017 - W 9-10 AM - WRW 209</title>
 <meta name="description" content="Engineering Computation Lab">
 <meta name="keywords" content="">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/ECL2017S/images/logo.png">
-<meta name="twitter:title" content="Announcement 0: Student-professor connection day">
+<meta name="twitter:title" content="Homework 4: Problems - Python variables and assignment statements">
 <meta name="twitter:description" content="Engineering Computation Lab">
 <meta name="twitter:creator" content="@AmirShahmoradi">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Announcement 0: Student-professor connection day">
+<meta property="og:title" content="Homework 4: Problems - Python variables and assignment statements">
 <meta property="og:description" content="Engineering Computation Lab">
-<meta property="og:url" content="/ECL2017S/announcement/0-student-professor-connection-day">
+<meta property="og:url" content="/ECL2017S/homework/4-problems-python-variables-assignment-statements">
 <meta property="og:site_name" content="COE 111L - Spring 2017 - W 9-10 AM - WRW 209">
 <meta property="og:image" content="/ECL2017S/images/">
 
@@ -26,7 +26,7 @@
 
 
 
-<link rel="canonical" href="/ECL2017S/announcement/0-student-professor-connection-day">
+<link rel="canonical" href="/ECL2017S/homework/4-problems-python-variables-assignment-statements">
 <!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 - W 9-10 AM - WRW 209 Feed"> -->
 
 
@@ -117,8 +117,8 @@ MathJax.Hub.Queue(function() {
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h2>Announcement 0: Student-professor connection day</h2>
-                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-01-18T00:00:00-06:00">18 Jan 2017</time></strong></p>
+                            <h2>Homework 4: Problems - Python variables and assignment statements</h2>
+                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-03-01T00:00:00-06:00">01 Mar 2017</time></strong></p>
                         </div>
                     </div>
                 </div>
@@ -128,103 +128,190 @@ MathJax.Hub.Queue(function() {
             <article class="notepad-post-content post tag-simple">
         
             <div style="text-align:justify;">
-                <p>I have ordered cookies to be delivered to our first ECL class. We will try to get to know each other and I will attempt to describe my research work and educational background for you, as well as what we should expect from this course. Then I will give you links to two surveys that will assess your programming knowledge and will determine the favorite programming language which the majority of class wish to learn.</p>
-
-<h2 id="about-me-amir-the-instructor">About me, Amir, the instructor</h2>
-
-<p>I am a physicist and researcher, currently at <a target="_blank" href="https://www.ices.utexas.edu/">Institute for Computational Engineering and Sciences</a> at <a target="_blank" href="http://www.utexas.edu/">The University of Texas at Austin</a>. I am a member of the <a target="_blank" href="http://cco.ices.utexas.edu/">Center for Computational Oncology</a> led by <a target="_blank" href="https://www.bme.utexas.edu/about-us/faculty-directory/yankeelov">Dr. Thomas E. Yankeelov</a> and <a target="_blank" href="https://www.ices.utexas.edu/people/85/">Dr. J. Tinsley Oden</a> at ICES with the goal of understanding Tumor Growth.</p>
-
-<p>The following figures show the growth of Glioblastoma tumor cells in a Rat’s brain over time.</p>
-
-<figure>
-	<img src="/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_1_t10.0.png" width="900" />
-</figure>
-<p><br /></p>
-<figure>
-	<img src="/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_2_t12.0.png" width="900" />
-</figure>
-<p><br /></p>
-<figure>
-	<img src="/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_3_t14.0.png" width="900" />
-</figure>
-<p><br /></p>
-<figure>
-	<img src="/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_5_t16.0.png" width="900" />
-</figure>
-<p><br /></p>
-<figure>
-	<img src="/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_6_t18.0.png" width="900" />
-</figure>
-<p><br /></p>
-<figure>
-	<img src="/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_7_t20.0.png" width="900" />
-</figure>
-<p><br /></p>
-
-<p>One of the fields on which my research is currently focused, is developing Monte Carlo optimizer/sampler and integrator algorithms for Bayesian inverse problems. Below you see example animations of two <a href="https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo" target="_blank">Markov Chain Monte Carlo</a> (MCMC) samplers, both of which sample a double Gaussian-peak function, but with different MCMC sampling parameters.</p>
-
-<figure>
-	<img src="/ECL2017S/announcement/0/PDF_RS_L_Forever20ms.gif" width="900" />
-    <figcaption style="text-align:center">Example of low-efficiency, but good-mixing MCMC sampler.</figcaption>
-</figure>
+                <p>This homework aims at giving you some experience with variables in Python and their syntax, also some experience with using Lists and Dictionaries in Python. Write your Python scripts with the corresponding <code>*.py</code> file names, and add a readme.md file in HW 4 folder of your project if you need to add any additional explanation (Don’t forget to use markdown syntax highlight in your readme file, if needed).</p>
 
 <p><br /></p>
 
-<figure>
-	<img src="/ECL2017S/announcement/0/PDF_RS_H_Forever20ms.gif" width="900" />
-    <figcaption style="text-align:center">Example of highly-efficiency, but bad-mixing MCMC sampler.</figcaption>
-</figure>
-
-<p>While my current focus of research is mathematical modelling of tumor growth and Monte Carlo samplers, I am and have been working in multiple branches of science and engineering for several years, from the subatomic world of <a target="_blank" href="https://en.wikipedia.org/wiki/Elementary_particle">elementary particles</a>, to the microscopic world of <a target="_blank" href="https://en.wikipedia.org/wiki/Macromolecule">biological macromolecules</a>, to <a target="_blank" href="https://en.wikipedia.org/wiki/Gamma-ray_burst">astrophysical phenomena</a> occurring on the grandest scales of the <a target="_blank" href="https://en.wikipedia.org/wiki/Observable_universe">observable Universe</a>.</p>
-
-<p>For several years of my research, I have been working on understanding Gamma-Ray Bursts (GRB) and their physics. Below is a movie of the moment a Short-duration GRB is generated from the merger of a binary Neutron star system.</p>
-
-<div class="center">
-<div class="video-wrapper">
-	<div class="video-container">
-		<iframe width="853" height="480" src="https://www.youtube.com/embed/P2ESs1rPO_A?rel=0" frameborder="0" allowfullscreen=""></iframe>
-	</div>
-</div>
-</div>
+<hr />
+<hr />
 
 <p><br /></p>
 
-<p>I have also worked for a few years in the field of bioinformatics and evolutionary biology. The overarching goal in the field of protein bioinformatics and biophysics is to understand how proteins fold into their unique structure, and what determines the stability of the protein <abbr title="3-Dimensional">3D</abbr> structure. One of the workhorses of this field, is therefore <a href="https://en.wikipedia.org/wiki/Molecular_dynamics" target="_blank">molecular dynamic simulation</a> to probe the dynamics of proteins and their interactions with other molecules. The following is a 1.5ns molecular dynamics simulation of Human Influenza H1 Hemagglutinin protein (<a href="http://www.rcsb.org/pdb/explore.do?structureId=1rd8" target="_blank">1RD8</a>, chains AB).</p>
+<p><strong>1. </strong> The bell-shaped <a href="https://en.wikipedia.org/wiki/Normal_distribution" target="_blank">Gaussian probability density function</a>,</p>
 
-<div class="center">
-<div class="video-wrapper">
-	<div class="video-container">
-		<iframe width="853" height="480" src="https://www.youtube.com/embed/0XL8RNxzrdw?rel=0" frameborder="0" allowfullscreen=""></iframe>
-	</div>
-</div>
-</div>
+<script type="math/tex; mode=display">f(x)=\frac{1}{\sqrt{2\pi}\sigma}\exp\bigg[ -\frac{1}{2}\bigg( \frac{x-\mu}{\sigma} \bigg)^2 \bigg]</script>
+
+<p><br />
+is one of the most widely used functions in science and technology. The parameters of the function (mu,sigma&gt;0) are prescribed real numbers. Write a program for evaluating this function when $\mu=0$, $\sigma=2$, $x = 1$.</p>
+
+<p><strong>Hint:</strong> The value <code>pi</code>, and <code>exp()</code> , <code>sqrt()</code> function are not built-in Python entities. You will need to export them using the following command,</p>
+<pre><code class="language-python">from math import pi, exp, sqrt
+</code></pre>
+<p><br />
+Verify your answer by getting the same result from <a href="https://www.wolframalpha.com/" target="_blank">Wolfram Alpha</a> mathematical search engine.</p>
 
 <p><br /></p>
 
-<!-- <div id="video"> -->
+<hr />
+<hr />
 
-<!--
-<div class="videoWrapper">
-<div class="flex-video">
-    <embed src="https://www.youtube.com/embed/P2ESs1rPO_A?rel=0" style="width:100%;height:480px" frameborder="0" allowfullscreen>
-</div>
-</div>
--->
+<p><br /></p>
+
+<p><strong>2. </strong> Download <a href="/ECL2017S/homework/4/script_full_of_errors.py" target="_blank">this code</a>. This code is full syntax errors. Fix the errors and submit the corrected code with name <code>script_full_of_errors_corrected.py</code> in your hw4 folder of your project. Explain in front of each corrected Python statement, why the error occurred.  On the last line of the script,</p>
+<pre><code class="language-python">true = fox is rev in Persian
+</code></pre>
+<p><br />
+the statement runs without error. But can you explain what it does? (Hint: For this part you need to understand operation precedence. You can find more information <a href="https://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/op_precedence.html" target="_blank">here</a>.</p>
+
+<p><br /></p>
+
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p><strong>3. </strong> As an egg cooks, the proteins first denature and then coagulate. When the temperature exceeds a critical point, reactions begin and proceed faster as the temperature increases. In the egg white, the proteins start to coagulate for temperatures above $63^\circ\rm{C}$, while in the yolk the proteins start to coagulate for temperatures above $70^\circ\rm{C}$. For a soft boiled egg, the white needs to have been heated long enough to coagulate at a temperature above $63^\circ\rm{C}$, but the yolk should not be heated above $70^\circ\rm{C}$. For a hard boiled egg, the center of the yolk should be allowed to reach $70^\circ\rm{C}$.</p>
+
+<p>The following formula expresses the time $t$ it takes (in seconds) for the center of the yolk to reach the temperature Ty (in Celsius degrees):</p>
+
+<script type="math/tex; mode=display">t = \frac
+{ M^{2/3} ~ c ~ \rho^{1/3} }
+{ K\pi^2 ~ (4\pi/3)^{2/3} }
+~\ln
+\bigg[
+0.76 \frac{T_0 - T_w}{T_y-T_w}
+\bigg]</script>
+
+<p><br />
+where $M$ is the mass of egg, $\rho$ is the density, $c$ is the specific heat capacity, and $K$ is thermal conductivity. Relevant values are $M=47~[g]$ for a small egg and $M=67~[g]$ for a large egg, $\rho=1.038 ~[g~cm^{-3}]$, $c = 3.7 ~[J~g^{-1}~K^{-1}]$, and $K = 5.4\times10^{-3} ~[Wcm^{-1}K^{-1}]$. Furthermore, $T_w$ is the temperature
+(in C degrees) of the boiling water, and $T_0$ is the original temperature (in C degrees) of the egg before being put in the water. Implement the formula in a Python program, set $T_w = 100^\circ C$ and $T_y = 70^\circ C$, and compute $t$ for a large egg taken from the fridge ($T_0 = 4^\circ C$) and from room temperature ($T_0 = 20^\circ C$). (<strong>Hint</strong>: Note that for this problem you will need to import <code>log, pi</code> from <code>math</code> module.)</p>
+
+<p><br /></p>
+
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p><strong>4.  Aliasing vs. Copying variables</strong> Run the following python statements and briefly explain why you get the behavior printed by the <code>print</code> functions.</p>
+
+<p>(A)</p>
+<pre><code class="language-python">a = 5
+b = a
+print (id(a), id(b))
+ 
+c = b
+b = 3
+print (a,b,c)
+print (id(a),id(b),id(c))
+ 
+b = a
+b = 5
+print (id(a), id(b))
+</code></pre>
+<p><br />
+(B)</p>
+<pre><code class="language-python">a = [5]
+b = a
+print (id(a), id(b))
+ 
+b.append(1)
+print a,b
+print (id(a),id(b))
+</code></pre>
+<p><br />
+(C)</p>
+<pre><code class="language-python">a = [5]
+b = list(a)
+print (a,b)
+print (id(a), id(b))
+ 
+b = a[:]
+print (a,b)
+print (id(a), id(b))
+</code></pre>
+<p><br />
+(D)</p>
+<pre><code class="language-python">a = (5,)
+b = tuple(a)
+print (id(a), id(b))
+ 
+b = a[:]
+print (id(a), id(b))
+</code></pre>
+
+<p><br /></p>
+
+<hr />
+<hr />
+
+<p><br /></p>
+
+<p><strong>5. </strong> The following is the name list of all people in our ECL class.</p>
+<pre><code class="language-text">nicholas boeker
+bradley bridges
+sagar dhana
+travis driver
+eric gagliano
+christian garcia
+matthew goree
+lucero herrera
+jake janssen
+michael langford
+colin lewis
+mark loveland
+emilio mendiola
+kreshel nguyen  
+russell philley
+caleb phillips  
+joseph robbins  
+bradley smith
+amir shahmoradi
+vivek varier
+</code></pre>
+<p><br />
+We want to create a dictionary of members of this class with individuals’ full names serving as dictionary keys, and their roles in class as the corresponding values of the keys. The naive way of generating this dictionary would be to use one of the methods for generating dictionary discussed in <a href="/ECL2017S/lecture/5-python-variables-assignments" target="_blank">Lecture 5</a>. For example,</p>
+<pre><code class="language-python">ecl_dict = { 'nicholas boeker'  : 'student'
+           , 'bradley bridges'  : 'student'
+           , 'sagar dhana'      : 'student' 
+           , 'travis driver'    : 'student'
+           , 'eric gagliano'    : 'student'
+           , 'christian garcia' : 'student'
+           , 'matthew goree'    : 'student'
+           , 'lucero herrera'   : 'student'
+           , 'jake janssen'     : 'student'
+           , 'michael langford' : 'student'
+           , 'colin lewis'      : 'student'
+           , 'mark loveland'    : 'student'
+           , 'emilio mendiola'  : 'student'
+           , 'kreshel nguyen'   : 'student'
+           , 'russell philley'  : 'student'
+           , 'caleb phillips'   : 'student'
+           , 'joseph robbins'   : 'student'
+           , 'bradley smith'    : 'student'
+           , 'vivek varier'     : 'assistant'
+           , 'amir shahmoradi'  : 'instructor'
+           }
+</code></pre>
+<p><br />
+However, the problem is that, except me (Amir, the instructor) and Vivek (our TA), everyone else has a student role in this class. So it would be a very painful process to type all ‘student’ values by hand manually. Now, the goal is to come up with a shortcut method that avoids the aforementioned problem. Can you find a way of creating this dictionary, without having to type the value ‘student’ 18 times? Note that in order to achieve this, you don’t need anything beyond what you learned in Lecture 5. (<strong>Hint:</strong> Have a look at the section for simultaneous assignments in Lecture 5.)</p>
+
+<p><br /><br /></p>
 
             </div>
         </article>
         <div class="cf"></div>
 <div class="row text-center">
     <section class="notepad-post-share">
-        <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Announcement 0: Student-professor connection day&quot;%20/ECL2017S/announcement/0-student-professor-connection-day%20via%20&#64;AmirShahmoradi"
+        <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Homework 4: Problems - Python variables and assignment statements&quot;%20/ECL2017S/homework/4-problems-python-variables-assignment-statements%20via%20&#64;AmirShahmoradi"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
             <i class="fa fa-twitter"></i>
         </a>
-        <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/announcement/0-student-professor-connection-day"
+        <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/homework/4-problems-python-variables-assignment-statements"
             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
             <i class="fa fa-facebook"></i>
         </a>
-        <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/announcement/0-student-professor-connection-day"
+        <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/homework/4-problems-python-variables-assignment-statements"
            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
             <i class="fa fa-google-plus"></i>
         </a>

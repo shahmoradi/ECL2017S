@@ -2,23 +2,23 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ANNOUNCEMENT 0: STUDENT-PROFESSOR CONNECTION DAY &vert; COE 111L - SPRING 2017 - W 9-10 AM - WRW 209</title>
+<title>HOMEWORK 3: PROBLEMS - PYTHON DEBUGGING AND STRING MANIPULATION &vert; COE 111L - SPRING 2017 - W 9-10 AM - WRW 209</title>
 <meta name="description" content="Engineering Computation Lab">
 <meta name="keywords" content="">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/ECL2017S/images/logo.png">
-<meta name="twitter:title" content="Announcement 0: Student-professor connection day">
+<meta name="twitter:title" content="Homework 3: Problems - Python debugging and string manipulation">
 <meta name="twitter:description" content="Engineering Computation Lab">
 <meta name="twitter:creator" content="@AmirShahmoradi">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Announcement 0: Student-professor connection day">
+<meta property="og:title" content="Homework 3: Problems - Python debugging and string manipulation">
 <meta property="og:description" content="Engineering Computation Lab">
-<meta property="og:url" content="/ECL2017S/announcement/0-student-professor-connection-day">
+<meta property="og:url" content="/ECL2017S/homework/3-problems-python-values-variables-types">
 <meta property="og:site_name" content="COE 111L - Spring 2017 - W 9-10 AM - WRW 209">
 <meta property="og:image" content="/ECL2017S/images/">
 
@@ -26,7 +26,7 @@
 
 
 
-<link rel="canonical" href="/ECL2017S/announcement/0-student-professor-connection-day">
+<link rel="canonical" href="/ECL2017S/homework/3-problems-python-values-variables-types">
 <!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 - W 9-10 AM - WRW 209 Feed"> -->
 
 
@@ -117,8 +117,8 @@ MathJax.Hub.Queue(function() {
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h2>Announcement 0: Student-professor connection day</h2>
-                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-01-18T00:00:00-06:00">18 Jan 2017</time></strong></p>
+                            <h2>Homework 3: Problems - Python debugging and string manipulation</h2>
+                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-02-22T00:00:00-06:00">22 Feb 2017</time></strong></p>
                         </div>
                     </div>
                 </div>
@@ -128,103 +128,151 @@ MathJax.Hub.Queue(function() {
             <article class="notepad-post-content post tag-simple">
         
             <div style="text-align:justify;">
-                <p>I have ordered cookies to be delivered to our first ECL class. We will try to get to know each other and I will attempt to describe my research work and educational background for you, as well as what we should expect from this course. Then I will give you links to two surveys that will assess your programming knowledge and will determine the favorite programming language which the majority of class wish to learn.</p>
-
-<h2 id="about-me-amir-the-instructor">About me, Amir, the instructor</h2>
-
-<p>I am a physicist and researcher, currently at <a target="_blank" href="https://www.ices.utexas.edu/">Institute for Computational Engineering and Sciences</a> at <a target="_blank" href="http://www.utexas.edu/">The University of Texas at Austin</a>. I am a member of the <a target="_blank" href="http://cco.ices.utexas.edu/">Center for Computational Oncology</a> led by <a target="_blank" href="https://www.bme.utexas.edu/about-us/faculty-directory/yankeelov">Dr. Thomas E. Yankeelov</a> and <a target="_blank" href="https://www.ices.utexas.edu/people/85/">Dr. J. Tinsley Oden</a> at ICES with the goal of understanding Tumor Growth.</p>
-
-<p>The following figures show the growth of Glioblastoma tumor cells in a Rat’s brain over time.</p>
-
-<figure>
-	<img src="/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_1_t10.0.png" width="900" />
-</figure>
-<p><br /></p>
-<figure>
-	<img src="/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_2_t12.0.png" width="900" />
-</figure>
-<p><br /></p>
-<figure>
-	<img src="/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_3_t14.0.png" width="900" />
-</figure>
-<p><br /></p>
-<figure>
-	<img src="/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_5_t16.0.png" width="900" />
-</figure>
-<p><br /></p>
-<figure>
-	<img src="/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_6_t18.0.png" width="900" />
-</figure>
-<p><br /></p>
-<figure>
-	<img src="/ECL2017S/announcement/0/tvccZSliceSubplotWithXYlabWithTB_rad_00gy_7_t20.0.png" width="900" />
-</figure>
-<p><br /></p>
-
-<p>One of the fields on which my research is currently focused, is developing Monte Carlo optimizer/sampler and integrator algorithms for Bayesian inverse problems. Below you see example animations of two <a href="https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo" target="_blank">Markov Chain Monte Carlo</a> (MCMC) samplers, both of which sample a double Gaussian-peak function, but with different MCMC sampling parameters.</p>
-
-<figure>
-	<img src="/ECL2017S/announcement/0/PDF_RS_L_Forever20ms.gif" width="900" />
-    <figcaption style="text-align:center">Example of low-efficiency, but good-mixing MCMC sampler.</figcaption>
-</figure>
+                <p>This homework aims at giving you some experience with String manipulation in Python and debugging a simple Python script. String manipulation is one of the greatest strengths and reasons for popularity of Python. For both questions below, submit your Python scripts in the corresponding <code>*.py</code> files, and add a readme.md file in HW 3 folder of your project if you need to add any additional explanation (Don’t forget to use markdown syntax highlight in your readme file).</p>
 
 <p><br /></p>
 
-<figure>
-	<img src="/ECL2017S/announcement/0/PDF_RS_H_Forever20ms.gif" width="900" />
-    <figcaption style="text-align:center">Example of highly-efficiency, but bad-mixing MCMC sampler.</figcaption>
-</figure>
-
-<p>While my current focus of research is mathematical modelling of tumor growth and Monte Carlo samplers, I am and have been working in multiple branches of science and engineering for several years, from the subatomic world of <a target="_blank" href="https://en.wikipedia.org/wiki/Elementary_particle">elementary particles</a>, to the microscopic world of <a target="_blank" href="https://en.wikipedia.org/wiki/Macromolecule">biological macromolecules</a>, to <a target="_blank" href="https://en.wikipedia.org/wiki/Gamma-ray_burst">astrophysical phenomena</a> occurring on the grandest scales of the <a target="_blank" href="https://en.wikipedia.org/wiki/Observable_universe">observable Universe</a>.</p>
-
-<p>For several years of my research, I have been working on understanding Gamma-Ray Bursts (GRB) and their physics. Below is a movie of the moment a Short-duration GRB is generated from the merger of a binary Neutron star system.</p>
-
-<div class="center">
-<div class="video-wrapper">
-	<div class="video-container">
-		<iframe width="853" height="480" src="https://www.youtube.com/embed/P2ESs1rPO_A?rel=0" frameborder="0" allowfullscreen=""></iframe>
-	</div>
-</div>
-</div>
+<hr />
+<hr />
 
 <p><br /></p>
 
-<p>I have also worked for a few years in the field of bioinformatics and evolutionary biology. The overarching goal in the field of protein bioinformatics and biophysics is to understand how proteins fold into their unique structure, and what determines the stability of the protein <abbr title="3-Dimensional">3D</abbr> structure. One of the workhorses of this field, is therefore <a href="https://en.wikipedia.org/wiki/Molecular_dynamics" target="_blank">molecular dynamic simulation</a> to probe the dynamics of proteins and their interactions with other molecules. The following is a 1.5ns molecular dynamics simulation of Human Influenza H1 Hemagglutinin protein (<a href="http://www.rcsb.org/pdb/explore.do?structureId=1rd8" target="_blank">1RD8</a>, chains AB).</p>
+<p><strong>1. </strong> Download <a href="/ECL2017S/homework/3/python_script_full_of_errors.pi" target="_blank">this Python script</a>. This Python script is full of syntax, runtime, and semantic errors. Please identify and corrent these errors, such that code becomes fully executable and outputs the following message on the screen, when run from the Git Bash command line:</p>
 
-<div class="center">
-<div class="video-wrapper">
-	<div class="video-container">
-		<iframe width="853" height="480" src="https://www.youtube.com/embed/0XL8RNxzrdw?rel=0" frameborder="0" allowfullscreen=""></iframe>
-	</div>
-</div>
-</div>
+<pre><code class="language-text">The life expectancy for the millennials is projected to be 120 years! (But don't believe it...)
+
+
+    A recent study published in the journal of Nature, discovered that over the past century,
+    although the life expectancy has significantly increased due to technological advances,
+    the maximum life span of the oldest people in the world has not changed much.
+
+
+Cardano was the first to introduce complex numbers of the form a + sqrt(-b) into algebra, but he had misgivings about it.
+In his solution to an algebra equation he encountered the solution 5 + sqrt(-15) for the unknown, which is now mathematically represented by
+
+       (5+3.872983346207417j)
+
+in Python, which can also be obtained as an addition of real and imaginary numbers in Python like this
+
+
+      5 + sqrt(-15) = (5+3.872983346207417j),
+
+
+      which can also be manually stated as
+
+
+      (5+3.872983346207417j)
+
+
+
+
+
+One final note:
+
+        In python the sqrt function from math and cmath modules are different.
+        The sqrt function that returns "float" results is sqrt from math module.
+        Therefore, if using math module, then,
+
+                sqrt(25) = 5.0000,
+
+        which is obviously a float (real number).
+
+
+
+
+Also note that by convention, 0**0 = 1 in Python.
+And division by 0, will give you a runtime exception: 1/0 = NaN
+
+</code></pre>
+<p><br />
+Identify at least one example in the code for each of the error types.</p>
+
+<p>Here are a few hints:</p>
+
+<ul>
+  <li>You need to get familiar with string formatting in <code>print</code> function. See <a href="https://www.cdslab.org/ECL2017S/lecture/4-python-values-variables-types" target="_blank">Lecture 4</a>.<br />
+<br /></li>
+  <li>Note that in Python, the interpreter is sensitive to <a href="https://www.python.org/dev/peps/pep-0008/#indentation" target="_blank">indentations</a> in your codes. All lines must be aligned at the beginning (except for looping and branching, … which we will get to them later on).<br />
+<br /></li>
+  <li>Become familiar with <a href="https://python-reference.readthedocs.io/en/latest/docs/str/escapes.html" target="_blank">escape characters</a> in Python, such as <code>'\n'</code>, <code>'\t'</code>, and <code>'\t'</code>.</li>
+</ul>
 
 <p><br /></p>
 
-<!-- <div id="video"> -->
+<hr />
+<hr />
 
-<!--
-<div class="videoWrapper">
-<div class="flex-video">
-    <embed src="https://www.youtube.com/embed/P2ESs1rPO_A?rel=0" style="width:100%;height:480px" frameborder="0" allowfullscreen>
-</div>
-</div>
--->
+<p><br /></p>
+
+<p><strong>2. </strong> Write a Python script that is directly executable from the Git Bash command line, without any need to invoke <code>python</code> interpreter. The script should produce <strong>exactly</strong> the following output, including line breaks and separations. Each part of the output (separated by a line-break, or a new-line character <code>'\n'</code> from the rest) is generated by <strong>only and only one call</strong> to print function.</p>
+
+<pre><code class="language-text">This is Python version 3.5.2 
+
+Python is the best language for String manipulation!
+
+!noitalupinam gnirtS rof egaugnal tseb eht si nohtyP
+
+!otlpnmgit o gunlte h inhy
+
+pYTHON IS THE BEST LANGUAGE FOR sTRING MANIPULATION!
+
+
+The sentence 'Python is the best language for String manipulation!' contains 
+4 'a' letters, and
+0 'A' letters!
+
+Python
+is
+the
+best
+language
+for
+String
+manipulation!
+
+PYTHON
+IS
+THE
+BEST
+LANGUAGE
+FOR
+STRING
+MANIPULATION!
+</code></pre>
+<p><br /></p>
+
+<p>Here are some hints (all the information you need to answer this question can be found in <a href="https://www.cdslab.org/ECL2017S/lecture/4-python-values-variables-types" target="_blank">Lecture 4</a>):</p>
+
+<ul>
+  <li>To make the script executable, add the appropriate shebang to the script’s file.<br />
+<br /></li>
+  <li>Import the appropriate module to get the python version command, as we did in class. Use <code>print</code> function to print the Python version.<br />
+<br /></li>
+  <li>Define a String variable <code>my_string</code> which contains the string value “Python is the best language for String manipulation!” ( Of course, you can totally accomplish this question without defining a string variable, by only using the string value itself wherever needed… This is also totally fine at this point in our course, if your prefer this method).<br />
+<br /></li>
+  <li>Then use the appropriate examples and external links provided in <a href="https://www.cdslab.org/ECL2017S/lecture/4-python-values-variables-types" target="_blank">Lecture 4</a>, to find the proper <strong>string methods</strong> that can manipulate this string variable/value in order to generate each of the outputs printed above.<br />
+<br /></li>
+  <li>Again, note that for each output, the entire output must result from <strong>one single call</strong> to function <code>print</code>.<br />
+<br /></li>
+  <li>Wherever needed, use the <a href="https://python-reference.readthedocs.io/en/latest/docs/str/escapes.html" target="_blank">escape character</a> value <code>'\n'</code> in <code>print</code> input arguments, in order to generate a line-break (or new line) in the output.</li>
+</ul>
+
+<p><br /></p>
 
             </div>
         </article>
         <div class="cf"></div>
 <div class="row text-center">
     <section class="notepad-post-share">
-        <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Announcement 0: Student-professor connection day&quot;%20/ECL2017S/announcement/0-student-professor-connection-day%20via%20&#64;AmirShahmoradi"
+        <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Homework 3: Problems - Python debugging and string manipulation&quot;%20/ECL2017S/homework/3-problems-python-values-variables-types%20via%20&#64;AmirShahmoradi"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
             <i class="fa fa-twitter"></i>
         </a>
-        <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/announcement/0-student-professor-connection-day"
+        <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/homework/3-problems-python-values-variables-types"
             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
             <i class="fa fa-facebook"></i>
         </a>
-        <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/announcement/0-student-professor-connection-day"
+        <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/homework/3-problems-python-values-variables-types"
            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
             <i class="fa fa-google-plus"></i>
         </a>
