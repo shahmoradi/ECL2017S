@@ -36,7 +36,7 @@ for i in range(ngames):
 
 trials = np.linspace(1,ngames,ngames)
 plt.semilogx(trials, chance_of_success_by_switching, 'r-')
-plt.hold('on')
+#plt.hold('on')
 plt.semilogx(trials, chance_of_success_by_not_switching, 'b-')
 plt.legend(['switch choice' , 'not switch choice'])
 plt.xlabel('Game Number')

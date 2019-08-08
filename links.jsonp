@@ -2,6 +2,66 @@
 callback([
 
   {
+    "text": "Quiz 7: Solutions - Python - I/O, error handling, and tesing frameworks",
+    "href": "/ECL2017S/quiz/7-solutions-python-io-error-handling-unit-testing"
+  } ,
+
+  {
+    "text": "Quiz 7: Problems - Python - I/O, error handling, and tesing frameworks",
+    "href": "/ECL2017S/quiz/7-problems-python-io-error-handling-unit-testing"
+  } ,
+
+  {
+    "text": "Quiz 6: Solutions - Python modules, loops, and IO",
+    "href": "/ECL2017S/quiz/6-solutions-python-modules-loops-io"
+  } ,
+
+  {
+    "text": "Quiz 6: Problems - Python modules, loops, and IO",
+    "href": "/ECL2017S/quiz/6-problems-python-modules-loops-io"
+  } ,
+
+  {
+    "text": "Quiz 5: Solutions - Python variables and assignment statements",
+    "href": "/ECL2017S/quiz/5-solutions-python-variables-assignment-statements"
+  } ,
+
+  {
+    "text": "Quiz 5: Problems - Python variables and assignment statements",
+    "href": "/ECL2017S/quiz/5-problems-python-variables-assignment-statements"
+  } ,
+
+  {
+    "text": "Quiz 4: Solutions - Python values, variables, types",
+    "href": "/ECL2017S/quiz/4-solutions-python-values-variables-types"
+  } ,
+
+  {
+    "text": "Quiz 4: Problems - Python values, variables, types",
+    "href": "/ECL2017S/quiz/4-problems-python-values-variables-types"
+  } ,
+
+  {
+    "text": "Quiz 3: Solutions - Advanced Git",
+    "href": "/ECL2017S/quiz/3-solutions-advanced-git"
+  } ,
+
+  {
+    "text": "Quiz 3: Problems - Advanced Git",
+    "href": "/ECL2017S/quiz/3-problems-advanced-git"
+  } ,
+
+  {
+    "text": "Quiz 1: Solutions - Programming history",
+    "href": "/ECL2017S/quiz/1-solutions-programming-history"
+  } ,
+
+  {
+    "text": "Quiz 1: Problems - Programming history",
+    "href": "/ECL2017S/quiz/1-problems-programming-history"
+  } ,
+
+  {
     "text": "Lecture 9: Python - array computing and plotting",
     "href": "/ECL2017S/lecture/9-python-array-computing-plotting"
   } ,
@@ -59,6 +119,106 @@ callback([
   {
     "text": "Lecture 0: Programming history",
     "href": "/ECL2017S/lecture/0-programming-history"
+  } ,
+
+  {
+    "text": "Homework 9: Solutions - Python advanced IO, Monte Carlo",
+    "href": "/ECL2017S/homework/9-solutions-python-advanced-io-monte-carlo-interoperability"
+  } ,
+
+  {
+    "text": "Homework 9: Problems - Python advanced IO, Monte Carlo",
+    "href": "/ECL2017S/homework/9-problems-python-advanced-io-monte-carlo-interoperability"
+  } ,
+
+  {
+    "text": "Homework 8: Solutions - Python array computing and plotting",
+    "href": "/ECL2017S/homework/8-solutions-python-array-computing-plotting"
+  } ,
+
+  {
+    "text": "Homework 8: Problems - Python array computing and plotting",
+    "href": "/ECL2017S/homework/8-problems-python-array-computing-plotting"
+  } ,
+
+  {
+    "text": "Homework 7: Solutions - Python I/O, error handling, and unit testing",
+    "href": "/ECL2017S/homework/7-solutions-python-IO-error-handling-unit-testing"
+  } ,
+
+  {
+    "text": "Homework 7: Problems - Python I/O, error handling, and unit testing",
+    "href": "/ECL2017S/homework/7-problems-python-IO-error-handling-unit-testing"
+  } ,
+
+  {
+    "text": "Homework 6: Solutions - Python modules, loops, and I/O",
+    "href": "/ECL2017S/homework/6-solutions-python-modules-loops-IO"
+  } ,
+
+  {
+    "text": "Homework 6: Problems - Python modules, loops, and I/O",
+    "href": "/ECL2017S/homework/6-problems-python-modules-loops-IO"
+  } ,
+
+  {
+    "text": "Homework 5: Solutions - Python branching and functions",
+    "href": "/ECL2017S/homework/5-solutions-python-branching-functions"
+  } ,
+
+  {
+    "text": "Homework 5: Problems - Python branching and functions",
+    "href": "/ECL2017S/homework/5-problems-python-branching-functions"
+  } ,
+
+  {
+    "text": "Homework 4: Solutions - Python variables and assignment statements",
+    "href": "/ECL2017S/homework/4-solutions-python-variables-assignment-statements"
+  } ,
+
+  {
+    "text": "Homework 4: Problems - Python variables and assignment statements",
+    "href": "/ECL2017S/homework/4-problems-python-variables-assignment-statements"
+  } ,
+
+  {
+    "text": "Homework 3: Solutions - Python debugging and string manipulation",
+    "href": "/ECL2017S/homework/3-solutions-python-values-variables-types"
+  } ,
+
+  {
+    "text": "Homework 3: Problems - Python debugging and string manipulation",
+    "href": "/ECL2017S/homework/3-problems-python-values-variables-types"
+  } ,
+
+  {
+    "text": "Homework 2: Solutions - Advanced Git",
+    "href": "/ECL2017S/homework/2-solutions-advanced-git"
+  } ,
+
+  {
+    "text": "Homework 2: Problems - Advanced Git",
+    "href": "/ECL2017S/homework/2-problems-advanced-git"
+  } ,
+
+  {
+    "text": "Homework 1: Solutions - Designing a Github README file and web-page for your project",
+    "href": "/ECL2017S/homework/1-solutions-project-readme-file"
+  } ,
+
+  {
+    "text": "Homework 1: Problems - Designing a Github README file and web-page for your project",
+    "href": "/ECL2017S/homework/1-problems-project-readme-file"
+  } ,
+
+  {
+    "text": "Homework 10: Solutions - Python advanced, Monte Carlo methods",
+    "href": "/ECL2017S/homework/10-solutions-python-advanced-monte-carlo"
+  } ,
+
+  {
+    "text": "Homework 10: Problems - Python advanced, Monte Carlo methods",
+    "href": "/ECL2017S/homework/10-problems-python-advanced-monte-carlo"
   } ,
 
   {

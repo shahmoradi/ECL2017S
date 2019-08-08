@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>QUIZ 3: PROBLEMS - ADVANCED GIT &vert; COE 111L - SPRING 2017 - W 9-10 AM - WRW 209</title>
+<meta name="description" content="Engineering Computation Lab">
+<meta name="keywords" content="">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/ECL2017S/images/logo.png">
+<meta name="twitter:title" content="Quiz 3: Problems - Advanced Git">
+<meta name="twitter:description" content="Engineering Computation Lab">
+<meta name="twitter:creator" content="@AmirShahmoradi">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Quiz 3: Problems - Advanced Git">
+<meta property="og:description" content="Engineering Computation Lab">
+<meta property="og:url" content="/ECL2017S/quiz/3-problems-advanced-git">
+<meta property="og:site_name" content="COE 111L - Spring 2017 - W 9-10 AM - WRW 209">
+<meta property="og:image" content="/ECL2017S/images/">
+
+
+
+
+
+<link rel="canonical" href="/ECL2017S/quiz/3-problems-advanced-git">
+<!-- <link href="/ECL2017S/feed.xml" type="application/atom+xml" rel="alternate" title="COE 111L - Spring 2017 - W 9-10 AM - WRW 209 Feed"> -->
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,300,800,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/ECL2017S/assets/css/vendor/font-awesome.min.css">
+<link rel="stylesheet" href="/ECL2017S/assets/css/vendor/normalize.css">
+<link rel="stylesheet" href="/ECL2017S/assets/css/vendor/nprogress.css">
+<link rel="stylesheet" href="/ECL2017S/assets/css/vendor/foundation.min.css">
+<link rel="stylesheet" href="/ECL2017S/assets/css/style.css">
+<link rel="stylesheet" href="/ECL2017S/assets/css/post.css">
+
+<!--Mathjax-->
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+    }
+});
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<!-- Icons -->
+<link rel="shortcut icon" href="/ECL2017S/favicon.ico">
+
+<link href="/ECL2017S/assets/css/prismOkaidia.css" rel="stylesheet" />
+
+<!--header anchor links-->
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<style type="text/css">@media only screen and (min-width:43.75em){.notepad-post-content div>p:first-child:first-letter{float:left;font-size:4.688rem;line-height:4.375rem;padding-top:.25rem;padding-right:.5rem;padding-left:.188rem;font-family:serif}}</style>
+</head>
+<body class="post-template" itemscope itemtype="http://schema.org/WebPage">  
+
+        <main id="notepad-post-container-simple" class="notepad-post-container-simple" role="main">
+            <header class="notepad-post-header-simple">
+                <div class="notepad-post-menu-header-simple">
+
+                    <a class="notepad-blog-logo" href=https://www.cdslab.org target="_blank"><img src="/ECL2017S/images/logo.png" alt="cdslab.org" /></a>
+
+                <div class="notepad-blog-menu">      
+    <div class="notepad-mobile-menu show-for-small">
+        <a href="#"><i class="fa fa-bars"></i></a>
+    </div>
+    <ul class="notepad-menu">
+        <li class="notepad-mobile-close-btn show-for-small text-right">
+            <a href="#"><i class="fa fa-times"></i></a>
+        </li>
+
+            <li>
+                    <a href="/ECL2017S/">Home</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/highlights">Highlights</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/categories">Categories</a>
+                 </li>
+
+            <li>
+                    <a href="/ECL2017S/about">About</a>
+                 </li>
+            
+           <li><a href="/ECL2017S/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+    </ul>
+
+</div>
+            </div>
+
+                <div class="notepad-post-title-simple row">
+                    <div class="small-12 columns">
+                        <div class="notepad-post-meta-simple">
+                            <h2>Quiz 3: Problems - Advanced Git</h2>
+                            <p>by <strong>Amir Shahmoradi</strong> &#8212;  <strong><time datetime="2017-02-15T00:00:00-06:00">15 Feb 2017</time></strong></p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+        
+            <article class="notepad-post-content post tag-simple">
+        
+            <div style="text-align:justify;">
+                <p>This quiz aims at testing your knowledge of advanced Git commands, such as branching.
+Don’t forget to push your answers to your remote repository by the end of quiz time. Push your quiz-3 <em>readme.md</em> file to quiz/3/ folder in your Github project.</p>
+
+<ol>
+  <li>Write down two out of the three different existing commands for getting help about <code>git add</code> command.<br />
+<br /></li>
+  <li>Write down the Git command that gives information about the last 3 commits in the project’s history.<br />
+<br /></li>
+  <li>Write down a shortcut Git command that creates a new branch “development” and switches to it automatically.<br />
+<br /></li>
+  <li>Write down the Git command for deleting a branch?<br />
+<br /></li>
+  <li>Is it possible to delete a Git branch while the branch is already checked out?<br />
+<br /></li>
+  <li>What is the Git command that lists ALL tags the project?<br />
+<br /></li>
+  <li>Name the three different generations (not different software) of Version Control Systems ever developed. If you don’t remember the exact names, you can instead briefly explain how each VCS paradigm works.<br />
+<br /><br /></li>
+</ol>
+
+            </div>
+        </article>
+        <div class="cf"></div>
+<div class="row text-center">
+    <section class="notepad-post-share">
+        <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Quiz 3: Problems - Advanced Git&quot;%20/ECL2017S/quiz/3-problems-advanced-git%20via%20&#64;AmirShahmoradi"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
+            <i class="fa fa-twitter"></i>
+        </a>
+        <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=/ECL2017S/quiz/3-problems-advanced-git"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
+            <i class="fa fa-facebook"></i>
+        </a>
+        <a class="google-icon" href="https://plus.google.com/share?url=/ECL2017S/quiz/3-problems-advanced-git"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
+            <i class="fa fa-google-plus"></i>
+        </a>
+    </section>
+</div>
+        <div class="cf"></div>
+        
+<div class="notepad-author-info">
+    <div class="row">
+        <section class="notepad-post-author small-12 columns">
+            <a href="https://www.shahmoradi.org" target="_blank">
+                <img src="/ECL2017S/images/AmirShahmoradi.png" class="notepad-post-author-avatar" alt="Amir Shahmoradi's photo">
+            </a>
+            <span class="author-label">Author</span>
+            <h1>Amir Shahmoradi</h1>
+            <p><a href="mailto:shahmoradi@utexas.edu" class="author-website">shahmoradi@utexas.edu</a></p>
+            <p>Genius is 99% perspiration and 1% inspiration</p>
+        </section>
+    </div>
+</div> 
+        
+        <div class="cf"></div>
+        
+        <section class="notepad-disqus row">
+    <div class="small-12 columns">
+        <h1 class="notepad-comments-header">Comments</h1>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'shahmoradi'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+
+        <div class="cf"></div>
+
+    <footer class="notepad-site-footer">
+    <div class="copyright">
+         <!-- <section>Last updated 2019 / 08 / 07</section></br> -->
+         <section>Last updated Wednesday, 07 Aug 2019 at 09:44 PM CST</section></br>
+         <section>All content exclusively maintained by <a href=https://www.shahmoradi.org target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
+         <section><a class="icon-ghost" href="https://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
+         <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>
+         <section><a class="icon-ghost" href="https://www.utexas.edu/" target="_blank">The University of Texas at Austin</a></section></br>
+         <section>201 E 24th Street, Stop C0200</section></br>
+         <section>Austin, TX 78712-1229</section>
+    </div>
+    <div class="social-icons">
+        
+        
+        <a href="https://twitter.com/AmirShahmoradi" target="_blank">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+        
+        
+        <a href="https://github.com/shahmoradi" target="_blank">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-github fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+        <!-- Start of statc -->
+        <div style="color: #000000; float: none; width: 100%; padding-top: 1rem;">
+            <span style="font-size:0.8em">visitor count: 
+                <script type="text/javascript">
+                    var sc_project=11514220; 
+                    var sc_invisible=0; 
+                    var sc_security="1557d578"; 
+                    var sc_text=3; 
+                    var scJsHost = (("https:" == document.location.protocol) ?
+                    "https://secure." : "http://www.");
+                    document.write("<sc"+"ript type='text/javascript' src='" +
+                    scJsHost+
+                    "statcounter.com/counter/counter.js'></"+"script>");
+                </script>
+            </span>
+        </div>
+        <!-- End of statc -->
+    </div>
+    <div class="cf"></div>
+</footer> 
+</main>    
+<!--dynamic page header-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/ECL2017S/assets/js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+  <script src="/ECL2017S/assets/js/vendor/modernizr.js"></script>
+  <script src="/ECL2017S/assets/js/foundation.min.js"></script>
+  
+  <script src="/ECL2017S/assets/js/notepad.js"></script>
+  <script src="/ECL2017S/assets/js/scripts.min.js"></script>
+  <script src="/ECL2017S/assets/js/vendor/nprogress.js"></script>
+  
+  <script>
+    $(document).foundation();
+  </script>
+  <script type='text/javascript'>console.log("N/A");</script>
+  <script type='text/javascript'>console.log("https://www.cdslab.org/");</script>
+
+<!--header anchor links-->
+<script src="/ECL2017S/assets/js/autoAnchorLink.js"></script>
+
+<!-- <script src="/ECL2017S/assets/js/prismOkaidia.js"></script>
+<script src="/ECL2017S/assets/js/prismTwilight.js"></script>
+<script src="/ECL2017S/assets/js/prismDefault.js"></script>
+ -->
+<script src="/ECL2017S/assets/js/prismCoy.js"></script>
+<!-- Start of Ganal -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-67460905-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<!-- End of Ganal --> 
+<!--automatic Table of Content.-->
+<script src="/ECL2017S/assets/js/autoTOC.js"></script>
+</body>
+</html>
