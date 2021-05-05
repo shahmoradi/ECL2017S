@@ -142,19 +142,19 @@ MathJax.Hub.Queue(function() {
 
 <p>Now the generated random point $P$ has ther coordinate $(x,y)$, so we can calculate its distance from the coordiante origin. Now suppose we also draw a quarter-circle inside of this square whose radius is unit and is centered at the origin $(0,0)$. The ratio of the area of this quarter-circle, $S_C$ to the area of the area of the square enclosing it, $S_S$ is,</p>
 
-<script type="math/tex; mode=display">\frac{S_C}{S_S} = \frac{\frac{1}{4}\pi r^2}{r^2} = \frac{1}{4}\pi</script>
+\[\frac{S_C}{S_S} = \frac{\frac{1}{4}\pi r^2}{r^2} = \frac{1}{4}\pi\]
 
 <p>This is because the area of the square of unit sides, is just 1. Therefore, if we can somehow measure the area of the quarter $S_C$, then we can use the following equation, to get an estimate of $\pi$,</p>
 
-<script type="math/tex; mode=display">\pi = 4S_C</script>
+\[\pi = 4S_C\]
 
 <p>In order to obtain, $S_C$, we are going to throw random points in the square, just as described above, and then find the fraction of points, $f=n_C/n_{\rm total}$, that fall inside this quarter-circle. This fracton is related to the area of the circle and square by the following equation,</p>
 
-<script type="math/tex; mode=display">f=\frac{n_C}{n_{\rm total}} = \frac{S_C}{S_S}</script>
+\[f=\frac{n_C}{n_{\rm total}} = \frac{S_C}{S_S}\]
 
 <p>Therefore, one can obtain an estimate of $\pi$ using this fraction,</p>
 
-<script type="math/tex; mode=display">\pi \approx \frac{1}{4}\frac{n_C}{n_{\rm total}}</script>
+\[\pi \approx \frac{1}{4}\frac{n_C}{n_{\rm total}}\]
 
 <p>Now, write a Python function, that takes in the number of points to be simulated, and the calculate an approximate value for $\pi$ based on the Monte Carlo algorithm described above.  Write a second function that plot the estimate of $\pi$ versus the number of points simulated, like the following,</p>
 
@@ -200,7 +200,7 @@ MathJax.Hub.Queue(function() {
 
 <p>Now, given the above example, consider the following distribution function which we want to sample,</p>
 
-<script type="math/tex; mode=display">f(x) = \frac{(x+1)}{12} \exp\bigg(-\frac{(x-1)^2}{2x}\bigg) ~~,~~ x > 0.</script>
+\[f(x) = \frac{(x+1)}{12} \exp\bigg(-\frac{(x-1)^2}{2x}\bigg) ~~,~~ x &gt; 0.\]
 
 <p>Suppose we know already that the highest point (maximum value) of this function is $f_{\rm max}&lt;0.2$, so that the value of this function always remains below $0.2$ everywhere along the positive x-axis, as seen in the following figure,</p>
 
@@ -295,8 +295,8 @@ MathJax.Hub.Queue(function() {
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2019 / 08 / 22</section></br> -->
-         <section>Last updated Thursday, 22 Aug 2019 at 02:39 AM CST</section></br>
+         <!-- <section>Last updated 2021 / 05 / 05</section></br> -->
+         <section>Last updated Wednesday, 05 May 2021 at 02:04 AM CST</section></br>
          <section>All content exclusively maintained by <a href=https://www.shahmoradi.org target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="https://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>

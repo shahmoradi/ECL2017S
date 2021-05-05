@@ -140,14 +140,13 @@ MathJax.Hub.Queue(function() {
 
 <p><strong>1. </strong> <strong>The while-loop implementation of a for-loop</strong>. Consider the following mathematical function resembling a Hat function,</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-f(x) = 
+\[f(x) = 
 \begin{cases}
-    0 ~,    & \text{if}~~ x<0 \\
-    x ~,    & \text{if}~~ 0\leq x <1 \\
-    2-x ~,  & \text{if}~~ 1\leq x <2 \\
-    0 ~,    & \text{if}~~ x \geq 2 \\
-\end{cases} %]]></script>
+    0 ~,    &amp; \text{if}~~ x&lt;0 \\
+    x ~,    &amp; \text{if}~~ 0\leq x &lt;1 \\
+    2-x ~,  &amp; \text{if}~~ 1\leq x &lt;2 \\
+    0 ~,    &amp; \text{if}~~ x \geq 2 \\
+\end{cases}\]
 
 <p>A scalar implementation of this function would be,</p>
 <pre><code class="language-python">def hatFunc(x):
@@ -189,17 +188,16 @@ Write a vectorized version of this function. (Hint: you may need numpy’s <code
 
 <p>To implement the midpointrule, one has to compute the area of each rectangle, sum them up, just as in the formula for the Midpoint rule,</p>
 
-<script type="math/tex; mode=display">\int^b_a f(x) dx \approx h\sum^{n-1}_{i=0} f(a+ih+0.5h) ~,</script>
+\[\int^b_a f(x) dx \approx h\sum^{n-1}_{i=0} f(a+ih+0.5h) ~,\]
 
 <p>where $h=(b-a)/n$ is the width of each rectangle. Implement this formula as a Python function midpoint(f, a, b, n) and test the integrator with the following example input mathematical functions.</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{align*}
-    f_1(x) &= exp(x) ~,~ \text{for integration range } ~ [0, \log(3)] \\\\
-    f_2(x) &= cos(x) ~,~ \text{for integration range } ~ [0, \pi]     \\\\
-    f_3(x) &= sin(x) ~,~ \text{for integration range } ~ [0, \pi]     \\\\
-    f_4(x) &= sin(x) ~,~ \text{for integration range } ~ [0, \pi / 2] \\\\
-\end{align*} %]]></script>
+\[\begin{align*}
+    f_1(x) &amp;= exp(x) ~,~ \text{for integration range } ~ [0, \log(3)] \\\\
+    f_2(x) &amp;= cos(x) ~,~ \text{for integration range } ~ [0, \pi]     \\\\
+    f_3(x) &amp;= sin(x) ~,~ \text{for integration range } ~ [0, \pi]     \\\\
+    f_4(x) &amp;= sin(x) ~,~ \text{for integration range } ~ [0, \pi / 2] \\\\
+\end{align*}\]
 
 <p><br /></p>
 
@@ -210,7 +208,7 @@ Write a vectorized version of this function. (Hint: you may need numpy’s <code
 
 <p><strong>4. </strong> <strong>Visualize approximations in the Midpoint integration rule</strong> Now consider the following function,</p>
 
-<script type="math/tex; mode=display">f(x) = x(12-x)+\sin(\pi x) ~~,~~ x\in[0,10] ~,</script>
+\[f(x) = x(12-x)+\sin(\pi x) ~~,~~ x\in[0,10] ~,\]
 
 <p>which we wish to integrate using the midpoint integrator that you wrote in the previous example. Now write a new code that visualizes the midpoint rule, similar to in the following figure. (Hint: you will need to use the Matplotlib function <code>fill_between</code> and use this function to create the filled areas between f(x) and the approximating rectangles)</p>
 
@@ -288,8 +286,8 @@ Write a vectorized version of this function. (Hint: you may need numpy’s <code
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2019 / 08 / 22</section></br> -->
-         <section>Last updated Thursday, 22 Aug 2019 at 02:39 AM CST</section></br>
+         <!-- <section>Last updated 2021 / 05 / 05</section></br> -->
+         <section>Last updated Wednesday, 05 May 2021 at 02:04 AM CST</section></br>
          <section>All content exclusively maintained by <a href=https://www.shahmoradi.org target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="https://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>

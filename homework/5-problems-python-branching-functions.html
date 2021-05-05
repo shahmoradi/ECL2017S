@@ -140,16 +140,15 @@ MathJax.Hub.Queue(function() {
 
 <p><strong>1. </strong> In mathematics, the Fibonacci numbers are the numbers in the following integer sequence, called the Fibonacci sequence, that are characterized by the fact that every number after the first two is the sum of the two preceding ones:</p>
 
-<script type="math/tex; mode=display">0,~1,~1,~2,~3,~5,~8,~13,~21,~34,~55,~89,~144,~\dots</script>
+\[0,~1,~1,~2,~3,~5,~8,~13,~21,~34,~55,~89,~144,~\dots\]
 
 <p>with the following sequence equation,</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{eqnarray}
-     Fib(n) &=& Fib(n-1) + Fib(n-2) ~, \\
-     Fib(0) &=& 0 ~, \\
-     Fib(1) &=& 1 ~.
-\end{eqnarray} %]]></script>
+\[\begin{eqnarray}
+     Fib(n) &amp;=&amp; Fib(n-1) + Fib(n-2) ~, \\
+     Fib(0) &amp;=&amp; 0 ~, \\
+     Fib(1) &amp;=&amp; 1 ~.
+\end{eqnarray}\]
 
 <p>Write a Python function named <code>fib</code> that takes in an input argument which should be integer number <code>n</code>, and then calculates the $n^{th}$ number in the Fibonacci sequence and outputs it on the screen. Also, if the input argument is not a non-negative integer, it prints an error message on the screen and asks the user to re-enter a non-negative integer number. Also, when it is done with finding the requested Fibonacci number, it asks again the user to either input a new non-negative integer, or enter ‘stop’ to end the function, like the following,</p>
 <pre><code class="language-python">&gt;&gt;&gt; fib('amir')
@@ -288,7 +287,7 @@ would give,</p>
 <p><strong>4. </strong> 
 An arbitrary triangle can be described by the coordinates of its three vertices: $(x1,y1),(x2,y2),(x3,y3)$, numbered in a counterclockwise direction. The area of the triangle is given by the formula,</p>
 
-<script type="math/tex; mode=display">A = \frac{1}{2} \bigg| x2y3 - x3y2 - x1y3 + x3y1 + x1y2 - x2y1j \bigg|</script>
+\[A = \frac{1}{2} \bigg| x2y3 - x3y2 - x1y3 + x3y1 + x1y2 - x2y1j \bigg|\]
 
 <p>Write a function <code>get_triangle_area(vertices)</code> that returns the area of a triangle whose vertices are specified by the argument vertices, which is a nested list of the vertex coordinates. Test your implementation with the following test function, which also illustrates how the <code>get_triangle_area</code> function works.</p>
 <pre><code class="language-python">def test_get_triangle_area():
@@ -397,8 +396,8 @@ An arbitrary triangle can be described by the coordinates of its three vertices:
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2019 / 08 / 22</section></br> -->
-         <section>Last updated Thursday, 22 Aug 2019 at 02:39 AM CST</section></br>
+         <!-- <section>Last updated 2021 / 05 / 05</section></br> -->
+         <section>Last updated Wednesday, 05 May 2021 at 02:04 AM CST</section></br>
          <section>All content exclusively maintained by <a href=https://www.shahmoradi.org target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="https://www.ae.utexas.edu/" target="_blank">Department of Aerospace Engineering and Engineering Mechanics</a></section></br>
          <section><a class="icon-ghost" href="https://www.ices.utexas.edu/" target="_blank">Institute for Computational Engineering and Sciences | POB 6.328</a></section></br>

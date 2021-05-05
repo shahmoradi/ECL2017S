@@ -9,25 +9,9 @@
 		} ,
 	
 		{
-		  "title"      : "Homework 10: Solutions - Python advanced, Monte Carlo methods",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/10-solutions-python-advanced-monte-carlo",
-		  "date"       : "2017-05-04 00:00:00 -0500",
-		  "shortdate"  : "May 04, 2017"
-		} ,
-	
-		{
 		  "title"      : "Lecture 11: Python advanced topics - decorators and classes",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/11-python-advanced-decorator-class",
-		  "date"       : "2017-04-26 00:00:00 -0500",
-		  "shortdate"  : "April 26, 2017"
-		} ,
-	
-		{
-		  "title"      : "Homework 9: Solutions - Python advanced IO, Monte Carlo",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/9-solutions-python-advanced-io-monte-carlo-interoperability",
 		  "date"       : "2017-04-26 00:00:00 -0500",
 		  "shortdate"  : "April 26, 2017"
 		} ,
@@ -38,14 +22,6 @@
 		  "url"        : "/ECL2017S/homework/10-problems-python-advanced-monte-carlo",
 		  "date"       : "2017-04-26 00:00:00 -0500",
 		  "shortdate"  : "April 26, 2017"
-		} ,
-	
-		{
-		  "title"      : "Quiz 7: Solutions - Python - I/O, error handling, and tesing frameworks",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/quiz/7-solutions-python-io-error-handling-unit-testing",
-		  "date"       : "2017-04-19 00:00:00 -0500",
-		  "shortdate"  : "April 19, 2017"
 		} ,
 	
 		{
@@ -73,14 +49,6 @@
 		} ,
 	
 		{
-		  "title"      : "Homework 8: Solutions - Python array computing and plotting",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/8-solutions-python-array-computing-plotting",
-		  "date"       : "2017-04-19 00:00:00 -0500",
-		  "shortdate"  : "April 19, 2017"
-		} ,
-	
-		{
 		  "title"      : "Lecture 9: Python - array computing and plotting",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/9-python-array-computing-plotting",
@@ -94,22 +62,6 @@
 		  "url"        : "/ECL2017S/homework/8-problems-python-array-computing-plotting",
 		  "date"       : "2017-04-12 00:00:00 -0500",
 		  "shortdate"  : "April 12, 2017"
-		} ,
-	
-		{
-		  "title"      : "Homework 7: Solutions - Python I/O, error handling, and unit testing",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/7-solutions-python-IO-error-handling-unit-testing",
-		  "date"       : "2017-04-12 00:00:00 -0500",
-		  "shortdate"  : "April 12, 2017"
-		} ,
-	
-		{
-		  "title"      : "Quiz 6: Solutions - Python modules, loops, and IO",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/quiz/6-solutions-python-modules-loops-io",
-		  "date"       : "2017-04-05 00:00:00 -0500",
-		  "shortdate"  : "April 05, 2017"
 		} ,
 	
 		{
@@ -145,27 +97,11 @@
 		} ,
 	
 		{
-		  "title"      : "Homework 6: Solutions - Python modules, loops, and I/O",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/6-solutions-python-modules-loops-IO",
-		  "date"       : "2017-03-29 00:00:00 -0500",
-		  "shortdate"  : "March 29, 2017"
-		} ,
-	
-		{
 		  "title"      : "Homework 6: Problems - Python modules, loops, and I/O",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/homework/6-problems-python-modules-loops-IO",
 		  "date"       : "2017-03-29 00:00:00 -0500",
 		  "shortdate"  : "March 29, 2017"
-		} ,
-	
-		{
-		  "title"      : "Quiz 5: Solutions - Python variables and assignment statements",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/quiz/5-solutions-python-variables-assignment-statements",
-		  "date"       : "2017-03-08 00:00:00 -0600",
-		  "shortdate"  : "March 08, 2017"
 		} ,
 	
 		{
@@ -185,27 +121,11 @@
 		} ,
 	
 		{
-		  "title"      : "Homework 5: Solutions - Python branching and functions",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/5-solutions-python-branching-functions",
-		  "date"       : "2017-03-08 00:00:00 -0600",
-		  "shortdate"  : "March 08, 2017"
-		} ,
-	
-		{
 		  "title"      : "Homework 5: Problems - Python branching and functions",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/homework/5-problems-python-branching-functions",
 		  "date"       : "2017-03-08 00:00:00 -0600",
 		  "shortdate"  : "March 08, 2017"
-		} ,
-	
-		{
-		  "title"      : "Quiz 4: Solutions - Python values, variables, types",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/quiz/4-solutions-python-values-variables-types",
-		  "date"       : "2017-03-01 00:00:00 -0600",
-		  "shortdate"  : "March 01, 2017"
 		} ,
 	
 		{
@@ -225,25 +145,9 @@
 		} ,
 	
 		{
-		  "title"      : "Homework 4: Solutions - Python variables and assignment statements",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/4-solutions-python-variables-assignment-statements",
-		  "date"       : "2017-03-01 00:00:00 -0600",
-		  "shortdate"  : "March 01, 2017"
-		} ,
-	
-		{
 		  "title"      : "Homework 4: Problems - Python variables and assignment statements",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/homework/4-problems-python-variables-assignment-statements",
-		  "date"       : "2017-03-01 00:00:00 -0600",
-		  "shortdate"  : "March 01, 2017"
-		} ,
-	
-		{
-		  "title"      : "Homework 3: Solutions - Python debugging and string manipulation",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/3-solutions-python-values-variables-types",
 		  "date"       : "2017-03-01 00:00:00 -0600",
 		  "shortdate"  : "March 01, 2017"
 		} ,
@@ -265,14 +169,6 @@
 		} ,
 	
 		{
-		  "title"      : "Quiz 3: Solutions - Advanced Git",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/quiz/3-solutions-advanced-git",
-		  "date"       : "2017-02-15 00:00:00 -0600",
-		  "shortdate"  : "February 15, 2017"
-		} ,
-	
-		{
 		  "title"      : "Quiz 3: Problems - Advanced Git",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/quiz/3-problems-advanced-git",
@@ -284,14 +180,6 @@
 		  "title"      : "Lecture 3: Python for beginners",
 		  "category"   : "",
 		  "url"        : "/ECL2017S/lecture/3-python-for-beginners",
-		  "date"       : "2017-02-15 00:00:00 -0600",
-		  "shortdate"  : "February 15, 2017"
-		} ,
-	
-		{
-		  "title"      : "Homework 2: Solutions - Advanced Git",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/2-solutions-advanced-git",
 		  "date"       : "2017-02-15 00:00:00 -0600",
 		  "shortdate"  : "February 15, 2017"
 		} ,
@@ -318,22 +206,6 @@
 		  "url"        : "/ECL2017S/lecture/2-advanced-git",
 		  "date"       : "2017-02-01 00:00:00 -0600",
 		  "shortdate"  : "February 01, 2017"
-		} ,
-	
-		{
-		  "title"      : "Homework 1: Solutions - Designing a Github README file and web-page for your project",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/homework/1-solutions-project-readme-file",
-		  "date"       : "2017-02-01 00:00:00 -0600",
-		  "shortdate"  : "February 01, 2017"
-		} ,
-	
-		{
-		  "title"      : "Quiz 1: Solutions - Programming history",
-		  "category"   : "",
-		  "url"        : "/ECL2017S/quiz/1-solutions-programming-history",
-		  "date"       : "2017-01-25 00:00:00 -0600",
-		  "shortdate"  : "January 25, 2017"
 		} ,
 	
 		{

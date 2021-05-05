@@ -49,10 +49,6 @@
         <loc>/ECL2017S/page2/</loc>
     </url>
     
-    <url>
-        <loc>/ECL2017S/page3/</loc>
-    </url>
-    
 
     
     <url>
@@ -60,23 +56,11 @@
     </url>
     
     <url>
-        <loc>/ECL2017S/homework/10-solutions-python-advanced-monte-carlo</loc>
-    </url>
-    
-    <url>
         <loc>/ECL2017S/lecture/11-python-advanced-decorator-class</loc>
     </url>
     
     <url>
-        <loc>/ECL2017S/homework/9-solutions-python-advanced-io-monte-carlo-interoperability</loc>
-    </url>
-    
-    <url>
         <loc>/ECL2017S/homework/10-problems-python-advanced-monte-carlo</loc>
-    </url>
-    
-    <url>
-        <loc>/ECL2017S/quiz/7-solutions-python-io-error-handling-unit-testing</loc>
     </url>
     
     <url>
@@ -92,23 +76,11 @@
     </url>
     
     <url>
-        <loc>/ECL2017S/homework/8-solutions-python-array-computing-plotting</loc>
-    </url>
-    
-    <url>
         <loc>/ECL2017S/lecture/9-python-array-computing-plotting</loc>
     </url>
     
     <url>
         <loc>/ECL2017S/homework/8-problems-python-array-computing-plotting</loc>
-    </url>
-    
-    <url>
-        <loc>/ECL2017S/homework/7-solutions-python-IO-error-handling-unit-testing</loc>
-    </url>
-    
-    <url>
-        <loc>/ECL2017S/quiz/6-solutions-python-modules-loops-io</loc>
     </url>
     
     <url>
@@ -128,15 +100,7 @@
     </url>
     
     <url>
-        <loc>/ECL2017S/homework/6-solutions-python-modules-loops-IO</loc>
-    </url>
-    
-    <url>
         <loc>/ECL2017S/homework/6-problems-python-modules-loops-IO</loc>
-    </url>
-    
-    <url>
-        <loc>/ECL2017S/quiz/5-solutions-python-variables-assignment-statements</loc>
     </url>
     
     <url>
@@ -148,15 +112,7 @@
     </url>
     
     <url>
-        <loc>/ECL2017S/homework/5-solutions-python-branching-functions</loc>
-    </url>
-    
-    <url>
         <loc>/ECL2017S/homework/5-problems-python-branching-functions</loc>
-    </url>
-    
-    <url>
-        <loc>/ECL2017S/quiz/4-solutions-python-values-variables-types</loc>
     </url>
     
     <url>
@@ -168,15 +124,7 @@
     </url>
     
     <url>
-        <loc>/ECL2017S/homework/4-solutions-python-variables-assignment-statements</loc>
-    </url>
-    
-    <url>
         <loc>/ECL2017S/homework/4-problems-python-variables-assignment-statements</loc>
-    </url>
-    
-    <url>
-        <loc>/ECL2017S/homework/3-solutions-python-values-variables-types</loc>
     </url>
     
     <url>
@@ -188,19 +136,11 @@
     </url>
     
     <url>
-        <loc>/ECL2017S/quiz/3-solutions-advanced-git</loc>
-    </url>
-    
-    <url>
         <loc>/ECL2017S/quiz/3-problems-advanced-git</loc>
     </url>
     
     <url>
         <loc>/ECL2017S/lecture/3-python-for-beginners</loc>
-    </url>
-    
-    <url>
-        <loc>/ECL2017S/homework/2-solutions-advanced-git</loc>
     </url>
     
     <url>
@@ -213,14 +153,6 @@
     
     <url>
         <loc>/ECL2017S/lecture/2-advanced-git</loc>
-    </url>
-    
-    <url>
-        <loc>/ECL2017S/homework/1-solutions-project-readme-file</loc>
-    </url>
-    
-    <url>
-        <loc>/ECL2017S/quiz/1-solutions-programming-history</loc>
     </url>
     
     <url>
